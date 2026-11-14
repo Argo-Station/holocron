@@ -1,0 +1,313 @@
+{
+ "_note": "HELD AS READ (release-r7-bug-burndown ADDENDUM 638 Q4; lap post1-switch-deletion): scripts/f100_engine_flip_fixture.cjs is a point-in-time record, run once over 9165b955b's cores (the engine key's OFF arms still present): FIXTURE OK — slices 16 · legs 9 · n 7. test/f100_engine_flip.cjs S3 reads A, N.parts, composite and composite.walkOn from here.",
+ "ran_at": "9165b955b",
+ "A": {
+  "sheet": {
+   "name": "Krassk Vhor",
+   "species": "Trandoshan",
+   "speciesId": "trandoshan",
+   "career": "Bounty Hunter",
+   "careerId": "bounty_hunter",
+   "specialization": "Survivalist",
+   "book": "eote",
+   "source": "FullCreator",
+   "characteristics": {
+    "brawn": 3,
+    "agility": 2,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 2
+   },
+   "characteristicsAtCreation": {
+    "brawn": 3,
+    "agility": 1,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 2
+   },
+   "derivedBonuses": {
+    "soakBonus": 1,
+    "woundThresholdBonus": 4,
+    "strainThresholdBonus": 1,
+    "meleeDefenseBonus": 0,
+    "rangedDefenseBonus": 0,
+    "forceRatingBonus": 0
+   },
+   "derivedConditional": [],
+   "forceRatingBase": 0,
+   "woundBase": 12,
+   "strainBase": 9,
+   "currentWounds": 0,
+   "currentStrain": 0,
+   "criticalInjuries": [],
+   "conditions": {},
+   "skills": {
+    "BRAWL": 2,
+    "RANGHVY": 2,
+    "RANGLT": 1,
+    "ATHL": 2,
+    "STREET": 2,
+    "PERCEP": 1,
+    "VIGIL": 1,
+    "SURV": 1
+   },
+   "motivations": {},
+   "appearance": {},
+   "playerName": "",
+   "backstory": "",
+   "talents": [
+    {
+     "id": "forager",
+     "rank": 1
+    },
+    {
+     "id": "outdoorsman",
+     "rank": 1
+    },
+    {
+     "id": "toughened",
+     "rank": 2
+    },
+    {
+     "id": "enduring",
+     "rank": 1
+    },
+    {
+     "id": "dedication",
+     "rank": 1
+    },
+    {
+     "id": "grit",
+     "rank": 1
+    }
+   ],
+   "forcePowers": [],
+   "specializations": [
+    {
+     "id": "survivalist",
+     "owned": [
+      "0-0",
+      "1-0",
+      "2-0",
+      "3-0",
+      "4-0",
+      "4-1",
+      "4-2"
+     ]
+    }
+   ],
+   "talentCharacteristicChoices": {
+    "survivalist": {
+     "4-1": "agility"
+    }
+   },
+   "equipment": {
+    "credits": 850,
+    "weapons": [
+     {
+      "id": "light_repeating_blaster",
+      "state": "equipped",
+      "attachments": []
+     },
+     {
+      "id": "defender_sporting_blaster_pistol",
+      "state": "equipped",
+      "attachments": []
+     },
+     {
+      "id": "unarmed",
+      "state": "equipped",
+      "attachments": []
+     }
+    ],
+    "armor": {
+     "id": "heavy_battle_armor",
+     "state": "worn",
+     "attachments": [
+      {
+       "id": "repulsor_assisted_lifting",
+       "mods": [
+        "mod_0",
+        "mod_1"
+       ]
+      },
+      {
+       "id": "biofeedback_system",
+       "mods": []
+      }
+     ]
+    },
+    "gear": []
+   },
+   "xp": {
+    "total": 0,
+    "spent": 0,
+    "remaining": 0
+   },
+   "signatureAbilities": [
+    {
+     "id": "alwaysgetmymark",
+     "tree": "survivalist",
+     "owned": [
+      "0-0",
+      "1-0",
+      "1-2"
+     ]
+    }
+   ]
+  },
+  "name": "Krassk Vhor"
+ },
+ "N": {
+  "parts": {
+   "signature": 1,
+   "attachments": 3,
+   "qualities": 3,
+   "qualityTalents": 0,
+   "careerPowers": 0,
+   "careerAttributes": 0
+  }
+ },
+ "composite": {
+  "sheet": {
+   "id": "warrior",
+   "name": "Timing composite",
+   "species": "Human",
+   "career": "Engineer",
+   "specialization": "Shii-Cho Knight",
+   "book": "fad",
+   "source": "Original",
+   "characteristics": {
+    "brawn": 3,
+    "agility": 3,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 2
+   },
+   "derived": {
+    "soak": 5,
+    "woundThreshold": 13,
+    "strainThreshold": 12,
+    "forceRating": 1
+   },
+   "skills": {
+    "ATHL": 1,
+    "BRAWL": 1,
+    "COOL": 1,
+    "MELEE": 1,
+    "LTSAB": 1,
+    "COORD": 1
+   },
+   "talents": [
+    {
+     "id": "sunder_improved",
+     "rank": 1
+    }
+   ],
+   "equipment": {
+    "weapons": [
+     {
+      "id": "blaster_pistol",
+      "qty": 1,
+      "state": "carried",
+      "attachments": [
+       {
+        "id": "custom_grip",
+        "mods": [
+         "mod_0"
+        ]
+       }
+      ]
+     },
+     {
+      "id": "arg_garok",
+      "qty": 1,
+      "state": "carried"
+     }
+    ],
+    "armor": null,
+    "gear": [],
+    "credits": 0
+   },
+   "backstory": "A Human lightsaber duelist who learned his craft from holocrons and hard experience. Fights with a green blade and the aggressive forms of a bygone era. The Force flows through his strikes like water through a canyon — relentless and unstoppable.",
+   "morality": {
+    "type": "Justice / Cruelty",
+    "value": 50,
+    "description": "Fights with the aggressive forms of a lost era — and must guard against letting righteous fury become vengeance."
+   },
+   "mechanicTradeIds": [
+    "fad_raw_xp5_cr1000"
+   ],
+   "motivations": {
+    "desire": "A worthy opponent - a fight that tests him",
+    "fear": "Combat becoming routine, meaningless",
+    "strength": "Courage - meets danger head-on",
+    "flaw": "Impatience - acts before considering"
+   },
+   "forcePowers": [
+    {
+     "id": "move",
+     "basic": true
+    }
+   ],
+   "specializationIds": [
+    "shii_cho_knight"
+   ],
+   "forceRatingBase": 1,
+   "woundBase": 10,
+   "strainBase": 10,
+   "derivedBonuses": {
+    "soakBonus": 0,
+    "woundThresholdBonus": 0,
+    "strainThresholdBonus": 0,
+    "meleeDefenseBonus": 0,
+    "rangedDefenseBonus": 0,
+    "forceRatingBonus": 0
+   },
+   "specializations": [
+    {
+     "id": "droid_specialist",
+     "owned": [
+      "4-1",
+      "4-2"
+     ]
+    }
+   ],
+   "xp": {
+    "total": 80,
+    "spent": 80,
+    "remaining": 0
+   },
+   "speciesId": "human",
+   "careerId": "engineer",
+   "signatureAbilities": [
+    {
+     "id": "unmatchedingen",
+     "tree": "droid_specialist",
+     "owned": [
+      "0-0",
+      "1-0",
+      "1-1",
+      "1-2",
+      "1-3",
+      "2-0",
+      "2-1",
+      "2-2",
+      "2-3"
+     ]
+    }
+   ]
+  },
+  "walkOn": {
+   "signature": 2,
+   "attachments": 1,
+   "qualities": 2,
+   "qualityTalents": 2,
+   "careerPowers": 0,
+   "careerAttributes": 0
+  }
+ }
+}

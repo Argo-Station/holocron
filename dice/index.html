@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#000000" />
+  <!-- PWA / standalone install (Addendum 1 web-app-manifest lap): full-screen "Add to Home Screen". -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Holocron" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
+
+  <title>HoloDice — Star Wars RPG</title>
+  <meta name="description" content="See how Star Wars RPG narrative dice generate richer outcomes than pass/fail. Roll once, see what changes." />
+  <!-- Base href anchors all relative URLs (script src, fetch, @font-face)
+       to the site root. Required after dice.html → dice/index.html
+       relocation (2026-05-06): without this, <script src="lib/..."> would
+       resolve to /dice/lib/... and 404. See Docs/PLAN_URL_ROUTING.md. -->
+  <base href="/" />
+  <script src="/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
+  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+
+  <!-- Open Graph + Twitter card meta lands in commit 10 alongside the
+       static OG image. Stub here so the page is shareable from day one. -->
+  <meta property="og:title" content="HoloDice — Star Wars RPG" />
+  <meta property="og:description" content="Roll once. See what changes. A free demo of FFG / Edge Studio narrative dice." />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/tokens.css" rel="stylesheet" />
+  <link href="/lib/shared/diceRoll.css" rel="stylesheet" />
+
+
+  <!-- Shared dice infrastructure (engine + UI primitives). Same files
+       loaded by player.html and gm.html — no /dice-specific changes
+       to either, the surface just consumes window.SWRPGDice. -->
+  <script src="lib/shared/diceEngine.js"></script>
+  <script src="lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
+  <script src="lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
+  <script src="/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
+  <script src="/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
+  <script src="/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
+  <script src="/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
+  <script src="lib/shared/textHash.js"></script><!-- R-AE-6 (argo-a1-export ADDENDUM 3): window.SWRPGTextHash — bookContent(), the one reader of BOOK_CONTENT; reads siteSettings at call time -->
+  <script src="lib/shared/sources.js"></script><!-- R-AE-6: window.SWRPGSources — S1's one book + printed page formatter (B-1809); the vocabulary below -->
+  <script>window.SWRPGSources.ready();</script><!-- R-AE-6: fetch books.vocab.json once, so sourceLabel resolves titles in the Results Reference -->
+  <script src="/vendor.js"></script>
+
+  <!-- Dice-surface-specific modules. -->
+  <script src="lib/dice/scenarios.js"></script>
+  <script src="/lib/dice/diceSurface.js"></script>
+
+  <style>
+    /* FFG dice symbol fonts — shared with player.html and gm.html. */
+    @font-face {
+      font-family: 'Genesys';
+      src: url('public/fonts/genesysglyphsanddice.woff2') format('woff2'),
+           url('public/fonts/genesysglyphsanddice.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'SWRPGIcons';
+      src: url('public/fonts/sw-rpg-icons.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%; width: 100%;
+      background: #000;
+      color: #fff;
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* /dice surface scrolls vertically (unlike player/gm which lock to
+       full-viewport). Cold visitors expect normal page-scroll behavior;
+       tableside users on mobile need to scroll between practice pool
+       + result panel + Force section + footer. */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    #root {
+      min-height: 100vh;
+    }
+
+    /* Background — operator-black with subtle gold inner-edge glow. */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 120px rgba(245, 200, 66, 0.08);
+      z-index: 0;
+    }
+    /* Suppress the gold glow during the trailer/transition/demo so the
+       cinematic surface reads as pure black (matches the trailer and
+       transition's #000 backgrounds). Practice mode keeps the glow
+       via the absence of this body class. */
+    body.dice-demo-active::before {
+      box-shadow: none;
+    }
+
+    /* Roll-focus chrome dim. Build-UI elements with .dice-chrome fade
+       to ~10% during a roll cycle so focus stays on the cinematic.
+       Body class toggled by useRollChoreography() during the
+       transitioning-out / rolling / settling / holding phases. */
+
+    /* Demo "movie mode": locks body scroll and hides FooterChrome cards
+       so the demo cinematic doesn't bleed the lobby below it. Toggled
+       by ScenarioPlayer when phase === 'scenario'. The trailer and
+       transition each cover the viewport with their own fixed overlays
+       (z-index 40), so they don't need this — only the inline-flow
+       BeatStage does. */
+    body.dice-demo-active {
+      overflow: hidden;
+    }
+    /* (FooterChrome route cards + the dice-show-routes opt-in reveal were REMOVED in nav 3a — superseded by
+       the suite-bar app switcher. The footer.dice-chrome / dice-show-routes rules went with them.) */
+
+    /* The body::before gold-glow boost during dice-rolling, plus the
+       static pool-strip scale-up, were retired in the practice-overlay
+       refactor (Stage 4 round 1). The cinematic happens INSIDE the
+       full-screen overlay now — the build UI is hidden under the
+       backdrop while a roll is in flight, so there's nothing to
+       "focus on" by amping the body glow or scaling the build-UI
+       pool strip. Keeping those rules also caused a brief green flash
+       on dismiss as the build-UI ability die un-scaled with body.dice-
+       rolling clearing. The reel windows in the overlay handle their
+       own settle glow per-die. */
+
+    /* Triumph / despair extended landing — applies to the result panel
+       directly. Triumph pulses operator gold; despair pulses ISB red.
+       Both loop ~3x in 1000ms total. */
+
+    /* Universal anim primitives reused by the dice surface. */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    /* CinematicDie (dice-unify Phase 2) — flat-glyph tumble + settle (compositor transform only).
+       Reduced-motion: no animation; the die cross-fades via inline opacity instead (Jason §7.2). */
+    @keyframes cdieTumble { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
+    @keyframes cdieSettle { 0% { transform: scale(1.16); } 55% { transform: scale(.93); } 100% { transform: scale(1); } }
+    .cdie-rolling { animation: cdieTumble .26s ease-in-out infinite; }
+    .cdie-settled { animation: cdieSettle .34s cubic-bezier(.34,1.56,.64,1); }
+    @media (prefers-reduced-motion: reduce) { .cdie-rolling, .cdie-settled { animation: none !important; } }
+
+    /* Auto-hide chrome (commit 8). Asymmetric easing per spec §S2-7.2:
+       fade-out 250ms ease-out (slower, ambient), fade-in 175ms ease-in
+       (faster on the way back when the user interacts). Body toggles
+       `chrome-hidden` via useAutoHideChrome. Reduced-motion + PIN UI
+       both disable the toggle (chrome stays at opacity 1). */
+    /* .dice-autohide retired → shared .autohide-chrome in lib/shared/tokens.css (IA lap extraction). */
+
+    /* INVOKE DESTINY visual sequence (commit C, Beat 5 only). When the
+       user taps INVOKE in demo mode, three layered effects fire before
+       the dice scroll: a light-token glyph flies upward + inward, a
+       gold pulse flashes across the surface, and (on settle) the result
+       panel's success symbols carry an enhanced glow. */
+    @keyframes destiny-token-fly {
+      0%   { transform: translate(0, 0) scale(1);   opacity: 0; }
+      15%  { transform: translate(0, 0) scale(1.2); opacity: 1; }
+      100% { transform: translate(var(--token-dx, 0), var(--token-dy, -180px)) scale(0.6); opacity: 0; }
+    }
+    .destiny-token-fly {
+      position: fixed;
+      pointer-events: none;
+      /* Lock the box to 32x32 so the marginLeft/marginTop: -16px in
+         the React component reliably centers the glyph on the tap
+         point. Without this, the line-height stretches the box (~48px
+         tall by default) and the visual center sits below the tap. */
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      font-family: 'SWRPGIcons';
+      font-size: 32px;
+      color: #F5ECD7;
+      filter: drop-shadow(0 0 12px rgba(245, 236, 215, 0.85));
+      z-index: 60;
+      /* 1400ms (was 700ms) — slowed for drama. cubic-bezier(0.25, 0.1, 0.25, 1)
+         is a smoother slow-out than the previous (0.4, 0, 0.2, 1) so the
+         visitor's eye follows the pip's deceleration into its final
+         position. The matched setTimeout in handleInvoke also bumps to
+         1400ms so the dice scroll starts as the token completes. */
+      animation: destiny-token-fly 1400ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    }
+    @keyframes destiny-gold-pulse {
+      0%   { opacity: 0; }
+      30%  { opacity: 0.4; }
+      100% { opacity: 0; }
+    }
+    .destiny-gold-pulse {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(245, 200, 66, 0.55), rgba(245, 200, 66, 0) 60%);
+      z-index: 55;
+      animation: destiny-gold-pulse 600ms ease-out forwards;
+      animation-delay: 200ms;
+    }
+    /* Enhanced glow on success symbols when result lands from a destiny
+       invocation. Color/opacity shift only — no transform, vestibular-safe. */
+    .destiny-result-glow [aria-label="Success"],
+    .destiny-result-glow [aria-label="Triumph"] {
+      filter: drop-shadow(0 0 14px currentColor) drop-shadow(0 0 6px currentColor) !important;
+    }
+
+    /* Reduced-motion: suppress the kinetic INVOKE animations. Token
+       fly + gold pulse are skipped entirely (motion). The success-glow
+       is opacity-only so it's safe — keep it. */
+    @media (prefers-reduced-motion: reduce) {
+      .destiny-token-fly, .destiny-gold-pulse {
+        animation: none !important;
+        display: none !important;
+      }
+    }
+
+    /* ── Roll overlay (practice mode) ────────────────────────────── */
+    /* Symmetric mount + dismiss transition for the full-screen overlay.
+       Same duration, same easing, same scale endpoint (0.96) — exit is
+       the enter played in reverse. */
+    @keyframes overlay-enter {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .roll-overlay {
+      animation: overlay-enter 220ms cubic-bezier(0.2, 0.8, 0.4, 1.0) both;
+    }
+    .roll-overlay.dismissing {
+      animation: overlay-enter 220ms cubic-bezier(0.2, 0.8, 0.4, 1.0) reverse both;
+    }
+
+    /* Collision flash: gold horizontal line that expands at the meeting
+       point right when the last die settles + the result panel mounts.
+       Triggered by adding the .collision-flash class. */
+
+    /* Result symbols fly in from above (player-side glyphs) and below
+       (GM-side glyphs) like the colliding dice spawned them. Per-symbol
+       stagger via inline animation-delay. */
+
+    /* Headline crystallizes from blur into clarity after the symbols
+       arrive. Scale settles from 1.04 to 1 for a "lock-in" feel. */
+    .collision-callout {
+      animation: slideUpFade 240ms ease-out 720ms both;
+    }
+
+    /* ── Universal triumph / despair celebration ───────────────────
+       Two effects per outcome: a SCREEN-WIDE overlay (full-viewport
+       gradient that lights up the entire surface for triumph or sucks
+       light from it for despair) AND a symbol-local animation (the
+       triumph symbol pulses gold; the despair symbol darkens to a
+       black-hole and gains a foreboding red glow). Both reset after
+       the animation so the symbol returns to default state.
+
+       If both land in the same roll (Beat 4), they play sequentially:
+       triumph first (600-1700ms), despair second (1700-3000ms).
+
+       Reduced-motion suppresses all four via the global animation:none
+       override at the bottom of dice.html. Symbols stay visible. */
+
+    /* TRIUMPH — screen-wide gold burst. Uses mix-blend-mode: screen so
+       it lightens content beneath without obscuring it. The radial-
+       gradient stays static; only opacity animates (cheap GPU paint). */
+
+    /* TRIUMPH symbol — gold halo bloom that fades back to nothing.
+       No persistent border-radius / box-shadow so the symbol returns
+       to its default render after the animation completes. */
+
+    /* DESPAIR — screen-wide ominous suck. The radial-gradient is
+       slightly transparent at the center (so the symbol still reads)
+       and nearly opaque at the edges, creating the "light gets sucked
+       from the room" effect. No mix-blend-mode — we want the dark to
+       fully dim the underlying content.
+
+       Animation-delay logic:
+         - SOLO (no triumph in roll): 600ms — matches triumph's normal
+           post-collision timing so despair feels equally responsive.
+         - PAIRED with triumph (Beat 4): 2200ms — gives the triumph
+           animation 600-1700ms plus a 500ms beat of stillness before
+           despair begins. Each is a huge dramatic moment and they
+           must NOT overlap. Visitor absorbs the win, breathes, then
+           absorbs the cost. Iterated: 1500ms felt empty, 1000ms still
+           a beat too long, 500ms is the right "moment between" pace.
+       The conditional is implemented via `body:has(.triumph-burst)`
+       overriding the delay only when the triumph class is also on
+       the page. */
+    /* Despair held-darkness pacing: total 1800ms (was 1500ms). The
+       extra 300ms goes into the SUSTAIN portion only — fade-in and
+       fade-out stay the same absolute durations. New phase math:
+         0ms       → fade-in starts
+         525ms (29%)  → peak opacity 1.0 reached (fade-in 525ms — same)
+         1350ms (75%) → sustain ends at opacity 0.85 (sustain 825ms — was 525ms)
+         1800ms (100%) → fully faded (fade-out 450ms — same)
+       Iterated with user 2026-05-06: held darkness needed more
+       presence — 525ms sustain felt too brief for the dread to land. */
+
+    /* DESPAIR symbol — becomes a black hole (brightness drops) while
+       gaining an intensifying red drop-shadow (the foreboding glow).
+       Lifted above the screen overlay via z-index so it stays visible
+       as the void center. Returns to default brightness + no shadow
+       after the animation completes. Delay matches the screen overlay
+       so the symbol and the vignette move together. */
+    /* Symbol-void keyframe percents track the screen-pulse during
+       fade-in and sustain so the symbol and the surrounding vignette
+       breathe in lockstep. EXCEPTION: the symbol's cleanup completes
+       at 90% (vs the vignette's 100%) — see comment below.
+       See despair-screen-pulse comment above for the timing math. */
+
+    /* Trailer SKIP button — hidden by default, revealed on slide tap.
+       Auto-fades after 3.5s if not used. Lower visual weight than the
+       primary BEGIN flow; out of the way until the visitor signals
+       they want an exit. Reduced-motion suppresses the fade per the
+       global override. */
+    .trailer-skip-btn {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease-out;
+    }
+    .trailer-skip-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .trailer-skip-btn:hover, .trailer-skip-btn:focus-visible {
+      border-color: rgba(255, 255, 255, 0.55) !important;
+      color: #fff !important;
+      outline: none;
+    }
+
+    /* Transition slide progress bar: scales from 0 to full width over
+       the transition's total duration. Linear timing so the rate of
+       fill matches real time perception. Suppressed under reduced-
+       motion (the JS doesn't render the bar at all in that mode). */
+    @keyframes transition-progress {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* TAP TO CONTINUE hint: shown only on slide 1 after 3s of
+       inactivity, killed on first interaction. Soft pulse keeps
+       it discoverable without shouting. Reduced-motion strips the
+       pulse via the global animation: none override.
+
+       Two coordinated pieces avoid the previous "flash before fade"
+       bug: the .visible state sets opacity:1 (so the transition has
+       a target), the pulse animation has a 600ms delay (so the
+       opacity transition completes first), and the pulse keyframe
+       0%/100% is opacity:1 (matches the transition's end value, so
+       no jump when the animation takes over the property).
+       Previously the keyframe started at 0.40 and the animation
+       overrode the transition immediately, causing the screen to
+       flash from 0 → 0.40 in one frame before the pulse settled. */
+    /* Force-solo halo — ambient glow pulse around the Force die on
+       its solo trailer slide. Earns the layout asymmetry (single die
+       on a slide where prior 3 slides had pairs) by treating Force
+       as visually special, not as a missing-die error. UI audit
+       called this out — without the halo, slide 4 reads as broken. */
+    @keyframes force-solo-halo-pulse {
+      0%, 100% { filter: drop-shadow(0 0 18px rgba(245, 236, 215, 0.55))
+                         drop-shadow(0 0 36px rgba(245, 236, 215, 0.20)); }
+      50%      { filter: drop-shadow(0 0 28px rgba(245, 236, 215, 0.85))
+                         drop-shadow(0 0 60px rgba(245, 236, 215, 0.30)); }
+    }
+    .force-solo-halo {
+      animation: force-solo-halo-pulse 3.2s ease-in-out infinite;
+    }
+
+    .trailer-tap-hint {
+      opacity: 0;
+      transition: opacity 600ms ease;
+    }
+    .trailer-tap-hint.visible {
+      opacity: 1;
+      animation: tap-hint-pulse 2.4s ease-in-out 600ms infinite;
+    }
+    @keyframes tap-hint-pulse {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.45; }
+    }
+
+    /* NEXT ROLL chrome button: hidden until the result panel settles,
+       then fades in at t=860ms (after callout). */
+    .next-roll-btn {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 240ms ease-out 860ms,
+                  transform 240ms ease-out 860ms,
+                  box-shadow 180ms ease,
+                  scale 120ms ease;
+    }
+    .next-roll-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .next-roll-btn:hover, .next-roll-btn:focus-visible {
+      box-shadow: 0 0 18px rgba(245, 200, 66, 0.55);
+      scale: 1.03;
+      outline: none;
+    }
+    .next-roll-btn:active {
+      scale: 0.97;
+    }
+
+    /* Reduced-motion: suppress all keyframe animations + transitions.
+       Dice appear instantly at result faces; chrome auto-pin is also
+       defaulted-on (see useAutoHideChrome — lands in commit 8). */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      body.dice-rolling .dice-chrome { opacity: 1 !important; pointer-events: auto !important; }
+    }
+    /* F-46 Desktop Curation (G10): the shell-cap release, mirrored across all three shells for
+       symmetry (dice is self-contained full-bleed — inert until the dice desktop pass in D4). */
+    :root[data-layout="desktop"] .app-shell {
+      max-width: none;
+      border-left: none;
+      border-right: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body data-sym-fill="dark"><!-- D-447 (B-498): the dice app draws the Force family by fill on its dark ground; lib/shared/tokens.css scopes the registers to this attribute -->
+  <div id="root"></div>
+  <script>
+    // The component tree lives in lib/dice/diceSurface.jsx (loaded above).
+    // It exports window.SWRPGDiceSurface = <DiceSurface /> which mounts here.
+    // Wait for both Babel and the surface module to initialize before mounting.
+    function mount() {
+      if (typeof window.SWRPGDiceSurface === 'undefined') {
+        // Surface module not parsed yet (Babel async). Retry next tick.
+        setTimeout(mount, 16);
+        return;
+      }
+      ReactDOM.createRoot(document.getElementById('root')).render(
+        React.createElement(window.SWRPGDiceSurface)
+      );
+    }
+    // T3 (argo-a1-export ADDENDUM 6): in a copy whose book text was removed, the first paint waits for ready(), which holds
+    // the one dice-font probe, so a missing font draws word tags from the start (D-AE6's pattern). holocron.work mounts at once.
+    var SS = window.SWRPGSources;
+    if (SS && SS.bookTextRemoved && SS.bookTextRemoved()) SS.ready().then(mount, mount);
+    else mount();
+  </script>
+</body>
+</html>

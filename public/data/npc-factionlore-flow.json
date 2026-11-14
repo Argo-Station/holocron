@@ -1,0 +1,56 @@
+{
+  "steps": [
+    {
+      "id": "factionlore",
+      "label": "Faction Intelligence",
+      "defaultView": "faction-list",
+      "views": {
+        "faction-list": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "list": {
+              "type": "FactionLoreList",
+              "slot": "content",
+              "props": {}
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  {
+                    "label": "\u2039 BACK",
+                    "action": "close"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "faction-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "detail": {
+              "type": "FactionLoreDetail",
+              "slot": "content",
+              "props": {}
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  {
+                    "label": "\u2039 FACTIONS",
+                    "action": "navigate",
+                    "target": "faction-list"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

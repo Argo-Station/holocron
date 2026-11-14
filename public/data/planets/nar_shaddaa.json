@@ -1,0 +1,1220 @@
+{
+  "id": "nar_shaddaa",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Nar Shaddaa",
+    "type": "moon",
+    "parent_body": "Nal Hutta",
+    "region": "Hutt Space",
+    "sector": "Y'Toub System",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Nar Shaddaa is what happens when a city grows for ten thousand years with no government strong enough to tear any of it down. Every level is built on top of the last. The sky is a memory. The lowest levels haven't seen natural light in centuries. Everything here is for sale and everyone is running from something. The Hutts own it but they don't control it — nobody controls it, which is exactly how the Hutts prefer it.",
+    "atmosphere": "Perpetual artificial twilight. The smell of exhaust, recycled air, and something organic underneath that doesn't bear thinking about. Noise from every direction — engines, music, arguments, machinery. The architecture is vertical chaos: landing platforms cantilevered off buildings that lean against other buildings, neon signs in forty languages, steam venting from grates in the walkways. It feels alive in the way that something decaying feels alive. Everything here is in the process of becoming something else.",
+    "reputation": "The Smuggler's Moon. Every criminal organization in the galaxy has a presence here. If you need to disappear, this is where you go. If you need to find someone who has disappeared, this is where you start. The Republic ignored it. The Empire tolerates it because the Hutts are useful. Everyone else treats it as neutral ground — which means the rules of neutral ground apply until they don't."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Hutt dominance is absolute and unchallenged. No Republic presence. Separatist money flows through freely. The criminal infrastructure is at peak power with no external pressure. Ziro the Hutt maintains a palace here. Black Sun is a major power, not a minor one."
+    },
+    {
+      "era": "post_empire",
+      "delta": "Power vacuum. Hutt authority is fracturing between rival kajidics. New Republic trying to establish an embassy — failing. Former Imperial criminal networks fighting over territory. Knights of Ren potentially more visible as they no longer need to hide from Imperial oversight. Black Sun is reorganizing under new leadership."
+    }
+  ],
+  "geography": {
+    "structure_type": "vertical_city_moon",
+    "structure_notes": "Thousands of vertical layers built over millennia. No natural surface visible. Districts are defined by altitude and function rather than horizontal boundaries.",
+    "districts": [
+      {
+        "id": "upper_levels",
+        "name": "Upper Levels",
+        "character": "Commerce, legitimate-facing business, docking for wealthy and corporate traffic. The part of Nar Shaddaa that pretends to be respectable.",
+        "authority": "Hutt Cartel (nominal), Corporate interests (practical)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "This is where the Hutts hold court and conduct business they want witnessed. Imperial presence is highest here because this is the face the moon shows to the galaxy."
+      },
+      {
+        "id": "the_promenade",
+        "name": "The Promenade",
+        "character": "Entertainment, gambling, black market goods, information brokers. The beating heart of Nar Shaddaa's economy. Everything legal and illegal flows through here.",
+        "authority": "Hutt Cartel",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Every major faction has eyes here. This is where deals get made, information gets sold, and people get disappeared. The cantinas are information exchanges as much as bars."
+      },
+      {
+        "id": "refugee_sector",
+        "name": "Refugee Sector",
+        "character": "Overcrowded, desperate, dangerous. Refugees from Imperial occupation across the Outer Rim. The Hutts ignore it except to exploit it. Independent gangs fill the power vacuum.",
+        "authority": "contested — independent gangs, nominal Hutt oversight",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "none_conventional",
+          "high_humanitarian"
+        ],
+        "notes": "A hiding place for anyone who needs to vanish completely. Force-sensitives running from the Empire end up here. The Knights of Ren know this and watch it."
+      },
+      {
+        "id": "industrial_loading_docks",
+        "name": "Industrial Loading Docks",
+        "character": "Cargo handling, freight, smuggling infrastructure. The economic engine that makes everything else possible. Controlled chaos — so much volume that oversight is impossible.",
+        "authority": "Hutt Cartel (Duro clan dominates labor)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "military_supply_lines"
+        ],
+        "notes": "This is where the supply route data lives in practice — the people who move Imperial cargo move it through here. Duros workers know every route, schedule, and manifest."
+      },
+      {
+        "id": "lower_city",
+        "name": "Lower City",
+        "character": "The old city. Structures so ancient nobody knows who built the original foundations. Near-total darkness. Independent criminal operators, the truly desperate, and things that don't want to be found.",
+        "authority": "none — de facto independence",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "none_conventional",
+          "high_hidden"
+        ],
+        "notes": "Where you go when you need to be completely off the grid. Also where you go when you need to never be found again. The Knights of Ren have a presence here that nobody has successfully mapped."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Hutt",
+      "population_level": "rare",
+      "social_role": "Ruling class. The Hutts don't live among the population — they sit above it. Every Hutt on Nar Shaddaa is a power broker, crime lord, or both. Their presence in a district means that district matters to someone with real power.",
+      "districts": [
+        "upper_levels",
+        "the_promenade"
+      ]
+    },
+    {
+      "name": "Rodian",
+      "population_level": "common",
+      "social_role": "Bounty hunters, enforcers, merchants, laborers. Rodians fill every niche of Nar Shaddaa's economy. They're common enough to be unremarkable and skilled enough to be useful, which makes them the backbone of the moon's criminal labor force.",
+      "districts": [
+        "upper_levels",
+        "the_promenade",
+        "refugee_sector",
+        "industrial_loading_docks",
+        "lower_city"
+      ]
+    },
+    {
+      "name": "Duros",
+      "population_level": "common",
+      "social_role": "Pilots, navigators, dock workers, freight handlers. The Duros community runs the loading docks in practice if not in name. They know every shipping route, every schedule, every manifest. If you need something moved or need to know what's being moved, you talk to a Duros.",
+      "districts": [
+        "industrial_loading_docks",
+        "upper_levels"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "Everything. Humans fill every role on Nar Shaddaa — Imperial officers, smugglers, refugees, merchants, criminals, rebels. They're the default population, which means they're also the easiest to hide among.",
+      "districts": [
+        "upper_levels",
+        "the_promenade",
+        "refugee_sector",
+        "industrial_loading_docks",
+        "lower_city"
+      ]
+    },
+    {
+      "name": "Twi'lek",
+      "population_level": "common",
+      "social_role": "Entertainers, service workers, information brokers, slaves. The Twi'lek population on Nar Shaddaa is a grim reflection of how the galaxy treats them — many are here involuntarily. Those who aren't tend to be very good at surviving.",
+      "districts": [
+        "the_promenade",
+        "refugee_sector"
+      ]
+    },
+    {
+      "name": "Gamorrean",
+      "population_level": "minority",
+      "social_role": "Guards, enforcers, muscle. Gamorreans on Nar Shaddaa are almost exclusively employed as physical security by Hutt interests. They're loyal, intimidating, and don't ask questions.",
+      "districts": [
+        "upper_levels",
+        "the_promenade"
+      ]
+    },
+    {
+      "name": "Nikto",
+      "population_level": "minority",
+      "social_role": "Enforcers, soldiers, mid-level criminal operators. Nikto serve the Hutts in a more versatile capacity than Gamorreans — they can lead operations, manage territory, and handle tasks requiring more initiative.",
+      "districts": [
+        "upper_levels",
+        "the_promenade",
+        "refugee_sector",
+        "industrial_loading_docks"
+      ]
+    },
+    {
+      "name": "Devaronian",
+      "population_level": "minority",
+      "social_role": "Wanderers, gamblers, con artists, independent operators. Devaronians on Nar Shaddaa tend to be passing through or working angles. They gravitate toward the entertainment districts and the deep shadows equally.",
+      "districts": [
+        "the_promenade",
+        "lower_city"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "hutt_cartel",
+      "name": "Hutt Cartel",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The Hutts respond to money and leverage, not ideology. Imperial pressure works when backed by credible economic threat. Dark side influence is nearly irrelevant — Hutts are resistant to Force manipulation and don't care about mysticism. Financial disruption is the most effective lever against them."
+      },
+      "motivation": "Maintaining economic dominance over Nar Shaddaa and the surrounding trade routes. The Hutts don't want to rule in a political sense — they want to own. Every transaction, every shipment, every deal should flow through their infrastructure and leave a percentage behind.",
+      "assets": [
+        "Economic control of all major commerce on the moon",
+        "Gamorrean and Nikto enforcer networks",
+        "Docking authority and customs (such as they are)",
+        "Information networks built on debt and obligation",
+        "The loyalty (bought or coerced) of most independent operators"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "transactional",
+          "notes": "The Hutts tolerate the Imperial presence because fighting it would be expensive and disruptive. The Empire tolerates the Hutts because they provide stability and intelligence. Both sides know this arrangement is temporary but neither wants to be the one to break it first."
+        },
+        {
+          "faction_id": "black_sun",
+          "type": "rival",
+          "notes": "Black Sun operates in Hutt territory without Hutt permission, which is an insult the Hutts haven't forgotten. The rivalry is mostly cold — occasional enforcement actions, territory disputes, information wars — but it could go hot if Black Sun overreaches."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "neutral-hostile",
+          "notes": "The Hutts know the Rebels are here and don't particularly care as long as they don't cause trouble. If the Empire pressures the Hutts to act against Rebel cells, the Hutts will comply — but slowly and inefficiently, because they don't work for free."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "The Hutts already control most shipping through Nar Shaddaa. Imperial military supply route data would give them leverage over the Empire itself — knowledge of what the Empire needs, when, and where."
+        },
+        {
+          "type": "resource",
+          "reason": "Physical commodities — spice, weapons, medical supplies, rare materials. The Hutts take a cut of everything that moves. A significant resource cache is worth protecting or acquiring regardless of what it is."
+        },
+        {
+          "type": "person",
+          "reason": "Bounty value. A person with a price on their head is a commodity. The Hutts will sell them to whoever pays the most — the Empire, a rival crime lord, or back to whoever lost them."
+        },
+        {
+          "type": "artifact",
+          "reason": "No intrinsic interest. A Force artifact is valuable only as a commodity — something to sell to the highest bidder. The Hutts would auction it without hesitation."
+        }
+      ]
+    },
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "informational"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial garrison on Nar Shaddaa is professional and relatively disciplined. Individual officers can be corrupted but the institution resists it. Dark side influence is irrelevant to the military structure. Financial pressure is ineffective — they're funded by the Empire, not local economy."
+      },
+      "motivation": "Maintaining an Imperial foothold in Hutt Space for intelligence gathering, trade route monitoring, and projection of authority. The garrison isn't here to conquer — it's here to watch, report, and remind everyone that the Empire is present.",
+      "assets": [
+        "Garrison of stormtroopers and naval personnel",
+        "Intelligence operatives embedded in upper level commerce",
+        "Orbital monitoring capability",
+        "Authority to request Hutt cooperation (with diminishing returns)",
+        "Communication links to sector fleet"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_cartel",
+          "type": "transactional",
+          "notes": "The Empire needs Hutt cooperation to operate effectively on the moon. The Hutts need the Empire to not decide Nar Shaddaa is worth conquering. Both sides maintain a polite fiction of mutual respect."
+        },
+        {
+          "faction_id": "black_sun",
+          "type": "hostile",
+          "notes": "Black Sun is a criminal organization and the Empire treats it as such. However, Imperial intelligence has occasionally used Black Sun contacts as unwitting assets. The hostility is real but pragmatism sometimes overrides it."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "enemy",
+          "notes": "The primary Imperial mission on Nar Shaddaa is monitoring for Rebel activity. Any confirmed Rebel presence would trigger an immediate escalation in Imperial activity and pressure on the Hutts to cooperate."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "This is their data. If it's been stolen, recovering it is a top priority. If it's been leaked, identifying the source of the leak matters more than the data itself."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standing orders to secure any Force-related artifacts and report to ISB. The local garrison doesn't know why — the orders come from above their clearance level."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives, Force-sensitives, defectors. ISB maintains active target lists. A captured rebel operative is an intelligence asset. A Force-sensitive is reported to the Inquisitorius immediately."
+        }
+      ]
+    },
+    {
+      "id": "black_sun",
+      "name": "Black Sun",
+      "type": "criminal",
+      "control_type": [
+        "informational"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "high",
+        "financial": "high",
+        "note": "Black Sun on Nar Shaddaa is an intelligence operation, not a military one. They're vulnerable to dark side influence because their leadership structure values power and has no ideological resistance to it. Financial pressure works because their operation depends on bought loyalty. Imperial pressure is moderate — they can relocate but it disrupts their networks."
+      },
+      "motivation": "Intelligence dominance. Black Sun wants to know everything happening on Nar Shaddaa before anyone else does. They sell information, use it for leverage, and build networks of obligation. Their goal isn't territorial control — it's being the broker everyone has to come to.",
+      "assets": [
+        "Information network spanning all districts",
+        "Covert operatives in Hutt and Imperial organizations",
+        "Blackmail material on key figures",
+        "Safe houses in the Promenade and Lower City",
+        "Smuggling contacts independent of Hutt infrastructure"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_cartel",
+          "type": "rival",
+          "notes": "Black Sun operates in Hutt territory and the Hutts resent it. The rivalry is mostly about information control — both sides want to be the definitive intelligence broker on the moon."
+        },
+        {
+          "faction_id": "imperial_military",
+          "type": "hostile_covert",
+          "notes": "Black Sun avoids direct confrontation with the Empire but actively works against Imperial intelligence operations. They've compromised at least one Imperial intelligence contact, though the Empire doesn't know which one."
+        },
+        {
+          "faction_id": "knights_of_ren",
+          "type": "unknown",
+          "notes": "Base state: Black Sun has detected anomalous activity in the Lower City that doesn't match any known faction's profile. They don't know what the Knights of Ren are. FaD preset: Black Sun's Lower City network has been partially compromised by Knights of Ren influence. Several operatives are reporting to both organizations without Black Sun leadership knowing."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Extremely valuable intelligence commodity. Black Sun would acquire it to sell, to use as leverage against the Empire, or both. They wouldn't destroy it — it's too useful."
+        },
+        {
+          "type": "artifact",
+          "reason": "Valuable as a commodity and as leverage. Black Sun doesn't understand Force artifacts but they understand that powerful people want them, which makes them valuable."
+        },
+        {
+          "type": "person",
+          "reason": "Leverage, ransom, or sale. Black Sun acquires people the way they acquire information — as assets to be used when the time is right."
+        }
+      ]
+    },
+    {
+      "id": "knights_of_ren",
+      "name": "Knights of Ren",
+      "type": "dark_side_organization",
+      "control_type": [
+        "cultural",
+        "informational_covert"
+      ],
+      "control_strength": "present",
+      "susceptibility": null,
+      "motivation": "Locating Force artifacts and Force-sensitive individuals in the Outer Rim. Nar Shaddaa is a waypoint and hunting ground — Force-sensitives fleeing the Empire often pass through here, and the moon's ancient lower levels may contain artifacts from pre-Republic civilizations.",
+      "assets": [
+        "One or two Knights operating covertly",
+        "Dark side influence over susceptible individuals (Black Sun operatives, independent criminals)",
+        "Knowledge of Force-sensitive hiding places in the Refugee Sector",
+        "Access to Lower City areas other factions avoid",
+        "Ability to mask their presence from non-Force-sensitives"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_cartel",
+          "type": "unknown",
+          "notes": "The Hutts have no idea the Knights of Ren exist as an organization. Individual Knights might be noticed as unusual offworlders, but the Hutts see unusual offworlders every day."
+        },
+        {
+          "faction_id": "imperial_military",
+          "type": "unknown",
+          "notes": "The Imperial garrison has no awareness of Knights of Ren activity. ISB might have a file somewhere, but the local commander doesn't have that clearance."
+        },
+        {
+          "faction_id": "black_sun",
+          "type": "unknown",
+          "notes": "Black Sun has detected something unusual in the Lower City but hasn't identified the source. In the FaD preset, Black Sun's network has been partially compromised without their knowledge."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "unknown",
+          "notes": "No awareness on either side. The Rebel cell is too small and focused to notice Knights of Ren activity, and the Knights have no reason to be interested in a Rebel intelligence cell."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "No interest. Military logistics are irrelevant to their mission."
+        },
+        {
+          "type": "artifact",
+          "reason": "This is why they're here. A Force artifact on Nar Shaddaa would be their primary objective, overriding all other activity. They would kill for it without hesitation."
+        },
+        {
+          "type": "person",
+          "reason": "Force-sensitives, especially untrained ones, are recruitment targets. The Knights do not rescue — they collect. An untrained Force-sensitive on Nar Shaddaa is prey."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "main_docking_platforms",
+      "name": "Main Docking Platforms",
+      "district_id": "upper_levels",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "hutt_cartel",
+      "controlling_faction_notes": "Hutt-licensed operators manage day-to-day traffic. Imperial customs maintains a checkpoint that everyone knows how to avoid.",
+      "strategic_value": "Controls who and what enters the moon. First point of contact for visitors and the primary chokepoint for smuggling operations.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "customs_officer",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Hutt-employed customs officials. Bribable. They check for weapons and contraband but their definition of both is negotiable."
+        },
+        {
+          "archetype_ref": "dock_worker",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Mixed species laborers. Good source of information about recent arrivals and departures."
+        },
+        {
+          "archetype_ref": "imperial_stormtrooper",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Imperial checkpoint guards. Present but not aggressive unless provoked or ordered to be."
+        }
+      ]
+    },
+    {
+      "id": "power_distribution_hub",
+      "name": "Power Distribution Hub",
+      "district_id": "industrial_loading_docks",
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "hutt_cartel",
+      "controlling_faction_notes": "Technically Hutt-owned but practically run by Duros engineers who've maintained it for generations. The Hutts don't understand the systems and the Duros don't explain them.",
+      "strategic_value": "Controls power distribution to the entire moon. Sabotage here affects every district. The engineers who run it know more about the moon's infrastructure than anyone alive.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "duros_engineer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Senior engineers who know every system. Loyal to their community, not to the Hutts. Could be persuaded to help if the cause is right."
+        },
+        {
+          "archetype_ref": "maintenance_droid",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Automated maintenance units. Not hostile but will report unauthorized access."
+        },
+        {
+          "archetype_ref": "nikto_guard",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Hutt-employed security. Bored and inattentive — this isn't a glamorous posting."
+        }
+      ]
+    },
+    {
+      "id": "promenade_exchange",
+      "name": "Promenade Exchange",
+      "district_id": "the_promenade",
+      "type": [
+        "informational",
+        "economic"
+      ],
+      "controlling_faction_id": "hutt_cartel",
+      "controlling_faction_notes": "The Hutts control the Exchange through licensing and protection fees. Every vendor pays. Black Sun has informants among the vendors but no direct control.",
+      "strategic_value": "The moon's primary marketplace and information exchange. Anything can be bought here. Anyone can be found here. The cantinas are where deals happen and secrets get traded.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Knows everything happening on the Promenade. Sells to everyone. Loyalty is to credits, not factions."
+        },
+        {
+          "archetype_ref": "black_market_vendor",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Sells restricted goods. Has connections to smuggling networks. Can acquire almost anything given time and money."
+        },
+        {
+          "archetype_ref": "gamorrean_bouncer",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Cantina security. They keep the peace through intimidation and occasional violence."
+        },
+        {
+          "archetype_ref": "entertainer",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Twi'lek and mixed-species performers. Some are information sources, some are Black Sun contacts, most are just trying to survive."
+        }
+      ]
+    },
+    {
+      "id": "refugee_sector_warrens",
+      "name": "Refugee Sector Warrens",
+      "district_id": "refugee_sector",
+      "type": [
+        "hidden",
+        "covert"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No single faction controls the Warrens. Independent gangs claim blocks. The Rebel cell has a safe house here. Knights of Ren watch from the edges.",
+      "strategic_value": "The best place to hide on Nar Shaddaa. Overcrowded enough that surveillance is nearly impossible. The population protects its own — outsiders asking questions get noticed and stonewalled.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "refugee_leader",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Community organizer. Knows everyone in their block. Protective of their people and suspicious of outsiders."
+        },
+        {
+          "archetype_ref": "gang_enforcer",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Local gang muscle. Territorial but not suicidal. They'll back down from a credible threat but they won't forget."
+        },
+        {
+          "archetype_ref": "refugee_scavenger",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Desperate people doing desperate things. Not hostile by default but unpredictable under pressure."
+        }
+      ]
+    },
+    {
+      "id": "hutt_council_chambers",
+      "name": "Hutt Council Chambers",
+      "district_id": "upper_levels",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": "hutt_cartel",
+      "controlling_faction_notes": "This is the seat of Hutt power on Nar Shaddaa. Access is by invitation only. The security is the best money can buy.",
+      "strategic_value": "Where the real decisions about Nar Shaddaa get made. Controlling or influencing what happens here changes the power dynamics of the entire moon.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "hutt_crime_lord",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "A Hutt kajidic leader. Powerful, connected, and extremely dangerous to cross. Every interaction is a negotiation."
+        },
+        {
+          "archetype_ref": "nikto_lieutenant",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Senior Hutt enforcers. Competent, loyal, and authorized to use lethal force."
+        },
+        {
+          "archetype_ref": "gamorrean_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Elite Gamorrean guards. Better equipped and more disciplined than typical Gamorrean muscle."
+        },
+        {
+          "archetype_ref": "protocol_droid",
+          "tier": "minion",
+          "count": "1",
+          "notes": "Translator and majordomo. Knows the schedule, the protocols, and the Hutt's preferences. Potentially useful if reprogrammed or persuaded."
+        }
+      ]
+    },
+    {
+      "id": "lower_city_depths",
+      "name": "Lower City Depths",
+      "district_id": "lower_city",
+      "type": [
+        "hidden",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Nobody controls the Depths. Things live down here that predate the current civilization. The Knights of Ren are drawn to something in the deep levels that they haven't shared with anyone.",
+      "strategic_value": "Unknown and potentially enormous. The deepest levels of Nar Shaddaa may contain pre-Republic artifacts, forgotten technology, or something worse. The value is in what hasn't been found yet.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "scavenger_hermit",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Someone who's been living in the Depths long enough to know the safe paths. Eccentric and possibly unhinged but invaluable as a guide."
+        },
+        {
+          "archetype_ref": "feral_creature",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Things that have adapted to the darkness. Not intelligent but territorial and dangerous in numbers."
+        },
+        {
+          "archetype_ref": "knight_of_ren_acolyte",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "Only present in FaD preset. A Knight of Ren operative searching the Depths for a specific artifact. Dangerous and willing to kill to protect their mission."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "knights_of_ren_dark_side",
+      "type": "dark_side",
+      "source_faction_id": "knights_of_ren",
+      "source_description": "The Knights of Ren project dark side influence passively through their presence and actively through deliberate manipulation. On Nar Shaddaa, this manifests as a subtle corruption of individuals who are already morally compromised — the dark side doesn't create evil here, it amplifies what already exists.",
+      "strength_default": "low",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": "black_sun",
+          "description": "Black Sun operatives in the Lower City are experiencing heightened aggression, paranoia, and ambition. They're making riskier plays and trusting each other less. In the FaD preset, several have been turned into unwitting assets of the Knights of Ren."
+        },
+        {
+          "faction_id": "independent_gangs",
+          "description": "Gang violence in the Refugee Sector is escalating beyond what economic conditions explain. Territorial disputes that should resolve through negotiation are instead ending in bloodshed. Something is feeding the aggression."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "low",
+          "modifier": "NPCs in affected areas are slightly more hostile, paranoid, and prone to violence. Social checks to de-escalate situations increase difficulty by 1."
+        },
+        {
+          "threshold": "significant",
+          "modifier": "Dark side presence is palpable to Force-sensitives. NPCs in affected areas are overtly aggressive and irrational. Social checks to de-escalate increase difficulty by 2. Force power checks in these areas add 1 automatic dark side pip to the roll."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "nal_hutta",
+        "destination": "Nal Hutta",
+        "travel_time": "negligible — orbital",
+        "route_quality": "safe",
+        "notes": "Nar Shaddaa orbits Nal Hutta. Travel between the two is routine shuttle traffic, not hyperspace."
+      },
+      {
+        "id": "tatooine",
+        "destination": "Tatooine",
+        "travel_time": "12-16 hours",
+        "route_quality": "well-established",
+        "notes": "Common smuggling run. The route is well-mapped and heavily trafficked. Imperial patrols are sparse between Hutt Space and the Outer Rim."
+      },
+      {
+        "id": "coruscant",
+        "destination": "Coruscant",
+        "travel_time": "24-36 hours",
+        "route_quality": "well-established",
+        "notes": "Major hyperspace lane. Imperial traffic is heavy near Coruscant — arriving from Hutt Space flags customs attention."
+      },
+      {
+        "id": "rodia",
+        "destination": "Rodia",
+        "travel_time": "8-10 hours",
+        "route_quality": "well-established",
+        "notes": "Frequent Rodian traffic. The route is safe and well-maintained. Rodian clans use it for both legitimate trade and bounty hunting logistics."
+      },
+      {
+        "id": "ord_mantell",
+        "destination": "Ord Mantell",
+        "travel_time": "18-24 hours",
+        "route_quality": "moderate",
+        "notes": "Used by smugglers and bounty hunters. The route passes through less-patrolled space, which is both an advantage and a risk."
+      },
+      {
+        "id": "kessel",
+        "destination": "Kessel",
+        "travel_time": "variable — 20-40 hours",
+        "route_quality": "dangerous",
+        "notes": "The route to Kessel is inherently dangerous due to the Maw cluster. Only experienced pilots attempt it. The spice trade makes it worth the risk for some."
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "derelict_beacon",
+        "type": "forced_destination",
+        "name": "The Derelict Beacon",
+        "description": "An old Clone Wars-era vessel drifting in the Y’Toub system is broadcasting a partial distress signal on a frequency that conflicts with modern navicomputers. Ships making the jump out of Nar Shaddaa occasionally get pulled to its location instead of their destination.",
+        "trigger": "Damaged hyperdrive, outdated navicomputer, or GM decision. The beacon is on a frequency the Empire hasn’t bothered to deactivate.",
+        "possible_destinations": [
+          "The derelict vessel itself — boarding encounter, unknown what’s still aboard",
+          "Y’Toub system dead space — stranded, must repair or signal for help"
+        ]
+      },
+      {
+        "id": "blind_jump_hutt_space",
+        "type": "blind_jump_zone",
+        "name": "Hutt Space Scatter",
+        "description": "A blind jump from Nar Shaddaa lands somewhere in Hutt Space or the adjacent Outer Rim. The region is sparse, lawless, and poorly charted.",
+        "trigger": "Emergency jump, damaged navicomputer, deliberate blind jump",
+        "possible_destinations": [
+          "Nar Shaddaa system dead space — engines still hot, pursuit not far behind",
+          "Unnamed frontier world — wilderness, no infrastructure, no help",
+          "Hutt-controlled minor colony — someone here reports to the kajidic",
+          "Ord Mantell approach vector — contested world, enough chaos to disappear into",
+          "Edge of Wild Space — no obvious return route, no one to call"
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Nominal Imperial presence. The Empire has a legal foothold here but isn't exercising it. One or two plainclothes observers, no visible military assets. They're watching, not enforcing.",
+          "presence_reason": "The Empire is maintaining minimum visibility — perhaps to avoid provoking the Hutts, or resources have been pulled elsewhere.",
+          "roles": [
+            {
+              "role": "ISB observer plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Observing and filing reports. Does not act."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard garrison. Stormtrooper patrols on the upper levels, a customs checkpoint at the main docks, intelligence operatives in the Promenade. Visible but not oppressive. This is the Empire doing normal business on Nar Shaddaa.",
+          "presence_reason": "Routine Imperial presence — no specific threat, just maintaining the foothold the Empire has negotiated with the Hutts.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Paired patrols on predictable routes. Professional but not hunting anyone."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Checkpoint authority. Bribable. Discretion on what he acts on."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Promenade permanent fixture. Running informant networks."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the Imperial presence. Pragmatic — knows the limits of Imperial power here."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced garrison. Something triggered an escalation. Stormtroopers at every major junction, checkpoints on all routes, active surveillance operation running. The Hutts are privately unhappy but not yet pushing back.",
+          "presence_reason": "A credible threat has been identified — a rebel cell located, a missing shipment, a diplomatic incident, or orders from sector command. Someone with authority made a call.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Multiple squads with overlapping patrol routes. No blind spots left unmonitored."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "One per major entry point. Inspections are thorough now."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full intelligence operation. Running interrogations, flipping informants, monitoring communications."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior command staff. Coordinating with orbital assets. Authority to blockade docking platforms."
+            },
+            {
+              "role": "Imperial sniper",
+              "archetype_ref": "imperial_sniper",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Overwatch positions. Not advertised."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military occupation. The Empire is no longer a guest — it is asserting direct control. The Hutt arrangement is functionally suspended. Civilians are restricted. Assets are deployed that wouldn't normally be here. This is a statement.",
+          "presence_reason": "The Empire has decided Nar Shaddaa is worth the political cost of alienating the Hutts. Something happened that overrides the normal calculus — a high-value target, a Force-sensitive, a catastrophic intelligence failure.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Building-by-building search capability. All routes covered simultaneously."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Every entry point locked. No one leaves without clearance."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 5,
+              "notes": "ISB is running this operation, not the garrison commander."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior command staff on site. One coordinates ground operation, one manages orbital assets."
+            },
+            {
+              "role": "Imperial detention unit",
+              "archetype_ref": "stormtrooper",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Running field interrogations. They have authority to detain without documentation."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. An Inquisitor's arrival changes everything — even the Hutts cooperate."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols are more attentive. Stormtroopers stop and question people who look out of place. Customs checks become more thorough. The ISB observer has left her usual table.",
+        "targeted": "The Empire is looking for specific individuals. Checkpoints have holos of targets. Informant networks are activated. Leaving the moon becomes difficult — all departing ships are inspected.",
+        "manhunt": "Full lockdown. No ships leave without Imperial authorization. Stormtroopers conduct building-by-building searches in the target's last known district. Hutt cooperation is demanded, not requested."
+      }
+    },
+    {
+      "faction_id": "hutt_cartel",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The Hutts own this location on paper. In practice, one or two people are here collecting fees and keeping up appearances. This is a Hutt-controlled location that the Hutts have chosen not to staff. That choice is intentional — and probably means something valuable isn't here right now.",
+          "presence_reason": "The Hutts have pulled resources elsewhere — a more important problem, a kajidic dispute, or they simply don't see this location as needing attention. Their absence is a window.",
+          "roles": [
+            {
+              "role": "Gamorrean fee collector",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 1,
+              "notes": "Here to take the cut. Not here to investigate anything."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Hutt operations. Regular enforcers working known routes, dock master managing traffic, spotters in the Promenade. The Hutts are conducting normal business. Everything flows through their infrastructure and they take their percentage.",
+          "presence_reason": "Business as usual. The Hutts are not reacting to anything specific — they are simply running their operation.",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Visible muscle on regular routes. Deterrent, not actively hunting."
+            },
+            {
+              "role": "Nikto enforcer",
+              "archetype_ref": "nikto_guard",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Mid-level operators. More initiative than Gamorreans — they can make decisions."
+            },
+            {
+              "role": "Hutt dock master",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages platform traffic and takes the Hutt's cut. Knows everything that moves through here."
+            },
+            {
+              "role": "Nikto spotter",
+              "archetype_ref": "nikto_guard",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Eyes on the Promenade. Reports unusual arrivals or behavior."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Hutts are protecting something or responding to a threat. More enforcers than normal, overlapping coverage, named lieutenants visible. This isn't routine — someone in the kajidic made a call that this location needs attention.",
+          "presence_reason": "A threat to Hutt interests has been identified — a rival organization probing the territory, an Imperial overreach, a valuable asset that needs protecting, or someone who failed to pay their tribute.",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Multiple teams covering overlapping zones. No gaps."
+            },
+            {
+              "role": "Nikto enforcer",
+              "archetype_ref": "nikto_guard",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Operational commanders running teams."
+            },
+            {
+              "role": "Hutt lieutenant",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Named operative. Has authority to make decisions on behalf of the kajidic."
+            },
+            {
+              "role": "Hired bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "The Hutts hired outside help. Whatever they're protecting or hunting is worth the expense."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Hutts are making a statement. Resources deployed that signal the kajidic itself is paying attention to this location. A senior figure is present or proximate. Every criminal operator on the moon knows something is happening here — and what happens to people who get in the way.",
+          "presence_reason": "The Hutt lord has taken personal interest. A major rival has emerged, a betrayal has been discovered, or an opportunity worth the full weight of Hutt authority has presented itself.",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Total coverage. Nothing moves without them seeing it."
+            },
+            {
+              "role": "Nikto enforcer squad",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Armed for a fight, not just deterrence."
+            },
+            {
+              "role": "Hutt lieutenant",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Two senior operatives coordinating the operation."
+            },
+            {
+              "role": "Hired bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple contracts, multiple targets — or one very important one."
+            },
+            {
+              "role": "Hutt crime lord",
+              "archetype_ref": "hutt_crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The Hutt lord is present or nearby. Every interaction is a negotiation with lethal stakes."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Hutt enforcers are paying closer attention. Protection fees increase without explanation. Independent operators are getting quietly leaned on. Someone is being made an example of somewhere nearby.",
+        "targeted": "The Hutts have identified a specific threat and mobilized against it. Bounty hunters are hired. Information networks are activated. The target's known associates are brought in for questioning — not gently.",
+        "manhunt": "The Hutts want someone found and they're spending real money. Every bounty hunter on the moon is looking. Every informant is listening. Every dock worker is watching departing ships. The reward is large enough to tempt even loyal people."
+      }
+    },
+    {
+      "faction_id": "black_sun",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Black Sun has been pushed to the margins or has chosen to pull back. Only a single deep-cover asset remains, focused on preserving the intelligence network. Invisible. Waiting.",
+          "presence_reason": "Black Sun has deprioritized Nar Shaddaa — resources pulled to another operation, or they've been burned and are lying low until it's safe.",
+          "roles": [
+            {
+              "role": "Black Sun deep cover informant",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining one essential intelligence node. Does not act — only observes and reports."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Black Sun presence. Invisible to anyone not looking for it. A functional intelligence network with operatives in key locations. Not visible but effective. This is Black Sun doing normal business — knowing everything before anyone else does.",
+          "presence_reason": "Routine intelligence operation. Black Sun maintains minimum viable presence at all times. Their absence would be the unusual thing.",
+          "roles": [
+            {
+              "role": "Black Sun informant",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Any Promenade scene. Does not engage — observes and reports. Everything said near this NPC gets back to Black Sun."
+            },
+            {
+              "role": "Cantina owner as intelligence node",
+              "archetype_ref": "crime_lord",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Friendly on the surface. Everything the players say here gets back to Black Sun."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Black Sun is running an active operation. Multiple operatives visible to the trained eye, coordinating toward a specific objective. They're not here to watch — they're here to acquire, extract, or eliminate something specific.",
+          "presence_reason": "An asset, target, or opportunity has made Nar Shaddaa worth an active operation. Black Sun doesn't deploy operatives without a reason and doesn't share the reason.",
+          "roles": [
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Active operatives running a specific task. Armed and authorized to act."
+            },
+            {
+              "role": "Black Sun lieutenant",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Black Sun figure running the operation. His presence means the organization considers this important."
+            },
+            {
+              "role": "Compromised gang muscle",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Don't know who they're really working for. Plausible deniability for Black Sun."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Black Sun is asserting informational dominance over the entire moon. Every cantina, every dock, every exchange point has a Black Sun contact active. Nothing happens on Nar Shaddaa that Black Sun doesn't know about within the hour. This is the organization at full operational strength.",
+          "presence_reason": "Black Sun has decided Nar Shaddaa is strategically critical. A Vigo-level figure has taken personal interest. The investment signals something on this moon is worth more than usual.",
+          "roles": [
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Full intelligence blanket across all districts. Eyes and ears everywhere simultaneously."
+            },
+            {
+              "role": "Black Sun enforcer",
+              "archetype_ref": "black_sun_vigo",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Enforcement capability. They handle what operatives can't talk their way through."
+            },
+            {
+              "role": "Black Sun lieutenant",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Running the operation. Reports directly to Vigo leadership."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Black Sun operatives increase surveillance. Informants near the target are activated. Background checks run through criminal contacts. The target doesn't know they're being watched.",
+        "targeted": "Active intelligence operation against the target. Movements tracked. Communications monitored where possible. Black Sun is building a complete picture before deciding whether to act, sell the information, or use it as leverage.",
+        "manhunt": "Black Sun wants the target found. Unlike Imperial or Hutt manhunts, this is invisible — no checkpoints, no public bounties. Every informant, every contact, every bought loyalty activated simultaneously. The target's world quietly closes around them."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Small intelligence cell (3-5 operatives)",
+      "Rebel Alliance: One or two safe houses in the Refugee Sector",
+      "Rebel Alliance: Contacts among refugee populations",
+      "Rebel Alliance: A sympathetic Duros dock worker who provides shipping data",
+      "Rebel Alliance: Emergency communication link to Alliance Intelligence",
+      "Rebel Alliance on this planet: Maintaining an intelligence cell on Nar Shaddaa to monitor Imperial supply routes, recruit sympathizers, and maintain a logistics pipeline for Rebel operations in Hutt Space. This is a listening post,",
+      "Rebel Alliance asset: Small intelligence cell (3-5 operatives)",
+      "Rebel Alliance asset: Contacts among refugee populations"
+    ],
+    "presets": {
+      "AoR_hutt_empire_alliance": {
+        "label": "Age of Rebellion — Hutt/Empire Alliance",
+        "description": "The Empire and the Hutts are in an active transactional alliance. Imperial supply routes run through Hutt-controlled space with Hutt protection. The Hutts are paid in credits and resources. The Rebel cell on Nar Shaddaa is close to acquiring the supply route data — and the Hutts are now actively hostile to anyone with Rebel affiliations.",
+        "controlling_factions": [
+          {
+            "location_id": "main_docking_platforms",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Hutt cooperation active. Checkpoint running secondary watchlist of rebel-affiliated names and ship registrations supplied by Hutt intelligence."
+          },
+          {
+            "location_id": "the_promenade",
+            "faction_id": "hutt_cartel",
+            "presence_level": "patrol",
+            "notes": "Hutts actively hostile to rebel-affiliated players. Bounties may be posted without warning."
+          }
+        ],
+        "faction_relationship_overrides": [
+          {
+            "faction_id": "hutt_cartel",
+            "target_faction_id": "rebel_alliance",
+            "type": "hostile",
+            "notes": "Imperial contract is active. Rebel activity threatens the arrangement. The Hutts are hunting rebel cells as a service to the Empire."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "hutt_cartel",
+            "level": "hostile",
+            "reason": "Imperial contract active. Rebels are bad for current business."
+          }
+        ],
+        "flags": [
+          "Supply route data is held in the memory of a Duros freight operator who drinks at the cantina on the Main Docking Platform after her shift. She doesn’t know what she has — she thinks it’s just shipping schedules she’s memorized over twenty years.",
+          "The Hutt council is privately divided on the Imperial arrangement. One kajidic member is quietly calculating an exit. He hasn’t moved yet because he doesn’t know who to approach.",
+          "The Rebel safehouse in the Refugee Sector is three informants away from being exposed. One of those informants is already compromised — they just don’t know it yet.",
+          "The Imperial supply codes on armament manifests use a cipher that changes monthly. The current cipher is stored in the depot manager’s stock room terminal on the Main Docking Platform — she doesn’t know what it is, she just processes the orders."
+        ]
+      },
+      "EotE_rival_organization_recon": {
+        "label": "Edge of the Empire — Rival Organization Recon",
+        "description": "Players represent or are working with a rival criminal organization mapping Hutt vulnerabilities on Nar Shaddaa. The goal is intelligence, not confrontation — find the cracks, not the walls. The Hutts don’t yet know they’re being mapped.",
+        "controlling_factions": [
+          {
+            "location_id": "all",
+            "faction_id": "hutt_cartel",
+            "presence_level": "patrol",
+            "notes": "Default Hutt dominance. Players are mapping vulnerabilities, not fighting. The Hutts are not yet aware of the rival organization’s interest."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "Hutt vulnerability — Labor: The Duros labor boss on the Loading Docks is three days from calling a work stoppage over Hutt contract terms. He hasn’t moved yet because he doesn’t know what happens to his crew if he does. A rival organization that gives him leverage changes his calculus entirely.",
+          "Hutt vulnerability — Corruption: One Hutt lieutenant on the Promenade is skimming from his kajidic. He knows it. He’s been doing it for two years and is terrified. He is susceptible to leverage — either as an asset or a threat.",
+          "Hutt vulnerability — Intelligence gap: Black Sun has more intelligence on Hutt operations than the Hutts realize. A rival organization that allies with Black Sun — even temporarily — gains a significant information advantage over the Hutts.",
+          "Hutt vulnerability — Territory: The Lower City is effectively ungoverned. A rival organization could establish a foothold there without triggering a Hutt response — the Hutts don’t go into the Lower City and don’t admit it.",
+          "Hutt vulnerability — Infrastructure: The manifest discrepancy at the supply depot leads to the dock master’s private side operation. The dock master is skimming cargo for his own account, independent of the kajidic. If the kajidic found out, it would be a death sentence for him — and he knows it."
+        ]
+      },
+      "FaD_knights_of_ren_force_weapon": {
+        "label": "Force and Destiny — Knights of Ren / Force Weapon",
+        "description": "The Knights of Ren are actively operating on Nar Shaddaa. The Black Sun’s local lieutenant has recovered a Force weapon — a weapon of mass destruction strong in the dark side — from somewhere in the Lower City. He doesn’t know what it is. He thinks it’s valuable. He’s right, but not in the way he imagines. The Knights of Ren let Black Sun find it. Now they’re ready to collect. A clock is running.",
+        "controlling_factions": [
+          {
+            "location_id": "lower_city",
+            "faction_id": "knights_of_ren",
+            "presence_level": "patrol",
+            "notes": "Unmapped presence in the Lower City depths. Players will not know this until they go deep."
+          }
+        ],
+        "influences_override": [
+          {
+            "influence_id": "knights_of_ren_dark_side",
+            "strength": "significant",
+            "known_to_players": false
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "knights_of_ren",
+            "level": "watching",
+            "reason": "Any Force-sensitive player is already on their list from the moment they land on Nar Shaddaa. The Knights don’t move immediately — they observe first."
+          }
+        ],
+        "flags": [
+          "The Force weapon is in Black Sun possession. The local Black Sun lieutenant has it secured in a private location on the Promenade. He doesn’t know what it does. He’s been told it’s extraordinarily valuable. He has a buyer interested — an Imperial with deep pockets and no conscience.",
+          "The Knights of Ren allowed Black Sun to recover the weapon deliberately. It was easier than retrieving it themselves from the Lower City ruins. Now they’re moving to collect it from Black Sun. The lieutenant doesn’t know he’s about to lose his prize — or his life.",
+          "Clock: Black Sun’s buyer wants delivery in three sessions. If the players don’t intervene, the weapon moves to Imperial hands and the trail goes cold.",
+          "A Duros crew member on the Loading Docks at the Main Docking Platform is Force-sensitive and has no idea. He’s been having strange dreams for months and has been drinking more. The Knights of Ren observer in the Refugee Sector has flagged him. He has maybe one session before someone comes for him.",
+          "The droid with mismatched parts that has been mopping the same section near the maintenance stairwell on the Main Docking Platform for six weeks was not hired by anyone on the platform. It is a Knights of Ren surveillance asset monitoring arrivals for Force-sensitive signatures.",
+          "Force-sensitive players will feel something wrong about Nar Shaddaa from the moment they land. Not dangerous — just wrong. Like a note played slightly flat. The source is the weapon, not the Knights themselves."
+        ]
+      }
+    }
+  },
+  "source_refs": []
+}

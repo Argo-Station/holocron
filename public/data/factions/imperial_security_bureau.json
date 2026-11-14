@@ -1,0 +1,257 @@
+{
+  "id": "imperial_security_bureau",
+  "name": "Imperial Security Bureau",
+  "type": "military_force",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Age of Rebellion Core Rulebook",
+    "Cyphers and Masks",
+    "Dawn of Rebellion"
+  ],
+  "overview": "The Imperial Security Bureau is a subsidiary of COMPNOR (Commission for the Preservation of the New Order) charged with internal security, loyalty enforcement, and counterintelligence across the Galactic Empire. ISB agents carry override authority over both military and civilian chains of command, with broad detention and indefinite questioning powers. The Bureau functions as the Empire's political police, rooting out dissent, sedition, and disloyalty at every level of Imperial society.",
+  "short_descriptor": "They don't move fast. They move right. By the time you know you're being watched, the file on you is already three pages long. Distance is the only reliable protection.",
+  "witness_statement": {
+    "text": "They held me for nine days. Very polite the whole time. Asked me about people I'd met two years ago on stations I barely remembered visiting. They already had the answers — they just wanted to see if mine matched. On day nine they let me go without explanation. I still don't know what they were actually after. That's the part that keeps me up.",
+    "source": "Detainee, released after ISB questioning, Brentaal transit hub",
+    "verification": "CONFIRMED — SINGLE SOURCE"
+  },
+  "how_they_operate": [
+    {
+      "heading": "STRUCTURE AND TRAINING",
+      "text": "The ISB is a subsidiary of COMPNOR, structured as a parallel authority that sits alongside — and frequently above — the standard Imperial military chain of command. Field agents are trained at the ISB Academy in Verity District on Coruscant, where ideological indoctrination produces operatives who view loyalty enforcement as a moral imperative rather than a job."
+    },
+    {
+      "heading": "FIELD AUTHORITY",
+      "text": "In the field, agents carry override authority to countermand military commanders and exercise indefinite detention powers without standard Imperial legal process."
+    },
+    {
+      "heading": "INTELLIGENCE FLOW",
+      "text": "Intelligence flows in two directions: the Coalition for Progress feeds sector-level surveillance data down to Bureau analysts, while field agents push case reports up through sector ISB commanders to regional bureau chiefs and ultimately to the Central Office on Coruscant."
+    },
+    {
+      "heading": "METHODS AND RIVALRY",
+      "text": "The Bureau's primary tools are surveillance, informant cultivation, and methodical interrogation — agents build case files over weeks or months, cross-referencing communications intercepts and travel records before making arrests. The ISB maintains a bitter jurisdictional rivalry with Imperial Intelligence; both agencies pursue overlapping targets through separate channels and neither shares findings willingly, creating gaps that suspects have exploited on multiple documented occasions."
+    }
+  ],
+  "motivations": {
+    "primary": "Ideological purity",
+    "secondary": [
+      "Rooting out sedition",
+      "Maintaining loyalty within Imperial ranks",
+      "Suppressing the Rebellion",
+      "Interdepartmental dominance over Imperial Intelligence"
+    ],
+    "notes": "The ISB is driven by COMPNOR ideology as much as by practical security concerns. Agents are indoctrinated at the ISB Academy in Verity District on Coruscant, creating true believers who view loyalty to the New Order as a moral imperative. This ideological zeal often overrides practical considerations."
+  },
+  "goals": {
+    "strategic": [
+      "Eliminate all organized resistance to Imperial rule, particularly the Rebel Alliance",
+      "Maintain absolute loyalty within the Imperial military and civilian bureaucracy",
+      "Establish ISB supremacy over Imperial Intelligence in the internal security domain",
+      "Expand surveillance infrastructure to cover every sector of the galaxy"
+    ],
+    "operational": [
+      "Identify and neutralize Rebel cells operating within Imperial territory",
+      "Monitor Imperial officers and officials for signs of disloyalty or corruption",
+      "Process Coalition for Progress surveillance data into actionable intelligence",
+      "Conduct indefinite detention and interrogation of suspected dissidents"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "information_control",
+      "infiltration",
+      "legal_pressure",
+      "propaganda",
+      "blackmail"
+    ],
+    "avoided": [
+      "Open negotiation with enemies — the ISB does not negotiate with traitors",
+      "Bribery — agents are ideologically motivated, not financially; accepting bribes is itself treason"
+    ],
+    "notes": "ISB agents rely on their override authority to commandeer military resources rather than maintaining their own standing armies. They prefer to build cases through surveillance, informant networks, and interrogation. The Coalition for Progress feeds sector-level surveillance data to the Bureau, giving agents a broad intelligence baseline before they even arrive on-site."
+  },
+  "strengths": [
+    "Override authority over military and civilian chains of command — an ISB agent can countermand a garrison commander",
+    "Broad detention powers with no time limits on questioning, bypassing normal Imperial legal process",
+    "Deep ideological indoctrination produces agents with unwavering loyalty and resistance to corruption",
+    "Access to Coalition for Progress surveillance feeds covering every Imperial sector",
+    "Institutional backing from COMPNOR gives political cover that purely military organizations lack"
+  ],
+  "weaknesses": [
+    "Jurisdictional rivalry with Imperial Intelligence produces information silos; both agencies withhold data from each other, and documented cases exist of suspects escaping during coordination delays.",
+    "Ideological rigidity from Academy indoctrination generates a high false-positive rate, with agents pursuing treason charges where evidence is ambiguous or nonexistent.",
+    "Routine exercise of override authority erodes cooperation from military commanders, who provide minimal compliance rather than active support on ISB-directed operations.",
+    "Uniform indoctrination at the Verity District Academy produces analytical conformity that performs poorly against unconventional threats falling outside standard ideological categories.",
+    "Political appointees in ISB command positions frequently lack field operational experience, creating a competence gap between sector-level leadership and frontline investigative agents."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase passive surveillance. Flag the sector for enhanced monitoring through Coalition for Progress channels. No direct action yet.",
+    "medium": "Deploy field agents to investigate. Begin building a case file. Detain and question persons of interest. Requisition local garrison support.",
+    "high": "Exercise override authority to take direct command of local military assets. Conduct raids and mass detentions. Lock down transit points. Demand Imperial Intelligence share all parallel investigations.",
+    "critical": "Escalate to Central Office on Coruscant. Request Inquisitorius or special forces support. Implement sector-wide communications blackout. Authorized to use any means necessary — collateral damage is acceptable."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "immediate",
+    "chain_of_command": [
+      "Field agent on-site",
+      "Sector ISB commander",
+      "Regional ISB bureau chief",
+      "Central Office, Coruscant"
+    ],
+    "notes": "ISB agents report directly up the COMPNOR chain, bypassing standard military communications. This parallel reporting structure means local commanders often learn of ISB actions after they have already been taken. Coalition for Progress data flows down; field reports flow up. Escalation is fast because agents are empowered to act first and report after."
+  },
+  "tension_patterns": [
+    "ISB override authority technically supersedes garrison command, but its exercise consistently damages working relationships with local military officers on subsequent operations.",
+    "ISB and Imperial Intelligence maintain parallel investigations on overlapping targets as standard practice, with neither agency sharing findings, producing coordination gaps and delayed responses.",
+    "Ideological indoctrination training creates a bias toward treason findings, leading agents to pursue false positives that consume investigative resources.",
+    "Coalition for Progress surveillance data generates high volumes of sector-level anomaly flags, frequently burying actionable intelligence under statistical noise.",
+    "Political appointments to ISB command positions create a persistent friction layer between well-connected sector commanders and experienced field agents who handle operational work."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "patrol",
+    "economic": "skeleton",
+    "command": "fortified",
+    "informational": "dominant",
+    "military": "patrol",
+    "hidden": "skeleton",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "medium",
+    "weapon": "low",
+    "person": "high",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "The ISB is primarily interested in intelligence data (communications intercepts, Rebel cell lists, officer loyalty records) and persons of interest (dissidents, defectors, Rebel sympathizers). Contraband matters only when it indicates a larger sedition network. Weapons and artifacts are secondary unless connected to Force-users or the Rebellion."
+  },
+  "ally_factions": [
+    "imperial_military",
+    "inquisitorius"
+  ],
+  "enemy_factions": [
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "imperial_military": "The ISB has override authority over military commanders, which is respected in theory but resented in practice. Cooperation depends entirely on the personalities involved.",
+    "imperial_intelligence": "Bitter jurisdictional rivals. Both agencies pursue the same targets through different channels and neither shares findings willingly. The resulting delays and gaps have allowed suspects to escape on numerous occasions.",
+    "inquisitorius": "The ISB defers to Inquisitors on Force-related matters but resents their secrecy. Inquisitors sometimes requisition ISB resources without explanation.",
+    "rebel_alliance": "The ISB's primary target. Every Rebel cell, sympathizer, and supply line is an ISB priority. The Bureau views the Rebellion as the ultimate proof that eternal vigilance is necessary."
+  },
+  "regional_presence": {
+    "deep_core": "moderate",
+    "core_worlds": "dominant",
+    "colonies": "significant",
+    "inner_rim": "significant",
+    "expansion_region": "moderate",
+    "mid_rim": "moderate",
+    "outer_rim": "moderate",
+    "hutt_space": "minimal",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Colonel Wullf Yularen",
+      "role": "Deputy Director, ISB",
+      "suggested_tier": "nemesis",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "Former Republic Navy officer turned ISB leadership. One of the most senior figures in the Bureau, overseeing operations from Coruscant. His military background gives him credibility with Imperial Navy officers that most ISB agents lack.",
+      "network_assessment": "Yularen runs ISB operations from Coruscant and has the military background to make garrison commanders actually cooperate. Most ISB leadership can't manage that. He's the reason the Bureau works as well as it does.",
+      "wants": "A fully integrated intelligence apparatus where ISB and military operations complement rather than compete. He bridges the gap that most ISB agents create.",
+      "secret": "His Republic Navy career gave him relationships across the military establishment that predate the Empire itself — he knows where the institutional bodies are buried.",
+      "behavior": {
+        "under_pressure": "Methodical and unflappable. Falls back on military training rather than ISB ideology. Prioritizes actionable intelligence over political purity.",
+        "when_losing": "Restructures operations rather than escalating blindly. Will sacrifice an investigation to preserve the integrity of a larger intelligence picture.",
+        "loyalty": "Genuinely believes in the Empire's mission of galactic order. His loyalty is ideological, not careerist, which makes him both reliable and inflexible.",
+        "tells": "When Yularen personally reviews a sector report rather than delegating, the Bureau is about to launch a major operation in that region."
+      },
+      "useful_to_players": [
+        "His military relationships mean ISB operations under his direction are better coordinated with garrisons — fewer gaps to exploit",
+        "His focus on competence over ideology means he's harder to misdirect with political theatrics than typical ISB leadership",
+        "He operates from Coruscant — his influence is strategic, not tactical, leaving field operations to agents with less experience and judgment"
+      ],
+      "hooks": [
+        "Yularen just recalled three senior field agents to Coruscant for an unscheduled briefing. When the Deputy Director pulls people off active operations, something bigger has his attention.",
+        "A Navy captain on the Outer Rim was transferred to ISB liaison duty last week — that's Yularen's recruiting pattern. He's building his network in that sector."
+      ]
+    },
+    {
+      "name": "Agent Kallus (ISB-021)",
+      "role": "ISB field agent",
+      "suggested_tier": "rival",
+      "stat_block_ref": "AGENT_KALLUS",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "Highly effective field operative assigned to counter Rebel activity in the Lothal sector. Designated ISB-021. Known for personal initiative and willingness to operate beyond standard parameters.",
+      "network_assessment": "Kallus is a field agent who actually goes into the field. He's effective, persistent, and operates with more autonomy than the Bureau typically allows. If he's assigned to your sector, he'll find your pattern before you find his.",
+      "wants": "Successful neutralization of the Rebel cell in the Lothal sector. His professional reputation is tied to delivering results on this assignment.",
+      "secret": "His willingness to exceed standard parameters suggests either exceptional dedication or a developing crisis of ideology. Extended exposure to Rebel operatives changes the equation for some agents.",
+      "behavior": {
+        "under_pressure": "Adapts tactically in real time. Unlike many ISB agents who follow procedural playbooks, Kallus improvises and takes personal risks.",
+        "when_losing": "Escalates his personal involvement rather than calling for institutional support. This is both his strength and his vulnerability — he overextends.",
+        "loyalty": "Loyal to the mission and to his own professional standards. Whether that fully aligns with ISB institutional loyalty remains to be tested.",
+        "tells": "When Kallus requests additional garrison support rather than handling a situation himself, the target has proven more capable than his initial assessment. That's rare."
+      },
+      "useful_to_players": [
+        "His personal initiative means he sometimes operates without full Bureau support — isolating him from backup is possible if you can identify his operating pattern",
+        "His willingness to go beyond standard parameters means he makes enemies within the ISB bureaucracy who would be pleased to see him fail",
+        "He's a field agent, not a desk commander — he can be encountered, engaged, and potentially redirected at the operational level"
+      ],
+      "hooks": [
+        "Kallus has been requesting Lothal garrison manifests going back eighteen months. He's building a pattern analysis, which means he thinks the Rebel cell has been active longer than anyone realized.",
+        "ISB-021 was spotted off-duty in a cantina on Garel, alone, not running surveillance. Field agents don't take shore leave without a reason."
+      ]
+    },
+    {
+      "name": "Commander Trey Trellen",
+      "role": "ISB sector commander",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "Representative of the politically-connected command class within the ISB. Exemplifies the tension between political appointees and frontline field agents.",
+      "network_assessment": "Trellen is a political appointment in a command chair. He got the position through connections, not casework. His field agents do the real work; he takes the credit and deflects the blame.",
+      "wants": "Career advancement through visible successes that reach the Central Office. Operational details are someone else's problem.",
+      "secret": "His political connections protect him from accountability, but his sector's case closure rate is among the lowest in the Bureau — a fact that field agents know and resent.",
+      "behavior": {
+        "under_pressure": "Delegates aggressively and demands results from subordinates without providing additional resources or authority to achieve them.",
+        "when_losing": "Reassigns blame to field agents and files reports that reframe failures as partial successes or ongoing operations.",
+        "loyalty": "Loyal to his patron network within COMPNOR. The Empire's mission is secondary to his career trajectory.",
+        "tells": "When Trellen personally attends a briefing, he's preparing to claim credit for something. When he delegates, the operation is expected to fail."
+      },
+      "useful_to_players": [
+        "His incompetence creates operational gaps that his field agents cannot fully compensate for — those gaps are exploitable",
+        "His field agents resent him, which means morale-based vulnerabilities exist in his command structure",
+        "His focus on career advancement means he can be manipulated through information that would make him look good to his superiors"
+      ],
+      "hooks": [
+        "Trellen just submitted a report to Central Office claiming credit for a case his best field agent actually broke. That agent requested a transfer the same day.",
+        "Three ISB investigations in Trellen's sector went cold in the same month. Either his people are overwhelmed or someone's feeding them bad intelligence and he can't tell the difference."
+      ]
+    }
+  ],
+  "source_material_notes": "The ISB is covered across multiple sourcebooks but never receives a single dedicated chapter. Age of Rebellion Core Rulebook discusses ISB in the context of Imperial organization. Cyphers and Masks (Spy sourcebook) provides the most operational detail on ISB methods and jurisdictional conflicts with Imperial Intelligence. Dawn of Rebellion covers the ISB Academy and COMPNOR structure.",
+  "field_sources": {
+    "motivations": "Cyphers and Masks, COMPNOR/ISB sections; Dawn of Rebellion, ISB Academy",
+    "goals": "Age of Rebellion Core Rulebook, Imperial organization; Cyphers and Masks, ISB operations",
+    "methods": "Cyphers and Masks, ISB field operations and Coalition for Progress data feeds",
+    "strengths": "Age of Rebellion Core Rulebook, ISB authority; Cyphers and Masks, override powers and detention authority",
+    "weaknesses": "Cyphers and Masks, ISB/Imperial Intelligence rivalry; Dawn of Rebellion, indoctrination limitations",
+    "behavior_under_threat": "Inferred from ISB authority structure and escalation protocols in Cyphers and Masks",
+    "tension_patterns": "Inferred from ISB operational friction described in Cyphers and Masks and Age of Rebellion Core Rulebook",
+    "regional_presence": "Age of Rebellion Core Rulebook, Imperial territorial control; inferred COMPNOR presence mirrors Imperial governance",
+    "mcguffin_interest": "Inferred from ISB intelligence-gathering mandate and counterintelligence focus"
+  }
+}

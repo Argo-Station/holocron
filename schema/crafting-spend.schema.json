@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/crafting-spend.schema.json",
+  "title": "Crafting Spend Entry",
+  "description": "One row of a crafting spend table — an improvement the crafter buys with Advantage/Triumph, or a flaw the GM imposes with Threat/Despair. Shape is concept `crafting-module-concept` §4.4 as AMENDED (Amendment 1, ruling `crafting-spend-cost-shape` Q1 option (a)). THE AMENDMENT IS THE POINT OF THIS FILE: §4.4 originally fixed the price as `cost {symbol, count}` — one symbol, one count — and Jason's completed worksheet falsified it within hours, because 26 of the 29 printed rows price as a CHOICE ('N Advantage OR 1 Triumph'). The implementer halted rather than widening a durable contract under build autonomy (R-Y2-1), and the answer was to adopt the encoding the combat spend tables already ship rather than invent a crafting dialect. PROVENANCE: the OCR of this table rendered its entire cost column as noise; every cost was read from the printed book by Jason, and R-CRAFT-4 makes that worksheet the only legal entry path.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "ogg_key", "cost", "req", "effect", "flags", "cite"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app-owned row id, unique across BOTH improvements and flaws within a category. Required (the combat spend tables never needed one): once-only enforcement and the GM's recorded flaw picks each reference a specific row, and a crafting session persists those references."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name exactly as printed, e.g. 'Efficient Construction'."
+    },
+    "ogg_key": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+$",
+      "description": "OggDude's `CraftImprovement` `Key` for this row (card `release-r5-crafting-sm` ADDENDUM 7, Q1 (a)): the starship rows' field and name, singular because one row stands for one OggDude row (a template's `ogg_keys` is plural because it can fold several). Unique within a category among rows of the same `flags.schematic`, not registry-wide (ruling `release-r5-crafting-up-dupkey` Q1 (a): OggDude doubles `IMPALCHTALDUP` inside one `TempType`, once as Clever Construction and once, with `<Schematic>true`, as the page's Blueprint); the guard is `test/release_r5_crafting_pins.cjs` P4. Written by `scripts/canonical/crafting_sm_batch.py` and `scripts/canonical/crafting_up_batch.py`. Read ONLY by `scripts/canonical/release_r5_accounted.py` (accounting): no import or export path reads it."
+    },
+    "exclusive_group": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Ruling `release-r5-crafting-up-dupkey` Q2 (a) (R-Y2-1): rows sharing a value within a category are ONE printed row that OggDude splits into versions; the value is the printed row's slug (`additional_power`, `empowered`, `mighty`, Unlimited Power p.85). Every member carries the same `flags.once_only`; when it is true, at most one member may be bought per craft (`craftStore.toggleRow` refuses a second). A group whose printed row has no 'once' (Additional Power) is not limited by the group. Whether a member fits a given item is said by its `effects` or `told`, never inferred from its name. Absent = the row is its own printed row."
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Ruling `release-r5-crafting-kp-c0` Q3b (R-Y2-1): a printed limit on how often, or on what, this row may be bought, other than \"(this can only be selected once)\" (that is `flags.once_only`). Read by ONE function, craftStore.limitOf(row, base, timesTaken), which eligible, spendLedger, toggleRow, takeAgain and buildItem all call. Sized across every crafting page the programme holds (brief `release-r5-crafting-kp-c0` Q3): one count cap, one refusal. A conditional effect (\"If the weapon has …\") stays on its effect (`if_present`) or `told`; a value clamp stays on its effect (`cap`/`floor`); a limit on another item stays `told`.",
+      "properties": {
+        "max_count": {
+          "type": "integer",
+          "minimum": 2,
+          "description": "The times this row may be bought on one project: \"to a maximum of N\" (Extra Hard Point, Keeping the Peace printed 91). `once_only` means 1; the two together are an error."
+        },
+        "max_value": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Ruling `release-r6-companions-c0` Q2 (R-R6CC-2): \"to a maximum of N\" capping the NUMBER the row moves, not the count (Deflective Carapace, Narrow Profile: \"to a maximum of 2\", Special Modifications printed 81). Read only by craftStore.limitOf: refused once the base's value plus this row's purchases reach N."
+        },
+        "not_for": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The row is refused when ANY predicate holds on the template's BASE item (its result_profile after its own effects and choice; never the running record, so purchase order cannot change the answer). A CLOSED grammar, grown only by ruling.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["field", "is"],
+            "properties": {
+              "field": { "enum": ["hands", "tier"], "description": "The base item's field read. `tier`: the droid's tier (ruling release-r6-companions-c0 Q2: Adaptive Programming \"cannot be applied to minion droids\", Special Modifications printed 83); its base is the droid being programmed." },
+              "is": { "enum": ["one_handed", "two_handed", "minion"], "description": "The value that refuses the row: \"cannot be selected for a two-handed lightsaber\" (Endless Vigil printed 87) is {field: hands, is: two_handed}." }
+            }
+          }
+        }
+      }
+    },
+    "cost": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\[(AD|TR|TH|DE|LI|DA)\\](\\[(AD|TR|TH|DE|LI|DA)\\])*( or \\[(AD|TR|TH|DE|LI|DA)\\](\\[(AD|TR|TH|DE|LI|DA)\\])*)*$",
+      "description": "Human-facing price as glyph tokens, same convention as spend_tables.json (e.g. '[AD][AD] or [TR]'). CANONICAL REGISTRY CONTENT, not a persisted projection — the double-brawn guardrail governs character saves, not source data. MUST agree with `req`: the guard derives this string from `req` and compares, so a hand-edit to one that misses the other fails loudly rather than shipping a price the display and the engine disagree about."
+    },
+    "req": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The alternatives that satisfy this row's price. ANY ONE ENTRY PAYS — this is an OR, never an AND. Length 1 is a single-price row (3 of the 29 melee rows: Concussive Quality and Integral Attachment at 2 Triumph, Hidden Flaw at 2 Despair — the ladder deliberately putting them out of Advantage's reach).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "minProperties": 1,
+        "maxProperties": 1,
+        "description": "One way to pay: a single symbol key and how many of it. The FIXED vocabulary is ad · tr · th · de (Advantage, Triumph, Threat, Despair), plus ls · ds (light-side and dark-side results), placed on paper by `release-r5-crafting-contract` R-R5CC-4 for the alchemy tables. A row needing any other key is a FRESH R-SY4 HALT, not a quiet addition — the ruling that set this vocabulary applied its own medicine to itself.",
+        "properties": {
+          "ad": { "type": "integer", "minimum": 1, "description": "Advantage. Improvements only." },
+          "tr": { "type": "integer", "minimum": 1, "description": "Triumph. Improvements only." },
+          "th": { "type": "integer", "minimum": 1, "description": "Threat. Flaws only." },
+          "de": { "type": "integer", "minimum": 1, "description": "Despair. Flaws only." },
+          "ls": { "type": "integer", "minimum": 1, "description": "Light-side result on a Force die (`release-r5-crafting-contract` R-R5CC-4: the alchemy tables price the crafter's rows in light-side results). Improvements only; displayed as [LI]. Spent here, never turned into Force points (Unlimited Power p.80)." },
+          "ds": { "type": "integer", "minimum": 1, "description": "Dark-side result on a Force die (R-R5CC-4: the GM's alchemy rows). Flaws only; displayed as [DA]." }
+        }
+      }
+    },
+    "effect": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the row does, in this project's own plain mechanical voice — NOT the book's prose (F-EDS-6 is retiring FFG prose from shipped registries). Display text. What the engine APPLIES is `effects` (or nothing, for a `told` row) — `release-r5-crafting-contract` R-R5CC-1 retired the closed code map that used to stand behind this string."
+    },
+    "effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "item-common.schema.json#/$defs/base_mods/items/properties/effect" },
+      "description": "R-R5CC-1 (`release-r5-crafting-contract`): what the row does to the crafted ITEM, in the SHARED item grammar — the option effect an attachment line carries (item-common.schema.json base_mods.effect), limited to the ops ItemResolve's option writers apply: quality_add, damage_delta, crit_delta, encumbrance_delta (+ floor), range_delta, defense_delta, soak_delta, hands_set, hard_points_delta, quality_grant; plus qualities_reduce, pool_mod and item_character_effect. lib/shared/crafting.js hands the list to ItemResolve.applyInstalledAttachments as one inline attachment and owns no arithmetic. EXACTLY ONE of effects / vehicle_effects / told on every row (ruling release-r5-crafting-fib-c0 Q2)."
+    },
+    "droid_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/droid_effect" },
+      "description": "Ruling `release-r6-companions-c0` Q2 (a) (R-R6CC-2; R-Y2-1): what a DROID row does to the droid it builds or programs, applied at RENDER by the one droid resolver (`droidOf`, lib/shared/companions.js) to the chassis profile. The character grammar's op NAMES with their one meaning each (soak_delta, wound_threshold_delta, defense_delta, characteristic_delta, skill_rank_delta: `charbuild-common` $defs/effect), plus the closed droid ops (silhouette_delta, skill_add, talent_add, talent_rank_delta, cybernetic_add, trait_add). Its own small shape rather than a $ref, because $defs/effect's allOf binds skill_rank_delta to a Force cost, which a droid row never carries. A `target: chosen` op reads the purchase's pick (`picks['<row id>#<n>']`, R-R6CC-5)."
+    },
+    "vehicle_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          { "$ref": "charbuild-common.schema.json#/$defs/vehicle_effect" },
+          { "properties": { "op": { "enum": ["passengers_delta", "armor_delta"] } } }
+        ]
+      },
+      "description": "Ruling `release-r5-crafting-fib-c0` Q2 (a) (R-Y2-1): what a FORTIFICATION row does to a vehicle number of the fortification (Forged in Battle printed 85), in the shared vehicle grammar ($defs/vehicle_effect), limited here to passengers_delta (occupancy) and armor_delta (a bunker's armour). Applied by SWRPGVesselResolve.resolve, called by craftStore.fortificationOf with the rows as installed parts in purchase order; an op whose number the fortification does not carry is not applied and is returned in `unapplied` (Q4a (a): \"if applicable\" is a conditional effect). EXACTLY ONE of effects / vehicle_effects / told on every row; a row needing two is a brief."
+    },
+    "told": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason"],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Why the app does not apply it, in plain words; shown with the row's text and cite."
+        }
+      },
+      "description": "R-R5CC-1: a row the shared grammar cannot express — a character write at craft time (strain, Conflict, a Critical Injury), a session or tools effect, or a sheet write (the schematic, ADDENDUM 3). Shown as its text with its cite and remembered (craft_notes), never applied (R-WS-5)."
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["once_only", "persistent", "rolls_subtable", "schematic", "extra_copy", "on_failure"],
+      "description": "All four ship on every row regardless of whether melee uses them (R-CRAFT-2 — retrofitting a flag under live data is the expensive path the rider forecloses). Melee's carriers, now confirmed: 9 once_only, 2 persistent, 0 rolls_subtable.",
+      "properties": {
+        "once_only": {
+          "type": "boolean",
+          "description": "Printed 'this can only be selected once'. Enforced BY DISPLAY at the surface (concept §4.1), which is why the row needs a stable id."
+        },
+        "persistent": {
+          "type": "boolean",
+          "description": "Outlives the crafting session. Melee's two: Schematic (permanently reduces this template's difficulty for all future builds — the cross-session class the concept cites the droid Program Pattern for) and Hidden Flaw (persists on the weapon until repaired)."
+        },
+        "rolls_subtable": {
+          "type": "boolean",
+          "description": "Resolves by rolling on a further table (droid personality is a d100 table). No melee row uses it; droids are last by design."
+        },
+        "schematic": {
+          "type": "boolean",
+          "description": "`release-r5-crafting-contract` ADDENDUM 3: the category's SCHEMATIC row. Buying it on a finished project adds 1 to that template's `sheet.craft_schematics` level (R-R5CC-3); on the item it is `told`. Required on every row like its siblings (R-CRAFT-2); false everywhere but the schematic rows, at most one true per category (test/release_r5_crafting_data.cjs)."
+        },
+        "extra_copy": {
+          "type": "boolean",
+          "description": "Ruling `release-r5-crafting-up-extra-copy` Q1 (a) (R-Y2-1): the row's printed text makes one more of the finished thing ('two ... instead of one': Large Batch, Unlimited Power p.82; Clever Construction, p.85). On the item the row is `told`; when a FINISHED project's bought rows include it, the landing arm lands one more `{_inline: record}` of the same record (craftStore.buildItem's copies). A failed check lands nothing. One more, never a count. Required on every row like its siblings (R-CRAFT-2); the true set is pinned by id (test/release_r5_crafting_pins.cjs)."
+        },
+        "on_failure": {
+          "type": "boolean",
+          "description": "Ruling `release-r5-crafting-ev-on-failure` Q1 (a) (R-Y2-1): the row's printed symbol cell says '(failed check)' (Learning Experience, Horrible Accident; Endless Vigil Table 3-12, printed 87). Read by the spend (craftStore.affordable): on a FAILED outcome only on_failure rows are affordable; on a successful one they never are. Such a row is `told` and lands nothing (contract ADDENDUM 3: a failed check buys nothing that LANDS). Required on every row like its siblings (R-CRAFT-2); the true set is pinned by id (test/release_r5_crafting_pins.cjs)."
+        }
+      }
+    },
+    "cite": {
+      "type": "string",
+      "pattern": "^.+ p\\.[0-9]+$",
+      "description": "Page cite in PRINTED numbering (this book's corpus runs +3). Required per row and worksheet-sourced — no cite, no claim."
+    },
+    "corrections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "from", "to", "cite", "why"],
+        "properties": {
+          "field": { "type": "string", "minLength": 1, "description": "The dotted path of the corrected value on this record (e.g. `flags.once_only`)." },
+          "from": { "description": "OggDude's value." },
+          "to": { "description": "The book's value, EQUAL to the record's value at `field`." },
+          "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$", "description": "The printed page that reads it." },
+          "why": { "type": "string", "minLength": 1, "description": "What the page reads, naming the DECISIONS id that read it." }
+        }
+      },
+      "description": "Card `release-r5-board-answers` K2 (R-Y2-1, on paper there): vehicle-weapons' `corrections` item shape, adopted for a crafting row: a value the book prints otherwise than OggDude, held at the book's value. Jason's read of a book board turns an `inferred` entry into one (DECISIONS D-321: Faulty and Ion-Shielded are not once only). No field sits in both `corrections` and `inferred`. Absent = the row holds OggDude's values wherever the page agrees."
+    },
+    "inferred": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "value", "from", "cite", "why"],
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The dotted path of the inferred value on this record (e.g. `req`, `result_profile.crit`)."
+          },
+          "value": { "description": "The value held, EQUAL to the record's value at `field` (a guard proves it)." },
+          "from": { "const": "oggdude" },
+          "cite": {
+            "type": "string",
+            "pattern": "^.+ p\\.[0-9]+$",
+            "description": "The printed page whose text lost the value."
+          },
+          "why": { "type": "string", "minLength": 1, "description": "What the page lost." }
+        }
+      },
+      "description": "`release-r5-crafting-sm-card` ADDENDUM 2 (R-Y2-1), exactly `release-r5-data-card` ADDENDUM 6's shape — one shape, two registries: a value the printed page lost (a cost glyph, a damaged cell), held at OggDude's value until Jason reads the book's board. His read turns an entry into a page correction or removes it. Absent = every value on this record is read off the page."
+    }
+  },
+  "oneOf": [
+    { "required": ["effects"], "not": { "anyOf": [{ "required": ["vehicle_effects"] }, { "required": ["told"] }, { "required": ["droid_effects"] }] } },
+    { "required": ["vehicle_effects"], "not": { "anyOf": [{ "required": ["effects"] }, { "required": ["told"] }, { "required": ["droid_effects"] }] } },
+    { "required": ["told"], "not": { "anyOf": [{ "required": ["effects"] }, { "required": ["vehicle_effects"] }, { "required": ["droid_effects"] }] } },
+    { "required": ["droid_effects"], "not": { "anyOf": [{ "required": ["effects"] }, { "required": ["vehicle_effects"] }, { "required": ["told"] }] } }
+  ],
+  "if": { "properties": { "flags": { "properties": { "once_only": { "const": true } } } } },
+  "then": { "not": { "properties": { "limits": { "required": ["max_count"] } }, "required": ["limits"] } },
+  "$defs": {
+    "droid_effect": {"type": "object", "additionalProperties": false, "required": ["op"], "properties": {"op": {"enum": ["soak_delta", "wound_threshold_delta", "defense_delta", "characteristic_delta", "skill_rank_delta", "silhouette_delta", "skill_add", "talent_add", "talent_rank_delta", "cybernetic_add", "trait_add"]}, "amount": {"type": "integer", "minimum": 1}, "target": {"enum": ["melee", "ranged", "chosen"]}, "max": {"type": "integer", "minimum": 1, "description": "a value cap on the moved number (characteristic_delta: 6)"}, "floor": {"type": "integer", "minimum": 0, "description": "a value floor (silhouette_delta: 0)"}, "group": {"enum": ["general", "combat", "knowledge", "social"], "description": "skill_add: the skills.vocab group the new skill is picked from"}, "rank": {"type": "integer", "minimum": 1}, "talent": {"type": "string", "pattern": "^[a-z0-9_]+$", "description": "talent_add: a talents.json id"}, "polarity": {"enum": ["positive", "negative"]}, "how": {"enum": ["chosen", "rolled", "secret"], "description": "trait_add: chosen by the crafter or GM, rolled on Table 3-11, or the GM's secret"}}, "allOf": [{"if": {"properties": {"op": {"const": "defense_delta"}}}, "then": {"required": ["target", "amount"], "properties": {"target": {"enum": ["melee", "ranged"]}}}}, {"if": {"properties": {"op": {"enum": ["soak_delta", "wound_threshold_delta"]}}}, "then": {"required": ["amount"], "not": {"anyOf": [{"required": ["target"]}, {"required": ["group"]}, {"required": ["talent"]}]}}}, {"if": {"properties": {"op": {"enum": ["characteristic_delta", "skill_rank_delta", "talent_rank_delta", "silhouette_delta"]}}}, "then": {"required": ["target", "amount"], "properties": {"target": {"const": "chosen"}}}}, {"if": {"properties": {"op": {"const": "cybernetic_add"}}}, "then": {"required": ["target"], "properties": {"target": {"const": "chosen"}}}}, {"if": {"properties": {"op": {"const": "skill_add"}}}, "then": {"required": ["group", "rank"]}}, {"if": {"properties": {"op": {"const": "talent_add"}}}, "then": {"required": ["talent", "rank"]}}, {"if": {"properties": {"op": {"const": "trait_add"}}}, "then": {"required": ["polarity", "how"]}}]}
+  }
+}

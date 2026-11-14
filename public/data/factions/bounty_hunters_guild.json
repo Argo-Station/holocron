@@ -1,0 +1,292 @@
+{
+  "id": "bounty_hunters_guild",
+  "name": "Bounty Hunters' Guild",
+  "type": "mercenary_org",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "No Disintegrations",
+    "Collapse of the Republic",
+    "Edge of the Empire Core Rulebook"
+  ],
+  "overview": "The Bounty Hunters' Guild is the galaxy's primary professional association for licensed bounty hunters, providing contract distribution, arbitration, armory access, and gear discounts to dues-paying members. Operating under Imperial Peacekeeping Certificate (IPKC) licensing through the Empire, the Guild enforces codes of conduct and self-policing mechanisms that give it legitimacy — and Imperial tolerance. The Guild exists in perpetual tension between its institutional structure and the fiercely independent nature of its members.",
+  "short_descriptor": "Reliable within their code. Outside it, variable. Confirm Guild affiliation before assuming professional conduct applies. Not everyone carrying a puck is registered.",
+  "witness_statement": {
+    "text": "Had a guild hunter track me across four systems over a bounty I didn't even know existed. When he caught up, he showed me the puck, confirmed my identity, and then told me the posting was fraudulent — wrong name, wrong charges. He filed a dispute with his chapter house and bought me a drink while we waited. Next day a different hunter showed up who wasn't so particular about paperwork.",
+    "source": "Skip-trace survivor, Ord Mantell, interviewed at cantina",
+    "verification": "PROVISIONAL — AWAITING CORROBORATION"
+  },
+  "how_they_operate": [
+    {
+      "heading": "A PROFESSIONAL ASSOCIATION",
+      "text": "The Guild functions as a professional association, not a military hierarchy — hunters pay dues, receive contracts through local chapter houses, and operate independently in the field."
+    },
+    {
+      "heading": "CONTRACTS",
+      "text": "Contract distribution flows from the Guild leadership council through regional coordinators to chapter houses, where individual hunters claim bounties posted as holographic pucks containing target identification and terms."
+    },
+    {
+      "heading": "THE IPKC",
+      "text": "The Imperial Peacekeeping Certificate (IPKC) is the linchpin: only licensed Guild members can legally collect bounties under Imperial law, giving the institution leverage over both hunters and clients."
+    },
+    {
+      "heading": "MEMBER PRIVILEGES",
+      "text": "Armories, safe houses, and intelligence-sharing networks are available exclusively to dues-paying members, creating a material advantage over freelancers."
+    },
+    {
+      "heading": "DISCIPLINE",
+      "text": "Self-policing is handled through internal enforcers and arbitration panels at the chapter-house level, with credential revocation and blacklisting as the primary disciplinary tools. Hunters who violate the Guild's codes of conduct — taking unsanctioned kills, claiming another hunter's target, or damaging the Guild's Imperial relationship — face loss of IPKC licensing, which effectively ends a legal bounty hunting career."
+    }
+  ],
+  "motivations": {
+    "primary": "Institutional survival",
+    "secondary": [
+      "Maintain Imperial licensing monopoly on legal bounty hunting",
+      "Ensure contract integrity and payment enforcement",
+      "Preserve guild authority over freelance competition",
+      "Provide member services that justify dues and loyalty"
+    ],
+    "notes": "The Guild's primary motivation is perpetuating itself as the legitimate arbiter of bounty hunting. Individual hunters are motivated by credits, reputation, and survival — the Guild channels those drives into an institutional framework that benefits from every contract fulfilled. The tension between guild authority and hunter independence is the defining internal friction."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain the IPKC licensing system as the only legal framework for bounty hunting under Imperial law",
+      "Ensure the Guild remains the primary conduit for high-value contracts from Imperial and corporate clients",
+      "Prevent freelance hunters and rival organizations from undermining guild authority and pricing"
+    ],
+    "operational": [
+      "Distribute contracts efficiently and fairly among qualified members",
+      "Arbitrate disputes between members over target claims and territorial conflicts",
+      "Maintain armories, safe houses, and intelligence networks that give members an operational edge",
+      "Self-police members who violate guild codes to preserve the organization's Imperial relationship"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "negotiation",
+      "legal_pressure",
+      "hired_muscle",
+      "information_control",
+      "intimidation"
+    ],
+    "avoided": [
+      "Open warfare — the Guild is a professional association, not a military force",
+      "Political entanglements — the Guild serves whoever pays, maintaining neutrality between factions",
+      "Assassination without contract — unsanctioned kills damage the Guild's legitimate reputation"
+    ],
+    "notes": "The Guild operates through institutional leverage rather than direct force. Its power comes from controlling access to contracts, licensing, and the Imperial relationship. Members who step out of line face loss of guild privileges, blacklisting, or internal enforcement. The Guild's armories and intelligence networks give compliant members significant operational advantages over freelancers."
+  },
+  "strengths": [
+    "IPKC licensing provides legal authority that freelancers cannot match — guild hunters operate with Imperial sanction",
+    "Contract distribution network ensures steady work flow and vetted payment for members",
+    "Armories, gear discounts, and intelligence networks give members operational superiority over independents",
+    "Self-policing mechanisms maintain internal discipline without Imperial intervention",
+    "Diverse membership spanning dozens of species and specializations provides flexibility for any contract type"
+  ],
+  "weaknesses": [
+    "Elite hunters such as Boba Fett operate successfully outside guild structure, demonstrating that the institution is not necessary for top-tier professionals.",
+    "The Imperial licensing relationship requires the Guild to accept politically motivated contracts, eroding the neutrality that sustains its broader client base.",
+    "Dues requirements and codes of conduct incentivize the most skilled hunters to pursue freelance work, creating a talent drain toward independence.",
+    "Guild arbitration processes are slow and frequently contested, leading members to resolve target-claim and territorial disputes through violence outside official channels.",
+    "IPKC-based authority depends entirely on Imperial enforcement; in regions beyond effective Imperial control, guild licensing carries no practical weight."
+  ],
+  "behavior_under_threat": {
+    "low": "Invoke guild protocols. File formal complaints. Apply economic pressure through contract blacklisting.",
+    "medium": "Deploy guild enforcers to resolve the situation. Revoke credentials and access for non-compliant members. Lean on Imperial contacts for legal backing.",
+    "high": "Mobilize multiple hunter teams. Coordinate with Imperial authorities if the threat overlaps with Imperial interests. Offer bounties on the threat itself through guild channels.",
+    "critical": "The Guild fractures under existential pressure — individual hunters prioritize personal survival over institutional loyalty. Leadership attempts to negotiate terms while members scatter or defect."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Individual guild hunter on contract",
+      "Local guild chapter house",
+      "Regional guild coordinator",
+      "Guild leadership council"
+    ],
+    "notes": "Guild communication is fast but decentralized. Hunters on contract report to local chapter houses, which aggregate intelligence and escalate to regional coordinators. The Guild maintains encrypted comlink networks, but hunters in the field often operate autonomously for days or weeks before checking in. Urgent escalation happens when a contract goes wrong or a guild member is killed — at that point, the response is rapid and coordinated."
+  },
+  "tension_patterns": [
+    "Guild exclusivity claims on targets are unenforceable against independent hunters and freelance crews who do not recognize guild authority, producing regular jurisdictional conflicts in the field.",
+    "Fraudulent bounty postings from clients who lack the means or intent to pay are a systemic problem, leaving guild hunters with completed contracts and no recourse through guild channels.",
+    "Duplicate target claims between guild members are common when chapter houses distribute the same bounty to multiple hunters, and the arbitration process is slow enough that disputes escalate before resolution.",
+    "Guild members who accept undisclosed syndicate contracts create institutional corruption that threatens the guild's Imperial licensing relationship if exposed.",
+    "Politically motivated Imperial bounty postings against popular local figures damage guild hunters' operational relationships in the affected sector for subsequent contracts."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "patrol",
+    "economic": "patrol",
+    "command": "skeleton",
+    "informational": "patrol",
+    "military": "skeleton",
+    "hidden": "patrol",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "low",
+    "weapon": "medium",
+    "person": "high",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "The Guild is primarily interested in persons — targets are the core business. Data that leads to target locations, identity confirmations, or client intelligence is highly valued. Weapons and technology matter insofar as they provide operational advantages for hunters. Contraband and artifacts are only relevant when they are the subject of a retrieval contract."
+  },
+  "ally_factions": [
+    "imperial_military"
+  ],
+  "enemy_factions": [],
+  "relationship_notes": {
+    "imperial_military": "The IPKC licensing system makes the Guild a quasi-official arm of Imperial law enforcement. The Empire provides legal authority; the Guild provides deniable enforcement capacity the military cannot or will not deploy.",
+    "imperial_security_bureau": "The ISB occasionally uses guild hunters for acquisition targets that require plausible deniability. The relationship is transactional and neither side trusts the other.",
+    "hutt_cartel": "The Hutts are the Guild's largest non-Imperial client base. Hutt contracts pay well but often involve deception about the true nature or danger of the target.",
+    "black_sun": "Vigo Clezo's holdings include House Tresario and other bounty hunting groups within the Guild. Black Sun's influence is a source of institutional corruption that guild leadership tolerates because the credits flow.",
+    "rebel_alliance": "The Guild takes Imperial contracts against Rebel operatives. Individual hunters may sympathize with the Rebellion, but the institution serves whoever pays — and the Empire pays consistently."
+  },
+  "regional_presence": {
+    "deep_core": "minimal",
+    "core_worlds": "moderate",
+    "colonies": "moderate",
+    "inner_rim": "moderate",
+    "expansion_region": "moderate",
+    "mid_rim": "significant",
+    "outer_rim": "significant",
+    "hutt_space": "significant",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Boba Fett",
+      "role": "Independent hunter (guild-adjacent)",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "BOBA_FETT",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "The galaxy's most feared bounty hunter operates largely outside guild structure, demonstrating that elite hunters do not need the Guild. His reputation both elevates and undermines the profession — clients seek guild hunters hoping for Fett-level results at guild-level rates.",
+      "network_assessment": "Fett is the standard everyone else is measured against and nobody reaches. He works alone, takes the contracts he chooses, and delivers every time. If he's been hired to find you, change your name and your face. Then change them again.",
+      "wants": "High-value contracts that challenge his capabilities. Credits are secondary to professional reputation — he takes the impossible jobs because they maintain his standing.",
+      "secret": "His Mandalorian armor and combat capabilities suggest a connection to the Mandalorian warrior tradition, but the details of his origin and training remain unverified by any credible source.",
+      "behavior": {
+        "under_pressure": "Becomes more methodical, not more reckless. He calculates exit strategies before entering any engagement and always has a contingency.",
+        "when_losing": "Disengages, reassesses, and returns with a better plan. Fett does not allow ego to override tactical judgment — a rare quality in his profession.",
+        "loyalty": "Loyal to the contract and to his own professional code. He does not betray clients, abandon contracts, or accept counter-offers from targets.",
+        "tells": "When Fett asks questions about a target's routine rather than their location, he's already found them and is planning the approach."
+      },
+      "useful_to_players": [
+        "His independence from the Guild means he can be hired without guild paperwork or Imperial licensing complications",
+        "His professional code means a completed contract stays completed — he won't come back for the same target on a second posting",
+        "His reputation can be leveraged indirectly — the rumor that Fett is hunting someone changes their behavior even if he isn't actually on the case"
+      ],
+      "hooks": [
+        "Slave I was spotted refueling at a station in the Outer Rim that nobody uses except people who don't want to be tracked. Fett's working something off the grid.",
+        "A client posted a bounty that specifically requests Fett by name and nobody else. The payout is triple standard rate. Whatever the target is, it's not a standard skip-trace."
+      ]
+    },
+    {
+      "name": "Bossk",
+      "role": "Senior guild hunter",
+      "suggested_tier": "rival",
+      "stat_block_ref": "BOSSK",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "Trandoshan hunter with a reputation for ruthlessness. Operates within guild channels when convenient but has a history of violating guild codes when a target proves especially valuable or personal. His rivalry with Boba Fett is well-known.",
+      "network_assessment": "Bossk is effective and unpredictable. He'll follow guild rules until they inconvenience him, then he follows his instincts instead. His Trandoshan aggression makes him dangerous to targets and colleagues alike.",
+      "wants": "Enough high-profile captures to close the reputation gap with Boba Fett. The rivalry drives him more than credits do.",
+      "secret": "His violations of guild codes have been documented but not enforced because his capture rate is too high to lose. The Guild needs him more than he needs the Guild.",
+      "behavior": {
+        "under_pressure": "Becomes more aggressive. Trandoshan hunting instincts override professional discipline, leading to collateral damage and escalation.",
+        "when_losing": "Refuses to disengage. His predator biology resists retreat, which makes him dangerous but also exploitable — he'll follow a baited withdrawal.",
+        "loyalty": "Loyal to his Trandoshan hunting traditions first, to credits second, and to guild rules a distant third.",
+        "tells": "When Bossk takes a contract below his usual rate, the target has personal significance — either a grudge, a Wookiee connection, or a chance to outperform Fett."
+      },
+      "useful_to_players": [
+        "His willingness to bend guild rules means he can be hired for contracts that the Guild officially wouldn't sanction",
+        "His rivalry with Fett can be exploited — suggest that Fett was offered the contract first and Bossk will take it out of spite",
+        "His aggression makes him predictable in pursuit — he'll take the direct approach when subtlety would serve better"
+      ],
+      "hooks": [
+        "Bossk just turned down three standard bounties in a row. He's waiting for something specific, which means he has advance intelligence on a high-value posting.",
+        "A Wookiee trader went missing in the same system where Bossk's ship was last docked. That's not a coincidence — Trandoshans and Wookiees have a species-level grudge."
+      ]
+    },
+    {
+      "name": "Cad Bane",
+      "role": "Elite hunter (prequel era)",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "CAD_BANE",
+      "era": [
+        "prequel",
+        "imperial"
+      ],
+      "notes": "Duros bounty hunter who rose to prominence during the Clone Wars. Known for taking contracts against Jedi — among the most dangerous targets in the galaxy. His methods set the standard for the profession's most dangerous practitioners.",
+      "network_assessment": "Cad Bane hunted Jedi during the Clone Wars and survived. That sentence should tell you everything you need to know about his capabilities. He wrote the playbook for fighting Force users, and the Inquisitors borrowed from it.",
+      "wants": "The most dangerous and highest-paying contracts available. His reputation is built on taking targets that would kill lesser hunters.",
+      "secret": "His Clone Wars-era contacts include Separatist intelligence operatives and underworld figures who are still active in the Imperial era under different names and allegiances.",
+      "behavior": {
+        "under_pressure": "Cold and tactical. Bane has faced Jedi in combat — conventional pressure does not register. He plans for worst-case scenarios as a baseline.",
+        "when_losing": "Uses prepared escape routes and contingencies. Unlike Bossk, Bane will disengage tactically and return when conditions favor him.",
+        "loyalty": "Loyal exclusively to the contract and to his own survival. He has no organizational allegiance, no code of honor, and no sentiment.",
+        "tells": "When Bane starts asking about a target's associates rather than the target directly, he's planning to use those associates as bait or leverage."
+      },
+      "useful_to_players": [
+        "His experience against Force users makes him uniquely valuable as a consultant or ally when facing Inquisitors or other dark side threats",
+        "His Clone Wars contacts extend into circles that most Imperial-era operators cannot access",
+        "His purely mercenary approach means he can be outbid — he has no loyalty that credits cannot override"
+      ],
+      "hooks": [
+        "Cad Bane was seen on Nar Shaddaa buying specialized equipment — cortosis-weave components and EMP grenades. That's anti-lightsaber kit. Someone hired him for a Force-user target.",
+        "A bounty posting appeared on three guild boards simultaneously, withdrawn within an hour. The fee was absurd. Bane claimed it before anyone else even read the terms."
+      ]
+    },
+    {
+      "name": "Aurra Sing",
+      "role": "Independent hunter and assassin",
+      "suggested_tier": "rival",
+      "stat_block_ref": "AURRA_SING",
+      "era": [
+        "prequel",
+        "imperial"
+      ],
+      "notes": "A lethal hunter who blurs the line between bounty hunting and assassination. Her willingness to take any contract regardless of target or collateral damage represents the profession's darkest edge.",
+      "network_assessment": "Aurra Sing doesn't draw lines. Bounty, assassination, collateral — it's all the same job to her. She's effective because she has no constraints that other hunters maintain. That makes her useful and horrifying in equal measure.",
+      "wants": "Credits and the thrill of the hunt. She takes contracts for the experience as much as the pay, which makes her pricing unpredictable.",
+      "secret": "Her marksmanship and reflexes suggest Force sensitivity or training exposure that she does not discuss. The source of her abilities is deliberately obscured.",
+      "behavior": {
+        "under_pressure": "Becomes more reckless, not less. She enjoys pressure situations and treats escalation as entertainment.",
+        "when_losing": "Scorches the field. If she can't complete the contract, she ensures the situation is as damaged as possible for everyone involved.",
+        "loyalty": "Loyal to no one. Partnerships are temporary arrangements of convenience that she will abandon or betray the moment the calculation changes.",
+        "tells": "When Aurra Sing accepts a contract below market rate, the target has personal significance to her — old grudge, old rival, or someone connected to her past."
+      },
+      "useful_to_players": [
+        "Her willingness to take any contract means she can be hired for operations that no guild hunter would accept",
+        "Her unpredictability makes her a poor long-term ally but an effective short-term weapon pointed at a specific problem",
+        "Her lack of loyalty means she can be turned against a current employer if the counter-offer is compelling enough"
+      ],
+      "hooks": [
+        "Aurra Sing was spotted buying a high-end sniper scope on Ord Mantell — custom job, specific calibration. That's a precision kill at range, not a capture contract.",
+        "A bounty hunter who crossed Sing three years ago just left the Outer Rim in a hurry. She doesn't forget, and she doesn't hurry — which means she's getting close."
+      ]
+    }
+  ],
+  "source_material_notes": "No Disintegrations (the Bounty Hunter career sourcebook) is the primary source for Guild structure, IPKC licensing, codes of conduct, armory access, and the guild-vs-freelancer tension. Collapse of the Republic covers Clone Wars-era bounty hunting and key figures like Cad Bane. The Edge of the Empire Core Rulebook provides the foundational bounty hunter career framework and galaxy-level context for how hunters operate.",
+  "field_sources": {
+    "motivations": "No Disintegrations, Guild structure and licensing chapters; EotE Core, bounty hunter career description",
+    "goals": "No Disintegrations, IPKC licensing and contract distribution systems",
+    "methods": "No Disintegrations, Guild codes of conduct, armory access, and self-policing mechanisms",
+    "strengths": "No Disintegrations, Guild member benefits and Imperial licensing advantages",
+    "weaknesses": "No Disintegrations, freelancer competition and guild authority limitations; inferred from Boba Fett's independent success",
+    "behavior_under_threat": "Inferred from Guild self-policing mechanisms and decentralized structure described in No Disintegrations",
+    "tension_patterns": "Inferred from guild-vs-freelancer tension, contract disputes, and Imperial relationship pressures in No Disintegrations",
+    "regional_presence": "EotE Core, bounty hunter operational zones; No Disintegrations, chapter house locations",
+    "mcguffin_interest": "Inferred from core business model — person acquisition contracts and supporting intelligence"
+  }
+}

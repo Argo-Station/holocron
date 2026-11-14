@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/item-common.schema.json",
+  "title": "ItemCommon",
+  "description": "Shared field $defs for catalog item-like entities (armor, gear; weapon aligns to these later). Defined ONCE so the common economics/provenance can't drift between registries. Referenced via $ref by armor.schema.json + gear.schema.json. Not an entity itself — a $def library.",
+  "$defs": {
+    "price": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Base price in credits; coerced from the OggDude string Price."
+    },
+    "rarity": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Rarity rating; coerced from string Rarity."
+    },
+    "encumbrance": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Encumbrance; coerced from string Encumbrance."
+    },
+    "hardpoints": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Customization hard points; coerced from OggDude field HP."
+    },
+    "restricted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Restricted/illegal flag. OggDude string 'true' | boolean | absent -> coerce, default false."
+    },
+    "store_hidden": {
+      "type": "boolean",
+      "description": "True = the store UI never offers this record. THIS IS THE LIVE SEMANTICS, not documentation: the store's catalog (lib/store/view.jsx buildCatalog) skips a weapon, armor or gear record carrying it. Used for records that exist so something can REFERENCE them -- a rules profile like `unarmed`, NPC-only kit, a pregen's authored prop (gear fine_clothing, salvage_parts) -- which would otherwise render as buyable stock. Declared for weapons by R-WRF-1 (ruling b299-b308-weapon-record-fields); ONE definition here since R-FIL-8(a) / R-FILC-6(a) (B-897), referenced by weapon and gear (armor carries none, and no consumer asked)."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tag taxonomy from OggDude Categories.Category (list | scalar) for browse/filter."
+    },
+    "book_page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["book", "page"],
+      "properties": {
+        "book": { "type": "string", "minLength": 1 },
+        "page": { "type": "integer", "minimum": 1 }
+      },
+      "description": "B-151 (DECISIONS D-464; ruling release-r7-bug-burndown ADDENDUM 492 Q1): the printed page where this item's entry starts. `book` is one member of the row's own `sources`, `page` is PRINTED, through swrpg_index.pdf_pages, and never a range. Written only by scripts/canonical/apply_item_book_pages.py. THE KEY IS `_book_page` ON PURPOSE: base refs, per-field anchors and derives all set a top-level `_` key aside. Under a key named `cite`, every user's copy of a book item would read a false 'the book changed' showing this object, so never copy it to `cite` on a row; test/b151_item_book_pages.cjs fails on that. No screen reads it yet: showing a page is a drawing for Jason's approval (R-MU1)."
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Books defining the item, from OggDude Sources.Source (list) OR the scalar Source. Mapped onto rules-index pdfs.alias where the seed map covers it; an unmapped name keeps the raw string (no data loss) and is reported for reconciliation — same policy as the weapon ingest."
+    },
+    "availability": {
+      "enum": ["catalog", "adversary", "unaudited"],
+      "default": "unaudited",
+      "description": "Player-buyable CATALOG vs lifted-ADVERSARY equipment vs UNAUDITED. Mirrors weapon.schema; the catalog-provenance audit folds over armor/gear eventually. Absent == 'unaudited'.",
+      "$comment": "PROVENANCE / audit tier, NOT the RAW availability check. RAW 'availability' is a Negotiation/Streetwise check whose difficulty derives from rarity + region at acquisition time (eote p.158-159) — a runtime computation, not an item property. This field records where the row came from / how trustworthy it is. Distinct concepts; do not conflate. See Docs/RULES_FOUNDATION_ITEMS.md."
+    },
+    "pool_mod_entry": {
+      "type": "object",
+      "description": "A single dice-pool modifier extracted from item prose (R-DPS-1..5, certified by R-PCA-1/R-PCH-2). Lives at item row level; from traces back to the mod object it was read from. `direction` is REQUIRED because certification is not optional: an entry that has been walked says which way it points, and one that has not says so with null.",
+      "additionalProperties": false,
+      "required": ["direction"],
+      "$comment": "F-100 THE SURFACING MISSION (card f100-surfacing-roll-options-card R-SRO-5, brief f100-surfacing-roll-options-vocab §3 as ruled at ADDENDUM 8): `count` moved from the entry's `required` into the die and symbol arms, so a `reroll` row (the third arm) carries no count; every die or symbol row still requires one. The reroll arm says `direction` is reroll inside its `not` (\"none of: a die … a direction other than reroll\"), as the die and symbol arms say \"not a reroll\" — written so, not as `properties.direction.const`, because a branch's property schema reads as narrowing the path for every record in test/share_projection.cjs ROW 3's walk (same accepted set; a disclosed departure from the brief's paper).",
+      "oneOf": [
+        { "required": ["die", "count"], "not": { "anyOf": [{ "required": ["symbol"] }, { "required": ["direction"], "properties": { "direction": { "const": "reroll" } } }] } },
+        { "required": ["symbol", "count"], "not": { "anyOf": [{ "required": ["die"] }, { "required": ["direction"], "properties": { "direction": { "const": "reroll" } } }] } },
+        { "required": ["direction", "limit", "applies_to"],
+          "not": { "anyOf": [{ "required": ["die"] }, { "required": ["symbol"] }, { "required": ["count"] }, { "required": ["count_of"] },
+                             { "required": ["per_rank"] }, { "required": ["floor"] }, { "required": ["from"] }, { "required": ["condition"] },
+                             { "required": ["direction"], "properties": { "direction": { "not": { "const": "reroll" } } } }] } }
+      ],
+      "properties": {
+        "dark": { "$ref": "charbuild-common.schema.json#/$defs/dark_key", "description": "TALENT entries only (roll-options card ADDENDUM 14 F2; refused elsewhere, L1cb.dark)." },
+        "id": { "$ref": "charbuild-common.schema.json#/$defs/row_id" },
+        "who": { "$ref": "charbuild-common.schema.json#/$defs/who", "description": "TALENT entries only (brief f100-surfacing-roll-options-f §5; refused elsewhere, L1cb.dark D5)." },
+        "symbol": { "enum": ["success", "advantage", "threat", "triumph"],
+          "description": "F-100 M8 C3 (R-M8K-3): an AUTOMATIC result added to the check (R-M8R-3: pool-side, as every same-dice tool does; RAW prints no general rule — brief §5 R9, REPORTED — so a talent's own words govern, e.g. Showboat's 'do not include the # or Y'). Exactly one of die | symbol. Ruled members: success advantage triumph failure threat despair; each enters with its first user on the character's own check (R-F100-9) — `advantage` entered at B2 with By the Book (its seed) and Design Flaw, their OCR-lost glyph read by Jason (f100-m8-build-card ADDENDUM 10, R-M8B-34; DECISIONS D-55); triumph, failure and despair have none in base (scripts/canonical/f100_m8_members.json: every user is an ally's or an opponent's check, TOLD). `threat` entered at F-100 M9 ON A SPECIES-ABILITY ROW ONLY (ruling f100-m9-build-card R-M9B-11, the R-M9S-3 pattern): its first user on the OWNER's own check is the Pau'an's Sensitive Hearing (Disciples of Harmony p.20: without ear protection, [TH] on Perception and Vigilance checks), folded by poolMods.augment's `_autoSymbols`; on a TALENT row and on a GEAR, ARMOUR or WEAPON row it stays refused ($defs/pool_mod_species_members_refused), because every such user's Threat lands on another's check. An ATTACHMENT row is admitted `threat` (F-100 M12, ruling f100-m12-census-card R-M12C-98; f100-m12-build-card R-M12B-53/-58): attachment.schema.json wraps its pool_mods with that def's FIRST arm only (the difficulty-upgrade refusal), as a weapon QUALITY row does (R-B219C-17), for Galven-pattern resequencing's two automatic Threat on checks made with its host weapon (`applies_to {scope: host_item}`). F-100 M12 (ruling f100-m12-census-card R-M12C-99, ENUM WIDENING 2; f100-m12-build-card step 3): `triumph` enters with its users on the owner's own check (a signature upgrade's automatic Triumph; Neutralizer and Power Broker (Improved) at GATE #2); SWRPGPoolMods' SYMBOLS already folds it as an automatic result." },
+        "cost": { "$ref": "charbuild-common.schema.json#/$defs/use_cost", "description": "TALENT entries only (R-M8K-4; refused on items, L1cb.prv)." },
+        "limit": { "$ref": "charbuild-common.schema.json#/$defs/use_limit", "description": "TALENT entries only (R-M8K-4; refused on items, L1cb.prv)." },
+        "cite": { "$ref": "charbuild-common.schema.json#/$defs/cite", "description": "TALENT entries only (R-M8K-9 (i), R-M8K-21; refused on items, L1cb.prv)." },
+        "floor": { "$ref": "charbuild-common.schema.json#/$defs/difficulty_floor", "description": "TALENT and ITEM entries (R-M8K-29/31; items R-M12B-146). Only with die: difficulty and direction: remove (allOf)." },
+        "words": { "$ref": "charbuild-common.schema.json#/$defs/words", "description": "TALENT entries only (R-M8K-9 (ii), R-M8K-21; refused on items, L1cb.prv)." },
+        "unless": { "$ref": "charbuild-common.schema.json#/$defs/unless", "description": "SPECIES-ABILITY entries only (R-SPF-1, R-SPF-10; refused on every other owner, L1cb.unless)." },
+        "die": {
+          "enum": ["boost", "setback", "difficulty", "challenge", "force", "ability"],
+          "description": "Die type (R-DPS-2). A closed enum: R-DPS-2's five, widened by F-100 M8 C3 (ruling f100-m8-contracts R-M8K-3) one member at a time as each enters with its arm, guard and canonical row (R-F100-9). `ability` entered at M8's step 1 (f100-m8-build-card R-M8B-3) with the Ship Yard's fold (R-M8C8-2), for `direction: upgrade` only."
+        },
+        "count": {
+          "oneOf": [{ "type": "integer", "minimum": 1 }, { "const": "all" }],
+          "description": "Number of dice (R-DPS-3). A fixed positive integer; no ranking machinery. With `count_of`, the integer per unit of the source (1 for every user). F-100 M9 (ruling f100-m9-shapes-card R-M9S-6, D-M9C4): or the string `all` — legal ONLY with `direction: remove` and a `die` (never a `symbol`, never `count_of`): an applied row removes every die of that kind present at the remove step; an offered row reads \"remove all\". `all` never reaches arithmetic (poolMods collect / augment / reminders)."
+        },
+        "count_of": {
+          "type": "object", "additionalProperties": false, "required": ["of", "key"],
+          "properties": {
+            "of": { "enum": ["skill_ranks", "force_rating", "rating_deficit", "power_upgrades", "sig_upgrades"] },
+            "key": { "type": "string", "minLength": 1 }
+          },
+          "description": "F-100 M8 (f100-m8-contracts ADDENDUM 5, M1; ruled f100-m8-batches R-M8BG-223, which AMENDS R-DPS-3 and R-FEGC-2 by citation: the second scaled case arrived; `count` stays the integer per unit and `scaled_by` stays rejected): TALENT entries only (refused on items, L1cb.prv). The row's dice or symbols number `count` × the source read from the OWNER's sheet when the talent's rows are resolved (CharResolve.ownedTalentPoolSources), the same reading roll_number `amount: {of: skill_ranks}` uses (poolMods rollAmount): skill_ranks = that skill's ranks (`key` a skills.vocab.json id, the sheet key mapped as _resolveChosenAnchors maps it; validator L1cb.cof). A source of 0 drops the row (no die is offered). An \"up to\" count is OFFERED at the full source with the fewer case in the words (R-M8BG-199). Not with `per_rank: true` (one scale, never two; L1cb.cof). force_rating (M1′, approved by Jason D-81, released f100-m8-batches R-M8BG-233/237) = the derived Force rating (CharResolve.computeDerived forceRating), `key` \"self\"; its resolved row reads \"(your Force rating)\" as its condition (the approved mockup Docs/mockups/f100-m8-force-on-skill.html @ b2aeb49b). rating_deficit (B-219, ruling f100-b219-card ADDENDUM 1 R-B219C-7) = max(0, the weapon's RESOLVED rating of the quality minus the owner's characteristic `key` (brawn | agility) as computeWeaponPool reads it): QUALITY rows only (qualities.vocab.json, a third owner of count_of, admitted by validator L1q.rows; refused on talent rows by L1cb.cof and on items by L1cb.prv). Cumbersome (Brawn) and Unwieldy (Agility), EotE p.155 / FaD p.164; a deficit of 0 drops the row. power_upgrades (F-100 M10, ruling f100-m10-shapes-card R-M10S-2, V1) = the ranks of ONE upgrade the owner bought: the number of times `key` (`<power id>.<ability key>`) appears in the owner's sheet.forcePowers[power].upgrades — no new save field; CharResolve.powerUpgradeCount, the one count reader. FORCE-POWER rows only (a pool_mods or a power_dial row on an upgrade): refused on talent rows by L1cb.cof, on items by L1cb.prv, on species rows by L1cb.fp. sig_upgrades (F-100 M12, ruling f100-m12-census-card R-M12C-15, SV2) = the boxes of ONE signature-ability node the owner bought: the cells of the owned ability's tree, at the positions in the owner's sheet.signatureAbilities[].owned, whose ability is `key`'s node (`<ability id>.<node id>`); a node in two cells counts both. CharResolve.sigUpgradeCount, read by the same consumer code as power_upgrades, never a second path. SIGNATURE-ABILITY rows only (refused on talent, species, item and Force-power rows: validate_registries L1cb.sig, packValidate)."
+        },
+        "applies_to": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "enum": ["skill", "group", "characteristic"] },
+                      "value": { "type": "string", "minLength": 1 }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "const": "roll" },
+                      "value": { "enum": ["craft", "force_power"] }
+                    },
+                    "description": "F-100 M8 C2 (R-M8K-2): the pool builder's KIND — the row matches only a check that builder rolls. Ruled members: skill weapon crew_seat craft treat_injury; each enters with its first user (R-F100-9). force_power entered with Natural Mystic (5h brief f100-surfacing-roll-options-f §7, card ADDENDUM 62 F7 (a), D-350): ANY Force power check — the hub's Force row passes roll 'force_power'. craft: Inventor (the workshop's crafting check, folded by B-1062). The ruled-but-empty force_power member is RETIRED (F-100 M10, ruling f100-m10-shapes-card R-M10S-3): a row on a Force power's check names the power with `{scope: force_power, value}` below."
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "const": "force_power" },
+                      "value": { "type": "string", "pattern": "^[a-z0-9_]+$",
+                        "description": "a Force power id in the folded view (validators: validate_registries L1cb.fp, packValidate)." }
+                    },
+                    "description": "F-100 M10 (ruling f100-m10-shapes-card R-M10S-3, V4): the check of ONE Force power — matched by SWRPGPoolMods.matches against the power id the roll-only context carries (contextFor's `powerId`; the hub's Force row passes it). A row on several powers' checks lists each; there is no wildcard. FORCE-POWER rows only (refused on talent, species and item rows: L1cb.fp, L1cb.prv)."
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "const": "signature_ability" },
+                      "value": { "type": "string", "pattern": "^[a-z0-9_]+$",
+                        "description": "a signature ability id in the folded view (validators: validate_registries L1cb.sig, packValidate)." }
+                    },
+                    "description": "F-100 M12 (ruling f100-m12-census-card R-M12C-14, SV1): the ACTIVATION CHECK of ONE signature ability, a sibling of {scope: force_power} — matched by SWRPGPoolMods.matches against the ability id the roll-only context carries. SIGNATURE-ABILITY rows only (refused on talent, species, item and Force-power rows: L1cb.sig)."
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "const": "career_skills" },
+                      "value": { "const": "owner" }
+                    },
+                    "description": "F-100 M12 (ruling f100-m12-census-card R-M12C-20, SV5): every skill that is a career skill of the OWNER — the career's skills plus each owned specialization's — matched through CharResolve.careerSkillStatus with every owned specialization's id, never a second list. `value` keeps the item shape every scope has. SIGNATURE-ABILITY rows only (L1cb.sig). Every reader asks the dark key (R-M12B-2)."
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "value"],
+                    "properties": {
+                      "scope": { "const": "weapon_record" },
+                      "value": { "type": "string", "minLength": 1,
+                        "description": "F-100 M8 (f100-m8-contracts ADDENDUM 2, R-M8K-25): a weapons.json id (validator membership). Matches a check rolled from a weapon row whose weapon IS that record, e.g. 'unarmed'. TALENT rows only: refused on item entries (L1cb.prv), as per_rank is." }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope", "chosen"],
+                    "properties": {
+                      "scope": { "const": "skill" },
+                      "chosen": { "type": "string", "pattern": "^[a-z][a-z0-9_]{0,23}$" }
+                    },
+                    "description": "F-100 M8 (ruling f100-m8-build R-M8G-9): a PICK-VALUED anchor — the skill the owning talent's pick of this id holds (charbuild-common $defs/pick). TALENT rows only. It resolves through CharResolve.pickOf (CharResolve's owned-talent collectors turn it into one {scope: skill, value} row per live pick instance; for a `per: rank` pick each owned rank's pick is its own anchor, and an `amount.chosen` naming the same pick reads that skill's ranks). FAIL CLOSED: an unmade pick matches nothing and the talent shows its prompt (R-M8K-6 (a)). The validator refuses a `chosen` naming no pick the same talent declares (L1cb.pid). First user: Deadly Accuracy (EotE p.134)."
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope"],
+                    "properties": {
+                      "scope": { "const": "all" }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["scope"],
+                    "properties": {
+                      "scope": { "const": "host_item" }
+                    },
+                    "description": "F-100 M12 MV1 (f100-m12-census-card R-M12C-55/-95): checks made with THIS item, the host the attachment is installed on ('checks made using this weapon'). An ATTACHMENT row only: validate_registries L1cb.prv refuses it on every other carrier. The carry (applyInstalledAttachments, R1) rewrites it to {scope: weapon_record, value: <the host's id>} on the CARRIED row only, so weapon_record stays refused in item data (L1cb.prv, R-M8K-25). Every user's host is a weapon (18 lines + Galven's)."
+                  }
+                ]
+              }
+            },
+            { "type": "null" }
+          ],
+          "description": "What this modifier applies to (R-DPS-4, widened to a UNIFORM ARRAY by R-PCH-1). A LIST of anchors with OR semantics: the modifier applies to a check matching ANY member — which is how the book authors it (\"Discipline, Perception, Resilience, or Vigilance\"). Single-anchor records are one-element arrays; a field that is sometimes an object and sometimes a list is a trap for every consumer, so the shape is uniform. skill = a skills.vocab.json id; group = general|combat|social|knowledge; all = every check. null = NO anchor recorded — deliberately distinct from an empty list, which would assert \"applies to nothing\" (B-278's population; dispositioned by the R-PCH-2 hand-walk)."
+        },
+        "direction": {
+          "enum": ["add", "remove", "upgrade", "downgrade", "reroll", null],
+          "description": "F-100 THE SURFACING MISSION (card f100-surfacing-roll-options-card R-SRO-5; brief f100-surfacing-roll-options-vocab §3, ruled ADDENDUM 8): `reroll` — the owner may reroll ONE matching check, offered AFTER the roll (SWRPGPoolMods.rerollsAt, the one reader; never in reminders(), never folded by augment) with its `limit` shown and never tracked (R-M8BG-38); no die, symbol or count (oneOf's third arm); a TALENT row in effect, since `limit` is refused on items (L1cb.prv). Its 23 users are family E's (the natural_* talents). F-100 M8 C3 (R-M8K-3): `downgrade` (entered at M8's step 2 with Intimidating, a talent entry) turns a challenge die into difficulty; with none to downgrade it is IGNORED (FaD Core p.30). `upgrade` (entered at M8's step 1 with the Ship Yard's fold, R-M8C8-2) turns an ability die into proficiency; with none left to upgrade it ADDS the lower die first (FaD Core p.30: 'using one upgrade, he adds one additional Ability die'). An upgrade of the DIFFICULTY is a member ON A SPECIES-ABILITY ROW ONLY (F-100 M9, ruling f100-m9-shapes-card R-M9S-3, D-M9C2): the OWNER's own check made harder (Primitive, Blind), cause-bound by `applies_to` and, where the book bounds it, `condition`; applied through VERB_FIELD's upgradeDifficulty arm in RAW order. On a TALENT or ITEM row it stays refused ($defs/pool_mod_species_members_refused, which every talent and item schema adds): every such user upgrades a check against the character, which no screen rolls, so it is TOLD (ruling f100-m8-build R-M8G-10). APPLY ORDER IS RAW's, never data order: add → upgrade → downgrade → remove (EotE p.20; FaD p.29) — diceEngine.buildPool applies it. Which way this modifier moves the die (R-PCA-1). CERTIFICATION IS CARRIED BY THIS FIELD: a non-null direction means the entry was walked back to its authored sentence and certified, so it may auto-apply when `condition` is null; `direction: null` means NOT-CERTIFIED — the text does not settle it (an upgrade rather than an add, a token under two governing verbs, an indeterminate count, or someone else's pool) and the entry DISPLAYS ONLY, never applying. Uncertainty displays, certainty applies."
+        },
+        "condition": {
+          "oneOf": [{ "type": ["string", "null"] }, { "$ref": "charbuild-common.schema.json#/$defs/words" }],
+          "description": "The book's own clause, stored verbatim and not parsed (R-DPS-5). Its presence is the machine-readable fact. F-100 M8 (R-M8K-17 (b)): a talent entry authored in M8 carries it as a SPAN of the talent's description instead (the validator requires the span there); item entries and the existing talent entries keep their verbatim strings until their own batch re-authors them. The fate rule is unchanged: presence is still the fact."
+        },
+        "per_rank": {
+          "type": "boolean",
+          "description": "TALENT entries only (ruling f100-effects-grammar-contracts R-FEGC-2; amends R-DPS-3 by citation, narrowly — `count` stays a fixed positive integer, `scaled_by` stays rejected). Same word and meaning as charbuild-common `effect.per_rank`: applied once per owned rank. ABSENT = the owning talent's `ranked` flag decides (poolMods.collect multiplies `count` by the owned ranks of a ranked talent, 1 for an unranked one). `false` on a RANKED talent's entry pins it at `count` (a once-only sentence on a per-rank talent — secret_lore's and codebreaker's difficulty removal). Present on an ITEM entry (items have no ranks) or on an UNRANKED talent's entry: REFUSED by validate_registries."
+        },
+        "from": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["channel", "index"],
+          "properties": {
+            "channel": { "enum": ["base_mods", "added_mods"] },
+            "index": { "type": "integer", "minimum": 0 }
+          },
+          "description": "Pointer back to the mod object this was extracted from. Present for gear/armor/attachments; absent for weapons (which have no mod objects)."
+        }
+      },
+      "allOf": [
+        { "if": { "required": ["direction"], "properties": { "direction": { "const": "upgrade" } } },
+          "then": { "properties": { "die": { "enum": ["ability", "difficulty"] } } } },
+        { "if": { "required": ["count"], "properties": { "count": { "const": "all" } } },
+          "then": { "required": ["die", "direction"], "properties": { "direction": { "const": "remove" } }, "not": { "required": ["count_of"] } } },
+        { "if": { "required": ["die"], "properties": { "die": { "const": "ability" } } },
+          "then": { "properties": { "direction": { "enum": ["upgrade", "downgrade"] } } } },
+        { "if": { "required": ["direction"], "properties": { "direction": { "const": "downgrade" } } },
+          "then": { "required": ["die"], "properties": { "die": { "enum": ["proficiency", "challenge"] } } } },
+        { "if": { "required": ["symbol"] },
+          "then": { "properties": { "direction": { "const": "add" } } } },
+        { "if": { "required": ["floor"] },
+          "then": { "required": ["die", "direction"], "properties": { "die": { "const": "difficulty" }, "direction": { "const": "remove" } } } }
+      ]
+    },
+    "item_character_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "key", "value"],
+      "properties": {
+        "op": { "enum": ["skill_rank_delta", "characteristic_delta", "strain_threshold_delta", "encumbrance_threshold_delta"] },
+        "key": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "a skill id (skill_rank_delta), a characteristic id (characteristic_delta), or 'self' (the two thresholds)." },
+        "value": { "type": "integer", "description": "the amount; a rank or threshold change." }
+      },
+      "description": "F-100 M12 MV3 (f100-m12-census-card R-M12C-55/-95): a talent effect op on an attachment row, held while the character USES the modded item (EotE p.187). 16 lines: 11 skill_rank_delta, 1 characteristic_delta, 1 strain_threshold_delta, 3 encumbrance_threshold_delta."
+    },
+    "cybernetic_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "key", "value", "cite"],
+      "properties": {
+        "op": { "enum": ["skill_rank_delta", "characteristic_delta", "strain_threshold_delta", "encumbrance_threshold_delta",
+                         "talent_add", "talent_rank_delta", "soak_delta", "wound_threshold_delta", "defense_delta"] },
+        "key": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "a skill id (skill_rank_delta), a characteristic id (characteristic_delta), a talent id (talent_add, talent_rank_delta), 'melee' or 'ranged' (defense_delta), or 'self' (the thresholds and soak)." },
+        "value": { "type": "integer", "description": "the amount: a rank, a characteristic step, a threshold or soak change." },
+        "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$", "description": "the book that prints the implant and its PRINTED page, e.g. 'Edge of the Empire Core Rulebook p.173'." }
+      },
+      "description": "Ruling `release-r6-companions-d365` R-R6CD-6 (ADDENDUM 2): a cybernetic implant's own effect line on its GEAR record (gear.schema.json `character_effects`). The four ops of item_character_effect with their R-M12B-59/-60 meaning unchanged, plus the five droid-grammar ops (companions.js droidOf) — talent_add, talent_rank_delta, soak_delta, wound_threshold_delta, defense_delta, which no player reader consumes. A gear-only def: item_character_effect and the attachment and crafting defs are untouched."
+    },
+    "item_career_skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "key", "cite"],
+      "properties": {
+        "op": { "const": "career_skill" },
+        "key": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "the skill id (skills.vocab.json) that counts as a career skill. ONE ROW PER SKILL: a two-skill holocron carries two rows." },
+        "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+( \\(inferred\\))?$", "description": "the book that prints the grant and its PRINTED page (the corpus page converted by swrpg_index.pdf_pages). ' (inferred)' marks a book the offsets cannot calibrate: the page is the corpus page and its printed folio is unverified (C6)." },
+        "exclusive": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "a group key: among the character's owned items whose rows carry the same key, only the FIRST in equipment.gear[] order grants (hologoggles, 'one pair at a time', Disciples of Harmony p.49)." },
+        "scope": { "enum": ["group"], "description": "absent = the owner. 'group' = every member of the owner's group while the group possesses the item (FaD Core p.439; Chronicles of the Gatekeeper), read through CharResolve.groupGrants." }
+      },
+      "description": "Ruling `release-r7-bug-burndown` ADDENDUM 314 C1 (R-Y2-1): an item's career-skill grant on its GEAR record (gear.schema.json `character_effects`), held while the character OWNS the item, stowed included (C3: 'owns', DoH p.49; 'possession', FaD p.191). Resolved at render by CharResolve.careerSkillStatus (because 'item:<gear id>') and groupGrants ('group-item:<gear id>'); nothing is saved. Admitted on any gear type (C2); cybernetic_effect and its op enum are unchanged. Written by scripts/canonical/apply_item_career_skills.py."
+    },
+    "pool_mod_species_members_refused": {
+      "allOf": [
+        { "not": { "required": ["die", "direction"], "properties": { "die": { "const": "difficulty" }, "direction": { "const": "upgrade" } } } },
+        { "not": { "required": ["symbol"], "properties": { "symbol": { "const": "threat" } } } } ],
+      "description": "F-100 M9: the members a TALENT or ITEM pool_mods entry never carries, admitted on a SPECIES-ABILITY row only (B-219, f100-b219-card R-B219C-9/-17: a weapon QUALITY row, qualities.vocab.json, is admitted `threat` too, Inferior's own automatic threat, and takes this wrapper's FIRST arm only, so it still refuses a difficulty upgrade) — a difficulty upgrade (ruling f100-m9-shapes-card R-M9S-3: every talent/item user upgrades a check made AGAINST the character, TOLD, R-M8G-10) and the `threat` symbol (ruling f100-m9-build-card R-M9B-11: every talent/item user's Threat lands on an ally's or an opponent's check). Every talent and item schema wraps its pool_mod_entry with this; species.schema.json's ability rows do not, which is the species-only admission."
+    },
+    "base_mods": {
+      "type": "array",
+      "description": "The item's built-in special rules — OggDude BaseMods.Mod entries that carry human-readable MiscDesc (markup-decoded). The CODED mod-keys (DAMADD/MELEEDEFADD/…) without MiscDesc are NOT captured here; they belong to the deferred attachment/mod-application cluster (mod-key vocab). So this is the readable-rules subset, lossless for display, explicit about the deferral.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string", "minLength": 1 },
+          "rank": { "type": "integer", "minimum": 1, "description": "From OggDude Count when > 1 (a ranked mod)." },
+          "effect": {
+            "type": "object",
+            "description": "Parsed structured effect (F-85 item-effects-extraction). Present when the prose describes a mechanically-extractable stat change. Not consumed by the resolver in this lap (C-IES-1).",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "enum": [
+                  "quality_add", "quality_add_contextual", "damage_delta", "stun_damage_delta",
+                  "damage_set", "crit_delta", "crit_set", "range_delta", "soak_delta",
+                  "defense_delta", "encumbrance_delta", "talent_grant", "meta_hp_crystal",
+                  "dicepool", "qualities_reduce", "item_character_effect", "host_hard_points_delta",
+                  "spend_cost_delta", "vehicle_effect", "hands_set", "hard_points_delta", "quality_grant", "pool_mod"
+                ],
+                "description": "The ratified effect vocabulary (C-IEC-1 + R-DPS-6). Fourteen values, then a fifteenth by its durable-contract ruling (R-SY4): qualities_reduce (F-100 M12 QR1, admitted f100-m12-census-card R-M12C-95; `key` the quality, `value` how far its rating drops). The dicepool value classifies the sentence; pool_mods carries the values. A sixteenth and seventeenth by the same admission (f100-m12-census-card R-M12C-55/-95): item_character_effect (MV3: `op` one of the four talent ops, `key` its skill or characteristic id or 'self', `value` the amount, held while the item is used, EotE p.187) and host_hard_points_delta (MV4: `value` the change to the host's hard points). An eighteenth by the same admission (QS2, R-M12C-95): spend_cost_delta (`key` the quality id, or \"any\" when the player names the quality at the spend menu; `value` the change to that quality's activation price in [AD], negative; the price never drops below 1, the reader's floor), jury_rigged_weapon's \"Takes 1 Less [AD] to Activate\" line. A nineteenth by SHIP YARD S7 (ruling shipyard-s7-contracts R-S7V-1, option B): vehicle_effect — a SHIP PART's line whose number is the ONE stored effect vesselResolve already reads; the line carries `ref` to it, never a copy. Four more by `release-r5-crafting-contract` R-R5CC-1 and its ADDENDUM 2 (crafting's spend rows, which ride ItemResolve's option writers as inline attachments): hands_set (`value` a result_profile.hands value; a SET), hard_points_delta (`value` added to the record's `hardpoints`), quality_grant (`key`, `ranked`, and grantOrIncrementQuality's `cap`, `by`, `start`, `if_present`, `replaces`), pool_mod (`entry` one pool_mod_entry, carried onto the item's own pool_mods)."
+              },
+              "ref": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["at", "i"],
+                "properties": {
+                  "at": { "enum": ["base_effects", "effects"] },
+                  "i": { "type": "integer", "minimum": 0 }
+                },
+                "description": "vehicle_effect only (R-S7V-1): where the line's stored effect lives — `base_effects` on a base_mods line (the record's base_effects[i]); `effects` on an added_mods[j] line (its own index-aligned added_options[j].effects[i]). Emitted by scripts/canonical/vehicle_attachments.py in the loop that stores the effect; test/shipyard_s7_lines.cjs resolves every one."
+              },
+              "key": { "type": "string" },
+              "rank": { "type": "integer", "minimum": 1 },
+              "value": { "type": ["integer", "string"], "description": "An integer for every type but hands_set, whose value is a result_profile.hands value (allOf below)." },
+              "subtype": { "type": "string" },
+              "talent": { "type": "string" },
+              "op": { "enum": ["skill_rank_delta", "characteristic_delta", "strain_threshold_delta", "encumbrance_threshold_delta"],
+                "description": "item_character_effect only (MV3): the talent effect op the line carries." },
+              "floor": { "type": "integer", "minimum": 0, "description": "encumbrance_delta only (R-R5CC-1): the item_effect floor rule — an item at or below it is never raised; absent = the option writer's floor 0. Crafting's Lightweight, 'to a minimum of 1' (Special Modifications p.77)." },
+              "ranked": { "type": "boolean", "description": "quality_grant only: the quality carries a rating." },
+              "cap": { "type": "integer", "minimum": 1, "description": "quality_grant only: grantOrIncrementQuality's existing clamp (R-CQM-2: crafting's printed maxima, never the game's)." },
+              "by": { "type": "integer", "minimum": 1, "description": "quality_grant only: the step (QG1); absent = 1." },
+              "start": { "type": "integer", "minimum": 1, "description": "quality_grant only (R-R5CC-1): the rank a ranked grant enters at when absent (Stun 3, Blast 5); absent = `by`." },
+              "if_present": { "const": true, "description": "quality_grant only (R-R5CC-1): raise only; an item without the quality gains nothing." },
+              "replaces": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "quality_grant only (R-R5CC-1): a quality id removed in the same act (Unwieldy ↔ Cumbersome)." },
+              "entry": { "$ref": "#/$defs/pool_mod_entry", "description": "pool_mod only (R-R5CC-1): one dice-pool row carried onto the item's own pool_mods, read at use by collectPoolMods." }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              { "if": { "properties": { "type": { "const": "hands_set" } }, "required": ["type"] },
+                "then": { "required": ["value"], "properties": { "value": { "enum": ["one_handed", "two_handed"] } } },
+                "else": { "properties": { "value": { "type": "integer" } } },
+                "$comment": "R-R5CC-1 ADDENDUM 2: hands_set SETS a weapon's hands to the crafting-template result_profile.hands enum; no second vocabulary." },
+              { "if": { "properties": { "type": { "const": "quality_grant" } }, "required": ["type"] },
+                "then": { "required": ["key", "ranked"] },
+                "else": { "not": { "anyOf": [{ "required": ["ranked"] }, { "required": ["cap"] }, { "required": ["by"] }, { "required": ["start"] }, { "required": ["if_present"] }, { "required": ["replaces"] }] } },
+                "$comment": "R-R5CC-1: quality_grant's parameters are its own." },
+              { "if": { "properties": { "type": { "const": "pool_mod" } }, "required": ["type"] },
+                "then": { "required": ["entry"] }, "else": { "not": { "required": ["entry"] } } },
+              { "if": { "properties": { "type": { "const": "encumbrance_delta" } }, "required": ["type"] },
+                "else": { "not": { "required": ["floor"] } } },
+              { "if": { "properties": { "type": { "const": "vehicle_effect" } } }, "then": { "required": ["ref"] },
+                "else": { "not": { "required": ["ref"] } },
+                "$comment": "R-S7V-1: ref is REQUIRED on vehicle_effect and REFUSED on every other type." }
+            ]
+          },
+          "never_modelled": {
+            "enum": ["narrative", "see_source", "gm_discretion", "conditional_triggered"],
+            "description": "Classification for effects deliberately not structured (F-85 R-IEE-3). Mutually exclusive with effect."
+          }
+        }
+      }
+    }
+  }
+}

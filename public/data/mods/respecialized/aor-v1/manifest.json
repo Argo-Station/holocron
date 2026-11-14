@@ -1,0 +1,22 @@
+{
+ "mod": "respecialized",
+ "version": "aor-v1",
+ "line": "aor",
+ "attribution": "reSpecialized Project (community). Rebuilds specialization trees; consumed with credit.",
+ "dataset_version": "tagged release 6Aug2026 1637 (reSpecialized Project)",
+ "retrieved": "2026-08-25",
+ "consumption_note": "EotE slice consumed pre-tag per project lead via Jason, 2026-07-14 (ruling f9-phase-a-scout-handoff, Gate-1 precondition P1). The full re-census + any post-EotE slices bind at their ~August tag (R-F9-1).",
+ "counts": {
+  "specs": 41,
+  "added_specs": 6,
+  "overlay_talents": 240
+ },
+ "base_talents_reused": 186,
+ "label": "reSpecialized — Age of Rebellion",
+ "group": "Community",
+ "kind": "variant",
+ "counts_basis": "rewrites = specs - added_specs (a tree the overlay carries that the base already had) · adds = added_specs · talents = overlay_talents - base_talents_reused (the remainder are the base’s own talents reused inside rewritten trees, and are not this mod’s to claim)",
+ "overlays": [
+  "careers"
+ ]
+}

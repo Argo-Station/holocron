@@ -1,0 +1,874 @@
+{
+ "schema_version": 1,
+ "vocabulary": "books",
+ "_doc": "BOOKS-1a (ruling books-filter-go): canonical book vocabulary — the source of truth for the active-sources filter (F-3) and the era step (F-4). One entry per distinct SOURCE that appears in any registry's `sources` array; `aliases` carries the exact registry strings that map to this book (the mapping table IS this file). `group`: Core | Era | Supplement | Community | UserData. `line`: eote | aor | fad | era | null (null = not tied to one game line; Community/UserData are provenance-classed, line null). `era` (W2, ruling provenance-w1-w2-handoff): the CONTENT era — which period of the saga the book's own frame is set in — one of clone_wars | galactic_civil_war | sequel_era | agnostic. It is a SECOND, INDEPENDENT axis from `line`: `line` says which product line published the book and feeds the opt-in campaign-line gate (sources.js isActiveWith); `era` says what period the content depicts and has no consumer yet (W4's GM facets are its first reader). D-PS1 is binding: `agnostic` is the DEFAULT and an era is assigned ONLY where the book's own frame states one — a wrong era is worse than none. `old_republic` became LEGAL in lap `tor-p3-species` (ruling `tor-p3-app-ingest-scope` R-P3A-1), when its reservation's own release condition was met — Old Republic content actually entered, carried by the `the_old_republic_era_sourcebook` row, which quotes the frame it claims rather than assuming it. `high_republic` now holds the reserved slot on the same terms: absent from the legal set until content claims it, and rejected at read time meanwhile (its claimant, `light_and_life`, sits at `agnostic` under protest). Authored, not generated — a fixed table that changes only when new book content is INGESTED; validator L1bk fails loud on any unmapped source string, which is the signal to add a row (ponytail: no generator for a table with an ingest-gated change rate). Line/group for the official books derived from the PDF-library folder taxonomy in Docs/pdf_sources.json (CORE RULEBOOKS / Era Sourcebooks / Adventures/<line> Adventures / Beginner Games). TWO INVARIANTS this file is guarded on (test/books_vocab_parity.cjs): (1) THIS FILE EXISTS IN TWO TRACKED COPIES — schema/vocab/books.vocab.json is the SOURCE OF TRUTH (.gitignore's canonical-pipeline note: 'the durable products ARE tracked: schema/'; apply_vehicle_vocab.py:19-20 writes schema first and the served copy from it) and public/data/canonical/books.vocab.json is the SERVED copy the browser fetches. They must be byte-identical; edit BOTH or the served copy is one idempotent script re-run from silent reversion, and the validator's L1bk/L1bk.uniq (which read the schema copy) say nothing about the served one. This is the F-32 CotR bug's exact shape, which is why it is now a guard and not a convention. (2) EVERY ROW CARRIES ITS OWN `label` IN `aliases`, so a `sources` string written in the label form resolves — the one exception is user_data, which is a provenance marker rather than a book and says so in its _note. NON-BOOK provenance strings surfaced by the census are classed honestly, NOT folded into a fake book — see _meta.findings.",
+ "hidden_source_codes": [
+  "aorbeta",
+  "fadbeta"
+ ],
+ "_hidden_doc": "Source strings for beta/pre-release content that has no shipped book entry. Each is the string as it appears in the registry's `sources` array — terse codes from vehicle data (aorbeta), full titles from personal-item data (mapped to terse form by the ingest: 'Force and Destiny Beta Rulebook' → fadbeta). Hidden sources are exempt from L1bk/L1veh/L1bk.ship and invisible to the active-sources filter (the same filter-evasion as aorbeta — acceptable because beta content has no shipped book to gate on).",
+ "entries": [
+  {
+   "id": "eote",
+   "label": "Edge of the Empire Core Rulebook",
+   "group": "Core",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "eote",
+    "Edge of the Empire Core Rulebook"
+   ],
+   "summary": "The fringe core rulebook. Bounty hunters, smugglers, mercenaries and explorers, in the places where morality is grey. Carries Obligation, six careers, and the full rules.",
+   "summary_cite": "Edge of the Empire Core Rulebook, \"Playing the Game\", p.6"
+  },
+  {
+   "id": "aor",
+   "label": "Age of Rebellion Core Rulebook",
+   "group": "Core",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "aor",
+    "Age of Rebellion Core Rulebook"
+   ],
+   "summary": "The Rebellion core rulebook. You play agents and officers of the Alliance fighting the Empire on battlefields and in political arenas. Carries Duty, six careers, and the full rules.",
+   "summary_cite": "Age of Rebellion Core Rulebook, \"Welcome to the Galaxy!\", p.10"
+  },
+  {
+   "id": "fad",
+   "label": "Force and Destiny Core Rulebook",
+   "group": "Core",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "fad",
+    "Force and Destiny Core Rulebook"
+   ],
+   "summary": "The Force core rulebook. Guardians, Warriors, Consulars and Seekers, with lightsabers, Force powers and Destiny Points. Carries Morality, six careers, and the full rules.",
+   "summary_cite": "Force and Destiny Core Rulebook, \"Example of Play\", p.10"
+  },
+  {
+   "id": "fad_gm_kit",
+   "label": "Force and Destiny Game Master's Kit",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "fad_gm_kit",
+    "fad-gm",
+    "Force and Destiny Game Master's Kit"
+   ]
+  },
+  {
+   "id": "rise_of_the_separatists",
+   "label": "Rise of the Separatists",
+   "group": "Era",
+   "line": "era",
+   "era": "clone_wars",
+   "aliases": [
+    "rise_of_the_separatists",
+    "Rise of the Separatists",
+    "rots"
+   ],
+   "summary": "The early Clone Wars. Clone, Geonosian, Kaminoan and Umbaran species, Clone Soldier and Jedi specializations, and Republic weapons, armour and starships.",
+   "summary_cite": "Rise of the Separatists, \"The Clone Wars Have Begun\""
+  },
+  {
+   "id": "collapse_of_the_republic",
+   "label": "Collapse of the Republic",
+   "group": "Era",
+   "line": "era",
+   "era": "clone_wars",
+   "aliases": [
+    "collapse_of_the_republic",
+    "Collapse of the Republic",
+    "cotr"
+   ],
+   "summary": "The late Clone Wars and the fall of the Republic. Options for clones, Jedi and Separatists. Works with any of the three core rulebooks; it is not a game on its own.",
+   "summary_cite": "Collapse of the Republic, \"The Clone Wars Rage On\""
+  },
+  {
+   "id": "dawn_of_rebellion",
+   "label": "Dawn of Rebellion",
+   "group": "Era",
+   "line": "era",
+   "era": "galactic_civil_war",
+   "aliases": [
+    "dawn_of_rebellion",
+    "Dawn of Rebellion",
+    "dor"
+   ],
+   "summary": "The early Rebellion. Worlds in revolt, the Empire and the Rebellion as organizations, four new species, and six universal specializations any career can take.",
+   "summary_cite": "Dawn of Rebellion, \"Welcome to the Rebellion!\""
+  },
+  {
+   "id": "enter_the_unknown",
+   "label": "Enter the Unknown",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "enter_the_unknown",
+    "Enter the Unknown",
+    "etu",
+    "eto"
+   ]
+  },
+  {
+   "id": "far_horizons",
+   "label": "Far Horizons",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "far_horizons",
+    "Far Horizons",
+    "fh"
+   ]
+  },
+  {
+   "id": "dangerous_covenants",
+   "label": "Dangerous Covenants",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "dangerous_covenants",
+    "Dangerous Covenants",
+    "dc"
+   ],
+   "summary": "The Hired Gun career for Edge of the Empire. Demolitionist, Enforcer and Heavy, with heavy weapons, armour and ships for running a mercenary band.",
+   "summary_cite": "Dangerous Covenants, Introduction, p.5"
+  },
+  {
+   "id": "fly_casual",
+   "label": "Fly Casual",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "fly_casual",
+    "Fly Casual",
+    "fc"
+   ]
+  },
+  {
+   "id": "no_disintegrations",
+   "label": "No Disintegrations",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "no_disintegrations",
+    "No Disintegrations",
+    "nd"
+   ]
+  },
+  {
+   "id": "special_modifications",
+   "label": "Special Modifications",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "special_modifications",
+    "Special Modifications",
+    "ss"
+   ],
+   "summary": "The Technician career for Edge of the Empire. New specializations, workshops, and the gear a mechanic builds, repairs and breaks.",
+   "summary_cite": "Special Modifications, Introduction, p.4"
+  },
+  {
+   "id": "lords_of_nal_hutta",
+   "label": "Lords of Nal Hutta",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "lords_of_nal_hutta",
+    "Lords of Nal Hutta",
+    "lonh"
+   ]
+  },
+  {
+   "id": "suns_of_fortune",
+   "label": "Suns of Fortune",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "suns_of_fortune",
+    "Suns of Fortune",
+    "sof"
+   ]
+  },
+  {
+   "id": "beyond_the_rim",
+   "label": "Beyond the Rim",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "beyond_the_rim",
+    "Beyond the Rim",
+    "btr"
+   ]
+  },
+  {
+   "id": "jewel_of_yavin",
+   "label": "Jewel of Yavin",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "jewel_of_yavin",
+    "Jewel of Yavin",
+    "joy"
+   ]
+  },
+  {
+   "id": "mask_of_the_pirate_queen",
+   "label": "Mask of the Pirate Queen",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "mask_of_the_pirate_queen",
+    "Mask of the Pirate Queen",
+    "motpq"
+   ]
+  },
+  {
+   "id": "stay_on_target",
+   "label": "Stay on Target",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "stay_on_target",
+    "Stay on Target",
+    "sm"
+   ]
+  },
+  {
+   "id": "desperate_allies",
+   "label": "Desperate Allies",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "desperate_allies",
+    "Desperate Allies",
+    "da"
+   ]
+  },
+  {
+   "id": "forged_in_battle",
+   "label": "Forged in Battle",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "forged_in_battle",
+    "Forged in Battle",
+    "fib"
+   ]
+  },
+  {
+   "id": "fully_operational",
+   "label": "Fully Operational",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "fully_operational",
+    "Fully Operational",
+    "fo"
+   ],
+   "summary": "The Engineer career for Age of Rebellion. Sapper, Droid Specialist and Shipwright, with gear, droids, vehicles and rules for crafting your own.",
+   "summary_cite": "Fully Operational, Introduction, p.5"
+  },
+  {
+   "id": "lead_by_example",
+   "label": "Lead by Example",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "lead_by_example",
+    "Lead by Example",
+    "lbe"
+   ]
+  },
+  {
+   "id": "cyphers_and_masks",
+   "label": "Cyphers and Masks",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "cyphers_and_masks",
+    "Cyphers and Masks",
+    "cam"
+   ],
+   "summary": "The Spy career for Age of Rebellion. New species and specializations, concealable weapons and armour, droids and vehicles, and how to run an espionage campaign.",
+   "summary_cite": "Cyphers and Masks, Introduction"
+  },
+  {
+   "id": "strongholds_of_resistance",
+   "label": "Strongholds of Resistance",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "strongholds_of_resistance",
+    "Strongholds of Resistance",
+    "sor"
+   ]
+  },
+  {
+   "id": "friends_like_these",
+   "label": "Friends Like These",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "friends_like_these",
+    "Friends Like These",
+    "flt"
+   ]
+  },
+  {
+   "id": "disciples_of_harmony",
+   "label": "Disciples of Harmony",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "disciples_of_harmony",
+    "Disciples of Harmony",
+    "doh"
+   ],
+   "summary": "The Consular career for Force and Destiny. Arbiter, Sage and Ascetic — the Jedi who settles a conflict rather than fighting it.",
+   "summary_cite": "Disciples of Harmony, Introduction, p.6"
+  },
+  {
+   "id": "savage_spirits",
+   "label": "Savage Spirits",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "savage_spirits",
+    "Savage Spirits",
+    "sava"
+   ],
+   "summary": "The Seeker career for Force and Destiny. Explorers and artifact-hunters who follow the Force to the edges of the galaxy.",
+   "summary_cite": "Savage Spirits, Introduction"
+  },
+  {
+   "id": "endless_vigil",
+   "label": "Endless Vigil",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "endless_vigil",
+    "Endless Vigil",
+    "ev"
+   ]
+  },
+  {
+   "id": "unlimited_power",
+   "label": "Unlimited Power",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "unlimited_power",
+    "Unlimited Power",
+    "up"
+   ]
+  },
+  {
+   "id": "knights_of_fate",
+   "label": "Knights of Fate",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "knights_of_fate",
+    "Knights of Fate",
+    "kof"
+   ]
+  },
+  {
+   "id": "keeping_the_peace",
+   "label": "Keeping the Peace",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "keeping_the_peace",
+    "Keeping the Peace",
+    "ktp"
+   ]
+  },
+  {
+   "id": "nexus_of_power",
+   "label": "Nexus of Power",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "nexus_of_power",
+    "Nexus of Power",
+    "nop"
+   ]
+  },
+  {
+   "id": "chronicles_of_the_gatekeeper",
+   "label": "Chronicles of the Gatekeeper",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "chronicles_of_the_gatekeeper",
+    "Chronicles of the Gatekeeper",
+    "cotgk"
+   ]
+  },
+  {
+   "id": "ghosts_of_dathomir",
+   "label": "Ghosts of Dathomir",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "ghosts_of_dathomir",
+    "Ghosts of Dathomir",
+    "god"
+   ]
+  },
+  {
+   "id": "onslaught_at_arda_i",
+   "label": "Onslaught at Arda I",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "onslaught_at_arda_i",
+    "Onslaught at Arda I",
+    "oaa"
+   ]
+  },
+  {
+   "id": "long_arm_of_the_hutt",
+   "label": "Long Arm of the Hutt",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "long_arm_of_the_hutt",
+    "Long Arm of the Hutt",
+    "laoth"
+   ]
+  },
+  {
+   "id": "allies_adversaries",
+   "label": "Allies and Adversaries",
+   "group": "Supplement",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "allies_adversaries",
+    "Allies and Adversaries",
+    "AaA",
+    "aaa"
+   ]
+  },
+  {
+   "id": "eote_beginner_game",
+   "label": "Edge of the Empire Beginner Game",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "eote_beginner_game",
+    "Edge of the Empire Beginner Game",
+    "eotebg"
+   ]
+  },
+  {
+   "id": "aor_beginner_game",
+   "label": "Age of Rebellion Beginner Game",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "aor_beginner_game",
+    "Age of Rebellion Beginner Game",
+    "aorbg"
+   ]
+  },
+  {
+   "id": "force_awakens_beginner_game",
+   "label": "The Force Awakens Beginner Game",
+   "group": "Supplement",
+   "line": null,
+   "era": "sequel_era",
+   "aliases": [
+    "force_awakens_beginner_game",
+    "The Force Awakens Beginner Game",
+    "tfabg"
+   ],
+   "_note": "Line null: the TFA Beginner Game is its own standalone box, not part of the eote/aor/fad trio (Docs/pdf_sources.json has no `<line> Adventures` folder for it). Era sequel_era — the box is framed to the Resistance-vs-First-Order period by its own title."
+  },
+  {
+   "id": "escape_from_mos_shuuta",
+   "label": "Escape from Mos Shuuta",
+   "group": "Supplement",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "escape_from_mos_shuuta",
+    "Escape from Mos Shuuta",
+    "Escape from Mos Shuuta (adventure)"
+   ],
+   "_note": "Line NOT DETERMINABLE by the method the rest of this column uses: the adventure has no entry of its own in Docs/pdf_sources.json, because it ships INSIDE the Edge of the Empire Beginner Game box rather than as a standalone PDF, so the `Adventures/<line> Adventures` folder taxonomy cannot name its line. It is very likely `eote` on outside knowledge, and outside knowledge is exactly what the stated method excludes — held null like the other three undeterminable adventures rather than filled in from memory. A null line never hides content (isActiveWith treats it as era-agnostic, sources.js:110-111), so the safe value and the honest value are the same one here."
+  },
+  {
+   "id": "under_a_black_sun",
+   "label": "Under a Black Sun",
+   "group": "Supplement",
+   "line": "eote",
+   "era": "agnostic",
+   "aliases": [
+    "under_a_black_sun",
+    "Under a Black Sun",
+    "uabs"
+   ]
+  },
+  {
+   "id": "operation_shadowpoint",
+   "label": "Operation: Shadowpoint",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "operation_shadowpoint",
+    "Operation: Shadowpoint",
+    "Operation: Shadowpoint (adventure)"
+   ]
+  },
+  {
+   "id": "rescue_at_glare_peak",
+   "label": "Rescue at Glare Peak",
+   "group": "Supplement",
+   "line": "aor",
+   "era": "agnostic",
+   "aliases": [
+    "rescue_at_glare_peak",
+    "Rescue at Glare Peak",
+    "ragp"
+   ]
+  },
+  {
+   "id": "lost_knowledge",
+   "label": "Lost Knowledge",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "lost_knowledge",
+    "Lost Knowledge",
+    "Lost Knowledge (adventure)"
+   ]
+  },
+  {
+   "id": "discovery_on_jakku",
+   "label": "Discovery on Jakku",
+   "group": "Supplement",
+   "line": null,
+   "era": "sequel_era",
+   "aliases": [
+    "discovery_on_jakku",
+    "Discovery on Jakku",
+    "Discovery on Jakku (adventure)"
+   ],
+   "_note": "Line null for the same reason as the TFA Beginner Game it continues. Era sequel_era — Jakku after the Battle of Jakku is a sequel-trilogy setting by construction."
+  },
+  {
+   "id": "mountain_top_rescue",
+   "label": "Mountain Top Rescue",
+   "group": "Supplement",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "mountain_top_rescue",
+    "Mountain Top Rescue",
+    "Mountain Top Rescue (adventure)"
+   ],
+   "_note": "Line NOT DETERMINABLE: this adventure is absent from the PDF library (Docs/pdf_sources.json has no entry), so the folder taxonomy the other rows derive `line` from cannot answer it. Left null rather than guessed — a null line is era-agnostic in isActiveWith, i.e. it never wrongly hides content."
+  },
+  {
+   "id": "debts_to_pay",
+   "label": "Debts to Pay",
+   "group": "Supplement",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "debts_to_pay",
+    "Debts to Pay",
+    "Debts to Pay (adventure)"
+   ],
+   "_note": "Line NOT DETERMINABLE — absent from Docs/pdf_sources.json; see mountain_top_rescue."
+  },
+  {
+   "id": "dead_in_the_water",
+   "label": "Dead in the Water",
+   "group": "Supplement",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "dead_in_the_water",
+    "Dead in the Water",
+    "Dead in the Water (adventure)"
+   ],
+   "_note": "Line NOT DETERMINABLE — absent from Docs/pdf_sources.json; see mountain_top_rescue."
+  },
+  {
+   "id": "heroes_on_both_sides",
+   "label": "Heroes on Both Sides",
+   "group": "Community",
+   "line": null,
+   "era": "clone_wars",
+   "aliases": [
+    "heroes_on_both_sides",
+    "Heroes on Both Sides",
+    "Heroes on Both Sides (adventure)"
+   ],
+   "_note": "COMMUNITY (ruling provenance-w1-w2-handoff §W1b) — 229 NPC records, the largest non-FFG source in the library. Era clone_wars: the work is framed to the Clone Wars by its own roster — 48 records tagged `republic`, 29 `clone trooper`, 22 `separatist`, 25 affiliated `clone_army`, 16 `separatist_alliance`, and the Jedi roster is the sitting Clone Wars Council (Aayla Secura, Adi Gallia, Ki-Adi-Mundi, Kit Fisto, Depa Billaba, Jocasta Nu). Measured off public/data/canonical/npcs.json, not inferred from the title.",
+   "summary": "A community Clone Wars compendium. Jedi, Republic, Separatist and underworld characters, the planets they fight over, and new species and specializations.",
+   "summary_cite": "Heroes on Both Sides, Contents, p.5"
+  },
+  {
+   "id": "d20_radio",
+   "label": "D20 Radio",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "d20_radio",
+    "D20 Radio",
+    "D20 Radio (community content)"
+   ],
+   "_note": "COMMUNITY — an ongoing community-content channel, not one book. Era agnostic and provably so: its 83 records span every period at once (19 `empire`, 12 `resistance` incl. Canto Bight, 4 `krath`), so no single era frame exists to state."
+  },
+  {
+   "id": "dawn_of_defiance",
+   "label": "Dawn of Defiance",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "dawn_of_defiance",
+    "Dawn of Defiance",
+    "Dawn of Defiance (campaign)"
+   ]
+  },
+  {
+   "id": "crate_of_krayts",
+   "label": "Crate of Krayts",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "crate_of_krayts",
+    "Crate of Krayts",
+    "Crate of Krayts (adventure)"
+   ]
+  },
+  {
+   "id": "light_and_life",
+   "label": "Light and Life",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "light_and_life",
+    "Light and Life",
+    "Light and Life (adventure)"
+   ],
+   "_note": "Era HELD at agnostic under protest, and surfaced to the architect: this work's frame is the HIGH REPUBLIC (5 of its 13 records affiliate `high_republic`, 4 `forces_of_the_nihil`), which the W2 vocabulary has no legal value for — the reserved slot is `old_republic`, a different period. D-PS1's default is the only honest answer until the vocabulary gains a value; a wrong era is worse than none."
+  },
+  {
+   "id": "debts_of_honor",
+   "label": "Debts of Honor",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "debts_of_honor",
+    "Debts of Honor"
+   ],
+   "_note": "The short code these 10 records carry is `doh`, which is ALREADY the alias of disciples_of_harmony (a released FFG supplement). Claiming it here would map one alias to two books, so it is deliberately NOT added — the collision is surfaced to the architect, not improvised away."
+  },
+  {
+   "id": "the_mine",
+   "label": "The Mine",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "the_mine",
+    "The Mine",
+    "The Mine (adventure)"
+   ]
+  },
+  {
+   "id": "never_tell_me_the_odds",
+   "label": "Never Tell Me the Odds",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "never_tell_me_the_odds",
+    "Never Tell Me the Odds",
+    "Never Tell Me the Odds (adventure)"
+   ]
+  },
+  {
+   "id": "black_sun_rising",
+   "label": "Black Sun Rising",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "black_sun_rising",
+    "Black Sun Rising",
+    "Black Sun Rising (adventure)"
+   ]
+  },
+  {
+   "id": "imperial_military_community",
+   "label": "Imperial Military (community)",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "imperial_military_community",
+    "Imperial Military (community)"
+   ],
+   "_note": "The label keeps its `(community)` parenthetical because the bare words are also an affiliation id in affiliations.vocab.json — the settings panel must not read as a faction filter."
+  },
+  {
+   "id": "hidden_depths",
+   "label": "Hidden Depths",
+   "group": "Supplement",
+   "line": "fad",
+   "era": "agnostic",
+   "aliases": [
+    "hidden_depths",
+    "Hidden Depths",
+    "Hidden Depths (adventure)"
+   ],
+   "_note": "OFFICIAL (ruling `provenance-w1-w2` §3, H2 — RECLASSIFIED from Community). A Fantasy Flight product we hold: a 32-page Force and Destiny Game Master's Kit adventure booklet at `Star Wars Roleplaying/Adventures/FaD Adventures/ Hidden Depths.pdf`, carrying `Fantasy Flight Games` in its embedded metadata; the architect verified the PDF itself before ruling. Its 3 NPCs are characters and creatures printed in that booklet. It was first published in NPC_PROVENANCE_LEDGER as anonymous community work because the corpus negative was run only against Docs/pdf_sources.json — the 97 sources INGESTED for search — and \"not indexed\" was read as \"not owned\". Line `fad` follows its sibling FaD adventure `lost_knowledge`; era agnostic, since the booklet's own frame states no period."
+  },
+  {
+   "id": "tatooine_manhunt",
+   "label": "Tatooine Manhunt",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "tatooine_manhunt",
+    "Tatooine Manhunt",
+    "Tatooine Manhunt (adventure)"
+   ]
+  },
+  {
+   "id": "jedi_fallen_order",
+   "label": "Jedi: Fallen Order (adaptation)",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "jedi_fallen_order",
+    "Jedi: Fallen Order (adaptation)"
+   ],
+   "_note": "A community adaptation of a video game, not an FFG product — the label keeps `(adaptation)` so nobody reads it as a licensed book. Era agnostic: the game is set in the Imperial years between the Clone Wars and the Rebellion, which is neither clone_wars nor galactic_civil_war in this vocabulary; D-PS1 says leave it."
+  },
+  {
+   "id": "unofficial_species_menagerie",
+   "label": "Unofficial Species Menagerie",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "unofficial_species_menagerie",
+    "Unofficial Species Menagerie"
+   ],
+   "_note": "COMMUNITY / homebrew — a fan compilation, not an FFG book (27 species records). Classed by provenance, not folded into a fake official book. See _meta.findings — this reopens the F-3 provenance facet the ruling deferred to F-9.",
+   "summary": "A fan compilation, not an FFG book (27 species). Not in this project’s corpus, so no summary is authored from source."
+  },
+  {
+   "id": "the_complete_species_guide",
+   "label": "The Complete Species Guide",
+   "group": "Community",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "the_complete_species_guide",
+    "The Complete Species Guide"
+   ],
+   "_note": "COMMUNITY / homebrew — a fan compilation credited to Yaccarus, not an FFG book (F-67, ruling `csg-species-import-census` Amendment 1). Era agnostic and provably so: the guide self-describes as \"Legends and Legends only\" and its 324 species span every period at once, so no single era frame exists to state (D-PS1). ORDER IS LOAD-BEARING: this row sits AFTER `unofficial_species_menagerie`, and that vocabulary position IS the \"earliest-shipped community source\" tiebreak Amendment 1 A-2's render dedupe reads (lib/shared/sources.js namePrecedenceOf). Appending a later community source keeps the rule true; inserting one ahead of the Menagerie would silently change which Barabel a player is offered.",
+   "summary": "A community compilation: over 300 species for character creation, each with stats, physiology, society and homeworld. Stats are homebrewed where no official ones exist.",
+   "summary_cite": "The Complete Species Guide, \"What is the Complete Species Guide?\""
+  },
+  {
+   "id": "user_data",
+   "label": "User-Added Data",
+   "group": "UserData",
+   "line": null,
+   "era": "agnostic",
+   "aliases": [
+    "user_data",
+    "User Data"
+   ],
+   "_note": "Provenance marker, not a book (3 talent records: cunning_stunt, finesse, tenacious). Same provenance axis as the Menagerie.",
+   "summary": "Not a book — a provenance marker for records the community added (3 talents today)."
+  },
+  {
+   "id": "the_old_republic_era_sourcebook",
+   "label": "The Old Republic: An Era Sourcebook",
+   "group": "Community",
+   "line": null,
+   "era": "old_republic",
+   "aliases": [
+    "the_old_republic_era_sourcebook",
+    "The Old Republic: An Era Sourcebook"
+   ],
+   "_note": "COMMUNITY / homebrew — a fan sourcebook credited to BluSunrize (design, development, layout; document version 0.8.0), not an FFG book. Ingested by ruling `tor-p3-app-ingest-scope`; MECHANISM SET BY JASON 2026-08-13 — \"it's a community sourcebook, so the toggle should be the book. The majority of toggles are books\" — superseding R-P3A-3's GAME VARIANTS overlay pack. THIS ROW IS THE BOOK'S ONE SWITCH FOR EVERY CLASS IT CONTRIBUTES, not just species: the book also carries talents, specializations and gear (laps 2–4 under R-P3A-2), and each lands as records citing this same `sources` string, so no further vocabulary work is owed as they arrive. That is the property the overlay route lacked — a pack would have needed a resolver arm per registry. ERA `old_republic`, the FIRST row to carry it: the reserved slot comes due exactly as its reservation was written (see this file's _doc), and R-P3A-1 requires the frame be QUOTED rather than assumed. The book states its own frame on the species-chapter opener, p6: \"In fact, the era of the Old Republic and the Sith Empire bring civilizations to the forefront that are later on forgotten or faded from the galaxy. This section presents various species found more commonly in that era\" — and every page carries the running header \"PEOPLE OF THE GALAXY / THE OLD REPUBLIC\". ORDER IS LOAD-BEARING for the same reason the CSG row says so: this row is APPENDED, so its five species lose the `namePrecedenceOf` tiebreak to the Menagerie's and the Complete Species Guide's records of the same name (Dashade is shipped by both, making TOR's the third) and dedupe away at render rather than showing a name three times. The companion `old-republic-campaign` gets NO row until its own content is ingested — it carries no species, and this vocabulary gains a row when content enters, never in anticipation.",
+   "summary": "A community Old Republic sourcebook. New species and the Sith, plus four universal specializations — Cartel Dealer, Gladiator, Imperial Loyalist and Mandalorian Crusader.",
+   "summary_cite": "The Old Republic: An Era Sourcebook, Contents, p.3"
+  }
+ ],
+ "_meta": {
+  "sources_covered": 64,
+  "official_books": 49,
+  "community_rows": 14,
+  "userdata_rows": 1,
+  "findings": [
+   "FINDING B1a-1 (surfaced for the architect): 30 non-official-book records are ALREADY in the shipped registries — Unofficial Species Menagerie (27 species) + User Data (3 talents). The books-filter-go ruling deferred the homebrew/provenance facet to F-9 on the premise 'our registries today are official-book content'; that premise does not hold. Classed honestly here (Community / UserData, line null) rather than mislabeled. Decision owed at the 1a gate: does F-3's active-sources filter gain the provenance axis NOW (a player choosing 'official only' would expect these 27 species to disappear), or does 1b filter by line/book only and leave provenance to F-9? Not decided seat-side — surfaced.",
+   "FINDING B1a-2 RESOLVED (D-B1a-2, Jason override, BOOKS-1b): the Force and Destiny Beta Rulebook is REMOVED from the product — its 1 orphan record (gear: portable_healing_kit, beta-only, absent from the released core) is deleted and this vocab row dropped; L1bk enforces the source string's absence going forward.",
+   "NOTE: line/group for the released official books derived from the PDF-library folder taxonomy (Docs/pdf_sources.json). Rise of the Separatists + Dawn of Rebellion classed Era (multi-line, Clone Wars / early-Rebellion). Two fuzzy false-positives in the raw census (Beyond the Rim, Nexus of Power) hand-corrected against the PDF paths.",
+   "W1b (ruling provenance-w1-w2-handoff): 25 rows added for the 26 unmapped NPC `source` strings — 12 OFFICIAL (group Supplement, ON by default) + 13 COMMUNITY (group Community, OFF by default, NO grandfathering per G12). The 26th string, 'Savage Spirits / Special Modifications', gets NO row by ruling: it names two books at once, so its 18 records carry a real `sources: [\"Savage Spirits\", \"Special Modifications\"]` array in npcs.json instead (scripts/canonical/apply_npc_compound_source_backfill.py). Line for the new official adventures comes from the `Adventures/<line> Adventures` folders in Docs/pdf_sources.json; FOUR adventures absent from that library as entries of their own (Mountain Top Rescue, Debts to Pay, Dead in the Water, Escape from Mos Shuuta) keep line null rather than a guess — Escape from Mos Shuuta because it ships inside the EotE Beginner Game box instead of as its own PDF, so the folder taxonomy cannot name it even though outside knowledge can.",
+   "W1b — every one of the 25 new rows carries its own `label` in `aliases` alongside the exact registry string, which for most of the adventures is the label plus an `(adventure)` / `(campaign)` / `(community content)` parenthetical the NPC library appends. Both forms are kept because they answer different questions: the parenthetical form is what npcs.json actually stores today, and the bare label is the form every OTHER registry's `sources` array uses (gear/weapons/species carry 'Savage Spirits', never 'sava'), so W5's weapons/gear backfill for these same books resolves without a second edit to this file. The invariant is asserted in test/books_vocab_parity.cjs and independently relied on by scripts/canonical/apply_npc_compound_source_backfill.py:56-58.",
+   "W1b — THREE short codes were added as aliases to rows that already existed rather than as new rows, each verified 1:1 against npcs.json before being added: `aaa` -> allies_adversaries (all 56 records carrying it also carry source 'Allies and Adversaries'), `god` -> ghosts_of_dathomir (32/32 carry 'Ghosts of Dathomir'), `eto` -> enter_the_unknown (6/6 carry 'Enter the Unknown').",
+   "FINDING W1b-1 (OPEN — surfaced, not fixed): three short codes RESOLVE TO THE WRONG BOOK on the NPC path, because the NPC library's code table (data-sources/npc-library/index.json `book_codes`) disagrees with this vocabulary. `da` -> desperate_allies here, but 7 NPC records use it for Disciples of Harmony. `fh` -> far_horizons here, but 5 NPC records use it for Fly Casual. `doh` -> disciples_of_harmony here, but 10 NPC records use it for Debts of Honor. A mapping guard that only asks 'does every code resolve?' passes all three silently — they resolve, just to the wrong book. Re-pointing an alias that is already shipped is a durable-vocabulary decision this seat does not own; the architect rules it.",
+   "FINDING W1b-2 (OPEN — surfaced, not fixed): the short code `sot` (18 records) is the code on the compound 'Savage Spirits / Special Modifications' string. The ruling gives the compound no vocab row, so `sot` maps to nothing and stays unmapped. Deliberately left unhandled per the handoff's own flag.",
+   "W2 (ruling provenance-w1-w2-handoff): every row carries `era`. 6 of 64 are non-agnostic — rise_of_the_separatists / collapse_of_the_republic / heroes_on_both_sides = clone_wars; dawn_of_rebellion = galactic_civil_war; force_awakens_beginner_game / discovery_on_jakku = sequel_era. Everything else is agnostic under D-PS1's default. Nothing reads this column yet: sources.js exports contentEraOf() for W4."
+  ]
+ }
+}

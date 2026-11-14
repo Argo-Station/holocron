@@ -1,0 +1,226 @@
+{
+  "id": "corellian_government",
+  "name": "Corellian Security Force (CorSec)",
+  "type": "military_force",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Suns of Fortune",
+    "Edge of the Empire Core Rulebook"
+  ],
+  "overview": "The Corellian Security Force, commonly known as CorSec, is the primary law enforcement agency of the Corellian system. Comprising beat officers, investigators, and elite Tactical Response Teams, CorSec is tasked with keeping order among the fractious, independent-minded Corellians. Under the Empire, CorSec operates with Imperial 'liaisons' looking over its shoulder, creating a constant tension between local policing and Imperial agenda enforcement.",
+  "short_descriptor": "Corellian Security. Professional law enforcement caught between Imperial oversight and Corellian independence. Some officers enforce Imperial law reluctantly. Some don't enforce it at all. Know which you're dealing with.",
+  "witness_statement": {
+    "text": "Got pulled over at the Coronet checkpoint with a hold full of unmarked tibanna. Officer scanned it, looked at me, looked at the manifest, and said 'You're two canisters over the recreational limit.' Took the two canisters. Let me keep the other forty. That's CorSec for you — they know exactly what you're carrying and exactly how much they care.",
+    "source": "Corellian freighter pilot, detained and released at Coronet City checkpoint",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "CORSEC",
+      "text": "CorSec is structured as a precinct-based law enforcement agency covering the entire Corellian system, known as the Five Brothers."
+    },
+    {
+      "heading": "POLICING",
+      "text": "Beat officers and patrol units handle routine policing; precinct-based investigator teams run criminal cases, developing extensive contact networks across civilian, criminal, and military circles; and elite Tactical Response Teams deploy for high-threat operations including crime syndicate infiltration and pirate interdiction in the system's asteroid fields."
+    },
+    {
+      "heading": "SPACE INTERDICTION",
+      "text": "PB-950 patrol boats and Assassin-class corvettes give CorSec credible space interdiction capability within system boundaries, though jurisdiction ends at the Corellian system border."
+    },
+    {
+      "heading": "IMPERIAL OVERSIGHT",
+      "text": "Under Imperial occupation, Imperial 'liaisons' are embedded at every level of the command structure, creating a parallel reporting chain that can override CorSec authority on any case deemed relevant to Imperial security."
+    }
+  ],
+  "motivations": {
+    "primary": "Law and order",
+    "secondary": [
+      "Protecting Corellian citizens",
+      "Maintaining jurisdiction against Imperial encroachment",
+      "Combating organized crime and smuggling",
+      "Preserving institutional independence"
+    ],
+    "notes": "CorSec officers are motivated by a genuine sense of duty to Corellia, but the Imperial occupation has fractured that motivation. Some officers enforce Imperial edicts dutifully, others selectively ignore them, and a few actively subvert them. The result is an institution whose collective motivation is increasingly incoherent."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain functional law enforcement across the Corellian system despite Imperial interference",
+      "Preserve CorSec's institutional independence and jurisdiction from Imperial absorption",
+      "Suppress the organized crime syndicates and swoop gangs that control parts of Coronet City"
+    ],
+    "operational": [
+      "Patrol neighborhoods, monitor traffic, and enforce civil law across the Five Brothers",
+      "Investigate major crimes through precinct-based investigator teams",
+      "Intercept smuggling operations moving contraband through the Corellian system",
+      "Coordinate with Imperial liaisons without ceding operational authority"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "legal_pressure",
+      "information_control",
+      "negotiation",
+      "infiltration"
+    ],
+    "avoided": [
+      "Assassination — CorSec is a legitimate law enforcement body, not a death squad",
+      "Propaganda — CorSec enforces laws, it does not shape public opinion; that is the Empire's domain"
+    ],
+    "notes": ""
+  },
+  "strengths": [
+    "Deep local knowledge and community connections that no Imperial garrison can replicate",
+    "Investigators develop extensive contact networks spanning criminal, civilian, and military worlds",
+    "Tactical Response Teams are elite combined-arms units trained in police and military tactics, operating across the entire Corellian system",
+    "Institutional legitimacy — Corellians may resent CorSec, but they accept its authority in ways they never will with stormtroopers",
+    "PB-950 patrol boats give CorSec credible space interdiction capability within the system"
+  ],
+  "weaknesses": [
+    "Embedded Imperial liaison officers hold override authority on any case classified as Imperial security, compromising CorSec operational independence and forcing enforcement of edicts that erode civilian trust.",
+    "CorSec has effectively ceded control of Coronet City's Blue Sector to swoop gangs and criminal elements, indicating the limits of its enforcement capacity in contested urban zones.",
+    "A culture of selective enforcement exists at the margins, with officers such as Lieutenant Costi accepting bribes from small-time smugglers while maintaining stricter standards for serious offenses.",
+    "CorSec jurisdiction terminates at the Corellian system boundary, leaving the agency unable to pursue investigations or suspects beyond the Five Brothers.",
+    "The officer corps is divided between those who cooperate with Imperial authority and those who resist or subvert it, producing institutional friction that slows coordinated responses."
+  ],
+  "behavior_under_threat": {
+    "low": "Standard patrol response. Officers investigate, file reports, and monitor the situation through precinct channels.",
+    "medium": "Investigators assigned to the case. Contact networks activated. Suspects tracked, interrogated, and potentially detained. Patrol presence increased in affected areas.",
+    "high": "Tactical Response Teams deployed. Coordinated operations across precincts. CorSec patrol boats mobilized for system-wide interdiction. Imperial liaisons notified — reluctantly.",
+    "critical": "Full mobilization including TRT assets and patrol fleet. Assassin-class corvettes dispatched for pursuit operations. Imperial military involvement becomes unavoidable, and CorSec risks losing operational control of the response entirely."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Beat officer or patrol unit",
+      "Precinct investigator team",
+      "Tactical Response Team commander",
+      "CorSec system command"
+    ],
+    "notes": "CorSec escalation is professional but constrained by the parallel Imperial reporting chain. Imperial liaisons can insert themselves at any level, and serious incidents are reported to Imperial authorities whether CorSec wants them to be or not. Within CorSec itself, escalation from street patrol to TRT deployment can happen within minutes when officers are in danger."
+  },
+  "tension_patterns": [
+    "CorSec officers regularly encounter cases where the only applicable charges are Imperial statutes that criminalize political speech or unauthorized travel rather than acts recognized as crimes under Corellian common law.",
+    "CorSec jurisdiction terminates at the Corellian system boundary, but criminal operations — particularly smuggling networks — routinely extend beyond it, creating cases that cannot be fully investigated within legal authority.",
+    "Imperial liaison officers periodically issue arrest orders for Corellian public figures on political grounds, placing CorSec in a position where compliance erodes community trust and noncompliance triggers direct Imperial intervention.",
+    "CorSec investigators maintain informants who are active criminals, as these contacts consistently produce higher-quality intelligence than official channels, creating an institutional dependency on the criminal networks they are mandated to suppress.",
+    "Precinct-based investigative teams frequently pursue overlapping cases independently, reaching divergent conclusions from different evidence sets, with no institutional mechanism to force inter-precinct information sharing."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "fortified",
+    "economic": "patrol",
+    "command": "fortified",
+    "informational": "patrol",
+    "military": "skeleton",
+    "hidden": "skeleton",
+    "covert": "skeleton"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "high",
+    "weapon": "medium",
+    "person": "high",
+    "artifact": "low",
+    "technology": "low",
+    "notes": "CorSec is primarily interested in contraband moving through the Corellian system and persons wanted for criminal activity. Data matters when it pertains to active investigations. Weapons are relevant when connected to organized crime or smuggling. Artifacts and advanced technology are outside CorSec's typical mandate."
+  },
+  "ally_factions": [
+    "imperial_military"
+  ],
+  "enemy_factions": [
+    "black_sun",
+    "hutt_cartel"
+  ],
+  "relationship_notes": {
+    "imperial_military": "An uneasy partnership imposed by occupation. Imperial liaisons oversee CorSec operations and Star Destroyers orbit overhead, but day-to-day policing remains in CorSec hands — for now. The relationship depends entirely on CorSec's continued usefulness.",
+    "black_sun": "Black Sun's criminal operations in the Corellian system are a primary CorSec target, though the syndicate's resources often outmatch what CorSec can bring to bear.",
+    "hutt_cartel": "Hutt-connected smuggling through the Corellian Run is a persistent problem. CorSec intercepts what it can but the volume is overwhelming.",
+    "rebel_alliance": "Officially, CorSec enforces Imperial law against Rebel sympathizers. Unofficially, some officers look the other way or even provide quiet assistance — Corellians have never taken well to outside rule."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "dominant",
+    "colonies": "minimal",
+    "inner_rim": "none",
+    "expansion_region": "none",
+    "mid_rim": "none",
+    "outer_rim": "none",
+    "hutt_space": "none",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Lieutenant Corran Costi",
+      "role": "CorSec boarding officer and patrol leader",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "rival",
+      "notes": "A relatively dogmatic and honest lawman who will accept bribes from small-time smugglers but draws a hard line at serious contraband like heavy spice or slaves. Represents the pragmatic middle ground of CorSec's corruption spectrum.",
+      "network_assessment": "Costi is a checkpoint gatekeeper with a price list. Small-timers buy passage; anyone moving serious weight gets detained. Useful as a predictable obstacle or a paid shortcut — never as a reliable ally.",
+      "wants": "To maintain order in his patrol sector while supplementing his income through manageable corruption that does not compromise his professional reputation.",
+      "secret": "Costi has been selectively logging certain cargo discrepancies as sensor malfunctions rather than contraband detections, building a pattern that Imperial auditors could use to end his career.",
+      "behavior": {
+        "under_pressure": "Falls back on procedure. Calls for backup, cites regulations, and escalates to precinct command rather than improvising.",
+        "when_losing": "Retreats behind his badge. Will release a suspect and file a report rather than risk a physical confrontation he cannot win.",
+        "loyalty": "Loyal to CorSec as an institution and to Corellia as a concept. Not loyal to the Empire, not loyal to criminals. Loyal to the paycheck.",
+        "tells": "Checks his datapad before making decisions — he is consulting the bribe schedule. Longer pauses mean the ask exceeds his comfort threshold."
+      },
+      "useful_to_players": [
+        "Can be bribed to overlook small contraband shipments passing through Coronet checkpoints",
+        "His patrol schedule is predictable and can be timed around",
+        "Knows which cargo lanes CorSec monitors heavily and which they ignore"
+      ],
+      "hooks": [
+        "Word is Costi's been logging phantom sensor errors on the night shift — someone could make that pattern disappear, for a favor",
+        "A smuggler got detained at Costi's checkpoint with something that spooked him enough to call precinct. Nobody knows what was in the hold."
+      ]
+    },
+    {
+      "name": "Rostek Horn",
+      "role": "CorSec officer and intelligence operative",
+      "era": [
+        "prequel",
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "Legendary CorSec figure who helped conceal Jedi survivors after Order 66. His legacy represents the undercurrent of quiet resistance within CorSec's ranks.",
+      "network_assessment": "Horn is old guard CorSec intelligence — the kind who buried Jedi after Order 66 and never got caught. If he is still active, he is running networks the Empire does not know exist. Approach with extreme caution.",
+      "wants": "To protect the people he hid and the networks he built, ensuring that the sacrifices made after Order 66 were not in vain.",
+      "secret": "Maintains a network of false identities and safe houses originally created to shelter Jedi survivors, some of which may still be occupied.",
+      "behavior": {
+        "under_pressure": "Becomes quieter and more methodical. Decades of intelligence work mean he has contingency plans for contingency plans.",
+        "when_losing": "Burns assets and disappears. He has done it before — after Order 66 — and the infrastructure is still in place.",
+        "loyalty": "Loyal to Corellia and to the people under his protection. CorSec is a tool, not a cause. The Empire is an obstacle to be worked around.",
+        "tells": "Almost none. His operational discipline is legendary. The only tell is when he stops being visible — that means something is happening."
+      },
+      "useful_to_players": [
+        "His safe house network could shelter fugitives the Empire is hunting",
+        "His intelligence contacts span decades and multiple sectors of Corellian society",
+        "Knows where CorSec's institutional blind spots are because he built some of them"
+      ],
+      "hooks": [
+        "An old CorSec retirement file surfaced with Rostek Horn's name on it — except the retirement date is three years after he supposedly died",
+        "Someone is using Clone Wars-era CorSec dead drops in Coronet. The encryption is twenty years old but nobody has cracked it."
+      ]
+    }
+  ],
+  "source_material_notes": "Suns of Fortune is the primary source for CorSec, containing NPC stat blocks for Officers (p.21), Investigators (p.22), and Tactical Response Teams (p.22), plus the 'Long Arm of CorSec' modular encounter (p.128). References throughout the book establish CorSec's relationship to the Blue Sector, swoop gangs, and Imperial occupation. Edge of the Empire Core Rulebook contains scattered references to Corellia and its security forces.",
+  "field_sources": {
+    "motivations": "Suns of Fortune, CorSec Officer description p.21; inferred from Imperial liaison context p.11",
+    "goals": "Suns of Fortune, CorSec descriptions pp.21-22, Blue Sector context p.15",
+    "methods": "Suns of Fortune, Investigator and TRT descriptions p.22, Long Arm encounter p.128",
+    "strengths": "Suns of Fortune, TRT description p.22, PB-950 patrol boat p.128",
+    "weaknesses": "Suns of Fortune, Blue Sector cession p.15, Imperial liaison context p.11, bribery in Long Arm encounter p.128",
+    "behavior_under_threat": "Inferred from CorSec unit hierarchy and Long Arm encounter escalation p.128",
+    "tension_patterns": "Inferred from CorSec operational friction under Imperial occupation described in Suns of Fortune pp.11, 15, 21-22, 128",
+    "regional_presence": "Suns of Fortune, CorSec jurisdiction described as Corellian system only pp.21-22",
+    "mcguffin_interest": "Inferred from CorSec law enforcement mandate and smuggling interdiction focus"
+  }
+}

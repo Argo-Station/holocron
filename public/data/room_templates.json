@@ -1,0 +1,1145 @@
+{
+  "version": "1.0",
+  "room_templates": [
+    {
+      "room_id": "bunk_room_enlisted",
+      "name": "Enlisted Bunk Room",
+      "tags": ["sleeping"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["durasteel bunks", "footlocker", "glow panel"],
+      "optional_objects": ["personal holoprojector", "contraband stash", "pin-up flimsiplast", "chronometer"],
+      "density": "dense",
+      "connects_to": ["transit", "social", "sleeping"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "harsh overhead strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm portable glowrods", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "flickering overhead panel", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "outpost", "space_station"]
+    },
+    {
+      "room_id": "officer_quarters",
+      "name": "Officer's Quarters",
+      "tags": ["sleeping", "command"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["officer's bed", "personal desk", "secure locker", "viewport"],
+      "optional_objects": ["holographic star chart", "officer's sidearm rack", "decanter set", "commendation display"],
+      "density": "moderate",
+      "connects_to": ["command", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "adjustable recessed strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "single warm glowrod", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Hutt Cartel": { "lighting": "ambient amber sconces", "clutter_level": "high", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "palace"]
+    },
+    {
+      "room_id": "field_cots",
+      "name": "Field Cot Bivouac",
+      "tags": ["sleeping"],
+      "size": "large",
+      "shape_bias": "irregular",
+      "required_objects": ["folding field cots", "portable heater", "supply crate seating"],
+      "optional_objects": ["medpac station", "ration packs", "drying rack", "portable comms unit"],
+      "density": "cluttered",
+      "connects_to": ["storage", "medical", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "warm portable glowrods", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "dim emergency strips", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Imperial Military": { "lighting": "temporary floodlamps", "clutter_level": "medium", "object_state_bias": "hasty" }
+      },
+      "valid_for_types": ["outpost", "cave_system", "ruins", "forward_base"]
+    },
+    {
+      "room_id": "command_center",
+      "name": "Command Center",
+      "tags": ["command"],
+      "size": "large",
+      "shape_bias": "circular",
+      "required_objects": ["holoprojector table", "tactical display", "comm station", "officer's chairs", "blast door"],
+      "optional_objects": ["encryption terminal", "priority holofeed", "strategic datapad rack", "emergency destruct panel"],
+      "density": "moderate",
+      "connects_to": ["command", "security", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "cool blue overhead with red accents", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "mixed warm and cool portable units", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dim targeted spotlights", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost"]
+    },
+    {
+      "room_id": "planning_room",
+      "name": "Planning Room",
+      "tags": ["command"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["holoprojector table", "tactical chairs", "wall-mounted display screens"],
+      "optional_objects": ["dejarik board", "flimsiplast maps", "datapad charging station", "caf dispenser"],
+      "density": "moderate",
+      "connects_to": ["command", "social", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "warm overhead with holoprojector glow", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Imperial Military": { "lighting": "sterile white overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "aging fluorescent panels", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "outpost", "hideout"]
+    },
+    {
+      "room_id": "common_area",
+      "name": "Common Area",
+      "tags": ["social"],
+      "size": "large",
+      "shape_bias": "irregular",
+      "required_objects": ["bench seating", "dejarik table", "holoscreen", "refreshment station"],
+      "optional_objects": ["sabacc table", "exercise equipment", "notice board", "jukebox droid"],
+      "density": "moderate",
+      "connects_to": ["sleeping", "social", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "even white panels", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm mismatched glowrods", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "mixed warm overhead", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "cantina",
+      "name": "Cantina",
+      "tags": ["social"],
+      "size": "large",
+      "shape_bias": "L-shaped",
+      "required_objects": ["bar counter", "drink taps", "booth seating", "bartender droid socket"],
+      "optional_objects": ["stage platform", "chance cube table", "sabacc corner", "mounted trophy head", "jukebox"],
+      "density": "dense",
+      "connects_to": ["social", "transit", "hidden"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "ambient amber with neon accents", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Civilian/Neutral": { "lighting": "dim warm overhead with neon signage", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Black Sun": { "lighting": "dim targeted with violet accents", "clutter_level": "medium", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["settlement", "space_station", "outpost", "hideout"]
+    },
+    {
+      "room_id": "bar_private_booth",
+      "name": "Private Booth Alcove",
+      "tags": ["social", "hidden"],
+      "size": "tiny",
+      "shape_bias": "circular",
+      "required_objects": ["curved booth seat", "privacy screen", "drink service slot"],
+      "optional_objects": ["concealed blaster holster", "white noise emitter", "hidden compartment"],
+      "density": "moderate",
+      "connects_to": ["social", "hidden"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "low amber with bead curtain", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "dim recessed violet", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Civilian/Neutral": { "lighting": "single overhead pendant", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["settlement", "space_station", "hideout", "palace"]
+    },
+    {
+      "room_id": "corridor_main",
+      "name": "Main Corridor",
+      "tags": ["transit"],
+      "size": "medium",
+      "shape_bias": "long_narrow",
+      "required_objects": ["overhead glow panels", "directional signage", "power conduit access"],
+      "optional_objects": ["security camera", "fire suppression unit", "wall-mounted comlink station", "blast door"],
+      "density": "sparse",
+      "connects_to": ["transit", "command", "sleeping", "social", "security"],
+      "entry_points": 2,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright white strip panels", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "patchy warm glowrods", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "flickering mixed panels", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "corridor_service",
+      "name": "Narrow Service Corridor",
+      "tags": ["transit", "technical"],
+      "size": "small",
+      "shape_bias": "long_narrow",
+      "required_objects": ["exposed power conduit", "maintenance hatch", "pipe junction"],
+      "optional_objects": ["mouse droid charging port", "emergency toolkit", "ventilation grate"],
+      "density": "moderate",
+      "connects_to": ["transit", "technical", "hidden"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "dim emergency red strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "sporadic ceiling panels", "clutter_level": "medium", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "portable clip-on glowrods", "clutter_level": "high", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station"]
+    },
+    {
+      "room_id": "storage_closet",
+      "name": "Supply Closet",
+      "tags": ["storage"],
+      "size": "tiny",
+      "shape_bias": "rectangular",
+      "required_objects": ["durasteel shelving", "inventory datapad"],
+      "optional_objects": ["cleaning droid bay", "emergency medpac", "contraband stash", "spare parts bin"],
+      "density": "cluttered",
+      "connects_to": ["transit", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "single overhead strip", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "clip-on glowrod", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "pull-chain overhead bulb", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "warehouse_large",
+      "name": "Cargo Warehouse",
+      "tags": ["storage"],
+      "size": "vast",
+      "shape_bias": "rectangular",
+      "required_objects": ["cargo containers", "repulsorlift pallet jack", "loading ramp", "manifest terminal", "gantry crane"],
+      "optional_objects": ["cargo netting", "forklift droid", "customs scanner", "smuggler's false floor"],
+      "density": "moderate",
+      "connects_to": ["storage", "transit", "technical"],
+      "entry_points": 3,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "industrial floodlights", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Hutt Cartel": { "lighting": "amber industrial pendants", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Civilian/Neutral": { "lighting": "aging warehouse floods", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "settlement", "outpost"]
+    },
+    {
+      "room_id": "medical_bay",
+      "name": "Medical Bay",
+      "tags": ["medical"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["bacta tank", "medical bed", "bacta dispenser", "surgical droid socket", "vital signs monitor"],
+      "optional_objects": ["kolto spray rack", "cybernetics workbench", "quarantine curtain", "pharmaceutical cabinet", "medical droid"],
+      "density": "moderate",
+      "connects_to": ["sleeping", "transit", "medical"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright sterile white", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm portable surgical lamps", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "mixed fluorescent panels", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "interrogation_room",
+      "name": "Interrogation Chamber",
+      "tags": ["security"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["restraint chair", "interrogation table", "recording device", "blast door"],
+      "optional_objects": ["IT-O interrogation droid", "one-way transparisteel panel", "neural disruptor", "truth serum dispenser"],
+      "density": "sparse",
+      "connects_to": ["security", "command"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "single harsh overhead spotlight", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Black Sun": { "lighting": "dim targeted with shadow pools", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Hutt Cartel": { "lighting": "low amber with pain-device accent lighting", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "space_station", "hideout", "palace"]
+    },
+    {
+      "room_id": "maintenance_tunnel",
+      "name": "Maintenance Tunnel",
+      "tags": ["transit", "technical"],
+      "size": "small",
+      "shape_bias": "long_narrow",
+      "required_objects": ["exposed conduit bundles", "access hatch", "emergency shutoff valve"],
+      "optional_objects": ["mynock nest", "coolant leak", "dianoga drain", "maintenance droid rail"],
+      "density": "moderate",
+      "connects_to": ["transit", "technical", "hidden"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "red emergency strip lighting", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "sporadic failing panels", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "helmet-mounted lamps only", "clutter_level": "medium", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "settlement"]
+    },
+    {
+      "room_id": "armory",
+      "name": "Armory",
+      "tags": ["security", "storage"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["weapon rack", "ammunition locker", "security terminal", "blast door", "armor stand"],
+      "optional_objects": ["thermal detonator safe", "vibroblade display", "weapon maintenance bench", "biometric scanner"],
+      "density": "dense",
+      "connects_to": ["security", "command", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright overhead security strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "portable worklights", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dim showcase spotlights", "clutter_level": "medium", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "hideout"]
+    },
+    {
+      "room_id": "comms_room",
+      "name": "Communications Room",
+      "tags": ["command", "technical"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["hyperwave transceiver", "encryption console", "frequency scanner", "operator's chair"],
+      "optional_objects": ["signal jamming array", "holonet relay terminal", "backup power cell", "code cylinder rack"],
+      "density": "moderate",
+      "connects_to": ["command", "technical"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "console glow with dim overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "mixed scavenged screen glow", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dim with encrypted terminal glow", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "hideout"]
+    },
+    {
+      "room_id": "trophy_room",
+      "name": "Trophy Display Room",
+      "tags": ["social", "ritual"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["display cases", "spotlight rails", "velvet rope barriers"],
+      "optional_objects": ["mounted beast head", "lightsaber display", "Mandalorian armor stand", "rare artifact pedestal", "holocron case"],
+      "density": "moderate",
+      "connects_to": ["social", "ritual", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "amber accent spotlights with gold reflectors", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "dim targeted museum spots", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Imperial Military": { "lighting": "precise gallery lighting", "clutter_level": "low", "object_state_bias": "ceremonial" }
+      },
+      "valid_for_types": ["palace", "hideout", "space_station", "settlement"]
+    },
+    {
+      "room_id": "worship_chamber",
+      "name": "Worship Chamber",
+      "tags": ["ritual"],
+      "size": "large",
+      "shape_bias": "circular",
+      "required_objects": ["altar", "meditation mat", "incense burner", "devotional carvings"],
+      "optional_objects": ["Force-nexus crystal", "ancient mural", "kyber crystal shrine", "chanting speakers", "offering bowl"],
+      "density": "sparse",
+      "connects_to": ["ritual", "hidden", "sleeping"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Civilian/Neutral": { "lighting": "candlelight and natural light shafts", "clutter_level": "low", "object_state_bias": "ceremonial" },
+        "Rebel Alliance": { "lighting": "warm portable candles and glowrods", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Hutt Cartel": { "lighting": "amber braziers with incense haze", "clutter_level": "high", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["temple", "ruins", "settlement", "palace"]
+    },
+    {
+      "room_id": "hidden_compartment",
+      "name": "Hidden Compartment",
+      "tags": ["hidden", "storage"],
+      "size": "tiny",
+      "shape_bias": "irregular",
+      "required_objects": ["concealed hatch", "false wall panel"],
+      "optional_objects": ["emergency supplies", "contraband crate", "datachip safe", "holdout blaster stash", "credit chip case"],
+      "density": "cluttered",
+      "connects_to": ["hidden", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Black Sun": { "lighting": "tiny concealed LED strip", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Hutt Cartel": { "lighting": "dim amber glow from cracks", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Rebel Alliance": { "lighting": "personal glowrod only", "clutter_level": "high", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["starship", "settlement", "hideout", "outpost"]
+    },
+    {
+      "room_id": "escape_tunnel",
+      "name": "Escape Tunnel",
+      "tags": ["hidden", "transit"],
+      "size": "small",
+      "shape_bias": "long_narrow",
+      "required_objects": ["reinforced tunnel walls", "emergency glow markers", "sealed exit hatch"],
+      "optional_objects": ["demolition charge mount", "emergency comlink", "collapse trigger", "survival cache"],
+      "density": "sparse",
+      "connects_to": ["hidden", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "chem glow sticks at intervals", "clutter_level": "low", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "none until activated", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Civilian/Neutral": { "lighting": "faded painted arrows on walls", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["hideout", "outpost", "settlement", "palace"]
+    },
+    {
+      "room_id": "hangar_bay_small",
+      "name": "Small Hangar Bay",
+      "tags": ["transit", "technical"],
+      "size": "vast",
+      "shape_bias": "rectangular",
+      "required_objects": ["landing pad", "fuel line hookup", "magnetic clamp array", "hangar blast door", "fire suppression system"],
+      "optional_objects": ["astromech charging station", "cargo loading arm", "pilot ready room", "shield generator access"],
+      "density": "moderate",
+      "connects_to": ["transit", "technical", "storage"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "industrial high-bay floods", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "mixed portable floods and overhead", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "aging overhead floods with dead zones", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost"]
+    },
+    {
+      "room_id": "holding_cells",
+      "name": "Holding Cells",
+      "tags": ["security"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["ray-shielded cell doors", "durasteel bench", "security camera", "guard console"],
+      "optional_objects": ["stun cuffs rack", "prisoner effects locker", "force cage generator", "feeding slot"],
+      "density": "sparse",
+      "connects_to": ["security", "command", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright harsh ceiling panels in cells", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Hutt Cartel": { "lighting": "dim amber with darker cell interiors", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "targeted guard station light, dark cells", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "palace", "hideout", "starship"]
+    },
+    {
+      "room_id": "market_stalls",
+      "name": "Market Stall Cluster",
+      "tags": ["social", "storage"],
+      "size": "large",
+      "shape_bias": "irregular",
+      "required_objects": ["vendor stalls", "awning canopies", "credit reader terminals", "display tables"],
+      "optional_objects": ["food prep station", "exotic animal cages", "droid parts bin", "holo-advertisement projector", "spice rack"],
+      "density": "cluttered",
+      "connects_to": ["social", "transit", "storage"],
+      "entry_points": 3,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "amber string lights and neon vendor signs", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Civilian/Neutral": { "lighting": "mixed natural and portable lights", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Black Sun": { "lighting": "dim with selective vendor spotlights", "clutter_level": "medium", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["settlement", "space_station", "outpost"]
+    },
+    {
+      "room_id": "kitchen_galley",
+      "name": "Kitchen / Galley",
+      "tags": ["social", "storage"],
+      "size": "medium",
+      "shape_bias": "L-shaped",
+      "required_objects": ["cooking surface", "cold storage unit", "food prep counter", "dishwashing station", "ration dispenser"],
+      "optional_objects": ["spice rack", "cooking droid socket", "exhaust hood", "serving window"],
+      "density": "dense",
+      "connects_to": ["social", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright overhead fluorescent", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm overhead with task lighting", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Hutt Cartel": { "lighting": "warm amber with grease-stained pendants", "clutter_level": "high", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["starship", "military_base", "space_station", "settlement", "outpost"]
+    },
+    {
+      "room_id": "guard_post",
+      "name": "Guard Post",
+      "tags": ["security"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["security terminal", "weapon rack", "guard chair", "viewport slit"],
+      "optional_objects": ["surveillance monitor bank", "alarm trigger", "blast shield control", "stun grenade dispenser"],
+      "density": "moderate",
+      "connects_to": ["transit", "security", "command"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "overhead strip with console glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Black Sun": { "lighting": "dim with security screen glow", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Hutt Cartel": { "lighting": "low amber wall sconce", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "space_station", "palace", "outpost", "hideout"]
+    },
+    {
+      "room_id": "server_room",
+      "name": "Server / Data Room",
+      "tags": ["technical", "security"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["data server stacks", "cooling unit", "slicer terminal", "power coupling", "fire suppression system"],
+      "optional_objects": ["backup generator", "encrypted holocron storage", "astromech interface port", "security lockout console"],
+      "density": "dense",
+      "connects_to": ["technical", "security", "command"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "cool blue server glow with white overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "server glow only, overhead broken", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dim with green terminal glow", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "starship", "hideout"]
+    },
+    {
+      "room_id": "refresher",
+      "name": "Refresher / Washroom",
+      "tags": ["sleeping"],
+      "size": "tiny",
+      "shape_bias": "rectangular",
+      "required_objects": ["sonic shower", "wash basin", "mirror panel", "waste unit"],
+      "optional_objects": ["laundry recycler", "grooming kit shelf", "bacta patch dispenser"],
+      "density": "moderate",
+      "connects_to": ["sleeping", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright sterile overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "flickering moisture-damaged panel", "clutter_level": "medium", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "single portable glowrod", "clutter_level": "medium", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "docking_bay_office",
+      "name": "Docking Bay Office",
+      "tags": ["command", "transit"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["manifest terminal", "comm panel", "viewport to docking bay", "filing cabinet"],
+      "optional_objects": ["customs scanner", "bribe drawer", "docking fee register", "security feed monitor"],
+      "density": "moderate",
+      "connects_to": ["transit", "command", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Civilian/Neutral": { "lighting": "mixed natural and overhead panel", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Imperial Military": { "lighting": "standard office overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Hutt Cartel": { "lighting": "amber desk lamp with dim overhead", "clutter_level": "high", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["space_station", "settlement", "outpost"]
+    },
+    {
+      "room_id": "landing_pad_control",
+      "name": "Landing Pad Control Room",
+      "tags": ["command", "technical"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["flight control console", "sensor array readout", "comm headset station", "transparisteel observation window"],
+      "optional_objects": ["beacon control", "weather monitor", "tractor beam interface", "emergency landing lights control"],
+      "density": "moderate",
+      "connects_to": ["command", "transit", "technical"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "console glow with overhead spots", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "scavenged console displays, no overhead", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "aging overhead with console glow", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "smugglers_hold",
+      "name": "Smuggler's Hold",
+      "tags": ["hidden", "storage"],
+      "size": "small",
+      "shape_bias": "irregular",
+      "required_objects": ["false floor panels", "scan-shielded compartments", "quick-release cargo netting"],
+      "optional_objects": ["spice containers", "counterfeit credit chip press", "stolen artifact crate", "cold-storage biologics unit"],
+      "density": "cluttered",
+      "connects_to": ["hidden", "storage", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "dim amber portable lamp", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "concealed LED strips at floor level", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Rebel Alliance": { "lighting": "personal glowrod only", "clutter_level": "high", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["starship", "settlement", "space_station", "hideout"]
+    },
+    {
+      "room_id": "spice_lab",
+      "name": "Spice Processing Lab",
+      "tags": ["technical", "hidden"],
+      "size": "medium",
+      "shape_bias": "L-shaped",
+      "required_objects": ["chemical processing vats", "ventilation hood", "measuring scales", "ingredient storage", "hazmat gear rack"],
+      "optional_objects": ["quality testing station", "packaging station", "exhaust scrubber", "hidden alarm", "glitterstim aging chamber"],
+      "density": "dense",
+      "connects_to": ["hidden", "technical", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "amber overhead with chemical glow", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "clinical white with dim perimeter", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Civilian/Neutral": { "lighting": "makeshift overhead with fume haze", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["hideout", "settlement", "space_station"]
+    },
+    {
+      "room_id": "droid_maintenance_bay",
+      "name": "Droid Maintenance Bay",
+      "tags": ["technical"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["droid socket", "oil bath", "restraining bolt bin", "diagnostic terminal", "parts shelf"],
+      "optional_objects": ["memory wipe station", "motivator testing rig", "salvaged droid chassis", "arc welder station"],
+      "density": "dense",
+      "connects_to": ["technical", "storage", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright industrial overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "portable work lamps", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "mixed task lighting and overhead", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "settlement", "outpost"]
+    },
+    {
+      "room_id": "briefing_room",
+      "name": "Mission Briefing Room",
+      "tags": ["command"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["tiered seating", "holoprojector pedestal", "podium", "tactical display wall"],
+      "optional_objects": ["recording droid", "secure door lock", "refreshment station", "mission clock"],
+      "density": "moderate",
+      "connects_to": ["command", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "dim ambient with bright projector focus", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "projector-lit with warm side lamps", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dark room with targeted projector", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "starship", "space_station", "outpost", "hideout"]
+    },
+    {
+      "room_id": "engine_room",
+      "name": "Engine Room",
+      "tags": ["technical"],
+      "size": "large",
+      "shape_bias": "irregular",
+      "required_objects": ["hyperdrive core", "power coupling array", "coolant pipes", "engineering console", "emergency shutoff"],
+      "optional_objects": ["ion drive manifold", "backup hyperdrive motivator", "radiation shielding", "engineer's toolkit station"],
+      "density": "dense",
+      "connects_to": ["technical", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "blue-white core glow with overhead strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "core glow with patched overhead", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "intermittent overhead with core glow", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["starship", "space_station"]
+    },
+    {
+      "room_id": "cockpit",
+      "name": "Cockpit",
+      "tags": ["command", "technical"],
+      "size": "small",
+      "shape_bias": "irregular",
+      "required_objects": ["pilot seat", "co-pilot seat", "flight console", "navicomputer", "transparisteel canopy"],
+      "optional_objects": ["astromech droid socket", "weapons targeting display", "lucky charm", "throttle assembly"],
+      "density": "dense",
+      "connects_to": ["command", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "console glow with dim overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "console glow, overhead jury-rigged", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "console glow only, overhead dead", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["starship"]
+    },
+    {
+      "room_id": "turret_well",
+      "name": "Turret Gun Well",
+      "tags": ["security", "technical"],
+      "size": "tiny",
+      "shape_bias": "circular",
+      "required_objects": ["gunner seat", "targeting computer", "fire controls", "ladder access"],
+      "optional_objects": ["helmet rack", "emergency repair kit", "comlink headset mount"],
+      "density": "moderate",
+      "connects_to": ["security", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "targeting display glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "display glow with clip-on glowrod", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "display glow only", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["starship", "military_base", "outpost"]
+    },
+    {
+      "room_id": "cantina_kitchen",
+      "name": "Cantina Back Kitchen",
+      "tags": ["social", "storage"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["industrial fryer", "cold storage unit", "prep counter", "serving pass-through"],
+      "optional_objects": ["spice grinder", "live food containment", "dishwasher droid", "grease trap"],
+      "density": "cluttered",
+      "connects_to": ["social", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "greasy amber overhead", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Civilian/Neutral": { "lighting": "harsh single overhead", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "portable task lamp at prep station", "clutter_level": "medium", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["settlement", "space_station", "outpost"]
+    },
+    {
+      "room_id": "gambling_den",
+      "name": "Gambling Den",
+      "tags": ["social", "hidden"],
+      "size": "medium",
+      "shape_bias": "irregular",
+      "required_objects": ["sabacc table", "chance cube station", "credit chip exchange", "bouncer post"],
+      "optional_objects": ["rigged table mechanism", "surveillance mirror", "VIP curtained area", "drink service droid"],
+      "density": "dense",
+      "connects_to": ["social", "hidden"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "amber and neon with haze", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "dim targeted table lights, dark edges", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Civilian/Neutral": { "lighting": "cheap overhead with table lamps", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["settlement", "space_station", "hideout", "palace"]
+    },
+    {
+      "room_id": "power_generator_room",
+      "name": "Power Generator Room",
+      "tags": ["technical"],
+      "size": "large",
+      "shape_bias": "rectangular",
+      "required_objects": ["fusion generator", "power distribution panel", "coolant system", "emergency shutoff", "radiation warning signs"],
+      "optional_objects": ["backup generator", "fuel cell storage", "maintenance droid berth", "ventilation shaft"],
+      "density": "moderate",
+      "connects_to": ["technical", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "industrial overhead with generator glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "generator glow with portable lamps", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "dim overhead with generator hum-glow", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost", "settlement"]
+    },
+    {
+      "room_id": "throne_room",
+      "name": "Throne Room",
+      "tags": ["command", "social", "ritual"],
+      "size": "vast",
+      "shape_bias": "rectangular",
+      "required_objects": ["elevated throne dais", "audience pit", "guard alcoves", "decorative columns"],
+      "optional_objects": ["trap door mechanism", "rancor grate", "slave dancer platform", "tribute display", "hidden exit"],
+      "density": "moderate",
+      "connects_to": ["command", "social", "hidden", "security"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "amber braziers with opulent chandelier", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "dramatic uplighting on throne, dim hall", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Imperial Military": { "lighting": "imposing overhead with red banners", "clutter_level": "low", "object_state_bias": "ceremonial" }
+      },
+      "valid_for_types": ["palace", "hideout"]
+    },
+    {
+      "room_id": "slave_quarters",
+      "name": "Slave Quarters",
+      "tags": ["sleeping", "security"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["floor mats", "restraint anchor points", "water trough", "feeding slot"],
+      "optional_objects": ["shock collar charging rack", "work assignment board", "waste bucket", "scratched wall tallies"],
+      "density": "cluttered",
+      "connects_to": ["security", "sleeping", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "dim amber through grate ceiling", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "minimal recessed strip", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Civilian/Neutral": { "lighting": "near darkness, single bulb", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["palace", "hideout", "settlement"]
+    },
+    {
+      "room_id": "conference_room",
+      "name": "Conference Chamber",
+      "tags": ["command", "social"],
+      "size": "medium",
+      "shape_bias": "circular",
+      "required_objects": ["conference table", "holoprojector", "high-back chairs", "soundproofing panels"],
+      "optional_objects": ["refreshment sidebar", "recording device", "secure comm terminal", "document shredder"],
+      "density": "moderate",
+      "connects_to": ["command", "social", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "recessed overhead with table projector glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Black Sun": { "lighting": "dim perimeter with table spotlight", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Hutt Cartel": { "lighting": "amber overhead with hookah smoke haze", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "space_station", "palace", "starship"]
+    },
+    {
+      "room_id": "training_room",
+      "name": "Training Room",
+      "tags": ["security", "social"],
+      "size": "large",
+      "shape_bias": "rectangular",
+      "required_objects": ["sparring mat", "training remote rack", "weapon practice stand", "first aid station"],
+      "optional_objects": ["marksman range", "obstacle course props", "combat dummy", "holo-opponent projector"],
+      "density": "moderate",
+      "connects_to": ["security", "social", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright even overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "portable floods at edges", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "arena-style overhead with dark perimeter", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost", "hideout"]
+    },
+    {
+      "room_id": "recycling_station",
+      "name": "Recycling and Waste Station",
+      "tags": ["technical", "storage"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["compactor unit", "sorting conveyor", "hazmat disposal chute", "protective gear rack"],
+      "optional_objects": ["dianoga containment tank", "salvage sorting bin", "incinerator unit", "scrap metal pile"],
+      "density": "cluttered",
+      "connects_to": ["technical", "storage", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "industrial overhead strips", "clutter_level": "medium", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "dim overhead with warning strobes", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "portable clamp lights", "clutter_level": "high", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["space_station", "military_base", "settlement", "starship"]
+    },
+    {
+      "room_id": "meditation_chamber",
+      "name": "Meditation Chamber",
+      "tags": ["ritual"],
+      "size": "small",
+      "shape_bias": "circular",
+      "required_objects": ["meditation cushion", "focus crystal", "sound dampening walls"],
+      "optional_objects": ["kyber crystal display", "ancient Jedi texts", "Sith holocron", "incense diffuser", "Force-sensitive tree cutting"],
+      "density": "sparse",
+      "connects_to": ["ritual", "sleeping"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "soft warm ambient glow", "clutter_level": "low", "object_state_bias": "ceremonial" },
+        "Civilian/Neutral": { "lighting": "natural light from skylight or candles", "clutter_level": "low", "object_state_bias": "ceremonial" },
+        "Imperial Military": { "lighting": "cold blue isolation lighting", "clutter_level": "low", "object_state_bias": "ordered" }
+      },
+      "valid_for_types": ["temple", "starship", "hideout", "ruins"]
+    },
+    {
+      "room_id": "cargo_elevator",
+      "name": "Cargo Elevator Shaft",
+      "tags": ["transit", "technical"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["repulsorlift platform", "control panel", "safety railing", "cargo clamp"],
+      "optional_objects": ["emergency brake", "maintenance ladder", "loading guide lights"],
+      "density": "sparse",
+      "connects_to": ["transit", "storage"],
+      "entry_points": 2,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "overhead strip with level indicators", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "single flickering overhead", "clutter_level": "medium", "object_state_bias": "deteriorated" },
+        "Rebel Alliance": { "lighting": "clip-on glowrod on railing", "clutter_level": "medium", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["military_base", "space_station", "settlement", "starship"]
+    },
+    {
+      "room_id": "shield_generator_room",
+      "name": "Shield Generator Room",
+      "tags": ["technical", "security"],
+      "size": "large",
+      "shape_bias": "circular",
+      "required_objects": ["shield generator core", "power routing console", "coolant circulation system", "diagnostic terminal"],
+      "optional_objects": ["backup capacitor bank", "overload containment field", "maintenance droid bay", "emergency venting controls"],
+      "density": "moderate",
+      "connects_to": ["technical", "security"],
+      "entry_points": 1,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "generator core glow with white overhead", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "core glow with portable worklights", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "core glow with dim overhead", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost"]
+    },
+    {
+      "room_id": "ventilation_nexus",
+      "name": "Ventilation Hub",
+      "tags": ["technical", "hidden"],
+      "size": "medium",
+      "shape_bias": "irregular",
+      "required_objects": ["central fan assembly", "air filtration unit", "duct junction", "atmosphere readout"],
+      "optional_objects": ["environmental control override", "gas dispersal valve", "crawlspace access", "filter replacement rack"],
+      "density": "moderate",
+      "connects_to": ["technical", "hidden", "transit"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "dim red maintenance strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "sporadic from connected ducts", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Black Sun": { "lighting": "dark with status indicator LEDs only", "clutter_level": "low", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "starship"]
+    },
+    {
+      "room_id": "barracks_refresher",
+      "name": "Communal Refresher Block",
+      "tags": ["sleeping"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["sonic shower stalls", "row of wash basins", "latrine partitions", "towel dispenser"],
+      "optional_objects": ["laundry recycler bank", "personal locker wall", "grooming station", "boot cleaner"],
+      "density": "moderate",
+      "connects_to": ["sleeping", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright sterile overhead strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm overhead with dead bulbs", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "dim moisture-stained panels", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost"]
+    },
+    {
+      "room_id": "evidence_locker",
+      "name": "Evidence Locker",
+      "tags": ["security", "storage"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["sealed evidence bins", "cataloging terminal", "biometric lock", "chain-of-custody datapad"],
+      "optional_objects": ["confiscated weapon rack", "seized spice safe", "contraband scanning unit"],
+      "density": "dense",
+      "connects_to": ["security", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright overhead with no shadows", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "standard overhead panel", "clutter_level": "medium", "object_state_bias": "deteriorated" },
+        "Black Sun": { "lighting": "dim with item-level spotlights", "clutter_level": "medium", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "settlement"]
+    },
+    {
+      "room_id": "bacta_treatment_room",
+      "name": "Bacta Treatment Suite",
+      "tags": ["medical"],
+      "size": "large",
+      "shape_bias": "rectangular",
+      "required_objects": ["bacta tank array", "vital monitor bank", "drainage system", "prep station", "breathing apparatus rack"],
+      "optional_objects": ["cybernetic attachment bay", "medical droid", "kolto alternative dispenser", "observation gallery"],
+      "density": "moderate",
+      "connects_to": ["medical", "sleeping"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "clinical white with blue bacta glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "bacta glow with portable surgical lamps", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Hutt Cartel": { "lighting": "amber ambient with bacta tank glow", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "space_station", "palace", "starship"]
+    },
+    {
+      "room_id": "armory_heavy",
+      "name": "Heavy Weapons Vault",
+      "tags": ["security", "storage"],
+      "size": "large",
+      "shape_bias": "rectangular",
+      "required_objects": ["heavy weapon mounts", "ordnance safe", "blast-resistant walls", "security terminal", "inventory scanner"],
+      "optional_objects": ["E-web mount storage", "thermal detonator cage", "missile rack", "anti-vehicle mine crate"],
+      "density": "moderate",
+      "connects_to": ["security", "command", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright overhead with red caution strips", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "portable floods", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Black Sun": { "lighting": "dim with weapon display spots", "clutter_level": "medium", "object_state_bias": "predatory/ordered" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost"]
+    },
+    {
+      "room_id": "mess_hall",
+      "name": "Mess Hall",
+      "tags": ["social"],
+      "size": "large",
+      "shape_bias": "rectangular",
+      "required_objects": ["long durasteel tables", "bench seating", "serving line counter", "tray return station"],
+      "optional_objects": ["holoscreen", "bulletin board", "caf dispensers", "ration heater"],
+      "density": "moderate",
+      "connects_to": ["social", "storage", "sleeping"],
+      "entry_points": 2,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright even overhead panels", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "warm mismatched overhead", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "aging fluorescent with dead spots", "clutter_level": "medium", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "space_station", "outpost", "starship"]
+    },
+    {
+      "room_id": "surveillance_center",
+      "name": "Surveillance Center",
+      "tags": ["security", "command"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["monitor wall", "recording bank", "operator console", "comm panel"],
+      "optional_objects": ["facial recognition terminal", "alarm control board", "audio surveillance station", "shift log datapad"],
+      "density": "dense",
+      "connects_to": ["security", "command"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "dim with monitor glow", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Black Sun": { "lighting": "dark with screen glow only", "clutter_level": "low", "object_state_bias": "predatory/ordered" },
+        "Hutt Cartel": { "lighting": "amber accent with screen glow", "clutter_level": "medium", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["military_base", "space_station", "palace", "hideout"]
+    },
+    {
+      "room_id": "crew_lounge",
+      "name": "Crew Lounge",
+      "tags": ["social", "sleeping"],
+      "size": "medium",
+      "shape_bias": "L-shaped",
+      "required_objects": ["comfortable seating", "holotable", "viewport", "beverage station"],
+      "optional_objects": ["dejarik table", "music player", "reading nook", "personal holo display"],
+      "density": "moderate",
+      "connects_to": ["social", "sleeping", "transit"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "warm string lights and portable lamps", "clutter_level": "medium", "object_state_bias": "improvised" },
+        "Imperial Military": { "lighting": "standard overhead recessed", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "mixed warm sources", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["starship", "space_station", "outpost"]
+    },
+    {
+      "room_id": "landing_bay",
+      "name": "Docking Bay",
+      "tags": ["transit"],
+      "size": "vast",
+      "shape_bias": "rectangular",
+      "required_objects": ["docking clamps", "boarding ramp clearance", "fuel line hookup", "atmospheric containment field", "cargo handling area"],
+      "optional_objects": ["customs checkpoint", "passenger waiting area", "repair scaffolding", "tractor beam projector"],
+      "density": "moderate",
+      "connects_to": ["transit", "storage", "command"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "high-bay industrial floods", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "mixed overhead with natural light from bay door", "clutter_level": "high", "object_state_bias": "deteriorated" },
+        "Hutt Cartel": { "lighting": "amber industrial with neon signage", "clutter_level": "high", "object_state_bias": "corrupt/opulent" }
+      },
+      "valid_for_types": ["space_station", "settlement", "military_base"]
+    },
+    {
+      "room_id": "contraband_vault",
+      "name": "Contraband Vault",
+      "tags": ["hidden", "storage", "security"],
+      "size": "small",
+      "shape_bias": "rectangular",
+      "required_objects": ["blast-proof vault door", "biometric scanner", "climate-controlled shelving", "inventory terminal"],
+      "optional_objects": ["rare spice collection", "stolen art display", "credit chip vault", "blackmail datapad safe"],
+      "density": "dense",
+      "connects_to": ["hidden", "storage", "security"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Hutt Cartel": { "lighting": "warm amber display lighting", "clutter_level": "high", "object_state_bias": "corrupt/opulent" },
+        "Black Sun": { "lighting": "dim with item spotlights", "clutter_level": "medium", "object_state_bias": "predatory/ordered" },
+        "Rebel Alliance": { "lighting": "single overhead, locked down", "clutter_level": "medium", "object_state_bias": "improvised" }
+      },
+      "valid_for_types": ["palace", "hideout", "space_station", "settlement"]
+    },
+    {
+      "room_id": "workshop",
+      "name": "General Workshop",
+      "tags": ["technical"],
+      "size": "medium",
+      "shape_bias": "rectangular",
+      "required_objects": ["workbench", "tool wall", "vise clamp", "soldering station", "parts bin"],
+      "optional_objects": ["3D fabricator", "testing rig", "blueprint display", "scrap material pile"],
+      "density": "cluttered",
+      "connects_to": ["technical", "storage"],
+      "entry_points": 1,
+      "has_alternate_exit": false,
+      "faction_variants": {
+        "Rebel Alliance": { "lighting": "portable work lamps clamped to bench", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Imperial Military": { "lighting": "bright overhead task lighting", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Civilian/Neutral": { "lighting": "overhead with desk lamp supplement", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["starship", "military_base", "space_station", "settlement", "outpost"]
+    },
+    {
+      "room_id": "garage_bay",
+      "name": "Vehicle Garage Bay",
+      "tags": ["transit", "technical", "storage"],
+      "size": "vast",
+      "shape_bias": "rectangular",
+      "required_objects": ["vehicle lift", "tool station", "fuel depot", "bay door controls", "speeder clamps"],
+      "optional_objects": ["paint station", "parts inventory shelf", "wash bay", "diagnostic scanner"],
+      "density": "moderate",
+      "connects_to": ["transit", "technical", "storage"],
+      "entry_points": 2,
+      "has_alternate_exit": true,
+      "faction_variants": {
+        "Imperial Military": { "lighting": "bright industrial high-bay", "clutter_level": "low", "object_state_bias": "ordered" },
+        "Rebel Alliance": { "lighting": "portable floods and overhead patches", "clutter_level": "high", "object_state_bias": "improvised" },
+        "Civilian/Neutral": { "lighting": "aging overhead with grease-dimmed panels", "clutter_level": "high", "object_state_bias": "deteriorated" }
+      },
+      "valid_for_types": ["military_base", "settlement", "outpost"]
+    }
+  ]
+}

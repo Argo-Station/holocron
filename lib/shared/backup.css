@@ -1,0 +1,26 @@
+/* lib/shared/backup.css — the whole-save backup screen's own layer (.bk-*): the count tiles and a few spacing rules.
+ * Everything else on the screen is the paper kit (paper.css) and the Character files shell (files.css), as the approved
+ * drawing has it (D-258, record 3ae8c4aeb; scripts/make_release_backup_mockup.py BK_CSS is the drawn source of these
+ * rules). Every rule is fenced to [data-doc-ground="creator"]. Loaded by player/index.html and gm/index.html. */
+[data-doc-ground="creator"] .bk-counts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; margin:4px 0 0;
+  border-top:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .bk-count { display:flex; align-items:baseline; gap:10px; padding:10px 0; border-bottom:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .bk-count b { font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:22px; color:var(--doc-ink); min-width:1.6em; }
+[data-doc-ground="creator"] .bk-count span { font-family:var(--font-body,'Rajdhani',sans-serif); font-size:16px; line-height:1.25; color:var(--doc-ink); }
+/* a kind with 0, greyed (§4; R-R3NG-1 b): the muted ink, the number at body weight, no plate — the paper kit's own
+   "nothing here yet" look (paper.css .hp-char[data-pending] bead: transparent, dashed structural rule, muted ink) */
+[data-doc-ground="creator"] .bk-count[data-zero="1"] b, [data-doc-ground="creator"] .bk-count[data-zero="1"] span { color:var(--doc-ink-muted); font-weight:400; }
+@media (min-width:1024px) {
+  [data-doc-ground="creator"] .bk-counts { grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; border-top:0; }
+  [data-doc-ground="creator"] .bk-count { flex-direction:column; gap:4px; padding:12px 12px 14px; border:1px solid var(--doc-rule-fine);
+    background:var(--doc-paper-raised); }
+  [data-doc-ground="creator"] .bk-count[data-zero="1"] { background:transparent; border-style:dashed; border-color:var(--doc-ink-structural); }
+}
+[data-doc-ground="creator"] .bk-act { display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-top:18px; }
+[data-doc-ground="creator"] .bk-small { font-family:var(--font-body,'Rajdhani',sans-serif); font-size:15px; line-height:1.4; color:var(--doc-ink-muted); margin:0; }
+[data-doc-ground="creator"] .bk-said { font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:16px; line-height:1.4; color:var(--doc-ink); margin:0; }
+[data-doc-ground="creator"] .bk-refuse { font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:16px; line-height:1.4;
+  color:var(--doc-action); margin:0; }
+[data-doc-ground="creator"] .bk-pair { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+[data-doc-ground="creator"] .bk-sum td.hp-lval { text-align:right; white-space:nowrap; }
+@media (max-width:1023px) { [data-doc-ground="creator"] .bk-act .hp-commit, [data-doc-ground="creator"] .bk-act .hp-quiet { width:100%; justify-content:center; } }

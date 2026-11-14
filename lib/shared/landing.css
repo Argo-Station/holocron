@@ -1,0 +1,1104 @@
+/* landing.css — THE FRONT MATTER'S OWN LAYER (the Player landing; ruling `landing-front-matter-concept`
+   R-LFM-1..15 + Addenda 1–15). Mockup `lab/holocron/landing.html` @ lab `1775bc79`
+   (Jason 2026-09-17, Addendum 13: "Approved"). B-646 lands the whole layer; B-647/B-648 are JSX only.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/landing_build.py`'s `LD_CSS` at that pin — both string literals, every rule
+   and every comment, in the board's own order. The comments ARE the design record: they say why each
+   rule exists and what it cost to find out. The board's own page chrome (`PAGE_CSS`) is NOT ported.
+
+   ── THE TWO MECHANICAL CHANGES ────────────────────────────────────────────────────────────────
+   1. THE TOKEN NAMES. `--pp-*` is the lab's vocabulary; the app's contract is `--doc-*`
+      (`lib/shared/grounds/creator.css`), so — the sheet's map, applied: `--pp-page`→`--doc-paper`,
+      `--pp-plate`→`--doc-paper-raised` (2), `--pp-ink`→`--doc-ink` (9),
+      `--pp-ink-2`→`--doc-ink-muted` (18), `--pp-ink-3`→`--doc-ink-structural` (1),
+      `--pp-hair`→`--doc-rule` (5), `--pp-hair-2`→`--doc-rule-fine` (4),
+      `--pp-red`→`--doc-action` (18), `--pp-lift`→`--doc-lift` (2), `--pp-ochre`→`--doc-accent` (6),
+      `--pp-mat`→`--doc-mat` (1), `--pp-lead-max`→`--doc-lead-max` (1). `--pp-gold`/`--pp-indigo`
+      appear nowhere in this stylesheet (0 each), so `--doc-mark`/`--doc-state` are unused here.
+      `--pp-chrome` (#02010a — the lab's bezel, one use, `.ld-surface`'s ground) has NO `--doc-*`
+      name: every declared ground token names the PAGE, and the surround is the instrument's, not the
+      document's. The frame's own literal stands, and the gate reports it as an open naming question.
+      **B-792 CLOSED THAT QUESTION BY SUBTRACTION (2026-09-22):** `.ld-surface` no longer paints, so
+      `--pp-chrome` now has ZERO uses in this stylesheet and the landing needs no name for a
+      surround it does not have. The literal is gone, not renamed.
+   2. ELEVEN SELECTORS GAIN `.ld-surface` AS AN ANCESTOR, and the reason is a specificity floor the
+      lab's own comment predicts from the other side. holocron.css writes the kit UNPREFIXED, so
+      `.hp-plate[data-pad="read"]` is (0,2,0) there and the board's `.hp-plate.ld-front` — also
+      (0,2,0), later in source — wins its padding. paper.css nests the same kit under
+      `[data-doc-ground="creator"]`, so here that rule is (0,3,0) and a two-class override CANNOT
+      reach it: the frontispiece, the lead plate, the CREATE plates, the descriptors and the hero
+      plate would all have taken read padding. The nine are
+      `.hp-plate.ld-leadplate` (×2), `.hp-plate.ld-front` (×2), `.hp-plate.ld-hero`,
+      `.hp-plate.ld-desc`, `.hp-plate.ld-wayplate` (×3) — every one a padding/margin rule. TWO MORE
+      for the same reason in a different place: `.ld-runhead{align-items:center}` (the lamp centred on
+      the running head) lost to `[dg] .hp-runhead{align-items:baseline}`, and the 3000px rung's
+      `.hp-row.ld-ch,.ld-way,.ld-rrow{min-height:74px}` lost to `[dg] .hp-row[data-noplate]`'s 52px.
+      ELEVEN in all, each marked in place. Nothing else about any of them changed.
+      (B-837 retired the 3000px rung with the rest of B-792's upper ladder, so TEN remain in the file.)
+
+   ── WHY IT IS NOT SCOPED THE WAY paper.css IS ─────────────────────────────────────────────────
+   R-LFM-5's parenthetical asks for the rules "keyed under the landing's paper root". They are not,
+   and this is the sheet's precedent taken deliberately (`sheet.css`, its own §"WHY IT IS NOT SCOPED"):
+   everything here is `.ld-*` — the landing's own namespace, used by no other surface — and the
+   `.hp-*` overrides are all anchored on an `.ld-*` class. Two things also make the parenthetical
+   unbuildable as written: `.ld-surface` is OUTSIDE `.hp-sheet` (it is the bezel that holds it, and
+   it is the named size container every band query resolves against), and re-keying 700 lines would
+   end the claim that this is the board's stylesheet unchanged.
+
+   ── THE BANDS ARE CONTAINER QUERIES, not viewport media queries ───────────────────────────────
+   `@container surface (…)` throughout, resolved against `.ld-surface`'s inline size — left exactly
+   as the board wrote them (paper.css and sheet.css already carry container queries). The container
+   is NAMED because an unnamed one would resolve against the nearest size container, which
+   `.hp-railwrap` is.
+
+   ── ONE TREE, BOTH BANDS ──────────────────────────────────────────────────────────────────────
+   The board drew the phone and the desk from two branches of `landing()` (`fit=False` / `fit=True`).
+   Production renders ONE tree — the `fit=True` structure — and the stylesheet lays it out as the
+   approved phone frame below 1024 and as the bounded desk from 1024 up. Everything the two branches
+   shared is above, verbatim; the rules the single tree needs and the board never had to write are
+   in §A at the end, measured against the approved phone frame and marked as additions.
+
+   ── THE ROWS ──────────────────────────────────────────────────────────────────────────────────
+   B-646 the ground/switch/shell (the runhead, the title plate, the lead, the colophon) · B-647 the
+   stage and the descriptors · B-648 the contents · B-649 the index and the draft row · B-650 the
+   routing · B-651 motion · B-652 the bands. A rule with no consumer yet is inert. */
+
+/* ── THE SURFACE ────────────────────────────────────────────────────────────────────────────────
+ * The container is the SURFACE and it is NAMED — an unnamed @container resolves against the
+ * nearest size-container ancestor, and holocron.css makes `.hp-railwrap` one, so an unnamed band
+ * query aimed at this page would be evaluated against a 240px rail and silently never fire.
+ *
+ * THE SURFACE NO LONGER PAINTS THE BEZEL (B-792). It carried `background:#02010a` — the lab's
+ * bezel, the one use of `--pp-chrome` in this file — and the page was capped and centred on it,
+ * which is where the 290px of near-black down each side at 1920 and the 361.72px top AND bottom at
+ * 2560 came from (measured, before). Dropping that one declaration does NOT make the surface
+ * transparent, and this is worth knowing before anyone "tidies" it: `tokens.css` declares
+ * `[data-doc-ground]{color:var(--doc-ink);background:var(--doc-paper)}`, and this element carries
+ * `data-doc-ground="creator"` (load-bearing — paper.css's kit is written as DESCENDANTS, see the
+ * JSX's own comment), so the literal was OVERRIDING the document's paper. With it gone the surface
+ * IS paper, measured `rgb(222,220,212)` on both elements at 1440/1920/2560. The page also fills the
+ * surface now, so the surround has no room to appear either — the bezel question dissolves twice
+ * over rather than being recoloured. `container-type` and `container-name` stay exactly as they
+ * were: every `@container surface` query in this file resolves against them. */
+.ld-surface{container-type:inline-size;container-name:surface;height:100%;
+  position:relative;overflow:hidden;
+  display:flex;justify-content:center;box-sizing:border-box}
+/* NO PADDING ON THE SURFACE, and the reason is written into holocron.css already: a container-type
+ * element is measured on its CONTENT box, so padding here would make a 1920px frame resolve as 1868
+ * and put every band boundary somewhere other than where it says. (Until B-792 this paragraph was
+ * about the bezel being the PAGE's margin rather than the surface's padding; there is no bezel now,
+ * and the container-box arithmetic is why the rule still may not move.)
+ *
+ * IT IS ALSO WHAT MAKES THE FRAME ADDRESSABLE. The first cut had a third element between the
+ * surface and the sheet, and audit.py's GEN check — which looks for the identity on the frame root
+ * or within two levels of it — reported all twenty-six frames as carrying no address. Nesting the
+ * page one level deeper than a consumer looks is the §36.4 failure in miniature: the address was
+ * there and nothing downstream could reach it. */
+/* THE PAGE SCROLLS, IT DOES NOT OVERLAP. With `overflow:hidden` the colophon's `margin-top:auto`
+ * pinned it to the floor of an 844px box while the contents ran on behind it — a fan disclaimer
+ * sitting on top of a half-drawn GUIDED BUILD row. §3.5's ruled answer for the mini class is that
+ * the page SCROLLS below the floor and never overlaps, and the same is true at 390 x 844, where
+ * the front matter is simply taller than one screen. Under `overflow-y:auto` the free space goes
+ * negative, `margin-top:auto` resolves to zero, and the colophon flows where it belongs — at the
+ * end. On every desktop band the content is shorter than the page and the auto margin puts it back
+ * on the floor, which is where a colophon goes. */
+.ld{flex:1;min-width:0;box-sizing:border-box;overflow-x:hidden;overflow-y:auto;
+  display:flex;flex-direction:column;padding:14px 15px 12px}
+/* NOTHING ON THE PAGE SHRINKS — and this rule exists because the page's TITLE disappeared.
+ * `.ld` is a flex column that scrolls, and a flex item's default is `flex:0 1 auto`: it may shrink.
+ * With the contents taller than one screen the free space went negative and every child gave up
+ * height, starting with the one that had the least content to defend — the `<h1>` collapsed to
+ * ZERO and the designation vanished from all twenty-six frames. LAB_PRACTICE has this exact shape
+ * one surface over: under pressure the flexible element collapses and the element you would never
+ * choose to lose is the one that yields, because yielding is what flex-shrink means.
+ *
+ * NO INSTRUMENT SAW IT. The audit was green — a zero-height box clips no text, overflows no frame
+ * and fails no contrast — and looking at the render saw it in a second. That is §33's pair working
+ * exactly as written, in the direction that needs the eyes. */
+.ld > *{flex:none}
+
+/* ── THE MEASURE IS THE CONTENT'S, NOT THE PAGE'S (B-792) ───────────────────────────────────────
+ * Jason 2026-09-22, verbatim: *"I approved the look, but the size is all wrong. Look to the creator
+ * and how that was done."* So the drawn arrangement STANDS and only what happens to the WIDTH above
+ * 1440 changes. Four `.ld` rungs used to live here — `max-width:1180px / 1340px / 1900px / 2500px`
+ * with their margins, their (dead) paddings, and above 2300 `flex:0 1 auto; max-height:100%;
+ * align-self:center`. All of it is gone.
+ *
+ * THE CREATOR CAPS ITS COLUMN AND LETS THE PAPER FILL. Measured at 2560×1440 on this tree:
+ * `div[data-doc-ground="creator"]` AND its `.hp-sheet.hp-wide` are both 2560×1440 with
+ * `max-width:none` — full bleed, no surround at all — and the measure lives one level in, on
+ * `.hp-onecol`, centred inside the paper and RISING by band: `max-width:1500px` (paper.css :982),
+ * 2000px at ≥2300 (:1606), 2900px at ≥3000 (:1614), with the type scaling alongside it. This page
+ * capped the wrong element, which is the whole of the defect.
+ *
+ * THE CAP GOES ON THE PAGE'S FOUR CHILDREN, NOT ON A NEW WRAPPER. `.ld` has no content wrapper —
+ * its children ARE `.ld-runhead`, `.ld-head`, `.ld-body` and the colophon — and adding one would
+ * move the drawn tree (and, per the note at the head of this file, put the frame's address a level
+ * deeper than audit.py's GEN check looks).
+ *
+ * THE BASE NUMBER IS MEASURED, AND IT IS A CONTENT NUMBER. At 1440 the old page was 1340 wide
+ * INCLUDING the 28px of padding it carries each side, so the CONTENT was 1284 — and this cap applies
+ * to elements INSIDE that padding. 1284 is therefore the number that leaves the approved frame
+ * exactly where it was drawn: `.ld-colL` 593.39 and `.ld-colR` 664.61 at 1440, before and after,
+ * asserted in `smoke_landing_transplant.py`. (1340 here would have widened the content by 56px and
+ * moved both columns — the same measure, stated in the wrong unit.)
+ * IT MUST NEVER GO BELOW 1264. The rendering lap measured the wrap floor at page 1320 — content
+ * 1264 — as the last clean step, with `.hp-lead` wrapping 2→3 lines at page 1260; 1284 is 20px above
+ * it and the drawn rows stay put.
+ *
+ * ABOVE THE BASE THE MEASURE RISES WITH THE SCALE (B-837, below), not by rungs: `--ld-measure` stays
+ * 1284px and the four children it caps are zoomed by s, so the content is 1284 x s wide on paper that
+ * reaches the edges: a margin of PAPER is a margin, where a margin of near-black was the old screen
+ * (R-CGR-1). (Until B-837 this paragraph named the creator's 2000 / 2900 rungs at 2300 / 3000.)
+ *
+ * `width:100%` IS LOAD-BEARING AND IT IS NOT BELT-AND-BRACES. `.ld` is a flex COLUMN, so a child's
+ * width is its CROSS size, and `align-items:stretch` — which is what makes these four fill the page
+ * — stops applying the moment a cross-axis margin is `auto` (CSS Flexbox §8.1: auto margins take the
+ * free space BEFORE alignment, and an `auto` cross margin disables stretch). Without the `width` the
+ * four children fell back to fit-content and were CENTRED at their own widths: measured on the first
+ * cut of this rule, `.ld-runhead` 295.81px and the colophon 606.70px instead of 1284 at 1440, and the
+ * colophon's border-top became a short centred rule — and it moved THE PHONE, where the cap never
+ * binds at all but the auto margin still killed the stretch (the 390 frame came back a different
+ * screenshot, which is what caught it). `box-sizing` is stated for the same reason: `.ld-runhead`
+ * carries `padding-left:58px` for the MENU press, and a content-box `width:100%` would put 58px of
+ * it past the measure. */
+.ld{--ld-measure:1284px}
+.ld > .ld-runhead,.ld > .ld-head,.ld > .ld-body,.ld > .ld-col{max-width:var(--ld-measure);
+  margin-inline:auto;width:100%;box-sizing:border-box}
+/* ── THE 1440 COMPOSITION, SCALED AS ONE PIECE (B-837) ─────────────────────────────────────────
+ * Jason 2026-09-23, verbatim: *"I'm looking at it in 1440p full screen and there is a lot of empty
+ * space. Can we make the text larger? I don't necessarily want to rearrange anyting."* So above the
+ * drawn 1440x900 desk the page is THAT page multiplied — type, plates, tiles, figures, gaps and
+ * chamfers together — by ONE factor, derived here and nowhere else:
+ *
+ *     s = max(1, min(W / 1440, H / 900))      (W x H the viewport; the landing's bars are out, B-652)
+ *
+ * `100vw / 1440px` is CSS typed arithmetic (a length over a length is a <number>), and `max(1, …)`
+ * is what makes every viewport at or under the drawn desk — 1440x900, 1366, 1194, 1024, the phone —
+ * compute `zoom:1`, which changes nothing. Wider than 16:10 the height binds and the content
+ * (`--ld-measure` x s) is centred on paper that still reaches every edge (B-792 stands).
+ *
+ * THE DEVICE IS `zoom` ON THE PAGE'S FOUR CHILDREN, NOT ON THE PAGE. `.ld` is the PAPER — its wash and
+ * grain are 900px / 150px tiles (paper.css) and zooming the page would enlarge the paper's texture
+ * with the drawing on it; the four children are what the drawing IS, and no wrapper is added. What
+ * the page itself contributes to the composition is its PADDING, and that is multiplied in place
+ * (the 1024 block below: `calc(16px * var(--ld-s))`), so the children plus the page's margins are
+ * exactly s x the 1440 page and the bounded desk fills the pane without a pixel of slack.
+ * WHAT CHROMIUM DOES UNDER IT (148, measured; the smoke asserts the load-bearing ones):
+ * `getBoundingClientRect` reports VISUAL px (the zoomed box) · `getComputedStyle` reports the
+ * UNZOOMED value (a 16px leaf reads "16px"; its effective size is that x `currentCSSZoom`) ·
+ * `width:100%` resolves against the parent's real box and `max-width:1284px` inside the zoomed child
+ * caps at 1284 x s visual · the container queries still resolve against `.ld-surface`'s REAL inline
+ * size, so no band rule moves · `cqh`, `scrollTop`, `offsetTop` and a computed `line-height` are all in
+ * the zoomed element's OWN px — so the peek, which reads one line per `LD_PEEK_SECONDS_PER_LINE` in
+ * those px, keeps its lines per second while its visual px per second rise by s.
+ *
+ * IT RETIRES B-792'S UPPER RUNGS FOR THIS PAGE. The measure steps (2000 @ surface >=2300, 2900 @
+ * >=3000) and the partial type ladder that rode them (the density ladder that stood here, and the
+ * 2300/3000 rungs of `.ld-desig`, `.ld-name`, `.ld-fig b` and the chapter tab below) were the
+ * half-version of this: a few sizes stepping at two widths while the rest of the drawing stayed
+ * 1440's (measured at 2560 before: 21 / 31 / 28.16 / 38px against 16.5 / 25 / 20.6 / 31 at 1440).
+ * Under `zoom` they would have been multiplied a second time, so they are gone, not kept beside it.
+ * A consequence stated rather than hidden: a viewport >=2300 wide but <=900 tall (s = 1) now draws
+ * the 1440 sizes where those rungs used to enlarge a few of them. */
+/* The factor is the app's ONE grow rule (`--page-grow`, lib/shared/tokens.css), which was lifted from this line;
+ * adopting it moved no pixel at AS-9's nine widths (lap paper-hotfix, measured). */
+.ld{--ld-s:var(--page-grow)}
+.ld > .ld-runhead,.ld > .ld-head,.ld > .ld-body,.ld > .ld-col{zoom:var(--ld-s)}
+/* THE TWO THINGS ON THIS PAGE THAT WERE ALREADY SIZED BY THE SCREEN, and would have been multiplied
+ * twice. Measured on the first cut of the rule above: every plate, tile and leaf came out at s x its
+ * 1440 value EXCEPT the capsule beads, 12.1px too large at 2560 and 1.68 at 1920. Two causes, both
+ * outside this file and both on the app's type TOKENS rather than on the drawing:
+ *   1. tokens.css's `--fs-*` are FLUID — `clamp(min, rem + N·vw, max)` — so between 1440 and their
+ *      1920 ceiling they grow with the screen on their own (`--fs-lg`, the bead: 20.6px at 1440,
+ *      22px at 1920) and `zoom` multiplied the grown value;
+ *   2. paper.css's ROOM band (`@container surface (min-width:2560px)`) raises the same tokens on
+ *      `[data-doc-ground="creator"] .hp-sheet` — which this page IS, inside a container that is
+ *      also named `surface` — so at 2560 the bead read 28.16px: the "28.16" of B-792's partial ladder.
+ * So on THIS page, and only while s > 1, the tokens resolve at the drawn desk's width: the same
+ * tokens.css formulas with `vw` read as `--ld-vw` — 14.4px (1440's 1vw) when s > 1, `1vw` itself at
+ * s = 1. `--ld-k` is the switch, 1 when s > 1 and 0 otherwise (typed arithmetic again); at k = 0 the
+ * cap is a million px away and `min()` hands back `1vw`, so every band at or under the drawn desk
+ * computes the formula it always did. Written at (0,3,0) to sit above paper.css's (0,2,0) ROOM band.
+ * The creator is untouched: nothing here is reachable outside `.ld-surface`. */
+.ld{--ld-k:clamp(0, (var(--ld-s) - 1) * 1000000, 1);
+  --ld-vw:min(1vw, 14.4px + 1000000px * (1 - var(--ld-k)))}
+.ld-surface > .hp-sheet.ld{
+  --fs-2xs:  clamp(0.6250rem, 0.5947rem + 0.129 * var(--ld-vw), 0.7500rem);
+  --fs-xs:   clamp(0.7188rem, 0.6808rem + 0.162 * var(--ld-vw), 0.8750rem);
+  --fs-sm:   clamp(0.8125rem, 0.7670rem + 0.194 * var(--ld-vw), 1.0000rem);
+  --fs-body: clamp(1.0000rem, 0.9545rem + 0.194 * var(--ld-vw), 1.1875rem);
+  --fs-lg:   clamp(1.0938rem, 1.0255rem + 0.291 * var(--ld-vw), 1.3750rem);
+  --fs-xl:   clamp(1.2500rem, 1.1590rem + 0.388 * var(--ld-vw), 1.6250rem);
+  --fs-2xl:  clamp(1.5625rem, 1.4260rem + 0.583 * var(--ld-vw), 2.1250rem);
+  --fs-3xl:  clamp(1.9375rem, 1.7100rem + 0.971 * var(--ld-vw), 2.8750rem)}
+
+/* I5 · THE WINDOW DRIFT — the galaxy outside the instrument's window.
+ * Built the way GM's hero is (ruling `starfield-landing-only`): BOXED, a few small elements,
+ * transform-only, and never a full-viewport promoted layer. The lesson that ruling recorded is
+ * that a 1.69x-viewport texture cost two seconds of hitch on Jason's own machine; these are nine
+ * 2px dots inside the bezel, and they exist only where there IS a bezel. */
+.ld-stars{position:absolute;inset:0;pointer-events:none;display:none}
+.ld-star{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(242,241,236,.5);
+  animation:ld-drift var(--ld-dur,52s) linear infinite}
+/* The duration is an inline CUSTOM PROPERTY, never an inline `animation`: an inline animation
+ * shorthand outranks the reduced-motion rule below and the still form would silently never apply.
+ * A per-element value that has to vary and a rule that has to be overridable are two different
+ * things, and only the first one belongs in the style attribute. */
+@keyframes ld-drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-26px,0)}}
+@container surface (min-width:1367px){ .ld-stars{display:block} }
+
+/* ── THE TITLE PLATE ────────────────────────────────────────────────────────────────────────────
+ * hp-desig's own size is clamp(30px,7.5vw,46px), and `vw` is the VIEWPORT — inside a fixed-width
+ * frame it resolves against the board's window, not the frame's, so every band would render 46px
+ * and the ladder would be a fiction. The size is restated per band in container units; the face,
+ * the weight and the ink are the paper's and are not touched. */
+.ld-desig{position:relative;overflow:hidden;font-size:30px!important;margin:6px 0 0!important}
+@container surface (min-width:1024px){ .ld-desig{font-size:42px!important} }
+@container surface (min-width:1367px){ .ld-desig{font-size:54px!important} }
+
+/* I1 · THE READOUT SWEEP — a backlight pass across the ink, every ~12s.
+ * NOT glow-as-depth (R-DI1 item 5): nothing sits UNDER a card giving it false elevation. It is a
+ * band of light travelling ACROSS type, clipped by the type's own box, parked outside the box at
+ * rest and outside it again for anyone who asked for stillness. */
+.ld-sweep{position:absolute;top:0;bottom:0;left:0;width:40%;pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.62) 50%,transparent 100%);
+  animation:ld-sweep 12s linear infinite}
+/* THE PASS NEVER LEAVES THE TYPE'S OWN BOX, and the first cut did — travelling from -160% to
+ * +300% put an element 893px outside the frame for nine tenths of every cycle, which the frame
+ * audit reported as a bleed and the clip audit reported as overflow. Both were right: an
+ * off-screen parking spot is off-screen whether or not an ancestor happens to clip it, and
+ * "explain why the finding does not count" is the move this file's practice forbids.
+ * So the band is 40% wide and travels 0 → 150% of ITSELF, which lands its right edge exactly on
+ * the type's right edge; and it is INVISIBLE at rest rather than parked out of sight, which is
+ * what opacity is for. Two compositor properties, no geometry outside the box. */
+@keyframes ld-sweep{
+  0%{transform:translateX(0);opacity:0}
+  1%{opacity:.6}
+  9%{opacity:.6}
+  10%{transform:translateX(150%);opacity:0}
+  100%{transform:translateX(150%);opacity:0}}
+
+.ld-surface .hp-plate.ld-leadplate{margin:12px 0 0;max-width:var(--doc-lead-max,640px);
+  padding:13px 15px 14px}
+.ld-leadplate .hp-lead{margin:0;line-height:1.46}
+
+/* I3 · THE STANDBY LAMP — one point in the chrome saying the instrument is on.
+ * A MARK, not a hue (§21): it is the furniture's own ochre at two opacities, so it survives a
+ * colour-blind reader and a photocopy as a dot that is simply there. */
+/* I3 · THE STANDBY LAMP, RETIRED TO STILL-AND-LIT ON EVERY BAND (§3.7's floor, restated with I6).
+ * The lamp said "the instrument is on". The roll call says it everywhere the lamp used to, in
+ * words the register wrote, so the breath is spent and the dot is not: a lit mark that does not
+ * move still says the instrument is on, which is exactly what the lamp's own reduced-motion form
+ * always was. What this buys is the concurrency floor — three page loops, and I6 is one of them. */
+.ld-lamp{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--doc-accent);
+  opacity:.9;flex:none}
+.ld-surface .ld-runhead{align-items:center}
+
+/* ── THE BODY: one column on the phone, two from mid-tier up ────────────────────────────────── */
+/* THE BODY TAKES ITS CONTENT'S HEIGHT AND THE PAGE SCROLLS. `flex:1` with `overflow:hidden` made
+ * it 435px tall over 685px of content at 1366 — the last chapters clipped mid-row and the colophon
+ * sitting on the cut, which is the overlap §3.5 forbids in its own words. A page's body is as tall
+ * as what is on it; the SHEET is what scrolls, and on a band where everything fits, the colophon's
+ * auto margin still puts it on the floor. */
+.ld-body{flex:0 0 auto;display:flex;flex-direction:column;gap:14px;margin-top:14px}
+@container surface (min-width:1024px){
+  .ld-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:20px 30px;
+    align-items:start;margin-top:20px}
+  .ld-colL{grid-column:1;grid-row:1} .ld-colR{grid-column:2;grid-row:1 / span 2}
+  .ld-idxblock{grid-column:1;grid-row:2;min-width:0}
+}
+.ld-colL{min-width:0;display:flex;flex-direction:column;gap:12px}
+.ld-colR{min-width:0;display:flex;flex-direction:column;gap:12px}
+
+/* ── THE FRONTISPIECE ───────────────────────────────────────────────────────────────────────── */
+/* `.hp-plate[data-pad="read"]` is (0,2,0) and a single class cannot beat it — the
+ * specificity trap holocron.css records hitting four times, once while fixing it. The
+ * frontispiece paid 5px a side for it, which put the capsule strip's zone at 322px
+ * against the rail's own 326px threshold and wrapped six characteristics into 3x2 —
+ * 104px of the phone's first screen spent on a wrap nobody chose. Written at (0,2,0). */
+.ld-surface .hp-plate.ld-front{padding:13px 14px 14px}
+.ld-name{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:19px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--doc-ink);margin:0}
+@container surface (min-width:1024px){ .ld-name{font-size:25px} }
+.ld-sub{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.42;
+  color:var(--doc-ink-muted);margin:3px 0 0}
+.ld-sub b{color:var(--doc-ink);font-weight:700}
+/* THE RAIL IS CAPPED, and the density audit is why. `.hp-rail` is six equal columns, so in a
+ * 1,225px stage column at ROOM each cell is 204px around a 53px capsule — 26% fill, and AS-9's
+ * FILL rule is exactly about content that survives a pane rather than employing it. A frontispiece
+ * is a compact stage, not the sheet's full spine; capping the strip keeps the capsules touching
+ * their cells and gives the extra width back to the reading measure beside them. */
+.ld-front .hp-railwrap{margin-top:10px;max-width:520px}
+
+/* The vitals: the spine's own numbers, in the spine's own order — what moves first. */
+.ld-vit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 14px;margin-top:11px}
+@container surface (min-width:1367px){ .ld-vit{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.ld-vitcell{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  border-bottom:1px solid var(--doc-rule-fine);padding-bottom:4px;min-height:26px}
+.ld-vitk{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-ink-muted)}
+.ld-vitv{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:17px;
+  color:var(--doc-ink);font-variant-numeric:tabular-nums}
+
+/* THE SKILL ROW, WITH ITS POOL ALREADY ASSEMBLED — the one thing the printed sheet never did. */
+.ld-skill{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  flex-wrap:wrap}
+.ld-skname{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;font-weight:600;
+  color:var(--doc-ink)}
+.ld-skname i{font-family:var(--font-mono,'Share Tech Mono',monospace);font-style:normal;
+  font-size:10px;letter-spacing:.16em;color:var(--doc-ink-muted);margin-left:8px}
+
+/* THE DIE WITH A FACE — the concept the paper does not have.
+ * The boards have always drawn die SHAPES (sheet_core.sym over the app's one glyph table); a face
+ * is what a die is showing, and it is read from diceEngine's own DIE_FACES. Both halves sit on
+ * PLATE STOCK, in the measured inks, side by side — a face printed OVER the die's glyph would be
+ * parchment on a coloured glyph, which is a contrast the walker cannot sample and therefore a
+ * contrast nobody has measured. */
+.ld-pool{display:flex;align-items:center;gap:9px;flex-wrap:wrap;perspective:420px}
+.ld-die{display:inline-flex;align-items:center;gap:3px;padding:2px 6px 2px 3px;
+  border:1px solid var(--doc-rule-fine);background:var(--doc-paper-raised);min-height:30px;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px)}
+.ld-die .hp-sym{font-size:20px}
+.ld-face{display:inline-flex;align-items:center;gap:1px}
+.ld-face .hp-sym{font-size:13px;margin:0}
+.ld-blank{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--doc-ink-structural)}
+/* I2 · THE LIVING POOL — one die turns on its axis and lands on another of ITS OWN faces. */
+.ld-die.is-turning{animation:ld-turn .5s ease-in-out}
+@keyframes ld-turn{0%{transform:rotateY(0deg)}50%{transform:rotateY(90deg)}100%{transform:rotateY(0deg)}}
+/* A2 · THE POOL ASSEMBLES — the dice slide into the row one at a time and rest. */
+.ld-pool[data-arrive="1"] .ld-die{animation:ld-deal .34s cubic-bezier(.22,.9,.3,1) both}
+/* 80ms per die, staggered — §3.7 A2's own figure. Written as six explicit rules rather than a
+ * calc() over an index CSS cannot see; six is the largest pool this frontispiece can draw. */
+.ld-pool .ld-die:nth-child(1){animation-delay:0ms}
+.ld-pool .ld-die:nth-child(2){animation-delay:80ms}
+.ld-pool .ld-die:nth-child(3){animation-delay:160ms}
+.ld-pool .ld-die:nth-child(4){animation-delay:240ms}
+.ld-pool .ld-die:nth-child(5){animation-delay:320ms}
+.ld-pool .ld-die:nth-child(6){animation-delay:400ms}
+@keyframes ld-deal{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:none}}
+
+/* THE PROVENANCE ROW — furniture, and the one line that says whose drawing this is. */
+.ld-prov{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-accent);margin:9px 0 0;display:flex;gap:8px;
+  align-items:baseline;flex-wrap:wrap}
+.ld-prov b{color:var(--doc-action);font-weight:400}
+
+/* A5 · OPEN LIFTS THE SHEET. The lift is a TRANSFORM; the shadow swaps with it but is not
+ * transitioned, because a transitioned box-shadow is a non-compositor property and §3.7's first
+ * law has no exceptions. */
+/* THE COMMIT IS SIZED TO ITSELF. `hp-commit` is inline-flex, but a flex column stretches its
+ * children, so OPEN came out as a 660px red bar across the stage — the one primary action on the
+ * surface reading as a banner. `align-self:flex-start` gives it back its own width. */
+.ld-open{margin-top:11px;align-self:flex-start;
+  transition:transform .22s cubic-bezier(.22,.9,.3,1)}
+.ld-open.is-lifting{transform:translateY(-6px);box-shadow:var(--doc-lift)}
+
+/* ── THE DRAFT ROW ──────────────────────────────────────────────────────────────────────────── */
+.ld-draft{display:flex;align-items:stretch;border:1px solid var(--doc-rule);background:var(--doc-mat);
+  margin-top:2px;overflow:hidden}
+.ld-draft-b{flex:1;min-width:0;text-align:left;background:none;border:0;cursor:pointer;
+  padding:9px 12px;min-height:44px;color:inherit}
+.ld-draft-k{display:block;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--doc-accent)}
+.ld-draft-t{display:block;font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;
+  font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--doc-ink);margin-top:3px}
+.ld-draft-m{display:block;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.1em;color:var(--doc-ink-muted);margin-top:3px}
+/* THE DISCARD. Two drawings, and the difference between them is the whole of the census's second
+ * finding: production discards on ONE TAP (app.jsx:640 -> :22003), and the shape proposes the
+ * roster's arm. The armed state is INK AND WORDS, never a colour alone. */
+.ld-x{flex:none;min-width:44px;min-height:44px;background:none;border:0;
+  border-left:1px solid var(--doc-rule-fine);cursor:pointer;color:var(--doc-ink-muted);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:15px}
+.ld-x:hover{color:var(--doc-action)}
+.ld-draft[data-armed="1"] .ld-x{min-width:118px;color:var(--doc-action);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;background:rgba(126,20,20,.07)}
+/* A6 · THE FOLD — the row folds to nothing. The confirm BEFORE it is ink, not motion. */
+.ld-draft.is-folding,.hp-row.is-folding{animation:ld-fold .2s ease forwards;transform-origin:top}
+@keyframes ld-fold{from{opacity:1;transform:scaleY(1)}to{opacity:0;transform:scaleY(0)}}
+
+/* ── THE CONTENTS ───────────────────────────────────────────────────────────────────────────── */
+.ld-surface .hp-plate.ld-hero{padding:12px 13px 6px}
+.ld-chhead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.ld-cht{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--doc-action);margin:0}
+@container surface (min-width:1024px){ .ld-cht{font-size:20px} }
+.ld-chn{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.45;
+  color:var(--doc-ink);margin:4px 0 0;max-width:56ch}
+.ld-chrun{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--doc-ink-muted);margin:5px 0 0}
+/* I6 · THE ROLL CALL — the register saying what is behind each door, by name.
+ *
+ * TWO LINES ARE RESERVED, ALWAYS, and the reservation is the whole mechanism. A name arriving is
+ * an opacity change and nothing else: if the box could grow, a name changing would move the row
+ * beneath it, and an idle loop that shifts the layout is worse than no idle loop. One rendered
+ * line holds 32 characters at 390 (measured on the board); the longest name in any of the three
+ * populations is 62, so two lines hold the whole register with nothing excluded and nothing
+ * clipped. The alternative — budget the sample to one line — was measured and rejected: it would
+ * have made 226 records unnameable, including 19% of the Yard.
+ *
+ * `line-height` is stated rather than inherited so the reservation is exactly two of THESE lines.
+ */
+.ld-roll{display:block;line-height:1.32;min-height:calc(2 * 1.32em);
+  transition:opacity .6s linear}
+.ld-roll[data-fade="1"]{opacity:0}
+
+/* THE FIGURE COLUMN — a printed contents page's page numbers, and the page's eye.
+ * The number takes the display face at designation weight; the noun under it is mono furniture.
+ * Tabular figures, because a column of numerals that shifts under itself is not a column. */
+.ld-figs{display:flex;gap:14px;flex:none}
+.ld-fig{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.ld-fig b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:26px;
+  color:var(--doc-ink);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+@container surface (min-width:1024px){ .ld-fig b{font-size:31px} }
+.ld-fig i{font-family:var(--font-mono,'Share Tech Mono',monospace);font-style:normal;font-size:9px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:4px}
+
+/* The ways to build, and the chapters below them, are hp-rows: the browse-list primitive, with its
+ * 52px floor, its hairlines and its focus ring already measured. What this board adds is the tab's
+ * WIDTH — hp-row-tab is 76px, sized for a two-or-three digit XP value, and "1,430" in the figure
+ * face does not fit in it. Size only. */
+.ld-ways{margin-top:8px}
+.ld-way .hp-row-desig{font-size:14px;letter-spacing:.06em}
+.ld-way[data-first="1"] .hp-row-desig{font-size:17px;color:var(--doc-action)}
+.ld-waysub{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.4;
+  color:var(--doc-ink-muted)}
+/* THE TAB IS SIZED TO THE WIDEST FIGURE, NOT TO A GUESS. `1,430` in the display face at 31px is
+ * 95px, and the chevron beside it another 21 — in `hp-row-tab`'s own 76px (64 under `data-noplate`)
+ * the number ran straight over the sentence to its left. hp-row-tab's width was chosen for a
+ * two-or-three digit XP value; a contents page's page numbers are a different column, so the
+ * override is written at (0,3,0) to sit above `data-noplate`'s own rule rather than under it. */
+.ld-chapters .hp-row[data-noplate="1"] .hp-row-tab,
+.ld-ways .hp-row[data-noplate="1"] .hp-row-tab{width:100px;padding:0 10px;align-items:center}
+@container surface (min-width:1024px){
+  .ld-chapters .hp-row[data-noplate="1"] .hp-row-tab,
+  .ld-ways .hp-row[data-noplate="1"] .hp-row-tab{width:152px;padding:0 14px}
+}
+.ld-chev{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:13px;color:var(--doc-action);
+  margin-left:8px;transition:transform .16s cubic-bezier(.22,.9,.3,1)}
+/* ON THE COMMIT IT IS PARCHMENT, and the contrast walk is what said so: red-on-red measured 1.00:1
+ * across twelve frames. The chevron's default ink is the page's red because it lives on paper; the
+ * commit IS red, so a class that carries its own colour has to say what it becomes there. */
+.hp-commit .ld-chev{color:var(--doc-paper-raised)}
+/* A7 · THE LIFT — a chapter row rises 1px under a pointer and its chevron nudges. Restraint. */
+@media (hover:hover){
+  .hp-row.ld-ch:hover{transform:translateY(-1px)}
+  .hp-row.ld-ch:hover .ld-chev{transform:translateX(3px)}
+}
+.hp-row.ld-ch{transition:transform .12s linear}
+/* A3 · THE STAMP — the row presses into the paper and the chevron advances. */
+.hp-row.ld-ch.is-stamped,.ld-way.is-stamped{animation:ld-stamp .16s ease-out}
+@keyframes ld-stamp{0%{transform:scale(1)}50%{transform:scale(.96)}100%{transform:scale(1)}}
+
+.ld-files{margin-top:10px;width:100%;justify-content:space-between}
+.ld-files-chev{display:none} .ld[data-fit="1"] .ld-files-chev{display:block}
+
+/* ── THE ROSTER INDEX ───────────────────────────────────────────────────────────────────────── */
+.ld-idxhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:14px 0 4px}
+/* D-406 item 27 (B-1340): the roster's head, date line and Current chip at the 11px reading floor, letter-spacing .05em, over
+ * the record's 10.5/10/9px (R-MIL-2, Jason's word; landing-roster-looks @ 727101906 FLOOR_CSS) */
+.ld-idxhead h3{font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:11px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--doc-accent);margin:0}
+.ld-edit{min-height:44px;padding:0 12px;background:none;border:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--doc-ink-muted);cursor:pointer}
+.ld-edit[aria-pressed="true"]{color:var(--doc-action);border-color:var(--doc-action)}
+.ld-when{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.05em;
+  color:var(--doc-ink-muted);text-transform:uppercase}
+/* A roster row is a ROW WITH TWO ACTS (open it, delete it), so unlike a chapter row it cannot BE
+ * the button — production's own row is a div holding a select button and a delete mark, and that
+ * is the shape reused here. hp-row still supplies the hairline, the 52px floor and the hover. */
+.ld-rrow{align-items:stretch;position:relative}
+.ld-rowb{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:3px;
+  padding:8px 12px;background:none;border:0;text-align:left;cursor:pointer;color:inherit;
+  min-height:52px}
+.ld-rowb:focus-visible{outline:2px solid var(--doc-action);outline-offset:-2px}
+.ld-rowsub{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.35;
+  color:var(--doc-ink-muted)}
+.ld-rowsub b{color:var(--doc-ink);font-weight:600}
+.ld-rowmeta{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.ld-cur{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--doc-action);border:1px solid rgba(126,20,20,.42);padding:1px 5px}
+/* A8 · THE MARKS SLIDE — delete marks arrive from the row edge and leave the same way. */
+/* THE MARK IS ABSOLUTE INSIDE THE ROW, which is production's own structure (the roster row is a
+ * div holding a select button and an absolutely-placed delete) and is also what stops it bleeding:
+ * a 44px button inside a zero-width flex item starts AT the row's right edge and extends 44px past
+ * the page, which the frame audit caught at every band. Anchored right:0 it occupies the last 44px
+ * OF the row instead. `pointer-events:none` at rest is load-bearing too — an invisible control is
+ * not a tap target, and the tap check knows that. */
+.ld-del{position:absolute;right:0;top:0;bottom:0;width:44px;display:flex;align-items:center;
+  justify-content:flex-end;opacity:0;pointer-events:none;transform:translateX(14px);
+  /* B-653: the mark at rest is NOT THERE, not merely clear — `visibility:hidden` (delayed until the slide
+     has ended, so A8 still plays) is what says so to the accessibility tree and to the eyes, which counted
+     an invisible 44px button as a control hit-tested through to the row (12 cells). Inherited by the button. */
+  visibility:hidden;
+  transition:transform .18s cubic-bezier(.22,.9,.3,1),opacity .18s linear,visibility 0s linear .18s}
+.ld-idx[data-edit="1"] .ld-del{opacity:1;pointer-events:auto;transform:none;visibility:visible;transition-delay:0s,0s,0s}
+.ld-idx[data-edit="1"] .ld-rowb{padding-right:56px}
+.ld-del button{min-width:44px;min-height:44px;background:none;border:0;cursor:pointer;
+  color:var(--doc-action);font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:14px}
+/* B-970 · D-234/D-237 — A DELETED ROW, as the approved frame draws it (Docs/mockups/landing-arrange-undo.html @ c9df491cd,
+   law by C-MU-4). ✕ deletes at once; the row stays in its place and keeps its height, greyed, its grab mark and ▲▼ gone,
+   its mark become UNDO — the confirm's old type and wash, 104×44 at ✕'s place, so nothing else on the list moves. Its
+   name opens nothing while it is deleted. Every deleted row keeps its UNDO until the player leaves Arrange.
+   THE GREY is ONE value, rgb(73,73,73): Jason's pick in D-239 @ a56cc0d90 ("(b) Darker grey"), amending D-237's frame on
+   this one value (R-MIL-2). It reads 6.56:1 on the page, 7.96:1 on the plate and 4.50:1 on the worst-wear pixel this
+   ground solves its inks against, so the deleted row still reads as gone and passes everywhere.
+   NO HOVER WASH on a deleted row (ruling data-loss-pair ADDENDUM 2, R2): the creator ground lightens a hovered .hp-row
+   (paper.css, `.hp-row:hover`), which took the grey to 4.20:1 under a resting pointer. An inert row takes none, as
+   paper.css already rules for refused and limit rows, so hovered reads what rest reads. */
+.ld-idx{--ld-gone-ink:rgb(73,73,73)}
+.ld-idx .hp-row[data-gone="1"]:hover{background:transparent}
+.ld-idx[data-edit="1"] .hp-row[data-gone="1"] .ld-grab{visibility:hidden}
+.ld-idx[data-edit="1"] .hp-row[data-gone="1"] .ld-move{display:none}
+.ld-idx .hp-row[data-gone="1"] .ld-del{width:104px}
+.ld-idx .hp-row[data-gone="1"] .ld-del button{min-width:104px;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;background:rgba(126,20,20,.07)}
+.ld-idx .hp-row[data-gone="1"] .ld-rowb{pointer-events:none;cursor:default}
+.ld-idx .hp-row[data-gone="1"] .ld-rowb,.ld-idx .hp-row[data-gone="1"] .ld-rowb *{color:var(--ld-gone-ink)}
+.ld-idx .hp-row[data-gone="1"] .ld-cur{border-color:var(--ld-gone-ink)}
+
+/* ── THE COLOPHON ───────────────────────────────────────────────────────────────────────────── */
+.ld-col{margin-top:auto;padding-top:12px;border-top:1px solid var(--doc-rule-fine)}
+.ld-disc{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.05em;
+  line-height:1.5;color:var(--doc-ink-muted);margin:0;max-width:78ch}
+.ld-extent{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--doc-accent);margin:5px 0 0}
+
+/* A4 · THE PAGE TURNS — the page slides the way the chevron points; back reverses it. The board
+ * draws the EXIT half; the other half belongs to the destination surface (§3.7). */
+.ld.is-turningout{animation:ld-page-out .26s cubic-bezier(.4,0,.6,1) forwards}
+@keyframes ld-page-out{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-7%)}}
+
+/* ── EVERY MOTION HAS A STILL FORM ──────────────────────────────────────────────────────────────
+ * §3.7 law 3, and it is not a courtesy: DESIGN_IDENTITY's motion clause requires it per event.
+ * IDLE LOOPS STOP where they stand — the sweep parks outside the type, the lamp stays LIT rather
+ * than dark (an unlit standby lamp says the instrument is off, which is the opposite claim), the
+ * dice keep their faces, the stars hold their positions. ACTIVE MOTIONS BECOME CUTS: the state
+ * changes in one frame, and nothing about what the page SAYS is carried by the animation. */
+@media (prefers-reduced-motion: reduce){
+  .ld-sweep{animation:none;opacity:0}
+  .ld-roll{transition:none}
+  .ld-star{animation:none}
+  .ld-die.is-turning{animation:none}
+  .ld-pool[data-arrive="1"] .ld-die{animation:none}
+  .ld-open{transition:none}
+  .ld-draft.is-folding,.hp-row.is-folding{animation:none;opacity:0}
+  .hp-row.ld-ch{transition:none}
+  .hp-row.ld-ch.is-stamped,.ld-way.is-stamped{animation:none}
+  .ld-chev{transition:none}
+  .ld-del{transition:none}
+  .ld.is-turningout{animation:none;opacity:0}
+}
+
+/* ── THE PHONE STRIP (§3.5) ─────────────────────────────────────────────────────────────────────
+ * "the frontispiece as a STRIP (name, species x career, the capsule strip; thresholds and the skill
+ * row fold away)". Drawn as written. THE CONSEQUENCE IS DISCLOSED rather than designed around: at
+ * the phone band the living pool has nothing to live in, so one of the two things §1 says carries
+ * the page's excitement is absent from the primary band. There is a disclosed extra frame beside
+ * the specified one showing the alternative, and it is the architect's to cut or take. */
+@container surface (max-width:1023px){
+  /* THREE STATES, NOT TWO. §3.5 wrote the strip as name + species/career + capsules, with
+   * "thresholds and the skill row" both folded away; §55's F8 said what that costs — the dice, and
+   * they are the only thing on the page that is alive. R1 (architect, 2026-09-05) asks for the
+   * MIDDLE drawn and measured rather than argued: the thresholds still folded, the one skill row
+   * and its assembled pool kept. `strip` is the parameter and the frame is the decision. */
+  .ld[data-strip="strip"] .ld-vit,.ld[data-strip="strip"] .ld-skill{display:none}
+  .ld[data-strip="mid"] .ld-vit{display:none}
+  /* R1b (architect, 2026-09-05) — AT 390 THE ROW DRAWS NAME OVER POOL: the name line, then the
+   * pool beneath it. Ruled off §56.2's flag, and the flag was that the middle was being judged on
+   * a cost dominated by a WRAP rather than by the dice: name 163px + pool 231px is 394px into a
+   * 332px line, so the row was already coming out two lines high — but as an accident of running
+   * out of width, not as a drawing. This states the stack instead of letting it happen. Every
+   * other band keeps the row as it is, which is why this sits inside the phone block. */
+  .ld-skill{flex-direction:column;align-items:flex-start}
+  /* THE FIGURE COLUMN GOES UNDER THE HEAD AT THE PHONE. Beside it, three figures took 224px of a
+   * 322px plate and left 98px for the sentence, which then ran five lines and pushed the CREATE
+   * press off the first screen — §5's one phone claim, failed by a column that fits everywhere
+   * else. Under the head the figures still read as a row of page numbers and the sentence gets
+   * the measure. */
+  .ld-chhead{flex-direction:column;gap:9px}
+  .ld-figs{width:100%;justify-content:space-between}
+  .ld-fig{align-items:flex-start}
+  .ld-chapters .hp-row[data-noplate="1"] .hp-row-tab,
+  .ld-ways .hp-row[data-noplate="1"] .hp-row-tab{width:96px;padding:0 8px}
+  .ld-body{gap:11px}
+}
+/* ── §167 · JASON'S THREE DIRECTIONS (2026-09-16) — the rolled character's descriptors, the fold, and
+   the three plates. The descriptors are two renders of one text under one tree: the full paragraph
+   from 1024 up, the sentence-teaser fold on the phone (AS-4: a sentence boundary, never a clip). */
+.ld-desc{margin-top:10px}
+.ld-surface .hp-plate.ld-desc{padding:10px 13px 11px}   /* §172: each descriptor on its own stock — two plates, not bare prose on the ground */
+.ld-descs .ld-desc:first-child{margin-top:12px}
+.ld-desck{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-accent);margin:0 0 3px}
+.ld-desck b{color:var(--doc-ink);font-weight:400}
+.ld-desct{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.42;
+  color:var(--doc-ink-muted);margin:0}
+.ld-fold summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.ld-fold summary::-webkit-details-marker{display:none}
+.ld-fold[open] summary .ld-more{display:none}
+.ld-fold > p{margin-top:4px}
+.ld-more{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-action);white-space:nowrap;line-height:22px}
+
+/* THE DESCRIPTORS FOLLOW THE PRESS, on the sheet: the plate is the character's numbers, the press is
+   the act, the reading comes after — measured first inside the plate, where whole paragraphs put the
+   rolled press 18px under a 900px fold at 1440 (§167). Two-up at the wide band was tried and saved
+   28px: two half-width columns of like prose are as tall as one. */
+.ld-descs{margin-top:4px}
+/* the phone strip folds thresholds and the pool; the descriptors stay — they are the ask */
+.ld-chhead2{margin:0 0 10px}
+.ld-chhead2 .ld-chn{margin-top:2px}
+.ld-wayplates{display:flex;flex-direction:column;gap:10px}
+.ld-surface .hp-plate.ld-wayplate{display:flex;flex-direction:column;gap:8px;width:100%;text-align:left;cursor:pointer;
+  padding:12px 13px;min-height:44px;font:inherit;color:inherit}
+.ld-wpb{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ld-wpt{font-size:14px;letter-spacing:.06em}
+.ld-wayplate[data-first="1"] .ld-wpt{font-size:17px;color:var(--doc-action)}
+.ld-wptab{display:flex;align-items:center;justify-content:space-between;gap:14px;flex:none}
+.ld-wptab:empty{display:none}
+.ld-wayplate .ld-figs{gap:18px}
+.ld-wayplate .ld-fig{align-items:flex-start}
+.ld-wayplate.is-stamped{animation:ld-stamp .16s ease-out}
+@container surface (min-width:1024px){
+  .ld-surface .hp-plate.ld-wayplate{flex-direction:row;align-items:center;justify-content:space-between;gap:16px}
+  .ld-wayplate .ld-fig{align-items:flex-end}
+  .ld-wayband{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .ld-wayband .hp-plate.ld-wayplate{flex-direction:column;align-items:stretch;justify-content:flex-start}
+  .ld-wayband .ld-wptab{justify-content:space-between;width:100%;margin-top:auto}
+  .ld-wayband .ld-wayplate .ld-fig{align-items:flex-start}
+}
+@media (prefers-reduced-motion: reduce){ .ld-wayplate.is-stamped{animation:none} }
+
+/* ── §168 · THE DESK DOES NOT SCROLL — `data-fit="1"`, from 1024 up. The sheet is bounded and CLIPS
+   (so TRAPPED polices it); the body takes the remaining height; each column is a flex column whose
+   one elastic zone is the descriptors (scrolls inside itself); the reference doors are four tiles
+   two-up beside CREATE; the title and the lead share a row; the colophon is one line. */
+@container surface (min-width:1024px){
+  /* NO MARGIN (B-792). This rung carried `margin:12px 0` — the last 12px of near-black at the top
+   * and bottom of every desk band, and the reason the surround did not vanish with the four `.ld`
+   * caps. It is the LIVE margin, not one of the dead rungs: at (0,2,0) it beat `.ld`'s own
+   * `margin:22px/30px/44px/64px 0` at (0,1,0) everywhere from 1024 up. The paper now reaches all
+   * four edges; `.ld` is `flex:1` in a `height:100%` surface, so the page IS the screen. */
+  /* B-837: the page's padding is part of the composition, so it takes the same factor (1 at and under 1440×900) */
+  .ld[data-fit="1"]{overflow-y:hidden;display:flex;flex-direction:column;
+    padding:calc(16px * var(--ld-s)) calc(28px * var(--ld-s)) calc(12px * var(--ld-s))}
+  .ld[data-fit="1"] .ld-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 28px;align-items:end;margin-top:2px}
+  .ld[data-fit="1"] .ld-title{min-width:0}
+  .ld[data-fit="1"] .ld-head .hp-plate.ld-leadplate{margin:0 0 6px;max-width:none}
+  .ld[data-fit="1"] .ld-head .hp-lead{line-height:1.36}
+  .ld[data-fit="1"] .ld-body{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);
+    grid-template-rows:minmax(0,1fr);gap:0 26px;align-items:stretch;margin-top:14px}
+  .ld[data-fit="1"] .ld-colL,.ld[data-fit="1"] .ld-colR{grid-row:1;min-height:0;display:flex;flex-direction:column;gap:10px}
+  .ld[data-fit="1"] .ld-colL{grid-column:1} .ld[data-fit="1"] .ld-colR{grid-column:2}
+  .ld[data-fit="1"] .ld-idxblock{margin:0;flex:0 1 auto;min-height:56px;overflow-y:auto}
+  .ld[data-fit="1"] .ld-descs{flex:none;margin-top:0}
+  .ld[data-fit="1"] .ld-vit,.ld[data-fit="1"] .ld-skill{display:none}   /* §169: the desk stage is the phone's strip */
+  /* D-398 (Jason, "Under my characters"; card `player-landing-fixes` R-PLF-7, ADDENDUM 5; the board's a-* frames at 1920
+     and 1366): the index no longer grows to fill the column — its unused height was the gap above Career/Spec (180px
+     at 1920 with three). It takes its rows' height up to a CAP, then scrolls inside itself; Career/Spec sit directly
+     under it and take the rest. The CAP is the index's head (44) and its 2px, 5 whole rows (63, measured) and the
+     fade foot (20) — the lab's measured cap (`landing1080/frames.py` cap_for @ lab 2ca7e83dc). At 1080 and 768 the
+     column runs out first, so the floor below and the column decide there. */
+  .ld[data-fit="1"] .ld-idxblock{flex:0 1 auto;max-height:calc(44px + 2px + 5 * 63px + 20px)}
+  .ld[data-fit="1"] .hp-plate.ld-front{padding:8px 12px 9px}
+  .ld[data-fit="1"] .ld-front .hp-railwrap{margin-top:6px}
+  .ld[data-fit="1"] .ld-body{margin-top:10px}
+  .ld[data-fit="1"] .ld-desck{margin-bottom:2px}
+  .ld[data-fit="1"] .ld-vit{margin-top:8px} .ld[data-fit="1"] .ld-skill{margin-top:8px}
+  .ld[data-fit="1"] .ld-prov{margin:8px 0 6px}
+  .ld[data-fit="1"] .ld-chhead2{margin-bottom:6px}
+  .ld[data-fit="1"] .ld-wayplates{gap:6px}
+  .ld[data-fit="1"] .hp-plate.ld-wayplate{padding:8px 12px}   /* the raised roll call (§170) needs 6px in the tiles under the STACKED plates at 1366 — the plates give it */
+  /* MID (1024–1366): 2×2, the quiet row the fourth cell — a ~230px tile holds the roll call's two
+     reserved lines (M9 caught three-across at 1024: a 33-character vessel grew the line 26 → 40).
+     WIDE (1367+): three across, the quiet row beneath, spanning. */
+  .ld[data-fit="1"] .ld-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;flex:1 1 auto;min-height:0;
+    grid-auto-rows:minmax(0,1fr)}
+  /* F10a at MID (Jason's D-PV1 (a)): four tiles fill the 2×2 themselves, so the quiet row is no longer the fourth cell;
+     it runs beneath, spanning, at its own height, and the two tile rows share the rest. */
+  .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a{grid-template-rows:repeat(2,minmax(0,1fr)) auto;grid-auto-rows:auto}
+  .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a > .ld-files{grid-column:1 / -1}
+  /* §175 — the quiet row as a TILE (Jason: its text "looks incorrectly formatted for the tile size"): the
+     quiet row's two-column, centred, mono line was inherited into a tall cell. In the grid it reads as
+     the other tiles do — the title in the door face top-left, the sentence in the body face beneath, the
+     chevron at the foot — and stays the quietest thing: no stock, no figure, no eyebrow (R-OGG1-1). */
+  .ld[data-fit="1"] .ld-tiles .ld-files{margin-top:0;min-height:44px;display:flex;flex-direction:column;align-items:flex-start;
+    justify-content:flex-start;gap:4px;padding:8px 12px 7px;text-align:left;position:relative;
+    font-family:inherit;letter-spacing:normal;text-transform:none}
+  .ld[data-fit="1"] .ld-files-t{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:14px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--doc-ink-muted)}
+  .ld[data-fit="1"] .ld-files-s{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.36;color:var(--doc-ink-muted)}
+  .ld[data-fit="1"] .ld-files-chev{position:absolute;right:12px;bottom:9px}
+  .ld[data-fit="1"] .ld-files:hover .ld-files-t{color:var(--doc-action)}
+  .ld[data-fit="1"] .ld-chhead2 .ld-chn{display:none}   /* the word alone at the desk: the plates say the rest */
+  .ld[data-fit="1"] .hp-plate.ld-tile{display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;
+    padding:8px 12px 7px;min-height:44px;font:inherit;color:inherit;position:relative;min-width:0}
+  .ld[data-fit="1"] .ld-tilehead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .ld[data-fit="1"] .ld-tile .ld-fig{align-items:flex-end}
+  .ld[data-fit="1"] .ld-tile .ld-chn{margin:0}
+  .ld[data-fit="1"] .ld-tile > .ld-chev{position:absolute;right:12px;bottom:9px}
+  .ld[data-fit="1"] .ld-tile-quiet{display:flex;flex-direction:column;justify-content:center;gap:4px;text-align:left;
+    min-height:44px;padding:10px 12px;border-top:1px solid var(--doc-rule);border-bottom:1px solid var(--doc-rule)}
+  .ld[data-fit="1"] .ld-col{margin-top:10px;display:flex;gap:18px;align-items:baseline;flex:none}
+  .ld[data-fit="1"] .ld-col p{margin:0}
+  /* titles WRAP rather than clip in a narrow plate or tile (CLIP caught "CUSTOM B…" and "N…") */
+  .ld[data-fit="1"] .ld-wayband .ld-wpt,.ld[data-fit="1"] .ld-tilehead .hp-row-desig{white-space:normal;overflow:visible;text-overflow:clip;min-width:0}
+  .ld[data-fit="1"] .ld-tilehead .hp-row-desig{flex:1 1 auto}
+  .ld[data-fit="1"] .ld-wayband .ld-wptab{width:100%;min-width:0}
+  .ld[data-fit="1"] .ld-wayband .ld-figs{flex:1 1 auto;min-width:0;flex-wrap:wrap;gap:8px 12px}
+  /* the reading zone shows it scrolls: the walk's fade cue (B-586's idiom) on the zone's foot */
+  .ld[data-fit="1"] .ld-idxblock{padding-bottom:0}
+  .ld[data-fit="1"] .ld-wayband .ld-fig b{font-size:22px}
+  .ld[data-fit="1"] .ld-wayband .ld-wptab{margin-top:auto}
+  /* the vitals four-across from 1024 on the bounded page — 40px the index and the reading need */
+  .ld[data-fit="1"] .ld-vit{grid-template-columns:repeat(4,minmax(0,1fr))}
+  /* the head (44) and ONE whole row (63, measured — §169: half a row is worse than none) — once there IS a row (D-398):
+     with a roster of one the index is its head alone, and the floor would be the gap again */
+  .ld[data-fit="1"] .ld-idxblock{min-height:0}
+  .ld[data-fit="1"] .ld-idxblock:has(.hp-row){min-height:108px}
+  /* D-398: with a roster, Career/Spec take the column's remainder under the index — the plates and their reading
+     windows grow (never under the window's own floor). A first visit has no index and keeps its whole paragraphs. */
+  .ld[data-fit="1"][data-state="roster"] .ld-colL > .ld-descs{flex:1 0 auto;min-height:0;display:flex;flex-direction:column}
+  .ld[data-fit="1"][data-state="roster"] .ld-descs > .ld-desc{flex:1 0 auto;display:flex;flex-direction:column;min-height:0}
+  .ld[data-fit="1"][data-state="roster"] .ld-descs .ld-desc-open{flex:1 0 auto;display:flex;flex-direction:column}
+  .ld[data-fit="1"][data-state="roster"] .ld-descs .ld-readwin{flex:1 1 var(--ld-win);height:auto;min-height:var(--ld-win)}
+  /* a run shorter than its grown window keeps A10's second copy (the loop's seam, R-PLF-5) below the window's foot, as
+     the frames draw it: the first copy is at least the window tall. A run that overflows is untouched, its period too. */
+  .ld[data-fit="1"][data-state="roster"] .ld-descs .ld-readwin > .ld-readtext:first-child{min-height:100%}
+  .ld[data-fit="1"] .ld-idx .hp-row.ld-rrow{min-height:48px}
+  .ld[data-fit="1"] .ld-rowb{padding-top:4px;padding-bottom:4px}
+  /* the reading is set a shade tighter on the bounded page — 1.34 against 1.42 — so a roster and two
+     whole descriptors share a 768px desk (measured 28px over at 1366×768 before this, §169) */
+  .ld[data-fit="1"] .ld-desct{line-height:1.28}
+  .ld[data-fit="1"] .ld-readwin{--ld-win:3.84em}
+  /* the characters section scrolls inside itself; the fade says so (one whole row is guaranteed, §169) */
+  .ld[data-fit="1"] .ld-idxblock{-webkit-mask-image:linear-gradient(#000 calc(100% - 20px),transparent);
+    mask-image:linear-gradient(#000 calc(100% - 20px),transparent);padding-bottom:20px}
+  .ld[data-fit="1"] .ld-desc{margin-top:6px}
+  .ld[data-fit="1"] .hp-plate.ld-desc{padding:6px 12px 7px}   /* the stock cost 4–5px at two rungs; the plate gives it back */
+  .ld[data-fit="1"] .ld-idxhead{margin:0 0 2px;min-height:0}
+  .ld[data-fit="1"] .ld-idxhead h3{margin:0} .ld[data-fit="1"] .ld-edit{min-height:44px;padding:0 10px}
+}
+.ld-wprun{display:none}
+/* ── §177 · EXPLORE THIS CHARACTER (A11, the phone only — Jason 2026-09-17: "For mobile only"). A small
+   callout at the stage's foot; pressed, the two descriptions open in place beneath the stage (whole with
+   no roster, the teasers with one). The desk never shows the callout: its descriptors stay in view. */
+.ld-explore{display:none;width:100%;min-height:44px;margin-top:10px;padding:0 2px;background:none;border:0;
+  border-top:1px solid var(--doc-rule);cursor:pointer;align-items:center;justify-content:space-between;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-action);text-align:left}
+.ld-explore .ld-chev{transition:transform .16s ease-out}
+.ld-explore[aria-expanded="true"] .ld-chev{transform:rotate(90deg)}
+.ld-desc[data-read="1"] .ld-readwin{height:auto;overflow:visible;-webkit-mask-image:none;mask-image:none}
+.ld-desc[data-read="1"] .ld-peek-dup{display:none}   /* opened whole: the run once, nothing for A10 to loop */
+@container surface (max-width:1023px){
+  .ld-explore{display:flex;margin-top:4px}
+  .ld-colL[data-explore="0"] > .ld-descs{display:none}
+}
+@media (prefers-reduced-motion: reduce){ .ld-explore .ld-chev{transition:none} }
+/* §176 — THE PHONE'S ORDER. Below 1024 the two columns dissolve (display:contents) and the body is one
+   flex column ordered stage · CREATE · the index · the reading · the reference rows · the quiet row —
+   Jason: "the create buttons need to be present on first glance of the page". */
+@container surface (max-width:1023px){
+  .ld-colL,.ld-colR{display:contents}
+  .ld-body{position:relative}
+  /* `display:contents` dissolves the columns' BOXES, not their DOM: the children are still the columns'
+     children, so the order rules address them through the column (`.ld-colL > …`), never `.ld-body > …` */
+  .ld-colL > .ld-front,.ld-colL > .ld-draft{order:1}
+  .ld-colR > .ld-chhead2,.ld-colR > .ld-wayplates,.ld-colR > .ld-hero{order:2}
+  .ld-colL > .ld-idxblock,.ld-body > .ld-idxblock{order:3}
+  .ld-colL > .ld-descs{order:1}   /* §177: opened by the callout, the reading sits under the stage, before CREATE */
+  .ld-colR > .ld-chapters{order:5}
+  .ld-colR > .ld-files{order:6}
+  .ld-colR > .ld-wayplates{margin-bottom:2px}
+  /* the three plates inside 844 on a first visit — measured 636 · 762 · 890 before these: the lead set
+     tighter, the plates and the stage a little closer, the CREATE head's sentence folded away (the plates
+     say it) */
+  .ld-leadplate .hp-lead{line-height:1.34}
+  .ld-surface .hp-plate.ld-leadplate{margin-top:4px}
+  .ld-body{gap:8px;margin-top:10px}
+  .ld-surface .hp-plate.ld-front{padding:10px 13px 0}       /* §177: the callout's own 44px is the plate's foot */
+  .ld-chhead2{margin-bottom:4px} .ld-chhead2 .ld-chn{display:none}
+  .ld-wayplates{gap:6px}
+  .ld-surface .hp-plate.ld-wayplate{padding:9px 12px;gap:6px}
+}
+/* ── §170 · THE READING TEASER (A9) — a three-line window, still at rest and read on hover by A10's clock, the
+   tiles' own (D-390 item 4, R-PLF-5: I7's always-on drift and its `--ld-readdur` are retired); a press opens the
+   whole reading in a pane over the stage column, sized to the text. */
+/* the pane's containing block is the STAGE COLUMN (`.ld-colL`, positioned), not the teaser: anchored to
+   the teaser it opened low and ran CLOSE onto the colophon at 1366×768 (the eyes, §171) */
+.ld-desc-open{display:block;width:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;
+  font:inherit;color:inherit;min-height:44px}
+.ld-desc-open .ld-desck{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ld-desc-open .ld-more{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-action)}
+.ld-readwin{--ld-win:4.26em;display:block;height:var(--ld-win);overflow-y:auto;scrollbar-width:none;position:relative;
+  -webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.ld-readwin::-webkit-scrollbar{display:none}
+.ld-readtext{display:block}
+.ld-readwin .ld-peek-dup{margin-top:.6em}   /* A10's second copy of the run (B-791): the loop's seam reads as a new start */
+.ld-colL{position:relative}
+/* THE PANE IS BOUNDED BY THE COLUMN IT OPENS OVER — one declaration pair, added by the row-6/7 agent
+ * against a landing_eyes finding and named as its own change (2026-09-17): at 1194x834 a long career
+ * reading put CLOSE 30px past the bounded page's clip, and `landing_eyes` reported it as TRAPPED — a
+ * control no finger can reach, with the teasers underneath the pane covered, so the pane could not be
+ * closed at all. `max-height:100%` + its own scroll keeps the drawing and gives CLOSE back. */
+.ld-readpane{position:absolute;left:0;right:0;top:0;z-index:6;box-shadow:var(--doc-lift);animation:ld-read-open .2s ease-out;
+  max-height:100%;overflow-y:auto}
+.ld-readpane .ld-desck{margin-bottom:6px}
+.ld-readclose{margin-top:12px;min-height:44px;width:100%;justify-content:center}
+@keyframes ld-read-open{from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){ .ld-readpane{animation:none} }
+/* ── §174 · THE PREVIEW READS (A10) — the tile's body is a SCROLLER: the sentence and the name at rest
+   (the name at the foot, as before: the sentence's minimum height is the visible body less the name's
+   two lines), the description below the fold. Hover drifts the scroll up (the runtime, like the roll
+   call); wheel and swipe reach it too; nothing animates in the stylesheet, so TRAPPED (overflow: auto) and
+   the idle floor are untouched by construction. `data-peek="1"` is the drawn mid-drift still. */
+.hp-plate.ld-tile{overflow:hidden}
+.ld-tilebody{display:flex;flex-direction:column;gap:4px;flex:1 1 auto;min-height:0;overflow-y:auto;
+  scrollbar-width:none;container-type:size;
+  -webkit-mask-image:linear-gradient(#000 86%,transparent);mask-image:linear-gradient(#000 86%,transparent)}
+.ld-tilebody::-webkit-scrollbar{display:none}
+/* B-1724 (ADDENDUM 612): A10's second copy shows only where the loop can run — the peek effect writes `data-loop="1"`
+   by its own wrap test. Both records draw the line ONCE. `visibility`, not `display`: the period is the copy's offsetTop. */
+.ld-tilebody:not([data-loop="1"]) .ld-peek-dup{visibility:hidden}
+.ld-tilebody .ld-chn{flex:none;min-height:calc(100cqh - 36px)}
+.ld-tilebody .ld-chrun{flex:none;margin-top:0}
+.ld-peek-text{display:block;flex:none;font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.3;
+  color:var(--doc-ink-muted);padding:6px 0 4px}
+/* the roll call, raised (§170 — Jason: "more prominent"): the register's names in the red ink, 12px at
+   .05em — 13px at .1em put a 51-character armour name on three lines in a 1440 tile (the self-test's
+   fixture found it: M9, "the box cannot grow"); two reserved lines must hold every sample name. */
+.ld-tile .ld-chrun{font-size:12px;letter-spacing:.05em;color:var(--doc-action)}
+/* ARRANGE (§170): a grab handle and ▲▼ appear in EDIT beside the delete mark, at the 44px floor */
+.ld-grab{display:none;align-items:center;justify-content:center;width:24px;color:var(--doc-ink-muted);font-size:18px;flex:none}
+.ld-move{position:absolute;right:44px;top:0;bottom:0;display:none;align-items:center}
+.ld-move button{min-width:44px;min-height:44px;background:none;border:0;cursor:pointer;color:var(--doc-ink-muted);font-size:12px}
+.ld-move button:hover{color:var(--doc-action)}
+.ld-idx[data-edit="1"] .ld-grab{display:flex}
+.ld-idx[data-edit="1"] .ld-move{display:flex}
+/* B-935 · D-PRD2 (a) (ruling `paper-roster-delete-b935`): while arranging, the row's OPEN button ENDS at its controls'
+   left edge — its hit area is the name column, so a tap on a control never opens and a tap on the name never moves.
+   The controls are ▲▼ (2 × 44) + the mark (44): 132px. The text keeps the width it had (8px of padding + the margin =
+   the 140 it reserved before), so no drawn pixel moves. B-970 retired the armed row's 192px: a deleted row's UNDO (104)
+   sits inside the same 132, so its text keeps that width too and nothing reflows. */
+.ld-idx[data-edit="1"] .ld-rowb{padding-right:8px;margin-right:132px}
+.ld-fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ld-fid{min-width:0}
+.ld-open.ld-open-in{margin-top:2px;flex:none}
+@container surface (min-width:1024px) and (max-width:1366px){
+  /* the band's Custom plate is ~150px wide at mid: the numeral trio stacked three-high there (290px of
+     plate, the tiles clipped beneath — the eyes, §168.2); the extent is a run line at mid, numerals at wide */
+  .ld[data-fit="1"] .ld-wayband .ld-figs{display:none}
+  .ld[data-fit="1"] .ld-wayband .hp-plate.ld-wayplate{padding:8px 10px 7px}
+  .ld[data-fit="1"] .ld-tiles{gap:8px}
+  .ld[data-fit="1"] .ld-wayband .ld-wprun{display:block;margin:0}
+  .ld[data-fit="1"] .ld-tile .ld-fig b{font-size:24px}
+  .ld[data-fit="1"] .ld-tile .ld-chn{font-size:16px;line-height:1.36}
+}
+.ld-tile.is-stamped{animation:ld-stamp .16s ease-out}
+@media (prefers-reduced-motion: reduce){ .ld-tile.is-stamped{animation:none} }
+@container surface (min-width:1367px){
+  /* §176 — Jason's pick ("As recommended"): the band at mid, the PLATES STACKED at wide — one address */
+  .ld-wayband.ld-waydesk{display:flex;flex-direction:column;gap:8px}
+  .ld-wayband.ld-waydesk .hp-plate.ld-wayplate{flex-direction:row;align-items:center;justify-content:space-between;gap:16px}
+  .ld-wayband.ld-waydesk .ld-wpb{flex:1 1 auto}
+  .ld-wayband.ld-waydesk .ld-wptab,.ld[data-fit="1"] .ld-wayband.ld-waydesk .ld-wptab{margin-top:0;width:auto;flex:none;justify-content:flex-end}
+  .ld[data-fit="1"] .ld-wayband.ld-waydesk .ld-figs{flex:none;flex-wrap:nowrap}
+  .ld-wayband.ld-waydesk .ld-wayplate .ld-fig{align-items:flex-end}
+  /* §176 — "Why is the second row of bands elongated?": the tile grid took the column's remainder so the
+     doors fill a short screen; at wide the remainder is large. The tiles keep their natural height here. */
+  .ld[data-fit="1"] .ld-tiles{flex:0 0 auto;grid-auto-rows:auto}
+  .ld[data-fit="1"] .hp-plate.ld-tile{min-height:172px}   /* a three-line sentence and the name at rest in a 236px tile */
+  .ld[data-fit="1"] .ld-tiles{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto}
+  .ld[data-fit="1"] .ld-tiles .ld-files{grid-column:1 / -1}
+  /* F10a (Jason's D-PV1 (a)): with the HOMEBREW door the four reference tiles are the frame's 2×2 here too
+     (`F10a-landing-1440`: 2×2), the quiet row beneath, spanning — three across is the three-tile landing's. */
+  .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* ══════════════════════════════════════════════════════════════════════════════════════════════
+ * §A · ONE TREE'S PHONE BAND — the rules the board never had to write
+ *
+ * The board drew the phone from `landing(fit=False)` and the desk from `landing(fit=True)`; they
+ * differ in STRUCTURE, not only in style, so the single production tree cannot inherit both. It
+ * renders the `fit=True` structure and everything below re-states, in CSS, what the approved phone
+ * frame `landing(front=rolled, desc=True, create=desk)` draws differently. Every number here was
+ * MEASURED on that frame at 390×844, and the measurement is written beside the rule.
+ *
+ * TWO THINGS THE PHONE FRAME DRAWS THAT NEEDED NO RULE, recorded so the absence is checkable:
+ *   · `.ld-head` — the desk's title/lead row is `.ld[data-fit="1"] .ld-head{display:grid}` INSIDE the
+ *     1024 block, so below it the wrapper is already a plain block: title, then the lead plate,
+ *     which is the phone frame's own arrangement. No rule is owed and none is written.
+ *   · `.ld-explore` and the in-place reading (`data-read`) are phone-only in the board's own CSS
+ *     (§177 · §178) and carry over untouched.
+ * ══════════════════════════════════════════════════════════════════════════════════════════════ */
+@container surface (max-width:1023px){
+  /* §176's order rules name `.ld-colR > .ld-chapters` and `> .ld-files` — the fit=False branch's
+     containers. The one tree draws the reference doors as `.ld-tiles` with the quiet row INSIDE it,
+     so the order is stated for the container the tree actually has. Same place in the column: after
+     YOUR CHARACTERS, before the colophon. */
+  .ld-colR > .ld-tiles{order:5;display:flex;flex-direction:column;min-width:0}
+
+  /* THE DOORS READ AS THE PHONE FRAME'S CHAPTER ROWS. Measured on the approved frame: a row at the
+     52px floor · a 1px `--doc-rule-fine` hairline between rows and none above the first · the body
+     247px of the 360px measure, padded 8px 14px · the tab the remaining 113px, ruled on its left ·
+     the title 13px/.05em in the display face · the sentence 16px/1.45 · the roll call two reserved
+     lines · the figure 26px over a 9px noun · the chevron 13px in the action ink.
+     A ROW IS NOT A PLATE, so the stock, the chamfer and `[data-pad="read"]`'s padding are withdrawn
+     — at (0,3,0), because paper.css's own `[data-pad]` rule is (0,3,0) and a two-class override
+     loses to it (the same floor the port's header records). */
+  .ld-surface .ld-tiles:not(.ld-tiles-f10a) > .hp-plate.ld-tile{
+    display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-rows:auto 1fr;
+    width:100%;min-height:52px;padding:0;gap:0;position:relative;overflow:visible;
+    background:transparent;border:0;border-top:1px solid var(--doc-rule-fine);
+    clip-path:none;text-align:left;cursor:pointer;color:inherit;font:inherit}
+  .ld-surface .ld-tiles:not(.ld-tiles-f10a) > .hp-plate.ld-tile::after{display:none}      /* the plate's chamfer mark */
+  .ld-tiles:not(.ld-tiles-f10a) > .ld-tile:first-child{border-top:0}
+  .ld-tiles > .ld-tile:focus-visible{outline:2px solid var(--doc-action);outline-offset:-2px}
+  @media (hover:hover){ .ld-tiles > .ld-tile:hover{background:rgba(23,22,27,.05)} }
+  /* the head's BOX dissolves — not its DOM: the title takes the body's column and the figure the
+     tab, which is where the row frame puts them (`display:contents`, §176's own device) */
+  .ld-tiles:not(.ld-tiles-f10a) > .ld-tile > .ld-tilehead{display:contents}
+  .ld-tiles:not(.ld-tiles-f10a) > .ld-tile > .ld-tilehead > .hp-row-desig{grid-column:1;grid-row:1;padding:8px 14px 0;
+    white-space:normal;overflow:visible;text-overflow:clip}
+  /* the body stops being a scroller here: A10's drift is the DESK tile's event (§174), and a row
+     whose text is reachable only by hover would be text a phone cannot read. The description below
+     the fold goes with it — the row shows the sentence and the register's name, as the frame does. */
+  .ld-tile > .ld-tilebody{grid-column:1;grid-row:2;display:flex;flex-direction:column;gap:5px;
+    padding:0 14px 8px;margin-top:9px;flex:none;min-height:0;overflow:visible;container-type:normal;
+    -webkit-mask-image:none;mask-image:none}
+  .ld-tile > .ld-tilebody .ld-chn{min-height:0;margin:0}
+  .ld-tile > .ld-tilebody .ld-chrun{margin-top:5px}
+  .ld-tile > .ld-tilebody .ld-peek-text{display:none}
+  /* …AND A10's SECOND COPY OF THE RUN GOES WITH IT (B-791). The duplicate exists so the DESK's scroll
+     box can wrap; here the body is not a scroller at all (`overflow:visible`, `flex:none` above), so a
+     second copy would simply PRINT the sentence and the register's name twice in the row. Measured
+     2026-09-22: 0px of travel on all three tiles at 390x844 — the body is exactly its content — so the
+     loop is a desk behaviour and this rule is what keeps the phone frame the frame Jason approved. */
+  .ld-tile > .ld-tilebody .ld-peek-dup{display:none}
+  /* THE ROLL CALL IS THE FRAME'S, NOT THE TILE'S. §170 raised it to 12px/.05em in the action ink for
+     the DESK tile ("more prominent"); the phone frame prints the run line's own 10px/.13em muted
+     mono, and the approved frame is what this band draws. Reported at the gate, both ways. */
+  .ld-tile .ld-chrun{font-size:10px;letter-spacing:.13em;color:var(--doc-ink-muted)}
+  /* the tab: the figure ruled off the body, the chevron at its end — `hp-row-tab`'s own geometry
+     (border-left 1px, 8px a side at this band, the pair centred) split across two grid columns,
+     because the one tree has no single element between the body and the chevron to BE the tab */
+  .ld-tiles:not(.ld-tiles-f10a) > .ld-tile > .ld-tilehead > .ld-fig{grid-column:2;grid-row:1 / span 2;align-self:stretch;
+    align-items:flex-end;justify-content:center;padding:0 0 0 8px;
+    border-left:1px solid var(--doc-rule-fine)}
+  .ld-tiles:not(.ld-tiles-f10a) > .ld-tile > .ld-chev{grid-column:3;grid-row:1 / span 2;align-self:center;position:static;
+    margin:0 8px 0 5px}
+  /* F10a ON THE PHONE (Jason's D-PV1 (a), ruling `paper-verify`): with the HOMEBREW door the approved frame
+     `F10a-landing-390` draws the four reference doors as PLATES in a 2×2 (title and figure in the head, the sentence,
+     the roll call; the chevron at the foot) with CHARACTER FILES beneath, not as the chapter rows above. The rows stay
+     the three-tile landing's (the editor's '0' rollback). The body keeps the rows' non-scroller rules (no drift here). */
+  .ld-colR > .ld-tiles.ld-tiles-f10a{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch}
+  .ld-tiles-f10a > .ld-files{grid-column:1 / -1}
+  .ld-surface .ld-tiles-f10a > .hp-plate.ld-tile{display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;
+    padding:10px 12px 26px;min-height:44px;min-width:0;position:relative;font:inherit;color:inherit}
+  .ld-tiles-f10a > .ld-tile > .ld-tilehead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2px 8px}
+  .ld-tiles-f10a > .ld-tile > .ld-tilehead > .ld-fig{align-items:flex-end}
+  /* the kit's `.hp-row-desig` carries `contain:inline-size`: its content no longer sizes it, so the title drew 0px wide
+     and, given a basis, still ran into a wide figure (HOMEBREW under 1,123 at 390, measured). Released here so the title
+     keeps its own width and the head WRAPS the figure beneath it, which is how F10a-landing-390 draws HOMEBREW. */
+  .ld-tiles-f10a > .ld-tile > .ld-tilehead > .hp-row-desig{contain:none;flex:1 0 auto;min-width:0;white-space:nowrap;overflow:visible;text-overflow:clip}
+  .ld-tiles-f10a > .ld-tile > .ld-tilebody{padding:0;margin-top:4px}
+  .ld-tiles-f10a > .ld-tile > .ld-chev{position:absolute;right:12px;bottom:9px}
+  /* THE QUIET ROW KEEPS NO CHEVRON ON THE PHONE. (§A continues below the phone block.) `.ld-files-chev` is drawn only under
+     `.ld[data-fit="1"]` — the board's way of saying "the desk's tile shape, not the phone's row" —
+     and the one tree carries `data-fit` at every band, so the gate the board used is gone and the
+     phone frame's quiet row (no chevron, 44px, mono at 11px) is restated here. */
+  .ld[data-fit="1"] .ld-files-chev{display:none}
+}
+
+/* ── §B · A STATE THE BOARD NEVER DREW: THE DRAFT ROW ON THE BOUNDED DESK ───────────────────────
+ * Every desk frame on the approved board is a first visit or a return WITHOUT a half-built character,
+ * so `.ld-draft` never met `.ld[data-fit="1"] .ld-colL`'s bounded flex column. Measured when it did,
+ * at 1366×768: the row came out 2px HIGH, its 44px discard press hanging outside it — a flex item's
+ * default is `flex:0 1 auto` and the row carries `overflow:hidden`, so its min-content height is zero
+ * and the bounded column took the whole of it. This is `.ld > *{flex:none}`'s lesson one level down,
+ * in the lab's own words: under pressure the flexible element collapses, and the element you would
+ * never choose to lose is the one that yields. The stage is pinned with it for the same reason.
+ * Row 4 (B-649) arms this row's ✕; the geometry is settled here, where it was measured. */
+@container surface (min-width:1024px){
+  .ld[data-fit="1"] .ld-colL > .ld-front,
+  .ld[data-fit="1"] .ld-colL > .ld-draft{flex:none}
+}
+
+/* ── §C · ARRANGE'S GRAB HANDLE, AS A REAL DRAG (B-649) ────────────────────────────────────────
+ * The frame draws the handle AND the arrows (§170: "drag or ▲▼"); the lab's runtime moved rows by
+ * the arrows alone, so the drag is the one piece of ARRANGE with no runtime to port and these two
+ * declarations are what the pointer path needs that the drawing could not say:
+ *   · `cursor:grab` — the handle is the only part of the row that is not a press, and nothing else
+ *     tells a mouse that it lifts;
+ *   · `touch-action:none` — the phone band's page DOES scroll (§176), so without this the browser
+ *     claims a vertical drag for that scroll before `pointermove` reaches the handler and the row
+ *     could not follow a finger. Stated as the rule it is; the smoke reads the computed value, and
+ *     the DROP itself is driven (and asserted) through the pointer path at 1440.
+ * Nothing here is drawn at rest: the handle is `display:none` outside ARRANGE. */
+.ld-grab{cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none}
+.ld-grab:active{cursor:grabbing}
+
+/* ── §D · THE MENU PRESS, AND THE BOUNDARY'S LINE (B-651 · B-652) ──────────────────────────────
+ * TWO ELEMENTS THE BOARD NEVER DREW, both of them the APP's own and neither of them the page's
+ * shape. They are written here and not invented: each takes an existing drawing's form.
+ *
+ * `.ld-menu` — the sheet's summoner (B-629), in the landing's running head. `hp-quiet` gives it the
+ * 44px floor and the paper's quiet ink; the two declarations below are what the RUNNING HEAD needs
+ * that a quiet press does not carry: the head is `justify-content:space-between`, so a fourth child
+ * would spread the lamp away from the title — `margin-left:auto` on the folio absorbs the free space
+ * at the right instead and the first three group at the left, exactly as the three did alone. The
+ * press is DENSER than a body press (10px mono, the folio's register) because a running head is
+ * furniture: it must be reachable at the floor's size without reading as an action on the page. */
+/* THE PRESS IS A TAB IN THE MARGIN, NOT A ROW IN THE HEAD — and that is a MEASUREMENT, not a taste.
+ * The running head's own line is 11px tall. Drawn in the flow at the smallest height a press can
+ * honestly be (32px), it made the head 32px and took 21px off the page — and the approved frame has
+ * 3px of slack at the tightest rung. Measured 2026-09-17, bars out: at 390x844 returning the three
+ * CREATE plates' feet went 614 · 727 · 841 → 635 · 748 · 862 (18px below the fold R-LFM-15 claims);
+ * at 1024x768 the reading's foot went 665 → 686 against a colophon at 701, the reference tiles 139px
+ * → 129px, and the roll call — two reserved lines that cannot shrink — fell 11px below the tile
+ * body's fold on all three. So the press is taken OUT of the head's flow: absolutely placed at the
+ * head's left, centred on its line, occupying no layout height at all. The frame is unchanged at
+ * every rung, and the head reserves the width instead, where there is room to spare. */
+.ld-surface .ld-runhead{position:relative;padding-left:58px}
+.ld-surface .ld-runhead .hp-quiet.ld-menu{position:absolute;left:0;top:50%;transform:translateY(-50%);
+  min-height:20px;padding:0 9px;flex:none;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase}
+/* THE 44px FLOOR IS NOT WAIVED, it is met the way a dense control meets it: the press's HIT AREA is
+ * extended above and below by a pseudo-element, so the tap target is 44px on a touch screen while the
+ * drawn chrome stays the height a running head can carry. The extension is transparent and takes no
+ * layout space, so it costs the page nothing either.
+ * 45px, NOT 44 (B-936, ruling `paper-packet` R-PKR-3): the running head is zoomed by --ld-s above 1440, and
+ * the engine stores the zoomed box in 1/64px units, TRUNCATING — so a 44px extension read back in the
+ * press's own px was 43.997 at 1920, 2200 and 2560, 0.003px under AS-9's HARD floor. One px of
+ * transparent headroom holds the floor through any zoom ≥ 1 (the truncation loses < 1/64px). */
+.ld-surface .ld-runhead .hp-quiet.ld-menu::after{content:'';position:absolute;left:0;right:0;
+  top:50%;height:45px;transform:translateY(-50%)}
+.ld-surface .ld-runhead .hp-quiet.ld-menu[aria-pressed="true"]{color:var(--doc-action);
+  border-color:var(--doc-action)}
+
+/* `.ld-status` — R-LFM-4's line (A18), at the index's head. The old roster screen drew it as a
+ * bordered line in the action ink and this is that, on paper: the mono register the index's own head
+ * uses, the action ink the armed marks use, and a rule under it so the rows beneath read as the
+ * "below" the sentence names. It is `role="status"` in the markup, so it is announced without
+ * stealing focus from wherever the reader was put. */
+.ld-status{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.06em;
+  line-height:1.5;color:var(--doc-action);margin:14px 0 0;padding:8px 10px;
+  border:1px solid rgba(126,20,20,.42);background:rgba(126,20,20,.07)}
+.ld-status + .ld-idxhead{margin-top:8px}
+/* THE QUIET ROW STAMPS TOO (A3: "pressing a chapter row or a way row" — the files row is one). The
+ * board's stamp rule names `.hp-row.ld-ch` and `.ld-way`, the two shapes it drew a press as; ours
+ * draws the same press as `hp-quiet`, so the rule is restated for it rather than the markup bent. */
+.ld-files.is-stamped{animation:ld-stamp .16s ease-out}
+@media (prefers-reduced-motion: reduce){ .ld-files.is-stamped{animation:none} }
+
+/* THE IDLE LOOPS STOP WHEN THE PAGE IS NOT BEING LOOKED AT (`data-live="0"` — the landing is mounted
+ * behind every other screen of the app, and `visibility:hidden` does not pause a CSS animation). This
+ * is the same claim §3.7's concurrency floor makes, made honestly: the loops run ON THE PAGE (the sweep;
+ * I7's two reading drifts are retired, R-PLF-5), and only while there IS a page. The JS clocks stop on the same signal. */
+.ld[data-live="0"] .ld-sweep{animation:none}

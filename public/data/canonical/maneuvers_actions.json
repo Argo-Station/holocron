@@ -1,0 +1,315 @@
+{
+  "personal": {
+    "cite": "eote p.201",
+    "rows": [
+      {
+        "name": "Aim",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Assist",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Guarded Stance",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Interact with the Environment",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Manage Gear",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Mount or Dismount",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Move",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Drop Prone or Stand From Prone",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Preparation",
+        "type": "Maneuver",
+        "effect": ""
+      },
+      {
+        "name": "Perform a Combat Check",
+        "type": "Action",
+        "effect": ""
+      },
+      {
+        "name": "Perform a Skill Check",
+        "type": "Action",
+        "effect": ""
+      },
+      {
+        "name": "Activate an Ability or Talent",
+        "type": "Action",
+        "effect": ""
+      },
+      {
+        "name": "Activate a Force Power",
+        "type": "Action",
+        "effect": ""
+      },
+      {
+        "name": "Exchange an Action for a Maneuver",
+        "type": "Action",
+        "effect": ""
+      },
+      {
+        "name": "Incidental",
+        "type": "Incidental",
+        "effect": ""
+      }
+    ]
+  },
+  "starship": {
+    "cite": "eote p.232",
+    "rows": [
+      {
+        "name": "Accelerate/Decelerate",
+        "type": "Maneuver",
+        "restrictions": "Pilot Only; Sil Any; Speed Any",
+        "effect": "",
+        "id": "accelerate-decelerate",
+        "ogg_key": "ACCDEC",
+        "cite": "eote p.232"
+      },
+      {
+        "name": "Fly/Drive",
+        "type": "Maneuver",
+        "restrictions": "Pilot Only; Sil Any; Speed Any",
+        "effect": "",
+        "id": "fly-drive",
+        "ogg_key": "FLYDRIVE",
+        "cite": "eote p.232"
+      },
+      {
+        "name": "Evasive Maneuvers",
+        "type": "Maneuver",
+        "restrictions": "Pilot Only; Sil 1-4; Speed 3+",
+        "effect": "",
+        "id": "evasive-maneuvers",
+        "ogg_key": "EVASMAN",
+        "cite": "eote p.233"
+      },
+      {
+        "name": "Stay on Target",
+        "type": "Maneuver",
+        "restrictions": "Pilot Only; Sil 1-4; Speed 3+",
+        "effect": "",
+        "id": "stay-on-target",
+        "ogg_key": "STAY",
+        "cite": "eote p.233"
+      },
+      {
+        "name": "Punch It",
+        "type": "Maneuver",
+        "restrictions": "Pilot Only; Sil 1-4; Speed Any",
+        "effect": "",
+        "id": "punch-it",
+        "ogg_key": "PUNCH",
+        "cite": "eote p.233"
+      },
+      {
+        "name": "Angle Deflector Shields",
+        "type": "Maneuver",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "angle-deflector-shields",
+        "ogg_key": "ANGLEDEF",
+        "cite": "eote p.233"
+      },
+      {
+        "name": "Gain the Advantage",
+        "type": "Action",
+        "restrictions": "Pilot Only; Sil 1-4; Speed 4+",
+        "effect": "",
+        "id": "gain-the-advantage",
+        "ogg_key": "GAINADV",
+        "cite": "eote p.234"
+      },
+      {
+        "name": "Damage Control",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "damage-control",
+        "ogg_key": "DAMCONT",
+        "cite": "eote p.234"
+      },
+      {
+        "name": "Perform a Combat Check (vehicle weapons)",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "perform-a-combat-check-vehicle-weapons",
+        "ogg_key": "COMBAT",
+        "cite": "eote p.234"
+      },
+      {
+        "name": "Additional Ship & Vehicle Actions",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "additional-ship-vehicle-actions",
+        "cite": "eote p.232"
+      },
+      {
+        "name": "Plot Course",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "plot-course",
+        "ogg_key": "PLOTCOURSE",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Copilot",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "copilot",
+        "ogg_key": "COPILOT",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Jamming",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "jamming",
+        "ogg_key": "JAM",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Boost Shields",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "boost-shields",
+        "ogg_key": "BOOSTSHIELD",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Manual Repairs",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "manual-repairs",
+        "ogg_key": "MANREP",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Fire Discipline",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "fire-discipline",
+        "ogg_key": "FIREDISC",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Scan the Enemy",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "scan-the-enemy",
+        "ogg_key": "SCANENEMY",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Slice Enemy's Systems",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "slice-enemys-systems",
+        "ogg_key": "SLICE",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Spoof Missiles",
+        "type": "Action",
+        "restrictions": "Sil Any; Speed Any",
+        "effect": "",
+        "id": "spoof-missiles",
+        "ogg_key": "SPOOFMISS",
+        "cite": "eote p.237"
+      },
+      {
+        "name": "Blanket Barrage",
+        "type": "Action",
+        "restrictions": "Sil 5+; Speed 0-3",
+        "effect": "",
+        "id": "blanket-barrage",
+        "ogg_key": "BLANKBARR",
+        "cite": "aor p.246"
+      },
+      {
+        "name": "Concentrated Barrage",
+        "type": "Action",
+        "restrictions": "Sil 5+; Speed 0-3",
+        "effect": "",
+        "id": "concentrated-barrage",
+        "ogg_key": "CONCBARR",
+        "cite": "aor p.246"
+      },
+      {
+        "name": "Overwhelming Barrage",
+        "type": "Action",
+        "restrictions": "Sil 5+; Speed 0-3",
+        "effect": "",
+        "id": "overwhelming-barrage",
+        "ogg_key": "OVERBARR",
+        "cite": "aor p.248-249"
+      },
+      {
+        "name": "Increase Power",
+        "type": "Maneuver",
+        "restrictions": "Socketed astromech; Sil 0-3; Speed Any",
+        "effect": "",
+        "told": true,
+        "id": "increase-power",
+        "ogg_key": "MECHINCPOW",
+        "cite": "pilot p.72-73; errata: aor-errata p.3"
+      },
+      {
+        "name": "Watch Your Back!",
+        "type": "Action",
+        "restrictions": "Astromech droids only; socketed",
+        "effect": "",
+        "told": true,
+        "id": "watch-your-back",
+        "ogg_key": "MECHWATCHBACK",
+        "cite": "pilot p.72-73"
+      },
+      {
+        "name": "Target Lock",
+        "type": "Action",
+        "restrictions": "Astromech droids only; socketed",
+        "effect": "",
+        "told": true,
+        "id": "target-lock",
+        "ogg_key": "MECHTARGETLOCK",
+        "cite": "pilot p.72-73"
+      }
+    ]
+  },
+  "_provenance": "generated by scripts/canonical/build_maneuvers_actions.py from Docs/rules_tables/ (verified). Do not hand-edit."
+}

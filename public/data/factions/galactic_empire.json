@@ -1,0 +1,555 @@
+{
+  "id": "galactic_empire",
+  "name": "Galactic Empire",
+  "type": "galactic_power",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "overview": "",
+  "short_descriptor": "Hierarchical, predictable, and overwhelming at scale. Individual officers are manageable. The institution is not. Never engage where they can bring numbers to bear.",
+  "witness_statement": {
+    "text": "I was running grain to Lothal when a Star Destroyer dropped out of hyperspace and parked itself between me and the planet. No hail, no warning shot. Just a shadow across my viewport that blocked out the sun. Took eleven hours to process my cargo manifest. Eleven hours docked to that thing while stormtroopers went through every crate with scanners. They found nothing, because there was nothing to find. They didn't apologize. They don't.",
+    "source": "Merchant captain, debriefed post-interdiction, Lothal sector",
+    "verification": "CONFIRMED — SINGLE SOURCE"
+  },
+  "history": [
+    {
+      "heading": "RISE OF THE EMPIRE",
+      "text": ""
+    },
+    {
+      "heading": "THE CURRENT ERA",
+      "text": ""
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "",
+      "text": "The Empire operates through a hierarchical pyramid of control with multiple overlapping military, intelligence, and political branches."
+    },
+    {
+      "heading": "IMPERIAL NAVY",
+      "text": ""
+    },
+    {
+      "heading": "IMPERIAL ARMY",
+      "text": ""
+    },
+    {
+      "heading": "STORMTROOPER CORPS",
+      "text": ""
+    },
+    {
+      "heading": "IMPERIAL SECURITY BUREAU (ISB)",
+      "text": "The Emperor's personal secret police force, direct rivals to Imperial Intelligence. ISB command reports directly to the Select Committee and the Emperor. Tasked with gathering intelligence on all potential threats and granted full autonomy to deal with threats in any way necessary. The largest branch is Surveillance (35% of personnel), with other branches including Investigations, Internal Affairs, Re-Education, and Enforcement. The ISB also maintains its own cadre of stormtroopers who are even more fanatically loyal."
+    },
+    {
+      "heading": "IMPERIAL INTELLIGENCE",
+      "text": "Formed in the waning days of the Old Republic, combining the networks and assets of four older agencies under the secretive Ubiqtorate. Focuses primarily on military and external threats (while ISB handles political and internal threats). Structure includes system cells stationed galaxy-wide, the Bureau of Operations with Infiltration and Assassination branches, and the elite Adjustments branch for the most difficult cases."
+    },
+    {
+      "heading": "COMPNOR",
+      "text": ""
+    },
+    {
+      "heading": "IMPERIAL CUSTOMS",
+      "text": "A separate agency from the Navy responsible for monitoring imports and exports, collecting taxes and tariffs, and interdicting smugglers and pirates. Operates its own fleet of corvettes and space stations like Golan III defense platforms."
+    },
+    {
+      "heading": "INQUISITORIUS",
+      "text": "The Emperor's feared Force-wielding agents, based at the Citadel Inquisitorius deep in the Deep Core. High Inquisitors are stationed on Prakith. They hunt down Force users and anyone seeking forbidden knowledge about the Jedi or the Force. Searches for astrogation data to their locations draw immediate attention from the ISB or the Inquisitors."
+    },
+    {
+      "heading": "GOVERNANCE HIERARCHY",
+      "text": "Grand Moffs control priority sectors with total autonomy, reporting only to the Emperor. Moffs command traditional sectors with at least a Sector Group of military resources. Planetary governors implement Imperial policy at the system level, with direct command of garrisoned forces (though the Navy often ignores governors in favor of its own objectives). Approximately one hundred Imperial advisors oversee details of administration, including appointing governors and Moffs, while conducting covert surveillance on each other."
+    }
+  ],
+  "motivations": {
+    "primary": "absolute galactic control",
+    "secondary": [
+      "New Order ideology and human high culture supremacy",
+      "Tarkin Doctrine — rule through fear of overwhelming force",
+      "Eradication of the Jedi and all Force-sensitive threats",
+      "Economic exploitation and resource consolidation"
+    ],
+    "notes": "The Empire's motivations reinforce each other in a feedback loop: ideological supremacy justifies military expansion, military expansion enables economic exploitation, and economic power funds further military buildup. The Tarkin Doctrine binds these together by making the military itself the primary instrument of political control."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain the Emperor's absolute authority over 1.75 million integrated worlds",
+      "Crush the Rebel Alliance and eliminate all organized resistance",
+      "Destroy or corrupt all remaining Jedi and Force-sensitive beings",
+      "Complete military dominance of the Outer Rim and contested territories"
+    ],
+    "operational": [
+      "Garrison and patrol all major hyperspace lanes and strategic systems",
+      "Identify, infiltrate, and neutralize Rebel cells and sympathizer networks",
+      "Enforce Imperial law, taxation, and customs across all sectors",
+      "Maintain internal loyalty through COMPNOR, ISB surveillance, and political indoctrination"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "military_force",
+      "propaganda",
+      "information_control",
+      "infiltration",
+      "legal_pressure",
+      "assassination"
+    ],
+    "avoided": [
+      "Negotiation from a position of equality — the Empire dictates, it does not bargain",
+      "Bribery — the Empire commands compliance, though individual officers may be corrupt",
+      "Retreat or concession — seen as weakness incompatible with the Tarkin Doctrine"
+    ],
+    "notes": "The Empire's preferred escalation path is surveillance to investigation to military suppression. Subtlety is handled by ISB and Imperial Intelligence; when those fail, overwhelming force follows. The Stormtrooper Corps can be deployed independently of normal chain of command, creating a parallel escalation path that bypasses Army and Navy bureaucracy."
+  },
+  "strengths": [
+    "Overwhelming military resources: tens of trillions of uniformed personnel, Star Destroyer fleets capable of single-handedly blockading planets",
+    "Fleet superiority across all major regions, with the Navy as the backbone of sector-level control",
+    "Massive bureaucratic and industrial infrastructure including Kuat Drive Yards and Balmorra manufacturing",
+    "Dual intelligence apparatus — ISB for political/internal threats, Imperial Intelligence for military/external threats — providing overlapping coverage",
+    "Sheer personnel volume enabling garrison presence on thousands of worlds simultaneously"
+  ],
+  "weaknesses": [
+    "Garrison forces in the Outer Rim are stretched across thousands of systems, leaving many worlds with nominal Imperial presence that cannot respond to local threats.",
+    "Branch rivalries between Navy, Army, ISB, Imperial Intelligence, and the independent Stormtrooper Corps produce communication silos and duplicated operations, particularly in remote sectors.",
+    "The promotion system rewards political connections over field competence, placing underqualified commanders in critical postings throughout the hierarchy.",
+    "The Tarkin Doctrine's reliance on fear as a deterrent generates resistance movements; the destruction of Alderaan measurably increased recruitment into the Rebel Alliance.",
+    "Systemic corruption pervades remote sectors, with Moffs in regions like Hutt Space widely assumed to be compromised by local criminal interests."
+  ],
+  "behavior_under_threat": {
+    "low": "Routine patrols note the disturbance. Local garrison files a report. ISB flagging is unlikely unless keywords trigger automated surveillance.",
+    "medium": "ISB investigation opens. Imperial Intelligence may deploy system cell assets. The sector Moff is briefed. Additional naval patrols are assigned to the area.",
+    "high": "Priority sector designation. Rapid response forces deployed — potentially Stormtrooper Corps units bypassing normal chain of command. Grand Moff or Imperial advisors take direct interest. Blockades and system lockdowns authorized.",
+    "critical": "Full military suppression. Star Destroyer groups dispatched for orbital bombardment capability. Inquisitorius involvement if Force-sensitive threats detected. The Emperor or Darth Vader may intervene personally. Entire populations may be punished collectively."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "On-site garrison troopers or customs officers",
+      "Garrison commander or facility captain",
+      "Planetary governor",
+      "Sector Moff or Grand Moff",
+      "Imperial High Command / Emperor's advisors"
+    ],
+    "notes": "The Empire has multiple parallel escalation paths. The standard military chain (trooper to governor to Moff) is supplemented by ISB's direct reporting to the Select Committee and the Stormtrooper Corps' independent chain to the Emperor via Stormtrooper Command. An ISB agent can escalate past a planetary governor entirely. Imperial Intelligence's Ubiqtorate operates its own separate reporting structure. This redundancy means threats are often investigated by multiple branches simultaneously without coordination."
+  },
+  "tension_patterns": [
+    "Garrison commanders and sector Moffs frequently issue contradictory orders, forcing subordinate officers to choose between conflicting chains of authority.",
+    "ISB and Imperial Intelligence routinely investigate the same targets through separate channels without coordination, producing duplicated operations and intelligence gaps.",
+    "Political patronage places underqualified officers in command positions, creating competence disparities visible to the rank and file.",
+    "Official reporting consistently overstates facility readiness and compliance, generating a widening gap between sector command's intelligence picture and operational reality.",
+    "Junior officers who discover corruption above them face institutional incentives to remain silent, as internal reporting mechanisms expose the reporter to retaliation from superiors."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "fortified",
+    "transit": "patrol",
+    "economic": "patrol",
+    "command": "dominant",
+    "informational": "fortified",
+    "military": "dominant",
+    "hidden": "skeleton",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "medium",
+    "weapon": "high",
+    "person": "high",
+    "artifact": "medium",
+    "technology": "high",
+    "notes": "The Empire prioritizes intelligence on Rebel base locations and sympathizer networks (data), Force-sensitive individuals for the Inquisitorius (person), military technology and superweapon research (weapon/technology), and secret hyperspace routes especially Deep Core astrogation data. Force artifacts draw Inquisitorius attention. Contraband is primarily an Imperial Customs concern rather than a strategic priority."
+  },
+  "ally_factions": [
+    "corporate_sector_authority"
+  ],
+  "enemy_factions": [
+    "rebel_alliance",
+    "hutt_cartel",
+    "black_sun"
+  ],
+  "relationship_notes": {
+    "corporate_sector_authority": "Semi-autonomous proxy that enforces its own oppressive rule guaranteeing constant Imperial profits; patrolled by Victory Star Destroyers.",
+    "rebel_alliance": "Primary existential threat since the Battle of Yavin; the Empire commits escalating resources to locate and destroy Alliance bases, cells, and sympathizer networks.",
+    "hutt_cartel": "Nominally under Imperial control but the Hutts have usurped Imperial authority through corruption and monetary influence; Moffs in Hutt Space are assumed compromised.",
+    "black_sun": "Criminal syndicate operating outside Imperial law; targeted by ISB and Imperial Intelligence but too entrenched to eliminate through standard enforcement.",
+    "inquisitorius": "Internal organ of the Empire operating semi-independently; Inquisitors answer to the Emperor and coordinate with ISB when hunting Force-sensitive targets."
+  },
+  "territory": [
+    "Core Worlds (governmental and cultural center, including Imperial Center/Coruscant)",
+    "The Colonies (heavily monitored, harsh crackdowns on anti-Imperial sentiment)",
+    "Inner Rim",
+    "Expansion Region",
+    "Mid Rim",
+    "Outer Rim Territories (partial control; only portions escape Imperial reach)",
+    "Deep Core (ultra-secure; Deep Core Security Zone requires ISB and BoSS permits)",
+    "Hutt Space (nominal control; Hutts have usurped Imperial power through corruption)",
+    "Corporate Sector (semi-autonomous under the Corporate Sector Authority)"
+  ],
+  "prominent_figures": [
+    {
+      "name": "Emperor Palpatine (Darth Sidious)",
+      "role": "Emperor, Dark Lord of the Sith",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "EMPEROR_PALPATINE",
+      "notes": "Maintains absolute control from the pinnacle of the Imperial pyramid. Personally appoints Grand Moffs. Maintains a secret personal retreat on Byss in the Deep Core, where he trains acolytes in the dark side and conducts experiments.",
+      "network_assessment": "You will never meet him. If you do, you're already dead or about to wish you were. Every Imperial operation you encounter is downstream of his design. Plan around the system, not the man.",
+      "wants": "Absolute galactic dominion maintained through interlocking systems of military force, political control, and dark side power.",
+      "secret": "Byss in the Deep Core houses a personal retreat where he trains dark side acolytes and conducts experiments far from any oversight — even Vader's knowledge of these activities is incomplete.",
+      "behavior": {
+        "under_pressure": "Does not experience pressure as others understand it. Treats crises as opportunities to tighten control and eliminate rivals who reveal weakness in the emergency.",
+        "when_losing": "Sacrifices subordinates and assets without hesitation. The Death Star's destruction cost him Tarkin and a superweapon; his response was to build a larger one.",
+        "loyalty": "Demands absolute loyalty, provides none in return. Every servant is expendable. The Sith Rule of Two means even Vader is ultimately a tool to be replaced.",
+        "tells": "None observable at any operational level accessible to field agents. His intentions are known only after they manifest as policy."
+      },
+      "useful_to_players": [
+        "His system of overlapping, competing subordinates means Imperial responses are often uncoordinated — exploit the gaps between agencies",
+        "His attention is focused on strategic-level threats; small operators are beneath his notice, which provides operational cover",
+        "His reliance on fear as a control mechanism creates resentful subordinates who can be turned or exploited"
+      ],
+      "hooks": [
+        "The Emperor just reassigned three Grand Moff territories in a single week. When the top of the pyramid shifts, everything below it shakes.",
+        "New recruits at the ISB Academy on Coruscant are being fast-tracked through a program nobody had heard of six months ago. Something's changed at the top."
+      ]
+    },
+    {
+      "name": "Darth Vader",
+      "role": "Dark Lord of the Sith, Supreme Commander",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "DARTH_VADER",
+      "notes": "The Emperor's apprentice and enforcer. Originally the Jedi Anakin Skywalker, corrupted and reborn. Delivers the Emperor's direct dispatches and enforces his edicts. Hunts down Force users.",
+      "network_assessment": "Vader is the Emperor's hammer. He arrives when the situation has already been judged and the sentence decided. If you hear his breathing, the negotiation phase is over.",
+      "wants": "Elimination of all remaining Jedi and Force-sensitive threats. Enforcement of the Emperor's will across the galaxy.",
+      "secret": "His true identity as Anakin Skywalker is known to almost no one. The existence of his children — if he is aware of them — represents the only known emotional vulnerability in his operational profile.",
+      "behavior": {
+        "under_pressure": "Escalates immediately to maximum force. Vader does not negotiate, retreat, or show restraint when personally engaged.",
+        "when_losing": "Vader rarely loses. When an objective is denied, he destroys what he cannot take and ensures the cost to the opposing side exceeds the gain.",
+        "loyalty": "Bound to the Emperor through the dark side. The bond is complex — part servitude, part ambition, part dependency. It holds, but under strain.",
+        "tells": "When Vader begins asking questions about a specific individual rather than issuing orders, that person has become a personal interest. That is significantly more dangerous than being a professional target."
+      },
+      "useful_to_players": [
+        "His presence on a Star Destroyer means the operation is high-priority — but it also means the local commander is no longer making decisions, creating confusion in the chain of command",
+        "His focus on Force-related targets means non-Force operations can sometimes proceed unnoticed even in his vicinity",
+        "His rivalry with certain Imperial officials and Inquisitors creates seams that can be exploited by those paying attention"
+      ],
+      "hooks": [
+        "Vader's flagship just diverted from its patrol route to an uncharted system in the Outer Rim. No official explanation. When Vader moves without explanation, something Force-related is in play.",
+        "An Imperial captain was found dead in his quarters aboard the Devastator — officially listed as cardiac failure. Nobody believes it."
+      ]
+    },
+    {
+      "name": "Grand Moff Tarkin",
+      "role": "Grand Moff (deceased)",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "GRAND_MOFF_TARKIN",
+      "notes": "Creator of the Tarkin Doctrine promoting fear of overwhelming military might as the ultimate deterrent. Commander of the Death Star. Killed at the Battle of Yavin. Previously promoted to Moff after landing his ship on protesters at Ghorman.",
+      "network_assessment": "Dead at Yavin, but his doctrine is the operating system the entire Empire still runs on. Every Grand Moff who controls a priority sector does it the way Tarkin designed. The man is gone; the architecture isn't.",
+      "wants": "Was driven by the belief that sufficient force, applied visibly, eliminates the need for actual combat. The doctrine outlives him.",
+      "secret": "His promotion to Moff came after deliberately landing his ship on civilian protesters at Ghorman — the Emperor rewarded the cruelty, establishing a precedent for how advancement works in the New Order.",
+      "behavior": {
+        "under_pressure": "Responded to every challenge by escalating force. The Death Star was the logical endpoint of his philosophy — a weapon so overwhelming that resistance becomes irrational.",
+        "when_losing": "Refused to believe he could lose. At Yavin, he declined to evacuate despite the identified vulnerability. His certainty was absolute.",
+        "loyalty": "Loyal to the Emperor and to his own vision of galactic order. His ambition was inseparable from his ideology.",
+        "tells": "Tarkin's legacy is visible in every Imperial officer who chooses spectacle over efficiency. If a commander makes a show of force when a quiet solution exists, they trained under Tarkin's doctrine."
+      },
+      "useful_to_players": [
+        "The Tarkin Doctrine makes Imperial responses predictable — they escalate in force, which means they're slow to recognize threats that don't look like military targets",
+        "Grand Moffs appointed under Tarkin's system are often ideologues rather than tacticians, creating exploitable incompetence at the sector command level",
+        "His death left a power vacuum in priority sector governance that is still being contested, creating instability in regions he once controlled"
+      ],
+      "hooks": [
+        "Three different officers are claiming credit for projects Tarkin initiated before Yavin. When dead men's work is up for grabs, the living get distracted.",
+        "There's a rumor that Tarkin kept a private archive of classified research data separate from Imperial records. If it exists, half the Navy would kill to find it first."
+      ]
+    },
+    {
+      "name": "Crueya Vandron",
+      "role": "Imperial Advisor, COMPNOR architect",
+      "suggested_tier": "rival",
+      "notes": "One of the wise advisors who helped transform COMPNOR into a powerful political force for the Emperor.",
+      "network_assessment": "Vandron is a political operator, not a military one. He built COMPNOR into the Emperor's loyalty machine. If you're dealing with CompForce observers or IOCI investigators, his fingerprints are on the system they're using.",
+      "wants": "Continued expansion of COMPNOR's influence as the Empire's primary instrument of political control and ideological enforcement.",
+      "secret": "He and Pestage constructed COMPNOR's internal surveillance apparatus — they monitor Imperial officers as thoroughly as they monitor civilians.",
+      "behavior": {
+        "under_pressure": "Retreats behind institutional authority. Vandron doesn't fight — he activates systems that fight for him.",
+        "when_losing": "Redirects blame through bureaucratic channels. COMPNOR's labyrinthine structure makes it nearly impossible to trace a failure back to its architect.",
+        "loyalty": "Personally loyal to the Emperor. His position depends entirely on Imperial patronage, and he knows it.",
+        "tells": "When COMPNOR increases its monitoring frequency in a sector, Vandron has received information suggesting disloyalty among Imperial personnel there."
+      },
+      "useful_to_players": [
+        "His focus is internal loyalty enforcement — external threats are someone else's department, creating institutional blind spots",
+        "COMPNOR's bureaucratic complexity means its operations are slow to adapt when targets don't fit standard ideological threat categories",
+        "He's an advisor, not a commander — he has influence but limited ability to deploy military force directly"
+      ],
+      "hooks": [
+        "COMPNOR just reassigned three CompForce Observation battalions to the Mid Rim. That's not routine rotation — someone's loyalty is being questioned at scale.",
+        "Vandron hasn't been seen at the usual Imperial Advisory Council sessions for two weeks. Either he's working on something big or someone's working on him."
+      ]
+    },
+    {
+      "name": "Sate Pestage",
+      "role": "Imperial Advisor, COMPNOR architect",
+      "suggested_tier": "rival",
+      "notes": "Alongside Vandron, helped manipulate COMPNOR into the Emperor's personal machine of political power.",
+      "network_assessment": "Pestage is the Emperor's administrative shadow. He handles the appointments, the paperwork, and the quiet arrangements that keep the machine running. He doesn't give orders — he ensures the right people are in place to receive them.",
+      "wants": "Preservation of his position as the Emperor's indispensable administrative instrument. Access and proximity to power are his currency.",
+      "secret": "He knows the identities and loyalties of every Moff and governor because he helped select them. That knowledge is his insurance policy.",
+      "behavior": {
+        "under_pressure": "Defers visibly to the Emperor while quietly maneuvering behind the scenes to protect his position and access.",
+        "when_losing": "Activates his network of placed officials — governors, Moffs, and administrators who owe their appointments to him and will act to protect their patron.",
+        "loyalty": "Totally loyal to the Emperor, but his loyalty is to the system of patronage that sustains him, not to any ideology.",
+        "tells": "When new governors or Moffs are appointed in rapid succession, Pestage is reshuffling the board. Watch who replaces whom to understand what he's building."
+      },
+      "useful_to_players": [
+        "His focus on appointments and administration means he values information about official misconduct — it's leverage he can use in the patronage system",
+        "Officials placed by Pestage owe their positions to him, not to military competence — these appointees are often the weakest link in a sector command",
+        "He is a bureaucrat, not a warrior — direct threats are handled by others, and his personal security depends entirely on institutional protection"
+      ],
+      "hooks": [
+        "The governor of Brentaal was just replaced for the third time in two years. Pestage's fingerprints are all over the appointment process — he's testing candidates for something.",
+        "Pestage requisitioned the complete personnel files for every ISB sector commander last month. That's not routine review. That's inventory."
+      ]
+    },
+    {
+      "name": "Grand Admiral Thrawn",
+      "role": "Commander of the Seventh Fleet, foremost Imperial strategist",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "GRAND_ADMIRAL_THRAWN",
+      "notes": "A Chiss from the Unknown Regions, Thrawn rose through the Imperial Navy through sheer tactical brilliance. He studies the art and culture of his enemies to predict their strategies. Commands from the Star Destroyer Chimaera. His analytical approach contrasts sharply with the Empire's typical reliance on overwhelming force.",
+      "network_assessment": "The most dangerous officer in the Imperial Navy. He does not rely on numbers. He studies you — your art, your culture, your patterns — and uses what he learns to destroy you. There is no standard playbook against Thrawn.",
+      "wants": "Complete pacification of the Lothal sector and systematic elimination of organized resistance through strategic superiority rather than brute force.",
+      "secret": "Thrawn's true loyalties may extend beyond the Empire to the Chiss Ascendancy. His service to Palpatine appears to serve a larger agenda connected to threats in the Unknown Regions.",
+      "behavior": {
+        "under_pressure": "Remains calm and analytical. Reframes setbacks as data points. Adjusts strategy in real-time based on opponent behavior.",
+        "when_losing": "Executes pre-planned withdrawal to preserve forces for future engagement. Views retreat as a tactical tool, not a failure.",
+        "loyalty": "To strategic excellence and the Chiss Ascendancy. Imperial loyalty is contingent on the Empire serving his larger purposes.",
+        "tells": "Studies artwork or cultural artifacts before making major decisions. Extended periods of silence indicate active analysis."
+      },
+      "useful_to_players": [
+        "Thrawn's reliance on cultural analysis means presenting unfamiliar or contradictory cultural signals can disrupt his predictions."
+      ],
+      "hooks": [
+        "Word is the Seventh Fleet just entered the sector. That's not a patrol — that's a campaign.",
+        "Thrawn requisitioned every piece of local art from the governor's collection. Nobody knows why, but people who've seen that before say it means he's planning something."
+      ]
+    }
+  ],
+  "enemies": [
+    "The Alliance to Restore the Republic (Rebel Alliance)",
+    "Force-sensitive beings and surviving Jedi",
+    "Rebel sympathizers and dissident movements across the galaxy",
+    "Pirates, smugglers, and criminal organizations operating outside Imperial law"
+  ],
+  "allies": [
+    "Corporate Sector Authority (semi-autonomous but enforces its own oppressive rule that guarantees Imperial profits)",
+    "Trandoshans (provided intelligence against Wookiees, rewarded with Wookiee slave labor)",
+    "Pro-Imperial Core Worlds (Corulag, Eriadu, Imperial Center)",
+    "Kuat Drive Yards (builder of the Imperial Star Destroyer)",
+    "Balmorra manufacturing (primary producer of AT-ST walkers and other military equipment)"
+  ],
+  "regional_presence": {
+    "deep_core": "dominant",
+    "core_worlds": "dominant",
+    "colonies": "significant",
+    "inner_rim": "significant",
+    "expansion_region": "significant",
+    "mid_rim": "moderate",
+    "outer_rim": "moderate",
+    "hutt_space": "minimal",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "field_sources": {
+    "motivations": "EotE Core pp.374-375 (Tarkin Doctrine, New Order ideology), AoR Core pp.419 (military dominance)",
+    "goals": "EotE Core pp.374-378 (military structure, political control), AoR Core pp.354 (Rebel threat response)",
+    "methods": "EotE Core pp.376-378 (ISB, Intelligence, COMPNOR operations), AoR Core pp.419-421 (military methods), Spy sourcebook (destabilization operations)",
+    "strengths": "EotE Core pp.378 (tens of trillions of personnel, Tarkin Doctrine), AoR Core pp.355 (Kuat production), AoR Core pp.419 (military overview)",
+    "weaknesses": "AoR Core pp.367 (Hutt Space corruption), AoR Core pp.419 (Navy vs Army rivalries), EotE Core pp.374-375 (overextension), inferred from branch rivalry structure",
+    "behavior_under_threat": "Inferred from EotE Core pp.376-379 (ISB/Intelligence/Stormtrooper escalation paths) and AoR Core pp.417-418 (bureaucracy adversaries)",
+    "tension_patterns": "Inferred from faction behavior: branch rivalries (AoR Core p.419), political promotion (EotE Core p.375), ISB/Intelligence overlap (EotE Core pp.376-378), Spy sourcebook (internal corruption dynamics)",
+    "regional_presence": "EotE Core pp.339-342 (Deep Core, Core Worlds), AoR Core pp.351-367 (all regions), EotE Core p.334 (1.75M integrated planets)",
+    "mcguffin_interest": "Inferred from motivations + methods: EotE Core pp.339-340 (astrogation data), pp.283-285 (Force user hunting), AoR Core pp.354 (Rebel intelligence)"
+  },
+  "source_material_notes": "The EotE Core Rulebook pp.374-379 provides the most comprehensive treatment of Imperial structure, covering the governance hierarchy, all military branches, ISB, Imperial Intelligence, COMPNOR, and Imperial Customs. The AoR Core Rulebook pp.417-421 adds adversary-focused detail on military branch rivalries and specific unit types. Regional presence is best sourced from EotE Core pp.339-342 (Deep Core/Core) and AoR Core pp.351-367 (full galactic survey). The Spy sourcebook covers destabilization operations and intelligence tradecraft.",
+  "source_refs": [
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "8",
+      "content": "Overview of Emperor's control, Imperial military dominance, ISB, COMPNOR"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "14",
+      "content": "Opening crawl: Death Star destroyed, Imperial forces strike back"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "283",
+      "content": "History of Darth Sidious/Palpatine rise, Clone Wars, Jedi purge, Empire declaration"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "283-285",
+      "content": "Force users hunted under the Empire, Order 66, Jedi destruction"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "334",
+      "content": "Galaxy scale: 1.75 million planets fully integrated into the Empire"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "339-340",
+      "content": "Deep Core Security Zone, ISB/BoSS permits required, Byss retreat, Prakith High Inquisitors"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "342",
+      "content": "Core Worlds as governmental center, COMPNOR popular support, Corulag Academy"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "374-375",
+      "content": "Empire overview, pyramidal structure, Grand Moffs, Moffs, planetary governors, Tarkin Doctrine"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "376",
+      "content": "COMPNOR: history, Select Committee, CompForce Assault and Observation troops"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "376",
+      "content": "ISB: secret police, reports to Select Committee, Surveillance (35%), Investigations, Internal Affairs, Re-Education, Enforcement branches"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "377",
+      "content": "ISB stormtrooper cadre, Coalition for Progress, Justice division/IOCI, Commerce division, Sector Rangers"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "377-378",
+      "content": "Imperial Intelligence: Ubiqtorate, four legacy agencies, system cells, Bureau of Operations, Infiltration, Assassination, Adjustments branches"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "378",
+      "content": "Imperial Military overview: tens of trillions of personnel, Tarkin Doctrine"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "378",
+      "content": "Imperial Navy: backbone of military, responds to Emperor/High Command/Grand Moffs/Moffs"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "378",
+      "content": "Imperial Army: rapid expansion, combined arms with Navy, ground operations"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "378-379",
+      "content": "Stormtrooper Corps: separate branch, answers to Emperor via Stormtrooper Command, evolved from Clone Troopers, Carida training facilities"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "379",
+      "content": "Imperial Customs: separate agency, own fleet of corvettes, Golan III stations, tax/tariff collection"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "389",
+      "content": "Corporate Sector Authority: semi-autonomous, Victory Star Destroyers and Marauder Corvettes"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "346",
+      "content": "Galaxy scale confirmation: 400 billion stars, 1.75 million fully integrated Imperial planets"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "351-352",
+      "content": "Deep Core: Byss, Prakith, Citadel Inquisitorius, High Inquisitors"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "354",
+      "content": "Core World intelligence update: increased security post-Yavin, COMPNOR expansion, Rebel sympathizer hunts"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "355",
+      "content": "Kuat Drive Yards, Imperial Star Destroyer production, high security"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "356",
+      "content": "Colonies under Imperial watch, Balmorra military manufacturing, Ghorman crackdown"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "357",
+      "content": "Ghorman: Tarkin landed ship on protesters, promoted to Moff"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "359",
+      "content": "Onderon: Imperial Army ordnance center"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "366",
+      "content": "Eriadu: Grand Moff Tarkin's homeworld, Imperial Outer Rim power base"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "367",
+      "content": "Hutt Space: Teth taken as Baxel sector capital, Moff assumed corrupt"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "417-418",
+      "content": "Imperial bureaucracy adversaries: BoSS, COMPNOR agents, Imperial advisors (~100), Destabilization Branch"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "419",
+      "content": "Imperial military overview: vast engine of oppression, Navy vs Army rivalries, Star Destroyer as symbol"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "419-421",
+      "content": "Imperial Army troopers, officers, Navy troopers, Vehicle Corps, Gunnery Corps, Naval Engineers, stormtroopers, Intelligence agents, military informants"
+    },
+    {
+      "source": "AoR Core Rulebook",
+      "pages": "270",
+      "content": "Anaxes War College System: Imperial Navy officers still trained at Anaxes"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "9",
+      "content": "Hutts nominally under Imperial control but usurped power through corruption"
+    },
+    {
+      "source": "EotE Core Rulebook",
+      "pages": "59-61",
+      "content": "Trandoshans allied with Empire against Wookiees, Wookiee slave labor for Death Star"
+    },
+    {
+      "source": "GM Holocron 5.1.2",
+      "pages": "64",
+      "content": "Inquisitorius and ISB as spheres of influence"
+    },
+    {
+      "source": "GM Holocron 5.1.2",
+      "pages": "93",
+      "content": "Inquisitor creation rules reference (FaD Core Rulebook pp.419-421)"
+    }
+  ]
+}

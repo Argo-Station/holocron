@@ -1,0 +1,474 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/quality.schema.json",
+  "title": "Weapon quality (one qualities.vocab.json entry)",
+  "description": "One entry of the qualities vocabulary (public/data/canonical/qualities.vocab.json and its schema/vocab/ twin). Before B-219 the vocabulary had no entry schema; validate_registries only checked that a weapon's quality id is a member (ruling f100-b219-card ADDENDUM 1, R-B219C-6). A quality that changes the wielder's OWN roll (the census's ROLL class, brief f100-b219-census) carries its rows here, written per ONE rating: the one reader (lib/shared/qualityRows.js, called by computeWeaponPool) scales them by the weapon's RESOLVED rating (after attachments, R-B1185), an unrated quality reading 1. The rows carry no `applies_to`: the quality's own words ('while using this weapon') are the anchor, and the reader stamps the attack's own skill. They never enter collectPoolMods (a stock and a modified copy of one weapons.json record share a regId). Written by ONE idempotent applier, scripts/canonical/apply_quality_rows.py (overlay_chains, the qualities.vocab.json chain), from scripts/canonical/quality_rows.json. Validator arm L1q.rows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "label",
+    "aliases",
+    "description"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description_from": {
+      "type": "string",
+      "description": "Blob-retirement D-BR2: a droid variant carries its base quality's text, and names the base here."
+    },
+    "armor_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "value"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "soak_delta",
+              "encumbrance_delta"
+            ]
+          },
+          "value": {
+            "type": "integer",
+            "not": {
+              "const": 0
+            }
+          }
+        }
+      },
+      "description": ""
+    },
+    "pool_mods": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_entry"
+          },
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused/allOf/0"
+          }
+        ]
+      },
+      "description": "The quality's dice and automatic symbols at the wielder's attack (R-B219C-6), per ONE rating. The `threat` symbol is ADMITTED here (Inferior, EotE p.156: the wielder's own check; R-B219C-9/-17, the owner wrapper widened to quality rows); a difficulty UPGRADE is refused here as on every talent/item owner (the wrapper's first arm, R-M9S-3), so only species rows carry it. `count_of: {of: rating_deficit, key: brawn | agility}` (R-B219C-7) reads max(0, rating - that characteristic) instead of the rating, and a deficit of 0 drops the row. QUALITY rows refuse `applies_to`, `per_rank`, `condition`, `cost`, `limit`, `cite`, `words` and `floor` (validator L1q.rows): a stored quality row is unconditional; an OFFER (Cumbersome beside a reducer or Burly, R-B219C-8) is the reader's, from its committed trigger table."
+    },
+    "roll_numbers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "charbuild-common.schema.json#/$defs/roll_number"
+      },
+      "description": "A number the app works out at a roll (R-B219C-10): Vicious's `crit_roll_delta` 10 per rating at moment `critical_inflicted`, the Critical roll the wielder INFLICTS. `per_rank: true` (scaled by the resolved rating); no `applies_to` (validator L1q.rows). No surface rolls an inflicted crit yet (a named row for the surfacing mission, R-M9E-7)."
+    },
+    "spend": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/spend_row"
+      },
+      "description": "F-100 M12 QS1 (f100-m12-census-card R-M12C-8/-95; gate table §2; finish line R-M12F-5: the 11 SPEND qualities BECOME spend options): the quality's activations, written per ONE rating (R-B219C-6's form). The spend menu PROPOSES them and the player taps; the engine never spends (R-M12F-5). Its consumer is the spend menu's cost test, spendAfford, which reads `req` unchanged (reader gap R6: today every quality gives the menu text and one cite, no cost). Newly MODELLED (R-M12F-8)."
+    },
+    "target": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/target_row"
+      },
+      "description": "F-100 M12 QT1 (R-M12C-8/-58/-95): what the quality does to the TARGET's numbers, read off the RESOLVED weapon and the target's own numbers by ONE pure resolver, qualityRows.js `targetRows(weapon, target)`, with a node guard as its consumer in M12. No app surface calls it until the surfacing mission wires a target (reader gap R4: no code computes damage against a target)."
+    },
+    "target_condition": {
+      "$ref": "#/$defs/target_condition",
+      "description": "F-100 M12 QT1: the WHOLE entry's rows apply only against this kind of target. The droid variants (stun_damage_droids, vicious_droids) carry their base's rows (written by the applier) under this condition; their text already rides `description_from`."
+    },
+    "mode": {
+      "$ref": "#/$defs/mode",
+      "description": "F-100 M12 QM1 (R-M12C-8/-95; R-B219C-5): a way of using the weapon the wielder switches on BEFORE the check, OFFERED and never applied by itself (M8's offer row): Auto-fire's +1 difficulty, Stun setting's Short range and strain damage. Ticked, its rows join the fold and `range_max` caps the band in computeWeaponPool's legality (R-BBL-1). A `spend` row naming this mode is offered only while it is on."
+    }
+  },
+  "$defs": {
+    "spend_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "req",
+        "when",
+        "effect",
+        "reads",
+        "cite"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "charbuild-common.schema.json#/$defs/row_id"
+        },
+        "req": {
+          "$ref": "crafting-spend.schema.json#/properties/req",
+          "description": "The price, spend_tables.json's own clause list (ANY ONE entry pays), so spendAfford reads it unchanged. A quality is activated with Advantage or Triumph: `th`/`de` are refused here by the validator (a flaw's currency)."
+        },
+        "req_add": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ad",
+            "per"
+          ],
+          "properties": {
+            "ad": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "per": {
+              "enum": [
+                "target_silhouette_above_1"
+              ]
+            }
+          },
+          "description": "A price that grows with the target: Knockdown's \"1 additional [AD] per silhouette beyond 1\" (EotE p.156). `per`'s enum holds that one reading; a second needs its own paper."
+        },
+        "repeat": {
+          "oneOf": [
+            {
+              "const": true
+            },
+            {
+              "const": "rating"
+            },
+            {
+              "type": "integer",
+              "minimum": 2
+            }
+          ],
+          "description": "Absent: once per check. true: as often as it is paid (Auto-fire, Sunder). \"rating\": up to the weapon's resolved rating (Linked). A number: up to that many."
+        },
+        "when": {
+          "enum": [
+            "hit",
+            "miss"
+          ],
+          "description": "On a successful check (hit) or a failed one (Blast's [AD][AD][AD] on a miss, Guided's)."
+        },
+        "mode": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "The entry's `mode.id`: offered only while that mode is on (Auto-fire: no extra hit without the +1 difficulty, R-B219C-5)."
+        },
+        "effect": {
+          "type": "string",
+          "minLength": 1,
+          "description": "What it does, in this project's plain mechanical voice (not the book's prose), for the menu to show. Never applied by the engine. A template: `{field}` prints that `values` field; `{field:noun}` prints the field and its noun, plural when the value is not 1 (`{steps:step}` → \"1 step\" / \"2 steps\"), read by the ONE filler lib/shared/qualityRows.js spendRows (ruling f100-surfacing-hub-concept ADDENDUM 7, R2)."
+        },
+        "values": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "description": "The named numbers `effect` states, so a QS3 row (`spend_effect_set`) can change one by name: Sunder's {steps: 1}, which Sunder (Improved) sets to 2."
+        },
+        "reads": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "rating",
+              "base_damage",
+              "uncanceled_successes",
+              "total_successes",
+              "target_silhouette",
+              "target_item_state"
+            ]
+          },
+          "description": "Every number the effect reads, named so the menu can say what it needs (R-M12C-8)."
+        },
+        "cite": {
+          "$ref": "charbuild-common.schema.json#/$defs/cite"
+        }
+      }
+    },
+    "target_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "op",
+        "cite"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "charbuild-common.schema.json#/$defs/row_id"
+        },
+        "op": {
+          "enum": [
+            "soak_ignore",
+            "armor_ignore",
+            "damage_as",
+            "immune_to"
+          ],
+          "description": "soak_ignore: ignore that much soak, never below 0 (Pierce). armor_ignore: ignore that much armour, 1 armour = 10 soak on a personal target (Breach). damage_as: the damage is dealt as `value` instead of wounds, still reduced by soak (Stun Damage, Ion). immune_to: the HOLDER's item ignores the attacker's listed qualities (Cortosis)."
+        },
+        "per_rating": {
+          "type": "boolean",
+          "description": "soak_ignore / armor_ignore ONLY, required there: the amount is the weapon's resolved rating."
+        },
+        "value": {
+          "description": "damage_as: strain | system_strain. immune_to: the quality ids ignored.",
+          "oneOf": [
+            {
+              "enum": [
+                "strain",
+                "system_strain"
+              ]
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*$"
+              }
+            }
+          ]
+        },
+        "holder": {
+          "enum": [
+            "weapon",
+            "armor"
+          ],
+          "description": "immune_to ONLY, required there: which of the DEFENDER's items holds the quality (Cortosis on a weapon ignores Sunder; on armour, the wearer's soak ignores Pierce and Breach)."
+        },
+        "condition": {
+          "$ref": "#/$defs/target_condition"
+        },
+        "reads": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "rating",
+              "target_soak",
+              "target_armor",
+              "target_kind",
+              "target_qualities"
+            ]
+          }
+        },
+        "cite": {
+          "$ref": "charbuild-common.schema.json#/$defs/cite"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "soak_ignore",
+                  "armor_ignore"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "per_rating"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "value"
+                  ]
+                },
+                {
+                  "required": [
+                    "holder"
+                  ]
+                }
+              ]
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "per_rating"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "damage_as"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "value"
+            ],
+            "properties": {
+              "value": {
+                "enum": [
+                  "strain",
+                  "system_strain"
+                ]
+              }
+            },
+            "not": {
+              "required": [
+                "holder"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "immune_to"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "value",
+              "holder"
+            ],
+            "properties": {
+              "value": {
+                "type": "array"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "target_condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_kind"
+      ],
+      "properties": {
+        "target_kind": {
+          "enum": [
+            "droid",
+            "vehicle"
+          ]
+        }
+      },
+      "description": "F-100 M12 QT1: the row (or entry) applies only against a target of this kind (Ion: vehicles and droids; the droid variants)."
+    },
+    "mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "offered",
+        "cite"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "offered": {
+          "const": true,
+          "description": "Always an offer: the wielder chooses before the check (R-M12C-8: the engine proposes, it never chooses)."
+        },
+        "pool_mods": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "item-common.schema.json#/$defs/pool_mod_entry"
+              },
+              {
+                "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused/allOf/0"
+              }
+            ]
+          },
+          "description": "The dice the mode adds to the check while on (Auto-fire's {die: difficulty, direction: add, count: 1}), refusing what a quality row refuses (L1q.rows)."
+        },
+        "range_max": {
+          "enum": [
+            "engaged",
+            "short",
+            "medium",
+            "long",
+            "extreme"
+          ],
+          "description": "The longest band the check may be made at while on (Stun setting: short); beyond it is BARRED (R-BBL-1)."
+        },
+        "damage_as": {
+          "enum": [
+            "strain"
+          ],
+          "description": "While on, the damage is dealt as strain (Stun setting), QT1's damage_as read in the mode."
+        },
+        "cite": {
+          "$ref": "charbuild-common.schema.json#/$defs/cite"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "pool_mods"
+          ]
+        },
+        {
+          "required": [
+            "range_max"
+          ]
+        },
+        {
+          "required": [
+            "damage_as"
+          ]
+        }
+      ]
+    }
+  }
+}

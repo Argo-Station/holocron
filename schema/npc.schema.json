@@ -1,0 +1,461 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/npc.schema.json",
+  "title": "NPC",
+  "description": "Canonical, app-owned NPC DEFINITION for the FFG Star Wars RPG — the single shape that BOTH a library entry (ingested from stoogoff) and a custom-authored NPC conform to. This is the shape CastGroup references (npc_ref) or embeds (npc). It dissolves the 'two NPC shapes' problem: the library's split characteristics/derived and the custom seed's merged `stats` both normalize INTO this one definition, so deriveNpc no longer reconciles g.stats vs a library stat block. Combat instance state (current wounds/strain) lives on CastGroup, NOT here — this holds THRESHOLDS only. FINAL for the combat cluster: defence order confirmed [melee, ranged] (index 0 = melee, verified against Hutt Space Sourcebook p.124).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "tier",
+    "characteristics",
+    "derived",
+    "skills",
+    "weapons"
+  ],
+  "if": {
+    "properties": {
+      "_provenance": {
+        "const": "stoogoff"
+      }
+    },
+    "required": [
+      "_provenance"
+    ]
+  },
+  "then": {
+    "required": [
+      "affiliation",
+      "affiliation_path",
+      "source",
+      "source_tags",
+      "equipmentDesc",
+      "gear"
+    ],
+    "anyOf": [
+      {
+        "required": [
+          "source_code"
+        ]
+      },
+      {
+        "required": [
+          "sources"
+        ],
+        "properties": {
+          "sources": {
+            "type": "array",
+            "minItems": 2
+          }
+        }
+      }
+    ],
+    "$comment": "world-links-2 flip: the carried fields are REQUIRED for library-ingested records (the field-union proof guarantees the source always provides them). Custom-authored NPCs are exempt — affiliation is optional authoring there. R-B307-1: `source_code` moved out of the flat list into the anyOf above, satisfied by a code OR a `sources` array of at least TWO entries. The 2-floor is the point, not a convenience: C-PW-1 cleared `source_code` on the 18 COMPOUND-sourced records because their source string names two books and any single code asserts a single-book attribution the string explicitly denies — `sources` already names both. A single-book record still owes its code."
+  },
+  "$comment": "INGEST/MIGRATION normalizes divergent inputs into this shape. LIBRARY input: {characteristics, derived:{soak,wounds,strain,defence:[melee,ranged]}, skills:[{name,rank}], weapons:[<dirty name-string>], gear:[<name-string>], equipmentDesc:<free text>, talents:[<'Name N' string>], abilities:[...]}. CUSTOM seed input: {stats:{6 chars + wounds,strain,soak,meleeDefense,rangedDefense}, skills, weapons:[<lossy resolved blob>], talents:[{name,desc}]}. Transforms: (1) split/merge stats -> characteristics + derived; (2) defence positional array -> named melee_defense/ranged_defense, CONFIRMED order [melee,ranged] (index 0 = melee) via Gideon [1,0] vs Hutt Space Sourcebook p.124; (3) skill display names ('Ranged - Light'/'Ranged (Light)'/'Ranged: Heavy'/'Ranged (Heavy)') -> canonical skill_ref via SKILL_KEY_TO_NAME + canonicalizeSkillName; (4) weapon name-strings -> EXACT-match canonical Weapon ids for catalog gear, ELSE an inline profile ($defs/inline_weapon) parsed from the string for non-catalog weapons (creature natural attacks, unique items) — NO fuzzy auto-apply, genuine non-weapon tools dropped; (4w — world-links D-WL3 SUPERSEDES the earlier 'discard equipmentDesc' + gear-id intent, which was never populated) gear[] + equipmentDesc carried over SOURCE-TRUE as display strings; id-reffing NPC gear against the items registries is a separate human-in-the-loop feature, NOT built inside the migration; (5) talent/quality 'Name N' strings -> {name, rank}; (6) strain present iff tier=nemesis — assert at ingest; (7 — world-links D-WL2/D-WL3) affiliation + affiliation_path + source/source_code/source_tags copied from the library build verbatim, affiliation nodes validated within schema/vocab/affiliations.vocab.json, FAIL LOUD on unknown nodes; the 7 carried fields become REQUIRED for _provenance:'stoogoff' records at the world-links-2 re-ingest (optional here so the pre-extension registry still validates). Cross-check derived values and weapon matches against the rules-index oracle. FAIL LOUD on violations.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app-owned id. Library NPCs derive it once from their stoogoff key; custom NPCs slug from name; dedupe on collision. This is what CastGroup.npc_ref points at."
+    },
+    "_source_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Origin key for library NPCs (e.g. stoogoff '4LOM'); null for custom-authored. Traceability only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical display name (e.g. '4-LOM', 'Stormtrooper')."
+    },
+    "tier": {
+      "enum": [
+        "minion",
+        "rival",
+        "nemesis"
+      ],
+      "description": "Drives derived semantics: minion wounds is PER-MINION (group pool = wounds x CastGroup.group_size, computed by the consumer, NOT baked here); minions/rivals do not track strain; only nemeses do."
+    },
+    "characteristics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brawn",
+        "agility",
+        "intellect",
+        "cunning",
+        "willpower",
+        "presence"
+      ],
+      "description": "The six FFG characteristics. Split out of the custom seed's merged `stats`; taken directly from the library's `characteristics`. 0 is permitted: FFG has legitimate zero-characteristic entities (ysalamiri Agility 0, incorporeal/Force manifestations Brawn 0, non-sentient droids Intellect/Presence 0) — do not reject them.",
+      "properties": {
+        "brawn": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "agility": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "intellect": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cunning": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "willpower": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "presence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "derived": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "soak",
+        "wounds",
+        "melee_defense",
+        "ranged_defense"
+      ],
+      "description": "Threshold/derived values. soak, wounds, defenses pulled from both inputs; defence array canonicalized to named scalars.",
+      "properties": {
+        "soak": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "wounds": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Wound THRESHOLD. For minions this is PER-MINION; the group pool (wounds x group_size) is computed by the consumer, not stored."
+        },
+        "strain": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "$comment": "Integer = the source's printed strain THRESHOLD, preserved for ANY tier (do NOT force null on rivals that print one). null = the source prints no strain (the common minion/rival case, and a strain:0 which normalizes to null — 0 is meaningless). A nemesis with no printed strain is null AND a flagged gap (look it up / GM supplies). minimum:1 makes an emitted 0 fail loud so it gets normalized to null at ingest.",
+          "description": "Strain threshold (positive integer) as printed by the source, or null when none is printed.",
+          "minimum": 1
+        },
+        "melee_defense": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Melee defence. CONFIRMED index 0 of the library's positional defence array — Gideon [1,0]: his only defence is the vibrosword's Defensive 1 -> melee 1, verified against Hutt Space Sourcebook p.124. Named here to kill the undocumented positional convention, which worked only because every reader happened to use [0]=melee."
+        },
+        "ranged_defense": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Ranged defence. Index 1 of the library's positional defence array."
+        }
+      },
+      "$comment": "Stored as AUTHORITATIVE numbers. These are sometimes COMPUTED from equipment in the source: Gideon's melee_defense=1 comes entirely from his vibrosword's Defensive 1 (the book prints no Defence box). Baking the value is deliberately resilient to the lossy weapon strings — a weapon that fails to resolve must NOT zero out an already-computed defence. Optionally cross-check derived values against resolved equipment via the rules-index oracle."
+    },
+    "skills": {
+      "type": "array",
+      "description": "Trained skills. Display names from either input ('Ranged: Heavy', 'Ranged (Heavy)') normalize to one canonical skill_ref at ingest, replacing normalizeSkill at runtime.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "skill_ref"
+        ],
+        "properties": {
+          "skill_ref": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Canonical skill id (e.g. 'ranged_heavy'); MUST match the Skill registry."
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Proficiency rank, for rival/nemesis. OMITTED for minions (group-trained, no individual rank — see the skills $comment)."
+          }
+        }
+      },
+      "$comment": "For tier=minion, a listed skill means the GROUP is trained (FFG minions have no individual ranks; the group rolls ability dice = group_size - 1). OMIT rank on minion skills (absent == group-trained) — do NOT fabricate a sentinel rank. rival/nemesis skills carry a real proficiency rank. Consumers apply the minion group rule by TIER, never by reading rank."
+    },
+    "weapons": {
+      "type": "array",
+      "description": "Each entry is EITHER (a) a canonical Weapon id string (a reference into the Weapon registry) for a catalog weapon that EXACT-name-matches OggDude — prefer the registry, its value is canon; OR (b) an inline weapon profile ($defs/inline_weapon) for a NON-catalog weapon with no OggDude entry — a creature's natural attack (claws, bite, tail) or a unique/named item. Inline profiles are PARSED from the stoogoff 'Name (Dmg X; Range; Quals)' string: the printed total is the only reliable damage source (the rules-oracle CANNOT read statblock tables — it confirms KIND and qualities from prose, not the damage digit). FUZZY/substring matches are NOT auto-applied (they resolve the wrong weapon — 'DC-17' != 'Blaster Pistol'); only exact-name matches become id-refs, everything else parses inline. A string that names a real WEAPON but has no stats and no exact match (e.g. a hidden razor-dagger — a knife, not a tool) is aliased to its catalog equivalent or given a minimal inline profile — NOT dropped; only genuine non-weapons are dropped -- and NOT the arc welder or the hydrospanner, which this text used to name as the examples: both are printed as MELEE WEAPONS in FFG Equipment lines (arc welder, EotE CRB p.420 / AoR CRB p.429; heavy hydrospanner, AoR CRB p.427 / Mask of the Pirate Queen p.88), so they take stats like any other weapon (ruling b299-b300-npc-weapon-data-gate, R-NWG-5). Where an exact match's inline stats DIFFER from the registry, keep the registry id (canon) and FLAG the delta for review — a deliberate variant becomes a CastGroup override. Per-instance tweaks live on CastGroup.overrides.",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          {
+            "$ref": "#/$defs/inline_weapon"
+          }
+        ]
+      }
+    },
+    "talents": {
+      "type": "array",
+      "description": "Talents. The LIBRARY stores these as bare strings with rank baked into the name ('Adversary 2', 'Skilled Jockey 2'); the custom-encounter form wraps them as {name, desc}. Ingest parses rank from the name ('Adversary 2' -> {name:'Adversary', rank:2}) — the same reverse-parse qualities need — and maps name -> talent_ref against OggDude talents (583) where it matches. NEEDS-VERIFY against a real OggDude talent record.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "talent_ref": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Canonical Talent id, or null for homebrew."
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name, e.g. 'Adversary'."
+          },
+          "rank": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "description": "Rank for ranked talents (Adversary 2 -> 2); null if unranked."
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Decoded/curated text; lore-overrides may apply."
+          }
+        }
+      }
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional flavor text; the lore-overrides overlay may patch it."
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Books defining a library NPC, reconciled to rules-index pdfs.alias. UNRELIABLE as-ingested: Gideon's record says 'Lords of Nal Hutta' but the statblock is in the Hutt Space Sourcebook (p.124), and no Lords of Nal Hutta book is indexed — source strings need reconciliation (a name->alias mapping with review), not verbatim trust."
+    },
+    "_provenance": {
+      "enum": [
+        "stoogoff",
+        "custom"
+      ],
+      "description": "Origin. 'stoogoff' = ingested library NPC; 'custom' = authored in-app."
+    },
+    "abilities": {
+      "type": "array",
+      "description": "Special abilities distinct from talents — a separate `abilities` array in the library record (empty on Gideon but part of the shape). Non-talent rules text. Shape lightly specified pending a populated example.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "_text_source": {
+            "type": "string",
+            "description": "AUDIT ANNOTATION (R-B307-3). Where this ability's restored text came from, as recorded by apply_npc_ability_text.py — including the human verification behind it (e.g. 'Force and Destiny Core Rulebook p.417 (name + die human-verified, Jason 2026-08-09)'). C-NID-9 REQUIRES a reader to distinguish a text-pending marker from a verified entry like this one, so deleting the field to satisfy additionalProperties would have destroyed the record that ruling depends on."
+          }
+        }
+      }
+    },
+    "gear": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Gear as SOURCE-TRUE display strings (world-links D-WL3, supersedes the combat-cluster id-ref intent — never populated). Id-reffing NPC gear against the items registries is a separate human-in-the-loop feature (charter §5: no new resolution built inside a migration)."
+    },
+    "equipmentDesc": {
+      "type": "string",
+      "description": "Source free-text equipment line, carried SOURCE-TRUE (world-links D-WL3 — supersedes the combat-cluster 'discard' decision). Display-only; browser cards render it."
+    },
+    "affiliation": {
+      "type": "string",
+      "description": "Affiliation node id (world-links D-WL2) — MUST be a node id in schema/vocab/affiliations.vocab.json (the drawer-tree namespace; faction-backed nodes resolve to faction dossiers by id-identity). Copied verbatim from the library build; fail-loud on unknown nodes at ingest. Verified green on today's source: 63 distinct values, 0 unknowns across 1430."
+    },
+    "affiliation_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Root-to-leaf affiliation node ids (drawer drilldown path). Every element validates against the affiliations vocab."
+    },
+    "source": {
+      "type": "string",
+      "description": "Source book display string AS PRINTED in the library (unreconciled — see `sources` for the reconciled-alias aspiration; both kept deliberately: this one is what browser cards display today)."
+    },
+    "source_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Short book code from the library build (952/1430 carry one; null otherwise)."
+    },
+    "source_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Library source/category tags, carried verbatim (browser filters + statBlock normalize consume them)."
+    },
+    "_affiliation_path_prev": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "AUDIT ANNOTATION (R-B307-2). The affiliation_path this record carried BEFORE the corpus-cited allegiance corrections, preserved verbatim by apply_npc_allegiance_corrections.py so each correction stays checkable against its ledger entry (source book + page). Present on 27 records; read by no app code. Defined here because the root closes additionalProperties, which made every carrier schema-invalid while the data itself was correct."
+    }
+  },
+  "$defs": {
+    "inline_weapon": {
+      "type": "object",
+      "additionalProperties": false,
+      "$comment": "Inline profile for a NON-catalog NPC weapon (creature natural attack or unique item) with no OggDude registry equivalent. Parsed from the stoogoff 'Name (Dmg X; Range; Quals)' string. OMITS catalog economics (price/rarity/hardpoints/encumbrance/id/sources/_source_key) — a rancor's claws have no price and no global id (they live on the NPC; CastGroup references the NPC). damage.base is 'flat' for a printed creature total (the statblock value ALREADY includes Brawn — the common case); 'brawn' ONLY for a unique melee item explicitly stated as a Brawn-add. Qualities mirror weapon.schema.json — extract to a shared $def when the items cluster lands (duplicated across 2 schemas now).",
+      "required": [
+        "name",
+        "skill",
+        "damage",
+        "range"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "e.g. 'Claws', 'Massive rending claws', 'Inquisitor Lightsaber'."
+        },
+        "skill": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Canonical skill id. REQUIRED, baked at ingest: parse from the string if stated; else default an Engaged-range natural attack to 'brawl'; FLAG a non-Engaged (ranged) natural attack lacking a stated skill for review rather than defaulting it. Required so combat never defaults a skill at render."
+        },
+        "damage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "base"
+          ],
+          "properties": {
+            "value": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "base": {
+              "enum": [
+                "flat",
+                "brawn"
+              ],
+              "description": "'flat' = printed creature total (already includes Brawn; common case). 'brawn' = unique melee item stated as a Brawn-add."
+            }
+          }
+        },
+        "crit": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional — many natural-attack strings print no crit; OMIT when absent rather than defaulting (deliberate asymmetry with the catalog Weapon schema, where crit is required)."
+        },
+        "range": {
+          "enum": [
+            "engaged",
+            "close",
+            "short",
+            "medium",
+            "long",
+            "extreme"
+          ]
+        },
+        "qualities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "ranked"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "ranked": {
+                "type": "boolean"
+              },
+              "rank": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ranked": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "ranked"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "rank"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "rank"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "_provenance": {
+          "const": "stoogoff-inline",
+          "description": "Marks a profile parsed from an NPC statblock string (vs an id-ref into the OggDude-sourced registry)."
+        },
+        "_provenance_prev": {
+          "const": "stoogoff-refile",
+          "description": "AUDIT ANNOTATION, outside the provenance vocabulary (R-B305-1). Present on the 22 profiles recovered by refile_npc_weapons.py — lines the ingest's parser dropped for lacking inline damage/crit numbers, refiled from the record's own equipmentDesc. They carry the same _provenance as any other parsed-from-statblock profile because that is what they are; this field is how the repair stays attributable without the vocabulary gaining a second meaning. Mirrors the _affiliation_path_prev idiom (prior value preserved verbatim for audit)."
+        }
+      }
+    }
+  }
+}

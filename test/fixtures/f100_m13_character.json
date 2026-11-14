@@ -1,0 +1,203 @@
+{
+ "id": "mvwbgbmr-1x3o2s",
+ "name": "Renna Tide",
+ "species": "Selkath",
+ "career": "Smuggler",
+ "updatedAt": 1793446000000,
+ "sheetData": {
+  "id": "mvwbgbmr-1x3o2s",
+  "name": "Renna Tide",
+  "species": "Selkath",
+  "speciesId": "selkath",
+  "career": "Smuggler",
+  "careerId": "smuggler",
+  "specialization": "Pilot",
+  "specializationIds": [
+   "pilot"
+  ],
+  "book": "eote",
+  "characteristics": {
+   "brawn": 3,
+   "agility": 2,
+   "intellect": 2,
+   "cunning": 2,
+   "willpower": 3,
+   "presence": 2
+  },
+  "skills": {
+   "COORD": 1,
+   "PILSP": 2
+  },
+  "specializations": [
+   {
+    "id": "pilot",
+    "owned": [
+     "0-0"
+    ]
+   }
+  ],
+  "talents": [
+   {
+    "id": "full_throttle",
+    "rank": 1
+   },
+   {
+    "id": "custom_own_layer_f4bipx",
+    "rank": 1
+   }
+  ],
+  "derivedBonuses": {
+   "soakBonus": 0,
+   "woundThresholdBonus": 0,
+   "strainThresholdBonus": 0,
+   "meleeDefenseBonus": 0,
+   "rangedDefenseBonus": 0,
+   "forceRatingBonus": 0
+  },
+  "derivedConditional": [],
+  "woundBase": 10,
+  "strainBase": 10,
+  "xp": {
+   "total": 200,
+   "spent": 155,
+   "remaining": 45
+  },
+  "motivations": {
+   "desire": "A lost enclave"
+  },
+  "equipment": {
+   "weapons": [],
+   "gear": [],
+   "credits": 100
+  },
+  "mods": [
+   "respecialized@eote-v1"
+  ],
+  "own": {
+   "formatVersion": 1,
+   "packId": "own_layer",
+   "name": "own_layer",
+   "sections": {
+    "talents": {
+     "custom_own_layer_f4bipx": {
+      "name": "Tide Reader",
+      "description": "Add a boost die to Survival checks at sea.",
+      "activation": "passive",
+      "ranked": false,
+      "id": "custom_own_layer_f4bipx",
+      "_mode": "add"
+     }
+    }
+   }
+  },
+  "looseTalents": {
+   "custom_own_layer_f4bipx": {
+    "ranks": 1,
+    "xp": 5
+   }
+  },
+  "changes": [
+   {
+    "id": "chg-mvwbfy4g-f4b",
+    "at": "2026-10-31T11:26:40.000Z",
+    "tracked": true,
+    "xp": 5,
+    "items": [
+     {
+      "part": "own.talents",
+      "op": "add",
+      "ref": "custom_own_layer_f4bipx",
+      "before": null,
+      "after": {
+       "name": "Tide Reader",
+       "description": "Add a boost die to Survival checks at sea.",
+       "activation": "passive",
+       "ranked": false,
+       "id": "custom_own_layer_f4bipx",
+       "_mode": "add"
+      },
+      "offBook": true
+     },
+     {
+      "part": "talents",
+      "op": "add",
+      "ref": "custom_own_layer_f4bipx",
+      "before": null,
+      "after": {
+       "ranks": 1,
+       "xp": 5
+      },
+      "offBook": true
+     },
+     {
+      "part": "xp",
+      "op": "set",
+      "ref": "xp",
+      "before": {
+       "total": 200,
+       "spent": 150,
+       "remaining": 50
+      },
+      "after": {
+       "total": 200,
+       "spent": 155,
+       "remaining": 45
+      }
+     },
+     {
+      "part": "stored",
+      "op": "set",
+      "ref": "stored",
+      "before": {
+       "talents": [
+        {
+         "id": "full_throttle",
+         "rank": 1
+        }
+       ],
+       "looseTalents": null,
+       "own": null
+      },
+      "after": {
+       "talents": [
+        {
+         "id": "full_throttle",
+         "rank": 1
+        },
+        {
+         "id": "custom_own_layer_f4bipx",
+         "rank": 1
+        }
+       ],
+       "looseTalents": {
+        "custom_own_layer_f4bipx": {
+         "ranks": 1,
+         "xp": 5
+        }
+       },
+       "own": {
+        "formatVersion": 1,
+        "packId": "own_layer",
+        "name": "own_layer",
+        "sections": {
+         "talents": {
+          "custom_own_layer_f4bipx": {
+           "name": "Tide Reader",
+           "description": "Add a boost die to Survival checks at sea.",
+           "activation": "passive",
+           "ranked": false,
+           "id": "custom_own_layer_f4bipx",
+           "_mode": "add"
+          }
+         }
+        }
+       }
+      }
+     }
+    ],
+    "fpBefore": "73286a69621c08724a05c1901e078ce247ed92aa3e4fc119bb33365e6c39c70a",
+    "fpAfter": "93f57f7c89aa07c88052831abbc52a161bebbb7933e8f5aa6c126236881b459b"
+   }
+  ]
+ }
+}

@@ -1,0 +1,631 @@
+{
+  "id": "black_sun",
+  "name": "Black Sun",
+  "type": "criminal_syndicate",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs_detailed": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "alias": "eote",
+      "pages": [
+        9,
+        168,
+        172,
+        368,
+        383,
+        384,
+        385,
+        386,
+        387,
+        389
+      ],
+      "notes": "Primary source. Pages 383-386 contain the dedicated 'Black Sun' section under Chapter XI: Law and Society. Pages 9 provides intro overview. Page 168 mentions Black Sun as weapon purchaser. Page 172 links Tenloss disruptors to Black Sun. Page 368 mentions imprisoned Vigos on Kessel. Page 387 notes Hutt/Black Sun relationship. Page 389 covers Zann Consortium tensions and Tenloss ties."
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": [
+        177,
+        178,
+        363,
+        424
+      ],
+      "notes": "Secondary source. Page 363 confirms Xizor as Underlord and his enmity with Vader over Falleen bombardment. Page 424 notes the Emperor's connections with Black Sun. Pages 177-178 mention Black Sun as users of ion blasters and Tenloss disruptors."
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "alias": "fad",
+      "pages": [],
+      "notes": "PDF is image-only (not text-searchable). No results could be extracted."
+    }
+  ],
+  "source_refs": [
+    "Edge of the Empire Core Rulebook",
+    "Age of Rebellion Core Rulebook",
+    "No Disintegrations",
+    "Dawn of Rebellion"
+  ],
+  "overview": "",
+  "short_descriptor": "Professional and well-connected. They don't want to destroy things — they want to own them. That makes them negotiable, which also makes them dangerous. They'll sell the same asset twice if they can.",
+  "witness_statement": {
+    "text": "I had a shipping contract. Good rate, reliable schedule, no questions asked. Ran it for two standard years before I found out who was actually paying my invoices. By then I owed favors to people I'd never met, and my 'independent' operation was a line item on somebody's quarterly report. They don't recruit you. They just let you work until you belong to them.",
+    "source": "Independent trader, Corellian sector, identity withheld",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "history": [
+    {
+      "heading": "FOUNDING",
+      "text": ""
+    },
+    {
+      "heading": "EXPANSION",
+      "text": ""
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "THE VIGOS",
+      "text": ""
+    },
+    {
+      "heading": "CELL STRUCTURE",
+      "text": ""
+    },
+    {
+      "heading": "FUNDING AND BRIBERY",
+      "text": ""
+    }
+  ],
+  "motivations_legacy": [
+    "Maintain underworld supremacy across the galaxy while keeping involvement hidden",
+    "Accumulate credits through any means — smuggling, slavery, racketeering, kidnapping, extortion, spice, illegal weapons, legitimate businesses, and corporate holdings",
+    "Play the Alliance and the Empire against each other for Black Sun's benefit",
+    "Each Vigo seeks to expand personal power and territory within the organization"
+  ],
+  "motivations": {
+    "primary": "Profit and power",
+    "secondary": [
+      "Maintain underworld supremacy",
+      "Expand territorial control through Vigo domains",
+      "Play galactic factions against each other",
+      "Preserve organizational secrecy"
+    ],
+    "notes": "Black Sun's motivations are fractal — the organization pursues galactic dominance, each Vigo pursues territorial expansion, and each operative pursues personal enrichment. This layered self-interest is both the engine that drives growth and the fault line that creates internal betrayal. Xizor's personal vendetta against Vader adds an irrational element to an otherwise coldly rational organization."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain hidden control over criminal enterprises spanning the entire galaxy",
+      "Ensure no rival syndicate grows powerful enough to challenge Black Sun's supremacy",
+      "Play the Empire and the Rebellion against each other to profit from both sides",
+      "Expand legitimate business fronts to provide cover and launder criminal revenue"
+    ],
+    "operational": [
+      "Keep Black Sun's involvement invisible — operatives should not know who they truly work for",
+      "Ensure each Vigo territory generates steady revenue flow to the Underlord",
+      "Maintain bribery networks among Imperial officials, corporate officers, and law enforcement",
+      "Eliminate anyone who threatens to expose Black Sun's organizational structure"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "bribery",
+      "blackmail",
+      "hired_muscle",
+      "debt_leverage",
+      "assassination",
+      "infiltration"
+    ],
+    "avoided": [
+      "Open military confrontation — Black Sun operates in shadows, not battlefields",
+      "Public identification — the organization's power depends on anonymity",
+      "Direct conflict with the Empire — Xizor maintains Imperial contacts and avoids provoking Imperial attention"
+    ],
+    "notes": "Black Sun's extreme compartmentalization is its defining method. Thousands of operatives work for Black Sun without knowing it. Smaller gangs operate under their own names with only leadership connected to the Vigo structure. Xizor Transport Systems provides the logistical backbone — thousands of freighters ensure there is nowhere Black Sun cannot reach and no cargo it cannot move."
+  },
+  "strengths": [
+    "Extreme compartmentalization — most operatives do not know they work for Black Sun, limiting exposure from any single compromise",
+    "Over 3,000 years of institutional experience and accumulated wealth, contacts, and infrastructure",
+    "Xizor Transport Systems provides a massive legitimate logistics network of thousands of freighters",
+    "Nine Vigo territories create redundancy — losing one does not cripple the organization",
+    "Prince Xizor can organize an army of many thousands within hours when needed"
+  ],
+  "weaknesses": [
+    "Vigo ambition is structurally endemic: Green actively pursues the Underlord position, Wumdi skims organizational profits, and Durga manipulates fellow Vigos through his Hutt connections.",
+    "Compartmentalization produces operational conflicts between Black Sun subsidiaries that do not know they serve the same organization, resulting in wasted resources and fratricidal competition.",
+    "Prince Xizor's personal vendetta against Darth Vader introduces strategic risk disproportionate to any organizational benefit, distorting decision-making at the highest level.",
+    "The bribery network model is structurally fragile: a single uncorrupted official in a key regulatory or enforcement position can dismantle local operations.",
+    "Organizational secrecy prevents Black Sun from deploying its full resources openly, even in situations where overwhelming force would be decisive."
+  ],
+  "behavior_under_threat": {
+    "low": "Ignore it. If it persists, buy it off. Black Sun has more credits than most problems require.",
+    "medium": "Identify the source. Apply leverage — bribery, blackmail, or economic pressure. If the threat is an individual, make them an offer they would be foolish to refuse.",
+    "high": "Activate local enforcement assets. Hired muscle, bounty hunters, or Vigo-controlled gangs apply direct pressure. The threat disappears — preferably without anyone connecting the disappearance to Black Sun.",
+    "critical": "Xizor mobilizes resources personally. Assassination, wholesale destruction of the threat's support network, and complete information suppression. If Black Sun is exposed, everyone who knows is silenced."
+  },
+  "alert_escalation": {
+    "communication_method": "informant",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Local gang or front operation",
+      "Mid-level Black Sun operative (may not know full chain)",
+      "Vigo lieutenant",
+      "Vigo",
+      "Guri / Prince Xizor"
+    ],
+    "notes": "Alert escalation is slow by design — compartmentalization means information must pass through multiple cutouts. A local gang leader reports to someone who reports to someone who eventually reaches the Vigo. This delay is the price of secrecy. In emergencies, Vigos can contact Guri directly, but doing so reveals the connection and is avoided unless absolutely necessary."
+  },
+  "tension_patterns": [
+    "Compartmentalization means most front operations are managed by people unaware of Black Sun ownership, creating an unmonitored layer where skimming and embezzlement go undetected for extended periods.",
+    "Vigo territories overlap in contested zones, generating contradictory instructions to local operators who serve multiple Vigo interests without knowing it.",
+    "Black Sun simultaneously supplies the Rebel Alliance through Vigos like Sprax and maintains Imperial contacts through Vigos like Green, creating dual-allegiance revenue streams that conflict at the operational level.",
+    "Legitimate business fronts occasionally become so profitable and visible that dismantling them would attract more regulatory attention than the criminal activity they conceal.",
+    "Compartmentalized operatives who discover the true ownership of their organization represent a structural security risk, as the same secrecy that protects Black Sun prevents it from knowing when the cover has been breached."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "fortified",
+    "economic": "dominant",
+    "command": "skeleton",
+    "informational": "patrol",
+    "military": "skeleton",
+    "hidden": "fortified",
+    "covert": "dominant"
+  },
+  "mcguffin_interest_legacy": [
+    {
+      "type": "resource",
+      "reason": "Black Sun controls spice smuggling operations across multiple sectors, with exclusive Coruscant export rights reserved for a specific (unnamed) operator"
+    },
+    {
+      "type": "data",
+      "reason": "Vigo Kreet'ah specializes in corporate espionage — stealing valuable secrets and technology, manipulating markets, and predicting corporate maneuverings"
+    },
+    {
+      "type": "resource",
+      "reason": "Vigo Perit's army of technologists and slicing capabilities can manipulate entire markets, representing a massive information-warfare asset"
+    },
+    {
+      "type": "resource",
+      "reason": ""
+    }
+  ],
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "high",
+    "weapon": "medium",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "high",
+    "notes": "Black Sun is most interested in data (corporate secrets, market intelligence, blackmail material), contraband (spice, illegal weapons, slaves), and technology (slicing tools, market manipulation capabilities). Weapons are valuable as trade goods rather than for direct use. Persons of interest matter when they represent leverage or recruitment opportunities. Artifacts hold little value unless they can be sold."
+  },
+  "territory": [
+    "Galaxy-wide — nine Vigo territories spanning from the Core Worlds to the Outer Rim",
+    "Coruscant (origin world and Core Worlds operations)",
+    "Nar Shaddaa (transport and smuggling operations under Durga)",
+    "Corporate Sector (exploited by Vigo Wumdi)",
+    "Multiple Outer Rim sectors (under Vigo Lonay)",
+    "Shipping lanes galaxy-wide (under Vigo Sprax, Core to Outer Rim)"
+  ],
+  "prominent_figures": [
+    {
+      "name": "Prince Xizor",
+      "role": "Underlord",
+      "suggested_tier": "nemesis",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "",
+      "network_assessment": "Xizor controls Black Sun from the shadows. He is patient, ruthless, and holds grudges measured in decades. His vendetta against Vader is the one irrational element in an otherwise coldly rational operator.",
+      "wants": "Galactic underworld supremacy maintained through invisible control. Personal destruction of Darth Vader as revenge for the bombardment of Falleen.",
+      "secret": "His vendetta against Vader is personal — Vader ordered the orbital bombardment that killed Xizor's family on Falleen. This emotional driver distorts his otherwise flawless strategic judgment.",
+      "behavior": {
+        "under_pressure": "Becomes more controlled, not less. Xizor's Falleen biology gives him physiological command over stress responses that other species cannot match.",
+        "when_losing": "Activates compartmentalized assets that opponents didn't know existed. Black Sun's depth of resources means Xizor always has a reserve.",
+        "loyalty": "Demands absolute loyalty from subordinates and provides calculated rewards for it. Betrayal is met with total destruction — not just of the betrayer, but of their entire network.",
+        "tells": "When Xizor begins making concessions to a Vigo he previously pressured, he's preparing to eliminate that Vigo and wants them relaxed first."
+      },
+      "useful_to_players": [
+        "His vendetta against Vader means he'll support operations that embarrass or weaken Vader's position, even at cost to himself",
+        "Xizor Transport Systems is a massive legitimate logistics network — anyone who can access it gains galactic reach",
+        "His Falleen pheromones give him an edge in face-to-face negotiations, but only if you're in the same room — remote dealings neutralize this advantage"
+      ],
+      "hooks": [
+        "Xizor just rerouted a dozen XTS freighters away from an Imperial checkpoint they've been clearing for years. Something spooked him, and Xizor doesn't spook easily.",
+        "Last I heard, Xizor's been making quiet inquiries about a specific Imperial officer's schedule and travel patterns. That's not business intelligence. That's targeting."
+      ]
+    },
+    {
+      "name": "Guri",
+      "role": "Lieutenant, major-domo, and bodyguard to Xizor",
+      "suggested_tier": "nemesis",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "",
+      "network_assessment": "Guri is the face of Black Sun to everyone outside the inner circle. She's efficient, composed, and more dangerous than she looks — which is saying something, because she looks dangerous. There's something off about her that most people can't articulate.",
+      "wants": "Execution of Xizor's directives with maximum efficiency. Her own objectives, if she has any, are not observable.",
+      "secret": "She is not human. The few who suspect this and survive the knowledge recognize that her combat capabilities and processing speed exceed biological parameters.",
+      "behavior": {
+        "under_pressure": "Calm beyond what physiology should allow. Her response time is instantaneous and her emotional baseline does not shift under threat.",
+        "when_losing": "Recalculates and adapts without hesitation. There is no ego in her tactical adjustments — she abandons failing approaches immediately.",
+        "loyalty": "Absolutely loyal to Xizor. The nature of this loyalty — whether programmed or chosen — is unknown to outside observers.",
+        "tells": "She has none. That itself is the tell — a person without micro-expressions or stress indicators is not operating on the same hardware as everyone else."
+      },
+      "useful_to_players": [
+        "She's the gatekeeper to Xizor — anyone wanting to deal with Black Sun's leadership goes through her first",
+        "Her inhuman composure is a vulnerability if you can force a situation that requires genuine emotional judgment rather than optimization",
+        "Those who discover her true nature have leverage — but also a very short life expectancy if they use it poorly"
+      ],
+      "hooks": [
+        "Guri walked into a cantina on Nar Shaddaa last week and three armed men followed her out. None of them came back. Took about ninety seconds.",
+        "A slicer on Coruscant claims he found anomalous purchase records in MedTech databases that trace back to Xizor's accounts — high-end cybernetic components, custom spec, no patient listed."
+      ]
+    },
+    {
+      "name": "Clezo",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "",
+      "network_assessment": "Clezo is the conservative Vigo — diverse holdings, measured expansion, no flashy moves. His real asset is House Tresario's Imperial connections, which give him enforcement capability with legal cover.",
+      "wants": "Total criminal control within his designated systems. Stability over expansion — he'd rather own everything in a few systems than compete across many.",
+      "secret": "His House Tresario connection gives him access to Imperial bounty hunter intelligence feeds, which he uses to track Black Sun's own targets and competitors simultaneously.",
+      "behavior": {
+        "under_pressure": "Pulls back to fortified positions and activates his bounty hunter networks for intelligence and enforcement.",
+        "when_losing": "Contracts his territory to defensible holdings rather than overextending. Will sacrifice peripheral operations to protect core systems.",
+        "loyalty": "Loyal to Xizor as long as the organizational structure benefits him. Conservative enough to avoid rebellion but pragmatic enough to hedge.",
+        "tells": "When Clezo increases bounty postings through House Tresario, he's preparing to move against a competitor in his territory."
+      },
+      "useful_to_players": [
+        "His conservative approach means he's predictable — his operations follow standard criminal enterprise patterns without surprises",
+        "His bounty hunter holdings make him a backdoor into Guild intelligence if you can establish a working relationship",
+        "His Imperial connections through House Tresario are a vulnerability — any ISB investigation into that guild threatens his position"
+      ],
+      "hooks": [
+        "House Tresario just posted three bounties on independent operators working in Clezo's territory. That's territory maintenance — he's cleaning house.",
+        "Clezo's been consolidating his casino holdings and selling off smaller operations. When a Vigo simplifies his portfolio, he's either preparing for trouble or creating cash reserves for a move."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Durga",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "",
+      "network_assessment": "Durga's the Hutt who plays both sides — Black Sun Vigo and Besadii kajidic member. He manipulates other Vigos for sport and uses the Klatooinian Trade Guild as his personal enforcement arm around Nar Shaddaa.",
+      "wants": "Maximize personal power by being the indispensable bridge between Black Sun and Hutt interests. Both sides need him more than they trust him.",
+      "secret": "He selectively edits intelligence flowing between Black Sun and the Hutts, keeping both organizations slightly misinformed to maintain his irreplaceable position.",
+      "behavior": {
+        "under_pressure": "Leverages his dual position — threatens to take his Hutt connections to a rival Vigo, or his Black Sun connections to a rival kajidic.",
+        "when_losing": "Sacrifices assets in one organization to protect his standing in the other. Will burn Black Sun operations to preserve Hutt relationships, or vice versa.",
+        "loyalty": "Loyal to himself. Both organizations know this; neither can afford to cut him loose because the intelligence risk of his defection is too high.",
+        "tells": "When Durga starts complaining loudly about one organization, he's about to betray it to the other. The complaints are his way of building a justification narrative."
+      },
+      "useful_to_players": [
+        "His dual allegiance means he'll deal with anyone who offers leverage over either the Hutts or Black Sun",
+        "Information given to Durga will reach both organizations — useful if you want to plant disinformation in two networks simultaneously",
+        "His manipulation of other Vigos creates internal friction within Black Sun that outsiders can exploit"
+      ],
+      "hooks": [
+        "Durga just hosted three Vigos at a summit on Nar Shaddaa — Hutts weren't invited. When Durga excludes his Hutt contacts from a meeting, he's building something within Black Sun specifically.",
+        "The Klatooinian Trade Guild is moving more cargo than Durga's declared operations account for. Either he's skimming from Black Sun or he's running a side operation for the Hutts."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Green",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "Human, known only by this name. Spends great energy trying to become the next Underlord. Revenues are far lower than they should be, but his value as a spymaster with truly extensive networks keeps him in his position. Racketeering, extortion, and blackmail in the Core Worlds. Trying to expand spice smuggling but forbidden to export to Coruscant.",
+      "network_assessment": "Green is the ambitious Vigo — openly positioning himself to replace Xizor. His revenue is low but his intelligence networks are extensive enough that Xizor keeps him around. That calculus has an expiration date.",
+      "wants": "The Underlord position. Everything he does is a step toward replacing Xizor, and everyone in Black Sun knows it.",
+      "secret": "His intelligence networks in the Core Worlds include assets inside COMPNOR and Imperial customs that he has not fully disclosed to Xizor — his insurance policy for the eventual power play.",
+      "behavior": {
+        "under_pressure": "Deploys information as a weapon — blackmail, exposure threats, and strategic leaks to redirect pressure onto rivals.",
+        "when_losing": "Retreats behind his spy networks. If his operations fail, his intelligence value buys him time and forgiveness from Xizor.",
+        "loyalty": "Loyal to his own ambition. Serves Xizor only because he cannot yet replace him. The moment he can, he will.",
+        "tells": "When Green's intelligence reports to Xizor become unusually detailed and helpful, he's building trust before a move. Generosity from Green always has a purpose."
+      },
+      "useful_to_players": [
+        "His ambition makes him the most recruitable Vigo — anyone who can help him advance is a potential partner",
+        "His intelligence networks are his real asset — accessing them through him is easier than building your own Core World spy network",
+        "His conflict with Xizor creates internal friction that can be exploited by outsiders who understand the power dynamics"
+      ],
+      "hooks": [
+        "Green just expanded his blackmail operations into a new Core World sector. That's either confidence or desperation — either way, new targets mean new enemies.",
+        "Word is Green offered intelligence on a rival Vigo's operations to someone outside Black Sun. If Xizor finds out, Green's tenure gets a lot shorter."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Kreet'ah",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "Kian'thar. Inherited his position from his mother. Loyal, long-serving lieutenant of Xizor. Main focus is corporate espionage — stealing secrets and technology, massive revenue slicing, rerouting transports, manipulating markets, extorting corrupt corporate officers. Most valuable service is predicting market trends and corporate maneuverings.",
+      "network_assessment": "Kreet'ah is Black Sun's corporate warfare specialist. He doesn't rob banks — he predicts which banks will fail and profits from the knowledge. His market intelligence is his weapon, and it's more dangerous than a blaster.",
+      "wants": "Continued dominance of the corporate espionage domain within Black Sun. Accurate market predictions that increase his value to Xizor.",
+      "secret": "His predictive market models rely on intelligence from moles inside at least four major galactic corporations. If any are exposed, his entire predictive apparatus collapses.",
+      "behavior": {
+        "under_pressure": "Retreats into data analysis. His instinct is to model the threat mathematically rather than respond emotionally.",
+        "when_losing": "Liquidates exposed positions quickly and reinvests in new corporate targets. His approach is portfolio management, not warfare.",
+        "loyalty": "Genuinely loyal to Xizor — inherited the relationship from his mother and treats it as a legacy obligation. One of the few Vigos whose loyalty is not purely transactional.",
+        "tells": "When Kreet'ah's market positions shift suddenly in a specific sector, he has advance intelligence on something that hasn't happened yet."
+      },
+      "useful_to_players": [
+        "His corporate intelligence can reveal hidden connections between legitimate businesses and criminal enterprises",
+        "His market predictions, if accessed, provide advance warning of economic disruptions that affect everyone operating in those sectors",
+        "His loyalty to Xizor is genuine, making him a poor recruitment target but a reliable intermediary for deals that serve Black Sun's interests"
+      ],
+      "hooks": [
+        "Kreet'ah just shorted stock in a Corellian shipping company that everyone thought was solid. Either he knows something the market doesn't, or he's about to make it true.",
+        "Three corporate executives in the same industry resigned within a week of each other. That pattern has Kreet'ah's fingerprints — he's clearing the board for something."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Lonay",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "Twi'lek. Focuses on several Outer Rim sectors. Builds allies among Black Sun, other criminal groups, and corporations. Slave trading, spice smuggling, gun-running, and vice crimes. The rise of the Rebellion has caused trouble for his slave trading; he has ironically made up losses by smuggling weapons and supplies to desperate Alliance Sector forces.",
+      "network_assessment": "Lonay runs the Outer Rim dirty work — slaves, spice, guns, vice. The Rebellion disrupted his slaving operations, so he pivoted to selling weapons to the Rebels instead. Pragmatism over ideology, always.",
+      "wants": "Revenue stability across his Outer Rim sectors. He doesn't care where the credits come from as long as they flow consistently.",
+      "secret": "His arms sales to Alliance Sector Forces are larger than Xizor knows. If the full volume were disclosed, it would look less like opportunism and more like a strategic relationship.",
+      "behavior": {
+        "under_pressure": "Activates alliances with other criminal groups and corporations to create a united front. Lonay fights through coalitions, not solo.",
+        "when_losing": "Shifts revenue streams. Lost slave markets become arms markets. Lost spice routes become vice corridors. He adapts faster than most Vigos.",
+        "loyalty": "Loyal to Black Sun as long as his territory is respected. If Xizor tried to reassign his sectors, Lonay's coalition-building skills would become a defensive weapon.",
+        "tells": "When Lonay starts courting new corporate allies in a sector, he's either expanding or preparing to lose an existing revenue stream and needs replacement income."
+      },
+      "useful_to_players": [
+        "His willingness to sell weapons to the Rebellion makes him an accessible if morally compromised supplier for desperate operations",
+        "His coalition-building approach means he has contacts across criminal organizations that other Vigos don't — he's a network hub",
+        "His pragmatism makes him negotiable — he responds to profit incentives regardless of the buyer's political alignment"
+      ],
+      "hooks": [
+        "Lonay's slave transports are running lighter than usual through the Kessel corridor. Either he's losing supply or he's redirecting cargo — and either way, someone's paying attention.",
+        "A Rebel Sector Force commander was seen meeting with one of Lonay's lieutenants at a neutral waystation. The Alliance officially opposes everything Lonay does, but desperation changes the math."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Perit",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "Mon Calamari, ex-slave and master slicer. Perhaps the most secure position of any Vigo. Prince Xizor delivered him from slavery and employed him directly. Surrounded by nigh-impenetrable electronic security and assassin droids. Master of technological and computerized crime, able to manipulate entire markets via slicing. Commands a veritable army of technologists. Inherited Xizor's own Vigo position when Xizor became Underlord.",
+      "network_assessment": "Perit is untouchable in the conventional sense — assassin droids, electronic countermeasures, and an army of slicers between him and anyone who wants to reach him. He manipulates markets from behind a wall of technology. His weakness is that the wall is also his cage.",
+      "wants": "Technological supremacy in Black Sun's information warfare capabilities. Expansion of slicing operations into new market sectors.",
+      "secret": "Xizor freed him from slavery and gave him his position — that debt creates the deepest loyalty of any Vigo. Perit would die for Xizor, which makes him the Underlord's most reliable weapon.",
+      "behavior": {
+        "under_pressure": "Retreats deeper behind electronic defenses. Activates assassin droids and locks down all physical access while slicing counterattacks from safety.",
+        "when_losing": "Weaponizes his market manipulation capabilities — crashing financial systems, exposing competitor data, and destroying digital infrastructure around the threat.",
+        "loyalty": "Absolutely loyal to Xizor out of genuine gratitude. This is not transactional — Perit was a slave, and Xizor freed him. That bond is personal.",
+        "tells": "When Perit's slicing activity spikes in a specific market sector, someone in that sector is about to lose everything and won't know why."
+      },
+      "useful_to_players": [
+        "His army of technologists can be accessed for hire through Black Sun channels — if you need slicing capability, Perit's people are the best available",
+        "His electronic fortress means physical approaches are futile — any interaction must go through digital channels where he has the advantage",
+        "His loyalty to Xizor is his one emotional vulnerability — threats to the Underlord are the only thing that draws Perit out of his defensive posture"
+      ],
+      "hooks": [
+        "A banking consortium just reported an unexplained three-hour outage in their transaction systems. The losses were minimal but the access demonstrated was total. That's Perit testing capabilities.",
+        "Perit's been recruiting slicers from the Corporate Sector — offering three times the going rate. When he pays premium, he's building capacity for a specific operation."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Sprax",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "",
+      "network_assessment": "Sprax moves cargo everywhere. Core to Rim, legal and illegal, for anyone who pays. His shipping network is Black Sun's circulatory system, and most of the people running it don't know they work for him.",
+      "wants": "Uninterrupted shipping operations across the widest possible galactic range. Revenue through volume — he profits from flow, not scarcity.",
+      "secret": "His weapons and supply sales to the Rebellion are sanctioned by Xizor, which means Black Sun is deliberately investing in the Alliance's survival as a counterweight to the Empire.",
+      "behavior": {
+        "under_pressure": "Reroutes shipping through alternate channels. His network is so distributed that severing one route just redirects traffic to three others.",
+        "when_losing": "Sacrifices compromised syndicates without hesitation — since most don't know they work for Black Sun, their destruction doesn't expose the larger network.",
+        "loyalty": "Loyal to the business model. Sprax is pragmatic to his core — he serves Xizor because the arrangement is profitable, not because of personal devotion.",
+        "tells": "When Sprax increases insurance premiums on a shipping corridor, he has advance intelligence about disruptions in that route — piracy, Imperial patrols, or rival operations."
+      },
+      "useful_to_players": [
+        "His shipping network is the most accessible point of contact with Black Sun's infrastructure — anyone who needs to move cargo encounters his people",
+        "His Rebel supply operations mean he's willing to deal with Alliance-aligned operators, making him the most approachable Vigo for non-criminal contacts",
+        "His compartmentalized structure means you can work for him without exposure to Black Sun proper — useful for plausible deniability"
+      ],
+      "hooks": [
+        "Sprax just picked up three new pirate crews operating along the Corellian Trade Spine. He's absorbing competitors, which means his shipping volume is about to spike.",
+        "A Rebel supply convoy that was running through one of Sprax's corridors went missing last week. If Sprax lost a shipment in his own territory, something in the corridor has changed."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Vekker",
+      "role": "Vigo",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "",
+      "network_assessment": "Vekker runs the casinos and entertainment holdings — the clean face of Black Sun. He's the least ambitious Vigo, which makes him the most stable. Every other Vigo launders credits through his operations.",
+      "wants": "Stability and continued profitability of his entertainment empire. He has no interest in the Underlord position or territorial expansion.",
+      "secret": "Every other Vigo depends on his laundering operations, which gives him structural leverage he never exercises. If he shut down the casinos, Black Sun's financial architecture would seize.",
+      "behavior": {
+        "under_pressure": "Waits. Vekker's patience is his defining characteristic — he outlasts problems rather than confronting them.",
+        "when_losing": "Liquidates compromised entertainment venues and opens replacements in different systems. His business model is reproducible anywhere with a population.",
+        "loyalty": "Loyal to Black Sun as an institution rather than to any individual leader. He served before Xizor and would serve after him.",
+        "tells": "When Vekker opens a new casino in an unusual location, another Vigo has asked him to establish laundering infrastructure there. Follow the casino to find the operation."
+      },
+      "useful_to_players": [
+        "His casinos are neutral ground by convention — Black Sun conducts business there but avoids violence that would attract attention to the venues",
+        "His lack of ambition makes him the safest Vigo to approach — he won't try to recruit, manipulate, or eliminate casual contacts",
+        "His laundering operations mean he has financial intelligence on every other Vigo's revenue — he knows who's skimming and who's struggling"
+      ],
+      "hooks": [
+        "Vekker just opened a high-end casino on a station that used to be an Imperial customs checkpoint. That's a statement about who controls that corridor now.",
+        "Three of Vekker's casino managers were replaced in the same week. For the most stable Vigo in Black Sun, that's an earthquake. Someone's pressuring his operations."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    },
+    {
+      "name": "Wumdi",
+      "role": "Vigo (Corporate Sector)",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "",
+      "network_assessment": "Wumdi runs Corporate Sector operations and skims more than he should. He thinks his position is secure because his bribery networks are extensive. Xizor knows about the skimming. Wumdi doesn't know Xizor knows. That gap has a shelf life.",
+      "wants": "Maximum personal enrichment from Corporate Sector operations. He treats his Vigo position as a personal profit center rather than an organizational trust.",
+      "secret": "His skimming of Black Sun profits is far more extensive than even Xizor's current intelligence suggests — Wumdi has been siphoning funds into personal accounts for years.",
+      "behavior": {
+        "under_pressure": "Throws money at the problem. His first instinct is to bribe his way out of any situation, which works until it doesn't.",
+        "when_losing": "Panics and overreacts. His privileged background didn't prepare him for situations where credits can't buy safety.",
+        "loyalty": "Loyal to his lifestyle. He serves Black Sun because it funds his standard of living, not because of organizational commitment.",
+        "tells": "When Wumdi's spending on personal luxuries increases, he's skimming more aggressively — either because he thinks he can get away with it or because he's building an exit fund."
+      },
+      "useful_to_players": [
+        "His bribery networks in the Corporate Sector are available to anyone who can pay — he'll facilitate access for credits without asking too many questions",
+        "His skimming makes him vulnerable to blackmail if you can document the scope of what he's taking from Black Sun",
+        "His panic response under pressure makes him the weakest Vigo to confront directly — he'll make concessions faster than the others"
+      ],
+      "hooks": [
+        "Wumdi just bought a third luxury estate in the Corporate Sector. His declared revenue doesn't support that lifestyle. The math doesn't add up, and eventually someone with authority will notice.",
+        "A Corporate Sector Authority auditor was found dead after requesting financial records from three of Wumdi's front companies. That's not subtlety — that's desperation."
+      ],
+      "stat_block_ref": "BLACK_SUN_VIGO"
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Darth Vader",
+      "notes": "Prince Xizor holds Vader personally responsible for the orbital bombardment of Falleen. Some rumors indicate a powerful enmity between them.",
+      "source": "EotE Core p.385, AoR Core p.363"
+    },
+    {
+      "name": "Zann Consortium",
+      "notes": "",
+      "source": "EotE Core p.389"
+    },
+    {
+      "name": "Rebel Alliance",
+      "notes": "The Alliance works to systematically shut down Black Sun's slave trading and other operations, though some Vigos (Lonay, Sprax) also sell weapons and supplies to desperate Alliance forces.",
+      "source": "EotE Core p.384-385",
+      "inferred": true,
+      "_inference_note": "The text states the Alliance works to shut down Lonay's operations, but also that some Vigos supply the Rebellion. Classified as enemy based on the Alliance's stated anti-slavery and anti-spice position, though the relationship is complex."
+    }
+  ],
+  "allies": [
+    {
+      "name": "Tenloss Syndicate",
+      "notes": "Tenloss enjoys close ties with Black Sun. Their largest market for disruptors is among Black Sun. The Syndicate is primarily situated in the Bajic Sector.",
+      "source": "EotE Core p.172, p.389; AoR Core p.178"
+    },
+    {
+      "name": "The Emperor / Galactic Empire",
+      "notes": "",
+      "source": "AoR Core p.424, EotE Core p.9"
+    },
+    {
+      "name": "House Tresario (Bounty Hunters Guild)",
+      "notes": "The highly Imperial-connected bounty hunting guild is among Vigo Clezo's holdings.",
+      "source": "EotE Core p.384"
+    }
+  ],
+  "ally_factions": [
+    "bounty_hunters_guild"
+  ],
+  "enemy_factions": [
+    "zann_consortium",
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "zann_consortium": "Xizor has made overtures toward cooperation, but both sides almost certainly plan to betray and cripple the other. Any relationship grows slowly at best.",
+    "rebel_alliance": "Complex and contradictory — the Alliance opposes Black Sun's slavery and criminal operations, but Vigos Lonay and Sprax sell weapons and supplies to desperate Rebel Sector Forces, apparently with Xizor's blessing.",
+    "imperial_military": "The Emperor has connections with Black Sun. The relationship is pragmatic but unstable — Xizor's personal vendetta against Vader could collapse it at any time.",
+    "hutt_cartel": "Vigo Durga serves as the bridge between Black Sun and the Hutts. Jabba has kept Black Sun out of his business through concessions and favors. The Hutts respect Black Sun but maintain absolute hold over their own sectors.",
+    "bounty_hunters_guild": "Vigo Clezo's holdings include House Tresario and other bounty hunting groups. Black Sun uses guild resources for enforcement and target elimination."
+  },
+  "regional_presence": {
+    "deep_core": "minimal",
+    "core_worlds": "significant",
+    "colonies": "moderate",
+    "inner_rim": "moderate",
+    "expansion_region": "moderate",
+    "mid_rim": "significant",
+    "outer_rim": "significant",
+    "hutt_space": "moderate",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "regional_presence_legacy": [
+    {
+      "region": "Core Worlds",
+      "strength": "strong",
+      "notes": "Vigo Green runs racketeering, extortion, and blackmail operations. Black Sun was founded on Coruscant and reaches to the capital world of Imperial Center."
+    },
+    {
+      "region": "Outer Rim Territories",
+      "strength": "strong",
+      "notes": "Vigo Lonay controls several sectors — slave trading, spice smuggling, gun-running, vice crimes. Vigo Sprax's shipping operations extend here as well."
+    },
+    {
+      "region": "Corporate Sector",
+      "strength": "strong",
+      "notes": "Vigo Wumdi exploits the Corporate Sector Authority with bribed officials, spies, droids, and specialists across vice crimes, smuggling, corporate espionage, and revenue slicing."
+    },
+    {
+      "region": "Hutt Space / Nar Shaddaa",
+      "strength": "moderate",
+      "notes": "Vigo Durga exploits transport and smuggling around Nar Shaddaa and controls the Klatooinian Trade Guild. The Hutts respect Black Sun but maintain absolute hold over their own sectors. Jabba has kept Black Sun out of his business through concessions and favors.",
+      "source": "EotE Core p.384, p.387"
+    },
+    {
+      "region": "Galaxy-wide shipping lanes",
+      "strength": "strong",
+      "notes": "Vigo Sprax's shipping empire and Xizor Transport Systems ensure Black Sun can reach anywhere in the galaxy."
+    },
+    {
+      "region": "Kessel",
+      "strength": "weak",
+      "notes": "Black Sun Vigos have been imprisoned on Kessel's moon by the Empire. The Empire controls glitterstim trade there.",
+      "source": "EotE Core p.368"
+    }
+  ],
+  "source_material_notes": "The Edge of the Empire Core Rulebook (pages 383-386) is the primary source with a dedicated Black Sun section. Age of Rebellion Core Rulebook provides supplementary references. No Disintegrations (Bounty Hunter sourcebook) covers Black Sun's relationship with bounty hunting operations. Dawn of Rebellion provides additional era context.",
+  "field_sources": {
+    "motivations": "Edge of the Empire Core Rulebook, pp.383-386, Black Sun section",
+    "goals": "Edge of the Empire Core Rulebook, pp.375-378, organizational structure and Vigo operations",
+    "methods": "Edge of the Empire Core Rulebook, pp.375-378, compartmentalization and Xizor Transport Systems",
+    "strengths": "Edge of the Empire Core Rulebook, pp.375-378, organizational age, scale, and Xizor's resources",
+    "weaknesses": "Edge of the Empire Core Rulebook, pp.375-376, Vigo ambition and internal competition; AoR Core p.363, Xizor/Vader vendetta",
+    "behavior_under_threat": "Inferred from Black Sun operational methods and compartmentalization described in EotE Core pp.383-386",
+    "tension_patterns": "Inferred from Vigo territorial conflicts, compartmentalization failures, and dual-allegiance operations in EotE Core pp.383-386",
+    "regional_presence": "Edge of the Empire Core Rulebook, pp.375-379, Vigo territories and shipping lanes; p.368, Kessel",
+    "mcguffin_interest": "Inferred from Vigo specializations (corporate espionage, slicing, smuggling) described in EotE Core pp.384-386"
+  }
+}

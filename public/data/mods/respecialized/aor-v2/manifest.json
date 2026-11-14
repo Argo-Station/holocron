@@ -1,0 +1,23 @@
+{
+  "mod": "respecialized",
+  "version": "aor-v2",
+  "line": "aor",
+  "attribution": "reSpecialized Project (community). Rebuilds specialization trees; consumed with credit.",
+  "dataset_version": "tagged release 6Aug2026 1637 (reSpecialized Project)",
+  "retrieved": "2026-08-25",
+  "consumption_note": "AoR v2 slice, consumed from the tagged release for NEW characters (ruling f100-m6-contracts R-M6K-25; f100-m6-pack R-M6G-17). It carries the release's own text where aor-v1 deferred to eote-v1. aor-v1 stays on every character already stamped with it; a sheet folds the packs of one offered set (R-M6K-26).",
+  "counts": {
+    "specs": 51,
+    "added_specs": 16,
+    "overlay_talents": 334
+  },
+  "base_talents_reused": 192,
+  "label": "reSpecialized — Age of Rebellion",
+  "group": "Community",
+  "kind": "variant",
+  "counts_basis": "rewrites = specs - added_specs (a tree the overlay carries that the base already had) · adds = added_specs · talents = overlay_talents - base_talents_reused (the remainder are the base’s own talents reused inside rewritten trees, and are not this mod’s to claim)",
+  "overlays": [
+    "careers",
+    "signature_abilities"
+  ]
+}

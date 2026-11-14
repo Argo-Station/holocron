@@ -1,0 +1,81 @@
+# The dataset release. A pushed tag `dataset-v<version>` publishes the release; a manual run makes it as a draft or
+# not, at the commit it runs on. The version is package.json's, so the dataset and the app share one number, and a
+# tag that names another version fails. The zip is made by `git archive` twice; the two digests must match.
+name: dataset-release
+
+on:
+  push:
+    tags: ['dataset-v*']
+  workflow_dispatch:
+    inputs:
+      draft:
+        description: 'true makes a draft release; false publishes it'
+        required: true
+        type: choice
+        options: ['true', 'false']
+
+permissions: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1   # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Version and tag
+        id: v
+        env:
+          DRAFT_INPUT: ${{ inputs.draft }}
+        run: |
+          set -euo pipefail
+          version="$(node -p "require('./package.json').version")"
+          tag="dataset-v${version}"
+          if [ "${GITHUB_EVENT_NAME}" = "push" ] && [ "${GITHUB_REF_NAME}" != "${tag}" ]; then
+            echo "the tag ${GITHUB_REF_NAME} does not name package.json's version ${version}" >&2
+            exit 1
+          fi
+          draft="false"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then draft="${DRAFT_INPUT}"; fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "draft=${draft}" >> "$GITHUB_OUTPUT"
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: The zip, twice, and SHA256SUMS
+        env:
+          VERSION: ${{ steps.v.outputs.version }}
+          COMMIT: ${{ steps.v.outputs.commit }}
+        run: |
+          set -euo pipefail
+          name="holocron-dataset-${VERSION}"
+          mkdir -p out again
+          git archive --format=zip --prefix="${name}/" -o "out/${name}.zip" "${COMMIT}" -- public/data schema dataset
+          git archive --format=zip --prefix="${name}/" -o "again/${name}.zip" "${COMMIT}" -- public/data schema dataset
+          a="$(sha256sum "out/${name}.zip" | cut -d' ' -f1)"
+          b="$(sha256sum "again/${name}.zip" | cut -d' ' -f1)"
+          if [ "${a}" != "${b}" ]; then echo "the two archives differ: ${a} ${b}" >&2; exit 1; fi
+          (cd out && sha256sum "${name}.zip" > SHA256SUMS)
+          cat out/SHA256SUMS
+          sed "s/{version}/${VERSION}/g" dataset/RELEASE_NOTES.md > out/notes.md
+
+      - name: The release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.v.outputs.version }}
+          TAG: ${{ steps.v.outputs.tag }}
+          DRAFT: ${{ steps.v.outputs.draft }}
+          COMMIT: ${{ steps.v.outputs.commit }}
+        run: |
+          set -euo pipefail
+          flag=""
+          if [ "${DRAFT}" = "true" ]; then flag="--draft"; fi
+          gh release create "${TAG}" --repo "${GITHUB_REPOSITORY}" --target "${COMMIT}" ${flag} \
+            --title "Dataset ${VERSION}" --notes-file out/notes.md \
+            "out/holocron-dataset-${VERSION}.zip" out/SHA256SUMS
+          gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" --json tagName,isDraft,author,assets \
+            --jq '{tag: .tagName, draft: .isDraft, author: .author.login, assets: [.assets[] | {name, size, digest}]}'

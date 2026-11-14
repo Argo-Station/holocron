@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "cite": "AoR Core pp.246–248; Stay on Target pp.72–73",
+  "roles": [
+    {
+      "id": "pilot",
+      "label": "PILOT",
+      "line": "The pilot’s maneuvers and Gain the Advantage.",
+      "actions": [
+        "accelerate-decelerate",
+        "fly-drive",
+        "evasive-maneuvers",
+        "stay-on-target",
+        "punch-it",
+        "gain-the-advantage"
+      ],
+      "ogg_keys": [
+        "PILOT"
+      ]
+    },
+    {
+      "id": "copilot",
+      "label": "CO-PILOT",
+      "line": "Helps the pilot; takes the helm when needed.",
+      "actions": [
+        "additional-ship-vehicle-actions"
+      ],
+      "ogg_keys": [
+        "COPILOT"
+      ]
+    },
+    {
+      "id": "gunner",
+      "label": "GUNNER",
+      "line": "Fires a mount; each weapon fires once a round.",
+      "actions": [],
+      "ogg_keys": [
+        "FIRECTL",
+        "GUN"
+      ]
+    },
+    {
+      "id": "engineer",
+      "label": "ENGINEER",
+      "line": "Damage Control, and keeping the shields up.",
+      "actions": [
+        "damage-control"
+      ],
+      "ogg_keys": [
+        "ENGINE"
+      ]
+    },
+    {
+      "id": "astrogator",
+      "label": "ASTROGATOR",
+      "line": "Plots the jumps.",
+      "actions": [],
+      "ogg_keys": [
+        "NAV"
+      ]
+    },
+    {
+      "id": "sensors",
+      "label": "SENSORS AND COMMS",
+      "line": "Scans, jams and slices.",
+      "actions": [],
+      "ogg_keys": [
+        "COMM",
+        "ORD"
+      ]
+    },
+    {
+      "id": "commander",
+      "label": "COMMANDER",
+      "line": "Keeps the crew acting together.",
+      "actions": [],
+      "ogg_keys": [
+        "TACT"
+      ]
+    },
+    {
+      "id": "crew",
+      "label": "CREW",
+      "line": "Hands aboard: guards, droids, anyone helping.",
+      "actions": [],
+      "ogg_keys": []
+    }
+  ]
+}

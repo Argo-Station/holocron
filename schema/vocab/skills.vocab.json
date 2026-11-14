@@ -1,0 +1,582 @@
+{
+  "schema_version": 1,
+  "vocabulary": "skills",
+  "_doc": "Canonical skill vocabulary. INGEST (forward): normalize an OggDude SkillKey or any display-name alias (lowercase + collapse non-alphanumerics) and match to `id`. RENDER (backward): id -> label. `group` is the FFG skill category. Seeded from SWItems.SKILL_KEY_TO_NAME; OggDude raw.skills.items is the authority (it carries a couple not in this static map) — reconcile and add them at ingest. Aliases capture the four spellings seen in the wild: key, paren ('Ranged (Light)'), dash ('Ranged - Light'), colon ('Ranged: Heavy'); Knowledge skills also carry their un-stripped 'Knowledge ...' forms.",
+  "entries": [
+    {
+      "id": "astrogation",
+      "label": "Astrogation",
+      "group": "general",
+      "aliases": [
+        "ASTRO",
+        "Astrogation"
+      ],
+      "characteristic": "intellect",
+      "description": "Plotting courses through hyperspace.",
+      "cite": "Edge of the Empire Core Rulebook p.104",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "athletics",
+      "label": "Athletics",
+      "group": "general",
+      "aliases": [
+        "ATHL",
+        "Athletics"
+      ],
+      "characteristic": "brawn",
+      "description": "Raw physical ability: running, jumping, climbing, swimming.",
+      "cite": "Edge of the Empire Core Rulebook p.105",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "brawl",
+      "label": "Brawl",
+      "group": "combat",
+      "aliases": [
+        "BRAWL",
+        "Brawl"
+      ],
+      "characteristic": "brawn",
+      "description": "Fighting with your fists, claws, or any natural weapon.",
+      "cite": "Edge of the Empire Core Rulebook p.120",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "charm",
+      "label": "Charm",
+      "group": "social",
+      "aliases": [
+        "CHARM",
+        "Charm"
+      ],
+      "characteristic": "presence",
+      "description": "Winning people over through warmth, likability, and persuasion.",
+      "cite": "Edge of the Empire Core Rulebook p.105",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "coercion",
+      "label": "Coercion",
+      "group": "social",
+      "aliases": [
+        "COERC",
+        "Coercion"
+      ],
+      "characteristic": "willpower",
+      "description": "Intimidation and threats.",
+      "cite": "Edge of the Empire Core Rulebook p.106",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "computers",
+      "label": "Computers",
+      "group": "general",
+      "aliases": [
+        "COMP",
+        "Computers"
+      ],
+      "characteristic": "intellect",
+      "description": "Slicing into computer systems, bypassing security, retrieving data.",
+      "cite": "Edge of the Empire Core Rulebook p.107",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "cool",
+      "label": "Cool",
+      "group": "general",
+      "aliases": [
+        "COOL",
+        "Cool"
+      ],
+      "characteristic": "presence",
+      "description": "Staying calm under pressure. Rolls initiative when you saw trouble coming.",
+      "cite": "Edge of the Empire Core Rulebook p.108",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "coordination",
+      "label": "Coordination",
+      "group": "general",
+      "aliases": [
+        "COORD",
+        "Coordination"
+      ],
+      "characteristic": "agility",
+      "description": "Balance, acrobatics, and fine motor control.",
+      "cite": "Edge of the Empire Core Rulebook p.109",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "core_worlds",
+      "label": "Core Worlds",
+      "group": "knowledge",
+      "aliases": [
+        "Core Worlds",
+        "KNOWCORE",
+        "Knowledge (Core Worlds)",
+        "Knowledge - Core Worlds",
+        "Knowledge: Core Worlds",
+        "CORE"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of the galaxy's wealthy, civilized center: politics, culture, geography, and institutions of the Core Worlds and Colonies.",
+      "cite": "Edge of the Empire Core Rulebook p.123",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "deception",
+      "label": "Deception",
+      "group": "social",
+      "aliases": [
+        "DECEP",
+        "Deception"
+      ],
+      "characteristic": "cunning",
+      "description": "Lying convincingly. Covers everything from small bluffs to elaborate cons.",
+      "cite": "Edge of the Empire Core Rulebook p.109",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "discipline",
+      "label": "Discipline",
+      "group": "general",
+      "aliases": [
+        "DISC",
+        "Discipline"
+      ],
+      "characteristic": "willpower",
+      "description": "Mental fortitude and focus. Resisting fear, staying focused through pain.",
+      "cite": "Edge of the Empire Core Rulebook p.103",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "group": "knowledge",
+      "aliases": [
+        "Education",
+        "KNOWED",
+        "Knowledge (Education)",
+        "Knowledge - Education",
+        "Knowledge: Education",
+        "EDU"
+      ],
+      "characteristic": "intellect",
+      "description": "Broad academic knowledge: science, history, literature, general education.",
+      "cite": "Edge of the Empire Core Rulebook p.123",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "gunnery",
+      "label": "Gunnery",
+      "group": "combat",
+      "aliases": [
+        "GUNN",
+        "Gunnery"
+      ],
+      "characteristic": "agility",
+      "description": "Operating vehicle-mounted weapons: turbolasers, ion cannons, missile launchers.",
+      "cite": "Edge of the Empire Core Rulebook p.120",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "leadership",
+      "label": "Leadership",
+      "group": "social",
+      "aliases": [
+        "LEAD",
+        "Leadership"
+      ],
+      "characteristic": "presence",
+      "description": "Inspiring and directing others. Rallying allies, coordinating group efforts.",
+      "cite": "Edge of the Empire Core Rulebook p.111",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "lightsaber",
+      "label": "Lightsaber",
+      "group": "combat",
+      "aliases": [
+        "LTSAB",
+        "Lightsaber",
+        "LTSABER"
+      ],
+      "characteristic": "brawn",
+      "description": "Fighting with a lightsaber. Covers all forms and techniques.",
+      "cite": "Force and Destiny Core Rulebook p.138",
+      "sources": [
+        "fad"
+      ],
+      "cite_note": "INDIRECT — the printed Ataru Technique text (\"may use Agility instead of Brawn\") confirms Brawn as the default link; the F&D skills-chapter header itself was not in the retrieved pages"
+    },
+    {
+      "id": "lore",
+      "label": "Lore",
+      "group": "knowledge",
+      "aliases": [
+        "KNOWLORE",
+        "Knowledge (Lore)",
+        "Knowledge - Lore",
+        "Knowledge: Lore",
+        "Lore",
+        "LORE"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of ancient history, the Force, Jedi and Sith traditions.",
+      "cite": "Edge of the Empire Core Rulebook p.123",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "mechanics",
+      "label": "Mechanics",
+      "group": "general",
+      "aliases": [
+        "MECH",
+        "Mechanics"
+      ],
+      "characteristic": "intellect",
+      "description": "Repairing and modifying machines: ships, droids, weapons, vehicles.",
+      "cite": "Edge of the Empire Core Rulebook p.111",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "medicine",
+      "label": "Medicine",
+      "group": "general",
+      "aliases": [
+        "MED",
+        "Medicine"
+      ],
+      "characteristic": "intellect",
+      "description": "Treating injuries, curing diseases, and performing surgery.",
+      "cite": "Edge of the Empire Core Rulebook p.112",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "melee",
+      "label": "Melee",
+      "group": "combat",
+      "aliases": [
+        "MELEE",
+        "Melee"
+      ],
+      "characteristic": "brawn",
+      "description": "Fighting with handheld weapons: vibroswords, electrostaffs, force pikes.",
+      "cite": "Edge of the Empire Core Rulebook p.121",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "negotiation",
+      "label": "Negotiation",
+      "group": "social",
+      "aliases": [
+        "NEGOT",
+        "Negotiation",
+        "NEG"
+      ],
+      "characteristic": "presence",
+      "description": "Haggling, deal-making, and formal bargaining.",
+      "cite": "Edge of the Empire Core Rulebook p.113",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "outer_rim",
+      "label": "Outer Rim",
+      "group": "knowledge",
+      "aliases": [
+        "KNOWOUT",
+        "Knowledge (Outer Rim)",
+        "Knowledge - Outer Rim",
+        "Knowledge: Outer Rim",
+        "Outer Rim",
+        "OUT"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of the Outer Rim: smuggling routes, frontier worlds, criminal organizations.",
+      "cite": "Edge of the Empire Core Rulebook p.124",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception",
+      "group": "general",
+      "aliases": [
+        "PERCEP",
+        "Perception",
+        "PERC"
+      ],
+      "characteristic": "cunning",
+      "description": "Noticing things. Spotting hidden enemies, finding clues, reading body language.",
+      "cite": "Edge of the Empire Core Rulebook p.114",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "piloting_planetary",
+      "label": "Piloting (Planetary)",
+      "group": "general",
+      "aliases": [
+        "PILPLAN",
+        "Piloting (Planetary)",
+        "Piloting - Planetary",
+        "Piloting: Planetary",
+        "PILOTPL"
+      ],
+      "characteristic": "agility",
+      "description": "Flying atmospheric vehicles: speeders, airspeeders, walkers.",
+      "cite": "Edge of the Empire Core Rulebook p.115",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "piloting_space",
+      "label": "Piloting (Space)",
+      "group": "general",
+      "aliases": [
+        "PILSP",
+        "Piloting (Space)",
+        "Piloting - Space",
+        "Piloting: Space",
+        "PILOTSP"
+      ],
+      "characteristic": "agility",
+      "description": "Flying starships through space: freighters, fighters, cruisers.",
+      "cite": "Edge of the Empire Core Rulebook p.116",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ranged_heavy",
+      "label": "Ranged (Heavy)",
+      "group": "combat",
+      "aliases": [
+        "RANGHVY",
+        "Ranged (Heavy)",
+        "Ranged - Heavy",
+        "Ranged: Heavy"
+      ],
+      "characteristic": "agility",
+      "description": "Shooting heavy ranged weapons: blaster rifles, bowcasters, heavy repeaters.",
+      "cite": "Edge of the Empire Core Rulebook p.121",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ranged_light",
+      "label": "Ranged (Light)",
+      "group": "combat",
+      "aliases": [
+        "RANGLT",
+        "Ranged (Light)",
+        "Ranged - Light",
+        "Ranged: Light"
+      ],
+      "characteristic": "agility",
+      "description": "Shooting light ranged weapons: blaster pistols, holdout blasters, thrown weapons.",
+      "cite": "Edge of the Empire Core Rulebook p.122",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "resilience",
+      "label": "Resilience",
+      "group": "general",
+      "aliases": [
+        "RESIL",
+        "Resilience"
+      ],
+      "characteristic": "brawn",
+      "description": "Physical toughness and endurance. Resisting poisons, surviving harsh environments.",
+      "cite": "Edge of the Empire Core Rulebook p.116",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "skulduggery",
+      "label": "Skulduggery",
+      "group": "general",
+      "aliases": [
+        "SKULL",
+        "Skulduggery",
+        "SKUL"
+      ],
+      "characteristic": "cunning",
+      "description": "Picking locks, picking pockets, setting traps, and other criminal trade skills.",
+      "cite": "Edge of the Empire Core Rulebook p.116",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "stealth",
+      "label": "Stealth",
+      "group": "general",
+      "aliases": [
+        "STEAL",
+        "Stealth"
+      ],
+      "characteristic": "agility",
+      "description": "Moving unseen and unheard. Sneaking past guards, hiding in shadows.",
+      "cite": "Edge of the Empire Core Rulebook p.117",
+      "sources": [
+        "eote"
+      ],
+      "cite_note": "header OCR-truncated to \"STEALTH (AGI\"; completion verified by inspection of the page text"
+    },
+    {
+      "id": "streetwise",
+      "label": "Streetwise",
+      "group": "general",
+      "aliases": [
+        "STREET",
+        "Streetwise",
+        "SW"
+      ],
+      "characteristic": "cunning",
+      "description": "Knowing how the streets work. Finding black markets.",
+      "cite": "Edge of the Empire Core Rulebook p.118",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "group": "general",
+      "aliases": [
+        "SURV",
+        "Survival"
+      ],
+      "characteristic": "cunning",
+      "description": "Living off the land: tracking, foraging, navigating wilderness, and handling animals.",
+      "cite": "Edge of the Empire Core Rulebook p.119",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "underworld",
+      "label": "Underworld",
+      "group": "knowledge",
+      "aliases": [
+        "KNOWUND",
+        "Knowledge (Underworld)",
+        "Knowledge - Underworld",
+        "Knowledge: Underworld",
+        "Underworld",
+        "UND"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of criminal organizations, smuggling networks, and illegal trade.",
+      "cite": "Edge of the Empire Core Rulebook p.124",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "vigilance",
+      "label": "Vigilance",
+      "group": "general",
+      "aliases": [
+        "VIGIL",
+        "Vigilance"
+      ],
+      "characteristic": "willpower",
+      "description": "Alertness and readiness. Determines who acts first in combat.",
+      "cite": "Edge of the Empire Core Rulebook p.119",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "warfare",
+      "label": "Warfare",
+      "group": "knowledge",
+      "aliases": [
+        "KNOWWARF",
+        "Knowledge (Warfare)",
+        "Knowledge - Warfare",
+        "Knowledge: Warfare",
+        "Warfare",
+        "WARF"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of military tactics, strategy, unit organization, and battlefield operations.",
+      "cite": "Age of Rebellion Core Rulebook p.136",
+      "sources": [
+        "aor"
+      ],
+      "cite_note": "prose header \"WARFARE (INTELLECT)\", read and verified by the architect seat at the blob-retirement-1 ruling (upgraded from the qualified uniformity citation)"
+    },
+    {
+      "id": "xenology",
+      "label": "Xenology",
+      "group": "knowledge",
+      "aliases": [
+        "KNOWXENO",
+        "Knowledge (Xenology)",
+        "Knowledge - Xenology",
+        "Knowledge: Xenology",
+        "Xenology",
+        "XEN"
+      ],
+      "characteristic": "intellect",
+      "description": "Knowledge of alien species: their cultures, biology, customs, and languages.",
+      "cite": "Edge of the Empire Core Rulebook p.125",
+      "sources": [
+        "eote"
+      ]
+    }
+  ],
+  "_meta": {
+    "characteristic": "Each skill's linked characteristic (canonical id, characteristics.vocab.json) — blob-retirement D-BR1: mapped from the source CharKey under a triple-source 0-deviation check (source blob == gm SKILL_CHAR_MAP == this field) plus rules-oracle citations on file (Docs/RULES_FOUNDATION_SKILLS.md).",
+    "cybernetics_exclusion": "The source's 36th skill (CYBERNETICS, Source: 'User Data') is deliberately EXCLUDED — community content, not RAW (D-BR1 condition 3, ruled blob-retirement-recon; re-open path: a ruled product decision)."
+  }
+}

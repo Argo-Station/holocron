@@ -1,0 +1,1011 @@
+{
+  "id": "jedha",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Jedha",
+    "type": "moon",
+    "parent_body": "NaJedha",
+    "region": "Mid Rim",
+    "sector": "Mid Rim region",
+    "system": "NaJedha",
+    "grid": "H-10",
+    "era": "galactic_civil_war",
+    "essence": "Jedha is the galaxy's spiritual heart turned occupied wound. A frozen desert moon where lightsaber-wielding colossi lie half-buried in the sand and pilgrims of a hundred faiths once sought enlightenment among primordial ruins. Now Imperial stormtroopers patrol every quarter of the ancient Holy City, assault tanks rumble through its narrow streets hauling kyber crystals to cargo shuttles, and the faithful who remain live under the boots of soldiers who neither understand nor respect what they guard. The Empire came for the crystals and stayed to crush the spirit. In the Catacombs of Cadera, Saw Gerrera's partisans wage a brutal insurgency that alienates even the nascent Rebel Alliance. Between the occupiers and the extremists, ordinary Jedhans — monks, orphans, refugees, and pilgrims — endure.",
+    "atmosphere": "Biting cold wind off the desert carrying fine sand that stings exposed skin. The mesa of Jedha City rising from the wasteland, its ancient towers and temple spires silhouetted against a pale sky. The massive spiked tower of the Temple of the Kyber dominating the skyline. Narrow streets packed with robed pilgrims moving at a deliberate, unhurried pace. The white armor of stormtrooper patrols cutting through the crowds. The grinding treads of TX-225 assault tanks transporting kyber crystal shipments down crowded thoroughfares. Cargo shuttles a constant sight overhead. The smell of Qatemeric incense burning from the staffs of red-robed Disciples of the Whills. Skulls lining the catacomb walls beneath the city, thousands of generations of monks watching with empty eyes. Fallen statues of lightsaber-wielding figures half-submerged in desert sand, ancient beyond reckoning.",
+    "reputation": "A holy moon, perhaps the holiest place in the galaxy. Some scholars believe the word 'Jedi' derives from Jedha's name, though others contend it is the other way around. Pilgrims of dozens of faiths consider a journey here essential for spiritual development. The faithful speak of Jedha with reverence; the Empire speaks of it as a resource extraction site with a troublesome population. Smugglers know it as a difficult destination with circuitous hyperspace routes and tight Imperial security, but one where desperate refugees pay well for passage. Everyone knows the Empire wants the kyber crystals. Nobody outside the highest Imperial circles knows why."
+  },
+  "compendium": {
+    "background": "",
+    "government": "Imperial Protectorate",
+    "population": "",
+    "languages": "Basic",
+    "terrain": "desert mesas, sand dunes, mountains",
+    "major_cities": "Jedha City (NiJedha)",
+    "areas_of_interest": "",
+    "exports": "kyber crystals",
+    "imports": "Foodstuffs, water, medicine, pilgrims",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 1,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "old_republic",
+      "delta": "Jedha was a thriving center of Force worship and pilgrimage. The Jedi Order may have built its first temple here. Adepts of many Force traditions dwelt on the moon for tens of thousands of years. The gigantic statues of lightsaber-wielding figures stood upright. Kyber crystals were freely available and held purely spiritual significance. The Guardians of the Whills protected the Temple of the Kyber for countless millennia."
+    },
+    {
+      "era": "post_empire",
+      "delta": ""
+    }
+  ],
+  "geography": {
+    "structure_type": "frozen_desert_mesa",
+    "structure_notes": "A cold, barren desert moon of sandy dunes, dusty mesas, and mountains. The environment has limited ability to feed its permanent population. Most documented population is concentrated in Jedha City atop its tall mesa. Outside the city are desert wastelands with small outposts used by smugglers, pilgrims, and crystal hunters. Primordial ruins and gigantic fallen statues are scattered across the landscape.",
+    "districts": [
+      {
+        "id": "jedha_city",
+        "name": "Jedha City (NiJedha)",
+        "character": "",
+        "authority": "Imperial Military Garrison (occupying force)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "economic",
+          "religious"
+        ],
+        "notes": "Stormtroopers patrol every quarter. TX-225 assault tanks transport kyber crystal shipments through crowded streets to cargo shuttles. Everyone visits the city at some point; even isolated faithful must replenish supplies here. A subset of the population exploits religious pilgrims through black markets dealing in faked artifacts, trinkets, and forgeries."
+      },
+      {
+        "id": "holy_quarter",
+        "name": "Holy Quarter",
+        "character": "The bustling spiritual and commercial heart of Jedha City where pilgrims visit temples, purchase relics, and seek guidance from monks of dozens of sects. Crowded with robed pilgrims traveling at a deliberate pace between sacred sites.",
+        "authority": "Various religious sects (traditional), Imperial patrols (current)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "religious",
+          "informational"
+        ],
+        "notes": "Many pilgrims who believe they have purchased sacred objects here have instead acquired cheap forgeries. Black market operations thrive behind the veneer of spirituality. Imperial security is heavy but the density of robed, masked pilgrims makes surveillance difficult."
+      },
+      {
+        "id": "catacombs_of_cadera",
+        "name": "Catacombs of Cadera",
+        "character": "",
+        "authority": "Saw Gerrera's Partisans (de facto)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "military",
+          "hidden"
+        ],
+        "notes": "The partisans maintain a notorious prison nicknamed 'the Gut' and use horrid creatures to torture captured prisoners for information. Saw's extreme tactics have caused his separation from other resistance cells unifying into the Alliance. Mon Mothma is eager to see this resolved."
+      },
+      {
+        "id": "desert_wastelands",
+        "name": "Desert Wastelands",
+        "character": "Frozen desert expanses of sand dunes, mesas, and mountains beyond Jedha City. Small outposts scattered across the surface where smugglers, pilgrims, and crystal hunters search for kyber crystals and relics of Jedha's past. Primordial ruins and gigantic fallen statues of lightsaber-wielding figures dot the landscape.",
+        "authority": "None (lawless)",
+        "crime_index": "variable",
+        "strategic_value": [
+          "exploration",
+          "hidden"
+        ],
+        "notes": "Imperial patrols focus on the city and mining operations. The wastelands offer isolation for those seeking it — whether for spiritual contemplation or evading the Empire. Ancient ruins may contain undiscovered artifacts or insights."
+      },
+      {
+        "id": "kyber_mines",
+        "name": "Imperial Kyber Mining Operations",
+        "character": "Major Imperial mining installations extracting kyber crystals from Jedha's crust. Heavily guarded facilities processing and preparing crystal shipments for transport off-world to Eadu for refinement, ultimately supplying the Death Star's superlaser.",
+        "authority": "Imperial Military (direct control)",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "The true purpose of the mining — supplying the Death Star's superlaser — is unknown to anyone on Jedha. Even cargo pilots do not know the final destination. Crystal shipments travel from mines to Jedha City by assault tank, then to cargo shuttles, then off-world. The connection between kyber crystals and the Jedi has inflamed resistance among the faithful."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "",
+      "districts": [
+        "jedha_city",
+        "holy_quarter",
+        "desert_wastelands"
+      ]
+    },
+    {
+      "name": "Various alien species",
+      "population_level": "minority",
+      "social_role": "",
+      "districts": [
+        "jedha_city",
+        "holy_quarter"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_garrison_jedha",
+      "name": "Imperial Military Garrison",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Securing kyber crystal output for the Death Star's superlaser (classified — known only to highest Imperial command). Containing the spread of Force-related religious beliefs. Suppressing the growing insurgency. Controlling access to and from the moon.",
+      "assets": [
+        "Stormtrooper garrison throughout Jedha City",
+        "TX-225 GAVw assault tanks for crystal transport and urban control",
+        "Fleet of cargo shuttles for off-world crystal shipment",
+        "Kyber crystal mining installations",
+        "Controlled spaceport outside the mesa with licensed ferry pilots",
+        "Imperial propaganda apparatus downplaying spiritualism"
+      ],
+      "relationships": [
+        {
+          "faction_id": "gerreras_partisans",
+          "type": "adversarial",
+          "notes": "Open armed conflict. The partisans wage a guerrilla insurgency from the Catacombs of Cadera. Imperial forces respond with escalating brutality, creating more resentment and more recruits for the insurgency."
+        },
+        {
+          "faction_id": "disciples_of_the_whills",
+          "type": "hostile_occupation",
+          "notes": "The Empire occupies the Temple of the Kyber and restricts Disciple activities. The Guardians of the Whills have been largely dispersed. The Empire views the religious orders as a nuisance but tolerates them to the extent they do not interfere with mining operations."
+        },
+        {
+          "faction_id": "civilian_population",
+          "type": "oppressive",
+          "notes": "Imperial oversight has bred strong resentment. Peaceful pilgrims must contend with a provocative military presence. Moderate protests have transformed into flagrant insurrection. Some wounded civilians become the Decraniated — fitted with programmable neural interfaces by fugitive surgeons, living out their lives as droid-like menials."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Kyber crystals. The Empire's entire presence on Jedha exists to feed the Tarkin Initiative's weapons program. Crystal shipments are the operational priority above all else."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence on partisan operations, resistance cell locations, smuggling routes used to export crystals off-world without Imperial authorization. ISB-generated suspect lists for Church of the Force members."
+        },
+        {
+          "type": "person",
+          "reason": "Saw Gerrera and his lieutenants. Church of the Force members (bounty hunters work from ISB suspect lists). Anyone smuggling kyber crystals."
+        }
+      ]
+    },
+    {
+      "id": "gerreras_partisans",
+      "name": "Saw Gerrera's Partisans",
+      "galaxy_faction_ref": null,
+      "type": "insurgent",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "",
+      "assets": [
+        "Catacombs of Cadera (fortified headquarters near Jedha City)",
+        "'The Gut' — prison facility within the catacombs",
+        "Torture creatures for interrogation",
+        "Intelligence network — information on Geonosis and Imperial activities",
+        "Guerrilla fighters experienced in urban insurgency"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "type": "adversarial",
+          "notes": "Open guerrilla warfare. Ambushes, sabotage, kidnapping of Imperial personnel for interrogation."
+        },
+        {
+          "faction_id": "civilian_population",
+          "type": "controversial",
+          "notes": "Gerrera's extreme tactics — including targeting civilians — alienate much of the population even as they share the goal of liberation. The partisans are feared as well as admired."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on Imperial operations, crystal shipment schedules, garrison strength and rotation. Information about Geonosis and the Empire's classified weapons program."
+        },
+        {
+          "type": "resource",
+          "reason": "Weapons, explosives, medical supplies. The partisans operate on captured and smuggled materiel."
+        },
+        {
+          "type": "person",
+          "reason": "Imperial officers and personnel captured for interrogation. Potential recruits from the civilian population and arriving pilgrims."
+        }
+      ]
+    },
+    {
+      "id": "disciples_of_the_whills",
+      "name": "Disciples of the Whills",
+      "galaxy_faction_ref": null,
+      "type": "religious",
+      "control_type": [
+        "cultural"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "criminal": "low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Preservation of faith and charitable service under occupation. Maintaining the Temple of the Kyber. Caring for orphans and the needy. Philosophical discourse with pilgrims. Enduring the Imperial presence through spiritual resilience.",
+      "assets": [
+        "Temple of the Kyber — one of the oldest and most sacred temples in the galaxy",
+        "Orphanage near the Temple",
+        "Network of monks and followers across Jedha City",
+        "Moral authority among the faithful population"
+      ],
+      "relationships": [
+        {
+          "faction_id": "guardians_of_the_whills",
+          "type": "allied",
+          "notes": "The Guardians have sworn to protect the Temple for countless millennia. Some believe them linked to the Jedi. With the Empire's control of the Temple, many Guardians have left for other sects, but a few remain."
+        },
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "type": "adversarial_passive",
+          "notes": "The Disciples endure Imperial occupation of their sacred sites through spiritual resilience rather than armed resistance. Their very existence as the largest organized faith is a challenge to Imperial propaganda against spiritualism."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Ancient knowledge of the Force, kyber crystal lore, and the history of Jedha's many Force traditions. Philosophical and spiritual insights accumulated over millennia."
+        },
+        {
+          "type": "person",
+          "reason": "Orphans in their care. Pilgrims seeking guidance. Force-sensitive individuals who may find their way to Jedha seeking answers."
+        }
+      ]
+    },
+    {
+      "id": "guardians_of_the_whills",
+      "name": "Guardians of the Whills",
+      "galaxy_faction_ref": null,
+      "type": "religious_militant",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "negligible",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "none",
+        "financial": "none",
+        "note": "Nearly extinct warrior-monks who have sworn to protect the Temple of the Kyber for countless millennia. Some believe them linked to the Jedi. Traditionally armed with hand-made lightbows constructed upon completion of the seventh duan toward physical perfection. Some integrate martial talents into their faith as a means of reaching deeper understanding of the Force. With Imperial control of the Temple, many have left for other sects, but a few remain who will rise to fight the Empire's arrogance."
+      },
+      "motivation": "Protection of the Temple of the Kyber and the sacred traditions of Jedha. Some Guardians have adopted more current weapons alongside or in place of the traditional lightbow. Those who remain seek to preserve their ancient martial-spiritual tradition against Imperial desecration.",
+      "assets": [
+        "Hand-made lightbows (distinctive weapon with polarizing arrays, resembling bowcasters)",
+        "Generations of martial training and Force-guided discipline",
+        "Knowledge of the Temple's deepest secrets and the catacombs beneath"
+      ],
+      "relationships": [
+        {
+          "faction_id": "disciples_of_the_whills",
+          "type": "allied",
+          "notes": "The Guardians serve as the martial arm of the Whills tradition, protecting the Disciples and the Temple."
+        },
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "type": "adversarial",
+          "notes": "The remaining Guardians view Imperial occupation of the Temple as desecration. A few remain willing to fight."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Lightbow components and materials for construction. Kyber crystals for their spiritual significance."
+        }
+      ]
+    },
+    {
+      "id": "church_of_the_force_jedha",
+      "name": "Church of the Force (Jedha cell)",
+      "galaxy_faction_ref": "church_of_the_force",
+      "type": "religious",
+      "control_type": [
+        "cultural"
+      ],
+      "control_strength": "negligible",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "low",
+        "financial": "low",
+        "note": "Rumored to have members on Jedha operating underground. The Church of the Force advocates submitting to the will of the Force, a view shared with the Guardians of the Whills and the Jedi Code — possibly due to some ancient commonality. Bounty hunters work from ISB-generated suspect lists targeting Church members. Jedha crystals held great spiritual significance for the Church."
+      },
+      "motivation": "Preserving knowledge of the Force and the Jedi tradition during the dark times. Operating in secret to avoid Imperial persecution.",
+      "assets": [
+        "Underground network of believers hidden among Jedha's many sects",
+        "Knowledge of Force traditions and Jedi history"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "type": "hunted",
+          "notes": "ISB actively pursues Church of the Force members. Bounty hunters work from ISB suspect lists."
+        },
+        {
+          "faction_id": "disciples_of_the_whills",
+          "type": "sympathetic",
+          "notes": "Both traditions revere the Force. The Church may shelter among the many sects on Jedha, concealed by the sheer diversity of faiths."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Jedi lore, Force teachings, knowledge of other surviving Force traditions across the galaxy."
+        },
+        {
+          "type": "person",
+          "reason": "Force-sensitive individuals. Jedi survivors. Anyone carrying Jedi artifacts or kyber crystals."
+        }
+      ]
+    },
+    {
+      "id": "civilian_population",
+      "name": "Jedhan Civilian Population",
+      "galaxy_faction_ref": null,
+      "type": "civilian",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "moderate",
+        "financial": "moderate",
+        "note": ""
+      },
+      "motivation": "Survival under occupation. Preservation of cultural and religious traditions. Economic activity — both legitimate trade and black market operations exploiting pilgrims. Some seek to resist the Empire; others simply endure.",
+      "assets": [
+        "Marketplace economy in Jedha City",
+        "Black market in faked artifacts, trinkets, and charms",
+        "Knowledge of the city's ancient subterranean passages",
+        "Smuggling contacts for passage off-world"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "type": "oppressed",
+          "notes": "The population endures brutal treatment. Some become the Decraniated — fitted with neural interfaces by fugitive surgeons, living as droid-like menials in tapcafes and other areas."
+        },
+        {
+          "faction_id": "gerreras_partisans",
+          "type": "ambivalent",
+          "notes": "Many share the partisans' goal of liberation but fear their extreme tactics. Civilian casualties from partisan operations breed distrust."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Smuggled kyber crystals, genuine relics, black market goods. Food and water are scarce and valuable."
+        },
+        {
+          "type": "person",
+          "reason": "Smugglers offering passage off-world. Refugees arriving or departing."
+        }
+      ]
+    },
+    {
+      "id": "minor_sects",
+      "name": "Minor Religious Sects",
+      "galaxy_faction_ref": null,
+      "type": "religious",
+      "control_type": [
+        "cultural"
+      ],
+      "control_strength": "negligible",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Pilgrimage, spiritual enlightenment, and practice of diverse faith traditions. Each sect has its own rituals, beliefs, and reasons for considering Jedha holy.",
+      "assets": [
+        "Temples and gathering places throughout Jedha City",
+        "Diverse spiritual knowledge and traditions",
+        "Anonymity — pilgrimage robes conceal individual identity"
+      ],
+      "relationships": [],
+      "mcguffin_interest": []
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "temple_of_the_kyber",
+      "name": "Temple of the Kyber",
+      "district_id": "jedha_city",
+      "type": [
+        "religious",
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": "imperial_garrison_jedha",
+      "controlling_faction_notes": "The Empire controls the Temple, displacing the Guardians of the Whills who protected it for countless millennia. The Disciples of the Whills still worship here but under Imperial oversight and restriction.",
+      "strategic_value": "",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Imperial security detail controlling access and monitoring Disciple activities."
+        },
+        {
+          "archetype_ref": "disciple_monk",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Red-robed, masked Disciples of the Whills continuing worship under occupation. Some carry incense-burning staffs. Not Force-sensitive but trust completely in the Force."
+        },
+        {
+          "archetype_ref": "guardian_of_the_whills",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Remaining Guardians. Nearly extinct. Armed with traditional lightbows or more current weapons. Will rise to fight if the Temple is desecrated beyond endurance."
+        }
+      ]
+    },
+    {
+      "id": "jedha_city_marketplace",
+      "name": "Jedha City Marketplace",
+      "district_id": "holy_quarter",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "civilian_population",
+      "controlling_faction_notes": "Operated by merchants and black marketeers under heavy Imperial patrol. Stormtrooper checkpoints can appear without warning. TX-225 assault tanks transit through carrying crystal shipments.",
+      "strategic_value": "The primary commercial and information hub on Jedha. Crowded streets filled with robed pilgrims provide cover for illicit activities. Black market goods, smuggled kyber crystals, faked relics, and real intelligence all change hands here. The Checkpoint Troubles modular encounter is set in this marketplace.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Patrol squads and temporary checkpoint teams. Checking identicards and searching for contraband."
+        },
+        {
+          "archetype_ref": "pilgrim",
+          "tier": "minion",
+          "count": "10+",
+          "notes": "Robed pilgrims moving at deliberate pace. Full body robes upgrade difficulty of identification checks once. Opponents add setback to social checks asking pilgrims to act against their beliefs."
+        },
+        {
+          "archetype_ref": "black_market_dealer",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Sellers of faked artifacts, smuggled crystals, and illicit goods. Operating from stalls or back rooms in the Holy Quarter."
+        }
+      ]
+    },
+    {
+      "id": "catacombs_cadera",
+      "name": "Catacombs of Cadera",
+      "district_id": "catacombs_of_cadera",
+      "type": [
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": "gerreras_partisans",
+      "controlling_faction_notes": "Saw Gerrera's resistance fighters use these ancient burial caves as their fortified headquarters. The Empire knows of their general location but the extensive cave network makes direct assault costly.",
+      "strategic_value": "Fortified insurgent base with millennia of burial tunnels providing concealment and escape routes. Contains the partisan prison 'the Gut' and Gerrera's intelligence operations. Proximity to Jedha City allows rapid strikes against Imperial targets. Ancient monk skulls lining the walls give the space a reverent, morbid atmosphere that reinforces the partisans' willingness to die for liberation.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "insurgent_leader",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": ""
+        },
+        {
+          "archetype_ref": "partisan_fighter",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Guerrilla fighters. Experienced in urban ambush and sabotage. Willing to use extreme measures including targeting civilians."
+        }
+      ]
+    },
+    {
+      "id": "kyber_mining_complex",
+      "name": "Imperial Kyber Mining Complex",
+      "district_id": "kyber_mines",
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_garrison_jedha",
+      "controlling_faction_notes": "Direct Imperial military control. The primary reason for the occupation of Jedha. Crystal output feeds the Tarkin Initiative's superlaser program via refinement on Eadu.",
+      "strategic_value": "The operational heart of Imperial interest in Jedha. Kyber crystals mined here are refined on Eadu and used in the Death Star's Mk I superlaser. Disrupting mining operations would directly impact the Empire's most classified weapons program. The connection between the mines and the superweapon is known only to the highest Imperial command.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "8-12",
+          "notes": "Heavy security detail protecting mining operations and crystal shipments."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Mining operation commanders. Report directly to off-world Imperial command. May have partial knowledge of the crystal program's purpose."
+        }
+      ]
+    },
+    {
+      "id": "mesa_spaceport",
+      "name": "Jedha Spaceport",
+      "district_id": null,
+      "type": [
+        "infrastructure",
+        "military"
+      ],
+      "controlling_faction_id": "imperial_garrison_jedha",
+      "controlling_faction_notes": "The Empire tightly controls all travel to and from Jedha through this barren spaceport outside the mesa. Only specially licensed pilots are permitted to ferry passengers to Jedha City.",
+      "strategic_value": "The sole point of entry and exit for all visitors to Jedha. Imperial control of the spaceport allows monitoring of everyone arriving or departing. Smugglers must either use this port or find alternative landing sites in the wastelands. A bottleneck that gives the Empire surveillance over all traffic.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Screening all arrivals. Checking for contraband, especially kyber crystals being smuggled off-world."
+        },
+        {
+          "archetype_ref": "licensed_ferry_pilot",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Specially licensed pilots operating ferries between the spaceport and Jedha City. Potential contacts or informants."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Security presence at the port. Additional patrols during heightened security."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "force_vergence",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "significant",
+      "strength_FaD_preset": "overwhelming",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "disciples_of_the_whills",
+          "description": "The Disciples are willing to let the Force guide their actions even though they cannot directly sense its presence. Their faith persists without Force sensitivity."
+        },
+        {
+          "faction_id": "guardians_of_the_whills",
+          "description": "Guardians integrate martial talents into their faith, exhibiting those talents as a means of reaching deeper understanding of the Force."
+        },
+        {
+          "faction_id": "minor_sects",
+          "description": "Dozens of sects across the galaxy consider Jedha holy. The diversity and persistence of Force-related pilgrimage traditions spanning millennia suggests the moon possesses a genuine connection to the Force."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Force-sensitive characters may feel a deep resonance on Jedha. Force checks related to meditation, perception, or connection to the living Force may receive automatic advantages. Ancient ruins and the Temple of the Kyber are focal points for Force vergence effects."
+        },
+        {
+          "threshold": "overwhelming",
+          "modifier": "FaD preset: The Force is powerfully present on Jedha. Visions, premonitions, and Force-guided intuition are common. Lightsaber crystals may resonate with their wielders. The primordial structures may respond to Force-sensitive interaction, potentially revealing ancient secrets or granting new insights."
+        }
+      ]
+    },
+    {
+      "id": "kyber_crystal_resonance",
+      "type": "resource",
+      "source_faction_id": "imperial_garrison_jedha",
+      "source_description": "",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_garrison_jedha",
+          "description": "The entire Imperial occupation exists to extract kyber crystals. Mining output is the garrison's primary performance metric. Crystal transport convoys through Jedha City are daily events."
+        },
+        {
+          "faction_id": "civilian_population",
+          "description": "Black market trade in kyber crystals is one of the most dangerous and lucrative activities on Jedha. Possession of crystals is grounds for Imperial arrest or worse."
+        },
+        {
+          "faction_id": "gerreras_partisans",
+          "description": "Disrupting crystal shipments is a primary partisan objective. Every crystal denied to the Empire is both a practical victory and a spiritual act of resistance."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Kyber crystals are the most valuable and dangerous commodity on Jedha. Carrying them invites Imperial attention. Smuggling them off-world is extremely profitable but requires navigating both Imperial security and partisan activity. Force-sensitive characters may sense crystal locations or feel drawn to specific crystals."
+        }
+      ]
+    },
+    {
+      "id": "imperial_occupation",
+      "type": "political",
+      "source_faction_id": "imperial_garrison_jedha",
+      "source_description": "The Empire maintains a strong military presence to contain religious beliefs and secure kyber crystal output. Imperial propaganda downplays the importance of spiritualism. Security measures restrict imports, creating survival challenges on a world with limited ability to feed its population. Travel restrictions have reduced pilgrim traffic and created a refugee crisis as desperate sentients seek sanctuary on the holy moon.",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "civilian_population",
+          "description": "Unwanted Imperial oversight breeds resentment. Questers seeking isolation face Imperial scrutiny. Import restrictions create food and medicine shortages. Some wounded become the Decraniated — fitted with neural interfaces, condemned to live as droid-like menials."
+        },
+        {
+          "faction_id": "gerreras_partisans",
+          "description": "The occupation feeds the insurgency. Every act of Imperial brutality creates potential recruits. The cycle of violence escalates with each crackdown."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Imperial authority permeates all interactions on Jedha. Stormtrooper patrols, checkpoint inspections, and assault tank convoys are constant. Social checks involving Imperial cooperation function normally; anti-Imperial activities require extreme caution. Being caught with kyber crystals or resistance materials triggers immediate escalation."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "circuitous_midrim_paths",
+        "destination": "Mid Rim hyperspace connections (various)",
+        "travel_time": null,
+        "route_quality": "degraded",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Dawn of the Rebellion",
+            "page": 41,
+            "detail": ""
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "pilgrimage_decline",
+        "type": "traffic",
+        "description": "Pilgrim traffic has declined sharply under Imperial rule. Routes that once carried steady streams of faithful from across the galaxy now see reduced traffic. Smugglers have partially replaced legitimate pilgrimage vessels, bringing refugees in and carrying desperate sentients out. Imperial security measures add further restrictions to an already difficult journey.",
+        "source_refs": [
+          {
+            "book": "Dawn of the Rebellion",
+            "page": 41,
+            "detail": "Imperial propaganda downplays spiritualism; military presence adds restrictions; smugglers carry refugees"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_garrison_jedha",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal Imperial presence. Mining operations continue with skeleton crews. Stormtrooper patrols reduced to key installations and the spaceport. No assault tank convoys in the streets. The faithful move more freely. Partisan activity increases in the power vacuum.",
+          "presence_reason": "Imperial forces redeployed to a crisis elsewhere. The garrison is drawn down to minimum levels required to maintain mining output. Crystal shipments continue but at reduced volume.",
+          "roles": [
+            {
+              "role": "Stormtrooper security detail",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Guarding the spaceport and mining complex. No city patrols."
+            },
+            {
+              "role": "Imperial mining overseer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining crystal output with minimal resources. Anxious about partisan attacks."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard occupation posture. Stormtroopers patrol every quarter of Jedha City. TX-225 assault tanks accompany crystal transport convoys through the streets. Cargo shuttles are a constant sight overhead. The spaceport operates full security screening. Checkpoints appear without warning in the marketplace. This is daily life on occupied Jedha.",
+          "presence_reason": "Default state. The Empire maintains enough force to secure crystal output, control the population, and suppress the insurgency without committing excessive resources to a backwater moon.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol squads",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Patrolling every quarter of Jedha City. Conducting random identicard checks."
+            },
+            {
+              "role": "TX-225 assault tank crew",
+              "archetype_ref": "tank_crew",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Operating assault tanks for crystal transport and urban intimidation."
+            },
+            {
+              "role": "Imperial checkpoint squad",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Temporary checkpoint teams in the marketplace. Checking identicards and searching for contraband."
+            },
+            {
+              "role": "Spaceport customs",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Screening arrivals and departures. Searching for kyber crystals and resistance materials."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commanding the Jedha garrison. Balancing crystal output quotas against security demands."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened security following a major partisan attack or intelligence about resistance activity. Additional stormtrooper squads deployed. Assault tanks stationed at key intersections. All marketplace activity monitored. The spaceport is locked down with thorough searches of every vessel. Bounty hunters dispatched to hunt Church of the Force suspects.",
+          "presence_reason": "A significant partisan operation — ambush of a crystal convoy, bombing, kidnapping of Imperial personnel — or intelligence indicating Rebel Alliance contact with local resistance cells.",
+          "roles": [
+            {
+              "role": "Stormtrooper reinforcements",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Heavy presence across all districts. Checkpoints at every major intersection."
+            },
+            {
+              "role": "TX-225 assault tanks (static)",
+              "archetype_ref": "tank_crew",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Tanks stationed at key intersections and the Temple of the Kyber as show of force."
+            },
+            {
+              "role": "ISB investigator",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating the specific incident that triggered escalation. Interrogating civilians and monks."
+            },
+            {
+              "role": "Bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Working from ISB suspect lists targeting Church of the Force members or partisan contacts."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Under pressure from off-world command to restore order and maintain crystal output."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military lockdown. Jedha City is under martial law. No civilian movement without Imperial authorization. The Temple of the Kyber is sealed. All religious gatherings prohibited. Stormtroopers conduct building-by-building sweeps. The population is either cowed into total compliance or driven into the partisans' arms. Mining operations continue under maximum security. The moon is effectively a prison.",
+          "presence_reason": "Catastrophic event — the partisans have inflicted a devastating attack on mining operations or crystal shipments, evidence of Rebel Alliance involvement is confirmed, or the Empire is preparing a classified operation related to the Death Star program.",
+          "roles": [
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Building-by-building sweeps. Checkpoints everywhere. No quarter unpatrolled."
+            },
+            {
+              "role": "TX-225 assault tank platoon",
+              "archetype_ref": "tank_crew",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Tanks covering all major thoroughfares and approaches to the mining complex."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "ISB directing the security operation. Running interrogations, processing prisoners, coordinating bounty hunters."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority deployed from off-world. Direct communication with the Tarkin Initiative or Grand Moff Tarkin's command structure."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. Jedha's Force vergence and concentration of kyber crystals make it a high-priority target for Inquisitorius investigation."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Checkpoint frequency increases. Stormtroopers ask more pointed questions. Crystal transport escorts doubled. Licensed ferry pilots interrogated about unusual passengers.",
+        "targeted": "ISB is looking for specific individuals. Bounty hunters deployed with ISB suspect lists. Spaceport departures monitored with biometric scanning. Pilgrim robes no longer sufficient disguise — random unmasking enforced at checkpoints.",
+        "manhunt": "Full lockdown of the spaceport. No vessel departs without Imperial clearance. Stormtrooper sweeps of every district including subterranean levels. Assault tanks block all exits from the mesa. Monks and pilgrims detained for questioning. The population is warned that harboring fugitives will result in collective punishment."
+      }
+    },
+    {
+      "faction_id": "gerreras_partisans",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The partisans are badly depleted or Gerrera has temporarily relocated. A few fighters remain in the catacombs maintaining caches and monitoring Imperial activity. No active operations.",
+          "presence_reason": "Heavy Imperial crackdown has forced the partisans underground, or Gerrera has taken his main force elsewhere for an operation.",
+          "roles": [
+            {
+              "role": "Partisan lookout",
+              "archetype_ref": "partisan_fighter",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Monitoring Imperial patrol patterns from concealed positions. Maintaining communication with off-world contacts."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard partisan activity. Guerrilla fighters operating from the Catacombs of Cadera, conducting ambushes on Imperial patrols and crystal convoys. Intelligence gathering in the marketplace. Prisoner interrogation in the Gut. Gerrera directing operations personally.",
+          "presence_reason": "Default state. The partisans maintain steady pressure on the Imperial garrison through hit-and-run tactics.",
+          "roles": [
+            {
+              "role": "Saw Gerrera",
+              "archetype_ref": "insurgent_leader",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Directing operations. Constant warfare has taken its toll on his body and spirit but he remains a forceful leader."
+            },
+            {
+              "role": "Partisan guerrillas",
+              "archetype_ref": "partisan_fighter",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Urban guerrilla fighters. Ambushes, sabotage, intelligence gathering. Willing to use extreme measures."
+            },
+            {
+              "role": "Partisan intelligence operative",
+              "archetype_ref": "partisan_spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Operating in the marketplace disguised as a pilgrim. Gathering information on Imperial operations and crystal shipment schedules."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The partisans are preparing a major operation or have received significant reinforcements. The catacombs are fully garrisoned. Multiple cells operating simultaneously across Jedha City. Ambushes escalate to coordinated assaults on Imperial positions.",
+          "presence_reason": "Alliance contact or off-world support has emboldened the partisans, or intelligence about a high-value Imperial target has been obtained.",
+          "roles": [
+            {
+              "role": "Saw Gerrera",
+              "archetype_ref": "insurgent_leader",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Planning and directing a major operation."
+            },
+            {
+              "role": "Partisan assault teams",
+              "archetype_ref": "partisan_fighter",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple coordinated cells. Heavier weapons. Prepared for sustained engagement."
+            },
+            {
+              "role": "Partisan lieutenants",
+              "archetype_ref": "partisan_commander",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Cell leaders operating semi-independently under Gerrera's strategic direction."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_garrison_jedha"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "fad_occupied_sacred_ground": {
+        "label": "Occupied Sacred Ground (FaD)",
+        "description": "The Force vergence on Jedha calls to Force-sensitive characters. The Empire occupies the galaxy's holiest ground, mining kyber crystals for an unknown weapon while crushing the faithful underfoot. The Guardians of the Whills are nearly extinct. The Church of the Force hides in the shadows. Saw Gerrera fights the Empire with tactics that would make a Sith blush. Between the Imperial hammer and the partisan storm, Force-sensitive characters must decide what the sacred sites of Jedha are worth and what they are willing to do — or not do — to protect them.",
+        "initial_encounter_population": "patrol",
+        "initial_influences": {
+          "force_vergence": "overwhelming",
+          "kyber_crystal_resonance": "significant",
+          "imperial_occupation": "significant"
+        },
+        "suggested_hooks": [
+          "A kyber crystal in the character's possession begins resonating as they approach Jedha, guiding them toward the Temple of the Kyber or an ancient ruin in the desert.",
+          "The Church of the Force contacts the party seeking protection for a member being hunted by ISB bounty hunters on Jedha.",
+          "A dying Guardian of the Whills asks the party to recover an artifact from the Temple before the Empire finds it.",
+          "Saw Gerrera's partisans have captured an Imperial officer who knows something about the kyber crystal shipments. The partisans want to torture the information out of him. A more diplomatic approach might yield better results — and preserve the party's moral standing.",
+          "The party is hired to smuggle kyber crystals off Jedha. The job is straightforward until they learn the crystals came from the Temple of the Kyber and the Disciples want them back."
+        ],
+        "source_refs": [
+          {
+            "book": "Dawn of the Rebellion",
+            "page": 41,
+            "detail": "Jedha world entry — full planet description and factions"
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Dawn of the Rebellion",
+      "page": "41-43",
+      "detail": "Primary Jedha entry: World of Faith, People and Culture, Points of Interest (Jedha City, Temple of the Kyber, Catacombs of Cadera), Saw Gerrera stat block, Pilgrim stat block, Checkpoint Troubles modular encounter"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "page": 31,
+      "detail": "Death Star history — Jedha's kyber crystals mined for the superlaser, refined on Eadu"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "page": 119,
+      "detail": "Lightbow weapon entry — Guardian of the Whills weapon, constructed upon seventh duan"
+    },
+    {
+      "book": "Knights of Fate (Warrior Sourcebook)",
+      "page": 50,
+      "detail": "Cracked Jedha Crystal lightsaber attachment — post-destruction, Jedha City destroyed by mining accident"
+    },
+    {
+      "book": "Knights of Fate (Warrior Sourcebook)",
+      "page": 80,
+      "detail": "Guardians of the Whills, Church of the Force, Jedi Code — shared advocacy of submitting to the Force's will"
+    },
+    {
+      "book": "Planet Compendium",
+      "page": 37,
+      "detail": "Original identity-depth compendium entry"
+    }
+  ]
+}

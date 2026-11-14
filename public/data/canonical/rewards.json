@@ -1,0 +1,1284 @@
+{
+  "schema": "reward.schema.json",
+  "schema_version": 1,
+  "generated_from": "OggDude Rewards.xml (2026-07-14) for structure; words and dice authored from the printed pages",
+  "generated_by": "scripts/canonical/build_rewards.py",
+  "_provenance": "oggdude_structure+authored",
+  "_doc": "Reward types (ruling release-r6-rewards-c0 R-R6RC-1). A character's rows are sheetData.rewards[] (release-r4-shapes S2 + ADDENDUM 4). A tier's xp is the price of that tier; S2's xp sums the tiers bought (KoF is silent on incremental vs total; R4 S2 reads summed). max_shown is shown, never enforced. A whole `pool` reads through diceEngine.buildPool; `mods` are pool_mod_entry rows; an HONTITLE tier's mods apply to the row's own two skills; a SCHOOL tier's effect is a list of parts, one per target set. JEDI is out. Battle Scar prices: Jason's reading, D-280 (3).",
+  "count": 15,
+  "types": {
+    "ALLY": {
+      "key": "ALLY",
+      "name": "Ally",
+      "ogg_key": "ALLY",
+      "kind": "bought",
+      "title": "name",
+      "max_shown": null,
+      "choice": "ALLYAB1",
+      "tiers": [
+        {
+          "key": "ALLYAB1OP1",
+          "name": "Grateful",
+          "xp": 5,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "group",
+                "value": "knowledge"
+              },
+              {
+                "scope": "skill",
+                "value": "skulduggery"
+              },
+              {
+                "scope": "skill",
+                "value": "streetwise"
+              }
+            ],
+            "pool": {
+              "ability": 3,
+              "proficiency": 0
+            }
+          },
+          "text": "Once a session: one Knowledge, Skulduggery or Streetwise check with three green dice."
+        },
+        {
+          "key": "ALLYAB1OP2",
+          "name": "Indebted",
+          "xp": 10,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "group",
+                "value": "knowledge"
+              },
+              {
+                "scope": "skill",
+                "value": "skulduggery"
+              },
+              {
+                "scope": "skill",
+                "value": "streetwise"
+              }
+            ],
+            "pool": {
+              "ability": 2,
+              "proficiency": 1
+            }
+          },
+          "text": "Once a session: one Knowledge, Skulduggery or Streetwise check with two green and one yellow."
+        },
+        {
+          "key": "ALLYAB1OP3",
+          "name": "Loyal",
+          "xp": 15,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "group",
+                "value": "knowledge"
+              },
+              {
+                "scope": "skill",
+                "value": "skulduggery"
+              },
+              {
+                "scope": "skill",
+                "value": "streetwise"
+              }
+            ],
+            "pool": {
+              "ability": 2,
+              "proficiency": 2
+            }
+          },
+          "text": "Once a session: one Knowledge, Skulduggery or Streetwise check with two green and two yellow."
+        }
+      ],
+      "options": [],
+      "effect": null,
+      "description": "Someone who owes you. Once a session they make one Knowledge, Skulduggery or Streetwise check for you, in person or by comlink. The GM may limit which Knowledge skill.",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "cite": "Knights of Fate p.94"
+    },
+    "APPRENTICE": {
+      "key": "APPRENTICE",
+      "name": "Apprentice",
+      "ogg_key": "APPRENTICE",
+      "kind": "bought",
+      "title": "name",
+      "max_shown": 1,
+      "choice": "APPRAB1",
+      "tiers": [
+        {
+          "key": "APPRAB1OP1",
+          "name": "Novice",
+          "xp": 5,
+          "effect": {
+            "per": "session",
+            "mods": [
+              {
+                "die": "boost",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "group",
+                    "value": "combat"
+                  }
+                ]
+              }
+            ]
+          },
+          "text": "Once a session, for one encounter: add a boost die to all your combat checks."
+        },
+        {
+          "key": "APPRAB1OP2",
+          "name": "Trained",
+          "xp": 10,
+          "effect": {
+            "per": "session",
+            "any_of": [
+              {
+                "mods": [
+                  {
+                    "symbol": "advantage",
+                    "count": 1,
+                    "direction": "add",
+                    "applies_to": [
+                      {
+                        "scope": "group",
+                        "value": "combat"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "told": "+1 melee defence"
+              }
+            ]
+          },
+          "text": "Once a session, for one encounter: each turn, an advantage on all your combat checks, or +1 melee defence."
+        },
+        {
+          "key": "APPRAB1OP3",
+          "name": "Experienced",
+          "xp": 15,
+          "effect": {
+            "per": "session",
+            "any_of": [
+              {
+                "mods": [
+                  {
+                    "symbol": "success",
+                    "count": 1,
+                    "direction": "add",
+                    "applies_to": [
+                      {
+                        "scope": "group",
+                        "value": "combat"
+                      }
+                    ]
+                  },
+                  {
+                    "symbol": "advantage",
+                    "count": 1,
+                    "direction": "add",
+                    "applies_to": [
+                      {
+                        "scope": "group",
+                        "value": "combat"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "told": "+2 melee defence"
+              }
+            ]
+          },
+          "text": "Once a session, for one encounter: each turn, a success and an advantage on all your combat checks, or +2 melee defence."
+        }
+      ],
+      "options": [],
+      "effect": null,
+      "description": "A student who fights beside you. Once a session, for one combat encounter, they add to your combat checks or your defence. A Despair on your check can take them out of the fight.",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "cite": "Knights of Fate p.94"
+    },
+    "FOLLOWER": {
+      "key": "FOLLOWER",
+      "name": "Follower",
+      "ogg_key": "FOLLOWER",
+      "kind": "bought",
+      "title": "name",
+      "max_shown": null,
+      "choice": "FOLLAB1",
+      "tiers": [
+        {
+          "key": "FOLLAB1OP1",
+          "name": "Helpful",
+          "xp": 5,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "skill",
+                "value": "computers"
+              },
+              {
+                "scope": "skill",
+                "value": "mechanics"
+              },
+              {
+                "scope": "skill",
+                "value": "medicine"
+              }
+            ],
+            "pool": {
+              "ability": 3,
+              "proficiency": 0
+            }
+          },
+          "text": "Once a session, on site: one Computers, Mechanics or Medicine check with three green dice."
+        },
+        {
+          "key": "FOLLAB1OP2",
+          "name": "Loyal",
+          "xp": 10,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "skill",
+                "value": "computers"
+              },
+              {
+                "scope": "skill",
+                "value": "mechanics"
+              },
+              {
+                "scope": "skill",
+                "value": "medicine"
+              }
+            ],
+            "pool": {
+              "ability": 2,
+              "proficiency": 1
+            }
+          },
+          "text": "Once a session, on site: one Computers, Mechanics or Medicine check with two green and one yellow."
+        },
+        {
+          "key": "FOLLAB1OP3",
+          "name": "Trusted",
+          "xp": 15,
+          "effect": {
+            "per": "session",
+            "skills": [
+              {
+                "scope": "skill",
+                "value": "computers"
+              },
+              {
+                "scope": "skill",
+                "value": "mechanics"
+              },
+              {
+                "scope": "skill",
+                "value": "medicine"
+              }
+            ],
+            "pool": {
+              "ability": 2,
+              "proficiency": 2
+            }
+          },
+          "text": "Once a session, on site: one Computers, Mechanics or Medicine check with two green and two yellow."
+        }
+      ],
+      "options": [],
+      "effect": null,
+      "description": "Someone who travels with you to learn. Once a session they make one Computers, Mechanics or Medicine check for you. They must be there; a comlink won't do.",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "cite": "Knights of Fate p.95"
+    },
+    "SCHOOL": {
+      "key": "SCHOOL",
+      "name": "School",
+      "ogg_key": "SCHOOL",
+      "kind": "bought",
+      "title": "name",
+      "max_shown": null,
+      "choice": "SCHOAB1",
+      "tiers": [
+        {
+          "key": "SCHOAB1OP1",
+          "name": "Local Gym",
+          "xp": 5,
+          "effect": [
+            {
+              "targets": [
+                "ALLY",
+                "FOLLOWER"
+              ],
+              "mods": [
+                {
+                  "die": "boost",
+                  "count": 1,
+                  "direction": "add"
+                }
+              ]
+            },
+            {
+              "targets": [
+                "APPRENTICE"
+              ],
+              "mods": [
+                {
+                  "die": "boost",
+                  "count": 1,
+                  "direction": "add"
+                }
+              ]
+            }
+          ],
+          "text": "A boost die on ally and follower checks, and on checks your apprentice aids."
+        },
+        {
+          "key": "SCHOAB1OP2",
+          "name": "Respected Dojo",
+          "xp": 10,
+          "effect": [
+            {
+              "targets": [
+                "ALLY",
+                "FOLLOWER"
+              ],
+              "mods": [
+                {
+                  "die": "boost",
+                  "count": 2,
+                  "direction": "add"
+                }
+              ]
+            },
+            {
+              "targets": [
+                "APPRENTICE"
+              ],
+              "mods": [
+                {
+                  "symbol": "advantage",
+                  "count": 1,
+                  "direction": "add"
+                }
+              ]
+            }
+          ],
+          "text": "Two boost dice on ally and follower checks; an advantage on checks your apprentice aids."
+        },
+        {
+          "key": "SCHOAB1OP3",
+          "name": "Training Academy",
+          "xp": 15,
+          "effect": [
+            {
+              "targets": [
+                "ALLY",
+                "FOLLOWER"
+              ],
+              "mods": [
+                {
+                  "die": "ability",
+                  "count": 1,
+                  "direction": "upgrade"
+                }
+              ]
+            },
+            {
+              "targets": [
+                "APPRENTICE"
+              ],
+              "mods": [
+                {
+                  "symbol": "success",
+                  "count": 1,
+                  "direction": "add"
+                },
+                {
+                  "symbol": "advantage",
+                  "count": 1,
+                  "direction": "add"
+                }
+              ]
+            }
+          ],
+          "text": "Upgrade ally and follower checks once; a success and an advantage on checks your apprentice aids."
+        }
+      ],
+      "options": [],
+      "effect": null,
+      "description": "A place where your allies, followers and apprentice train. It improves every check they make for you.",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "cite": "Knights of Fate p.95"
+    },
+    "HONTITLE": {
+      "key": "HONTITLE",
+      "name": "Honored Title",
+      "ogg_key": "HONTITLE",
+      "kind": "bought",
+      "title": "title",
+      "max_shown": null,
+      "choice": "CLASSTITLEAB2",
+      "tiers": [
+        {
+          "key": "CLASSTITLEAB2OP1",
+          "name": "Minor",
+          "xp": 5,
+          "effect": {
+            "per": "encounter",
+            "mods": [
+              {
+                "die": "boost",
+                "count": 2,
+                "direction": "add"
+              }
+            ]
+          },
+          "text": "Once an encounter: two boost dice on the next check with either of its skills."
+        },
+        {
+          "key": "CLASSTITLEAB2OP2",
+          "name": "Moderate",
+          "xp": 10,
+          "effect": {
+            "per": "encounter",
+            "mods": [
+              {
+                "die": "ability",
+                "count": 1,
+                "direction": "upgrade"
+              }
+            ]
+          },
+          "text": "Once an encounter: upgrade the next check with either of its skills once."
+        },
+        {
+          "key": "CLASSTITLEAB2OP3",
+          "name": "Major",
+          "xp": 15,
+          "effect": {
+            "per": "encounter",
+            "mods": [
+              {
+                "symbol": "success",
+                "count": 2,
+                "direction": "add"
+              }
+            ]
+          },
+          "text": "Once an encounter: two successes on the next check with either of its skills."
+        }
+      ],
+      "options": [],
+      "effect": null,
+      "description": "A title you earned: a rank in a fighting school, a championship, or a legend from the battlefield. You or an ally invoke it in conversation, once an encounter, on its two social skills.",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "cite": "Knights of Fate pp.92–93",
+      "kind_choice": "CLASSTITLEAB1",
+      "kinds": [
+        {
+          "key": "CLASSTITLEAB1OP1",
+          "name": "Classroom Title",
+          "skills": [
+            "coercion",
+            "negotiation"
+          ]
+        },
+        {
+          "key": "CLASSTITLEAB1OP2",
+          "name": "Championship Title",
+          "skills": [
+            "charm",
+            "deception"
+          ]
+        },
+        {
+          "key": "CLASSTITLEAB1OP3",
+          "name": "Legendary Title",
+          "skills": [
+            "coercion",
+            "leadership"
+          ]
+        }
+      ]
+    },
+    "REP": {
+      "key": "REP",
+      "name": "Reputation",
+      "ogg_key": "REP",
+      "kind": "reputation",
+      "title": "sphere",
+      "max_shown": null,
+      "choice": "REPAB1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "REPAB1OP1",
+          "name": "Beloved",
+          "level": 3,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "boost",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              }
+            ],
+            "told": "Once a session, spend a Destiny Point to learn of a person or place in need of defence."
+          }
+        },
+        {
+          "key": "REPAB1OP2",
+          "name": "Renowned",
+          "level": 2,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "boost",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              }
+            ],
+            "told": "Once a session, spend a Destiny Point to learn where you are most needed."
+          }
+        },
+        {
+          "key": "REPAB1OP3",
+          "name": "Respected",
+          "level": 1,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "boost",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "REPAB1OP4",
+          "name": "Neutral",
+          "level": 0,
+          "effect": null
+        },
+        {
+          "key": "REPAB1OP5",
+          "name": "Feared",
+          "level": -1,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 1,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "key": "REPAB1OP6",
+          "name": "Notorious",
+          "level": -2,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 2,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              }
+            ],
+            "told": "Once a session, spend a Destiny Point to have a bystander overlook a misdeed."
+          }
+        },
+        {
+          "key": "REPAB1OP7",
+          "name": "Dreaded",
+          "level": -3,
+          "effect": {
+            "mods": [
+              {
+                "die": "boost",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "coercion"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "charm"
+                  }
+                ]
+              },
+              {
+                "die": "setback",
+                "count": 3,
+                "direction": "add",
+                "applies_to": [
+                  {
+                    "scope": "skill",
+                    "value": "negotiation"
+                  }
+                ]
+              }
+            ],
+            "told": "Once a session, spend a Destiny Point to have a bystander overlook a misdeed or make one minion flee."
+          }
+        }
+      ],
+      "effect": null,
+      "description": "How a group, a place or a people sees you, from Dreaded to Beloved. The GM moves it one step at the end of an adventure, after a public deed. It colours social checks with those who know you.",
+      "sources": [
+        "keeping_the_peace",
+        "fly_casual"
+      ],
+      "cite": "Keeping the Peace p.92, Fly Casual p.95"
+    },
+    "MEDALS": {
+      "key": "MEDALS",
+      "name": "Medal of Honor",
+      "ogg_key": "MEDALS",
+      "kind": "honour",
+      "title": null,
+      "max_shown": null,
+      "choice": "MEDALAB1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "MEDALAB1OP1",
+          "name": "Corellian Cross"
+        },
+        {
+          "key": "MEDALAB1OP2",
+          "name": "Illudium Star"
+        },
+        {
+          "key": "MEDALAB1OP3",
+          "name": "Kalidor Crescent"
+        },
+        {
+          "key": "MEDALAB1OP4",
+          "name": "Mantooine Medallion"
+        },
+        {
+          "key": "MEDALAB1OP5",
+          "name": "Star of Alderaan"
+        }
+      ],
+      "effect": null,
+      "description": "A medal of honour from the Alliance.",
+      "sources": [
+        "lead_by_example"
+      ],
+      "cite": "Lead by Example p.92",
+      "text": "No rule."
+    },
+    "MEDALSCAMP": {
+      "key": "MEDALSCAMP",
+      "name": "Campaign Medal/Ribbon",
+      "ogg_key": "MEDALSCAMP",
+      "kind": "honour",
+      "title": null,
+      "max_shown": null,
+      "choice": "MEDALCAB1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "MEDALCAB1OP1",
+          "name": "Battle of Endor"
+        },
+        {
+          "key": "MEDALCAB1OP2",
+          "name": "Death Star"
+        },
+        {
+          "key": "MEDALCAB1OP3",
+          "name": "Death Star II"
+        },
+        {
+          "key": "MEDALCAB1OP4",
+          "name": "Defense of Hoth"
+        },
+        {
+          "key": "MEDALCAB1OP5",
+          "name": "Defense of Yavin"
+        }
+      ],
+      "effect": null,
+      "description": "A medal or ribbon for serving in a campaign.",
+      "sources": [
+        "lead_by_example"
+      ],
+      "cite": "Lead by Example p.95",
+      "text": "No rule."
+    },
+    "DECORATIONS": {
+      "key": "DECORATIONS",
+      "name": "Military/Civilian Decoration",
+      "ogg_key": "DECORATIONS",
+      "kind": "honour",
+      "title": null,
+      "max_shown": null,
+      "choice": "DECAB1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "DECAB1OP1",
+          "name": "Redbird Badge"
+        },
+        {
+          "key": "DECAB1OP2",
+          "name": "Distinguished Flying Medal"
+        },
+        {
+          "key": "DECAB1OP3",
+          "name": "Aviator's Wings"
+        },
+        {
+          "key": "DECAB1OP4",
+          "name": "Infantryman's Badge"
+        }
+      ],
+      "effect": null,
+      "description": "A military or civilian decoration.",
+      "sources": [
+        "lead_by_example"
+      ],
+      "cite": "Lead by Example p.95",
+      "text": "No rule."
+    },
+    "BS": {
+      "key": "BS",
+      "name": "Battle Scar",
+      "ogg_key": "BS",
+      "kind": "scar",
+      "title": "free",
+      "max_shown": 3,
+      "choice": "BSAB1",
+      "tiers": [
+        {
+          "key": "BSAB1OP1",
+          "name": "Easy",
+          "xp": 20,
+          "effect": null,
+          "text": "A scar from an Easy Critical Injury: its talent costs 20 XP."
+        },
+        {
+          "key": "BSAB1OP2",
+          "name": "Average",
+          "xp": 15,
+          "effect": null,
+          "text": "A scar from an Average Critical Injury: its talent costs 15 XP."
+        },
+        {
+          "key": "BSAB1OP3",
+          "name": "Hard",
+          "xp": 10,
+          "effect": null,
+          "text": "A scar from a Hard Critical Injury: its talent costs 10 XP."
+        },
+        {
+          "key": "BSAB1OP4",
+          "name": "Daunting",
+          "xp": 5,
+          "effect": null,
+          "text": "A scar from a Daunting Critical Injury: its talent costs 5 XP."
+        }
+      ],
+      "options": [
+        {
+          "key": "BSAB2OP1",
+          "name": "Commanding Presence",
+          "talent": "commanding_presence",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP2",
+          "name": "Confidence",
+          "talent": "confidence",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP3",
+          "name": "Intimidating",
+          "talent": "intimidating",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP4",
+          "name": "Steely Nerves",
+          "talent": "steely_nerves",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP5",
+          "name": "Street Smarts",
+          "talent": "street_smarts",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP6",
+          "name": "Grit",
+          "talent": "grit",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP7",
+          "name": "Hard Headed",
+          "talent": "hard_headed",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP8",
+          "name": "Heightened Awareness",
+          "talent": "heightened_awareness",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP9",
+          "name": "Resolve",
+          "talent": "resolve",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP10",
+          "name": "Sixth Sense",
+          "talent": "sixth_sense",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP11",
+          "name": "Blooded",
+          "talent": "blooded",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP12",
+          "name": "Durable",
+          "talent": "durable",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP13",
+          "name": "Rapid Recovery",
+          "talent": "rapid_recovery",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP14",
+          "name": "Second Wind",
+          "talent": "second_wind",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP15",
+          "name": "Toughened",
+          "talent": "toughened",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP16",
+          "name": "Defensive Stance",
+          "talent": "defensive_stance",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP17",
+          "name": "Dodge",
+          "talent": "dodge",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP18",
+          "name": "Jump Up",
+          "talent": "jump_up",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP19",
+          "name": "Rapid Reaction",
+          "talent": "rapid_reaction",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP20",
+          "name": "Spare Clip",
+          "talent": "spare_clip",
+          "suggested": true
+        },
+        {
+          "key": "BSAB2OP21",
+          "name": "Time To Go",
+          "talent": "time_to_go",
+          "suggested": true
+        }
+      ],
+      "effect": null,
+      "description": "When you recover from a Critical Injury, you may keep its mark and buy a talent with it: any talent, from any tree, or a rank beyond your trees. The worse the injury, the cheaper the talent. The book's lists are only suggestions.",
+      "sources": [
+        "forged_in_battle"
+      ],
+      "cite": "Forged in Battle p.95",
+      "talent_choice": "BSAB2"
+    },
+    "MAKERSMARK": {
+      "key": "MAKERSMARK",
+      "name": "Maker's Mark",
+      "ogg_key": "MAKERSMARK",
+      "kind": "honour",
+      "title": "title",
+      "max_shown": null,
+      "choice": "MMAbb1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "MMAB1OP1",
+          "name": "Reduced Cost of Crafting Improvement"
+        }
+      ],
+      "effect": {
+        "advantage_less": 1,
+        "advantage_floor": 1,
+        "told": "Experts who know your work may add a boost die to social checks; jealous ones a setback die."
+      },
+      "description": "Your work is known by its mark. Pick one crafting result that fits it: from now on, it costs you one advantage less, but never less than one.",
+      "sources": [
+        "fully_operational"
+      ],
+      "cite": "Fully Operational pp.95–96",
+      "text": "One crafting result costs one advantage less, to a minimum of one."
+    },
+    "PROVENEXP": {
+      "key": "PROVENEXP",
+      "name": "Proven Expertise",
+      "ogg_key": "PROVENEXP",
+      "kind": "honour",
+      "title": "field",
+      "max_shown": null,
+      "choice": "PEAB1",
+      "tiers": [],
+      "options": [
+        {
+          "key": "PEAB1OP1",
+          "name": "Expertise in a Field"
+        }
+      ],
+      "effect": {
+        "told": "Spend two advantage as one success on checks in your field."
+      },
+      "description": "You are a proven expert in one narrow field. On checks in it, as the GM decides, two advantage may count as one success. Most characters have only one such field.",
+      "sources": [
+        "fully_operational"
+      ],
+      "cite": "Fully Operational p.95",
+      "text": "Spend two advantage as one success on checks in your field."
+    },
+    "EXPLOIT": {
+      "key": "EXPLOIT",
+      "name": "Exploit",
+      "ogg_key": null,
+      "kind": "honour",
+      "title": null,
+      "max_shown": null,
+      "choice": null,
+      "tiers": [],
+      "options": [
+        {
+          "key": null,
+          "name": "Dogged"
+        },
+        {
+          "key": null,
+          "name": "Heedless"
+        },
+        {
+          "key": null,
+          "name": "Honorable"
+        },
+        {
+          "key": null,
+          "name": "Humane"
+        },
+        {
+          "key": null,
+          "name": "Immortal"
+        },
+        {
+          "key": null,
+          "name": "Indiscriminate"
+        },
+        {
+          "key": null,
+          "name": "Lawbringer"
+        },
+        {
+          "key": null,
+          "name": "Merciless"
+        },
+        {
+          "key": null,
+          "name": "Oppressor"
+        },
+        {
+          "key": null,
+          "name": "Precise"
+        },
+        {
+          "key": null,
+          "name": "Renegade"
+        }
+      ],
+      "effect": null,
+      "text": "Its effect is the book's, shown with the exploit.",
+      "description": "A deed that made your name as a hunter. The GM offers two or more after a great hunt and you pick one. The same exploit can be earned again.",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "cite": "No Disintegrations pp.94–95"
+    },
+    "ACE": {
+      "key": "ACE",
+      "name": "Ace",
+      "ogg_key": null,
+      "kind": "honour",
+      "title": null,
+      "max_shown": null,
+      "choice": null,
+      "tiers": [],
+      "options": [],
+      "effect": null,
+      "text": "A title, no dice.",
+      "description": "Five confirmed kills make a pilot an ace. Shared kills count in part; unconfirmed ones don't.",
+      "sources": [
+        "stay_on_target"
+      ],
+      "cite": "Stay on Target pp.92–94"
+    },
+    "TROPHY": {
+      "key": "TROPHY",
+      "name": "Trophy",
+      "ogg_key": null,
+      "kind": "honour",
+      "title": "free",
+      "max_shown": null,
+      "choice": null,
+      "tiers": [],
+      "options": [],
+      "effect": null,
+      "text": "Any die it adds is the GM's call.",
+      "description": "Something you took from a fallen foe. The GM may let it add a small die to a check, such as a boost die to Coercion against that foe's own.",
+      "sources": [
+        "forged_in_battle"
+      ],
+      "cite": "Forged in Battle p.96"
+    }
+  },
+  "contact_results": [
+    {
+      "spend": "1 advantage or a triumph",
+      "result": "Additional references: a boost die on the network's next check this investigation.",
+      "cite": "Endless Vigil p.79"
+    },
+    {
+      "spend": "2 advantages",
+      "result": "A pleasure to work with you.",
+      "cite": "Endless Vigil p.79"
+    },
+    {
+      "spend": "3 advantages or a triumph",
+      "result": "A wealth of information: one more related fact, on a success. Or making connections: Scope or Expertise +1 for this investigation.",
+      "cite": "Endless Vigil p.79"
+    },
+    {
+      "spend": "1 threat or a despair",
+      "result": "We need more time: one more day per threat.",
+      "cite": "Endless Vigil p.79"
+    },
+    {
+      "spend": "2 threats",
+      "result": "It'll cost you: a favour, or up to 200 credits × the obscurity rating.",
+      "cite": "Endless Vigil p.79"
+    },
+    {
+      "spend": "3 threats or a despair",
+      "result": "Contact in trouble: the network is out this session if ignored. Or network diminished: Scope −1 if not appeased.",
+      "cite": "Endless Vigil p.79"
+    }
+  ]
+}

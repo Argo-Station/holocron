@@ -1,0 +1,822 @@
+{
+  "schema": "bases.schema.json",
+  "schema_version": 1,
+  "generated_from": "Far Horizons pp.82-85, Desperate Allies pp.88-89, Fully Operational pp.74-75 (printed); OggDude BaseOfOperations/BaseFoci/BaseUpgrades for keys",
+  "generated_by": "scripts/canonical/build_bases.py",
+  "_provenance": "corpus",
+  "_doc": "S4 bases of operation (release-r4-shapes A1.3; ruling release-r6-bases-registry). A group's base (party.bases) names a type, a focus and upgrades by these keys; every derived number (the base's Obligation, the monthly profit, purchases left, the career skills it grants) is worked out at render from this file by lib/shared/baseDerive.js, never stored. Workshops are crafting's, not here.",
+  "count": {
+    "types": 4,
+    "foci": 10,
+    "upgrades": 26
+  },
+  "types": {
+    "HOMESTEAD": {
+      "key": "HOMESTEAD",
+      "name": "Homestead",
+      "cite": "Far Horizons p.82",
+      "cost": {
+        "credits": 50000,
+        "obligation": 5,
+        "waived_when": "creation"
+      },
+      "pays": [
+        "credits",
+        "obligation"
+      ],
+      "rank_grant_max": null,
+      "profit": {
+        "upgrade": "HOMECORE",
+        "per_member_per_month": 100,
+        "text": "When the base's Obligation triggers, especially on doubles, the GM may lower that month's profit for unexpected costs or slumping sales.",
+        "cite": "Far Horizons p.82"
+      },
+      "core_ally": null,
+      "allies_get_focus_rank": true,
+      "text": "A main house with a kitchen, a power generator, a water well and living quarters, one NPC employee per party member, and up to 10 square kilometres of land suited to its focus.",
+      "foci": [
+        "BASEFARM",
+        "BASERANCH",
+        "BASEMINE",
+        "BASESTATION"
+      ],
+      "upgrades": [
+        "HOMECORE",
+        "HOMESEC",
+        "HOMENPC",
+        "HOMEINF",
+        "HOMEMECHGAR",
+        "HOMELANDBAY"
+      ],
+      "ogg_key": "HOMESTEAD"
+    },
+    "BUSINESS": {
+      "key": "BUSINESS",
+      "name": "Business",
+      "cite": "Far Horizons p.84",
+      "cost": {
+        "credits": 50000,
+        "obligation": 5,
+        "waived_when": "creation"
+      },
+      "pays": [
+        "credits",
+        "obligation"
+      ],
+      "rank_grant_max": null,
+      "profit": {
+        "upgrade": "BUSCORE",
+        "per_member_per_month": 200,
+        "text": "When the base's Obligation triggers, especially on doubles, the GM may lower that month's profit for unexpected costs or slumping sales.",
+        "cite": "Far Horizons p.82"
+      },
+      "core_ally": null,
+      "allies_get_focus_rank": false,
+      "text": "A main floor, a back room, living space upstairs or below, basic equipment, and one employee or droid per party member.",
+      "foci": [
+        "BASEENT",
+        "BASERETAIL",
+        "BASESERVICE"
+      ],
+      "upgrades": [
+        "BUSCORE",
+        "BUSSEC",
+        "BUSORDERS",
+        "BUSWHOLE",
+        "BUSLIC"
+      ],
+      "ogg_key": "BUSINESS"
+    },
+    "REBELBASE": {
+      "key": "REBELBASE",
+      "name": "Rebel Base",
+      "cite": "Desperate Allies p.88",
+      "cost": null,
+      "pays": [
+        "credits",
+        "rank"
+      ],
+      "rank_grant_max": 5,
+      "profit": null,
+      "core_ally": {
+        "name": "NPC Ally",
+        "cite": "Desperate Allies p.88",
+        "stats": null,
+        "text": "Assists with administrative and housekeeping duties."
+      },
+      "allies_get_focus_rank": false,
+      "text": "Bunk space for the team and its NPCs, a kitchen, and basic utilities. A space station's landing bay holds the team's vehicles.",
+      "foci": [
+        "BASESAFE",
+        "BASETRAIN",
+        "BASEMEET"
+      ],
+      "upgrades": [
+        "REBELCORE",
+        "REBELSEC",
+        "REBELNPC",
+        "REBELMED",
+        "REBELHANG",
+        "REBELARM",
+        "REBELTRAIN",
+        "REBELLAB",
+        "REBELCOMMAND",
+        "REBELRES"
+      ],
+      "ogg_key": "REBELBASE"
+    },
+    "CIVREFIT": {
+      "key": "CIVREFIT",
+      "name": "Civilian Facility",
+      "cite": "Fully Operational p.74",
+      "cost": null,
+      "pays": [
+        "credits",
+        "rank"
+      ],
+      "rank_grant_max": 4,
+      "profit": null,
+      "core_ally": null,
+      "allies_get_focus_rank": false,
+      "text": "A Rebel cell's base hidden inside a civilian building. A refit that is not concealed makes the facility easier to notice; refits granted by Contribution rank are concealed.",
+      "foci": [
+        "BASESAFE",
+        "BASETRAIN",
+        "BASEMEET"
+      ],
+      "upgrades": [
+        "CIVREFITHANG",
+        "CIVREFITINFIRM",
+        "CIVREFITREPAIR",
+        "CIVREFITSEC",
+        "CIVREFITCONCEAL"
+      ],
+      "ogg_key": null
+    }
+  },
+  "foci": {
+    "BASEFARM": {
+      "key": "BASEFARM",
+      "name": "Farm",
+      "cite": "Far Horizons p.84",
+      "skill": "resilience",
+      "choose": null,
+      "text": "Grows crops for food or industry."
+    },
+    "BASERANCH": {
+      "key": "BASERANCH",
+      "name": "Ranch",
+      "cite": "Far Horizons p.84",
+      "skill": "survival",
+      "choose": null,
+      "text": "Raises animals for pets, food or labour."
+    },
+    "BASEMINE": {
+      "key": "BASEMINE",
+      "name": "Mine",
+      "cite": "Far Horizons p.84",
+      "skill": "athletics",
+      "choose": null,
+      "text": "Extracts resources from the land."
+    },
+    "BASESTATION": {
+      "key": "BASESTATION",
+      "name": "Space Station",
+      "cite": "Far Horizons p.84",
+      "skill": "piloting_space",
+      "choose": null,
+      "text": "The homestead is a space station."
+    },
+    "BASEENT": {
+      "key": "BASEENT",
+      "name": "Entertainment",
+      "cite": "Far Horizons p.84",
+      "skill": "charm",
+      "choose": null,
+      "text": "A cantina, nightclub, casino or restaurant."
+    },
+    "BASERETAIL": {
+      "key": "BASERETAIL",
+      "name": "Retail",
+      "cite": "Far Horizons p.84",
+      "skill": "negotiation",
+      "choose": null,
+      "text": "A store selling one category of gear."
+    },
+    "BASESERVICE": {
+      "key": "BASESERVICE",
+      "name": "Service",
+      "cite": "Far Horizons p.84",
+      "skill": null,
+      "choose": {
+        "from": [
+          "mechanics",
+          "computers",
+          "core_worlds",
+          "education",
+          "lore",
+          "outer_rim",
+          "underworld",
+          "warfare",
+          "xenology"
+        ]
+      },
+      "text": "A repair shop, clinic, gym, travel firm, consultancy or taxi service. The party picks Mechanics, Computers or one Knowledge skill that fits the business."
+    },
+    "BASESAFE": {
+      "key": "BASESAFE",
+      "name": "Safe House",
+      "cite": "Desperate Allies p.88",
+      "skill": null,
+      "choose": null,
+      "text": "A small base deep in enemy territory, for private communications and storing contraband."
+    },
+    "BASETRAIN": {
+      "key": "BASETRAIN",
+      "name": "Training Camp",
+      "cite": "Desperate Allies p.88",
+      "skill": null,
+      "choose": null,
+      "text": "Trains units in tactics. Requires a Training Facility."
+    },
+    "BASEMEET": {
+      "key": "BASEMEET",
+      "name": "Meeting Center",
+      "cite": "Desperate Allies p.88",
+      "skill": null,
+      "choose": null,
+      "text": "A secure place to meet groups that oppose the Empire. Requires Enhanced Security."
+    }
+  },
+  "upgrades": {
+    "HOMECORE": {
+      "key": "HOMECORE",
+      "name": "Increase Core Focus",
+      "cite": "Far Horizons p.83",
+      "credits": 2500,
+      "obligation": 2,
+      "count": 5,
+      "distinct_options": false,
+      "options": null,
+      "text": "Each purchase pays every party member 100 credits a month.",
+      "ogg_key": "HOMECORE"
+    },
+    "HOMESEC": {
+      "key": "HOMESEC",
+      "name": "Improve Security",
+      "cite": "Far Horizons p.83",
+      "credits": 10000,
+      "obligation": 2,
+      "count": 3,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "HOMESEC1",
+          "name": "Electronic Locks"
+        },
+        {
+          "key": "HOMESEC2",
+          "name": "Security Droid"
+        },
+        {
+          "key": "HOMESEC3",
+          "name": "Reinforced Fence/Shields"
+        },
+        {
+          "key": "HOMESEC4",
+          "name": "Security Cameras"
+        }
+      ],
+      "text": "Pick one option each time; a different one each time.",
+      "ogg_key": "HOMESEC"
+    },
+    "HOMENPC": {
+      "key": "HOMENPC",
+      "name": "NPC Ally",
+      "cite": "Far Horizons p.83",
+      "credits": 2000,
+      "obligation": 1,
+      "count": 4,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "HOMENPC1",
+          "name": "Merchant",
+          "ally": {
+            "characteristics": {
+              "presence": 3,
+              "cunning": 3
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "negotiation",
+                "rank": 2
+              },
+              {
+                "skill_ref": "streetwise",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "key": "HOMENPC2",
+          "name": "Doctor",
+          "ally": {
+            "characteristics": {
+              "intellect": 3
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "medicine",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "key": "HOMENPC3",
+          "name": "Mechanic",
+          "ally": {
+            "characteristics": {
+              "intellect": 3
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "mechanics",
+                "rank": 2
+              },
+              {
+                "skill_ref": "computers",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "key": "HOMENPC4",
+          "name": "Pilot",
+          "ally": {
+            "characteristics": {
+              "agility": 3,
+              "intellect": 2
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "piloting_planetary",
+                "rank": 2
+              },
+              {
+                "skill_ref": "piloting_space",
+                "rank": 2
+              },
+              {
+                "skill_ref": "astrogation",
+                "rank": 2
+              }
+            ]
+          }
+        }
+      ],
+      "text": "A different NPC each time. Other characteristics are 2, plus 1 rank in the base's focus skill.",
+      "ogg_key": "HOMENPC"
+    },
+    "HOMEINF": {
+      "key": "HOMEINF",
+      "name": "Infirmary",
+      "cite": "Far Horizons p.83",
+      "credits": 5000,
+      "obligation": 3,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Beds, medical supplies and a bacta tank. Medicine checks here take no penalty.",
+      "ogg_key": "HOMEINF"
+    },
+    "HOMEMECHGAR": {
+      "key": "HOMEMECHGAR",
+      "name": "Mechanic's Garage",
+      "cite": "Far Horizons p.83",
+      "credits": 5000,
+      "obligation": 3,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Tools and an oil bath. Mechanics checks take no penalty and repair 2 extra hull trauma or system strain.",
+      "ogg_key": "HOMEMECHGAR"
+    },
+    "HOMELANDBAY": {
+      "key": "HOMELANDBAY",
+      "name": "Landing Bay",
+      "cite": "Far Horizons p.83",
+      "credits": 3000,
+      "obligation": 1,
+      "count": 3,
+      "distinct_options": false,
+      "options": null,
+      "text": "Holds silhouette 15 in total, none larger than 5. Each extra purchase adds a bay or 15 more silhouette.",
+      "ogg_key": "HOMELANDBAY"
+    },
+    "BUSCORE": {
+      "key": "BUSCORE",
+      "name": "Increase Core Focus",
+      "cite": "Far Horizons p.85",
+      "credits": 2500,
+      "obligation": 2,
+      "count": 5,
+      "distinct_options": false,
+      "options": null,
+      "text": "Each purchase pays every party member 200 credits a month.",
+      "ogg_key": "BUSCORE"
+    },
+    "BUSSEC": {
+      "key": "BUSSEC",
+      "name": "Improve Security",
+      "cite": "Far Horizons p.85",
+      "credits": 10000,
+      "obligation": 2,
+      "count": 4,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "BUSSEC1",
+          "name": "Electronic Locks"
+        },
+        {
+          "key": "BUSSEC2",
+          "name": "Security Droid"
+        },
+        {
+          "key": "BUSSEC3",
+          "name": "Reinforced Material"
+        },
+        {
+          "key": "BUSSEC4",
+          "name": "Security Cameras"
+        }
+      ],
+      "text": "Pick one option each time; a different one each time.",
+      "ogg_key": "BUSSEC"
+    },
+    "BUSORDERS": {
+      "key": "BUSORDERS",
+      "name": "Special Orders",
+      "cite": "Far Horizons p.85",
+      "credits": 2000,
+      "obligation": 1,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Items related to the business's focus are 2 rarity lower.",
+      "ogg_key": "BUSORDERS"
+    },
+    "BUSWHOLE": {
+      "key": "BUSWHOLE",
+      "name": "Wholesale Prices",
+      "cite": "Far Horizons p.85",
+      "credits": 1000,
+      "obligation": 1,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Bulk legal items of rarity 4 or lower cost 10% less.",
+      "ogg_key": "BUSWHOLE"
+    },
+    "BUSLIC": {
+      "key": "BUSLIC",
+      "name": "Specialized License",
+      "cite": "Far Horizons p.85",
+      "credits": 2500,
+      "obligation": 2,
+      "count": null,
+      "distinct_options": false,
+      "options": null,
+      "text": "Lets the business legally do something normally restricted, such as selling Restricted items.",
+      "ogg_key": "BUSLIC"
+    },
+    "REBELCORE": {
+      "key": "REBELCORE",
+      "name": "Increased Core Focus",
+      "cite": "Desperate Allies p.88",
+      "credits": 2500,
+      "obligation": null,
+      "count": 5,
+      "distinct_options": false,
+      "options": null,
+      "text": "Once a month, each PC's next item is 1 rarity lower per purchase.",
+      "rarity_decrease": 1,
+      "ogg_key": "REBELCORE"
+    },
+    "REBELSEC": {
+      "key": "REBELSEC",
+      "name": "Enhanced Security",
+      "cite": "Desperate Allies p.88",
+      "credits": 10000,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "REBELSEC1",
+          "name": "Electronic Locks"
+        },
+        {
+          "key": "REBELSEC2",
+          "name": "Reinforced Armor"
+        },
+        {
+          "key": "REBELSEC3",
+          "name": "Reinforced Shields"
+        },
+        {
+          "key": "REBELSEC4",
+          "name": "Security Cameras"
+        },
+        {
+          "key": "REBELSEC5",
+          "name": "Main Entrance Turret"
+        }
+      ],
+      "text": "Pick one option each time; a different one each time.",
+      "ogg_key": "REBELSEC"
+    },
+    "REBELNPC": {
+      "key": "REBELNPC",
+      "name": "NPC Ally",
+      "cite": "Desperate Allies p.89",
+      "credits": 2000,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "HOMENPC1",
+          "name": "Doctor",
+          "ally": {
+            "characteristics": {
+              "intellect": 3
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "medicine",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "key": "HOMENPC2",
+          "name": "Mechanic",
+          "ally": {
+            "characteristics": {
+              "intellect": 3
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "mechanics",
+                "rank": 2
+              },
+              {
+                "skill_ref": "computers",
+                "rank": 2
+              }
+            ]
+          }
+        },
+        {
+          "key": "HOMENPC3",
+          "name": "Pilot",
+          "ally": {
+            "characteristics": {
+              "agility": 3,
+              "intellect": 2
+            },
+            "others": 2,
+            "skills": [
+              {
+                "skill_ref": "piloting_planetary",
+                "rank": 2
+              },
+              {
+                "skill_ref": "piloting_space",
+                "rank": 2
+              },
+              {
+                "skill_ref": "astrogation",
+                "rank": 2
+              }
+            ]
+          }
+        }
+      ],
+      "text": "A different NPC each time. Other characteristics are 2.",
+      "ogg_key": "REBELNPC"
+    },
+    "REBELMED": {
+      "key": "REBELMED",
+      "name": "Medical Facility",
+      "cite": "Desperate Allies p.89",
+      "credits": 6000,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": false,
+      "options": null,
+      "text": "Room for 5 patients, medical supplies and 2 bacta tanks. Each extra purchase adds 5 patients and a tank.",
+      "ogg_key": "REBELMED"
+    },
+    "REBELHANG": {
+      "key": "REBELHANG",
+      "name": "Hangar and Repair Bay",
+      "cite": "Desperate Allies p.89",
+      "credits": 8500,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": false,
+      "options": null,
+      "text": "Holds silhouette 30 in total, none larger than 5, with tools and an oil bath. Repairs 2 extra hull trauma or system strain.",
+      "ogg_key": "REBELHANG"
+    },
+    "REBELARM": {
+      "key": "REBELARM",
+      "name": "Armory",
+      "cite": "Desperate Allies p.89",
+      "credits": 9500,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Stocks items up to rarity 5. Mechanics checks on weapons and armor take no penalty.",
+      "restricted": true,
+      "ogg_key": "REBELARM"
+    },
+    "REBELTRAIN": {
+      "key": "REBELTRAIN",
+      "name": "Training Facility",
+      "cite": "Desperate Allies p.89",
+      "credits": 15000,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": [
+        {
+          "key": "brawl",
+          "name": "Brawl",
+          "skill": "brawl"
+        },
+        {
+          "key": "gunnery",
+          "name": "Gunnery",
+          "skill": "gunnery"
+        },
+        {
+          "key": "warfare",
+          "name": "Knowledge (Warfare)",
+          "skill": "warfare"
+        },
+        {
+          "key": "melee",
+          "name": "Melee",
+          "skill": "melee"
+        },
+        {
+          "key": "ranged_light",
+          "name": "Ranged (Light)",
+          "skill": "ranged_light"
+        },
+        {
+          "key": "ranged_heavy",
+          "name": "Ranged (Heavy)",
+          "skill": "ranged_heavy"
+        }
+      ],
+      "text": "Pick one skill. It is a career skill for every PC operating out of the base.",
+      "ogg_key": "REBELTRAIN"
+    },
+    "REBELLAB": {
+      "key": "REBELLAB",
+      "name": "Laboratory",
+      "cite": "Desperate Allies p.89",
+      "credits": 5000,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Computers, Knowledge, Medicine and Mechanics checks for experiments take no penalty and add two advantage.",
+      "decision": "D-375",
+      "ogg_key": "REBELLAB"
+    },
+    "REBELCOMMAND": {
+      "key": "REBELCOMMAND",
+      "name": "Command and Control Center",
+      "cite": "Desperate Allies p.89",
+      "credits": 4000,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Occupants add a boost die to Computers, Leadership and Vigilance checks.",
+      "decision": "D-375",
+      "ogg_key": "REBELCOMMAND"
+    },
+    "REBELRES": {
+      "key": "REBELRES",
+      "name": "Research Library",
+      "cite": "Desperate Allies p.89",
+      "credits": 3000,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Knowledge checks to find information take no penalty.",
+      "ogg_key": "REBELRES"
+    },
+    "CIVREFITHANG": {
+      "key": "CIVREFITHANG",
+      "name": "Hidden Hangar",
+      "cite": "Fully Operational p.75",
+      "credits": 600,
+      "obligation": null,
+      "count": 2,
+      "distinct_options": false,
+      "options": null,
+      "text": "Holds four vehicles of silhouette 2 or smaller.",
+      "ogg_key": "CIVREFITHANG"
+    },
+    "CIVREFITINFIRM": {
+      "key": "CIVREFITINFIRM",
+      "name": "Infirmary",
+      "cite": "Fully Operational p.75",
+      "credits": 2400,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": false,
+      "options": null,
+      "text": "Room for 3 patients, medical supplies and a bacta tank. Each extra purchase adds 3 patients and a tank.",
+      "ogg_key": "CIVREFITINFIRM"
+    },
+    "CIVREFITREPAIR": {
+      "key": "CIVREFITREPAIR",
+      "name": "Repair Room",
+      "cite": "Fully Operational p.75",
+      "credits": 350,
+      "obligation": null,
+      "count": 1,
+      "distinct_options": false,
+      "options": null,
+      "text": "Mechanics checks on weapons and armor take no penalty. Restocking costs 100 credits.",
+      "ogg_key": "CIVREFITREPAIR"
+    },
+    "CIVREFITSEC": {
+      "key": "CIVREFITSEC",
+      "name": "Security Upgrades",
+      "cite": "Fully Operational p.75",
+      "credits": 2250,
+      "obligation": null,
+      "count": 5,
+      "distinct_options": true,
+      "options": [
+        {
+          "key": "CIVREFITSEC1",
+          "name": "Better Locks"
+        },
+        {
+          "key": "CIVREFITSEC2",
+          "name": "Reinforced Structure"
+        },
+        {
+          "key": "CIVREFITSEC3",
+          "name": "Baffled Walls"
+        },
+        {
+          "key": "CIVREFITSEC4",
+          "name": "Security Cameras"
+        },
+        {
+          "key": "CIVREFITSEC5",
+          "name": "Disguised Entrance"
+        }
+      ],
+      "text": "Pick one option each time; a different one each time.",
+      "ogg_key": "CIVREFITSEC"
+    },
+    "CIVREFITCONCEAL": {
+      "key": "CIVREFITCONCEAL",
+      "name": "Concealed Upgrades",
+      "cite": "Fully Operational p.75",
+      "credits": 1000,
+      "obligation": null,
+      "count": 3,
+      "distinct_options": false,
+      "options": null,
+      "text": "Bought alongside another refit, that refit no longer makes the facility easier to discover. Up to three refits can be concealed this way.",
+      "decision": "D-373",
+      "ogg_key": null
+    }
+  }
+}

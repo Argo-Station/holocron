@@ -1,0 +1,3481 @@
+{
+  "schema": "swrpg-test-bed-bundle",
+  "schema_version": 1,
+  "generated_at": "2026-04-21T07:38:20.520Z",
+  "count": 12,
+  "errors": [],
+  "pcs": [
+    {
+      "id": "B1",
+      "tier": "beginner",
+      "name": "Kex Vorn",
+      "species": "Human",
+      "career": "Smuggler",
+      "file": "B1_Kex_Vorn.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "B1",
+          "tier": "beginner"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Kex Vorn",
+          "species": "Human",
+          "career": "Smuggler",
+          "specialization": "",
+          "book": "eote",
+          "source": "FullCreator",
+          "portrait": null,
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 3,
+            "woundThreshold": 12,
+            "strainThreshold": 12,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 110,
+            "remaining": 45
+          },
+          "encumbrance": {
+            "carried": 3,
+            "limit": 7
+          },
+          "skills": {
+            "CHARM": 2,
+            "COOL": 2,
+            "DECEP": 1,
+            "PILSP": 1
+          },
+          "talents": [
+            {
+              "name": "Smooth Talker",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Light Blaster Pistol",
+                "damage": "5",
+                "crit": "4",
+                "range": "Medium",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Comlink (handheld)",
+              "Stimpack",
+              "Stimpack",
+              "Utility Belt",
+              "Syntherope"
+            ],
+            "credits": 45
+          },
+          "obligation": {
+            "type": "DEBT",
+            "value": 10,
+            "description": ""
+          },
+          "duty": null,
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawva-2xazeje",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.516Z",
+            "updatedAt": "2026-04-21T07:38:20.516Z"
+          },
+          "gameLine": "eote",
+          "identity": {
+            "name": "Kex Vorn",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "HUMAN",
+            "name": "Human"
+          },
+          "career": {
+            "name": "Smuggler",
+            "key": "Smuggler"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "CHARM": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "DECEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "PILSP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "CHARMER_r0c0": {
+              "talentKey": "SMOOTHTALK",
+              "specKey": "CHARMER",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [],
+          "mechanic": {
+            "type": "obligation",
+            "descriptor": "DEBT",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 0,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTLT",
+                "name": "Light Blaster Pistol",
+                "price": 300,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "UTILBELT",
+                "name": "Utility Belt",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "SYNTHEROPE",
+                "name": "Syntherope",
+                "price": 5,
+                "enc": 1,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "B2",
+      "tier": "beginner",
+      "name": "Sura'Vass",
+      "species": "Twi'lek",
+      "career": "Bounty Hunter",
+      "file": "B2_Sura_Vass.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "B2",
+          "tier": "beginner"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Sura'Vass",
+          "species": "Twi'lek",
+          "career": "Bounty Hunter",
+          "specialization": "",
+          "book": "eote",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Twilek.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 1,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 2,
+            "presence": 3
+          },
+          "derived": {
+            "soak": 1,
+            "woundThreshold": 11,
+            "strainThreshold": 13,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 100,
+            "remaining": 35
+          },
+          "encumbrance": {
+            "carried": 1,
+            "limit": 6
+          },
+          "skills": {
+            "ATHL": 1,
+            "BRAWL": 1,
+            "PERCEP": 2,
+            "RANGHVY": 1,
+            "STEAL": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Blaster Pistol",
+                "damage": "6",
+                "crit": "3",
+                "range": "Medium",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": null,
+            "gear": [
+              "Binders",
+              "Comlink (handheld)",
+              "Stimpack",
+              "Stimpack"
+            ],
+            "credits": 0
+          },
+          "obligation": {
+            "type": "BOU",
+            "value": 10,
+            "description": ""
+          },
+          "duty": null,
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvb-df204js",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.519Z",
+            "updatedAt": "2026-04-21T07:38:20.519Z"
+          },
+          "gameLine": "eote",
+          "identity": {
+            "name": "Sura'Vass",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "TWI",
+            "name": "Twi'lek"
+          },
+          "career": {
+            "name": "Bounty Hunter",
+            "key": "Bounty Hunter"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 1,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 2,
+            "presence": 3
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "ATHL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "PERCEP": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "RANGHVY": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "STEAL": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "ASSAS_r0c0": {
+              "talentKey": "GRIT",
+              "specKey": "ASSAS",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [],
+          "mechanic": {
+            "type": "obligation",
+            "descriptor": "BOU",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 0,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTPIS",
+                "name": "Blaster Pistol",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "BIND",
+                "name": "Binders",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "B3",
+      "tier": "beginner",
+      "name": "Thane Decker",
+      "species": "Human",
+      "career": "Soldier",
+      "file": "B3_Thane_Decker.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "B3",
+          "tier": "beginner"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Thane Decker",
+          "species": "Human",
+          "career": "Soldier",
+          "specialization": "",
+          "book": "aor",
+          "source": "FullCreator",
+          "portrait": null,
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 3,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 4,
+            "woundThreshold": 13,
+            "strainThreshold": 12,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 110,
+            "remaining": 45
+          },
+          "encumbrance": {
+            "carried": 8,
+            "limit": 8
+          },
+          "skills": {
+            "ATHL": 1,
+            "BRAWL": 1,
+            "RANGHVY": 1,
+            "VIGIL": 1,
+            "RESIL": 1,
+            "SURV": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Slugthrower Rifle",
+                "damage": "7",
+                "crit": "5",
+                "range": "Medium",
+                "qualities": "CUMBERSOME 2",
+                "skillKey": "RANGHVY"
+              },
+              {
+                "name": "Combat Knife",
+                "damage": "0",
+                "crit": "3",
+                "range": "Engaged",
+                "qualities": "",
+                "skillKey": "MELEE"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Stimpack",
+              "Comlink (handheld)",
+              "Utility Belt",
+              "Macrobinoculars"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": {
+            "type": "COMBATVICTORY",
+            "value": 10,
+            "description": ""
+          },
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvb-lmahqju",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.519Z",
+            "updatedAt": "2026-04-21T07:38:20.519Z"
+          },
+          "gameLine": "aor",
+          "identity": {
+            "name": "Thane Decker",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "HUMAN",
+            "name": "Human"
+          },
+          "career": {
+            "name": "Soldier",
+            "key": "Soldier"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 3,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "ATHL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "RANGHVY": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "VIGIL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "RESIL": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "SURV": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "COMMANDO_r0c1": {
+              "talentKey": "GRIT",
+              "specKey": "COMMANDO",
+              "row": 0,
+              "col": 1,
+              "cost": 5
+            }
+          },
+          "xpLedger": [],
+          "mechanic": {
+            "type": "duty",
+            "descriptor": "COMBATVICTORY",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 0,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "SLUGRIF",
+                "name": "Slugthrower Rifle",
+                "price": 250,
+                "enc": 5,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "KNIFE",
+                "name": "Combat Knife",
+                "price": 25,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "UTILBELT",
+                "name": "Utility Belt",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "MBIN",
+                "name": "Macrobinoculars",
+                "price": 75,
+                "enc": 1,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "B4",
+      "tier": "beginner",
+      "name": "Vey Shaan",
+      "species": "Mirialan",
+      "career": "Mystic",
+      "file": "B4_Vey_Shaan.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "B4",
+          "tier": "beginner"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Vey Shaan",
+          "species": "Mirialan",
+          "career": "Mystic",
+          "specialization": "",
+          "book": "fad",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Mirialan.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 1,
+            "willpower": 3,
+            "presence": 3
+          },
+          "derived": {
+            "soak": 3,
+            "woundThreshold": 13,
+            "strainThreshold": 13,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 1
+          },
+          "xp": {
+            "total": 100,
+            "remaining": 35
+          },
+          "encumbrance": {
+            "carried": 2,
+            "limit": 7
+          },
+          "skills": {
+            "CHARM": 2,
+            "COOL": 1,
+            "KNOWLORE": 1,
+            "PERCEP": 1,
+            "NEGOT": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [
+            {
+              "name": "Heal",
+              "desc": "Basic: commit Force, spend light pip to heal 1 wound on target."
+            }
+          ],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Training Lightsaber",
+                "damage": "6",
+                "crit": "0",
+                "range": "Engaged",
+                "qualities": "STUNDAMAGE",
+                "skillKey": "LTSABER"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Comlink (handheld)"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": null,
+          "morality": {
+            "type": "COMPASSION",
+            "value": 50,
+            "description": ""
+          }
+        },
+        "character": {
+          "id": "mo8bawvb-eaw83th",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.519Z",
+            "updatedAt": "2026-04-21T07:38:20.519Z"
+          },
+          "gameLine": "fad",
+          "identity": {
+            "name": "Vey Shaan",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "MIRIALAN",
+            "name": "Mirialan"
+          },
+          "career": {
+            "name": "Mystic",
+            "key": "Mystic"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 1,
+            "willpower": 3,
+            "presence": 3
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "CHARM": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "KNOWLORE": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "PERCEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "NEGOT": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "ADVISOR_r0c2": {
+              "talentKey": "GRIT",
+              "specKey": "ADVISOR",
+              "row": 0,
+              "col": 2,
+              "cost": 5
+            }
+          },
+          "xpLedger": [],
+          "mechanic": {
+            "type": "morality",
+            "descriptor": "COMPASSION",
+            "baseValue": 50,
+            "finalValue": 50,
+            "xpAdjustment": 0,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "LTSABERTRAIN",
+                "name": "Training Lightsaber",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "M1",
+      "tier": "mid",
+      "name": "Valka Teel",
+      "species": "Rodian",
+      "career": "Bounty Hunter",
+      "file": "M1_Valka_Teel.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "M1",
+          "tier": "mid"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Valka Teel",
+          "species": "Rodian",
+          "career": "Bounty Hunter",
+          "specialization": "",
+          "book": "eote",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Rodian.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 2,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 1,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 2,
+            "woundThreshold": 12,
+            "strainThreshold": 11,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 200,
+            "remaining": 125
+          },
+          "encumbrance": {
+            "carried": 1,
+            "limit": 7
+          },
+          "skills": {
+            "ATHL": 1,
+            "BRAWL": 1,
+            "PERCEP": 3,
+            "RANGHVY": 3,
+            "STEAL": 1,
+            "COERC": 2
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Blaster Pistol",
+                "damage": "6",
+                "crit": "3",
+                "range": "Medium",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": null,
+            "gear": [
+              "Binders",
+              "Comlink (handheld)",
+              "Stimpack",
+              "Stimpack"
+            ],
+            "credits": 0
+          },
+          "obligation": {
+            "type": "OBS",
+            "value": 10,
+            "description": ""
+          },
+          "duty": null,
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvb-swnkynp",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.519Z",
+            "updatedAt": "2026-04-21T07:38:20.519Z"
+          },
+          "gameLine": "eote",
+          "identity": {
+            "name": "Valka Teel",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "ROD",
+            "name": "Rodian"
+          },
+          "career": {
+            "name": "Bounty Hunter",
+            "key": "Bounty Hunter"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 2,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 3,
+            "willpower": 1,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "ATHL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "PERCEP": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 1
+            },
+            "RANGHVY": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "STEAL": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "COERC": {
+              "freeCareer": false,
+              "freeSpec": false,
+              "purchased": 2
+            }
+          },
+          "talents": {
+            "ASSAS_r0c0": {
+              "talentKey": "GRIT",
+              "specKey": "ASSAS",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 100,
+              "reason": "tier: mid"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise agility to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill PERCEP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill RANGHVY → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill RANGHVY → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 5,
+              "reason": "skill COERC → rank 1"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill COERC → rank 2"
+            },
+            {
+              "type": "tier-upgrade-leftover",
+              "amount": 5,
+              "reason": "unspent"
+            }
+          ],
+          "mechanic": {
+            "type": "obligation",
+            "descriptor": "OBS",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 100,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTPIS",
+                "name": "Blaster Pistol",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "BIND",
+                "name": "Binders",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "M2",
+      "tier": "mid",
+      "name": "Jev Oras",
+      "species": "Bothan",
+      "career": "Spy",
+      "file": "M2_Jev_Oras.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "M2",
+          "tier": "mid"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Jev Oras",
+          "species": "Bothan",
+          "career": "Spy",
+          "specialization": "",
+          "book": "aor",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Bothan.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 1,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 2,
+            "woundThreshold": 11,
+            "strainThreshold": 13,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 200,
+            "remaining": 125
+          },
+          "encumbrance": {
+            "carried": 4,
+            "limit": 6
+          },
+          "skills": {
+            "COMP": 3,
+            "DECEP": 3,
+            "PERCEP": 2,
+            "STEAL": 2,
+            "STREET": 1
+          },
+          "talents": [
+            {
+              "name": "Indistinguishable",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Holdout Blaster",
+                "damage": "5",
+                "crit": "4",
+                "range": "Short",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": {
+              "name": "Concealing Robes",
+              "soak": 1
+            },
+            "gear": [
+              "Comlink (handheld)",
+              "Stimpack",
+              "Stimpack",
+              "Utility Belt",
+              "Syntherope",
+              "Glow Rod",
+              "Ration Pack"
+            ],
+            "credits": 30
+          },
+          "obligation": null,
+          "duty": {
+            "type": "INTELLIGENCE",
+            "value": 10,
+            "description": ""
+          },
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvc-a8iu2rm",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "aor",
+          "identity": {
+            "name": "Jev Oras",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "BOTH",
+            "name": "Bothan"
+          },
+          "career": {
+            "name": "Spy",
+            "key": "Spy"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 1,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "COMP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "DECEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "PERCEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 1
+            },
+            "STEAL": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "STREET": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "COURIER_r0c0": {
+              "talentKey": "INDIS",
+              "specKey": "COURIER",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 100,
+              "reason": "tier: mid"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise cunning to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill COMP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill COMP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill DECEP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill DECEP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill PERCEP → rank 2"
+            }
+          ],
+          "mechanic": {
+            "type": "duty",
+            "descriptor": "INTELLIGENCE",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 100,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTHOLD",
+                "name": "Holdout Blaster",
+                "price": 200,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "CONROBE",
+                "name": "Concealing Robes",
+                "price": 150,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "UTILBELT",
+                "name": "Utility Belt",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "SYNTHEROPE",
+                "name": "Syntherope",
+                "price": 5,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "GLOWROD",
+                "name": "Glow Rod",
+                "price": 10,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "RATION",
+                "name": "Ration Pack",
+                "price": 5,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "M3",
+      "tier": "mid",
+      "name": "Gero Larran",
+      "species": "Zabrak",
+      "career": "Guardian",
+      "file": "M3_Gero_Larran.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "M3",
+          "tier": "mid"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Gero Larran",
+          "species": "Zabrak",
+          "career": "Guardian",
+          "specialization": "",
+          "book": "fad",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Zabrak.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 4,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 3,
+            "presence": 1
+          },
+          "derived": {
+            "soak": 5,
+            "woundThreshold": 14,
+            "strainThreshold": 13,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 1
+          },
+          "xp": {
+            "total": 200,
+            "remaining": 125
+          },
+          "encumbrance": {
+            "carried": 2,
+            "limit": 9
+          },
+          "skills": {
+            "BRAWL": 3,
+            "COOL": 1,
+            "DISC": 2,
+            "VIGIL": 1,
+            "LTSAB": 3,
+            "RESIL": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [
+            {
+              "name": "Enhance",
+              "desc": "Basic: spend light pip to add 1 success to Athletics/Coordination/Resilience check."
+            }
+          ],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Training Lightsaber",
+                "damage": "6",
+                "crit": "0",
+                "range": "Engaged",
+                "qualities": "STUNDAMAGE",
+                "skillKey": "LTSABER"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Comlink (handheld)"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": null,
+          "morality": {
+            "type": "BRAVERY",
+            "value": 50,
+            "description": ""
+          }
+        },
+        "character": {
+          "id": "mo8bawvc-i25yda4",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "fad",
+          "identity": {
+            "name": "Gero Larran",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "ZABRAK",
+            "name": "Zabrak"
+          },
+          "career": {
+            "name": "Guardian",
+            "key": "Guardian"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 4,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 3,
+            "presence": 1
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "DISC": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 1
+            },
+            "VIGIL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "LTSAB": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 2
+            },
+            "RESIL": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "ARMORER_r0c0": {
+              "talentKey": "GRIT",
+              "specKey": "ARMORER",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 100,
+              "reason": "tier: mid"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise brawn to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill BRAWL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill BRAWL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill LTSAB → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill LTSAB → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill DISC → rank 2"
+            }
+          ],
+          "mechanic": {
+            "type": "morality",
+            "descriptor": "BRAVERY",
+            "baseValue": 50,
+            "finalValue": 50,
+            "xpAdjustment": 100,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "LTSABERTRAIN",
+                "name": "Training Lightsaber",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "M4",
+      "tier": "mid",
+      "name": "Renz Malar",
+      "species": "Human",
+      "career": "Hired Gun",
+      "file": "M4_Renz_Malar.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "M4",
+          "tier": "mid"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Renz Malar",
+          "species": "Human",
+          "career": "Hired Gun",
+          "specialization": "",
+          "book": "eote",
+          "source": "FullCreator",
+          "portrait": null,
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 4,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 5,
+            "woundThreshold": 14,
+            "strainThreshold": 12,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 210,
+            "remaining": 105
+          },
+          "encumbrance": {
+            "carried": 7,
+            "limit": 9
+          },
+          "skills": {
+            "ATHL": 3,
+            "BRAWL": 3,
+            "DISC": 2,
+            "RANGHVY": 2,
+            "PERCEP": 1
+          },
+          "talents": [
+            {
+              "name": "Toughened",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Slugthrower Rifle",
+                "damage": "7",
+                "crit": "5",
+                "range": "Medium",
+                "qualities": "CUMBERSOME 2",
+                "skillKey": "RANGHVY"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Stimpack",
+              "Comlink (handheld)",
+              "Backpack",
+              "Macrobinoculars"
+            ],
+            "credits": 0
+          },
+          "obligation": {
+            "type": "FAV",
+            "value": 10,
+            "description": ""
+          },
+          "duty": null,
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvc-gql0kaa",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "eote",
+          "identity": {
+            "name": "Renz Malar",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "HUMAN",
+            "name": "Human"
+          },
+          "career": {
+            "name": "Hired Gun",
+            "key": "Hired Gun"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 4,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "ATHL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "DISC": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 1
+            },
+            "RANGHVY": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "PERCEP": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "BODYGUARD_r0c0": {
+              "talentKey": "TOUGH",
+              "specKey": "BODYGUARD",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 100,
+              "reason": "tier: mid"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise brawn to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill ATHL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill ATHL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill BRAWL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill BRAWL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill DISC → rank 2"
+            }
+          ],
+          "mechanic": {
+            "type": "obligation",
+            "descriptor": "FAV",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 100,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "SLUGRIF",
+                "name": "Slugthrower Rifle",
+                "price": 250,
+                "enc": 5,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "BACKPACK",
+                "name": "Backpack",
+                "price": 50,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "MBIN",
+                "name": "Macrobinoculars",
+                "price": 75,
+                "enc": 1,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "L1",
+      "tier": "late",
+      "name": "Captain Nyla Vass",
+      "species": "Human",
+      "career": "Ace",
+      "file": "L1_Captain_Nyla_Vass.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "L1",
+          "tier": "late"
+        },
+        "exported_at": "2026-04-21T07:38:20.520Z",
+        "sheet": {
+          "name": "Captain Nyla Vass",
+          "species": "Human",
+          "career": "Ace",
+          "specialization": "",
+          "book": "aor",
+          "source": "FullCreator",
+          "portrait": null,
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 2,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 3,
+            "woundThreshold": 12,
+            "strainThreshold": 12,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 410,
+            "remaining": 255
+          },
+          "encumbrance": {
+            "carried": 2,
+            "limit": 7
+          },
+          "skills": {
+            "ASTRO": 3,
+            "COOL": 3,
+            "GUNN": 3,
+            "PILSP": 3,
+            "PERCEP": 1,
+            "SURV": 1
+          },
+          "talents": [
+            {
+              "name": "Toughened",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Blaster Pistol",
+                "damage": "6",
+                "crit": "3",
+                "range": "Medium",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Comlink (handheld)",
+              "Stimpack"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": {
+            "type": "SPACESUPERIORITY",
+            "value": 10,
+            "description": ""
+          },
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvc-5381yhj",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "aor",
+          "identity": {
+            "name": "Captain Nyla Vass",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "HUMAN",
+            "name": "Human"
+          },
+          "career": {
+            "name": "Ace",
+            "key": "Ace"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 2,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "ASTRO": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "GUNN": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "PILSP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "PERCEP": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            },
+            "SURV": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "BEASTRIDER_r0c1": {
+              "talentKey": "TOUGH",
+              "specKey": "BEASTRIDER",
+              "row": 0,
+              "col": 1,
+              "cost": 5
+            },
+            "PILOT_r1c2": {
+              "talentKey": "SKJOCK",
+              "specKey": "PILOT",
+              "row": 1,
+              "col": 2,
+              "cost": 10
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 300,
+              "reason": "tier: late"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise agility to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise cunning to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill PILSP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill PILSP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill GUNN → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill GUNN → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill ASTRO → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill ASTRO → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill COOL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill COOL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "talent SKJOCK"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 20,
+              "reason": "extra spec: HOTSHOT"
+            },
+            {
+              "type": "tier-upgrade-leftover",
+              "amount": 90,
+              "reason": "unspent"
+            }
+          ],
+          "mechanic": {
+            "type": "duty",
+            "descriptor": "SPACESUPERIORITY",
+            "baseValue": 10,
+            "finalValue": 10,
+            "xpAdjustment": 300,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTPIS",
+                "name": "Blaster Pistol",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "L2",
+      "tier": "late",
+      "name": "Kessel Rynn",
+      "species": "Twi'lek",
+      "career": "Smuggler",
+      "file": "L2_Kessel_Rynn.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "L2",
+          "tier": "late"
+        },
+        "exported_at": "2026-04-21T07:38:20.521Z",
+        "sheet": {
+          "name": "Kessel Rynn",
+          "species": "Twi'lek",
+          "career": "Smuggler",
+          "specialization": "",
+          "book": "eote",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Twilek.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 1,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 3
+          },
+          "derived": {
+            "soak": 2,
+            "woundThreshold": 11,
+            "strainThreshold": 13,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 0
+          },
+          "xp": {
+            "total": 400,
+            "remaining": 245
+          },
+          "encumbrance": {
+            "carried": 3,
+            "limit": 6
+          },
+          "skills": {
+            "CHARM": 3,
+            "COOL": 3,
+            "DECEP": 3,
+            "PILSP": 3
+          },
+          "talents": [
+            {
+              "name": "Smooth Talker",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Light Blaster Pistol",
+                "damage": "5",
+                "crit": "4",
+                "range": "Medium",
+                "qualities": "STUNSETTING",
+                "skillKey": "RANGLT"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Comlink (handheld)",
+              "Stimpack",
+              "Stimpack",
+              "Utility Belt",
+              "Syntherope"
+            ],
+            "credits": 45
+          },
+          "obligation": {
+            "type": "BOU",
+            "value": 20,
+            "description": ""
+          },
+          "duty": null,
+          "morality": null
+        },
+        "character": {
+          "id": "mo8bawvc-sq8icrt",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "eote",
+          "identity": {
+            "name": "Kessel Rynn",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "TWI",
+            "name": "Twi'lek"
+          },
+          "career": {
+            "name": "Smuggler",
+            "key": "Smuggler"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 1,
+            "agility": 4,
+            "intellect": 2,
+            "cunning": 4,
+            "willpower": 2,
+            "presence": 3
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "CHARM": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 1
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 1
+            },
+            "DECEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "PILSP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            }
+          },
+          "talents": {
+            "CHARMER_r0c0": {
+              "talentKey": "SMOOTHTALK",
+              "specKey": "CHARMER",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            },
+            "CHARMER_r1c1": {
+              "talentKey": "QUICKSTRIKE",
+              "specKey": "CHARMER",
+              "row": 1,
+              "col": 1,
+              "cost": 10
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 300,
+              "reason": "tier: late"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise cunning to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise agility to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill CHARM → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill COOL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill DECEP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill DECEP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill PILSP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill PILSP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "talent QUICKSTRIKE"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 20,
+              "reason": "extra spec: SCOUND"
+            },
+            {
+              "type": "tier-upgrade-leftover",
+              "amount": 110,
+              "reason": "unspent"
+            }
+          ],
+          "mechanic": {
+            "type": "obligation",
+            "descriptor": "BOU",
+            "baseValue": 20,
+            "finalValue": 20,
+            "xpAdjustment": 300,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "BLASTLT",
+                "name": "Light Blaster Pistol",
+                "price": 300,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "UTILBELT",
+                "name": "Utility Belt",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "SYNTHEROPE",
+                "name": "Syntherope",
+                "price": 5,
+                "enc": 1,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "L3",
+      "tier": "late",
+      "name": "Master Thell Durin",
+      "species": "Human",
+      "career": "Guardian",
+      "file": "L3_Master_Thell_Durin.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "L3",
+          "tier": "late"
+        },
+        "exported_at": "2026-04-21T07:38:20.521Z",
+        "sheet": {
+          "name": "Master Thell Durin",
+          "species": "Human",
+          "career": "Guardian",
+          "specialization": "",
+          "book": "fad",
+          "source": "FullCreator",
+          "portrait": null,
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 4,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 4,
+            "presence": 2
+          },
+          "derived": {
+            "soak": 5,
+            "woundThreshold": 14,
+            "strainThreshold": 14,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 1
+          },
+          "xp": {
+            "total": 410,
+            "remaining": 255
+          },
+          "encumbrance": {
+            "carried": 2,
+            "limit": 9
+          },
+          "skills": {
+            "BRAWL": 3,
+            "COOL": 1,
+            "DISC": 3,
+            "VIGIL": 3,
+            "LTSAB": 3,
+            "RESIL": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            },
+            {
+              "name": "Parry",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [
+            {
+              "name": "Enhance",
+              "desc": "Basic: spend light pip to add 1 success to Athletics/Coordination/Resilience check."
+            }
+          ],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Training Lightsaber",
+                "damage": "6",
+                "crit": "0",
+                "range": "Engaged",
+                "qualities": "STUNDAMAGE",
+                "skillKey": "LTSABER"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Comlink (handheld)"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": null,
+          "morality": {
+            "type": "JUSTICE",
+            "value": 50,
+            "description": ""
+          }
+        },
+        "character": {
+          "id": "mo8bawvc-gjee1ng",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "fad",
+          "identity": {
+            "name": "Master Thell Durin",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "HUMAN",
+            "name": "Human"
+          },
+          "career": {
+            "name": "Guardian",
+            "key": "Guardian"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 4,
+            "agility": 2,
+            "intellect": 2,
+            "cunning": 2,
+            "willpower": 4,
+            "presence": 2
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "BRAWL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 0
+            },
+            "DISC": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "VIGIL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "LTSAB": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 2
+            },
+            "RESIL": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "ARMORER_r0c0": {
+              "talentKey": "GRIT",
+              "specKey": "ARMORER",
+              "row": 0,
+              "col": 0,
+              "cost": 5
+            },
+            "ARMORER_r1c1": {
+              "talentKey": "PARRY",
+              "specKey": "ARMORER",
+              "row": 1,
+              "col": 1,
+              "cost": 10
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 300,
+              "reason": "tier: late"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise brawn to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise willpower to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill BRAWL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill BRAWL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill LTSAB → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill LTSAB → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill DISC → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill DISC → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill VIGIL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill VIGIL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "talent PARRY"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 20,
+              "reason": "extra spec: PROTECT"
+            },
+            {
+              "type": "tier-upgrade-leftover",
+              "amount": 90,
+              "reason": "unspent"
+            }
+          ],
+          "mechanic": {
+            "type": "morality",
+            "descriptor": "JUSTICE",
+            "baseValue": 50,
+            "finalValue": 50,
+            "xpAdjustment": 300,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "LTSABERTRAIN",
+                "name": "Training Lightsaber",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "L4",
+      "tier": "late",
+      "name": "Zyra Venn",
+      "species": "Mirialan",
+      "career": "Mystic",
+      "file": "L4_Zyra_Venn.json",
+      "payload": {
+        "schema": "swrpg-character-sheet",
+        "schema_version": 1,
+        "test_bed": {
+          "id": "L4",
+          "tier": "late"
+        },
+        "exported_at": "2026-04-21T07:38:20.521Z",
+        "sheet": {
+          "name": "Zyra Venn",
+          "species": "Mirialan",
+          "career": "Mystic",
+          "specialization": "",
+          "book": "fad",
+          "source": "FullCreator",
+          "portrait": "public/SWDataSet-Master/species_portraits/Mirialan.webp",
+          "backstory": "",
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 1,
+            "willpower": 4,
+            "presence": 4
+          },
+          "derived": {
+            "soak": 3,
+            "woundThreshold": 13,
+            "strainThreshold": 14,
+            "meleeDefense": 0,
+            "rangedDefense": 0,
+            "forceRating": 1
+          },
+          "xp": {
+            "total": 400,
+            "remaining": 255
+          },
+          "encumbrance": {
+            "carried": 2,
+            "limit": 7
+          },
+          "skills": {
+            "CHARM": 3,
+            "COOL": 3,
+            "KNOWLORE": 3,
+            "PERCEP": 3,
+            "NEGOT": 1
+          },
+          "talents": [
+            {
+              "name": "Grit",
+              "description": "",
+              "descriptionRaw": ""
+            }
+          ],
+          "forcePowers": [
+            {
+              "name": "Heal",
+              "desc": "Basic: commit Force, spend light pip to heal 1 wound on target."
+            }
+          ],
+          "equipment": {
+            "weapons": [
+              {
+                "name": "Training Lightsaber",
+                "damage": "6",
+                "crit": "0",
+                "range": "Engaged",
+                "qualities": "STUNDAMAGE",
+                "skillKey": "LTSABER"
+              }
+            ],
+            "armor": {
+              "name": "Heavy Clothing",
+              "soak": 1
+            },
+            "gear": [
+              "Stimpack",
+              "Comlink (handheld)"
+            ],
+            "credits": 0
+          },
+          "obligation": null,
+          "duty": null,
+          "morality": {
+            "type": "MERCY",
+            "value": 50,
+            "description": ""
+          }
+        },
+        "character": {
+          "id": "mo8bawvc-ighmnsu",
+          "meta": {
+            "schemaVersion": 1,
+            "createdAt": "2026-04-21T07:38:20.520Z",
+            "updatedAt": "2026-04-21T07:38:20.520Z"
+          },
+          "gameLine": "fad",
+          "identity": {
+            "name": "Zyra Venn",
+            "playerName": ""
+          },
+          "narrative": {
+            "backgroundId": null,
+            "hookId": null,
+            "motivationId": null,
+            "backstory": ""
+          },
+          "appearance": {},
+          "species": {
+            "key": "MIRIALAN",
+            "name": "Mirialan"
+          },
+          "career": {
+            "name": "Mystic",
+            "key": "Mystic"
+          },
+          "specializations": [],
+          "characteristics": {
+            "brawn": 2,
+            "agility": 3,
+            "intellect": 2,
+            "cunning": 1,
+            "willpower": 4,
+            "presence": 4
+          },
+          "derived": {
+            "woundThresholdBonus": 0,
+            "strainThresholdBonus": 0,
+            "soakBonus": 0,
+            "meleeDefenseBonus": 0,
+            "rangedDefenseBonus": 0,
+            "forceRatingBonus": 0
+          },
+          "skills": {
+            "CHARM": {
+              "freeCareer": true,
+              "freeSpec": true,
+              "purchased": 1
+            },
+            "COOL": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "KNOWLORE": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "PERCEP": {
+              "freeCareer": true,
+              "freeSpec": false,
+              "purchased": 2
+            },
+            "NEGOT": {
+              "freeCareer": false,
+              "freeSpec": true,
+              "purchased": 0
+            }
+          },
+          "talents": {
+            "ADVISOR_r0c2": {
+              "talentKey": "GRIT",
+              "specKey": "ADVISOR",
+              "row": 0,
+              "col": 2,
+              "cost": 5
+            }
+          },
+          "xpLedger": [
+            {
+              "type": "bonus",
+              "amount": 300,
+              "reason": "tier: late"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise willpower to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 40,
+              "reason": "raise presence to 4"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill CHARM → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill COOL → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill COOL → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill KNOWLORE → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill KNOWLORE → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 10,
+              "reason": "skill PERCEP → rank 2"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 15,
+              "reason": "skill PERCEP → rank 3"
+            },
+            {
+              "type": "tier-upgrade",
+              "amount": 20,
+              "reason": "extra spec: HEALER"
+            },
+            {
+              "type": "tier-upgrade-leftover",
+              "amount": 110,
+              "reason": "unspent"
+            }
+          ],
+          "mechanic": {
+            "type": "morality",
+            "descriptor": "MERCY",
+            "baseValue": 50,
+            "finalValue": 50,
+            "xpAdjustment": 300,
+            "creditAdjustment": 0,
+            "tradeIds": []
+          },
+          "forceSensitive": false,
+          "gearLedger": {
+            "startingCredits": 500,
+            "credits": 500,
+            "inventory": [
+              {
+                "key": "LTSABERTRAIN",
+                "name": "Training Lightsaber",
+                "price": 400,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "HC",
+                "name": "Heavy Clothing",
+                "price": 50,
+                "enc": 1,
+                "qty": 1
+              },
+              {
+                "key": "STIMPACK",
+                "name": "Stimpack",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              },
+              {
+                "key": "COMLINKH",
+                "name": "Comlink (handheld)",
+                "price": 25,
+                "enc": 0,
+                "qty": 1
+              }
+            ]
+          },
+          "motivations": {
+            "strength": null,
+            "flaw": null,
+            "desire": null,
+            "fear": null
+          },
+          "notes": {
+            "personal": "",
+            "gm": ""
+          }
+        }
+      }
+    }
+  ]
+}

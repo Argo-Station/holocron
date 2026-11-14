@@ -1,0 +1,456 @@
+{
+  "id": "knights_of_ren",
+  "name": "Knights of Ren",
+  "type": "force_order",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "No direct FFG coverage — Knights of Ren do not appear in any FFG Star Wars RPG sourcebook",
+    "FaD Core pp.422-424 — Inquisitorius creation system used as analog reference for dark side Force order operations",
+    "FaD Core pp.396-397 — Imperial dark side organizations and their operational methods",
+    "FaD Core pp.393-395 — Force-sensitive groups and the dangers they face"
+  ],
+  "overview": "A secretive order of dark side Force users who serve as enforcers and relic hunters operating outside the formal Imperial hierarchy. Led by a master who takes the title 'Ren,' the Knights pursue dark side artifacts, destroy rival Force traditions, and answer to no conventional authority. Their masked appearance and cryptic mandate make them objects of fear and confusion even to Imperial officers who encounter them.",
+  "short_descriptor": "I don't have reliable intelligence on them. What I have are gaps where they should appear in other files and don't. That tells me something. I'm still working out what.",
+  "witness_statement": {
+    "text": "Masked. All of them. Landed on Malachor station without clearance and the garrison commander just... let them through. I asked a lieutenant what unit they were with. He told me to stop asking. Three days later, the temple site was stripped clean and they were gone. Nobody filed a report.",
+    "source": "Deep-cover contact, identity withheld — ASSET-7",
+    "verification": "PARTIAL — DETAILS UNVERIFIABLE"
+  },
+  "history": null,
+  "how_they_operate": [
+    {
+      "heading": "THE KNIGHTS",
+      "text": "The Knights number a handful of individuals, each a dark side Force user, led by a master who holds the title 'Ren.' The chain of command is flat — individual Knights operate semi-autonomously, pursuing artifact recovery and Force tradition elimination across the Outer Rim, Wild Space, and Unknown Regions."
+    },
+    {
+      "heading": "METHODS",
+      "text": "They arrive at locations unannounced, compel local Imperial garrisons to provide support through implied authority rather than formal orders, accomplish their objective, and depart. Communication among the Knights relies on Force-mediated contact as much as conventional encrypted channels."
+    },
+    {
+      "heading": "DOCTRINE",
+      "text": "They maintain no permanent bases, no supply chains, and no bureaucratic infrastructure. Their operational method is direct confrontation backed by dark side power and masked anonymity — they do not infiltrate, negotiate, or explain."
+    }
+  ],
+  "motivations": {
+    "primary": "Dark side power accumulation",
+    "secondary": [
+      "Acquisition and study of dark side artifacts and relics",
+      "Destruction of rival Force traditions and practitioners",
+      "Personal mastery of the dark side by each Knight",
+      "Enforcement of their master's cryptic agenda"
+    ],
+    "notes": "Unlike the Inquisitorius which serves the Emperor's specific mandate to eliminate Jedi, the Knights of Ren pursue a broader dark side philosophy. Each Knight has personal obsessions and areas of dark side study that sometimes conflict with collective objectives. Their motivations are mystical rather than political."
+  },
+  "goals": {
+    "strategic": [
+      "Recover dark side artifacts and relics from across the galaxy before they fall into other hands",
+      "Eliminate or absorb Force traditions that could rival their power",
+      "Expand their collective understanding of the dark side through artifacts, ruins, and captured knowledge",
+      "Maintain independence from Imperial political structures while leveraging Imperial resources when useful"
+    ],
+    "operational": [
+      "Investigate reports of Force-related phenomena, vergences, and artifact discoveries",
+      "Confront and destroy Force-sensitive individuals or groups deemed threats to their agenda",
+      "Compel local Imperial garrisons to provide support without explaining their mission",
+      "Secure ancient ruins and temples before other parties — Inquisitorius, Rebels, or independent seekers — reach them"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "intimidation",
+      "military_force",
+      "artifact_recovery",
+      "assassination",
+      "information_control"
+    ],
+    "avoided": [
+      "Bureaucratic cooperation — the Knights command but do not explain or negotiate",
+      "Subtlety or infiltration — they prefer overwhelming dark side presence and direct confrontation",
+      "Extended occupations — they arrive, accomplish their objective, and leave"
+    ],
+    "notes": "The Knights operate through fear and dark side power. They arrive unannounced, demand cooperation from Imperial garrisons through implied authority, accomplish their objective, and depart. Their methods are violent and mystical — they rely on the Force and their terrifying reputation rather than conventional military planning."
+  },
+  "strengths": [
+    "Dark side Force abilities that make each Knight a formidable individual combatant",
+    "Mystique and fear — their masked appearance and unknown mandate paralyze opposition",
+    "Independence from Imperial bureaucracy allows them to operate without oversight or delay",
+    "Collective knowledge of dark side artifacts, ruins, and Force phenomena accumulated over years of hunting",
+    "Ability to compel Imperial military cooperation without formal authorization"
+  ],
+  "weaknesses": [
+    "Total membership numbers fewer than a dozen individuals, limiting the order's ability to pursue multiple objectives simultaneously or sustain casualties.",
+    "Each Knight maintains personal dark side obsessions that periodically override collective mission priorities, fragmenting operational focus.",
+    "The order operates without permanent bases, supply chains, or bureaucratic infrastructure, making it dependent on commandeering Imperial resources for sustained operations.",
+    "The Inquisitorius regards the Knights as unauthorized competitors in the same operational space, and jurisdictional disputes between the two organizations go unresolved due to the absence of a shared command authority.",
+    "The Knights' consistent refusal to explain their mandate or authority basis generates cumulative resentment among Imperial officers, reducing the quality of cooperation they receive over time."
+  ],
+  "behavior_under_threat": {
+    "low": "Ignore it. The Knights do not acknowledge threats below their attention threshold.",
+    "medium": "A single Knight confronts the threat directly with dark side Force abilities and combat prowess. No subtlety.",
+    "high": "Multiple Knights converge on the threat. The dark side resonance of their collective presence is overwhelming. Imperial forces in the area are commandeered without explanation.",
+    "critical": "The master of the Knights takes personal command. Ancient dark side techniques and artifacts are deployed without restraint. The objective must be secured at any cost — the Knights will sacrifice themselves before abandoning a critical mission."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Individual Knight on-site",
+      "Senior Knight or team leader",
+      "The master of the Knights (Ren)",
+      "No higher authority acknowledged"
+    ],
+    "notes": "The Knights communicate through the Force as much as through conventional means. Their chain of command is flat — each Knight operates semi-autonomously. Escalation occurs when a Knight recognizes a threat beyond their individual capability and calls for reinforcement through Force-mediated communication or encrypted channels."
+  },
+  "tension_patterns": [
+    "Dark side artifacts of sufficient potency produce measurable behavioral and psychological changes in the Knight assigned to retrieve them, and prolonged proximity accelerates this effect.",
+    "Operational overlap with the Inquisitorius occurs when both organizations pursue the same Force-sensitive targets or artifact sites, and neither recognizes the other's jurisdictional authority.",
+    "Individual Knights' personal obsessions with specific Force traditions or artifacts divert time and resources from missions designated as collective priorities by the master.",
+    "Imperial garrison commanders compelled to cooperate with the Knights receive no explanation of mission objectives or authority basis, producing institutional friction and inconsistent compliance.",
+    "Ancient ruins containing active dark side presences generate conflicting interpretations among the Knights regarding whether the phenomena should be harnessed or destroyed."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "skeleton",
+    "economic": "skeleton",
+    "command": "skeleton",
+    "informational": "patrol",
+    "military": "skeleton",
+    "hidden": "fortified",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "none",
+    "weapon": "medium",
+    "person": "high",
+    "artifact": "high",
+    "technology": "low",
+    "notes": "The Knights prioritize Force artifacts and dark side relics above all else — holocrons, Sith artifacts, temple relics, and vergence-related objects. Force-sensitive persons are high-value targets for recruitment, destruction, or study. Data about Jedi ruins, Force traditions, and artifact locations is actively sought. Conventional weapons, technology, and contraband hold no interest."
+  },
+  "ally_factions": [],
+  "enemy_factions": [
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "inquisitorius": "Uneasy parallel operation — both pursue dark side objectives and Force-sensitive targets, but the Inquisitorius serves the Emperor directly while the Knights answer to their own master. Jurisdictional conflicts are inevitable.",
+    "imperial_military": "The Knights compel Imperial cooperation through implied authority but have no formal place in the Imperial hierarchy. Garrisons comply out of fear and uncertainty rather than orders.",
+    "rebel_alliance": "Enemies by default — the Knights will destroy any Force-sensitive Rebels they encounter, and Rebel operations near Force sites risk drawing Knight attention."
+  },
+  "regional_presence": {
+    "deep_core": "minimal",
+    "core_worlds": "minimal",
+    "colonies": "none",
+    "inner_rim": "minimal",
+    "expansion_region": "none",
+    "mid_rim": "minimal",
+    "outer_rim": "moderate",
+    "hutt_space": "none",
+    "wild_space": "moderate",
+    "unknown_regions": "significant"
+  },
+  "prominent_figures": [
+    {
+      "name": "The Master of the Knights of Ren",
+      "role": "Leader bearing the title 'Ren'",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "The title 'Ren' passes to whoever leads the Knights. The current master's identity and history are unknown to outsiders. Wields both dark side power and absolute authority over the other Knights.",
+      "network_assessment": "No identity, no pattern, no leverage. This is someone who exists only through what the Knights do. If you encounter them, your only objective is to leave.",
+      "wants": "Accumulation of dark side power through artifacts, ruins, and the destruction of rival Force traditions. The agenda is mystical, not political — conventional leverage does not apply.",
+      "secret": "The title 'Ren' is not simply leadership — it is bound to a specific dark side weapon or artifact. The succession mechanism may be exploitable by someone who understands what 'Ren' actually refers to.",
+      "behavior": {
+        "under_pressure": "Deploys the full dark side without restraint. There is no measured response — the Master meets existential threats with existential force.",
+        "when_losing": "Will sacrifice individual Knights and Imperial assets without hesitation to secure the mission objective. The order's survival matters less than what they are pursuing.",
+        "loyalty": "Bound to the dark side philosophy that defines the order. Personal relationships among the Knights are subordinate to the shared obsession with power.",
+        "tells": "When the Knights converge on a single location instead of operating independently, the Master has identified something of extraordinary dark side significance. Convergence is the signal."
+      },
+      "useful_to_players": [
+        "The Knights have no intelligence network — they find targets through the Force, not informants, which means conventional counter-intelligence is irrelevant but also means you can't feed them disinformation",
+        "Their refusal to explain their authority frustrates Imperial officers, and that resentment can be leveraged for intelligence about Knight movements",
+        "Artifacts are the only bait that works — they will pursue significant dark side relics regardless of the tactical risk"
+      ],
+      "hooks": [
+        "An Imperial garrison commander on the Outer Rim got relieved of duty after refusing to cooperate with masked figures who wouldn't show credentials. He's drinking on Ord Mantell and might talk about where they went.",
+        "Somebody cleaned out a Sith ruin on Moraband three days before an archaeological team arrived. No tracks, no ship signature, nothing on scanners. The team lead is offering credits for any information about who got there first."
+      ]
+    }
+  ],
+  "territory": [
+    "Citadel Inquisitorius — Deep Core (exact location classified)",
+    "The Spire — Stygeon Prime, Outer Rim (prison and interrogation facility)",
+    "",
+    "Arkanis Academy — Area Null (Project Harvester operations)"
+  ],
+  "analog_inquisitorius": {
+    "_label": "ANALOG — not Knights of Ren. The Inquisitorius is the closest FFG-documented dark-side organization and is provided here as a GM reference for adapting similar themes.",
+    "id": "inquisitorius",
+    "name": "The Inquisitorius",
+    "type": "dark_side_organization",
+    "overview": "",
+    "history": "",
+    "how_they_operate": "",
+    "how_they_operate_in_campaigns": {
+      "_note": "FaD Core pp.423, 310, 321-322, 331, 337-338 provide extensive GM guidance on using Inquisitors as campaign antagonists.",
+      "narrative_role": "",
+      "power_level": "",
+      "behavior": "",
+      "fear_check": "Confronting an Inquisitor requires a fear check with 2 difficulty upgrades (FaD Core p.331). This is the same severity as confronting a Sith warrior or something known to be extremely dangerous and unique.",
+      "additional_combat_turns": "",
+      "sample_campaign_usage": ""
+    },
+    "inquisitor_creation_system": {
+      "_note": "FaD Core pp.422-424 provides a complete 7-step system for GMs to generate custom Inquisitors. Because Inquisitors may be of any species, age, or gender, no stat blocks for particular individuals are provided — instead GMs build them to fit their story.",
+      "step_1_npc_type": "All Inquisitors are Nemesis-level NPCs and follow all the rules for this NPC type (FaD Core p.400).",
+      "step_2_characteristics": "The GM assigns the following values, one to each of the six characteristics (each value used only once): 5, 4, 3, 3, 3, 2.",
+      "step_3_wounds_and_strain": "Base wound threshold 20 + Brawn. Base strain threshold 20 + Willpower.",
+      "step_4_skills": {
+        "combat_skills": "Assign values 4, 3, and 2 to combat skills of the GM's choice (one value each, unassigned skills are rank 0).",
+        "knowledge_skills": "The Inquisitor has 2 ranks in each Knowledge skill.",
+        "general_skill_packages": [
+          {
+            "name": "The Acolyte",
+            "skills": "Deception 1, Discipline 4, Leadership 2, Perception 2, Survival 3, Vigilance 3"
+          },
+          {
+            "name": "The Assassin",
+            "skills": "Cool 2, Coordination 3, Deception 3, Medicine 1, Stealth 4, Vigilance 2"
+          },
+          {
+            "name": "The Brute",
+            "skills": ""
+          },
+          {
+            "name": "The Investigator",
+            "skills": ""
+          },
+          {
+            "name": "The Mastermind",
+            "skills": ""
+          },
+          {
+            "name": "The Traveler",
+            "skills": ""
+          },
+          {
+            "name": "The Warlord",
+            "skills": ""
+          }
+        ]
+      },
+      "step_5_talents": {
+        "mandatory": "",
+        "force_rating": "At the GM's discretion, may possess a Force rating of 3.",
+        "optional_talents_pick_up_to_2": [
+          "",
+          "",
+          "",
+          "Intense Focus: Perform maneuver, suffer 1 strain, upgrade ability of next skill check once.",
+          "Lethal Blows 2: Add +20 to any Critical Injury rolls inflicted on opponents.",
+          "Parry 4: When struck by melee attack, out-of-turn incidental: suffer 3 strain, reduce damage by 6.",
+          "Pressure Point: On Brawl check against living opponent, may forgo dealing wounds and instead deal equivalent damage as strain plus additional strain equal to ranks in Medicine. No weapons, strain not reduced by soak.",
+          "Reflect 4: When struck by ranged attack, out-of-turn incidental: suffer 3 strain, reduce damage by 6.",
+          "Scathing Tirade (Improved): Average Coercion check; each Success causes one enemy within short range to suffer 1 strain and setback on all checks for rounds equal to Coercion ranks. May spend Advantage to inflict additional strain on affected targets."
+        ]
+      },
+      "step_6_abilities_and_force_powers": {
+        "_note": "Every Inquisitor possesses two abilities and/or Force powers chosen from this list.",
+        "options": [
+          "",
+          "Lightsaber Mastery: Choose a characteristic; when making Lightsaber skill checks, use that characteristic instead of Brawn.",
+          "",
+          "Intimidating Presence: All enemies at short range add Threat to all skill checks they make.",
+          "Terrifying: At the beginning of an encounter, each enemy must make a Hard fear check.",
+          "Harm (Force Power): As an action, Force power check against one engaged target. Spend Force pips to inflict wounds equal to Intellect (ignoring soak), heal equal wounds on self/ally, increase range, or increase number of affected enemies.",
+          "Unleash (Force Power): Force power check targeting one enemy at short range, rolled as ranged attack using Average Discipline check. Deals damage equal to Willpower (crit rating 4), +1 damage per uncanceled Success. Can spend pips to increase range, affect additional targets, or deal 3 additional damage.",
+          "Move (Force Power): Spend pips to move silhouette 0 objects within short range. Can increase range, silhouette, number of objects. Can hurl objects as ranged attacks dealing damage equal to silhouette x10 (silhouette 0 = 5 damage) +1 per Success. Multiple objects use Auto-fire rules.",
+          "Influence (Force Power): Spend pips to inflict 2 strain (ignoring soak) on engaged target. Can make opposed Discipline check to cause target to adopt emotional state (rage, fear, hatred) or believe one untrue statement for 1 round/5 minutes. Can spend pips to extend duration."
+        ]
+      },
+      "step_7_equipment": {
+        "_note": "",
+        "suggested_weapons": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "suggested_armor": [
+          "Armored Clothing: soak +1, defense +1",
+          "Armored Robes: soak +2, defense +1"
+        ]
+      }
+    },
+    "prominent_figures": [
+      {
+        "name": "Darth Vader",
+        "role": "Most senior member of the Inquisitorius",
+        "notes": "Believed to have trained Inquisitors in techniques for eliminating Force-sensitive targets. As the Emperor's extension of personal power, Vader enjoys a special position in the Imperial government with great power and authority. He carries out a personal vendetta against surviving Jedi. Nemesis-level NPC, Force Rating 6. Source: Dawn of Rebellion p.65; FaD Core pp.396-397"
+      },
+      {
+        "name": "The Grand Inquisitor",
+        "role": "Operational leader of the Inquisitorius",
+        "notes": "Pau'an, formerly a Jedi Temple Guard who fell to the dark side. Fulfills the mandate to find and eliminate Force-sensitive threats. Oversees Project Harvester. Has authority over high-ranking Imperial military officers and has worked with Grand Moff Tarkin. Nemesis-level NPC, Force Rating 4. Source: Dawn of Rebellion pp.67-68"
+      },
+      {
+        "name": "Fifth Brother",
+        "role": "Inquisitorius agent",
+        "notes": "Male with blocky features and gray skin. Confronts challenges directly rather than through pursuit and reconnaissance. Fighting style is particularly savage. Source: Dawn of Rebellion p.66"
+      },
+      {
+        "name": "Blaise Zirkonn",
+        "role": "Inquisitorius recruiter / ISB operative",
+        "notes": "Runs operations on Naboo to gather Force adept recruits for the Inquisitorius and ISB. Uses ploys involving false promises of ancient Jedi artifacts to lure naive would-be Jedi. Nemesis-level adversary. Source: Worlds Strong in the Force pp.137-140"
+      },
+      {
+        "name": "Dinn",
+        "role": "Inquisitorius field agent",
+        "notes": ""
+      }
+    ],
+    "_prominent_figures_note": "",
+    "enemies": [
+      "Surviving Jedi and Padawans",
+      "Force-sensitive individuals of any tradition",
+      "The Rebel Alliance (especially Force-using members like Kanan Jarrus, Ezra Bridger, Ahsoka Tano)",
+      "Force-sensitive groups and congregations (FaD Core p.395 — groups of Force-sensitives are at extreme risk of discovery and arrest)",
+      "Secret searchers — Force users who travel pursuing rumors, ancient maps, and ruins to understand their powers (FaD Core p.394)"
+    ],
+    "allies": [
+      "Emperor Palpatine (direct authority — Inquisitors answer to him and him alone)",
+      "Imperial Security Bureau (operational coordination; ISB agents locate targets and report them to Inquisitors)",
+      "Imperial Military (can requisition assets including Star Destroyer fleets, stormtroopers, and other Imperial agents)",
+      "Grand Moff Tarkin (collaborative operations)",
+      "COMPNOR — Commission for the Preservation of the New Order (civilian surveillance organization that helps expose Force users and Rebels)"
+    ],
+    "motivations": [
+      "Eliminate all Force-sensitive individuals who could threaten the Emperor's reign",
+      "Hunt surviving Jedi and prevent the re-emergence of the Jedi Order",
+      "Capture Force-sensitive children for unknown Imperial purposes",
+      "Individual Inquisitors also pursue personal power and reputation",
+      "",
+      ""
+    ],
+    "mcguffin_interest": [
+      {
+        "type": "person",
+        "reason": "Force-sensitive children and surviving Jedi are primary targets for capture or elimination"
+      },
+      {
+        "type": "artifact",
+        "reason": ""
+      },
+      {
+        "type": "data",
+        "reason": ""
+      },
+      {
+        "type": "vergence",
+        "reason": "Force vergences — locations where the Force is naturally stronger or more active — may draw both Force-sensitive targets and Inquisitors who cross paths while investigating the same site (FaD Core p.394).",
+        "inferred": true
+      }
+    ],
+    "tools_and_assets": [
+      {
+        "name": "Vornskrs",
+        "description": "",
+        "source": "FaD Core p.420"
+      },
+      {
+        "name": "Interrogation Droids",
+        "description": "Floating black spheres bristling with instruments of torture designed by the Imperial Department of Military Research. Just the sight of them elicits confessions. Equipped with acid jets, sonic torture devices, and interrogation drug syringes.",
+        "source": "FaD Core p.413",
+        "inferred": true,
+        "_inferred_note": "Not explicitly linked to Inquisitors in text, but Inquisitors are described as highly skilled interrogators with access to Imperial resources."
+      },
+      {
+        "name": "Viper Probe Droids",
+        "description": "When searching remote regions, Imperial authorities use probe droids to scout planets and scour locations. Travel via one-way hyperspace pods, communicate via encrypted holo-channels. Can self-destruct if compromised.",
+        "source": "FaD Core p.413",
+        "inferred": true,
+        "_inferred_note": "Not explicitly linked to Inquisitors, but described as standard Imperial search tools and Inquisitors are noted to have access to limitless Imperial resources."
+      }
+    ],
+    "regional_presence": [
+      {
+        "region": "Deep Core",
+        "strength": "Headquarters",
+        "notes": "Citadel Inquisitorius located deep in the Deep Core — rumors on private shadowfeeds describe it as something people don't feel comfortable talking about (FaD Core p.353). Prakith hosts High Inquisitors in a rumored dark citadel nestled in the mountains, used as training facility, prison, or headquarters for mysterious excavation projects (FaD Core p.353). Access routes via the Byss Run are classified with countless Imperial checkpoints (FaD Core p.353)."
+      },
+      {
+        "region": "Outer Rim",
+        "strength": "Active operations",
+        "notes": "The Spire on Stygeon Prime serves as a prison and interrogation facility. Inquisitors travel freely across the Empire pursuing targets."
+      },
+      {
+        "region": "Lothal system",
+        "strength": "Active operations",
+        "notes": "Project Harvester at Academy for Young Imperials. TIE Advanced v1 production. Repeated clashes with the Spectres crew."
+      },
+      {
+        "region": "Arkanis sector",
+        "strength": "Covert presence",
+        "notes": "Project Harvester rumored at Arkanis Academy's Area Null, searching for Force-sensitive cadets."
+      },
+      {
+        "region": "Naboo / Theed",
+        "strength": "Covert operations",
+        "notes": "Zirkonn and Dinn run Force-user recruitment/capture operations posing as antiquities dealers."
+      },
+      {
+        "region": "Galaxy-wide",
+        "strength": "Dispersed agents",
+        "notes": "Individual Inquisitors operate semi-autonomously across the galaxy, able to requisition Imperial assets anywhere. Their TIE Advanced v1 fighters have hyperdrives for independent operation. They employ methods as varied as their origins, and no one save the Emperor is sure how many exist (FaD Core p.397)."
+      }
+    ],
+    "source_refs": [
+      "Dawn of the Rebellion pp.64, 66-68 — Inquisitorius organization, The Spire, Darth Vader, Grand Inquisitor, Fifth Brother stat blocks, TIE Advanced v1",
+      "FaD Core Rulebook p.16 — Emperor Palpatine, Lord Vader, and 'a slew of Force-powered Imperial Inquisitors and Emperor's Hands' twist the Force to dark and violent ends",
+      "FaD Core Rulebook p.310 — Narrative example: Inquisitor enters bay with red lightsaber ignited during PC escape",
+      "FaD Core Rulebook pp.321-322 — Dice interpretation examples featuring Sentinel vs. Imperial Inquisitor combat; Consular failing fear check when trio of Inquisitors bursts into hideout",
+      "FaD Core Rulebook p.331 — Fear check difficulty table: confronting an Inquisitor = 2 difficulty upgrades (same as confronting a Sith warrior)",
+      "FaD Core Rulebook pp.337-338 — Sample linear campaign: Empire sends Inquisitor to pursue PCs seeking a holocron; ISB agents locate PCs and report to the Inquisitor who tracks them using the Force",
+      "FaD Core Rulebook p.346 — Emperor's diverse and elite agents: 'Some are called Inquisitors, while others go by different titles'; they speak with the Emperor's voice and are entrusted with hunting down surviving Jedi and eliminating potential Force users",
+      "FaD Core Rulebook p.353 — Citadel Inquisitorius mentioned in Deep Core shadowfeed rumors; Prakith described with rumored dark citadel used by Inquisitors as training facility/prison/headquarters",
+      "",
+      "FaD Core Rulebook pp.393-395 — Force-sensitives risk exposure to Inquisitors; powerful Force displays draw Inquisitors; groups of Force-sensitives especially vulnerable; long-term ISB investigations feed into Inquisitor pursuits",
+      "FaD Core Rulebook pp.396-397 — 'The Force in the Empire' and 'The Imperial Inquisitors': creation of the Inquisitorius limits/watches/exploits dark side Force-sensitives; Inquisitors operate semi-autonomously; skilled interrogators; carry red-bladed lightsabers or exotic weapons; recruitment/training/past lives held secret; few targets escape",
+      "",
+      "FaD Core Rulebook p.420 — Imperial Inquisitors use vornskrs to hunt Force-sensitive fugitives",
+      "FaD Core Rulebook pp.422-424 — Complete 7-step Inquisitor creation system: Nemesis type, characteristics (5/4/3/3/3/2), wounds/strain (20+Brawn/20+Willpower), combat skill values (4/3/2), 7 general skill packages (Acolyte/Assassin/Brute/Investigator/Mastermind/Traveler/Warlord), mandatory Adversary 3, optional Force Rating 3, talent options (9 choices pick 2), abilities/Force powers (9 choices pick 2), equipment suggestions, additional combat turns rule for large parties",
+      "AoR Core Rulebook p.351 — Prakith, home to Emperor's High Inquisitors",
+      "AoR Core Rulebook p.352 — Citadel Inquisitorius in Deep Core, described in-character",
+      "AoR Core Rulebook p.376 — Searches for Byss/Deep Core draw Inquisitor attention",
+      "EotE Core Rulebook p.340 — Prakith and High Inquisitors in Deep Core",
+      "Warrior Sourcebook p.66 — ISB and Inquisitorius suppress knowledge of Jedi and lightsaber forms",
+      "Worlds Strong in the Force pp.137-140 — Zirkonn and Dinn Inquisitorius agents on Naboo",
+      "Guardian Sourcebook pp.82, 90, 94 — Inquisitor encounters and reputation effects",
+      "Consular Sourcebook pp.75, 91 — Inquisitor-creation rules reference, Inquisitor pursuit scenarios",
+      "Sentinel Sourcebook pp.93-94, 96 — Inquisitors as lethal dark side hunters",
+      "Seeker Sourcebook pp.14, 42, 87 — Inquisitor encounters at Jedi ruins",
+      "Mystic Sourcebook pp.90, 96 — Inquisitors and fear checks, dark side user advantages vs Inquisitors",
+      "GM Holocron p.9 — Confronting an Inquisitor = 2 difficulty upgrades on fear checks",
+      "GM Holocron p.64 — Inquisitorius as a sphere of influence for reputation",
+      "GM Holocron p.93 — Reference to Inquisitor-creation rules in FaD Core pp.419-421"
+    ]
+  },
+  "_notes": "NO FFG COVERAGE: The Knights of Ren do not appear anywhere in the FFG Star Wars RPG sourcebook library. A search for 'Knights of Ren' across all 40 available PDFs returned zero results. This is expected — the Knights of Ren are a sequel trilogy faction (The Force Awakens, 2015+) and FFG's RPG line is set in the original trilogy era (Galactic Civil War). The behavioral fields above (motivations, goals, methods, etc.) are inferred from established Star Wars canon and the Inquisitorius analog. See the 'analog_inquisitorius' field for the closest FFG-era equivalent with full source documentation.",
+  "source_material_notes": "The Knights of Ren have zero direct coverage in FFG sourcebooks. All behavioral schema fields are inferred from sequel trilogy canon (The Force Awakens, The Rise of Kylo Ren comic series) and adapted using the Inquisitorius as a structural analog from FaD Core pp.393-397, 422-424. The existing Inquisitorius analog data in this file provides extensive FFG-sourced dark side organization reference material for GMs adapting Knights of Ren themes.",
+  "field_sources": {
+    "motivations": "Inferred from sequel trilogy canon and Inquisitorius analog (FaD Core pp.396-397) — no direct FFG source",
+    "goals": "Inferred from sequel trilogy canon (artifact hunting, Force tradition destruction) and Inquisitorius operational patterns",
+    "methods": "Inferred from sequel trilogy canon and FaD Core pp.393-397 (dark side organization operational methods)",
+    "strengths": "Inferred from sequel trilogy canon (individual combat prowess, fear, independence) and dark side organization patterns in FaD Core",
+    "weaknesses": "Inferred from organizational structure contrasted with Inquisitorius — small numbers, no infrastructure, jurisdictional friction",
+    "behavior_under_threat": "Inferred from sequel trilogy canon behavior and FaD Core dark side adversary guidance (pp.422-424)",
+    "tension_patterns": "Inferred from faction behavior — artifact obsession, Inquisitorius friction, Imperial garrison confusion, internal disagreement themes",
+    "regional_presence": "Inferred from sequel trilogy canon (Unknown Regions focus) and dark side organization patterns (ruins, Wild Space, Outer Rim)",
+    "mcguffin_interest": "Inferred from motivations — artifact and person focus mirrors Inquisitorius but with broader dark side tradition interest"
+  }
+}

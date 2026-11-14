@@ -1,0 +1,236 @@
+{
+  "version": "1.0.0",
+  "scope": "character_creation_only",
+  "mechanics": {
+    "obligation": {
+      "label": "Obligation",
+      "descriptor": {
+        "primaryLabel": "Obligation Type",
+        "secondaryLabel": null,
+        "required": [
+          "primary"
+        ]
+      },
+      "startingValueRule": {
+        "basis": "partySize",
+        "valuesByPartySize": [
+          {
+            "partySize": 2,
+            "startingValuePerPC": 20
+          },
+          {
+            "partySize": 3,
+            "startingValuePerPC": 15
+          },
+          {
+            "partySize": 4,
+            "startingValuePerPC": 10
+          },
+          {
+            "partySize": 5,
+            "startingValuePerPC": 10
+          },
+          {
+            "partySize": "6+",
+            "startingValuePerPC": 5
+          }
+        ]
+      },
+      "tradeOptions": {
+        "direction": "increase_value",
+        "eachOptionOnce": true,
+        "maxAbsDeltaEqualsBase": true,
+        "choices": [
+          {
+            "id": "eote_obl_plus5_for_xp5",
+            "valueDelta": 5,
+            "xpDelta": 5,
+            "creditsDelta": 0
+          },
+          {
+            "id": "eote_obl_plus10_for_xp10",
+            "valueDelta": 10,
+            "xpDelta": 10,
+            "creditsDelta": 0
+          },
+          {
+            "id": "eote_obl_plus5_for_cr1000",
+            "valueDelta": 5,
+            "xpDelta": 0,
+            "creditsDelta": 1000
+          },
+          {
+            "id": "eote_obl_plus10_for_cr2500",
+            "valueDelta": 10,
+            "xpDelta": 0,
+            "creditsDelta": 2500
+          }
+        ]
+      },
+      "tables": {
+        "typesRef": "./obligation-types.json",
+        "rolling": {
+          "method": "d100_range",
+          "notes": [
+            "Use conflictsRef for exact printed d100 range mapping.",
+            "Use typesRef for canonical type keys/names/descriptions (from OggDude)."
+          ]
+        },
+        "conflictsRef": "./obligation-conflicts.json"
+      }
+    },
+    "duty": {
+      "label": "Duty",
+      "descriptor": {
+        "primaryLabel": "Duty Type",
+        "secondaryLabel": null,
+        "required": [
+          "primary"
+        ]
+      },
+      "startingValueRule": {
+        "basis": "partySize",
+        "valuesByPartySize": [
+          {
+            "partySize": 2,
+            "startingValuePerPC": 20
+          },
+          {
+            "partySize": 3,
+            "startingValuePerPC": 15
+          },
+          {
+            "partySize": 4,
+            "startingValuePerPC": 10
+          },
+          {
+            "partySize": 5,
+            "startingValuePerPC": 10
+          },
+          {
+            "partySize": "6+",
+            "startingValuePerPC": 5
+          }
+        ]
+      },
+      "tradeOptions": {
+        "direction": "decrease_value",
+        "eachOptionOnce": true,
+        "maxAbsDeltaEqualsBase": true,
+        "choices": [
+          {
+            "id": "aor_duty_minus5_for_xp5",
+            "valueDelta": -5,
+            "xpDelta": 5,
+            "creditsDelta": 0
+          },
+          {
+            "id": "aor_duty_minus10_for_xp10",
+            "valueDelta": -10,
+            "xpDelta": 10,
+            "creditsDelta": 0
+          },
+          {
+            "id": "aor_duty_minus5_for_cr1000",
+            "valueDelta": -5,
+            "xpDelta": 0,
+            "creditsDelta": 1000
+          },
+          {
+            "id": "aor_duty_minus10_for_cr2500",
+            "valueDelta": -10,
+            "xpDelta": 0,
+            "creditsDelta": 2500
+          }
+        ]
+      },
+      "tables": {
+        "typesRef": "./duty-types.json",
+        "rolling": {
+          "method": "d100_range",
+          "notes": [
+            "Use conflictsRef for exact printed d100 range mapping.",
+            "Use typesRef for canonical type keys/names/descriptions (from OggDude)."
+          ]
+        },
+        "conflictsRef": "./duty-conflicts.json"
+      }
+    },
+    "morality": {
+      "label": "Morality",
+      "descriptor": {
+        "primaryLabel": "Emotional Strength",
+        "secondaryLabel": "Emotional Weakness",
+        "required": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "startingValueRule": {
+        "basis": "fixed",
+        "startingValue": 50
+      },
+      "tradeOptions": {
+        "mode": "single_pick",
+        "eachOptionOnce": true,
+        "_raw": "fad p.49 — a starting F&D character may choose ONE: +10 XP, +2,500 credits, +5 XP and +1,000 credits, or raise/lower starting Morality by 21. Replaces the homebrew bidirectional Morality-as-currency exchange (UXQP-20, adjudicated ALIGN TO RAW).",
+        "choices": [
+          {
+            "id": "fad_raw_xp10",
+            "label": "+10 starting XP",
+            "valueDelta": 0,
+            "xpDelta": 10,
+            "creditsDelta": 0
+          },
+          {
+            "id": "fad_raw_cr2500",
+            "label": "+2,500 starting credits",
+            "valueDelta": 0,
+            "xpDelta": 0,
+            "creditsDelta": 2500
+          },
+          {
+            "id": "fad_raw_xp5_cr1000",
+            "label": "+5 XP and +1,000 credits",
+            "valueDelta": 0,
+            "xpDelta": 5,
+            "creditsDelta": 1000
+          },
+          {
+            "id": "fad_raw_morality_plus21",
+            "label": "Raise starting Morality by 21 (to 71)",
+            "valueDelta": 21,
+            "xpDelta": 0,
+            "creditsDelta": 0
+          },
+          {
+            "id": "fad_raw_morality_minus21",
+            "label": "Lower starting Morality by 21 (to 29)",
+            "valueDelta": -21,
+            "xpDelta": 0,
+            "creditsDelta": 0
+          }
+        ]
+      },
+      "tables": {
+        "pairsRef": "./morality-pairs.json",
+        "conflictsRef": "./morality-conflicts.json",
+        "rolling": {
+          "method": "d100_range",
+          "notes": [
+            "Use conflictsRef for exact d100 range mapping; pairsRef provides canonical Strength→Weakness keys/descriptions from OggDude."
+          ]
+        }
+      }
+    }
+  },
+  "unifiedRulesEngine": {
+    "applyOrder": [
+      "Compute baseValue from startingValueRule.",
+      "Apply selected tradeOptions (validate once-per-option).",
+      "For Obligation and Duty, enforce abs(totalValueDelta) <= baseValue.",
+      "finalValue = baseValue + totalValueDelta.",
+      "Apply xpDelta and creditsDelta to starting resources."
+    ]
+  }
+}

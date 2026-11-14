@@ -1,0 +1,3125 @@
+{
+  "schema": "crafting-template.schema.json",
+  "schema_version": 1,
+  "generated_from": "Docs/worksheets/crafting-melee-spend-tables.md (human visual inspection, Jason, 2026-07-29)",
+  "generated_by": "hand-authored from the worksheet — NOT a machine ingest; see _provenance",
+  "_provenance": "human_inspection",
+  "_doc": "Crafting templates (concept ruling crafting-module-concept §4.4). One engine, N tables: every category repeats the same three-step procedure, so categories 2..N are DATA laps against this same shape (R-CRAFT-1). v1 ships the Brawl & Melee category only. Every value here came from Jason reading the printed book; the corpus OCR of these tables was unusable and seeded NOTHING (R-CRAFT-4). Page cites are PRINTED numbering (corpus runs +3 in this book; calibrated against the book's own cross-references). powered_melee_weapon: OggDude lists three keys (MELEEPOW, MELEEPOWCUT, MELEEPOWBLUD) for this single printed row (Table 3-1, Special Modifications p.76; confirmed via Holocron p.44). The two variant keys differ only by OggDude-private category tags (Cutting Edge Melee / Bludgeoning Melee); all three share identical stats. We hold the single canonical row. OggDude elaborated; we do not (R-CB1, 2026-08-19).",
+  "scope": "Special Modifications crafting templates: Brawl and Melee (printed p.76-77), Ranged Weapons (p.78), Gadgets (p.84), Cybernetics (p.85); Unlimited Power alchemy templates: Potions (Table 3-1, printed p.82), Talismans (Table 3-3, p.85); Endless Vigil lightsaber hilts (Table 3-10, printed p.85; profiles Table 3-11, p.86); Keeping the Peace armor (Table 3-1, printed p.90); Forged in Battle fortifications (Table 3-1, printed p.84); Special Modifications droid chassis and directives (Tables 3-7, 3-9, printed pp.80, 82)",
+  "count": 65,
+  "categories": [
+    {
+      "id": "brawl_melee",
+      "name": "Brawl and Melee Weapons",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.76"
+    },
+    {
+      "id": "ranged",
+      "name": "Ranged Weapons",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.78",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctRanged) for structure and numbers; names, once-only limits and cites read off Special Modifications printed pp.78-79 (corpus +3); scripts/canonical/crafting_sm_batch.py"
+    },
+    {
+      "id": "gadget",
+      "name": "Gadgets",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.84",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctGadget) for structure and numbers; names, once-only limits and cites read off Special Modifications printed p.84 (corpus +3); scripts/canonical/crafting_sm_batch.py"
+    },
+    {
+      "id": "cyber",
+      "name": "Cybernetics",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.85",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctCyber) for structure and numbers; names, once-only limits and cites read off Special Modifications printed p.85 (corpus +3); scripts/canonical/crafting_sm_batch.py"
+    },
+    {
+      "id": "potion",
+      "name": "Alchemical Potions",
+      "sources": [
+        "Unlimited Power"
+      ],
+      "cite": "Unlimited Power p.82",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctAlchemyPotion) for structure and numbers; names, once-only limits, template cells and cites read off Unlimited Power printed pp.80-83 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_up_batch.py"
+    },
+    {
+      "id": "talisman",
+      "name": "Alchemical Talismans",
+      "sources": [
+        "Unlimited Power"
+      ],
+      "cite": "Unlimited Power p.85",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctAlchemyTalisman) for structure and numbers; names, once-only limits, template cells and cites read off Unlimited Power printed pp.80, 84-85 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_up_batch.py"
+    },
+    {
+      "id": "lightsaber",
+      "name": "Lightsaber Hilts",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "cite": "Endless Vigil p.85",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctLightsaber) for structure and numbers; names, once-only limits, failure rows, profile cells and cites read off Endless Vigil printed pp.84-87 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_ev_batch.py"
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctArmor) for structure and numbers; names, once-only limits, profile cells and cites read off Keeping the Peace printed pp.90-91 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_kp_batch.py"
+    },
+    {
+      "id": "fortification",
+      "name": "Fortifications",
+      "sources": [
+        "Forged in Battle"
+      ],
+      "cite": "Forged in Battle p.84",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctFortification) for structure and numbers; names, once-only limits, profile cells and cites read off Forged in Battle printed pp.84-86 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_fib_batch.py"
+    },
+    {
+      "id": "droid_chassis",
+      "name": "Droid Chassis",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.80",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml + CraftDroidTraits.xml (data-sources/oggdude_current/2026-07-14, TempType ctDroid) for structure and numbers; names, once-only limits, profile cells and cites read off the render of Special Modifications printed pp.80-81 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_droid_batch.py"
+    },
+    {
+      "id": "droid_directive",
+      "name": "Droid Directives",
+      "sources": [
+        "Special Modifications"
+      ],
+      "cite": "Special Modifications p.82",
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml + CraftDroidTraits.xml (data-sources/oggdude_current/2026-07-14, TempType ctDroidDirect) for structure and numbers; names, once-only limits, profile cells and cites read off the render of Special Modifications printed pp.82-83 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_droid_batch.py"
+    }
+  ],
+  "templates": {
+    "fist_weapon": {
+      "id": "fist_weapon",
+      "name": "Fist Weapon",
+      "category": "brawl_melee",
+      "material_price": 10,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "examples": "Brass knuckles",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "BRAWLFIST"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Fist Weapon",
+        "type": "Brawling",
+        "skill": "brawl",
+        "hands": "one_handed",
+        "damage": {
+          "value": 1,
+          "base": "brawn"
+        },
+        "crit": 4,
+        "range": "engaged",
+        "encumbrance": 1,
+        "hardpoints": 0,
+        "qualities": [
+          {
+            "id": "disorient",
+            "name": "Disorient",
+            "ranked": true,
+            "rank": 3
+          }
+        ],
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "blunt_weapon": {
+      "id": "blunt_weapon",
+      "name": "Blunt Weapon",
+      "category": "brawl_melee",
+      "material_price": 5,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "easy",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "examples": "Club, staff",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "BRAWLBLUNT"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Blunt Weapon",
+        "type": "Melee",
+        "skill": "melee",
+        "hands": "one_handed",
+        "damage": {
+          "value": 2,
+          "base": "brawn"
+        },
+        "crit": 5,
+        "range": "engaged",
+        "encumbrance": 3,
+        "hardpoints": 1,
+        "qualities": [
+          {
+            "id": "disorient",
+            "name": "Disorient",
+            "ranked": true,
+            "rank": 2
+          }
+        ],
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "shield": {
+      "id": "shield",
+      "name": "Shield",
+      "category": "brawl_melee",
+      "material_price": 10,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "examples": "Buckler",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "MELEESHIELD"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Shield",
+        "type": "Melee",
+        "skill": "melee",
+        "hands": "one_handed",
+        "damage": {
+          "value": 0,
+          "base": "brawn"
+        },
+        "crit": 5,
+        "range": "engaged",
+        "encumbrance": 1,
+        "hardpoints": 4,
+        "qualities": [
+          {
+            "id": "defensive",
+            "name": "Defensive",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "bladed_weapon": {
+      "id": "bladed_weapon",
+      "name": "Bladed Weapon",
+      "category": "brawl_melee",
+      "material_price": 10,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 16
+      },
+      "examples": "Axe, knife",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "MELEEBLADED"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Bladed Weapon",
+        "type": "Melee",
+        "skill": "melee",
+        "hands": "one_handed",
+        "damage": {
+          "value": 1,
+          "base": "brawn"
+        },
+        "crit": 3,
+        "range": "engaged",
+        "encumbrance": 2,
+        "hardpoints": 1,
+        "qualities": [],
+        "_qualities_note": "ABSENT BY CONFIRMATION, not by omission. The worksheet blank came back empty and Jason confirmed at source (2026-07-29) that Bladed Weapon carries no special quality in the printed table. The earlier inference is retired — this is a read, not a gap. No lap may treat this empty array as a defect.",
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "vibro_weapon": {
+      "id": "vibro_weapon",
+      "name": "Vibro-weapon",
+      "category": "brawl_melee",
+      "material_price": 200,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "examples": "Vibro-ax, vibroknife, vibrosword",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "MELEEVIBRO"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Vibro-weapon",
+        "type": "Melee",
+        "skill": "melee",
+        "hands": "one_handed",
+        "damage": {
+          "value": 1,
+          "base": "brawn"
+        },
+        "crit": 2,
+        "range": "engaged",
+        "encumbrance": 2,
+        "hardpoints": 3,
+        "qualities": [
+          {
+            "id": "pierce",
+            "name": "Pierce",
+            "ranked": true,
+            "rank": 2
+          },
+          {
+            "id": "vicious",
+            "name": "Vicious",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "powered_melee_weapon": {
+      "id": "powered_melee_weapon",
+      "name": "Powered Melee Weapon",
+      "category": "brawl_melee",
+      "material_price": 400,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "examples": "Electrostaff, force pike",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "MELEEPOW",
+        "MELEEPOWCUT",
+        "MELEEPOWBLUD"
+      ],
+      "cite": "Special Modifications p.76",
+      "result_profile": {
+        "name": "Powered Melee Weapon",
+        "type": "Melee",
+        "skill": "melee",
+        "hands": "one_handed",
+        "damage": {
+          "value": 2,
+          "base": "brawn"
+        },
+        "crit": 3,
+        "range": "engaged",
+        "encumbrance": 3,
+        "hardpoints": 5,
+        "qualities": [
+          {
+            "id": "stun",
+            "name": "Stun",
+            "ranked": true,
+            "rank": 3
+          }
+        ],
+        "cite": "Special Modifications p.77"
+      }
+    },
+    "simple_projectile_weapon": {
+      "id": "simple_projectile_weapon",
+      "name": "Simple Projectile Weapon",
+      "category": "ranged",
+      "material_price": 10,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "examples": "Bow, sling, blowgun, javelin",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDPROJ"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Simple Projectile Weapon",
+        "type": "Explosives/Other",
+        "skill": "ranged_light",
+        "damage": {
+          "value": 4,
+          "base": "flat"
+        },
+        "crit": 5,
+        "range": "short",
+        "encumbrance": 3,
+        "hardpoints": 0,
+        "qualities": [
+          {
+            "id": "limited_ammo",
+            "name": "Limited Ammo",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "solid_projectile_pistol": {
+      "id": "solid_projectile_pistol",
+      "name": "Solid Projectile Pistol",
+      "category": "ranged",
+      "material_price": 50,
+      "material_rarity": 2,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "examples": "Slugthrower pistol, flechette pistol",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDSOLIDPIST"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Solid Projectile Pistol",
+        "type": "Slugthrower",
+        "skill": "ranged_light",
+        "damage": {
+          "value": 4,
+          "base": "flat"
+        },
+        "crit": 5,
+        "range": "short",
+        "encumbrance": 1,
+        "hardpoints": 0,
+        "qualities": [],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "solid_projectile_rifle": {
+      "id": "solid_projectile_rifle",
+      "name": "Solid Projectile Rifle",
+      "category": "ranged",
+      "material_price": 125,
+      "material_rarity": 2,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDSOLIDRIF"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Solid Projectile Rifle",
+        "type": "Slugthrower",
+        "skill": "ranged_heavy",
+        "damage": {
+          "value": 7,
+          "base": "flat"
+        },
+        "crit": 5,
+        "range": "medium",
+        "encumbrance": 5,
+        "hardpoints": 1,
+        "qualities": [
+          {
+            "id": "cumbersome",
+            "name": "Cumbersome",
+            "ranked": true,
+            "rank": 2
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "energy_pistol": {
+      "id": "energy_pistol",
+      "name": "Energy Pistol",
+      "category": "ranged",
+      "material_price": 200,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Blaster pistol",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDENERPIST"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Energy Pistol",
+        "type": "Energy Weapon",
+        "skill": "ranged_light",
+        "damage": {
+          "value": 6,
+          "base": "flat"
+        },
+        "crit": 3,
+        "range": "medium",
+        "encumbrance": 1,
+        "hardpoints": 3,
+        "qualities": [],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "energy_rifle": {
+      "id": "energy_rifle",
+      "name": "Energy Rifle",
+      "category": "ranged",
+      "material_price": 450,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 16
+      },
+      "examples": "Blaster rifle",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDENERRIF"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Energy Rifle",
+        "type": "Energy Weapon",
+        "skill": "ranged_heavy",
+        "damage": {
+          "value": 9,
+          "base": "flat"
+        },
+        "crit": 3,
+        "range": "long",
+        "encumbrance": 4,
+        "hardpoints": 4,
+        "qualities": [],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "heavy_energy_rifle": {
+      "id": "heavy_energy_rifle",
+      "name": "Heavy Energy Rifle",
+      "category": "ranged",
+      "material_price": 1000,
+      "material_rarity": 6,
+      "restricted": true,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDENERRIFHVY"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Heavy Energy Rifle",
+        "type": "Energy Weapon",
+        "skill": "gunnery",
+        "damage": {
+          "value": 10,
+          "base": "flat"
+        },
+        "crit": 3,
+        "range": "long",
+        "encumbrance": 6,
+        "hardpoints": 4,
+        "qualities": [
+          {
+            "id": "cumbersome",
+            "name": "Cumbersome",
+            "ranked": true,
+            "rank": 3
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "missile": {
+      "id": "missile",
+      "name": "Missile",
+      "category": "ranged",
+      "material_price": 100,
+      "material_rarity": 3,
+      "restricted": true,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "examples": "Missile, micro-torpedo",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDMISS"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Missile",
+        "type": "Explosives/Other",
+        "skill": "gunnery",
+        "damage": {
+          "value": 20,
+          "base": "flat"
+        },
+        "crit": 2,
+        "range": "extreme",
+        "encumbrance": 7,
+        "hardpoints": 4,
+        "qualities": [
+          {
+            "id": "blast",
+            "name": "Blast",
+            "ranked": true,
+            "rank": 10
+          },
+          {
+            "id": "breach",
+            "name": "Breach",
+            "ranked": true,
+            "rank": 1
+          },
+          {
+            "id": "cumbersome",
+            "name": "Cumbersome",
+            "ranked": true,
+            "rank": 3
+          },
+          {
+            "id": "guided",
+            "name": "Guided",
+            "ranked": true,
+            "rank": 3
+          },
+          {
+            "id": "prepare",
+            "name": "Prepare",
+            "ranked": true,
+            "rank": 1
+          },
+          {
+            "id": "limited_ammo",
+            "name": "Limited Ammo",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "grenade": {
+      "id": "grenade",
+      "name": "Grenade",
+      "category": "ranged",
+      "material_price": 35,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "examples": "Frag grenade, stun grenade",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDGRENADE"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Grenade",
+        "type": "Explosives/Other",
+        "skill": "ranged_light",
+        "damage": {
+          "value": 8,
+          "base": "flat"
+        },
+        "crit": 4,
+        "range": "short",
+        "encumbrance": 1,
+        "hardpoints": 0,
+        "qualities": [
+          {
+            "id": "blast",
+            "name": "Blast",
+            "ranked": true,
+            "rank": 6
+          },
+          {
+            "id": "limited_ammo",
+            "name": "Limited Ammo",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "mine": {
+      "id": "mine",
+      "name": "Mine",
+      "category": "ranged",
+      "material_price": 425,
+      "material_rarity": 5,
+      "restricted": true,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "RANGEDMINE"
+      ],
+      "cite": "Special Modifications p.78",
+      "result_profile": {
+        "name": "Mine",
+        "type": "Explosives/Other",
+        "skill": "mechanics",
+        "damage": {
+          "value": 12,
+          "base": "flat"
+        },
+        "crit": 3,
+        "range": "engaged",
+        "encumbrance": 3,
+        "hardpoints": 0,
+        "qualities": [
+          {
+            "id": "blast",
+            "name": "Blast",
+            "ranked": true,
+            "rank": 4
+          },
+          {
+            "id": "limited_ammo",
+            "name": "Limited Ammo",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.78"
+      }
+    },
+    "simple_tool": {
+      "id": "simple_tool",
+      "name": "Simple Tool",
+      "category": "gadget",
+      "material_price": 50,
+      "material_rarity": 1,
+      "restricted": false,
+      "check": {
+        "difficulty": "easy",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "examples": "",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "GADGETTOOLSIMP"
+      ],
+      "cite": "Special Modifications p.84",
+      "choice": {
+        "kind": "skill",
+        "group": "general"
+      },
+      "result_profile": {
+        "name": "Simple Tool",
+        "type": "Tools/Electronics",
+        "encumbrance": 4,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.84"
+      }
+    },
+    "specialist_tool": {
+      "id": "specialist_tool",
+      "name": "Specialist Tool",
+      "category": "gadget",
+      "material_price": 400,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 10
+      },
+      "examples": "Bacta tank, scanner dish, welding gear",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "GADGETTOOLSPEC"
+      ],
+      "cite": "Special Modifications p.84",
+      "choice": {
+        "kind": "skill",
+        "group": "general"
+      },
+      "effects": [
+        {
+          "type": "pool_mod",
+          "entry": {
+            "symbol": "success",
+            "count": 1,
+            "direction": "add",
+            "applies_to": [
+              {
+                "scope": "skill",
+                "value": {
+                  "choice": "skill"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result_profile": {
+        "name": "Specialist Tool",
+        "type": "Tools/Electronics",
+        "encumbrance": 8,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.84"
+      }
+    },
+    "precision_instrument": {
+      "id": "precision_instrument",
+      "name": "Precision Instrument",
+      "category": "gadget",
+      "material_price": 150,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 16
+      },
+      "examples": "Microscope, thermal cloak, scanner goggles",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "GADGETPREC"
+      ],
+      "cite": "Special Modifications p.84",
+      "choice": {
+        "kind": "skill",
+        "group": "general"
+      },
+      "effects": [
+        {
+          "type": "pool_mod",
+          "entry": {
+            "die": "setback",
+            "count": 2,
+            "direction": "remove",
+            "applies_to": [
+              {
+                "scope": "skill",
+                "value": {
+                  "choice": "skill"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "result_profile": {
+        "name": "Precision Instrument",
+        "type": "Tools/Electronics",
+        "encumbrance": 5,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.84"
+      }
+    },
+    "prosthetic_replacement": {
+      "id": "prosthetic_replacement",
+      "name": "Prosthetic Replacement",
+      "category": "cyber",
+      "material_price": 1000,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Prosthetic limb or organ",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "CYBERPROS"
+      ],
+      "cite": "Special Modifications p.85",
+      "result_profile": {
+        "name": "Prosthetic Replacement",
+        "type": "Cybernetics",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.85"
+      }
+    },
+    "cybernetic_appendage": {
+      "id": "cybernetic_appendage",
+      "name": "Cybernetic Appendage",
+      "category": "cyber",
+      "material_price": 5000,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "examples": "Enhanced arm, leg, or other limb",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "CYBERAPPBR",
+        "CYBERAPPAG"
+      ],
+      "by_choice": {
+        "brawn": "CYBERAPPBR",
+        "agility": "CYBERAPPAG"
+      },
+      "cite": "Special Modifications p.85",
+      "choice": {
+        "kind": "characteristic",
+        "among": [
+          "brawn",
+          "agility"
+        ]
+      },
+      "effects": [
+        {
+          "type": "item_character_effect",
+          "op": "characteristic_delta",
+          "key": {
+            "choice": "characteristic"
+          },
+          "value": 1
+        }
+      ],
+      "result_profile": {
+        "name": "Cybernetic Appendage",
+        "type": "Cybernetics",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.85"
+      }
+    },
+    "cybernetic_implant": {
+      "id": "cybernetic_implant",
+      "name": "Cybernetic Implant",
+      "category": "cyber",
+      "material_price": 1500,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "examples": "Brain implant, enhanced senses",
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "CYBERIMP"
+      ],
+      "cite": "Special Modifications p.85",
+      "choice": {
+        "kind": "skill",
+        "group": "general"
+      },
+      "effects": [
+        {
+          "type": "item_character_effect",
+          "op": "skill_rank_delta",
+          "key": {
+            "choice": "skill"
+          },
+          "value": 1
+        }
+      ],
+      "result_profile": {
+        "name": "Cybernetic Implant",
+        "type": "Cybernetics",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Special Modifications p.85"
+      }
+    },
+    "acid": {
+      "id": "acid",
+      "name": "Acid",
+      "category": "potion",
+      "material_price": 600,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOACID"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Acid",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.81"
+      }
+    },
+    "draught_of_fire": {
+      "id": "draught_of_fire",
+      "name": "Draught of Fire",
+      "category": "potion",
+      "material_price": 400,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 3
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOFIRE"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Draught of Fire",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.81"
+      }
+    },
+    "elixir_of_vigor": {
+      "id": "elixir_of_vigor",
+      "name": "Elixir of Vigor",
+      "category": "potion",
+      "material_price": 600,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOVIGOR"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Elixir of Vigor",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.81"
+      }
+    },
+    "healing_potion": {
+      "id": "healing_potion",
+      "name": "Healing Potion",
+      "category": "potion",
+      "material_price": 1000,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOHEAL"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Healing Potion",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.81"
+      }
+    },
+    "poison": {
+      "id": "poison",
+      "name": "Poison",
+      "category": "potion",
+      "material_price": 500,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "easy",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOPOI"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Poison",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.81"
+      }
+    },
+    "potion_of_wills": {
+      "id": "potion_of_wills",
+      "name": "Potion of Wills",
+      "category": "potion",
+      "material_price": 1000,
+      "material_rarity": 8,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOWILL"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Potion of Wills",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.83"
+      }
+    },
+    "stimulant": {
+      "id": "stimulant",
+      "name": "Stimulant",
+      "category": "potion",
+      "material_price": 400,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOSTIM"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Stimulant",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.83"
+      }
+    },
+    "water_of_life": {
+      "id": "water_of_life",
+      "name": "Water of Life",
+      "category": "potion",
+      "material_price": 1000,
+      "material_rarity": 10,
+      "restricted": false,
+      "check": {
+        "difficulty": "formidable",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOWAT"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Water of Life",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.83"
+      }
+    },
+    "weakening_potion": {
+      "id": "weakening_potion",
+      "name": "Weakening Potion",
+      "category": "potion",
+      "material_price": 1000,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHPOWEAK"
+      ],
+      "cite": "Unlimited Power p.82",
+      "result_profile": {
+        "name": "Weakening Potion",
+        "type": "Alchemical Potion",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.83"
+      }
+    },
+    "amulet_of_power": {
+      "id": "amulet_of_power",
+      "name": "Amulet of Power",
+      "category": "talisman",
+      "material_price": 500,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALPOWER"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Amulet of Power",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "fetish_of_fear": {
+      "id": "fetish_of_fear",
+      "name": "Fetish of Fear",
+      "category": "talisman",
+      "material_price": 300,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALFEAR"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Fetish of Fear",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "neural_charm": {
+      "id": "neural_charm",
+      "name": "Neural Charm",
+      "category": "talisman",
+      "material_price": 1200,
+      "material_rarity": 7,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALNEURAL"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Neural Charm",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "protective_amulet": {
+      "id": "protective_amulet",
+      "name": "Protective Amulet",
+      "category": "talisman",
+      "material_price": 300,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "easy",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 3
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALPROT"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Protective Amulet",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "healing_accelerant": {
+      "id": "healing_accelerant",
+      "name": "Healing Accelerant",
+      "category": "talisman",
+      "material_price": 600,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALHEAL"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Healing Accelerant",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "shield_amulet": {
+      "id": "shield_amulet",
+      "name": "Shield Amulet",
+      "category": "talisman",
+      "material_price": 1000,
+      "material_rarity": 8,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 2
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALSHIELD"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Shield Amulet",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "talisman_of_fate": {
+      "id": "talisman_of_fate",
+      "name": "Talisman of Fate",
+      "category": "talisman",
+      "material_price": 4000,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 10
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALFATE"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Talisman of Fate",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "token_of_resistance": {
+      "id": "token_of_resistance",
+      "name": "Token of Resistance",
+      "category": "talisman",
+      "material_price": 1800,
+      "material_rarity": 9,
+      "restricted": false,
+      "check": {
+        "difficulty": "formidable",
+        "skills": [
+          "discipline",
+          "lore"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "sources": [
+        "Unlimited Power"
+      ],
+      "ogg_keys": [
+        "ALCHTALRESIST"
+      ],
+      "cite": "Unlimited Power p.85",
+      "result_profile": {
+        "name": "Token of Resistance",
+        "type": "Alchemical Talisman",
+        "encumbrance": 0,
+        "hardpoints": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Unlimited Power p.84"
+      }
+    },
+    "lightsaber_standard": {
+      "id": "lightsaber_standard",
+      "name": "Standard Lightsaber",
+      "category": "lightsaber",
+      "material_price": 100,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "examples": "Lightsaber",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "ogg_keys": [
+        "LTSABERSTDH",
+        "LTSABERSTD"
+      ],
+      "cite": "Endless Vigil p.85",
+      "result_profile": {
+        "name": "Standard Lightsaber Hilt",
+        "type": "Lightsaber",
+        "skill": "lightsaber",
+        "hands": "one_handed",
+        "damage": {
+          "value": 0,
+          "base": "flat"
+        },
+        "crit": 0,
+        "range": "engaged",
+        "encumbrance": 1,
+        "hardpoints": 5,
+        "qualities": [],
+        "categories": [
+          "Lightsaber"
+        ],
+        "crystal_damage_mod": 0,
+        "cite": "Endless Vigil p.86"
+      }
+    },
+    "lightsaber_precision": {
+      "id": "lightsaber_precision",
+      "name": "Precision Lightsaber",
+      "category": "lightsaber",
+      "material_price": 150,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Shoto, dagger lightsaber, lightfoil",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "ogg_keys": [
+        "LTSABERPRESH",
+        "LTSABERPRES"
+      ],
+      "cite": "Endless Vigil p.85",
+      "result_profile": {
+        "name": "Precision Lightsaber Hilt",
+        "type": "Lightsaber",
+        "skill": "lightsaber",
+        "hands": "one_handed",
+        "damage": {
+          "value": 0,
+          "base": "flat"
+        },
+        "crit": 0,
+        "range": "engaged",
+        "encumbrance": 1,
+        "hardpoints": 3,
+        "qualities": [
+          {
+            "id": "accurate",
+            "name": "Accurate",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "categories": [
+          "Lightsaber"
+        ],
+        "crystal_damage_mod": -1,
+        "cite": "Endless Vigil p.86"
+      }
+    },
+    "lightsaber_defensive": {
+      "id": "lightsaber_defensive",
+      "name": "Defensive Lightsaber",
+      "category": "lightsaber",
+      "material_price": 300,
+      "material_rarity": 6,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Guard shoto",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "ogg_keys": [
+        "LTSABERDEFH",
+        "LTSABERDEF"
+      ],
+      "cite": "Endless Vigil p.85",
+      "result_profile": {
+        "name": "Defensive Lightsaber Hilt",
+        "type": "Lightsaber",
+        "skill": "lightsaber",
+        "hands": "one_handed",
+        "damage": {
+          "value": 0,
+          "base": "flat"
+        },
+        "crit": 0,
+        "range": "engaged",
+        "encumbrance": 1,
+        "hardpoints": 3,
+        "qualities": [
+          {
+            "id": "defensive",
+            "name": "Defensive",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "categories": [
+          "Lightsaber"
+        ],
+        "crystal_damage_mod": -1,
+        "cite": "Endless Vigil p.86"
+      }
+    },
+    "lightsaber_double_bladed": {
+      "id": "lightsaber_double_bladed",
+      "name": "Double-Bladed Lightsaber",
+      "category": "lightsaber",
+      "material_price": 300,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Double-bladed lightsaber, Temple Guard lightsaber pike",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "ogg_keys": [
+        "LTSABERDOUBLEH",
+        "LTSABERDOUBLE"
+      ],
+      "cite": "Endless Vigil p.85",
+      "result_profile": {
+        "name": "Double-Bladed Lightsaber Hilt",
+        "type": "Lightsaber",
+        "skill": "lightsaber",
+        "hands": "two_handed",
+        "damage": {
+          "value": 0,
+          "base": "flat"
+        },
+        "crit": 0,
+        "range": "engaged",
+        "encumbrance": 2,
+        "hardpoints": 4,
+        "qualities": [
+          {
+            "id": "linked",
+            "name": "Linked",
+            "ranked": true,
+            "rank": 1
+          },
+          {
+            "id": "unwieldy",
+            "name": "Unwieldy",
+            "ranked": true,
+            "rank": 3
+          }
+        ],
+        "categories": [
+          "Lightsaber"
+        ],
+        "crystal_damage_mod": 0,
+        "base_mods": [
+          {
+            "description": ""
+          }
+        ],
+        "cite": "Endless Vigil p.86"
+      }
+    },
+    "lightsaber_pole": {
+      "id": "lightsaber_pole",
+      "name": "Pole Lightsaber",
+      "category": "lightsaber",
+      "material_price": 150,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "examples": "Lightsaber pike, long-handle lightsaber",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "ogg_keys": [
+        "LTSABERPOLEH",
+        "LTSABERPOLE"
+      ],
+      "cite": "Endless Vigil p.85",
+      "result_profile": {
+        "name": "Pole Lightsaber Hilt",
+        "type": "Lightsaber",
+        "skill": "lightsaber",
+        "hands": "two_handed",
+        "damage": {
+          "value": 0,
+          "base": "flat"
+        },
+        "crit": 0,
+        "range": "engaged",
+        "encumbrance": 2,
+        "hardpoints": 4,
+        "qualities": [
+          {
+            "id": "cumbersome",
+            "name": "Cumbersome",
+            "ranked": true,
+            "rank": 3
+          },
+          {
+            "id": "defensive",
+            "name": "Defensive",
+            "ranked": true,
+            "rank": 1
+          }
+        ],
+        "categories": [
+          "Lightsaber"
+        ],
+        "crystal_damage_mod": 0,
+        "cite": "Endless Vigil p.86"
+      }
+    },
+    "armor_reinforced_clothing": {
+      "id": "armor_reinforced_clothing",
+      "name": "Reinforced Clothing",
+      "category": "armor",
+      "material_price": 25,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORREINF"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Reinforced Clothing",
+        "soak": 1,
+        "defense": 0,
+        "encumbrance": 1,
+        "hardpoints": 0,
+        "categories": [
+          "Half Body"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_light": {
+      "id": "armor_light",
+      "name": "Light Armor",
+      "category": "armor",
+      "material_price": 250,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics",
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 12
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORLT"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Light Armor",
+        "soak": 2,
+        "defense": 0,
+        "encumbrance": 2,
+        "hardpoints": 0,
+        "categories": [
+          "Half Body"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_customizable": {
+      "id": "armor_customizable",
+      "name": "Customizable Armor",
+      "category": "armor",
+      "material_price": 500,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 16
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORCUST"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Customizable Armor",
+        "soak": 1,
+        "defense": 0,
+        "encumbrance": 4,
+        "hardpoints": 4,
+        "categories": [
+          "Full Body"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_deflective": {
+      "id": "armor_deflective",
+      "name": "Deflective Armor",
+      "category": "armor",
+      "material_price": 500,
+      "material_rarity": 5,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORDEFL"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Deflective Armor",
+        "soak": 1,
+        "defense": 1,
+        "encumbrance": 2,
+        "hardpoints": 1,
+        "categories": [
+          "Half Body",
+          "Resistant"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_combat": {
+      "id": "armor_combat",
+      "name": "Combat Armor",
+      "category": "armor",
+      "material_price": 1250,
+      "material_rarity": 4,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORCOMBAT"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Combat Armor",
+        "soak": 2,
+        "defense": 0,
+        "encumbrance": 4,
+        "hardpoints": 3,
+        "categories": [
+          "Full Body",
+          "Hard Full Body",
+          "Hard",
+          "Heavy",
+          "Resistant"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_segmented": {
+      "id": "armor_segmented",
+      "name": "Segmented Armor",
+      "category": "armor",
+      "material_price": 2500,
+      "material_rarity": 6,
+      "restricted": true,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 72
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORSEG"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Segmented Armor",
+        "soak": 2,
+        "defense": 1,
+        "encumbrance": 6,
+        "hardpoints": 4,
+        "categories": [
+          "Full Body",
+          "Hard Full Body",
+          "Hard",
+          "Heavy",
+          "Resistant"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "armor_augmentative": {
+      "id": "armor_augmentative",
+      "name": "Augmentative Armor",
+      "category": "armor",
+      "material_price": 4500,
+      "material_rarity": 8,
+      "restricted": true,
+      "check": {
+        "difficulty": "formidable",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 120
+      },
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "ogg_keys": [
+        "ARMORAUG"
+      ],
+      "cite": "Keeping the Peace p.90",
+      "result_profile": {
+        "name": "Augmentative Armor",
+        "soak": 2,
+        "defense": 2,
+        "encumbrance": 6,
+        "hardpoints": 6,
+        "categories": [
+          "Full Body",
+          "Hard Full Body",
+          "Hard",
+          "Heavy",
+          "Resistant"
+        ],
+        "cite": "Keeping the Peace p.90"
+      }
+    },
+    "fortification_trench": {
+      "id": "fortification_trench",
+      "name": "Trench",
+      "category": "fortification",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "athletics"
+        ]
+      },
+      "time": {
+        "hours": 6
+      },
+      "sources": [
+        "Forged in Battle"
+      ],
+      "ogg_keys": [
+        "FORTTRENCH"
+      ],
+      "cite": "Forged in Battle p.84",
+      "result_profile": {
+        "name": "Trench",
+        "passengers": 6,
+        "defense_ranged": 3,
+        "base_mods": [
+          {
+            "description": "",
+            "cite": "Forged in Battle p.85"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.85"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.84"
+          }
+        ],
+        "cite": "Forged in Battle p.85"
+      }
+    },
+    "fortification_bunker": {
+      "id": "fortification_bunker",
+      "name": "Bunker",
+      "category": "fortification",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 36
+      },
+      "sources": [
+        "Forged in Battle"
+      ],
+      "ogg_keys": [
+        "FORTBUNKER"
+      ],
+      "cite": "Forged in Battle p.84",
+      "result_profile": {
+        "name": "Bunker",
+        "passengers": 4,
+        "armor": 2,
+        "hull_trauma": 8,
+        "silhouette": 3,
+        "speed": 0,
+        "base_mods": [
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.84"
+          }
+        ],
+        "cite": "Forged in Battle p.86"
+      }
+    },
+    "fortification_blind": {
+      "id": "fortification_blind",
+      "name": "Blind",
+      "category": "fortification",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "survival"
+        ]
+      },
+      "time": {
+        "hours": 4
+      },
+      "sources": [
+        "Forged in Battle"
+      ],
+      "ogg_keys": [
+        "FORTBLIND"
+      ],
+      "cite": "Forged in Battle p.84",
+      "result_profile": {
+        "name": "Blind",
+        "passengers": 2,
+        "concealment": 3,
+        "base_mods": [
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Age of Rebellion p.226"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.86"
+          },
+          {
+            "description": "",
+            "cite": "Forged in Battle p.84"
+          }
+        ],
+        "cite": "Forged in Battle p.86"
+      }
+    },
+    "monotask_chassis": {
+      "id": "monotask_chassis",
+      "name": "Monotask Chassis",
+      "category": "droid_chassis",
+      "material_price": 600,
+      "material_rarity": 2,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDMONO"
+      ],
+      "cite": "Special Modifications p.80",
+      "result_profile": {
+        "name": "Monotask Chassis",
+        "tier": "minion",
+        "characteristics": {
+          "brawn": 1,
+          "agility": 1,
+          "intellect": 1,
+          "cunning": 1,
+          "willpower": 1,
+          "presence": 1
+        },
+        "derived": {
+          "soak": 2,
+          "wounds": 3,
+          "strain": null,
+          "melee_defense": 0,
+          "ranged_defense": 0
+        },
+        "abilities": [
+          {
+            "name": "Droid",
+            "description": ""
+          },
+          {
+            "name": "Silhouette 0"
+          }
+        ],
+        "cite": "Special Modifications p.80"
+      }
+    },
+    "labor_chassis": {
+      "id": "labor_chassis",
+      "name": "Labor Chassis",
+      "category": "droid_chassis",
+      "material_price": 3500,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDLABOR"
+      ],
+      "cite": "Special Modifications p.80",
+      "result_profile": {
+        "name": "Labor Chassis",
+        "tier": "minion",
+        "characteristics": {
+          "brawn": 3,
+          "agility": 1,
+          "intellect": 2,
+          "cunning": 1,
+          "willpower": 1,
+          "presence": 1
+        },
+        "derived": {
+          "soak": 4,
+          "wounds": 7,
+          "strain": null,
+          "melee_defense": 0,
+          "ranged_defense": 0
+        },
+        "abilities": [
+          {
+            "name": "Droid",
+            "description": ""
+          },
+          {
+            "name": "Silhouette 1"
+          }
+        ],
+        "cite": "Special Modifications p.81"
+      }
+    },
+    "combat_chassis": {
+      "id": "combat_chassis",
+      "name": "Combat Chassis",
+      "category": "droid_chassis",
+      "material_price": 3250,
+      "material_rarity": 4,
+      "restricted": true,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 48
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDCOMBAT"
+      ],
+      "cite": "Special Modifications p.80",
+      "result_profile": {
+        "name": "Combat Chassis",
+        "tier": "minion",
+        "characteristics": {
+          "brawn": 2,
+          "agility": 2,
+          "intellect": 1,
+          "cunning": 1,
+          "willpower": 1,
+          "presence": 1
+        },
+        "derived": {
+          "soak": 4,
+          "wounds": 4,
+          "strain": null,
+          "melee_defense": 0,
+          "ranged_defense": 0
+        },
+        "abilities": [
+          {
+            "name": "Droid",
+            "description": ""
+          },
+          {
+            "name": "Silhouette 1"
+          }
+        ],
+        "cite": "Special Modifications p.81"
+      }
+    },
+    "specialist_chassis": {
+      "id": "specialist_chassis",
+      "name": "Specialist Chassis",
+      "category": "droid_chassis",
+      "material_price": 4500,
+      "material_rarity": 3,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 72
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDSPECIAL"
+      ],
+      "cite": "Special Modifications p.80",
+      "result_profile": {
+        "name": "Specialist Chassis",
+        "tier": "rival",
+        "characteristics": {
+          "brawn": 1,
+          "agility": 1,
+          "intellect": 2,
+          "cunning": 2,
+          "willpower": 2,
+          "presence": 2
+        },
+        "derived": {
+          "soak": 3,
+          "wounds": 11,
+          "strain": null,
+          "melee_defense": 0,
+          "ranged_defense": 0
+        },
+        "abilities": [
+          {
+            "name": "Droid",
+            "description": ""
+          },
+          {
+            "name": "Silhouette 1"
+          }
+        ],
+        "cite": "Special Modifications p.81"
+      },
+      "corrections": [
+        {
+          "field": "time.hours",
+          "from": 56,
+          "to": 72,
+          "cite": "Special Modifications p.80",
+          "why": "the page prints \"3 days (56 hours)\"; 3 days is 72 hours (DECISIONS D-364 @ fbcffc4d6)"
+        }
+      ]
+    },
+    "advanced_combat_chassis": {
+      "id": "advanced_combat_chassis",
+      "name": "Advanced Combat Chassis",
+      "category": "droid_chassis",
+      "material_price": 32500,
+      "material_rarity": 7,
+      "restricted": true,
+      "check": {
+        "difficulty": "formidable",
+        "skills": [
+          "mechanics"
+        ]
+      },
+      "time": {
+        "hours": 240
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDADVCOM"
+      ],
+      "cite": "Special Modifications p.80",
+      "result_profile": {
+        "name": "Advanced Combat Chassis",
+        "tier": "nemesis",
+        "characteristics": {
+          "brawn": 4,
+          "agility": 3,
+          "intellect": 3,
+          "cunning": 3,
+          "willpower": 1,
+          "presence": 1
+        },
+        "derived": {
+          "soak": 7,
+          "wounds": 19,
+          "strain": 10,
+          "melee_defense": 0,
+          "ranged_defense": 1
+        },
+        "abilities": [
+          {
+            "name": "Droid",
+            "description": ""
+          },
+          {
+            "name": "Silhouette 1"
+          }
+        ],
+        "cite": "Special Modifications p.81"
+      }
+    },
+    "labor_directives": {
+      "id": "labor_directives",
+      "name": "Labor Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "easy",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 8
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRLABOR"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Labor Directives",
+        "skills": [],
+        "skill_picks": [
+          {
+            "group": "general",
+            "count": 1,
+            "rank": 2
+          }
+        ],
+        "talents": [],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "combat_directives": {
+      "id": "combat_directives",
+      "name": "Combat Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "average",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 16
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRCOMBAT"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Combat Directives",
+        "skills": [],
+        "skill_picks": [
+          {
+            "group": "combat",
+            "count": 3,
+            "rank": 1
+          }
+        ],
+        "talents": [
+          {
+            "talent_ref": "body_guard",
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "translation_directives": {
+      "id": "translation_directives",
+      "name": "Translation Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRTRANS"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Translation Directives",
+        "skills": [
+          {
+            "skill_ref": "charm",
+            "rank": 1
+          }
+        ],
+        "skill_picks": [
+          {
+            "group": "knowledge",
+            "count": 3,
+            "rank": 1
+          }
+        ],
+        "talents": [
+          {
+            "talent_ref": "convincing_demeanor",
+            "rank": 1
+          },
+          {
+            "talent_ref": "kill_with_kindness",
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "repair_directives": {
+      "id": "repair_directives",
+      "name": "Repair Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 24
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRREPAIR"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Repair Directives",
+        "skills": [
+          {
+            "skill_ref": "computers",
+            "rank": 1
+          },
+          {
+            "skill_ref": "mechanics",
+            "rank": 2
+          }
+        ],
+        "skill_picks": [],
+        "talents": [
+          {
+            "talent_ref": "gearhead",
+            "rank": 1
+          },
+          {
+            "talent_ref": "solid_repairs",
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "navigation_directives": {
+      "id": "navigation_directives",
+      "name": "Navigation Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "hard",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 72
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRNAV"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Navigation Directives",
+        "skills": [
+          {
+            "skill_ref": "astrogation",
+            "rank": 2
+          },
+          {
+            "skill_ref": "computers",
+            "rank": 1
+          },
+          {
+            "skill_ref": "piloting_space",
+            "rank": 1
+          }
+        ],
+        "skill_picks": [],
+        "talents": [
+          {
+            "talent_ref": "galaxy_mapper",
+            "rank": 1
+          },
+          {
+            "talent_ref": "technical_aptitude",
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "healing_directives": {
+      "id": "healing_directives",
+      "name": "Healing Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "daunting",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 72
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRHEAL"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Healing Directives",
+        "skills": [
+          {
+            "skill_ref": "xenology",
+            "rank": 1
+          },
+          {
+            "skill_ref": "medicine",
+            "rank": 2
+          }
+        ],
+        "skill_picks": [],
+        "talents": [
+          {
+            "talent_ref": "bacta_specialist",
+            "rank": 1
+          },
+          {
+            "talent_ref": "surgeon",
+            "rank": 1
+          }
+        ],
+        "cite": "Special Modifications p.82"
+      }
+    },
+    "elimination_directives": {
+      "id": "elimination_directives",
+      "name": "Elimination Directives",
+      "category": "droid_directive",
+      "material_price": 0,
+      "material_rarity": 0,
+      "restricted": false,
+      "check": {
+        "difficulty": "formidable",
+        "skills": [
+          "computers"
+        ]
+      },
+      "time": {
+        "hours": 168
+      },
+      "sources": [
+        "Special Modifications"
+      ],
+      "ogg_keys": [
+        "DROIDDIRELIM"
+      ],
+      "cite": "Special Modifications p.82",
+      "result_profile": {
+        "name": "Elimination Directives",
+        "skills": [
+          {
+            "skill_ref": "cool",
+            "rank": 2
+          },
+          {
+            "skill_ref": "xenology",
+            "rank": 1
+          },
+          {
+            "skill_ref": "mechanics",
+            "rank": 2
+          },
+          {
+            "skill_ref": "stealth",
+            "rank": 2
+          }
+        ],
+        "skill_picks": [
+          {
+            "group": "combat",
+            "count": 3,
+            "rank": 4
+          }
+        ],
+        "talents": [
+          {
+            "talent_ref": "adversary",
+            "rank": 2
+          },
+          {
+            "talent_ref": "lethal_blows",
+            "rank": 3
+          }
+        ],
+        "cite": "Special Modifications p.82",
+        "becomes_nemesis": true
+      }
+    }
+  },
+  "construction": {
+    "_doc": "Step 3: Construction — the SHARED rule every crafting category runs on (concept R-CRAFT-1: an engine change for a later category returns to the concept, it does not land in a category's data lap). Recovered by human inspection; the corpus text for this passage was shredded.",
+    "cite": "Special Modifications p.75",
+    "sources": [
+      "Special Modifications"
+    ],
+    "time_reduction_per_extra_success": {
+      "hours": 2
+    },
+    "time_minimum": {
+      "hours": 1
+    },
+    "time_rule_text": "",
+    "on_failure": {
+      "result_usable": false,
+      "materials_lost": true,
+      "text": ""
+    },
+    "on_success_text": "",
+    "spend_order": [
+      "improvements",
+      "flaws"
+    ],
+    "spend_order_note": "",
+    "stacking_default": "",
+    "stacking_default_note": "R-J1. The explicit DEFAULT behind every spend row's `once_only` flag: repeatable AND cumulative unless the row itself prints a limit. Recovered from the printed page (Special Modifications p.75) — the corpus OCR of this passage was unusable. It validates the 9-of-29 once-only split rather than changing it."
+  }
+}

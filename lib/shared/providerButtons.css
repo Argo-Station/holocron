@@ -1,0 +1,35 @@
+/* providerButtons.css — the sign-in buttons' chrome, beside the module that builds them (providerButtons.js).
+
+   MOVED HERE VERBATIM from index.html's own <style> (lap paper-n7-frontdoor-build, B-1253/B-1254): the privacy
+   page now renders the providers' buttons too (D-175 P2; D-176: Discord's rounded button, the same as the front
+   door), and one part in two pages' <style> blocks would be a fork. The rules below are the launchpad's, byte
+   for byte, de-indented; their reasoning is theirs. Nothing here touches either provider's asset (F-34). */
+
+/* The provider buttons. Chrome follows Google's published dark-theme spec (fill #131314,
+   1px #8E918F stroke, #E3E3E3 text) and BOTH buttons use it, so the pair reads as one decision
+   rather than two vendors' styling colliding. Neither logo is altered — that is the rule both
+   companies state most plainly. These will not look like the rest of the suite, and that is
+   correct: people recognise these buttons, and recognition is the whole job here. */
+/* 44px, not the asset's native 40px: AS-6's tap floor is a hard floor with no escape hatches,
+   and Google's guidelines set NO minimum size while requiring aspect ratio be preserved — so
+   scaling up is permitted and shrinking our floor is not. 180x40 becomes 198x44. */
+.provider-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 44px; padding: 0 16px 0 12px;
+  background: #131314; border: 1px solid #8E918F; border-radius: 20px;
+  color: #E3E3E3; cursor: pointer;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 14px; font-weight: 500; letter-spacing: 0;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.provider-btn:hover { border-color: #E3E3E3; background: #1c1c1d; }
+.provider-btn:disabled { opacity: .5; cursor: default; }
+/* Google's asset is the whole button, so it carries no chrome of its own. */
+.provider-btn.is-google { padding: 0; border: none; background: none; height: 44px; }
+.provider-btn.is-google:hover { background: none; }
+/* The asset carries its own intrinsic 180x40. It still needs `flex: none` and an explicit
+   width: as a flex item inside the button it is shrinkable by default, and without this it
+   collapses to a couple of pixels, which is exactly what it did the first time. 198x44 keeps
+   the 4.5:1 aspect ratio their guidelines require. */
+.provider-btn.is-google svg { display: block; width: 198px; height: 44px; flex: none; }
+.provider-btn .mark { width: 20px; height: 20px; display: block; flex: 0 0 20px; }

@@ -1,0 +1,891 @@
+{
+  "id": "lothal",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Lothal",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Lothal Sector",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Lothal is what happens when a quiet farming world asks the Empire for help. Beneath rolling golden prairies and conical rock spires sits a shocking wealth of ores and precious stones. The Empire arrived with modular mining facilities, droid-run foundries, and a garrison — and never left. The once-clear skies are clouded with smog. The rivers run with industrial poison. Sienar Fleet Systems tests prototype TIE fighters in the vast empty spaces where ranchers once worked their herds. The people who built this world are being ground into it.",
+    "atmosphere": "Broad prairies of golden grass stretching to the horizon, punctuated by distinctive striped rock spires rising dozens of meters from the plains. Low mountain ranges and shallow freshwater seas under skies increasingly choked by industrial haze. Capital City is a strange collision of modest colonial architecture and brutal Imperial construction — whole neighborhoods demolished and replaced with towering ferrocrete administrative blocks. Outside the city, the landscape still carries its original beauty, but the soil is poisoned and the vaporators are secondhand.",
+    "reputation": "A backwater Outer Rim farming world that nobody cared about until the Empire discovered what was under the dirt. Now it is a showcase of Imperial progress — which means a showcase of Imperial exploitation. The birthplace of one of the most effective early rebel cells. The kind of place the Empire points to as proof that its system works, while the people living there know otherwise."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Lothal is suffering a severe drought and livestock plague. Crops are withering. The planetary government is petitioning the Republic for economic and food relief, but a government fighting the Separatists has no resources to spare for a farming colony on the far side of the galaxy. No Imperial presence. No heavy industry. The mineral wealth beneath the surface is unknown."
+    },
+    {
+      "era": "post_empire",
+      "delta": "The Imperial occupation has ended. Lothal's environment has been severely damaged by years of strip mining and industrial pollution. Sienar facilities are abandoned or seized. The population is rebuilding but the economic and ecological damage will take generations to repair. The Jedi Temple in the northern tundra may draw new seekers now that the Empire is no longer hunting Force-sensitives."
+    }
+  ],
+  "geography": {
+    "structure_type": "terrestrial_frontier_world",
+    "structure_notes": "",
+    "districts": [
+      {
+        "id": "capital_city",
+        "name": "Capital City",
+        "character": "Lothal's economic center and seat of planetary government. A strange amalgam of modest colonial low-rise buildings and brutal Imperial administrative towers. Nearly half the city was demolished to make room for Imperial construction. Imperial vehicles constantly patrol the streets. The biggest small town in the Outer Rim, now under occupation.",
+        "authority": "Imperial Governorship (Governor Arihnda Pryce)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "military",
+          "economic"
+        ],
+        "notes": "Home to the Imperial Governor's offices, major Imperial garrison, Academy for Young Imperials, Junior Academy for Applied Sciences, and Sienar Fleet Systems facilities. The simmering unrest within Capital City is slowly coming to a boil. Population is primarily human with Rodians, Aqualish, and occasional Ithorians."
+      },
+      {
+        "id": "sienar_industrial_zone",
+        "name": "Sienar Industrial Zone",
+        "character": "Sienar Fleet Systems Advanced Projects Laboratory and associated manufacturing facilities. TIE fighter design, prototyping, and production. Vast uninhabited proving grounds for vehicle and weapons testing. The secret heart of the Empire's interest in Lothal.",
+        "authority": "Imperial Military / Sienar Fleet Systems",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "industrial"
+        ],
+        "notes": "Produced the TIE Advanced v1 prototype, unveiled on Empire Day. Now developing and producing the TIE Defender. A prime target for Lothal resistance fighters. Lothal's mineral wealth provides direct access to raw materials for starship prototyping."
+      },
+      {
+        "id": "outlying_farmland",
+        "name": "Outlying Farmland and Settlements",
+        "character": "The rolling prairies and small towns that once defined Lothal. Farming communities increasingly displaced by Imperial mining and industrial expansion. Scattered shantytowns of refugees. The rock spire mazes serve as hideouts for criminals, smugglers, and rebel sympathizers.",
+        "authority": "Nominal Imperial — enforcement is sparse outside the city",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "agricultural",
+          "hidden"
+        ],
+        "notes": "The isolation of settlements makes it easier for resistance elements to operate without constant Imperial patrols. Haven and similar rebel hideouts are concealed in the rockier regions. Tarkintown, a refugee shantytown outside Capital City, was destroyed by Darth Vader as retaliation for accepting rebel aid."
+      },
+      {
+        "id": "northern_tundra",
+        "name": "Northern Tundra",
+        "character": "Broad, featureless tundra plains in Lothal's far northern latitudes. Isolated and uninhabited. Contains the hidden Jedi Temple — a megalithic stone spire surrounded by concentric circles carved into the ground, resembling a primitive solar system map from above.",
+        "authority": "None — unpatrolled wilderness",
+        "crime_index": "none",
+        "strategic_value": [
+          "force_nexus",
+          "hidden"
+        ],
+        "notes": "The Jedi Temple's obscurity and distance from civilization have kept it safe from both curious Lothalians and Imperial predation. A powerful vergence exists here, concerned with the bond between Master and Padawan and the nature of attachment."
+      },
+      {
+        "id": "lothal_depot",
+        "name": "Lothal Depot",
+        "character": "",
+        "authority": "Imperial Military",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "logistical"
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "The majority population. Farmers, ranchers, city workers, Imperial recruits, and increasingly, resistance fighters. Lothalians are proud, hardworking, self-sufficient people descended from hardy colonists. The Imperial occupation has pushed them toward a tipping point.",
+      "districts": [
+        "capital_city",
+        "outlying_farmland",
+        "lothal_depot"
+      ]
+    },
+    {
+      "name": "Rodian",
+      "population_level": "minority",
+      "social_role": "Part of Capital City's diverse urban population. Merchants and laborers in the city's marketplaces.",
+      "districts": [
+        "capital_city"
+      ]
+    },
+    {
+      "name": "Aqualish",
+      "population_level": "minority",
+      "social_role": "Present in Capital City's mixed-species population. Laborers and dock workers.",
+      "districts": [
+        "capital_city"
+      ]
+    },
+    {
+      "name": "Ithorian",
+      "population_level": "rare",
+      "social_role": "Occasional visitors or residents in Capital City. Their presence is uncommon on such a remote world.",
+      "districts": [
+        "capital_city"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_occupation",
+      "name": "Imperial Occupation Forces",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political",
+        "industrial"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "moderate",
+        "financial": "low",
+        "note": "The Imperial presence on Lothal is unusually deep — it controls the government, the military garrison, the industrial facilities, and the academy system. Governor Pryce has the attention of Grand Moff Tarkin. Grand Admiral Thrawn has been dispatched with the Seventh Fleet. The Inquisitorius has operated here. This is not a casual Imperial foothold — it is a full occupation that has drawn the Empire's most dangerous assets."
+      },
+      "motivation": "Exploiting Lothal's mineral wealth and industrial capacity for the Imperial war machine. Suppressing the growing insurgency that threatens to become a symbol for wider rebellion. Governor Pryce sees Lothal as a stepping stone to greater power. The Empire sees it as a resource extraction site and a factory floor.",
+      "assets": [
+        "Imperial garrison with stormtrooper and naval personnel",
+        "Governor Arihnda Pryce — politically connected to Grand Moff Tarkin",
+        "Academy for Young Imperials — local recruitment pipeline",
+        "Sienar Fleet Systems Advanced Projects Laboratory",
+        "ISB Agent Kallus — intelligence operations",
+        "Grand Admiral Thrawn and the Seventh Fleet (when deployed)",
+        "Inquisitorius operatives (as dispatched by Darth Vader)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "lothal_resistance",
+          "type": "enemy",
+          "notes": "The Lothal resistance is the Empire's primary local problem. The Spectres have inflicted embarrassing defeats — destroying the Imperial Communications Center, stealing military assets, and broadcasting messages of hope. The Empire has escalated repeatedly, bringing in the Grand Inquisitor, Darth Vader, Admiral Konstantine, and Grand Admiral Thrawn."
+        },
+        {
+          "faction_id": "broken_horn_syndicate",
+          "type": "hostile_tolerated",
+          "notes": "The Empire knows the Broken Horn Syndicate operates on Lothal but has not prioritized its destruction. Vizago's operation is a nuisance, not an existential threat. Imperial focus is on the rebel insurgency."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Imperial communications and logistics data are primary targets for rebel theft. Since the destruction of the Communications Center, all data arrives via hyperspace messenger droids — a vulnerability the Empire knows about but cannot easily fix."
+        },
+        {
+          "type": "artifact",
+          "reason": "The Jedi Temple in the northern tundra is unknown to local Imperial command. If its existence were discovered, it would trigger immediate Inquisitorius interest and a major deployment to secure or destroy it."
+        },
+        {
+          "type": "person",
+          "reason": "The Spectres, especially the Force-sensitive Kanan Jarrus and Ezra Bridger, are high-value targets. Capturing them would be a significant victory and would draw Inquisitorius resources."
+        }
+      ]
+    },
+    {
+      "id": "lothal_resistance",
+      "name": "Lothal Resistance",
+      "type": "rebel",
+      "control_type": [
+        "none — covert insurgency"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Lothal resistance is composed of deeply committed locals fighting for their homeworld. Former Governor Ryder Azadi leads industrial sabotage and skirmish attacks. The Spectres, now attached to Phoenix Cell, provide elite capability. These are people with nothing left to lose — the Empire has already taken everything."
+      },
+      "motivation": "Liberating Lothal from Imperial occupation. Disrupting Imperial industrial operations. Protecting the displaced population. Providing intelligence and support to the wider Alliance. For the Spectres specifically — fighting the Empire wherever it oppresses people.",
+      "assets": [
+        "Ryder Azadi — former Governor, resistance leader, local knowledge",
+        "The Spectres / Phoenix Cell — elite rebel operatives with Force-users",
+        "Haven — hidden rebel facility in rocky terrain with landing pad",
+        "Network of sympathizers among displaced farmers and workers",
+        "Knowledge of Lothal's terrain — rock spire mazes, hidden canyons",
+        "Support from the wider Alliance through Phoenix Squadron"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_occupation",
+          "type": "enemy",
+          "notes": "Total war. The resistance has attacked Imperial facilities, stolen military assets, destroyed the Communications Center, and broadcast messages calling for open rebellion. The Empire has responded with mass arrests, the destruction of Tarkintown, and deployment of its most dangerous assets."
+        },
+        {
+          "faction_id": "broken_horn_syndicate",
+          "type": "transactional",
+          "notes": "The rebels have worked with Vizago when mutual interests align — primarily acquiring weapons and equipment. Vizago is not an ally. He is a businessman who will sell to whoever pays and will betray the rebels the moment it becomes profitable or necessary for survival."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Imperial communications data is a primary target. The destruction of the Communications Center forced the Empire onto messenger droids, creating an intercept opportunity the rebels are actively pursuing."
+        },
+        {
+          "type": "resource",
+          "reason": "Weapons, supplies, and ships. The resistance is chronically under-equipped. Every stolen Imperial weapon or captured vehicle materially improves their capability."
+        },
+        {
+          "type": "person",
+          "reason": "Recruitment and protection. Every displaced farmer who joins the resistance strengthens it. Every captured operative who is rescued preserves institutional knowledge. Force-sensitives are directed to Kanan Jarrus for training."
+        }
+      ]
+    },
+    {
+      "id": "broken_horn_syndicate",
+      "name": "Broken Horn Syndicate",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The Broken Horn Syndicate is a pragmatic criminal operation that survives by being useful to everyone and loyal to no one. Vizago's operation is vulnerable to Imperial pressure because it operates on an occupied world. Financial leverage is effective because profit is the only motivation. Dark side influence is irrelevant — Vizago does not care about mysticism."
+      },
+      "motivation": "Profit through arms dealing and smuggling. Cikatro Vizago runs the Broken Horn as a weapons trading operation, using Lothal as a staging ground for Outer Rim arms smuggling. He has turned the Imperial occupation to his advantage — hiring agents to steal Imperial weapons and communications equipment for resale.",
+      "assets": [
+        "Cikatro Vizago — Devaronian crime boss, cunning and ruthless",
+        "Droid bodyguards — loyalty guaranteed by programming",
+        "Network of freelance agents and desperate locals",
+        "Storehouses across Lothal inherited from the predecessor organization",
+        "Arms smuggling routes across the Outer Rim Territories",
+        "The Booster BX — custom fast raider with tractor beam and slicing gear"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_occupation",
+          "type": "hostile_covert",
+          "notes": "Vizago steals from the Empire but avoids direct confrontation. The syndicate profits from Imperial chaos — the destruction of the Communications Center opened a new market in stolen encrypted comlinks. The Empire views the syndicate as a secondary concern behind the rebel insurgency."
+        },
+        {
+          "faction_id": "lothal_resistance",
+          "type": "transactional",
+          "notes": "Vizago has worked with the Spectres on occasion when interests align. He provides weapons and intelligence in exchange for credits or favors. The relationship is purely mercenary — Vizago would sell the rebels out if the price were right."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Valuable as a commodity. Vizago would sell Imperial data to whoever pays the most — rebels, rival syndicates, or even back to the Empire if the price were right."
+        },
+        {
+          "type": "resource",
+          "reason": "Weapons and military equipment are the syndicate's primary trade goods. Any Imperial materiel that can be stolen and resold is of immediate interest."
+        },
+        {
+          "type": "artifact",
+          "reason": "Valuable only as merchandise. Vizago's predecessor Rask Odai accepted ancient artifacts as payment. Vizago would sell a Force artifact to the highest bidder without hesitation."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "imperial_governors_complex",
+      "name": "Imperial Governor's Complex",
+      "district_id": "capital_city",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": "imperial_occupation",
+      "controlling_faction_notes": "Governor Pryce's seat of power. Minister Tua manages day-to-day governance when Pryce is offworld, which is often. Pryce has no love for Lothal — it is a stepping stone.",
+      "strategic_value": "The political nerve center of Imperial control on Lothal. Decisions made here determine the direction of the occupation — troop deployments, industrial priorities, and the response to insurgent activity.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_governor",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Governor Pryce or Minister Tua. Pryce is politically dangerous; Tua is out of her depth but still cares about Lothal's people."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Garrison guards. Professional and on alert — the rebel insurgency has made security a priority."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Administrative and military staff. Many are Lothal natives who joined the Imperial system."
+        }
+      ]
+    },
+    {
+      "id": "imperial_academy",
+      "name": "Academy for Young Imperials",
+      "district_id": "capital_city",
+      "type": [
+        "military",
+        "training"
+      ],
+      "controlling_faction_id": "imperial_occupation",
+      "controlling_faction_notes": "Commandant Aresko oversees all of Lothal's Imperial academies. He is not among the Empire's best or brightest, but here he is among the most feared.",
+      "strategic_value": "The Imperial recruitment pipeline on Lothal. Turns local youth into stormtroopers and pilots. Also a source of intelligence — cadets sometimes learn things the Empire would prefer they did not.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_commandant",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Commandant Aresko. A bully who enjoys tormenting cadets and citizens. His efforts to capture local rebels have been unsuccessful."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4",
+          "notes": "Academy security and training cadre."
+        },
+        {
+          "archetype_ref": "imperial_cadet",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Young Lothalians in training. Some volunteered for opportunity. Some were conscripted. Not all are loyal to the Empire."
+        }
+      ]
+    },
+    {
+      "id": "sienar_advanced_projects_lab",
+      "name": "Sienar Advanced Projects Laboratory",
+      "district_id": "sienar_industrial_zone",
+      "type": [
+        "military",
+        "industrial"
+      ],
+      "controlling_faction_id": "imperial_occupation",
+      "controlling_faction_notes": "Sienar Fleet Systems operates under Imperial authority. The facility is secret and heavily guarded. It produced the TIE Advanced v1 and is developing the TIE Defender.",
+      "strategic_value": "The most militarily significant facility on Lothal. Prototype starfighter development and manufacturing. Destruction or capture of prototypes would be a significant blow to Imperial capability.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_engineer",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Sienar engineers and designers. High-value targets for intelligence extraction. Some may have moral qualms about their work."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Heavy security detail. The facility's importance justifies a significant garrison presence."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Security commander. Authorized to call for reinforcements from the main garrison."
+        }
+      ]
+    },
+    {
+      "id": "haven",
+      "name": "Haven",
+      "district_id": "outlying_farmland",
+      "type": [
+        "hidden",
+        "covert"
+      ],
+      "controlling_faction_id": "lothal_resistance",
+      "controlling_faction_notes": "Built and protected by the Spectres. A collection of small huts and buildings hidden in rocky terrain with a landing pad large enough for a medium freighter.",
+      "strategic_value": "A rebel safe house for fugitives from the Empire. Has its own power supply but is not self-sufficient — requires regular resupply. Functions as a hideout rather than a base. 'Haven' is a code name used for similar locations across the galaxy; the loss of any one does not significantly harm overall resistance efforts.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "rebel_soldier",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Resistance fighters protecting the facility and its inhabitants."
+        },
+        {
+          "archetype_ref": "refugee",
+          "tier": "minion",
+          "count": "3-6",
+          "notes": "Displaced Lothalians hiding from the Empire. Not combatants but desperate and resourceful."
+        }
+      ]
+    },
+    {
+      "id": "jedi_temple",
+      "name": "Lothal Jedi Temple",
+      "district_id": "northern_tundra",
+      "type": [
+        "force_nexus",
+        "hidden",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Unknown to the Empire and to most Lothalians. The temple's obscurity and remoteness are its primary defenses. Built by ancient Jedi pilgrims, the majority of the temple exists underground in a pre-existing cavern network.",
+      "strategic_value": "A powerful vergence in the Force concerned with the bond between Master and Padawan and the nature of attachment. The central spire can screw itself into the ground to seal the entrance — both Master and Padawan must commune with the stones to open it. The Ordeal within tests a Padawan's ability to overcome visions of terrible fates befalling their loved ones.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "force_vision",
+          "tier": "nemesis",
+          "count": "variable",
+          "notes": "The temple's Ordeal manifests powerful visions of the Padawan's Master, friends, and family in terrible danger. These are not physical opponents but Force-generated tests of attachment."
+        }
+      ]
+    },
+    {
+      "id": "imperial_communications_center",
+      "name": "Imperial Communications Center (Destroyed)",
+      "district_id": "capital_city",
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_occupation",
+      "controlling_faction_notes": "Was the main communications link between Lothal's garrison and the wider Empire. Destroyed by the Lothal rebels after they used it to broadcast a message of hope and a call for action against the Emperor.",
+      "strategic_value": "Its destruction forced Lothal's Imperial forces to depend on daily hyperspace messenger droids for data transfer — a significant vulnerability. The loss prompted an Imperial backlash against Lothal's citizens and increased scrutiny, but also created opportunities for data interception.",
+      "takeover_priority": null,
+      "encounter_roles": []
+    }
+  ],
+  "influences": [
+    {
+      "id": "jedi_temple_vergence",
+      "type": "light_side",
+      "source_faction_id": null,
+      "source_description": "The Lothal Jedi Temple sits on a vergence in the Force that has existed since before the planet was colonized. The vergence is concerned with attachment — the bonds between people, and how those bonds relate to service to the Force. It tests those who enter through visions designed to probe the Master-Padawan relationship.",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": "The vergence is dormant and isolated. Its influence does not extend beyond the temple grounds. Force-sensitive characters who travel to the northern tundra may sense something drawing them northward — a pull they cannot explain. Non-Force-sensitives feel nothing."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "within_temple",
+          "modifier": "A character may spend a light side pip generated on Force power checks to add a light side pip to one other character's next check during the current round, provided that character is also within the temple and shares a close personal bond with the first character."
+        },
+        {
+          "threshold": "ordeal_active",
+          "modifier": ""
+        }
+      ]
+    },
+    {
+      "id": "imperial_oppression",
+      "type": "political",
+      "source_faction_id": "imperial_occupation",
+      "source_description": "The Empire's occupation of Lothal is a grinding, daily weight on the population. Joblessness and poverty have skyrocketed. Farmers displaced by mining operations live in shantytowns. The land is poisoned. The people are sick, hungry, and desperate. Imperial propaganda calls it progress while Lothalians watch their world being stripped and their neighbors disappearing.",
+      "strength_default": "heavy",
+      "strength_FaD_preset": "heavy",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_occupation",
+          "description": "Imperial vehicles constantly patrol Capital City's streets. Imperial personnel abuse inhabitants and lord the occupation over them. Mass arrests follow any insurgent activity. Curfews are imposed and enforced. The destruction of Tarkintown demonstrated the Empire's willingness to destroy civilian settlements as punishment."
+        },
+        {
+          "faction_id": "lothal_resistance",
+          "description": "The oppression is the resistance's most powerful recruitment tool. Anger at the Empire and sympathy for the rebellion can be found in equal measure among the displaced population. A charismatic insurgent leader can find many willing accomplices in places like the refugee camps."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "standard",
+          "modifier": "Lothalian NPCs are sympathetic to anti-Imperial activity but afraid to act openly. Social checks to recruit local help against the Empire reduce difficulty by 1, but any visible Imperial presence adds Setback dice as fear reasserts itself."
+        },
+        {
+          "threshold": "post_crackdown",
+          "modifier": "After a major Imperial reprisal, fear dominates. Social checks to recruit local help increase difficulty by 1. However, a smaller number of individuals are pushed past fear into desperate action — these potential recruits are harder to find but more committed."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "atollon",
+        "destination": "Atollon",
+        "travel_time": null,
+        "route_quality": "established",
+        "notes": "Atollon serves as Phoenix Cell's headquarters. The Lothal rebels maintain contact with Phoenix Squadron through this route. The world was thought lifeless but proved otherwise.",
+        "inferred": true
+      },
+      {
+        "id": "outer_rim_general",
+        "destination": "Outer Rim general traffic",
+        "travel_time": null,
+        "route_quality": "sparse",
+        "notes": "Lothal is far from established hyperspace lanes and was never much of a destination. Regular visitors were limited to cargo ship crews and import/export traders before the Imperial occupation increased traffic significantly.",
+        "inferred": true
+      }
+    ],
+    "anomalies": []
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_occupation",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal Imperial presence. A small administrative office, a handful of stormtroopers, and little else. The Empire has a legal claim but is not exercising control. This was Lothal before the full occupation — and could represent a remote settlement the Empire has not yet reached.",
+          "presence_reason": "Imperial resources have been drawn elsewhere — perhaps to counter a major rebel operation, or this location is simply too remote to staff permanently.",
+          "roles": [
+            {
+              "role": "Imperial administrator",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A minor bureaucrat maintaining Imperial authority on paper. Does not have the resources to enforce it."
+            },
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Token military presence. More concerned with their own safety than enforcing Imperial law."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial occupation presence. Stormtrooper patrols on regular routes, checkpoints at major intersections, ISB monitoring of communications and market activity. This is Lothal's normal state — occupied but not locked down.",
+          "presence_reason": "Routine occupation — the Empire is maintaining control, exploiting resources, and watching for insurgent activity. Business as usual on an occupied world.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Regular patrols through Capital City and the industrial zone. Many are Lothal-born recruits."
+            },
+            {
+              "role": "ISB Agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Intelligence operative monitoring for rebel activity. Agent Kallus or a subordinate."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages local military operations. Reports to Governor Pryce."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Monitors incoming and outgoing traffic at the depot and landing zones."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened Imperial security. Checkpoints everywhere. Patrols doubled and running unpredictable routes. Imperial walkers deployed to the streets. Curfews imposed. Citizens stopped and questioned without cause. The Empire is responding to a specific threat or a direct order from sector command.",
+          "presence_reason": "A rebel attack has succeeded, an important Imperial asset is at risk, or a high-ranking officer has taken personal interest in Lothal's security situation. Admiral Konstantine and the Relentless may be in orbit.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Multiple squads running overlapping routes. Imperial walkers on the streets as a show of force."
+            },
+            {
+              "role": "ISB Agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Active intelligence operation. Running informants, conducting interrogations, monitoring all communications."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinating with orbital assets. Authority to impose curfews and restrict movement."
+            },
+            {
+              "role": "Commandant Aresko",
+              "archetype_ref": "imperial_commandant",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Mobilizing academy cadets for auxiliary patrol duty. His personal hunt for the rebels intensifies."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Total Imperial lockdown. Grand Admiral Thrawn and the Seventh Fleet in orbit. Star Destroyers visible from the surface. Inquisitors on the ground. No ships leave without authorization. Building-by-building searches in progress. This is the Empire at maximum force on a single world — the kind of response that signals Lothal has become personally important to someone in the highest ranks of Imperial command.",
+          "presence_reason": "The rebel insurgency has escalated beyond local containment. Darth Vader, Grand Admiral Thrawn, or the Inquisitorius have been dispatched. The Empire is willing to destroy civilian infrastructure and displace entire populations to end the threat.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Building-by-building search capability across Capital City. All routes and exits covered."
+            },
+            {
+              "role": "ISB Agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "ISB is running the intelligence operation. Mass arrests of suspected rebel sympathizers."
+            },
+            {
+              "role": "Grand Admiral Thrawn",
+              "archetype_ref": "imperial_grand_admiral",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Thrawn's approach is methodical, patient, and devastating. He studies the rebels through their art and culture. His dangerous reputation is starting to spread through the Alliance."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Dispatched specifically to hunt Force-sensitive rebels. The Grand Inquisitor — a fallen Jedi Temple Guard — or one of his subordinates. Their arrival changes the calculus of every encounter."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols increase frequency. Stormtroopers stop citizens for random identification checks. Marketplace activity is monitored more closely. The ISB agent has activated informant networks.",
+        "targeted": "The Empire is looking for specific individuals. Checkpoints display holoprojections of wanted faces. All departing ships are searched. Rewards are offered for information leading to the capture of known rebel operatives.",
+        "manhunt": "Full planetary lockdown. No ships leave atmosphere without Imperial authorization. Darth Vader or an Inquisitor is leading the hunt personally. Civilian settlements are raided and destroyed if suspected of harboring rebels. This is how Tarkintown was burned."
+      }
+    },
+    {
+      "faction_id": "lothal_resistance",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The resistance has been driven underground. No visible activity. One or two operatives maintaining dead drops and monitoring Imperial movements. The resistance exists but cannot act.",
+          "presence_reason": "A major Imperial crackdown has scattered the cell. Key leaders are in hiding or have left the planet. The resistance is surviving, not fighting.",
+          "roles": [
+            {
+              "role": "Resistance observer",
+              "archetype_ref": "rebel_spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Monitoring Imperial activity and maintaining communication with off-world Alliance contacts. Does not act locally."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Active resistance operations. Ryder Azadi's cell conducts industrial sabotage and skirmish attacks against Imperial targets. Safe houses are operational. The rebels know the terrain and use the rock spire mazes to evade pursuit.",
+          "presence_reason": "The resistance has recovered from setbacks and is actively opposing the occupation. Not enough strength for open confrontation, but enough for targeted strikes and intelligence gathering.",
+          "roles": [
+            {
+              "role": "Resistance leader",
+              "archetype_ref": "rebel_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Ryder Azadi. Former Governor. Knows Lothal intimately. Commands local loyalty."
+            },
+            {
+              "role": "Resistance fighter",
+              "archetype_ref": "rebel_soldier",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Local volunteers. Former farmers and workers who have taken up arms."
+            },
+            {
+              "role": "Resistance sympathizer",
+              "archetype_ref": "civilian",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Citizens who provide food, shelter, information, and alibis. They do not fight but they make fighting possible."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Spectres are on-world. The Ghost is in the atmosphere or nearby. Kanan Jarrus, Ezra Bridger, and the full crew are conducting operations alongside Azadi's cell. Force-sensitive capability is available. The resistance can strike hard targets.",
+          "presence_reason": "Phoenix Cell has deployed the Spectres to Lothal for a specific operation — data theft, prisoner rescue, or a direct assault on an Imperial facility.",
+          "roles": [
+            {
+              "role": "Spectre operative",
+              "archetype_ref": "rebel_operative",
+              "tier": "nemesis",
+              "count": 2,
+              "notes": "Kanan Jarrus and Ezra Bridger — Force-sensitive Jedi, the Empire's most wanted on Lothal."
+            },
+            {
+              "role": "Spectre pilot",
+              "archetype_ref": "rebel_pilot",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Hera Syndulla and the Ghost. One of the most skilled pilots in the Alliance."
+            },
+            {
+              "role": "Resistance cell",
+              "archetype_ref": "rebel_soldier",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Azadi's fighters and Spectre support crew operating in coordination."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Alliance engagement. Phoenix Squadron in orbit. Multiple rebel cells coordinated for a major planetary operation. This represents the endgame — Lothal's liberation or a desperate last stand.",
+          "presence_reason": "The Alliance has decided Lothal is strategically important enough to commit significant resources. This is rare and signals that Lothal has become a symbol for the wider rebellion.",
+          "roles": [
+            {
+              "role": "Phoenix Squadron",
+              "archetype_ref": "rebel_fleet",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Commander Jun Sato's fleet — CR90 corvettes, A-wings, and a Quasar Fire-class carrier."
+            },
+            {
+              "role": "Spectre operatives",
+              "archetype_ref": "rebel_operative",
+              "tier": "nemesis",
+              "count": 4,
+              "notes": "Full Spectre crew committed to the operation."
+            },
+            {
+              "role": "Ground forces",
+              "archetype_ref": "rebel_soldier",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Combined Azadi cell and Alliance reinforcements."
+            },
+            {
+              "role": "Captain Rex",
+              "archetype_ref": "clone_veteran",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "CT-7567. Clone Wars veteran with extensive tactical training. Fights alongside the Spectres."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Resistance contacts go quiet. Dead drops are checked more frequently. Sympathizers in Capital City are warned to avoid suspicious activity. The cell is aware of increased Imperial attention.",
+        "targeted": "The resistance knows the Empire is hunting them specifically. Safe houses are evacuated. Azadi relocates to a backup position. The rock spire mazes become essential escape routes.",
+        "manhunt": "Full dispersal. Every operative goes to ground individually. Haven is evacuated. Communication goes to emergency protocols only. The resistance survives by ceasing to exist as a coordinated force — temporarily."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "AoR_insurgency": {
+        "label": "Age of Rebellion -- Lothal Insurgency",
+        "description": "The players are rebel operatives deployed to Lothal to support the local resistance. The Imperial occupation is at standard levels. Ryder Azadi's cell is conducting sabotage operations but needs off-world support — equipment, intelligence, and trained fighters. The Spectres are not currently on-world.",
+        "controlling_factions": [
+          {
+            "location_id": "capital_city",
+            "faction_id": "imperial_occupation",
+            "presence_level": "patrol",
+            "notes": "Standard occupation. Stormtrooper patrols, checkpoints, ISB monitoring. The Empire is alert but not locked down."
+          },
+          {
+            "location_id": "outlying_farmland",
+            "faction_id": "lothal_resistance",
+            "presence_level": "patrol",
+            "notes": "Azadi's cell is active in the countryside. Safe houses operational. Rock spire mazes provide cover for operations."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_occupation",
+            "level": "suspicious",
+            "reason": "Recent sabotage attacks on mining facilities have put the garrison on heightened alert. ISB is investigating."
+          }
+        ],
+        "flags": [
+          "Ryder Azadi needs a shipment of detonators for a planned attack on the Sienar fuel depot. The Broken Horn Syndicate has them but Vizago's price is information about Imperial patrol schedules — information the rebels cannot safely provide without compromising their own intelligence network.",
+          "A young Imperial cadet at the Academy has been passing information to the resistance through a dead drop in the Capital City marketplace. The cadet's handler does not know that ISB has noticed the pattern and is setting a trap.",
+          "The daily hyperspace messenger droid arrives at the same time each day. The resistance has identified the window between the hyperspace escort and the atmospheric escort — six rounds. They need a ship fast enough to intercept and a slicer good enough to override the droid's self-destruct.",
+          "A displaced farming family in the rock spires has discovered a cave entrance that leads deep underground. They do not know it, but they have found a passage that connects to the outer chambers of the Jedi Temple."
+        ]
+      },
+      "EotE_smuggler_run": {
+        "label": "Edge of the Empire -- Smuggler's Run",
+        "description": "The players are independent operators — smugglers, bounty hunters, or freelancers — passing through Lothal. The Imperial occupation creates both danger and opportunity. Vizago needs contractors for a job that is too hot for his own people. The resistance needs supplies they cannot acquire through official channels. The Empire is a constant threat but also a source of valuable cargo.",
+        "controlling_factions": [
+          {
+            "location_id": "all",
+            "faction_id": "imperial_occupation",
+            "presence_level": "patrol",
+            "notes": "Standard occupation. Customs inspections at Lothal Depot. Stormtrooper patrols in Capital City. The Empire is the dominant force but cannot watch everything."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "Vizago has a cargo of stolen Imperial blaster rifles that need to leave Lothal within 48 hours. His usual smuggling routes are compromised — an informant was picked up by ISB last week. He needs outsiders with a clean ship and no local ties.",
+          "A Duros merchant in Capital City's marketplace has been quietly buying up surplus agricultural equipment at far above market price. She is actually a rebel logistics officer building a supply cache for Haven, but the unusual purchases have attracted the attention of both the Broken Horn Syndicate and an Imperial customs inspector.",
+          "The Lothal Depot has a cargo manifest discrepancy — three crates of Sienar prototype components logged as received but never delivered to the factory. Someone in the depot is sitting on military-grade hardware worth a fortune on the black market. The depot commander does not know yet."
+        ]
+      },
+      "FaD_temple_seekers": {
+        "label": "Force and Destiny -- Temple Seekers",
+        "description": "The players are Force-sensitive characters drawn to Lothal by visions, rumors, or fragmentary Jedi records. The Lothal Jedi Temple exists somewhere in the northern tundra — a vergence in the Force that tests the bond between Master and Padawan. The Empire does not know the temple exists, but if the players draw attention to themselves, the Inquisitorius will be dispatched.",
+        "controlling_factions": [
+          {
+            "location_id": "capital_city",
+            "faction_id": "imperial_occupation",
+            "presence_level": "patrol",
+            "notes": "Standard occupation. No awareness of the Jedi Temple. Any display of Force abilities in the city will escalate to Inquisitorius involvement."
+          }
+        ],
+        "influences_override": [
+          {
+            "influence_id": "jedi_temple_vergence",
+            "strength": "significant",
+            "known_to_players": false
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "",
+          "A Lothalian rancher in the northern settlements has stories passed down from his grandfather about a stone formation that moves — a spire that rises and falls like a living thing. He thinks it is a local legend. He is wrong.",
+          "The temple entrance requires both Master and Padawan to commune with the stones simultaneously. A lone Force-user cannot open it. This is by design — the vergence tests the bond between two people, not the power of one.",
+          "If the players use the Force visibly anywhere on Lothal, word will reach ISB within days. If it reaches ISB, an Inquisitor will be dispatched within a week. The Grand Inquisitor — a fallen Jedi Temple Guard — may recognize the significance of Lothal's temple from his former life."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Nexus of Power (Worlds Strong in the Force)",
+      "alias": "forceworlds",
+      "pages": "38-43, 83-84",
+      "content": "Primary planet profile — astronavigation data, background, history, people and culture, points of interest (Capital City, Imperial Academy, Junior Academy for Applied Sciences, Sienar Advanced Projects Laboratory, Imperial Communications Center, Tarkintown), creatures (bloodfly, loth-cat), Jedi Temple and vergence rules"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "alias": "dawn",
+      "pages": "45-48, 56, 60-62, 77-84",
+      "content": "People and culture, named NPCs (Commandant Aresko, Governor Pryce, Minister Tua, Ryder Azadi, Gall Trayvis, Admiral Konstantine, Grand Admiral Thrawn), points of interest (Capital City, Sienar factories, Imperial Communications Center, Tarkintown, Haven, Lothal Depot), modular encounters (Impossible Intercept, Checkpoint Troubles), Spectres crew profiles, Phoenix Cell, Broken Horn Syndicate, Academy for Young Imperials"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": "369",
+      "content": "Brief mention — Killik mounds visible on Lothal, indicating ancient insectoid civilization presence"
+    }
+  ]
+}

@@ -1,0 +1,1233 @@
+{
+  "id": "bespin",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Bespin",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Anoat Sector",
+    "system": "Bespin",
+    "grid": "K-18",
+    "era": "galactic_civil_war",
+    "essence": "A gas giant that should not matter and yet does. Bespin has no solid ground, no arable land, and no surface to stand on. What it has is Tibanna gas — a substance so valuable it justifies building cities in the clouds to harvest it. Cloud City floats in the Life Zone, a 30-kilometer band of breathable atmosphere, and operates as a mining colony disguised as a luxury resort. Baron Administrator Lando Calrissian runs the place with a gambler's instinct for knowing when to play and when to fold. The Empire has not looked too closely yet. Calrissian would like to keep it that way.",
+    "atmosphere": "Endless sky in every direction. Clouds in colors that shift with the light — amber, rose, gold — stretching to horizons that curve visibly. The air in the Life Zone is breathable but thin, carrying a faint mineral tang from the Tibanna processing. Cloud City itself is all polished surfaces, curved architecture, and open-air promenades designed to make you forget you're standing on repulsorlifts over an abyss. Below the tourist levels, Port Town smells like engine grease, cheap food, and the anxiety of people who know one mechanical failure means falling forever. Below that, the mining levels rumble with trawler launches and Ugnaught work crews.",
+    "reputation": "Romantic. Glamorous. A resort destination for the wealthy and a place where fortunes are won and lost at the sabacc table. That is the reputation Ecclessis Figg carefully constructed and Calrissian maintains. Underneath it, Bespin is a mining colony that happens to have casinos. Smugglers know Cloud City as a reliable shadowport where customs enforcement is negotiable and the Wing Guard asks only the questions they want answered. The Empire knows it exists but has not decided it is worth the trouble of direct oversight — yet."
+  },
+  "compendium": {
+    "background": "",
+    "government": "guild",
+    "population": "",
+    "languages": "Basic",
+    "terrain": "gas clouds",
+    "major_cities": "",
+    "areas_of_interest": "",
+    "exports": "Tourism, Tibanna gas, cloud cars",
+    "imports": "Consumables, industrial goods",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Cloud City fell under Separatist control during the Clone Wars. Tibanna gas production was diverted to Separatist military needs. The city's independence was compromised but the basic infrastructure and social structure survived the occupation."
+    },
+    {
+      "era": "post_empire",
+      "delta": "Following the events of the Galactic Civil War, Cloud City's status depends on Imperial withdrawal from the Anoat Sector. Calrissian's departure left a power vacuum in the Baron Administrator's office. The city's independence — previously maintained through careful neutrality — may be harder to sustain without Calrissian's diplomatic skills."
+    }
+  ],
+  "geography": {
+    "structure_type": "gas_giant_repulsorlift_cities",
+    "structure_notes": "No solid surface. All habitation exists on repulsorlift platforms floating in the Life Zone, a 30-kilometer-deep band of breathable atmosphere. Cloud City is the largest platform. Smaller mining communities, abandoned platforms, and the Ugnaught Surface share the zone. Below the Life Zone, atmospheric pressure and temperature increase rapidly to lethal levels. The atmosphere is also home to indigenous fauna including beldons, velkers, and rawwk bats.",
+    "districts": [
+      {
+        "id": "cloud_city_upper",
+        "name": "Cloud City — Upper Levels (Tourist District)",
+        "character": "",
+        "authority": "Baron Administrator Lando Calrissian (Cloud City administration)",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "political"
+        ],
+        "notes": "The public face of Cloud City and the primary source of tourism revenue. High-end clientele from across the galaxy. Gambling operations are significant. Security is polished and discreet — the Wing Guard maintains order without disrupting the atmosphere of luxury."
+      },
+      {
+        "id": "cloud_city_mid",
+        "name": "Cloud City — Mid Levels (Port Town / Bespin Motors)",
+        "character": "The city's midsection. Port Town is where the locals live and work — residential blocks, cantinas, markets, repair shops. Bespin Motors has its manufacturing facilities here, producing cloud cars including the Storm IV used by the Wing Guard. Less glamorous than the tourist levels, more honest about what Cloud City actually is.",
+        "authority": "Baron Administrator (nominal), Wing Guard patrols",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "informational",
+          "industrial"
+        ],
+        "notes": "Port Town is where deals happen that the tourist levels pretend do not exist. Smuggling contacts, black market Tibanna transactions, and information brokering operate under the Wing Guard's negotiable gaze. Cloud City functions as a known shadowport. Bespin Motors production is a legitimate secondary industry."
+      },
+      {
+        "id": "cloud_city_lower",
+        "name": "Cloud City — Lower Levels (Mining and Processing)",
+        "character": "",
+        "authority": "Ugnaught labor guilds (operational), Cloud City administration (oversight)",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "industrial"
+        ],
+        "notes": "The economic engine of Cloud City. Tibanna processing generates the revenue that funds everything above. Ugnaught workers are skilled, organized into guilds, and essential to operations. The carbon-freezing chamber — designed for freezing Tibanna gas in carbonite for transport — can be repurposed for other uses."
+      },
+      {
+        "id": "tibannopolis",
+        "name": "Tibannopolis",
+        "character": "Once the largest Tibanna mining community after Cloud City. A reversal in mining fortunes in recent decades left it mostly abandoned. The platform drifts aimlessly in the Life Zone, its mining infrastructure deteriorating. Scavengers, squatters, and those who want to disappear use it as a refuge.",
+        "authority": "None (abandoned)",
+        "crime_index": "high",
+        "strategic_value": [
+          "hidden"
+        ],
+        "notes": "A drifting ghost city. Useful as a hiding place, smuggler's cache, or clandestine meeting point. The platform's mining equipment is mostly inoperable but the structure itself is intact. No Wing Guard patrols. No Imperial oversight."
+      },
+      {
+        "id": "ugnaught_surface",
+        "name": "Ugnaught Surface",
+        "character": "",
+        "authority": "Ugnaught community elders",
+        "crime_index": "low",
+        "strategic_value": [
+          "cultural"
+        ],
+        "notes": "The Ugnaught community maintains this platform as a connection to their homeworld. Outsiders are tolerated but not welcomed. The Ugnaughts' technical skills and labor guild organization give them significant leverage in Cloud City's economy despite their minority population status."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "Administrators, resort staff, merchants, pilots, miners, smugglers. Humans make up 68% of Bespin's population and fill roles at every level of Cloud City — from the Baron Administrator's office to Port Town cantinas to trawler crews on the mining levels.",
+      "districts": [
+        "cloud_city_upper",
+        "cloud_city_mid",
+        "cloud_city_lower"
+      ]
+    },
+    {
+      "name": "Ugnaught",
+      "population_level": "significant_minority",
+      "social_role": "Skilled laborers, technicians, and engineers. Ugnaughts comprise 8% of the population but are essential to Cloud City's mining and industrial operations. Organized into labor guilds that give them collective bargaining power. They maintain the Ugnaught Surface as a cultural homeland.",
+      "districts": [
+        "cloud_city_lower",
+        "ugnaught_surface"
+      ]
+    },
+    {
+      "name": "Lutrillian",
+      "population_level": "minority",
+      "social_role": "Workers and residents. Lutrillians make up 6% of the population and work primarily in the mining and industrial sectors alongside humans and Ugnaughts.",
+      "districts": [
+        "cloud_city_lower",
+        "cloud_city_mid"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "The remaining 18% is a mix of transient tourists, spacers, smugglers, gamblers, and workers drawn by Cloud City's dual economy of tourism and Tibanna. Port Town in particular hosts a cosmopolitan population of species passing through.",
+      "districts": [
+        "cloud_city_upper",
+        "cloud_city_mid"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "cloud_city_administration",
+      "name": "Cloud City Administration",
+      "type": "government",
+      "control_type": [
+        "political",
+        "economic"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "Calrissian's administration maintains Cloud City's independence by staying beneath Imperial notice. This independence is fragile — a single Imperial decision to regulate Tibanna production or station a garrison would end it. Calrissian's strategy is avoidance, not resistance. Financial pressure is moderate because Cloud City is profitable enough to absorb economic shocks, but tourism revenue is sensitive to instability."
+      },
+      "motivation": "Maintain Cloud City's independence and prosperity. Calrissian inherited a mining colony disguised as a resort and has made both functions work. His goal is to keep the Empire uninterested, the credits flowing, and the population safe. He is a pragmatist — he will deal with criminals, charm tourists, and negotiate with anyone if it keeps the city running.",
+      "assets": [
+        "Bespin Wing Guard — security force operating Storm IV cloud cars for patrol and interdiction",
+        "Cloud City infrastructure — repulsorlift systems, Tibanna processing facilities, carbon-freezing chambers",
+        "Tourism revenue from upper-level resorts, casinos, and entertainment",
+        "Tibanna gas export — both legitimate coolant trade and spin-sealed weapons-grade product",
+        "Bespin Motors manufacturing — cloud cars and atmospheric vehicles",
+        "Baron Administrator's diplomatic and negotiation skills"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "avoidance",
+          "notes": "Calrissian's primary strategy is keeping the Empire from paying attention to Cloud City. The city operates independently — it fell under Separatist control during the Clone Wars but now operates without Imperial oversight. Calrissian works to ensure this continues by not giving the Empire a reason to look closely."
+        },
+        {
+          "faction_id": "smuggling_networks",
+          "type": "tolerated",
+          "notes": "Cloud City functions as a known shadowport. The Wing Guard enforces enough order to keep the peace but does not aggressively pursue smuggling operations that do not cause problems. This tolerance is part of how Cloud City maintains its independence — a shadowport reputation brings traffic and revenue."
+        },
+        {
+          "faction_id": "ugnaught_labor_guilds",
+          "type": "cooperative",
+          "notes": "The Ugnaught guilds are essential to Cloud City's mining operations. Calrissian maintains a working relationship with guild leadership. The Ugnaughts have leverage — without their labor, Tibanna production stops."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence about Imperial interest in Bespin, competitor mining operations, or threats to Cloud City's independence. Calrissian wants to know about problems before they arrive."
+        },
+        {
+          "type": "resource",
+          "reason": "Tibanna gas is the foundation of Cloud City's economy. Anything that affects supply, processing, or export is of direct interest. Technology that improves extraction efficiency would be valuable."
+        },
+        {
+          "type": "person",
+          "reason": "Calrissian evaluates people as potential allies, threats, or business opportunities. A person of influence or a fugitive being pursued could draw unwanted attention to Cloud City — or provide leverage."
+        },
+        {
+          "type": "artifact",
+          "reason": "No intrinsic interest unless it draws Imperial attention to Cloud City or can be traded for something useful. A Force artifact would be a liability — the kind of thing that brings Inquisitors."
+        }
+      ]
+    },
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "none_active"
+      ],
+      "control_strength": "absent",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Empire has not established a garrison or administrative presence on Cloud City. Bespin is listed as operating independently after the Clone Wars. Imperial interest could be triggered by Rebel activity, a Tibanna supply disruption, or intelligence about the scale of Cloud City's spin-sealed Tibanna operations."
+      },
+      "motivation": "The Empire's current motivation regarding Bespin is indifference — the Anoat Sector is remote and Cloud City's legitimate Tibanna exports flow through normal channels. If the Empire's attention were drawn here, the motivation would shift rapidly to controlling Tibanna production for military use.",
+      "assets": [
+        "No permanent assets on Bespin",
+        "Nearest Imperial forces are sector fleet assets in the Anoat Sector",
+        "Imperial authority to claim jurisdiction at any time"
+      ],
+      "relationships": [
+        {
+          "faction_id": "cloud_city_administration",
+          "type": "unaware",
+          "notes": "The Empire does not currently maintain direct oversight of Cloud City. Calrissian keeps it that way. The city's Tibanna exports appear to be legitimate coolant operations — the weapons-grade spin-sealed production is not advertised."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "If the Empire learned the full scale of Bespin's weapons-grade Tibanna production, securing that resource for military use would become an immediate priority."
+        },
+        {
+          "type": "person",
+          "reason": "Fugitives, Rebels, or Force-sensitives hiding on Cloud City would trigger Imperial intervention."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence about Rebel operations using Cloud City as a waypoint or supply source would draw Imperial attention."
+        }
+      ]
+    },
+    {
+      "id": "smuggling_networks",
+      "name": "Smuggling Networks",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "present",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Smuggling networks on Cloud City are decentralized — independent operators, small crews, and middlemen rather than a single syndicate. They are vulnerable to Imperial crackdowns and responsive to financial incentives. Their presence depends on Cloud City's permissive environment."
+      },
+      "motivation": "Profit from Cloud City's position as a shadowport. Bespin's remoteness, the Wing Guard's negotiable enforcement, and the constant flow of Tibanna gas create ideal smuggling conditions. Operators move spin-sealed Tibanna, contraband, and passengers through Port Town.",
+      "assets": [
+        "Personal ships and crews",
+        "Contacts in Port Town cantinas and docking facilities",
+        "Relationships with Tibanna processing workers for off-the-books product",
+        "Knowledge of atmospheric navigation and cloud cover for avoiding detection"
+      ],
+      "relationships": [
+        {
+          "faction_id": "cloud_city_administration",
+          "type": "tolerated",
+          "notes": "The administration permits smuggling that does not destabilize the city. The Wing Guard intervenes only when operations become disruptive or draw outside attention."
+        },
+        {
+          "faction_id": "imperial_military",
+          "type": "hostile",
+          "notes": "Imperial presence would destroy the smuggling economy. Smugglers have every incentive to support Cloud City's independence from Imperial oversight."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Spin-sealed Tibanna gas is the most valuable commodity available. Smugglers want access to off-the-books supply for sale on the black market."
+        },
+        {
+          "type": "data",
+          "reason": "Patrol schedules, Wing Guard enforcement priorities, and Imperial fleet movements in the Anoat Sector are operationally valuable."
+        },
+        {
+          "type": "person",
+          "reason": "Passengers who need discreet transport are profitable cargo. No questions asked if the price is right."
+        }
+      ]
+    },
+    {
+      "id": "ugnaught_labor_guilds",
+      "name": "Ugnaught Labor Guilds",
+      "type": "labor",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Ugnaught guilds hold leverage because Cloud City cannot function without their skilled labor in the mining and processing levels. They are not easily intimidated but an Imperial takeover would override their bargaining position. Financial incentives can secure cooperation but the guilds negotiate collectively and do not sell out cheaply."
+      },
+      "motivation": "Fair treatment, compensation, and cultural preservation for Bespin's Ugnaught population. The guilds negotiate collectively with the Cloud City administration for wages, working conditions, and the maintenance of the Ugnaught Surface. They are pragmatic — they work within the system because the system works for them under Calrissian's administration.",
+      "assets": [
+        "Essential technical skills for Tibanna mining and processing operations",
+        "Organized labor structure with collective bargaining power",
+        "Ugnaught Surface platform — cultural homeland and community center",
+        "Deep knowledge of Cloud City's lower-level infrastructure and maintenance systems"
+      ],
+      "relationships": [
+        {
+          "faction_id": "cloud_city_administration",
+          "type": "cooperative",
+          "notes": "The guilds have a functional working relationship with Calrissian's administration. The arrangement benefits both sides — the administration gets reliable skilled labor, the Ugnaughts get fair treatment and autonomy."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Technology or materials that improve working conditions or mining efficiency are of interest to the guilds."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence about threats to Cloud City's independence is relevant — an Imperial takeover would end the guilds' bargaining position."
+        },
+        {
+          "type": "person",
+          "reason": "No particular interest unless the individual threatens guild operations or the Ugnaught community."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "cloud_city_casino_district",
+      "name": "Cloud City Casino District",
+      "district_id": "cloud_city_upper",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "cloud_city_administration",
+      "controlling_faction_notes": "The casinos operate under Cloud City administration licensing. The Wing Guard maintains discreet security. High-stakes sabacc games, the Cloud City Grand Prix, and other events draw wealthy visitors from across the galaxy.",
+      "strategic_value": "The primary revenue generator for Cloud City's tourism economy. Also the best place on Bespin to gather intelligence — wealthy, powerful, and desperate people congregate here, and gambling loosens tongues. The Cloud City Grand Prix is a moderate championship event known to enthusiasts across the galaxy.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "gambler",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Professional gamblers and high-rollers. Some are wealthy tourists, others are sharks working the tables."
+        },
+        {
+          "archetype_ref": "wing_guard",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Plainclothes security monitoring for cheating and disturbances. Professional and discreet."
+        },
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Working the casino floor for gossip, business intelligence, and leverage. Gambling establishments attract information."
+        }
+      ]
+    },
+    {
+      "id": "port_town_cantina",
+      "name": "Port Town Cantina District",
+      "district_id": "cloud_city_mid",
+      "type": [
+        "informational",
+        "economic"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No single faction controls Port Town's cantinas. The Wing Guard patrols but does not police aggressively. Smugglers, dock workers, miners, and off-duty Wing Guard mix freely.",
+      "strategic_value": "The real information exchange on Cloud City — where deals are made, crews are hired, and contraband changes hands. The cantinas of Port Town serve the function that the casinos above disguise with glamour. When looking for a smuggler, a ship, or off-the-books Tibanna, this is where you start.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Looking for cargo, passengers, or Tibanna supply. Port Town is where the shadowport economy operates."
+        },
+        {
+          "archetype_ref": "dock_worker",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Off-duty workers who know what ships are docked, what cargo is moving, and who is asking questions."
+        },
+        {
+          "archetype_ref": "wing_guard",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Patrol presence. Maintaining order but not hunting smugglers unless they cause problems."
+        },
+        {
+          "archetype_ref": "thug",
+          "tier": "minion",
+          "count": "1-2",
+          "notes": "Port Town has its share of muscle for hire and troublemakers."
+        }
+      ]
+    },
+    {
+      "id": "tibanna_processing",
+      "name": "Tibanna Gas Processing Facilities",
+      "district_id": "cloud_city_lower",
+      "type": [
+        "economic",
+        "industrial"
+      ],
+      "controlling_faction_id": "cloud_city_administration",
+      "controlling_faction_notes": "Jointly operated by Cloud City administration oversight and Ugnaught labor guild crews. Trawler pilots scoop raw Tibanna from the atmosphere and return to the processing levels for refinement and packaging.",
+      "strategic_value": "The economic foundation of Cloud City. Tibanna gas production generates the revenue that funds the resort levels, pays the Wing Guard, and keeps the repulsorlifts running. Disrupting or seizing these facilities would control Cloud City's economy. The distinction between legitimate coolant Tibanna and weapons-grade spin-sealed Tibanna is managed here — and kept quiet.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "ugnaught_technician",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Skilled workers operating processing and packaging equipment. Guild members with collective solidarity."
+        },
+        {
+          "archetype_ref": "trawler_pilot",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Atmospheric trawler operators. Skilled pilots who fly into the clouds to scoop raw Tibanna. Dangerous work."
+        },
+        {
+          "archetype_ref": "shift_supervisor",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Human or Lutrillian supervisor coordinating shift operations between administration and guild crews."
+        }
+      ]
+    },
+    {
+      "id": "carbon_freezing_chamber",
+      "name": "Carbon-Freezing Chamber",
+      "district_id": "cloud_city_lower",
+      "type": [
+        "industrial",
+        "hidden"
+      ],
+      "controlling_faction_id": "cloud_city_administration",
+      "controlling_faction_notes": "Industrial facility designed for freezing Tibanna gas in carbonite blocks for transport. Under Cloud City administration control.",
+      "strategic_value": "A specialized industrial facility with dual-use potential. Designed for Tibanna gas processing but capable of freezing other materials — or people — in carbonite. The chamber's existence is not secret but its capabilities are not advertised.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "ugnaught_technician",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Operating the freezing equipment. Skilled technical workers."
+        }
+      ]
+    },
+    {
+      "id": "wing_guard_headquarters",
+      "name": "Wing Guard Headquarters",
+      "district_id": "cloud_city_mid",
+      "type": [
+        "military",
+        "political"
+      ],
+      "controlling_faction_id": "cloud_city_administration",
+      "controlling_faction_notes": "The Bespin Wing Guard serves as Cloud City's combined police force and military defense. Equipped with Storm IV cloud cars for atmospheric patrol and interdiction.",
+      "strategic_value": "The security apparatus of Cloud City. The Wing Guard maintains internal order and provides escort for Tibanna freighters. Their Storm IV cloud cars are fast patrol craft — twin-pod design with pilot and gunner. Controlling or neutralizing the Wing Guard is necessary for any hostile takeover of Cloud City.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "wing_guard_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Commanding officer coordinating patrols and security operations."
+        },
+        {
+          "archetype_ref": "wing_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Security personnel on patrol or standby. Professional and well-equipped by Outer Rim standards."
+        },
+        {
+          "archetype_ref": "cloud_car_pilot",
+          "tier": "rival",
+          "count": "2",
+          "notes": "Storm IV cloud car pilots. Atmospheric combat and patrol trained."
+        }
+      ]
+    },
+    {
+      "id": "bespin_motors_factory",
+      "name": "Bespin Motors Manufacturing",
+      "district_id": "cloud_city_mid",
+      "type": [
+        "industrial",
+        "economic"
+      ],
+      "controlling_faction_id": "cloud_city_administration",
+      "controlling_faction_notes": "Bespin Motors operates manufacturing facilities in Cloud City's mid-levels, producing cloud cars, swoops, and high-altitude atmospheric vehicles.",
+      "strategic_value": "A secondary industry providing Cloud City with manufacturing capacity and export revenue beyond Tibanna. Bespin Motors produces the Storm IV cloud cars used by the Wing Guard, the CK-6 swoop, the BR-549 FasTrak high-altitude scout speeder, and other atmospheric craft. The company also manufactures afterburner arrays and precision repulsor components.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "engineer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Bespin Motors engineer or designer. Technical expertise in atmospheric vehicle systems."
+        },
+        {
+          "archetype_ref": "factory_worker",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Manufacturing line workers."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "tibanna_economic_influence",
+      "type": "economic",
+      "source_faction_id": "cloud_city_administration",
+      "source_description": "Tibanna gas is Bespin's entire reason for existing as a populated world. The gas is used as hyperdrive coolant in its standard refined form and as a quadrupling energy multiplier for blaster packs in its spin-sealed weapons-grade form. Cloud City's economy — tourism, manufacturing, services — all exists because Tibanna revenue makes it viable. Control Tibanna and you control Bespin.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "smuggling_networks",
+          "description": "Smugglers are drawn to Cloud City specifically for access to off-the-books spin-sealed Tibanna. The gap between legitimate coolant pricing and black market weapons-grade pricing creates enormous profit margins."
+        },
+        {
+          "faction_id": "imperial_military",
+          "description": "The Empire's current indifference to Bespin could change instantly if Imperial military planners realized the scale of weapons-grade Tibanna production. Tibanna is a strategic military resource."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "dominant",
+          "modifier": "Every economic transaction on Cloud City connects back to Tibanna. Mentions of Tibanna supply, pricing, or production draw immediate attention from administration officials, smugglers, and workers alike. Knowledge of the spin-sealed weapons-grade operation is sensitive information that both the administration and smugglers want kept quiet."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "corellian_trade_spine",
+        "destination": "Corellian Trade Spine (major hyperspace lane)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "EotE Core Rulebook",
+            "page": 336,
+            "detail": "Corellian Trade Spine description — notable locations include Bespin"
+          },
+          {
+            "book": "FaD Core Rulebook",
+            "page": 349,
+            "detail": "Corellian Trade Spine notable locations list includes Bespin and Gentes"
+          }
+        ]
+      },
+      {
+        "id": "corellian_run",
+        "destination": "Corellian Run (major hyperspace lane)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "Listed as a trade route for Bespin in the planet's astronavigation data. The Corellian Run is one of the galaxy's busiest hyperspace lanes.",
+        "source_refs": [
+          {
+            "book": "EotE Core Rulebook",
+            "page": 365,
+            "detail": "Bespin astronavigation data lists Corellian Run as a trade route"
+          }
+        ]
+      },
+      {
+        "id": "ison_corridor",
+        "destination": "Ison Corridor (regional route — connects to Hoth system)",
+        "travel_time": "variable",
+        "route_quality": "minor",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "FaD Core Rulebook",
+            "page": 363,
+            "detail": "Bespin described as located along the Ison Corridor"
+          },
+          {
+            "book": "Alliance Worlds (AoR)",
+            "page": 64,
+            "detail": "Ison Corridor described as stretch of Corellian Trade Spine between Koda Spur and Lipsec Run"
+          }
+        ]
+      },
+      {
+        "id": "hoth",
+        "destination": "Hoth",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Hoth is on the Ison Corridor near Bespin. The proximity of these two systems is significant — Hoth's remoteness and Bespin's shadowport status make them complementary for organizations needing a hidden base near a supply point.",
+        "inferred": true,
+        "source_refs": [
+          {
+            "book": "AoR Core Rulebook",
+            "page": 379,
+            "detail": "Hoth astronavigation data lists Ison Corridor as trade route"
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "cloud_city_administration",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Cloud City is functioning but Calrissian's authority is weakened. Wing Guard patrols are reduced. The administration is distracted or compromised. Tourism is declining and the city feels less secure.",
+          "presence_reason": "A crisis has diverted administrative resources — a major mechanical failure in the repulsorlift systems, a political challenge to Calrissian's position, or external pressure that has drawn key personnel away from their posts.",
+          "roles": [
+            {
+              "role": "Wing Guard patrol",
+              "archetype_ref": "wing_guard",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Minimal security presence. Key locations covered but response times are long."
+            },
+            {
+              "role": "Administrative aide",
+              "archetype_ref": "bureaucrat",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Managing essential functions in Calrissian's absence or distraction."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Cloud City operations. Wing Guard maintains visible patrols on the tourist levels and Port Town. Cloud car pairs fly regular atmospheric circuits. Calrissian is accessible and engaged. Tourism is healthy. The city hums.",
+          "presence_reason": "Business as usual. Cloud City is prosperous, safe by Outer Rim standards, and operating as intended — a mining colony with a luxury veneer.",
+          "roles": [
+            {
+              "role": "Wing Guard patrol",
+              "archetype_ref": "wing_guard",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Regular patrols across tourist and residential levels. Professional and visible."
+            },
+            {
+              "role": "Wing Guard officer",
+              "archetype_ref": "wing_guard_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Shift commander coordinating patrol operations."
+            },
+            {
+              "role": "Cloud car patrol",
+              "archetype_ref": "cloud_car_pilot",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Storm IV cloud car pair on atmospheric patrol. Escort and interdiction capability."
+            },
+            {
+              "role": "Baron Administrator Calrissian",
+              "archetype_ref": "lando_calrissian",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Available for audiences. Charming, perceptive, and always calculating the angles."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Something has triggered increased security. Wing Guard presence is doubled. Cloud car patrols are constant. Port Town is under closer scrutiny. Calrissian is personally managing a situation. Visitors notice the increased security presence.",
+          "presence_reason": "A credible threat to Cloud City — an approaching Imperial patrol, a smuggling operation gone wrong that drew attention, a violent incident on the tourist levels, or intelligence suggesting someone dangerous is aboard.",
+          "roles": [
+            {
+              "role": "Wing Guard patrol",
+              "archetype_ref": "wing_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Doubled patrols. Armed and alert. Checking identification at key access points."
+            },
+            {
+              "role": "Wing Guard officer",
+              "archetype_ref": "wing_guard_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple officers coordinating a security escalation."
+            },
+            {
+              "role": "Cloud car patrol",
+              "archetype_ref": "cloud_car_pilot",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Multiple Storm IV pairs running constant circuits. Approaching ships are intercepted and escorted."
+            },
+            {
+              "role": "Baron Administrator Calrissian",
+              "archetype_ref": "lando_calrissian",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Personally involved. Negotiating, directing, and looking for a way to resolve the situation without losing Cloud City's independence."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Cloud City is on full alert. Every Wing Guard is deployed. Cloud car squadrons are airborne. Port Town is locked down. The tourist levels are evacuated or sheltered. Calrissian is making decisions that will determine whether Cloud City survives as an independent operation.",
+          "presence_reason": "Existential threat — an Imperial fleet in orbit demanding surrender, a catastrophic infrastructure failure threatening the city's repulsorlifts, or a full-scale hostile boarding action.",
+          "roles": [
+            {
+              "role": "Wing Guard — full deployment",
+              "archetype_ref": "wing_guard",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Every available guard deployed. Defensive positions at key infrastructure points."
+            },
+            {
+              "role": "Wing Guard command",
+              "archetype_ref": "wing_guard_officer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full command structure active. Coordinating defense across all city levels."
+            },
+            {
+              "role": "Cloud car squadrons",
+              "archetype_ref": "cloud_car_pilot",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Full scramble. All operational Storm IV cloud cars airborne."
+            },
+            {
+              "role": "Baron Administrator Calrissian",
+              "archetype_ref": "lando_calrissian",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The gambler is all-in. Every decision he makes now has permanent consequences."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Wing Guard patrols are more attentive. Cloud car pilots run additional circuits. The administration is quietly investigating something. Visitors may notice guards asking more questions than usual.",
+        "targeted": "The Wing Guard is looking for specific individuals or a specific ship. Docking platform access is restricted. Calrissian has been briefed and is personally monitoring the situation.",
+        "manhunt": "Full security lockdown. No ships depart without Wing Guard clearance. All levels are patrolled. Calrissian is personally directing operations. The tourist levels notice — and tourism is suffering."
+      }
+    },
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "No Imperial presence on Cloud City. The Empire knows Bespin exists and Cloud City exports Tibanna, but has not established oversight. This is the default state — and the state Calrissian works to maintain.",
+          "presence_reason": "Imperial indifference. Bespin is remote, the Anoat Sector is low priority, and Cloud City's exports appear legitimate. The Empire has bigger concerns.",
+          "roles": []
+        },
+        "patrol": {
+          "description": "An Imperial customs vessel or patrol ship has arrived in the Bespin system. Not a permanent presence — a routine patrol or a specific investigation that will pass. Cloud City is cooperative and eager to appear unremarkable.",
+          "presence_reason": "Routine sector patrol, a specific tip about smuggling activity, or an Imperial officer following up on a report. Not yet a policy decision to establish permanent presence.",
+          "roles": [
+            {
+              "role": "Imperial naval officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commanding the patrol vessel. Conducting inspections and asking questions. May or may not be looking for something specific."
+            },
+            {
+              "role": "Stormtrooper escort",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Security detail for the Imperial officer during Cloud City visit."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Empire has decided Cloud City requires oversight. A garrison is being established. Imperial officers are embedded in the administration. Stormtroopers patrol alongside — or in place of — the Wing Guard. Calrissian is negotiating from a position of weakness.",
+          "presence_reason": "The Empire has discovered something — the scale of spin-sealed Tibanna operations, Rebel contacts using Cloud City as a waypoint, a fugitive hiding here, or a strategic decision to secure Tibanna supply for military use.",
+          "roles": [
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Establishing Imperial authority. Working to subordinate the Wing Guard and administration."
+            },
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Permanent patrols on all levels. Checkpoints at key access points. The tourist levels are noticeably less welcoming."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Monitoring all docking platforms. Inspecting cargo. The shadowport era is over."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Intelligence operative. Investigating what Cloud City has been hiding and who has been using it as a safe harbor."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial occupation. Star Destroyer in orbit. Cloud City's administration answers to an Imperial governor. The Wing Guard has been absorbed or disbanded. Tibanna production is nationalized for Imperial military use. Tourism is dead. Cloud City is now an Imperial mining installation with a view.",
+          "presence_reason": "A high-level decision — Darth Vader's personal interest, a catastrophic security event, or a strategic military directive to secure Bespin's Tibanna for the war effort. The Empire has committed resources and is not leaving.",
+          "roles": [
+            {
+              "role": "Imperial occupation commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer running Cloud City as a military installation."
+            },
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 24,
+              "notes": "Full military occupation. Every level, every access point, every docking platform."
+            },
+            {
+              "role": "ISB detachment",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Security apparatus. Interrogations, surveillance, and informant networks."
+            },
+            {
+              "role": "Imperial Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity is confirmed. An Inquisitor's arrival means the situation is beyond local military scope."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrol frequency in the Bespin system increases. Cloud City receives routine hails requesting cargo manifests. Calrissian starts losing sleep.",
+        "targeted": "The Empire is looking for someone or something specific on Cloud City. An Imperial vessel arrives and officers demand cooperation. Calrissian complies while looking for a way to resolve the situation before it escalates.",
+        "manhunt": "Imperial lockdown. No ships leave Cloud City without Imperial clearance. Stormtroopers search level by level. The Wing Guard is ordered to stand down or assist. Cloud City's independence is functionally suspended for the duration."
+      }
+    },
+    {
+      "faction_id": "smuggling_networks",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Smuggling activity is minimal. A recent crackdown, Imperial patrol, or Wing Guard enforcement action has driven operators underground or offworld. Port Town is quiet.",
+          "presence_reason": "External pressure — Imperial attention, a Wing Guard security escalation, or a disruption to Tibanna supply that removes the primary commodity.",
+          "roles": [
+            {
+              "role": "Low-profile smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Laying low until the heat passes. Still in Port Town but not operating openly."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard shadowport activity. Smugglers operate openly in Port Town. Off-the-books Tibanna transactions happen regularly. Discrete contraband moves through Cloud City's docking platforms. The Wing Guard looks the other way on operations that do not cause problems.",
+          "presence_reason": "Business as usual. Cloud City's permissive environment and valuable Tibanna supply attract a steady population of smuggling operators.",
+          "roles": [
+            {
+              "role": "Smuggler crew",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "2-3",
+              "notes": "Independent operators working Port Town. Moving Tibanna, contraband, or passengers."
+            },
+            {
+              "role": "Tibanna middleman",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Broker connecting smugglers with off-the-books Tibanna supply from processing level contacts."
+            },
+            {
+              "role": "Crew muscle",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": "2-3",
+              "notes": "Security for smuggling operations. Guarding cargo and watching for trouble."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Smuggling activity is elevated. A major opportunity has drawn additional operators to Cloud City — a large Tibanna shipment, a wealthy client needing discreet transport, or a crisis elsewhere closing competing shadowports and redirecting traffic here.",
+          "presence_reason": "Market conditions favor Cloud City. More operators, more cargo, more activity. Port Town is busy and the Wing Guard is stretched thin.",
+          "roles": [
+            {
+              "role": "Smuggler crew",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "4-5",
+              "notes": "Multiple independent crews competing for business. Tension is elevated."
+            },
+            {
+              "role": "Tibanna middleman",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple brokers working the increased demand."
+            },
+            {
+              "role": "Crew muscle",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": "4-6",
+              "notes": "More operators means more potential for conflict. Everyone has backup."
+            },
+            {
+              "role": "Crime boss representative",
+              "archetype_ref": "crime_boss",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A Hutt agent, Black Sun operative, or other syndicate representative has arrived to coordinate or exploit the increased activity."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Cloud City's shadowport economy has overwhelmed legitimate operations. Criminal organizations are openly operating. The Wing Guard cannot maintain order. Port Town is dangerous. Tourism is collapsing as the city's reputation shifts from luxury resort to criminal haven.",
+          "presence_reason": "Cloud City's administration has lost control — Calrissian is gone, compromised, or unable to enforce order. Without the administration's careful balance, the criminal element has filled the vacuum.",
+          "roles": [
+            {
+              "role": "Smuggler crews",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "6-8",
+              "notes": "Unchecked operations across all city levels."
+            },
+            {
+              "role": "Crime boss",
+              "archetype_ref": "crime_boss",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A major criminal figure has established de facto control over Port Town and the docking platforms."
+            },
+            {
+              "role": "Enforcer gangs",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": "8-12",
+              "notes": "Criminal muscle replacing Wing Guard authority."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Smugglers are more cautious. Deals take longer. New faces in Port Town are watched carefully. Someone is worried about something.",
+        "targeted": "The smuggling community knows someone is being hunted — Imperial agents, Wing Guard investigators, or bounty hunters. Operators close ranks or scatter depending on who is doing the hunting.",
+        "manhunt": "Port Town goes silent. Smugglers vanish to their ships or safe houses. If the manhunt is Imperial, the entire smuggling population may attempt to flee Cloud City simultaneously."
+      }
+    },
+    {
+      "faction_id": "ugnaught_labor_guilds",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Ugnaught workers are present but guild organization is disrupted. Work continues but without collective coordination. Individual Ugnaughts fulfill their shifts; the guild infrastructure is dormant.",
+          "presence_reason": "Guild leadership is compromised — arrested, threatened, or bought off. Or an external crisis has scattered the community. The Ugnaught Surface may be inaccessible.",
+          "roles": [
+            {
+              "role": "Ugnaught worker",
+              "archetype_ref": "ugnaught_technician",
+              "tier": "minion",
+              "count": "2-3",
+              "notes": "Working their shifts. Keeping heads down. No collective action."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard operations. Ugnaught guild crews run the mining and processing levels efficiently. Guild representatives negotiate with the administration on routine matters. The Ugnaught Surface community is active and self-governing.",
+          "presence_reason": "Normal working conditions under Calrissian's administration. The guilds have a functional relationship with management.",
+          "roles": [
+            {
+              "role": "Ugnaught guild crew",
+              "archetype_ref": "ugnaught_technician",
+              "tier": "minion",
+              "count": "6-8",
+              "notes": "Skilled mining and processing workers. Guild members who take collective solidarity seriously."
+            },
+            {
+              "role": "Guild foreman",
+              "archetype_ref": "ugnaught_foreman",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Shift leader and guild representative. Coordinates between workers and administration."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The guilds are mobilized around an issue — a labor dispute, a safety concern, or a threat to guild rights. Work slows or stops. The Ugnaught community is united and organized. The processing levels belong to the guilds until the issue is resolved.",
+          "presence_reason": "A grievance — unsafe conditions, wage dispute, threat to the Ugnaught Surface, or an attempt by new management to reduce guild authority. The Ugnaughts have leverage and they know it.",
+          "roles": [
+            {
+              "role": "Ugnaught guild crew — mobilized",
+              "archetype_ref": "ugnaught_technician",
+              "tier": "minion",
+              "count": "12-16",
+              "notes": "Full guild membership activated. Work stoppage or slowdown in progress."
+            },
+            {
+              "role": "Guild negotiator",
+              "archetype_ref": "ugnaught_foreman",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior guild leaders conducting negotiations. They know Cloud City cannot function without Ugnaught labor."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Ugnaught guilds have seized control of Cloud City's lower levels. Mining and processing continue only on guild terms. The administration cannot access critical infrastructure without guild cooperation. This is not a rebellion — it is a strike with total leverage.",
+          "presence_reason": "An existential threat to the Ugnaught community — forced labor under Imperial occupation, destruction of the Ugnaught Surface, or an attempt to replace guild labor with droids. The Ugnaughts have nothing left to lose.",
+          "roles": [
+            {
+              "role": "Ugnaught guild — full mobilization",
+              "archetype_ref": "ugnaught_technician",
+              "tier": "minion",
+              "count": "20+",
+              "notes": "Every Ugnaught on Cloud City. Control of all lower-level infrastructure."
+            },
+            {
+              "role": "Guild council",
+              "archetype_ref": "ugnaught_foreman",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Collective guild leadership. Making demands and prepared to shut down Tibanna production entirely."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Guild representatives are asking more questions than usual. Work pace on the processing levels slows subtly. The Ugnaught Surface has closed to outside visitors.",
+        "targeted": "The guilds have identified a specific threat — a person, policy, or plan that endangers their community. Guild leadership is meeting privately. Work-to-rule compliance begins.",
+        "manhunt": "Not applicable in the traditional sense. If the guilds mobilize against a specific individual, that person will find every door in the lower levels locked and every Ugnaught unwilling to assist."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "EotE_smuggler_start": {
+        "label": "Edge of the Empire — Smuggler's Cloud City",
+        "description": "Players arrive on Cloud City looking for work, a cargo, or a place to lay low. Port Town is the hiring hall. Tibanna is the commodity. The Wing Guard maintains order but does not ask questions about cargo unless you give them a reason to. Calrissian's Cloud City is the best shadowport in the Outer Rim — profitable, comfortable, and just far enough from Imperial attention to feel safe. The feeling is accurate. For now.",
+        "controlling_factions": [
+          {
+            "location_id": "port_town_cantina",
+            "faction_id": "cloud_city_administration",
+            "presence_level": "patrol",
+            "notes": "Wing Guard patrols Port Town regularly but enforcement is selective. The administration tolerates smuggling that does not cause problems."
+          },
+          {
+            "location_id": "cloud_city_casino_district",
+            "faction_id": "cloud_city_administration",
+            "presence_level": "patrol",
+            "notes": "Casino district security is professional and discreet. High-stakes sabacc games are running."
+          },
+          {
+            "location_id": "tibanna_processing",
+            "faction_id": "ugnaught_labor_guilds",
+            "presence_level": "patrol",
+            "notes": "Standard operations. Ugnaught crews run the mining levels. Off-the-books Tibanna is available through the right contacts."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "A Tibanna middleman in Port Town has a buyer for spin-sealed gas but his regular supplier just vanished. He needs someone to make a discreet pickup from a processing level contact and deliver it to a ship on Platform 327 — no questions asked, credits on delivery.",
+          "Calrissian is hosting a high-stakes sabacc tournament in the casino district. The buy-in is steep but the prize pool includes a ship. Someone at the table is cheating — and someone else at the table is a Wing Guard officer working undercover.",
+          "A drifting Tibannopolis platform has been detected closer to Cloud City than usual. Scavengers have reported lights on the abandoned structure. The Wing Guard does not have the resources to investigate — but someone might pay for the information about what is happening there.",
+          "An Imperial customs corvette has been spotted on long-range sensors approaching the Bespin system. It may be a routine patrol. It may not be. Calrissian wants to know which — and he is willing to pay a crew to find out discreetly."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "365",
+      "detail": "Primary planet entry — astronavigation data, population, government, terrain, cities, exports/imports, trade routes, background text including Cloud City founding by Ecclessis Figg, Calrissian's administration, Tibannopolis, Ugnaught Surface, Life Zone ecosystem"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "353",
+      "detail": "Brief planet summary in Outer Rim notable locations — Separatist control during Clone Wars, now operates independently, popular resorts and casinos"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "257",
+      "detail": "Storm IV Cloud Car vehicle entry — built by Bespin Motors for Cloud City's Bespin Wing Guard, twin-pod patrol and interdiction craft"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "157",
+      "detail": "Cloud City governance — local authorities empower security guards and escort ships for Tibanna freighters, employment for thousands"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "336",
+      "detail": "Corellian Trade Spine — notable locations include Bespin, southern regions less prosperous"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "168",
+      "detail": "Tibanna gas from Bespin used as blaster propellant"
+    },
+    {
+      "book": "AoR Core Rulebook",
+      "pages": "365",
+      "detail": "Bespin brief entry — operates independently, popular resorts, casinos, major gambling events, tourist destination"
+    },
+    {
+      "book": "AoR Core Rulebook",
+      "pages": "374",
+      "detail": "Bespin listed among better-known Outer Rim shadowports"
+    },
+    {
+      "book": "AoR Core Rulebook",
+      "pages": "263",
+      "detail": "Storm IV Cloud Car — Bespin Wing Guard patrol craft"
+    },
+    {
+      "book": "FaD Core Rulebook",
+      "pages": "363",
+      "detail": "Bespin entry — galactic source of Tibanna gas along the Ison Corridor, numerous floating cities, Cloud City largest with casinos/hotels/restaurants"
+    },
+    {
+      "book": "FaD Core Rulebook",
+      "pages": "349",
+      "detail": "Corellian Trade Spine notable locations include Bespin and Gentes"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "pages": "91",
+      "detail": "Lando Calrissian nemesis profile — contacts with Mining Guild, Hutts, idle rich of Bespin"
+    },
+    {
+      "book": "Explorer Sourcebook (Enter the Unknown)",
+      "pages": "86",
+      "detail": "The Great Bespin Zoological Heist adventure seed — beldons produce Tibanna as waste product, protected by law, beldon ecology including triggerbirds and velkers, poaching scenario"
+    },
+    {
+      "book": "Soldier Sourcebook (Forged in Battle)",
+      "pages": "91",
+      "detail": "Cloud City combat considerations — soldiers must take caution not to damage repulsorlifts that keep the city aloft"
+    },
+    {
+      "book": "Hired Guns Sourcebook (Dangerous Covenants)",
+      "pages": "65",
+      "detail": "Bespin deploys Needle-type ships against smugglers and criminals in high-altitude operations"
+    },
+    {
+      "book": "Sentinel Sourcebook (Endless Vigil)",
+      "pages": "68",
+      "detail": "Cloud City as example of exotic urban location — floating city transformed from mining colony through distinctive environmental features"
+    },
+    {
+      "book": "Seeker Sourcebook (Savage Spirits)",
+      "pages": "55",
+      "detail": "BR-549 FasTrak high-altitude scout speeder by Bespin Motors"
+    },
+    {
+      "book": "Pilot Sourcebook (Stay on Target)",
+      "pages": "14, 89",
+      "detail": "Bespin's Sky Rodeo event, thrantas surviving above Bespin's clouds"
+    },
+    {
+      "book": "GM Holocron 5.1.2",
+      "pages": "39, 88",
+      "detail": "Hyperspace travel time table including Bespin, Cloud City Grand Prix as moderate championship event"
+    },
+    {
+      "book": "Gadgets and Gear",
+      "pages": "135",
+      "detail": "Bespin administrator robe and tunic — adds advantage to Negotiation checks"
+    },
+    {
+      "book": "Alliance Worlds (Strongholds of Resistance)",
+      "pages": "64",
+      "detail": "Ison Corridor description — stretch between Koda Spur and Lipsec Run, connects Hoth and Bespin region"
+    },
+    {
+      "book": "Hutt Space (Lords of Nal Hutta)",
+      "pages": "92",
+      "detail": "Tibanna gas imported to Sleheyron from Bespin for processing — spin-sealed Tibanna for weapons and starships"
+    },
+    {
+      "book": "Corellian Sector (Suns of Fortune)",
+      "pages": "101",
+      "detail": "Bespin Motors Remote DVI Activator — beckon call device"
+    },
+    {
+      "book": "Colonist Sourcebook (Far Horizons)",
+      "pages": "83",
+      "detail": "Tibanna gas mine on Bespin as example homestead operation"
+    },
+    {
+      "book": "Sentinel Sourcebook (Endless Vigil)",
+      "pages": "60-61",
+      "detail": "Bespin Motors LK Model Afterburner Array and PinPoint II Targeted Repulsor Generator for Podracers"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "pages": "68",
+      "detail": "Bespin Motors CK-6 Swoop vehicle entry"
+    }
+  ]
+}

@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "_meta": {
+    "description": "Affiliation-node vocabulary \u2014 the drawer-tree namespace for NPC affiliation/affiliation_path (world-links cluster, D-WL4). Generated from npc-library/taxonomy.json tree by scripts/canonical/build_affiliations_vocab.py; the inference rules in that file are build-time machinery and are NOT part of this vocab.",
+    "id_identity_convention": "faction_record: true marks nodes whose id IS a galaxy faction registry id (public/data/factions/<id>.json) \u2014 the GM app resolves faction dossiers by node id.",
+    "node_count": 84,
+    "faction_backed_count": 28
+  },
+  "entries": [
+    {
+      "id": "galactic_empire",
+      "label": "Galactic Empire",
+      "parent": null,
+      "faction_record": true
+    },
+    {
+      "id": "imperial_military",
+      "label": "Imperial Military",
+      "parent": "galactic_empire",
+      "faction_record": true
+    },
+    {
+      "id": "imperial_security_bureau",
+      "label": "Imperial Security Bureau (ISB)",
+      "parent": "galactic_empire",
+      "faction_record": true
+    },
+    {
+      "id": "imperial_intelligence",
+      "label": "Imperial Intelligence",
+      "parent": "galactic_empire",
+      "faction_record": false
+    },
+    {
+      "id": "imperial_bureaucracy",
+      "label": "Imperial Bureaucracy / COMPNOR",
+      "parent": "galactic_empire",
+      "faction_record": true
+    },
+    {
+      "id": "imperial_academy",
+      "label": "Imperial Academy",
+      "parent": "galactic_empire",
+      "faction_record": false
+    },
+    {
+      "id": "compnor",
+      "label": "COMPNOR",
+      "parent": "galactic_empire",
+      "faction_record": false
+    },
+    {
+      "id": "rebel_alliance",
+      "label": "Rebel Alliance",
+      "parent": null,
+      "faction_record": true
+    },
+    {
+      "id": "alliance_high_command",
+      "label": "Alliance High Command",
+      "parent": "rebel_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "alliance_specforce",
+      "label": "SpecForce",
+      "parent": "rebel_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "alliance_intelligence",
+      "label": "Alliance Intelligence",
+      "parent": "rebel_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "spectres",
+      "label": "Spectres (Ghost Crew)",
+      "parent": "rebel_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "gerreras_partisans",
+      "label": "Gerrera's Partisans",
+      "parent": "rebel_alliance",
+      "faction_record": true
+    },
+    {
+      "id": "galactic_republic",
+      "label": "Galactic Republic",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "clone_army",
+      "label": "Grand Army of the Republic",
+      "parent": "galactic_republic",
+      "faction_record": false
+    },
+    {
+      "id": "clone_force_99",
+      "label": "Clone Force 99 (Bad Batch)",
+      "parent": "galactic_republic",
+      "faction_record": false
+    },
+    {
+      "id": "d_squad",
+      "label": "D-Squad",
+      "parent": "galactic_republic",
+      "faction_record": false
+    },
+    {
+      "id": "republic_jedi_order",
+      "label": "Jedi Order (Republic-era)",
+      "parent": "galactic_republic",
+      "faction_record": false
+    },
+    {
+      "id": "galactic_senate",
+      "label": "Galactic Senate",
+      "parent": "galactic_republic",
+      "faction_record": false
+    },
+    {
+      "id": "high_republic",
+      "label": "High Republic Era",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "high_republic_jedi",
+      "label": "Jedi (High Republic)",
+      "parent": "high_republic",
+      "faction_record": false
+    },
+    {
+      "id": "forces_of_the_nihil",
+      "label": "Forces of the Nihil",
+      "parent": "high_republic",
+      "faction_record": false
+    },
+    {
+      "id": "separatist_alliance",
+      "label": "Separatist Alliance (CIS)",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "droid_armies",
+      "label": "Droid Armies",
+      "parent": "separatist_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "trade_federation",
+      "label": "Trade Federation",
+      "parent": "separatist_alliance",
+      "faction_record": false
+    },
+    {
+      "id": "separatist_remnants",
+      "label": "Separatist Remnants (post-war)",
+      "parent": "separatist_alliance",
+      "faction_record": true
+    },
+    {
+      "id": "shadow_collective",
+      "label": "Shadow Collective",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "death_watch",
+      "label": "Death Watch",
+      "parent": "shadow_collective",
+      "faction_record": false
+    },
+    {
+      "id": "nightbrothers",
+      "label": "Nightbrothers of Dathomir",
+      "parent": "shadow_collective",
+      "faction_record": false
+    },
+    {
+      "id": "mandalorian_clans",
+      "label": "Mandalorian Clans",
+      "parent": null,
+      "faction_record": true
+    },
+    {
+      "id": "dathomir_witches",
+      "label": "Dathomir Witches",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "nightsisters",
+      "label": "Nightsisters",
+      "parent": "dathomir_witches",
+      "faction_record": false
+    },
+    {
+      "id": "criminal_underworld",
+      "label": "Criminal Underworld",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "hutt_cartel",
+      "label": "Hutt Cartel / Kajidics",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "black_sun",
+      "label": "Black Sun",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "pyke_syndicate",
+      "label": "Pyke Syndicate",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "zann_consortium",
+      "label": "Zann Consortium",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "crimson_dawn",
+      "label": "Crimson Dawn",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "broken_horn_syndicate",
+      "label": "Broken Horn Syndicate",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "bounty_hunters_guild",
+      "label": "Bounty Hunters' Guild",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "trandoshan_slavers",
+      "label": "Trandoshan Slavers / Karazak Cooperative",
+      "parent": "criminal_underworld",
+      "faction_record": true
+    },
+    {
+      "id": "veiled_sorority",
+      "label": "Veiled Sorority",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "jerserras_gang",
+      "label": "Jerserra's Gang",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "strus_clan",
+      "label": "Strus Clan",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "yiyar_salvage",
+      "label": "Yiyar Salvage",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "black_seraph_gang",
+      "label": "Black Seraph Gang",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "cordals_chain",
+      "label": "Cordal's Chain",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "wing_guard",
+      "label": "Cloud City Wing Guard",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "binayre_pirates",
+      "label": "Binayre Pirates",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "silestro_privateers",
+      "label": "Silestro Privateers",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "kanjiklub",
+      "label": "Kanjiklub",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "underworld_unaffiliated",
+      "label": "Unaffiliated Underworld",
+      "parent": "criminal_underworld",
+      "faction_record": false
+    },
+    {
+      "id": "local_powers",
+      "label": "Local & Sector Powers",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "corellian_government",
+      "label": "Corellian Government / CorSec",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "corporate_sector_authority",
+      "label": "Corporate Sector Authority",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "sorosuub_corporation",
+      "label": "SoroSuub Corporation",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "diatek_securities",
+      "label": "Diatek Securities",
+      "parent": "local_powers",
+      "faction_record": false
+    },
+    {
+      "id": "free_ryloth_movement",
+      "label": "Free Ryloth Movement",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "wookiee_clans",
+      "label": "Wookiee Clans",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "bothan_spynet",
+      "label": "Bothan Spynet",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "mon_calamari",
+      "label": "Mon Calamari Government & Fleet",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "mining_guild",
+      "label": "Mining Guild",
+      "parent": "local_powers",
+      "faction_record": true
+    },
+    {
+      "id": "force_traditions",
+      "label": "Force Traditions",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "jedi_remnants",
+      "label": "Jedi (Imperial-era survivors)",
+      "parent": "force_traditions",
+      "faction_record": false
+    },
+    {
+      "id": "sith",
+      "label": "Sith",
+      "parent": "force_traditions",
+      "faction_record": false
+    },
+    {
+      "id": "guardians_of_the_whills",
+      "label": "Guardians of the Whills",
+      "parent": "force_traditions",
+      "faction_record": true
+    },
+    {
+      "id": "krath",
+      "label": "Krath Cult",
+      "parent": "force_traditions",
+      "faction_record": false
+    },
+    {
+      "id": "bando_gora",
+      "label": "Bando Gora",
+      "parent": "force_traditions",
+      "faction_record": false
+    },
+    {
+      "id": "force_users_unaffiliated",
+      "label": "Independent Force Users",
+      "parent": "force_traditions",
+      "faction_record": false
+    },
+    {
+      "id": "church_of_the_force",
+      "label": "Church of the Force",
+      "parent": "force_traditions",
+      "faction_record": true
+    },
+    {
+      "id": "inquisitorius",
+      "label": "Inquisitorius",
+      "parent": "force_traditions",
+      "faction_record": true
+    },
+    {
+      "id": "sequel_era",
+      "label": "Sequel Era",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "first_order",
+      "label": "First Order",
+      "parent": "sequel_era",
+      "faction_record": false
+    },
+    {
+      "id": "resistance",
+      "label": "The Resistance",
+      "parent": "sequel_era",
+      "faction_record": false
+    },
+    {
+      "id": "knights_of_ren",
+      "label": "Knights of Ren",
+      "parent": "sequel_era",
+      "faction_record": true
+    },
+    {
+      "id": "civilians_unaligned",
+      "label": "Civilians & Unaligned",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "nobility",
+      "label": "Nobility",
+      "parent": "civilians_unaligned",
+      "faction_record": false
+    },
+    {
+      "id": "senators_diplomats",
+      "label": "Senators & Diplomats",
+      "parent": "civilians_unaligned",
+      "faction_record": false
+    },
+    {
+      "id": "bureaucrats",
+      "label": "Bureaucrats",
+      "parent": "civilians_unaligned",
+      "faction_record": false
+    },
+    {
+      "id": "merchants_traders",
+      "label": "Merchants & Traders",
+      "parent": "civilians_unaligned",
+      "faction_record": false
+    },
+    {
+      "id": "civilians_general",
+      "label": "General Civilians",
+      "parent": "civilians_unaligned",
+      "faction_record": false
+    },
+    {
+      "id": "sapient_natives",
+      "label": "Sapient Native Species",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "wildlife_creatures",
+      "label": "Wildlife & Creatures",
+      "parent": null,
+      "faction_record": false
+    },
+    {
+      "id": "droids_standalone",
+      "label": "Standalone Droids",
+      "parent": null,
+      "faction_record": false
+    }
+  ]
+}

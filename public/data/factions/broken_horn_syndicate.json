@@ -1,0 +1,217 @@
+{
+  "id": "broken_horn_syndicate",
+  "name": "Broken Horn Syndicate",
+  "type": "criminal_syndicate",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Dawn of Rebellion"
+  ],
+  "overview": "The Broken Horn Syndicate is a small but vicious criminal organization operating primarily from the Outer Rim world of Lothal, specializing in arms trafficking and weapons smuggling. Led by the Devaronian Cikatro Vizago, the syndicate arose from the ashes of Twin Horns Storage after Vizago double-dealt his way to the top. Unlike larger criminal empires, the Broken Horn operates through temporary alliances, freelance agents, and droid bodyguards — keeping the organization lean, elusive, and under Vizago's direct personal control.",
+  "short_descriptor": "Local operation, Lothal sector. Vizago runs it personally, which means it's as reliable and as unstable as he is. Good for supplies if you don't ask where they came from. Don't owe him favors.",
+  "how_they_operate": [
+    {
+      "heading": "CIKATRO VIZAGO",
+      "text": "The syndicate is a flat hierarchy with Cikatro Vizago at the top and no middle management. Vizago learned from his predecessor Rask Odai's downfall — Odai relied on trusted underlings who betrayed him — so the Broken Horn employs only freelance agents hired for specific jobs and abandoned if caught."
+    },
+    {
+      "heading": "DROID SECURITY",
+      "text": "Personal security is handled by IG-RM droid bodyguards controlled through Vizago's handheld remote, eliminating the bribery risk inherent in organic muscle."
+    },
+    {
+      "heading": "ARMS TRAFFICKING",
+      "text": "Operations center on arms trafficking: agents steal weapons, explosives, and communications equipment from Imperial installations on Lothal, which Vizago then sells to whoever pays, including local resistance cells and criminal buyers alike."
+    },
+    {
+      "heading": "DENIABILITY",
+      "text": "Transactions are structured so hirelings take the fall while Vizago disappears aboard his personal ship, the Broken Horn. Displaced locals from communities like Tarkintown are recruited for low-risk errand and package runs at minimal cost."
+    }
+  ],
+  "witness_statement": {
+    "text": "Vizago sold me a crate of E-11s at half the going rate on Lothal. Good blasters, clean serial numbers. I thought I got a deal. Two weeks later he called in a favor that was worth triple what I saved. That's how the horn works — the discount is the hook. By the time you realize it, you're already his.",
+    "source": "Smuggler, Outer Rim circuit — cantina debrief, Garel spaceport",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "motivations": {
+    "primary": "Profit",
+    "secondary": [
+      "Maintaining personal control over all operations",
+      "Exploiting Imperial disruption for arms dealing opportunities",
+      "Staying ahead of the Empire through mercurial alliances",
+      "Expanding into new markets as Imperial actions create demand"
+    ],
+    "notes": ""
+  },
+  "goals": {
+    "strategic": [
+      "Maintain the Broken Horn Syndicate's arms trafficking dominance in the Lothal sector",
+      "Remain invisible to the Empire, the Hutts, and Black Sun — survival depends on obscurity",
+      "Expand into surveillance and communications equipment markets as Imperial crackdowns create new demand"
+    ],
+    "operational": [
+      "Hire independent agents to steal weapons, explosives, and communications equipment from Imperial installations",
+      "Use Lothal as a staging ground for smuggling runs to worlds with less Imperial presence",
+      "Employ desperate locals from displaced communities like Tarkintown for low-risk errand and package runs",
+      "Maintain a cadre of freelance agents who can be abandoned if caught, protecting Vizago personally"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "bribery",
+      "hired_muscle",
+      "negotiation",
+      "blackmail"
+    ],
+    "avoided": [
+      "Direct confrontation with Imperial military forces — the syndicate is too small to survive open warfare",
+      "Long-term alliances — Vizago's predecessor was betrayed by trusted underlings, and Vizago trusts no one"
+    ],
+    "notes": ""
+  },
+  "strengths": [
+    "Personal control by Vizago eliminates the betrayal risk that destroyed his predecessor's organization",
+    "Droid bodyguards (IG-RM units) provide absolutely reliable personal security that cannot be bribed or turned",
+    "Freelance agent model means captured operatives know little about the larger organization",
+    "Small enough to avoid the attention of major criminal empires like the Hutts and Black Sun",
+    "Arms specialization means the syndicate profits from any conflict — Imperial crackdowns create demand for the weapons Vizago sells"
+  ],
+  "weaknesses": [
+    "The entire syndicate operates through Vizago's personal control with no second-in-command or succession structure; his capture or death would dissolve the organization immediately.",
+    "Freelance agents are retained on a per-job credit basis with no organizational loyalty, and none would accept personal risk to protect the syndicate's interests.",
+    "The syndicate's small scale provides insufficient resources to withstand sustained pressure from larger criminal organizations or dedicated Imperial enforcement operations.",
+    "Vizago's rigid approach to completed deals — refusing renegotiation when circumstances change — alienates repeat contractors and accumulates personal enemies among former associates.",
+    "Primary operations are concentrated on Lothal, where the Empire's military presence has been steadily increasing, placing the syndicate's core infrastructure directly within an expanding Imperial security perimeter."
+  ],
+  "behavior_under_threat": {
+    "low": "Continue operations normally. Vizago monitors the situation through his contact network and adjusts transaction locations to avoid exposure.",
+    "medium": "Abandon exposed agents and cut contact with compromised associates. Relocate sensitive inventory to alternate storehouses. Vizago personally shifts operations to the Broken Horn starship.",
+    "high": "Vizago disappears aboard the Broken Horn. Freelance agents are left to fend for themselves. Lothal-based operations go dormant while Vizago operates from deep space or other Outer Rim worlds.",
+    "critical": "Full evacuation. Vizago abandons Lothal entirely, taking only his droids and whatever inventory fits on the Broken Horn. The syndicate effectively dissolves and reconstitutes elsewhere under a new identity — Vizago has done this before."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Freelance agent on-site",
+      "Vizago directly — there is no middle management"
+    ],
+    "notes": "The Broken Horn's escalation chain is essentially flat. Freelance agents report to Vizago or they report to no one. Vizago controls his IG-RM droids through a personal remote, allowing him to activate bodyguard support from anywhere within range. The lack of organizational depth means threats either reach Vizago immediately or the affected agents are abandoned."
+  },
+  "tension_patterns": [
+    "The syndicate's business model depends on a stable network of bribed Imperial officials; personnel rotations at the Lothal garrison regularly disrupt established corruption channels and require rebuilding from scratch.",
+    "The Broken Horn sells arms to both local resistance cells and criminal buyers, and any shift toward exclusive supply to either market would eliminate approximately half the syndicate's revenue.",
+    "Vizago's reliance on independent supply chains means shipments occasionally contain undisclosed cargo from upstream suppliers, creating liability exposure for deliveries the syndicate did not negotiate.",
+    "Rival syndicates expanding into Lothal sector territory sometimes operate with Imperial backing or tolerance, neutralizing the Broken Horn's standard violent deterrence capability.",
+    "Freelance agents captured by ISB possess enough operational knowledge to compromise the syndicate's Lothal network, and Vizago's flat organizational structure means there is no insulating layer between field agents and core operations."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "patrol",
+    "economic": "patrol",
+    "command": "skeleton",
+    "informational": "skeleton",
+    "military": "skeleton",
+    "hidden": "fortified",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "high",
+    "weapon": "high",
+    "person": "low",
+    "artifact": "medium",
+    "technology": "medium",
+    "notes": "The Broken Horn deals primarily in weapons, explosives, and military equipment stolen from Imperial sources. Vizago has recently expanded into surveillance and communications equipment. Data is valuable when it can be sold — Vizago has been known to slice rivals' smuggling ships and sell the data to Imperials through third parties. Artifacts were the currency of Vizago's predecessor and still hold value."
+  },
+  "ally_factions": [],
+  "enemy_factions": [],
+  "relationship_notes": {
+    "rebel_alliance": "",
+    "imperial_military": "The Empire is both the primary threat and the primary source of merchandise. Vizago hires agents to steal from Imperial installations, then sells the stolen goods to the Empire's enemies. He has managed to avoid serious Imperial attention through elusive operations and expendable agents.",
+    "hutt_cartel": "Vizago deals with Jabba the Hutt through intermediaries like Azmorigan. The relationship is transactional and involves regular double-crosses on both sides.",
+    "black_sun": "The Broken Horn operates below Black Sun's notice — a position Vizago carefully maintains. Growing large enough to attract Black Sun attention would be fatal."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "none",
+    "colonies": "none",
+    "inner_rim": "none",
+    "expansion_region": "none",
+    "mid_rim": "none",
+    "outer_rim": "moderate",
+    "hutt_space": "minimal",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Cikatro Vizago",
+      "role": "Leader of the Broken Horn Syndicate",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "A Devaronian who seized control of Twin Horns Storage from his employer Rask Odai through double-dealing with allies, leveraging secret connections, and tipping off Imperial officials. Adversary 2, Black Market Contacts 2, Nobody's Fool 1. Carries 'Vilmarh's Revenge' blaster pistol and a droid-control remote for his IG-RM bodyguards. Lost one horn in a bounty hunter firefight.",
+      "network_assessment": "Local operator, high personal competence, zero organizational depth. Every deal runs through him. That makes him easy to find and impossible to replace.",
+      "wants": "Profit and personal survival, in that order. Vizago treats every relationship as a transaction and every favor as a debt to be collected. He is building a financial cushion large enough to disappear permanently if Lothal becomes untenable.",
+      "secret": "He has already prepared at least one fallback identity and ship registration for when Lothal's Imperial presence forces him out. The Broken Horn syndicate is designed to be abandoned.",
+      "behavior": {
+        "under_pressure": "Disappears. Vizago's first instinct is to board the Broken Horn and leave his agents behind. He learned from his predecessor that loyalty gets you killed.",
+        "when_losing": "Cuts all contacts, abandons agents and inventory, and relocates under a new identity. He has done this before and the infrastructure is pre-staged.",
+        "loyalty": "Credits. Vizago's loyalty lasts exactly as long as the payment schedule. His droid bodyguards are loyal because they are programmed to be — he trusts nothing else.",
+        "tells": "When Vizago starts offering unusually generous terms on deals, he is building a favor network for an imminent relocation. The generosity is the warning."
+      },
+      "useful_to_players": [
+        "His droid-control remote is a single point of failure — disable it and his bodyguards shut down",
+        "He never renegotiates completed deals, which makes him predictable once terms are set",
+        "He will sell to anyone regardless of faction, making him a reliable arms source if you can tolerate the eventual favor recall"
+      ],
+      "hooks": [
+        "Vizago's been offering half-price crates of E-11s to anyone who'll take them. That's not generosity — that's liquidation. He's heard something about Lothal that the rest of us haven't.",
+        "One of Vizago's freelancers got picked up by ISB and hasn't been seen since. Vizago hasn't changed any of his drop locations. Either he doesn't know, or he's already written off that entire network."
+      ]
+    },
+    {
+      "name": "Rask Odai (legacy)",
+      "role": "Former leader of Twin Horns Storage",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "rival",
+      "notes": "A Mon Calamari who built the original smuggling empire on Lothal through paid-off officials and strong-arming local businesses. His reliance on underlings was his downfall — Vizago used those same underlings against him. The lesson shaped Vizago's entire operational philosophy.",
+      "network_assessment": "Defunct. Odai's network collapsed when Vizago turned his own people against him. Included here as a case study in why the Broken Horn operates the way it does.",
+      "wants": "Irrelevant — Odai is out of the game. His original objective was a stable smuggling empire on Lothal built on paid officials and local muscle.",
+      "secret": "Some of Odai's former paid-off officials are still in their positions and still corruptible. Vizago inherited some but not all of these contacts — the remainder are unaligned and available.",
+      "behavior": {
+        "under_pressure": "Relied on underlings to handle problems, which meant his response time was fast but his personal awareness of threats was poor.",
+        "when_losing": "Did not recognize the betrayal until it was complete. Odai's operational model had no mechanism for detecting internal treachery.",
+        "loyalty": "Paid for it and assumed it was permanent. The fundamental error that destroyed his operation.",
+        "tells": "Historical only — Odai's pattern of delegating threat response through intermediaries is the exact vulnerability Vizago exploited."
+      },
+      "useful_to_players": [
+        "Odai's remaining network of corrupt Lothal officials represents unaligned assets that neither Vizago nor the Empire fully controls",
+        "His downfall is a well-known cautionary tale on Lothal — mentioning it to Vizago will provoke a reaction that reveals his current security posture",
+        "Former Odai associates who survived the transition may hold grudges against Vizago and could be recruited as informants"
+      ],
+      "hooks": [
+        "Old Odai contact surfaced on Garel trying to move a cache of communications equipment that predates Vizago's takeover. Either it's leftover inventory nobody knew about, or somebody's been running a parallel operation under Vizago's nose.",
+        "Vizago still hasn't found all of Odai's hidden stashes on Lothal. Rumor is there's a weapons cache in the old industrial district that Odai buried before the takeover."
+      ]
+    }
+  ],
+  "source_material_notes": "Dawn of Rebellion provides a comprehensive treatment of the Broken Horn Syndicate across pages 84-85, including the organization's history, Vizago's takeover, operational methods, relationship with rebel cells, and complete NPC stats for Vizago and his ship the Broken Horn. Additional references on pages 48-49 describe syndicate operations on Lothal and Carel, and page 89 covers Azmorigan's dealings with the syndicate.",
+  "field_sources": {
+    "motivations": "Dawn of Rebellion p.85, Vizago's profit-first philosophy and negotiating tactics",
+    "goals": "Dawn of Rebellion pp.82-83, arms trafficking focus, surveillance market expansion, Imperial exploitation",
+    "methods": "Dawn of Rebellion pp.82-83, freelance agent model, droid bodyguards, expendable operatives, predecessor's cautionary tale",
+    "strengths": "Dawn of Rebellion pp.84-85, personal control, droid loyalty, small footprint, arms specialization",
+    "weaknesses": "Dawn of Rebellion pp.84-85, single point of failure in Vizago, no organizational loyalty, Lothal Imperial presence",
+    "behavior_under_threat": "Inferred from Vizago's described escape tactics and agent-abandonment pattern in Dawn of Rebellion p.85",
+    "tension_patterns": "Inferred from Vizago's dual dealings with rebels and criminals, Imperial corruption dependency, and ISB exposure risk",
+    "regional_presence": "Dawn of Rebellion p.82, operations primarily from Lothal with runs to other Outer Rim worlds",
+    "mcguffin_interest": "Dawn of Rebellion pp.82-83, arms dealing, surveillance expansion, data slicing operations"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "description": "Tiered skill check results for GM reference. Each skill has easy, moderate, and hard outcomes describing what success at that difficulty reveals or achieves.",
+  "source": "Extracted from src/mapgen/mapGenerator.js SKILL_CHECK_TEMPLATES",
+  "skills": {
+    "Perception": {
+      "easy": "Notice something is off — overturned furniture, unusual smells, or fresh marks on the floor.",
+      "moderate": "Spot a concealed camera, hidden door seam, or a partially obscured weapon.",
+      "hard": "Detect a tripwire, notice micro-expressions of deception on an NPC, or find a concealed compartment."
+    },
+    "Streetwise": {
+      "easy": "Recognize the faction operating here from graffiti tags, uniform scraps, or equipment markings.",
+      "moderate": "Identify the likely leader, know the local black market rates, or recognize a known criminal.",
+      "hard": "Know the faction\"s current internal politics, identify a disguised operative, or predict their next move."
+    },
+    "Skulduggery": {
+      "easy": "Pick a basic mechanical lock or notice a standard security system.",
+      "moderate": "Bypass an electronic lock, detect a concealed safe, or identify stolen goods.",
+      "hard": "Crack an encrypted security terminal, disarm a sophisticated trap, or forge credentials on the spot."
+    },
+    "Computers": {
+      "easy": "Access an unlocked terminal and read recent messages or logs.",
+      "moderate": "Slice a password-protected terminal, recover deleted files, or loop a security feed.",
+      "hard": "Break Imperial-grade encryption, plant an untraceable data worm, or remotely control facility systems."
+    },
+    "Vigilance": {
+      "easy": "Notice when the ambient noise changes or someone enters the room.",
+      "moderate": "React to an ambush attempt — not surprised, but enemies get initiative advantage.",
+      "hard": "Detect the ambush before it happens. The players get to act first."
+    },
+    "Stealth": {
+      "easy": "Move through an unoccupied corridor without making noise.",
+      "moderate": "Slip past a guard post or patrol route with timing and patience.",
+      "hard": "Move through an occupied room undetected, or shadow a target through a crowded area."
+    },
+    "Charm": {
+      "easy": "Get a neutral NPC to share publicly known information.",
+      "moderate": "Convince a suspicious NPC to look the other way or share a minor secret.",
+      "hard": "Turn a hostile NPC into a temporary ally, or extract classified information through conversation."
+    },
+    "Coercion": {
+      "easy": "Intimidate a nervous civilian into cooperating.",
+      "moderate": "Force a trained guard to abandon their post or reveal patrol schedules.",
+      "hard": "Break a trained operative\"s resolve, or cause an entire minion group to flee."
+    },
+    "Mechanics": {
+      "easy": "Identify what a piece of equipment does or diagnose an obvious malfunction.",
+      "moderate": "Jury-rig a broken system, disable a security device, or repair a damaged door mechanism.",
+      "hard": "Reroute facility power systems, sabotage a vehicle for delayed failure, or build an improvised explosive."
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/armor.schema.json",
+  "title": "Armor",
+  "description": "Canonical, app-owned armor record for the FFG Star Wars RPG. Ingested ONCE from OggDude's `armor` category (106 entries). Soak + Defense are the load-bearing combat fields; the rest is shared economics ($ref item-common). Replaces the runtime SWItems.normalizeArmor decode. NOTE: armor carries NO weapon-style Qualities (verified 0/106) — its special rules live in base_mods (free-text). Per-instance ATTACHMENTS are a separate deferred entity; armor here is the unmodified catalog base.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "soak"
+      ]
+    },
+    {
+      "required": [
+        "defense"
+      ],
+      "properties": {
+        "defense": {
+          "minimum": 1
+        }
+      }
+    }
+  ],
+  "$comment": "INGEST CONTRACT — numeric values arrive as STRINGS ('1','500','2') and coerce to int; Categories is list|scalar; Source is the scalar string OR Sources.Source is a list (both -> sources[]); Description carries [H3]/[P]/[BR]/[B] markup to decode; BaseMods.Mod carries the readable MiscDesc rules (Count>1 -> rank). Defense is absent on 14/106 (open-faced armor) -> omitted (consumer defaults 0). Soak is NOT required: oracle-confirmed RAW (consular p.47 / aor p.221) that Soak and Defense are independent and defensive items (personal energy fields, e.g. the Individual Field Disruptor: Defense 1, no Soak) grant Defense-only. The anyOf invariant enforces an armor grants AT LEAST ONE of {soak, defense>=1} — so a truly-empty armor still fails loud.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app-owned id, slugged from Name; dedupe on collision."
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key (e.g. 'AC'). Traceability only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Decoded from OggDude Description markup at ingest."
+    },
+    "soak": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Soak bonus the armor grants; coerced from string Soak."
+    },
+    "defense": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Defense the armor grants; coerced from string Defense. Omitted when OggDude has none (= 0).",
+      "$comment": "GENERAL-type grant. Per RAW (eote p.216 / fad p.216) Defense has three types — general / melee / ranged — and does NOT stack (best single rating applies). Catalog armor grants a single general value (verified 0/106 typed); the melee/ranged split + non-stacking are DERIVATION-time concerns (talents/shields/cover), NOT catalog data. See Docs/RULES_FOUNDATION_ITEMS.md."
+    },
+    "type": {
+      "type": "string",
+      "description": "Armor classification from OggDude Type (e.g. 'Light', 'Heavy'). Optional (47/106)."
+    },
+    "encumbrance": {
+      "$ref": "item-common.schema.json#/$defs/encumbrance"
+    },
+    "hardpoints": {
+      "$ref": "item-common.schema.json#/$defs/hardpoints"
+    },
+    "price": {
+      "$ref": "item-common.schema.json#/$defs/price"
+    },
+    "rarity": {
+      "$ref": "item-common.schema.json#/$defs/rarity"
+    },
+    "restricted": {
+      "$ref": "item-common.schema.json#/$defs/restricted"
+    },
+    "categories": {
+      "$ref": "item-common.schema.json#/$defs/categories"
+    },
+    "sources": {
+      "$ref": "item-common.schema.json#/$defs/sources"
+    },
+    "_book_page": {
+      "$ref": "item-common.schema.json#/$defs/book_page"
+    },
+    "availability": {
+      "$ref": "item-common.schema.json#/$defs/availability"
+    },
+    "base_mods": {
+      "$ref": "item-common.schema.json#/$defs/base_mods"
+    },
+    "pool_mods": {
+      "type": "array",
+      "items": { "allOf": [{ "$ref": "item-common.schema.json#/$defs/pool_mod_entry" }, { "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused" }] },
+      "description": "Extracted dice-pool modifiers at row level (R-DPS-1). Each entry traces back to its source mod object via from."
+    },
+    "_provenance": {
+      "type": "string",
+      "default": "oggdude"
+    },
+    "encumbrance_threshold_bonus": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Bonus to the wearer's personal encumbrance threshold when worn (e.g. Pioneer Armor +3). Stated by the printed page."
+    },
+    "threshold_bonus_requires": {
+      "type": "string",
+      "enum": ["worn", "carried"],
+      "description": "Minimum item state for the encumbrance_threshold_bonus to apply. 'worn' = only when state is worn; 'carried' = when state is worn or carried (not stowed). Adjudicated per-item from the printed page (C-LIM-3)."
+    }
+  }
+}

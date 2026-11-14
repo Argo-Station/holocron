@@ -1,0 +1,835 @@
+{
+  "general": {
+    "pos": [
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR][TR]",
+        "req": [
+          {
+            "tr": 2
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      }
+    ],
+    "neg": [
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      }
+    ]
+  },
+  "combat": {
+    "pos": [
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.205"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      },
+      {
+        "cost": "[TR][TR]",
+        "req": [
+          {
+            "tr": 2
+          }
+        ],
+        "text": "",
+        "cite": "eote p.206"
+      }
+    ],
+    "neg": [
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 3
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[TH][TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 3
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.207"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.150"
+      }
+    ]
+  },
+  "starship": {
+    "pos": [
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD] or [TR]",
+        "req": [
+          {
+            "ad": 1
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 2
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[AD][AD][AD] or [TR]",
+        "req": [
+          {
+            "ad": 3
+          },
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TR]",
+        "req": [
+          {
+            "tr": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TR][TR]",
+        "req": [
+          {
+            "tr": 2
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      }
+    ],
+    "neg": [
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH] or [DE]",
+        "req": [
+          {
+            "th": 1
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 2
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH][TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 3
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[TH][TH][TH] or [DE]",
+        "req": [
+          {
+            "th": 3
+          },
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[DE]",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      },
+      {
+        "cost": "[DE] (plus failed check)",
+        "req": [
+          {
+            "de": 1
+          }
+        ],
+        "text": "",
+        "cite": "eote p.236"
+      }
+    ]
+  },
+  "_provenance": "generated by scripts/canonical/build_spend_tables.py from RULES_FOUNDATION_DICE.md §§2-5 (Jason-verified 2026-06-25) + Docs/rules_tables/ p.236 (verified_by:jason). Do not hand-edit."
+}

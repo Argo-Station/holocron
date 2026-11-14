@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Privacy &amp; Account — Project Holocron</title>
+  <script src="/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
+  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <meta name="description" content="What Project Holocron stores about you (very little), and the controls to sign out or delete your account." />
+  <meta name="theme-color" content="#071C2F" />
+  <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
+
+  <!-- F-34 Phase A — the C4 privacy floor (rulings accounts-sync-architecture §4/§7-C +
+       f34-login-build-scope: "the privacy page and delete-account exist at THIS gate, not after").
+       Static page + the shared account seam; plain language throughout (fork C: a generic
+       plain-language privacy page stating exactly the C4 floor). -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/tokens.css" rel="stylesheet" />
+  <!-- PAPER N7 · B-1254 (D-175 P2 + the page approved as drawn; D-176 Discord's rounded button; card
+       paper-n7-frontdoor-lab-card ADDENDUM 4): the privacy page stands on the paper kit. Its files are linked here, in
+       <head>, and the ground is the body's own markup, so the page — and the panel's first line, "Checking…" — is
+       paper from its FIRST PAINT, never a ground applied by script (C-2, R-FD-4). Only the files whose parts this page
+       uses: the creator ground's tokens, paper.css (the sheet, plates, running head, designation, section heads, the
+       quiet button) and sheet.css (the two-tap confirm, .sb-confirm). landing.css is not needed here. -->
+  <link href="/lib/shared/grounds/creator.css" rel="stylesheet" />
+  <link href="/lib/shared/paper.css" rel="stylesheet" />
+  <link href="/lib/shared/sheet.css" rel="stylesheet" />
+  <link href="/lib/shared/providerButtons.css" rel="stylesheet" /><!-- F-34: the providers' button chrome, the front door's own -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* The page outside the body (overscroll) is the paper too: #DEDCD4 is --doc-paper, written out because <html>
+       stands outside the ground's scope ([data-doc-ground] on <body>), as chrome.css's [data-paper-ground] does. */
+    html { background: #DEDCD4; }
+    body {
+      -webkit-font-smoothing: antialiased;
+      min-height: 100svh; display: flex; flex-direction: column; align-items: center;
+      padding: 18px 16px 48px;
+    }
+    main { width: 100%; max-width: 680px; }
+
+    /* the way back: the running head's back control (44px tall by the kit's own rule) */
+    .hp-runhead { margin: 0 0 4px; }
+    .hp-runhead .crumb { color: var(--doc-accent); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; gap: 7px; }
+    .hp-runhead .crumb:hover { color: var(--doc-action); }
+    main > h1.hp-desig.title { margin: 10px 0 0; font-size: clamp(26px, 6.6vw, 44px); }
+    /* prose sits on opaque stock (the reading law): the tagline and every section's body are plates */
+    .lead-plate { margin: 16px 0 6px; }
+    .lead-plate .hp-lead { margin: 0; color: var(--doc-ink); }
+    .hp-plate p, .hp-plate li { font-size: 16.5px; line-height: 1.58; color: var(--doc-ink); }
+    .hp-plate p + p, .hp-plate ul + p { margin-top: 10px; }
+    ul { list-style: none; }
+    .hp-plate li { padding: 4px 0 4px 18px; position: relative; }
+    .hp-plate li::before { content: '·'; position: absolute; left: 4px; color: var(--doc-action); font-weight: 700; }
+    .hp-plate strong { color: var(--doc-ink); font-weight: 600; }   /* the page loads Rajdhani 300/400/600 */
+    .hp-plate .note { color: var(--doc-ink-muted); }
+
+    /* the live account panel: a plate. Its controls are the kit's own parts — no `#panel button` rule outranks them
+       (lab finding 8, R-FD-3 (8)). `--u` is the sheet kit's unit, which .sb-confirm reads. */
+    #panel { --u: 1px; padding: 18px; min-height: 76px; }
+    .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+    .who { font-family: var(--font-mono, 'Share Tech Mono', monospace); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--doc-ink); }
+    .quiet { font-family: var(--font-mono, 'Share Tech Mono', monospace); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--doc-ink-muted); }
+    #panel .hp-quiet.danger { color: var(--doc-critical); border-color: var(--doc-critical); }
+    #panel .sb-confirm { padding: 0 24px 0 14px; font-size: 10.5px; }
+    #panel .note { margin-top: 10px; }
+    .panel-foot { margin-top: 12px; line-height: 1.6; letter-spacing: .14em; }
+  </style>
+</head>
+<body data-doc-ground="creator" class="hp-sheet">
+  <main>
+    <div class="hp-runhead"><a class="crumb" href="/" data-creator-back="1" data-role="back">&larr; Project Holocron</a></div>
+    <h1 class="hp-desig title">PRIVACY &amp; ACCOUNT</h1>
+    <div class="hp-desig-rule" aria-hidden="true"></div>
+    <div class="hp-plate lead-plate" data-pad="read">
+      <p class="hp-lead tagline">Everything the suite knows about you fits in one sentence. An account id, which provider you signed in with, and a display name.</p>
+    </div>
+
+    <section>
+      <div class="hp-sechead"><h2>What we store</h2></div>
+      <div class="hp-plate" data-pad="read">
+        <ul>
+          <li><strong>An account id:</strong> ours, random, meaning nothing anywhere else.</li>
+          <li><strong>Your sign-in provider and its opaque subject id:</strong> how Google or Discord tells us "same person as last time." It is not your username, address, or profile.</li>
+          <li><strong>A display name,</strong> so the bar can say who's signed in.</li>
+        </ul>
+        <p class="note">That is the whole table. No analytics ride on it.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="hp-sechead"><h2>What we never store</h2></div>
+      <div class="hp-plate" data-pad="read">
+        <ul>
+          <li><strong>Your email:</strong> we don't ask for it. Sign-in requests only your id and display name. There is a second guard behind that: your provider may transmit your email during sign-in; we discard it. It is never stored.</li>
+          <li><strong>Passwords:</strong> none exist here. You sign in with a provider you already trust, so there is nothing to phish, reset, or leak.</li>
+          <li><strong>Provider tokens:</strong> the credentials a provider hands back after sign-in. We drop them on arrival instead of saving them.</li>
+          <li><strong>Your profile picture:</strong> Google offers one. We throw the link away rather than keep a picture of you we have no use for.</li>
+          <li><strong>Your IP address, or which browser you used:</strong> sign-in software normally records both on every session. Ours blanks them, so there is no log of where you signed in from.</li>
+        </ul>
+        <p class="note">The last two used to be stored, and were not listed above. We found them during
+          testing, before a single person other than the developer had an account, and removed them
+          rather than add them to the list.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="hp-sechead"><h2>Signing in is never required</h2></div>
+      <div class="hp-plate" data-pad="read">
+        <p>Every tool works signed out, free, forever: characters, GM tools, dice, all of it. An account exists for exactly one purpose, keeping your work with you across devices. Nothing from the books is ever gated behind it.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="hp-sechead"><h2>What travels with your account</h2></div>
+      <div class="hp-plate" data-pad="read">
+        <p>Your characters, the character you are part-way through building, your custom NPCs and the
+          groups you put them in, your ships, which books you have switched on, your game variants, and
+          the characters you have deleted (so a deletion on one device is not undone by another).</p>
+        <p class="note">Two things stay on the device that made them: <strong>store shelves</strong> and
+          the <strong>hold list</strong>. Their internal names are not unique across devices yet, so
+          merging them could quietly fold two different shelves into one. They join when that is fixed.
+          <strong>Item artwork</strong> you import also stays here, because those are picture files
+          rather than records.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="hp-sechead"><h2>Your account</h2></div>
+      <div id="panel" class="hp-plate" data-pad="read" aria-live="polite"><span class="quiet">Checking&hellip;</span></div>
+      <p class="note quiet panel-foot">Delete is immediate and total: the account row and everything attached to it. There is no recovery. Signing in again just makes a fresh, empty account.</p>
+    </section>
+  </main>
+
+  <script src="/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
+  <script src="/lib/shared/account.js"></script>
+  <script>
+    (function () {
+      var panel = document.getElementById('panel');
+      if (!panel) return;
+      if (!window.SWRPGAccount) { panel.textContent = ''; return; }
+      var acct = window.SWRPGAccount;
+      var armed = false;     // the two-step delete: first tap arms, second executes
+      var lastNote = '';
+
+      function el(tag, cls, text, attrs) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        for (var k in (attrs || {})) n.setAttribute(k, attrs[k]);
+        return n;
+      }
+
+      function render(s) {
+        panel.textContent = '';
+        var row = el('div', 'row');
+        if (s.status === 'unknown') {
+          row.appendChild(el('span', 'quiet', 'Checking…'));
+        } else if (s.user) {
+          row.appendChild(el('span', 'who', 'Signed in as ' + (s.user.name || 'you')));
+          var out = el('button', 'hp-quiet', 'Sign out', { type: 'button', 'data-role': 'sign-out' });
+          out.addEventListener('click', function () { acct.logout(); });
+          // B-1254: Delete is the quiet button in the critical ink; armed, it is the kit's two-tap confirm (.sb-confirm).
+          var del = el('button', armed ? 'sb-confirm danger' : 'hp-quiet danger', armed ? 'Tap again to delete' : 'Delete account',
+            { type: 'button', 'data-role': armed ? 'delete-armed' : 'delete' });
+          del.addEventListener('click', function () {
+            if (!armed) { armed = true; render(acct.state()); return; }
+            armed = false; del.disabled = true;
+            acct.deleteAccount().then(function (r) {
+              lastNote = r.ok ? 'Account deleted.' : 'Delete unavailable — try again.';
+              render(acct.state());
+            });
+          });
+          row.appendChild(out); row.appendChild(del);
+          if (armed) row.appendChild(el('span', 'quiet', 'Immediate. No recovery.'));
+        } else if (s.status === 'offline') {
+          row.appendChild(el('span', 'quiet', 'Account service unreachable — the tools all work without it'));
+        } else {
+          row.appendChild(el('span', 'quiet', 'Not signed in'));
+          // R-PA-1 / C-PA-1 — the SIGN-IN buttons are a visible affordance and stay dark with the
+          // others. The page itself is not gated: it is C4's privacy floor and must be readable by
+          // anyone who direct-URLs to it, dark or lit. The signed-in controls above are management,
+          // not an invitation, so they are not gated either — the live drive needs a way out.
+          // R-PA-3: the label rides with the id from the server; never the raw machine id.
+          if (s.providers.length && window.SWRPGAccountUIEnabled && window.SWRPGAccountUIEnabled()) {
+            // B-1254 (D-175 P2, D-176): the providers' OWN buttons, the same as the front door's — Google's asset IS the
+            // button; Discord's official mark beside our label, in the shared pill (providerButtons.css). F-34: unmodified.
+            var PB = window.SWRPGProviderButtons;
+            s.providers.forEach(function (p) {
+              var label = 'Sign in with ' + (p.label || p.id);
+              var b = el('button', 'provider-btn', null, { type: 'button', 'aria-label': label, 'data-role': 'sign-in-' + p.id });
+              if (p.id === 'google' && PB) {
+                b.className = 'provider-btn is-google';
+                b.innerHTML = PB.GOOGLE_BUTTON_SVG;
+              } else if (p.id === 'discord' && PB) {
+                var mark = el('span', 'mark');
+                mark.innerHTML = PB.DISCORD_MARK_SVG;
+                b.appendChild(mark);
+                b.appendChild(el('span', null, label));
+              } else {
+                b.appendChild(el('span', null, label));   // a provider we have no mark for
+              }
+              b.addEventListener('click', function () { b.disabled = true; acct.login(p.id).then(function (r) { if (!r.ok) b.disabled = false; }); });
+              row.appendChild(b);
+            });
+          }
+        }
+        panel.appendChild(row);
+        if (lastNote) panel.appendChild(el('div', 'quiet note', lastNote));
+      }
+
+      acct.subscribe(function (s) { if (!s.user) armed = false; render(s); });
+      acct.refresh();
+    })();
+  </script>
+</body>
+</html>

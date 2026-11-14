@@ -1,0 +1,126 @@
+# Cloudflare Pages cache policy. (F-48 rewrite — every rule PATH-ANCHORED.)
+#
+# WHY THIS FILE WAS REWRITTEN (F-48, ruling f48-cache-correctness-concept):
+#   The prior file mixed anchored rules (/public/...) with BARE globs (`*.png`,
+#   `*.html`). Cloudflare's _headers parser aborts at the first bare-glob line, so
+#   every rule below the first `*.png` was silently ignored on the live site — the
+#   /lib/* and *.html rules never applied, and the app BUNDLES (/player/app.js,
+#   /gm/app.js, /vendor.js) were covered by NO rule at all: they rode CF's 4-hour
+#   default. A returning visitor could run hours-stale code — the stale-builder
+#   report. Live-curl evidence + the diagnosis: ruling §2. This is the THIRD
+#   stale-cache incident (see history below); the class-killer is the standing
+#   header guard (scripts/check_cache_headers.py), which curls a representative of
+#   every class after each deploy and fails loud on drift. Headers are now VERIFIED
+#   infrastructure, not hopeful text.
+#
+# THE POLICY TABLE (single source of truth; check_cache_headers.py asserts it):
+#   app bundles + vendor + all .js + SPA shells + .html  -> max-age=300, must-revalidate
+#   data JSONs (/public/data/**)                          -> max-age=300, must-revalidate
+#   fonts                                                 -> 1-year immutable
+#   images / audio                                        -> max-age=3600
+#   /version.json (the update beacon, G13)                -> max-age=0, must-revalidate
+#
+# ORDERING NOTE: rules are written so NO path is matched by two rules carrying a
+# DIFFERENT Cache-Control value — so the policy is correct whether CF applies
+# first-match or last-match precedence. (Fonts are woff/woff2 only, so the image
+# globs never touch them; bundles under /player/ etc. are 300 by both /*.js and the
+# shell rule.)
+#
+# HISTORY (chronic class — each incident was invisible until a user reported it):
+#   1. /lib/* set to 24h -> per-commit deploy verification silently checked stale code.
+#   2. /public/data/** set to 1-year immutable on a false content-addressed assumption
+#      -> ETL-overwritten JSON froze stale in browsers up to a year (report 2026-05-25:
+#      ASSERTOR yard showed srLong + abbreviated weapon keys post-ETL).
+#   3. (F-48) bare-glob parser-abort -> bundles + pages uncovered -> stale-builder report.
+
+# ── the update beacon — must never cache (G13) ────────────────
+/version.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# ── web app manifest (PWA standalone install) — short cache; explicit type ────
+# Anchored (not a bare glob), so the F-48 parser stays intact. Icons ride /*.png + /*.svg (images, 3600).
+/manifest.webmanifest
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: application/manifest+json; charset=utf-8
+
+# ── fonts — immutable, never change once shipped ──────────────
+/public/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── audio — changes rarely ────────────────────────────────────
+/public/audio/*
+  Cache-Control: public, max-age=3600
+
+# ── data files (mutated in place by ETLs at stable URLs) ──────
+# CF glob `*` spans slashes, so this covers /public/data/*.json AND subdirectories.
+/public/data/*.json
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ── the player changelog — plain text, short cache; explicit type (ruling release-r2-proof ADDENDUM 23) ──
+# Anchored (not a bare glob). The Ko-fi post links this exact URL, so the type is pinned, not left to Pages.
+/public/changelog.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+
+# One page per release, one rule per release, no glob: a glob would type a stray file by accident (ruling release-r7-bug-burndown ADDENDUM 563).
+/public/changelog-1.0.1.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+/public/changelog-1.1.0.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+/public/changelog-1.1.1.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+/public/changelog-1.1.2.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+/public/changelog-1.1.3.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+/public/changelog-1.1.4.txt
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/plain; charset=utf-8
+
+# The list of change logs (D-478, ruling release-r7-bug-burndown ADDENDUM 564). A contract: later releases add a line, the address does not move.
+/public/changelogs/
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+# ── images (anchored globs; `*` spans slashes → covers /public/** too) ──
+/*.png
+  Cache-Control: public, max-age=3600
+/*.jpg
+  Cache-Control: public, max-age=3600
+/*.jpeg
+  Cache-Control: public, max-age=3600
+/*.gif
+  Cache-Control: public, max-age=3600
+/*.svg
+  Cache-Control: public, max-age=3600
+/*.webp
+  Cache-Control: public, max-age=3600
+/*.ico
+  Cache-Control: public, max-age=3600
+
+# ── surface code — app bundles, vendor, all .js (iterates per commit) ──
+/*.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ── HTML documents requested with an explicit .html ───────────
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ── SPA shells + routes (served as index.html at directory paths) ──
+/
+  Cache-Control: public, max-age=300, must-revalidate
+/player/*
+  Cache-Control: public, max-age=300, must-revalidate
+/gm/*
+  Cache-Control: public, max-age=300, must-revalidate
+/dice/*
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ── Pages preview deploys: never index ────────────────────────
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex

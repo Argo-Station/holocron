@@ -1,0 +1,854 @@
+{
+  "id": "kessel",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Kessel",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Kessel Sector",
+    "system": "Kessa",
+    "grid": "T-10",
+    "era": "galactic_civil_war",
+    "essence": "Kessel is a misshapen rock orbiting at the edge of oblivion, defined entirely by what lies beneath its surface and the cluster of black holes that guards the approach. The galaxy's most valuable and addictive spice — glitterstim — is mined here in pitch-black caves by expendable prison labor, while the Empire controls the trade above and the Maw devours anyone foolish or desperate enough to try an unauthorized approach. Twenty-five thousand years of greed, exploitation, and death compressed into a single desolate planetoid. Every smuggler in the galaxy knows the name. Most have the good sense never to go.",
+    "atmosphere": "Barren alkali flats stretching to jagged mountain ridges under a thin, unbreathable atmosphere. No vegetation, no color, no life on the surface. The sky is a pale toxic wash. Radiation from the nearby Maw cluster bleeds through at irregular intervals. Underground, the spice mines are absolute darkness — the photoactive glitterstim strands cannot tolerate any light before processing. The only sounds are the scraping of mining tools, the chittering of energy spiders in the deep shafts, and the occasional scream that echoes up from below and is never explained. Kessendra is a cluster of prefab military structures and landing pads, functional and grim, surrounded by sensor arrays and gun emplacements pointed at the sky.",
+    "reputation": "A prison world and a death sentence. Kessel is where the Empire sends political prisoners, pirates, Black Sun vigos, and criminal psychopaths to mine spice until they die. The surface is uninhabitable without a breath mask and radiation protection. The mines are worse. Energy spiders kill miners regularly, and the glitterstim itself destroys minds through prolonged exposure. Despite all of this, the Kessel Run — the smuggling route that threads between the planet and the Maw — is the most famous test of piloting skill in the galaxy. Completing it is a career-making achievement. Failing it is fatal. The spice that comes out of Kessel is worth more per gram than almost anything else in galactic commerce, which means someone is always willing to risk the run."
+  },
+  "compendium": {
+    "background": "",
+    "government": "military prison",
+    "population": "",
+    "languages": "Basic",
+    "terrain": "alkali flats, mountains, caves",
+    "major_cities": "Kessendra (a small military town)",
+    "areas_of_interest": "",
+    "exports": "glitterstim spice",
+    "imports": "consumables, technology",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": ""
+    },
+    {
+      "era": "post_empire",
+      "delta": "With the Empire weakened, control of Kessel's spice mines becomes contested. The Imperial prison garrison loses reinforcement capability. Criminal syndicates — Pyke remnants, Hutt Cartel elements, and independent operators — compete for mining access. The prison population may attempt revolt without full Imperial suppression capability. The Kessel Run becomes less dangerous from an Imperial patrol standpoint but no less lethal from the Maw."
+    }
+  ],
+  "geography": {
+    "structure_type": "barren_subterranean",
+    "structure_notes": "An irregularly shaped rocky planetoid with a thin, toxic atmosphere. The surface is lifeless alkali flats and mountain ridges battered by radiation from the nearby Maw cluster. All strategic value lies underground in the vast spice mine complexes. The mines extend deep beneath the surface into pitch-black cavern networks inhabited by energy spiders. Kessendra, the only surface settlement of note, is a small military garrison town near the primary mine entrances and the main landing facility.",
+    "districts": [
+      {
+        "id": "kessendra",
+        "name": "Kessendra",
+        "character": "A small, grim military garrison town serving as the administrative hub for the Imperial prison and mining operations. Prefabricated structures, landing pads, sensor arrays, and defensive gun emplacements. No civilian population to speak of — only military personnel, prison administrators, and the support staff required to keep the operation running.",
+        "authority": "Imperial military prison command",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "command"
+        ],
+        "notes": "Primary landing facility for supply shipments and prisoner transports. Heavily defended against both external assault and internal breakout. Communications relay to the garrison moon."
+      },
+      {
+        "id": "spice_mines",
+        "name": "Spice Mines of Kessel",
+        "character": "Vast subterranean cavern networks extending deep beneath the planet's surface. Absolute darkness is maintained because glitterstim is photoactive and cannot be exposed to light before processing. Prisoners mine the spice by hand and feel, harvesting strands from energy spider webs. The mines are a death sentence — energy spider attacks, glitterstim exposure madness, cave collapses, and sheer exhaustion kill miners regularly.",
+        "authority": "Imperial prison administration (above), effectively lawless (deep shafts)",
+        "crime_index": null,
+        "strategic_value": [
+          "economic",
+          "resource"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "garrison_moon",
+        "name": "Kessel Garrison Moon",
+        "character": "Kessel's moon houses the primary Imperial military garrison and the maximum security prison facility. The moon was militarized when the Empire took control of Kessel, transforming it into a staging point for prison operations and the primary defensive installation for the system.",
+        "authority": "Imperial military",
+        "crime_index": "none",
+        "strategic_value": [
+          "military",
+          "infrastructure"
+        ],
+        "notes": "Houses political rebels, pirates, Black Sun vigos, and criminal psychopaths. Prisoners are transferred to the surface mines as labor. The garrison moon provides orbital defense and staging for patrol operations along the Kessel approaches."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human (Imperial military/administrative)",
+      "population_level": "dominant",
+      "social_role": "Prison administrators, garrison soldiers, mining overseers, support staff. The only free population on Kessel. Assigned here on Imperial military orders — nobody volunteers for Kessel duty.",
+      "districts": [
+        "kessendra",
+        "garrison_moon"
+      ]
+    },
+    {
+      "name": "Mixed species (prisoners)",
+      "population_level": "majority",
+      "social_role": "Forced labor in the spice mines. Political prisoners, convicted pirates, Black Sun vigos, criminal psychopaths, and anyone the Empire wants to disappear. Disposable workforce with no rights and no expected survival timeline.",
+      "districts": [
+        "spice_mines",
+        "garrison_moon"
+      ]
+    },
+    {
+      "name": "Energy Spiders",
+      "population_level": "native_fauna",
+      "social_role": "Non-sentient predatory arachnids inhabiting the deep mine shafts. Their webs produce the raw glitterstim strands. Multi-eyed, lethal, and a constant threat to miners. The spiders are the reason glitterstim exists and the reason miners die.",
+      "districts": [
+        "spice_mines"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_prison_command",
+      "name": "Imperial Prison Command (Kessel)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "total",
+      "susceptibility": {
+        "criminal": "moderate",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Empire controls Kessel absolutely through military garrison on the moon and prison administration on the surface. However, the sheer profitability of glitterstim creates endemic corruption. Individual officers and administrators skim spice for personal profit or look the other way when smuggling operations approach the planet. The Empire controls the official trade but cannot fully suppress the black market it inadvertently created by making glitterstim so scarce and valuable."
+      },
+      "motivation": "Maximizing glitterstim extraction for Imperial coffers while maintaining the prison as a dumping ground for political enemies and dangerous criminals. Secondary goal: controlling the Kessel Run approach to prevent unauthorized spice smuggling. The Empire boosted mining output by treating prisoners as expendable labor, producing more spice than ever while maintaining tight market control.",
+      "assets": [
+        "Garrison moon military base and maximum security prison",
+        "Kessendra surface garrison and administrative center",
+        "Prison labor force (thousands of prisoners)",
+        "Patrol ships monitoring Kessel approaches",
+        "Defensive gun emplacements and sensor arrays",
+        "Spice processing and sealed transport facilities"
+      ],
+      "relationships": [
+        {
+          "faction_id": "smuggling_networks",
+          "type": "adversarial",
+          "notes": "The Empire patrols the approaches to Kessel specifically to intercept smugglers running the Kessel Run. Despite this, the volume of smuggling remains high due to the extraordinary profit margins."
+        },
+        {
+          "faction_id": "pyke_syndicate_kessel",
+          "type": "adversarial",
+          "notes": "The Empire displaced the Pyke Syndicate's direct control of Kessel's mines when it militarized the planet. The Pykes retain influence in the broader Kessel sector and continue to move spice through their networks."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Glitterstim spice — the Empire's primary interest in Kessel. Total control of the galaxy's most valuable narcotic substance provides both revenue and leverage."
+        },
+        {
+          "type": "person",
+          "reason": "Political prisoners and high-value detainees. The Empire sends people to Kessel to disappear. Extracting a specific prisoner is a common mission objective."
+        },
+        {
+          "type": "data",
+          "reason": "Prisoner manifests, mine output records, patrol schedules. Intelligence about who is imprisoned on Kessel and how the facility operates is valuable to the Rebellion, criminal syndicates, and anyone with a friend or enemy in the mines."
+        }
+      ]
+    },
+    {
+      "id": "pyke_syndicate_kessel",
+      "name": "Pyke Syndicate (Kessel Sector Operations)",
+      "galaxy_faction_ref": "pyke_syndicate",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "The Pyke Syndicate is the main faction of the Spice Cartel and historically controlled the bulk of raw spice mining on Kessel. The Empire's militarization displaced their direct control, but the Pykes retain their distribution networks, smuggler contacts, and influence throughout the Kessel sector. Their power base remains within the sector, just Rimward of Hutt Space. Lorn Pyke rules from Oba Diah."
+      },
+      "motivation": "Regaining influence over Kessel's spice output. The Pykes cannot openly challenge the Imperial garrison, so they work through corrupted Imperial personnel, independent smugglers, and their extensive distribution network to move glitterstim that has been diverted from official channels. Control of spice distribution is nearly as valuable as control of production.",
+      "assets": [
+        "Spice distribution networks spanning the Kessel sector and beyond",
+        "Smuggler contacts and contracts for the Kessel Run",
+        "Oba Diah headquarters (Pyke Palace) — sector command center",
+        "Corrupted Imperial personnel within the Kessel garrison",
+        "Hidden refineries across the Kessel sector"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_prison_command",
+          "type": "adversarial",
+          "notes": "The Empire displaced Pyke control. The Pykes work to undermine Imperial monopoly through corruption and smuggling."
+        },
+        {
+          "faction_id": "smuggling_networks",
+          "type": "patron",
+          "notes": "The Pykes hire smugglers to run the Kessel Run. They provide contacts, cargo, and sometimes navigational data for the Maw approach."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Glitterstim — raw and processed. The Pykes need product to feed their distribution networks."
+        },
+        {
+          "type": "data",
+          "reason": "Imperial patrol schedules, garrison rotation data, mine output manifests. Intelligence that enables smuggling operations."
+        },
+        {
+          "type": "person",
+          "reason": "Corrupted Imperial officers, skilled smuggler pilots, anyone with mine access or navigational data for the Maw."
+        }
+      ]
+    },
+    {
+      "id": "smuggling_networks",
+      "name": "Kessel Run Smuggling Networks",
+      "galaxy_faction_ref": null,
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "high",
+        "financial": "high",
+        "note": "Not a single organization but a loose ecosystem of independent smuggler captains, Hutt-backed operations, and Pyke-contracted runners who make the Kessel Run. They compete with each other on speed and reliability. The Hutts and Pykes provide cargo and buyers; the smugglers provide the ships and the nerve. Getting caught means the spice mines — as a prisoner this time."
+      },
+      "motivation": "Profit. Glitterstim smuggling is the most lucrative cargo run in the galaxy. A single successful Kessel Run can set a smuggler up for months. The risk is proportional — the Maw kills the unskilled, Imperial patrols catch the unlucky, and patrons like the Hutts punish failure severely.",
+      "assets": [
+        "Fast, modified freighters and transports",
+        "Navigational data for the Maw approach (quality varies)",
+        "Contacts at Oba Diah, Formos, and distribution points along the Pabol Sleheyron",
+        "Reputation networks — a successful Kessel Run builds a career"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_prison_command",
+          "type": "adversarial",
+          "notes": "Imperial patrols are the primary threat. Arrest means lifetime imprisonment and hard labor in the very mines the smugglers were trying to exploit."
+        },
+        {
+          "faction_id": "pyke_syndicate_kessel",
+          "type": "employer",
+          "notes": "The Pykes are the most common source of Kessel Run contracts."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Glitterstim cargo. The cargo itself is the objective."
+        },
+        {
+          "type": "data",
+          "reason": "Updated Maw navigational charts, Imperial patrol patterns, safe landing coordinates on Kessel's surface. Any edge that improves survival odds on the Run."
+        }
+      ]
+    },
+    {
+      "id": "hutt_cartel_kessel",
+      "name": "Hutt Cartel (Kessel Spice Interest)",
+      "galaxy_faction_ref": "hutt_cartel",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "The Hutts are the galaxy's prime movers of spice and have been involved with Kessel's output for millennia. They do not control Kessel directly — the Empire and previously the Pykes held that role — but the Hutts dominate the refinement and distribution side of the operation. They hire smugglers to run the Kessel Run and distribute glitterstim through their extensive networks across the Outer Rim."
+      },
+      "motivation": "Profit from spice distribution. The Hutts prefer to cover the refinement and distribution portions rather than direct mining. They hire smugglers to transport raw glitterstim from Kessel to hidden refineries, then distribute the processed product. A lost shipment can anger a Hutt severely — they demand speed and success for the high sums they pay.",
+      "assets": [
+        "Smuggler contracts and fleet of hired runners",
+        "Hidden spice refineries across Hutt Space and the Outer Rim",
+        "Distribution networks through Nar Shaddaa, Ylesia, and the Triellus Trade Route",
+        "The Desilijic clan (Jabba) has direct interest in Kessel's output through Ryloth and Tatooine operations"
+      ],
+      "relationships": [
+        {
+          "faction_id": "pyke_syndicate_kessel",
+          "type": "competitive",
+          "notes": "The Hutts and Pykes are rivals in the spice trade. The Pykes control raw production; the Hutts dominate distribution. Both need each other but neither trusts the other."
+        },
+        {
+          "faction_id": "smuggling_networks",
+          "type": "patron",
+          "notes": "The Hutts hire smugglers to run spice from Kessel. Pay is good but failure is punished harshly — bounty hunters for lost shipments."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Raw and processed glitterstim. The Hutts need steady supply to feed their distribution empire."
+        },
+        {
+          "type": "person",
+          "reason": "Reliable smuggler captains, corruptible Imperial officers, Pyke contacts willing to deal. Also: anyone who owes a Hutt and can be leveraged into running the Kessel Run."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "spice_mines_complex",
+      "name": "Glitterstim Spice Mines",
+      "district_id": "spice_mines",
+      "type": [
+        "economic",
+        "resource"
+      ],
+      "controlling_faction_id": "imperial_prison_command",
+      "controlling_faction_notes": "The Empire operates the mines using prisoner labor. Mining overseers manage work details. Deep shafts are poorly monitored. The mines are the sole source of glitterstim in the galaxy.",
+      "strategic_value": "The single most economically valuable extraction operation in the Outer Rim. Glitterstim spice is vanishingly rare, refined from energy spider webs, and can only be harvested in total darkness. A dose sells for 100 credits retail; a 100-dose cargo container is worth 5,000 credits. Whoever controls the mines controls the galaxy's most profitable contraband pipeline. The mines also hold prisoners the Empire wants forgotten — extracting a specific individual from the deep shafts is a high-risk, high-reward mission.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Mining overseers. Responsible for output quotas. Some are corrupt and skim spice."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Prison guards monitoring mine entrances and upper shafts. Will not enter the deep caverns."
+        },
+        {
+          "archetype_ref": "prisoner",
+          "tier": "minion",
+          "count": "10+",
+          "notes": "Miners. Mix of political prisoners, criminals, and the desperate. Some have been down so long they are barely functional."
+        },
+        {
+          "archetype_ref": "energy_spider",
+          "tier": "rival",
+          "count": "variable",
+          "notes": "Deep shaft hazard. Multi-eyed predators whose webs produce glitterstim. Lethal to unprotected miners."
+        }
+      ]
+    },
+    {
+      "id": "imperial_prison_facility",
+      "name": "Imperial Maximum Security Prison",
+      "district_id": "garrison_moon",
+      "type": [
+        "military",
+        "command"
+      ],
+      "controlling_faction_id": "imperial_prison_command",
+      "controlling_faction_notes": "The garrison moon houses the primary detention facility and the military command structure for the entire Kessel system. Prisoners are processed here before being sent to the surface mines.",
+      "strategic_value": "Maximum security Imperial prison holding political rebels, pirates, Black Sun vigos, and criminal psychopaths. A target for rescue operations, intelligence gathering, or sabotage. The facility's prisoner manifest is a catalog of the Empire's enemies. Breaking someone out requires getting past the garrison, then getting off the moon, then surviving the Maw on the way out.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Prison warden and command staff. Run the facility with military discipline."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "8-12",
+          "notes": "Full garrison complement. Guard rotations, checkpoints, rapid response capability."
+        },
+        {
+          "archetype_ref": "prisoner",
+          "tier": "rival",
+          "count": "variable",
+          "notes": "High-value detainees awaiting transfer to mines or holding for political reasons. Some are dangerous individuals in their own right."
+        }
+      ]
+    },
+    {
+      "id": "kessendra_landing",
+      "name": "Kessendra Landing Facility",
+      "district_id": "kessendra",
+      "type": [
+        "infrastructure",
+        "military"
+      ],
+      "controlling_faction_id": "imperial_prison_command",
+      "controlling_faction_notes": "The only authorized landing facility on Kessel's surface. All incoming and outgoing traffic is monitored and controlled by Imperial personnel.",
+      "strategic_value": "The single point of access for legitimate traffic to Kessel's surface. Supply shipments, prisoner transports, and authorized spice shipments all pass through Kessendra. Getting unauthorized access requires either forged Imperial clearance, a corrupted officer, or landing somewhere on the surface outside sensor coverage — all extremely risky propositions.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Inspecting all incoming cargo and passengers. Looking for contraband, unauthorized personnel, and escape attempts."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Landing pad security. Armed and alert."
+        },
+        {
+          "archetype_ref": "imperial_pilot",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Patrol craft pilots. Intercept unauthorized approaches."
+        }
+      ]
+    },
+    {
+      "id": "the_maw_approach",
+      "name": "The Maw Approach (Kessel Run)",
+      "district_id": null,
+      "type": [
+        "navigation",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the Maw. It is a navigational hazard — a cluster of black holes of immense size that guards the approach to Kessel. The Empire patrols the safer routes around the Maw; smugglers thread dangerously close to it to avoid those patrols.",
+      "strategic_value": "The Kessel Run is the most infamous smuggling route in the galaxy, running perilously close to the Maw's black holes to bypass Imperial patrols around Kessel. Completing the run in minimal distance (and thus minimal time exposed to the Maw's gravitational effects) is a legendary piloting achievement. The Run connects Kessel to Oba Diah and civilized space. Average travel time: 0.75 hours with a Class 1 hyperdrive. Navigating the Maw is classified as the most extreme Piloting difficulty in the game system.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_patrol",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Imperial patrol ships monitoring the established routes around the Maw. Interdict smugglers attempting the Run."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_spice_monopoly",
+      "type": "economic",
+      "source_faction_id": "imperial_prison_command",
+      "source_description": "The Empire controls the trade of glitterstim through military occupation of Kessel and tight market regulation. They have boosted mining output using prisoner labor, producing more spice than ever while keeping the market tightly controlled. This artificial scarcity drives the smuggling economy — the gap between Imperial-controlled supply and galactic demand makes glitterstim smuggling the most profitable illegal cargo run in the galaxy.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "smuggling_networks",
+          "description": "Imperial control creates the profit motive. Every dose of glitterstim that leaves Kessel outside official channels is worth a fortune precisely because the Empire restricts supply."
+        },
+        {
+          "faction_id": "pyke_syndicate_kessel",
+          "description": "The Pykes' distribution networks exist because Imperial monopoly creates demand for black market supply. The tighter the Empire squeezes, the more valuable Pyke connections become."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "All commerce on Kessel is Imperial-controlled. There is no legitimate civilian economy. Any transaction involving spice outside official channels is a capital offense. Social checks involving Imperial cooperation require proper clearance; unauthorized presence on Kessel means immediate arrest and imprisonment."
+        }
+      ]
+    },
+    {
+      "id": "maw_navigation_hazard",
+      "type": "environmental",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "smuggling_networks",
+          "description": "The Maw is why the Kessel Run exists and why it is legendary. Threading close to the black holes is the only way to avoid Imperial patrols. The closer you fly, the shorter the distance — and the higher the chance of death."
+        },
+        {
+          "faction_id": "imperial_prison_command",
+          "description": "The Maw is the Empire's greatest ally on Kessel. It limits approach vectors, channels traffic through monitorable corridors, and kills unauthorized visitors. The Empire does not need to blockade Kessel; the Maw does it for them."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "dominant",
+          "modifier": "Any approach to or departure from Kessel requires navigating near the Maw. Astrogation checks for the Kessel Run are among the most difficult in the game. Upgrade the difficulty of Astrogation checks at least once for the Maw's gravitational anomalies. Failed checks risk catastrophic hyperspace exit into a black hole's gravity well."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "kessel_run",
+        "destination": "Oba Diah (Pyke homeworld) and civilized space",
+        "travel_time": "0.75 hours (Class 1 hyperdrive)",
+        "route_quality": "dangerous_smuggling_run",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Fly Casual (Smuggler Sourcebook)",
+            "page": 78,
+            "detail": "Table 3-5: Lesser Routes and Smuggling Runs — Kessel Run: 0.75 hours, Kessel to Oba Diah"
+          },
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 368,
+            "detail": "Kessel planet entry — Kessel Run described as running perilously close to the Maw"
+          }
+        ]
+      },
+      {
+        "id": "kessel_trade_corridor",
+        "destination": "Zerm",
+        "travel_time": "1.5 hours (Class 1 hyperdrive)",
+        "route_quality": "lesser_route",
+        "notes": "A trade corridor connecting Kessel to the wider galaxy via Zerm. Less famous than the Kessel Run but an important commercial route for authorized Imperial spice shipments.",
+        "source_refs": [
+          {
+            "book": "Fly Casual (Smuggler Sourcebook)",
+            "page": 78,
+            "detail": "Table 3-5: Lesser Routes and Smuggling Runs — Kessel Trade Corridor: 1.5 hours, Kessel to Zerm"
+          }
+        ]
+      },
+      {
+        "id": "pabol_sleheyron",
+        "destination": "Formos (Triellus Trade Route) via Hutt Space and Sleheyron",
+        "travel_time": null,
+        "route_quality": "lesser_route",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta (Hutt Space Sourcebook)",
+            "page": 33,
+            "detail": "Pabol Sleheyron: 'Also the way to Kessel, it ends at the Formos system on the Triellus Trade Route'"
+          },
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 368,
+            "detail": "Kessel planet entry — Trade Routes: Pabol Sleheyron listed"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "the_maw",
+        "name": "The Maw",
+        "type": "black_hole_cluster",
+        "description": "",
+        "navigation_effect": "Upgrade difficulty of all Astrogation checks to reach or leave Kessel at least once. The Kessel Run specifically threads the Maw's gravity wells at extreme proximity. Failed Astrogation checks risk dropping out of hyperspace within lethal range of a black hole.",
+        "source_refs": [
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 353,
+            "detail": "The Maw entry and Kessel entry"
+          },
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 249,
+            "detail": "Piloting difficulty table — 'Navigating the Maw' listed as most extreme example"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_prison_command",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Imperial garrison is undermanned. Prison operations continue but with reduced oversight. Mine guards are stretched thin. Patrol ships are fewer and run less frequently. Corruption increases as fewer eyes watch the operation.",
+          "presence_reason": "Imperial forces redeployed to another theater — a Rebel offensive elsewhere, fleet redistribution, or logistical failure in the supply chain to this remote system.",
+          "roles": [
+            {
+              "role": "Prison warden",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Skeleton command. Managing with minimal staff. Likely stressed and potentially more open to corruption."
+            },
+            {
+              "role": "Stormtrooper guards",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Covering critical posts only — mine entrances, landing pad, communications relay."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial garrison strength. The prison operates at normal capacity. Mine overseers manage work details. Patrol ships monitor the Kessel approaches. Kessendra is fully staffed. The garrison moon holds its normal complement. Corruption exists but is kept within tolerable bounds by institutional discipline.",
+          "presence_reason": "Default operational state. The Empire maintains the garrison needed to run the prison, protect the spice output, and deter smuggling.",
+          "roles": [
+            {
+              "role": "Prison warden",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commands the entire Kessel operation from the garrison moon."
+            },
+            {
+              "role": "Mining overseers",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Managing mine output quotas. Some skim spice for personal profit."
+            },
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Prison guards, mine entrance security, landing pad security, and garrison moon complement."
+            },
+            {
+              "role": "Imperial patrol pilot",
+              "archetype_ref": "imperial_pilot",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Patrol craft monitoring Kessel approaches and the Maw perimeter for smugglers."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Inspecting all authorized traffic at Kessendra landing facility."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Imperial presence escalated. Additional ships deployed to patrol the Maw perimeter. Mine security doubled. The garrison moon is on high alert. Prisoner work details are monitored more closely. Landing facility inspections become exhaustive. Smuggling attempts face significantly higher interception risk.",
+          "presence_reason": "Intelligence indicates a major smuggling operation, a planned prison break, or Rebel interest in Kessel. Alternatively, a spice shipment of exceptional value requires additional security.",
+          "roles": [
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer deployed to oversee the escalation. Reports directly to sector command."
+            },
+            {
+              "role": "Stormtrooper reinforcements",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Double garrison. Full coverage of all mine levels, the prison, and Kessendra."
+            },
+            {
+              "role": "Imperial patrol squadron",
+              "archetype_ref": "imperial_pilot",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Enhanced patrol coverage. Multiple ships monitoring the Maw approaches simultaneously."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating specific intelligence. May be examining corruption within the garrison."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial military presence. Capital ships in orbit. The garrison moon is at maximum readiness. All approaches to Kessel are actively interdicted. Mine output is secondary to security concerns. Prisoners are locked down. No traffic enters or leaves without explicit authorization from the garrison commander. The Kessel Run is effectively impossible.",
+          "presence_reason": "Catastrophic security event — a mass prison break, a Rebel assault on the facility, discovery of large-scale corruption and smuggling within the garrison itself, or a direct order from Imperial High Command to secure Kessel absolutely.",
+          "roles": [
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority. Direct line to sector fleet command."
+            },
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Total coverage. Every mine shaft, every corridor, every landing pad."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "ISB running security investigations. Interrogating prisoners and garrison personnel alike."
+            },
+            {
+              "role": "Capital ship presence",
+              "archetype_ref": "imperial_navy",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Star Destroyer or equivalent in orbit. Complete space superiority over Kessel approaches."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Patrol frequency increases. Kessendra inspections become more thorough. Mine overseers report unexplained output discrepancies.",
+        "targeted": "Imperial intelligence has identified specific smuggling operations or prison break attempts. Patrol ships positioned to intercept along known Run vectors. Specific prisoners placed under enhanced monitoring.",
+        "manhunt": "Full lockdown. No traffic in or out. All prisoners confined. Garrison on maximum alert. Patrol ships actively scanning the Maw perimeter. Any unauthorized vessel is fired upon without warning."
+      }
+    },
+    {
+      "faction_id": "smuggling_networks",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Smuggling activity is minimal. Imperial patrols have been effective or the risk-reward has temporarily shifted. The occasional desperate or foolhardy captain makes a Run, but most smugglers are avoiding Kessel.",
+          "presence_reason": "Imperial crackdown, loss of several high-profile smugglers to the Maw, or Pyke/Hutt patrons temporarily redirecting resources elsewhere.",
+          "roles": [
+            {
+              "role": "Solo smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A lone operator making an opportunistic run. Underfunded, underinformed, and desperate."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard smuggling activity. A steady stream of captains attempt the Kessel Run, hired by Pyke or Hutt patrons. Most use well-known (relatively speaking) vectors through the Maw. Success rate is moderate — enough to keep the trade profitable, low enough to keep it dangerous and exclusive.",
+          "presence_reason": "Normal galactic demand for glitterstim sustains a constant smuggling pipeline.",
+          "roles": [
+            {
+              "role": "Smuggler captain",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "2-3",
+              "notes": "Independent or Pyke/Hutt-contracted. Running the Kessel Run at regular intervals."
+            },
+            {
+              "role": "Smuggler crew",
+              "archetype_ref": "spacer",
+              "tier": "minion",
+              "count": "4-6",
+              "notes": "Crew aboard smuggling vessels. Co-pilots, gunners, cargo handlers."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Smuggling activity has surged. Multiple operations running simultaneously. Competition between smuggler crews increases risk-taking. The Maw approaches see more traffic than usual, and Imperial patrols struggle to cover all vectors.",
+          "presence_reason": "A spike in glitterstim demand, a Pyke or Hutt push to stockpile, or reduced Imperial patrol capability creating a window of opportunity.",
+          "roles": [
+            {
+              "role": "Smuggler captain",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "4-6",
+              "notes": "Multiple crews running simultaneously. Competition breeds recklessness."
+            },
+            {
+              "role": "Pyke handler",
+              "archetype_ref": "crime_boss",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A Pyke operative coordinating multiple runs from a staging point near the Maw."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "An organized smuggling fleet is attempting a large-scale extraction. Multiple ships coordinating to overwhelm Imperial patrols through sheer volume. This is rare and unsustainable — it draws massive Imperial attention and burns through smuggler lives quickly.",
+          "presence_reason": "A major Pyke or Hutt operation. Possibly coordinated with a distraction or sabotage of Imperial patrol capability. Could also indicate a prison break operation using smuggling as cover.",
+          "roles": [
+            {
+              "role": "Smuggler fleet",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "6-10",
+              "notes": "Coordinated smuggling armada. Some ships are decoys."
+            },
+            {
+              "role": "Syndicate coordinator",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Pyke or Hutt operative commanding the operation."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols detect increased hyperspace signatures near the Maw perimeter.",
+        "targeted": "Specific smuggler vessels identified. Patrol ships reposition to intercept known vectors.",
+        "manhunt": "Imperial forces actively hunting a specific smuggling operation. Interdiction cruisers deployed to the Maw approaches."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_prison_command"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "eote_kessel_run": {
+        "name": "The Kessel Run",
+        "description": "The PCs are smugglers contracted to make the Kessel Run — the most infamous and dangerous spice smuggling route in the galaxy. A Pyke Syndicate handler or Hutt patron has provided the cargo arrangements: glitterstim needs to move from Kessel to a drop point at Oba Diah or Formos. The PCs must navigate the Maw, avoid or evade Imperial patrols, make contact with their source on Kessel's surface (a corrupted mining overseer or a prisoner with access to skimmed spice), load cargo without detection, and then run the gauntlet back out. The pay is extraordinary. The risks are proportional. A successful Run builds a career-defining reputation. Failure means the spice mines — as a prisoner this time.",
+        "initial_faction_states": {
+          "imperial_prison_command": "patrol",
+          "pyke_syndicate_kessel": "patrol",
+          "smuggling_networks": "patrol",
+          "hutt_cartel_kessel": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A Pyke handler on Oba Diah has a standing contract: deliver one sealed cargo container of glitterstim from Kessel to a buyer at Formos. The last three crews who tried did not return.",
+          "A corrupt mining overseer on Kessel is skimming spice and needs a pilot willing to make the Run. He can provide landing coordinates outside Kessendra's sensor coverage — supposedly.",
+          "A Hutt patron wants a specific prisoner extracted from the mines. The prisoner has information the Hutt needs. The spice is a secondary objective — or maybe the primary one, depending on who is paying.",
+          "An old smuggler pilot in a cantina on Nar Shaddaa claims to have updated navigational data for a faster route through the Maw. He will sell it for a percentage of the next Run's profit. His data might be genuine, outdated, or a trap.",
+          "The Rebel Alliance needs glitterstim — not for sale, but for its rumored telepathic properties. They want a crew to make the Run and deliver the cargo to a hidden research facility. The pay is poor but the cause is good."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "34, 90, 181, 192-194, 249, 353, 368",
+      "detail": "Primary planet entry (p.368), The Maw (p.353), Kessel Run competitive check example (p.34), Smuggler career (p.90), spice trade (p.181), glitterstim drug entry with mechanics (p.193-194), Piloting difficulty — Maw as extreme example (p.249)"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "164, 367, 372",
+      "detail": "Kessel brief entry (p.367), Incom engineers sentenced to Kessel mines (p.164), Imperial convictions result in Kessel mines (p.372)"
+    },
+    {
+      "book": "Fly Casual (Smuggler Sourcebook)",
+      "pages": "9, 18, 42, 78, 91, 93",
+      "detail": "Kessel Run travel time and route data — Table 3-5 (p.78), smuggling career references (p.9, 18, 42), Maw navigation hazard (p.91), smuggling ring operations (p.93)"
+    },
+    {
+      "book": "Lords of Nal Hutta (Hutt Space Sourcebook)",
+      "pages": "19, 33, 36",
+      "detail": "Desilijic clan spheres of influence include Kessel (p.19), Pabol Sleheyron as 'the way to Kessel' (p.33), Kessel Run as benchmark for smuggling pay (p.36), glitterstim smuggling penalties (p.36)"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "pages": "93",
+      "detail": "Pyke Syndicate controls bulk of raw spice mining on Kessel during Clone Wars era, Lorn Pyke rules from Oba Diah, Pykes' power base in Kessel sector (p.93)"
+    },
+    {
+      "book": "GM Holocron 5.1.2",
+      "pages": "39",
+      "detail": "Kessel Run: 0.75 hours, Kessel to Oba Diah; Kessel Trade Corridor: 1.5 hours, Kessel to Zerm (p.39)"
+    },
+    {
+      "book": "Planet Compendium",
+      "pages": "38",
+      "detail": "Original identity-depth data extraction"
+    }
+  ]
+}

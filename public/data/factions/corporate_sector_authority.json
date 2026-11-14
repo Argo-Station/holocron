@@ -1,0 +1,254 @@
+{
+  "id": "corporate_sector_authority",
+  "name": "Corporate Sector Authority",
+  "type": "corporate_entity",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Edge of the Empire Core Rulebook",
+    "Age of Rebellion Core Rulebook"
+  ],
+  "overview": "The Corporate Sector Authority is a semi-autonomous corporate government administering approximately 30,000 worlds across 29 territories in the Corporate Sector, operating under an Imperial charter negotiated by Baron Orman Tagge. The CSA functions simultaneously as government, employer, law enforcement, and sole economic authority within its territory — citizens have 'privileges' rather than rights, and the Imperial military is virtually absent from the sector. Its enforcement arm, the Espos (Security Police), operates as a fully armed corporate military force backed by a Picket Fleet including Victory-class Star Destroyers.",
+  "short_descriptor": "Legal jurisdiction gives them reach most criminal organizations don't have. Their security forces are sanctioned. In CSA space, they are the law — which means fighting them directly is never the answer.",
+  "witness_statement": {
+    "text": "Got detained at Etti IV for carrying unlicensed cargo — which was my own tools. Espo officer told me my 'trade privileges' were suspended pending review. No charges, no timeline, no appeal. Spent nine days in a holding block before a Direx functionary decided I wasn't worth the paperwork. They didn't even take my ship. They just wanted me to know they could.",
+    "source": "Detained merchant, Corporate Sector — debriefed at Kwenn Station",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "GOVERNANCE",
+      "text": "The Corporate Sector Authority is governed by the Direx Board of 55 executives, chaired by the Executive Officer (ExO), who holds ultimate executive authority over approximately 30,000 worlds across 29 territories. The CSA operates under an Imperial charter negotiated by Baron Orman Tagge, which grants autonomous governance in exchange for an annual tithe to the Empire."
+    },
+    {
+      "heading": "ESPO SECURITY",
+      "text": "Enforcement is handled by the Espo Security Police, a fully armed corporate military force backed by a Picket Fleet that includes Victory-class Star Destroyers."
+    },
+    {
+      "heading": "NO APPEAL",
+      "text": "The CSA's legal system has no external appeals process — Espos can detain individuals indefinitely without judicial review, and the notorious Stars' End prison in Wild Space uses stasis booths for long-term containment."
+    },
+    {
+      "heading": "CORPORATE MONOPOLY",
+      "text": "All economic activity within CSA space is a corporate monopoly: the Authority sets prices, controls employment, and provides all services, making economic coercion the primary instrument of control before force is ever deployed."
+    }
+  ],
+  "motivations": {
+    "primary": "Profit maximization",
+    "secondary": [
+      "Maintaining autonomy from direct Imperial governance",
+      "Suppressing labor organization",
+      "Controlling all economic activity within the sector",
+      "Satisfying the annual Imperial tithe to preserve the charter"
+    ],
+    "notes": "The CSA's motivations are purely commercial dressed in governmental authority. The Direx Board of 55 executives and the Executive Officer (ExO) treat governance as a profit center. Every policy decision is ultimately a business decision — security, law enforcement, and social control exist to protect the revenue stream. The annual tithe to the Empire is the single external constraint that shapes all internal priorities."
+  },
+  "goals": {
+    "strategic": [
+      "Preserve the Imperial charter that grants the CSA autonomous governance of the Corporate Sector",
+      "Expand profitable operations across all 30,000 administered worlds",
+      "Prevent any form of labor organization or collective bargaining within CSA territory",
+      "Maintain the Direx Board's monopoly on economic activity — no independent commerce permitted"
+    ],
+    "operational": [
+      "Meet quarterly revenue targets to ensure the annual Imperial tithe is paid on time",
+      "Suppress union organizers, labor agitators, and worker solidarity networks",
+      "Enforce corporate pricing on all goods and services — eliminate black market alternatives",
+      "Detain and process dissidents through the corporate legal system, which has no external oversight"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "legal_pressure",
+      "information_control",
+      "debt_leverage",
+      "hired_muscle",
+      "propaganda"
+    ],
+    "avoided": [
+      "Open military confrontation with the Empire — the charter depends on the appearance of productive cooperation",
+      "Assassination of high-profile targets — too much scrutiny; indefinite detention achieves the same result more quietly"
+    ],
+    "notes": "The CSA's preferred method is economic coercion. Workers depend on the CSA for employment, housing, healthcare, and every basic necessity — all at CSA-set prices. Dissent is managed by adjusting economic pressure before resorting to Espo enforcement. When enforcement is necessary, Espos have legal authority to detain indefinitely without external judicial review. Stars' End, the CSA's most notorious prison facility in Wild Space, uses stasis booths to store prisoners — some of whom have been forgotten entirely."
+  },
+  "strengths": [
+    "Total economic control within the sector — the CSA is employer, landlord, retailer, and government simultaneously",
+    "Semi-autonomous from the Empire, meaning Imperial regulations, oversight, and military presence are effectively absent",
+    "Espo Security Police operate as a full military force with Victory-class Star Destroyers in the Picket Fleet",
+    "Corporate legal system with no external appeals process — detention is indefinite and unaccountable",
+    "The Direx Board's 55 executives collectively control more liquid capital than most planetary governments"
+  ],
+  "weaknesses": [
+    "The annual Imperial tithe is the single condition of the CSA's charter; failure to pay would trigger direct Imperial intervention and revocation of autonomous governance.",
+    "The Direx Board's 55 members pursue competing territorial and commercial interests, fragmenting organizational focus through internal proxy conflicts.",
+    "The CSA's total economic monopoly means there is no alternative workforce or supply chain; a coordinated labor action across key facilities would halt sector-wide operations.",
+    "Espo Security Police serve as salaried corporate employees with no ideological commitment to the CSA's mission, making their loyalty contingent on continued compensation.",
+    "The Imperial military's contractual absence from the Corporate Sector leaves the CSA solely responsible for defending against piracy, smuggling networks, and Rebel incursions with its own Picket Fleet."
+  ],
+  "behavior_under_threat": {
+    "low": "Adjust economic levers — raise prices on troublemakers, restrict access to services, flag individuals for enhanced Espo monitoring. No overt action.",
+    "medium": "Deploy Espo Security Police to investigate and detain. Invoke corporate legal authority for indefinite questioning. Restrict facility access and communications in the affected area.",
+    "high": "Mobilize Picket Fleet assets to the affected territory. Conduct mass Espo operations — facility lockdowns, communication blackouts, transport restrictions. Direx Board members begin blaming each other.",
+    "critical": "Consider whether the threat justifies requesting Imperial military assistance — a last resort that risks the charter. Activate Stars' End for mass prisoner processing. The Direx Board convenes emergency session to assign blame and protect individual positions."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Espo patrol on-site",
+      "Espo precinct commander",
+      "Territory administrator",
+      "Direx Board / Executive Officer"
+    ],
+    "notes": "CSA alert escalation follows corporate reporting lines, not military ones. On-site Espos report to their precinct commander, who reports to the territory administrator, who reports to the Direx Board. Each level adds bureaucratic delay as administrators assess liability and political implications before escalating. Speed of escalation depends heavily on whether the threat affects a Direx Board member's personal operations — threats to favored projects escalate immediately, while threats to rival operations may be deliberately slow-walked."
+  },
+  "tension_patterns": [
+    "Direx Board members routinely fund competing operations within the same facility, redirecting resources and personnel in proxy disputes that disrupt production schedules and worker stability.",
+    "Quarterly revenue shortfalls against the annual Imperial tithe trigger emergency extraction measures across affected territories, concentrating financial pressure on local administrators and their workforces.",
+    "Espo commanders operating personal rackets alongside official duties are structurally difficult to report, as the corporate legal system grants them indefinite detention authority over potential whistleblowers.",
+    "Labor organizing efforts on CSA worlds frequently survive initial detection because organizers cultivate leverage over local administrators, creating standoffs that delay enforcement action.",
+    "Black markets within CSA facilities emerge wherever corporate pricing exceeds worker wages, and suppressing them risks triggering labor disruptions that cost more than the lost revenue."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "dominant",
+    "transit": "fortified",
+    "economic": "dominant",
+    "command": "fortified",
+    "informational": "fortified",
+    "military": "fortified",
+    "hidden": "skeleton",
+    "covert": "skeleton"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "high",
+    "weapon": "medium",
+    "person": "medium",
+    "artifact": "none",
+    "technology": "high",
+    "notes": "The CSA is intensely interested in financial data (audit records, tithe calculations, rival board members' books), contraband (anything traded outside CSA pricing monopoly threatens the economic model), and proprietary technology (industrial secrets are the currency of Direx Board power). Persons of interest are primarily labor organizers, smugglers, and corporate spies. Force artifacts and weapons hold no inherent value unless they can be monetized."
+  },
+  "ally_factions": [
+    "imperial_military"
+  ],
+  "enemy_factions": [
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "imperial_military": "The Empire is the CSA's charter authority — the relationship is one of contractual obligation rather than alliance. The Imperial military is virtually absent from the Corporate Sector by design, and the CSA prefers it that way. The annual tithe buys continued autonomy.",
+    "rebel_alliance": "The Rebellion threatens the CSA primarily by threatening the Empire. If the Empire falls, the charter is worthless. Rebel operatives within CSA space are treated as security threats to be detained, not ideological enemies to be destroyed.",
+    "hutt_cartel": "The Hutts and the CSA compete for smuggling routes and black market control along the sector borders. Neither faction respects the other's territorial claims, but open conflict is bad for business on both sides.",
+    "bounty_hunters_guild": "The CSA contracts Guild hunters for retrieval operations outside Espo jurisdiction — escaped prisoners, absconded executives, stolen corporate assets. A purely transactional relationship."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "minimal",
+    "expansion_region": "moderate",
+    "mid_rim": "minimal",
+    "outer_rim": "significant",
+    "hutt_space": "minimal",
+    "wild_space": "moderate",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Baron Orman Tagge",
+      "role": "Architect of the CSA Imperial charter",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "Negotiated the original charter with Emperor Palpatine that granted the CSA autonomous governance. The Tagge family's influence underpins the CSA's political legitimacy within the Imperial framework.",
+      "network_assessment": "The charter is his legacy and his leverage. Everything the CSA is — its autonomy, its legal authority, its immunity from Imperial military oversight — traces back to Tagge's deal with Palpatine. Threatening the charter threatens him personally.",
+      "wants": "Preservation of the Tagge family's position as the political foundation of the Corporate Sector. The CSA's profits are secondary to the family's dynastic influence within the Imperial power structure.",
+      "secret": "The original charter negotiations included concessions to Palpatine that the Direx Board was never fully briefed on. Tagge holds private obligations to the Emperor that could override CSA interests if invoked.",
+      "behavior": {
+        "under_pressure": "Invokes Imperial connections. Tagge's response to any threat is to remind everyone involved that the CSA exists because the Emperor permits it — and that he is the one who maintains that permission.",
+        "when_losing": "Sacrifices CSA operational assets to protect the charter itself. Tagge will let individual territories burn before he allows the political framework to be questioned.",
+        "loyalty": "The Tagge family dynasty first, the CSA's institutional survival second, the Empire's goodwill third. Personal loyalty to individuals is not a concept he operates with.",
+        "tells": "When Tagge makes unscheduled visits to Imperial Center, the charter is under review. Those trips are never social."
+      },
+      "useful_to_players": [
+        "His undisclosed obligations to Palpatine are a pressure point that the Direx Board would find extremely interesting",
+        "The Tagge family's influence extends beyond the CSA into Imperial aristocratic circles, providing access points that pure corporate contacts cannot reach",
+        "His commitment to the charter's preservation makes him predictable — any operation that credibly threatens CSA autonomy will provoke a specific, traceable response"
+      ],
+      "hooks": [
+        "A Tagge family courier was spotted on Etti IV carrying sealed documents outside normal Direx Board channels. Either the Baron is cutting a side deal or the charter is being renegotiated. Either way, those documents are worth seeing.",
+        "One of Tagge's personal aides just resigned and took passage to the Mid Rim. Former aides don't usually leave voluntarily. Whatever they saw, they decided it was worth burning a career over."
+      ]
+    },
+    {
+      "name": "The Executive Officer (ExO)",
+      "role": "Chief executive of the Corporate Sector Authority",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "The ExO chairs the Direx Board and holds ultimate executive authority within the CSA. The position is as much a political balancing act as a leadership role — the ExO must manage 55 competing board members while keeping the Empire satisfied.",
+      "network_assessment": "The ExO is the single point where Direx Board politics, Imperial obligations, and operational authority converge. Whoever holds the position controls CSA policy but is permanently exposed to removal from 55 directions simultaneously.",
+      "wants": "Survival in the position. The ExO's primary objective at any given time is managing the Direx Board's internal factions while ensuring the annual Imperial tithe is paid. Strategic vision is a luxury the role rarely permits.",
+      "secret": "The ExO maintains private communication channels with specific Direx Board members who function as an informal coalition — votes and policy positions are pre-negotiated before formal Board sessions. The coalition membership shifts but the practice is constant.",
+      "behavior": {
+        "under_pressure": "Convenes the Direx Board to distribute accountability. The ExO's instinct is to make every crisis a collective decision so that no single failure can be attributed to the chair.",
+        "when_losing": "Identifies which Direx Board members are most exposed to the current threat and redirects organizational resources to protect them — buying loyalty through crisis management.",
+        "loyalty": "The position itself. The ExO's loyalty is to remaining ExO. Institutional loyalty to the CSA follows from that, and personal loyalty to individuals is purely transactional.",
+        "tells": "When the ExO begins scheduling individual meetings with Direx Board members outside the normal calendar, a major policy shift or leadership challenge is imminent. The private meetings are the coalition-building phase."
+      },
+      "useful_to_players": [
+        "The ExO's need to balance 55 competing board members creates permanent information leaks — disgruntled board members will trade intelligence to undermine rivals",
+        "The annual tithe deadline creates a predictable window of maximum CSA vulnerability every fiscal cycle",
+        "The ExO's private coalition can be destabilized by feeding contradictory intelligence to different coalition members"
+      ],
+      "hooks": [
+        "The ExO just cancelled a scheduled inspection tour of three CSA territories. That tour was meant to reassure nervous board members after a revenue shortfall. Cancelling it means something more urgent came up — or the revenue picture is worse than reported.",
+        "A mid-level Direx Board member's personal shuttle made an unlogged stop at an independent station outside CSA space. Board members don't travel off-books unless they're meeting someone the CSA can't know about."
+      ]
+    },
+    {
+      "name": "The Direx Board",
+      "role": "Governing body of 55 executives",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "Collectively the most powerful economic entity in the Corporate Sector. Individual board members control territories and operations, creating a factional landscape of competing interests within the CSA itself.",
+      "network_assessment": "Fifty-five executives with competing territorial interests and more liquid capital than most planetary governments. The Board is simultaneously the CSA's greatest asset and its most persistent vulnerability. Every internal conflict is an access point.",
+      "wants": "Each member wants to maximize their territorial revenue while minimizing their contribution to the annual Imperial tithe. The collective goal is CSA survival; the individual goal is personal enrichment at the expense of the other fifty-four.",
+      "secret": "Board members routinely fund intelligence operations against each other through Espo contacts and private security contractors. The internal espionage budget across all 55 members likely exceeds the CSA's official intelligence allocation.",
+      "behavior": {
+        "under_pressure": "Blame each other. The Direx Board's collective response to crisis is to identify which member's territory or operations are responsible and redirect institutional consequences toward them.",
+        "when_losing": "Individual members begin protecting personal assets and negotiating private arrangements with external parties — including the Empire — before the collective position deteriorates further.",
+        "loyalty": "Personal financial interest. Board members are loyal to the CSA exactly as long as the CSA protects their revenue streams. The moment individual survival diverges from institutional survival, individual survival wins.",
+        "tells": "When board members stop attending scheduled sessions and begin communicating exclusively through proxies, a faction split is forming. The proxies are the insulation layer before open conflict."
+      },
+      "useful_to_players": [
+        "The 55-way internal competition means there is always a board member willing to trade information or favors to undermine a rival",
+        "Board members' private security operations generate intelligence that the CSA as an institution does not control or monitor",
+        "The annual tithe creates a collective pressure point — any disruption to sector-wide revenue becomes every board member's problem simultaneously"
+      ],
+      "hooks": [
+        "Two Direx Board members just filed competing development claims on the same asteroid mining operation. The territorial dispute is going to the ExO for arbitration, and both sides are hiring independent operators to establish facts on the ground before the ruling.",
+        "A board member's personal transport was interdicted by Espos from a different territory — technically legal, but it's never happened before. Someone on the Board just escalated from commercial rivalry to direct confrontation."
+      ]
+    }
+  ],
+  "source_material_notes": "The Corporate Sector Authority is discussed in Edge of the Empire Core Rulebook in the context of corporate-dominated space and smuggling operations, and in Age of Rebellion Core Rulebook regarding Imperial-aligned power structures. The Han Solo Adventures novels (Legends) provide the deepest treatment of CSA operations, Stars' End, and Espo enforcement, though these are not FFG sourcebook material. Special Modifications and Fly Casual reference CSA operations in the context of smuggling and technical specialists.",
+  "field_sources": {
+    "motivations": "Edge of the Empire Core Rulebook, Corporate Sector descriptions; inferred from charter structure",
+    "goals": "Edge of the Empire Core Rulebook, CSA governance model; Age of Rebellion Core Rulebook, Imperial-aligned entities",
+    "methods": "Edge of the Empire Core Rulebook, CSA economic control and Espo enforcement",
+    "strengths": "Edge of the Empire Core Rulebook, CSA autonomy and economic monopoly; Age of Rebellion Core Rulebook, Picket Fleet",
+    "weaknesses": "Inferred from CSA dependency on Imperial charter and internal Direx Board competition",
+    "behavior_under_threat": "Inferred from CSA organizational structure and Espo escalation capabilities",
+    "tension_patterns": "Inferred from faction behavior — corporate rivalry, labor suppression, economic coercion described in Edge of the Empire Core Rulebook",
+    "regional_presence": "Edge of the Empire Core Rulebook, Corporate Sector location; Wild Space presence inferred from Stars' End references",
+    "mcguffin_interest": "Inferred from CSA economic motivations and corporate espionage concerns"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "table": "FaD Table 2-1 Morality",
+  "roll": "d100",
+  "results": [
+    {
+      "range": [
+        1,
+        8
+      ],
+      "strength": "Bravery",
+      "strengthDescription": "Advances toward danger while others are still deliberating.",
+      "weakness": "Anger",
+      "weaknessDescription": "Answers provocation with force, then finds the justification afterward."
+    },
+    {
+      "range": [
+        9,
+        16
+      ],
+      "strength": "Love",
+      "strengthDescription": "Holds genuine regard for people. That openness is generally why others extend trust quickly.",
+      "weakness": "Jealousy",
+      "weaknessDescription": "Envies what others possess, and whom else is loved."
+    },
+    {
+      "range": [
+        17,
+        24
+      ],
+      "strength": "Caution",
+      "strengthDescription": "Assesses before committing, without exception. The habit has preserved the company more than once.",
+      "weakness": "Fear",
+      "weaknessDescription": "Sees the risk clearly and withdraws from it, every time."
+    },
+    {
+      "range": [
+        25,
+        32
+      ],
+      "strength": "Enthusiasm",
+      "strengthDescription": "Applies full attention to every task, including the tedious ones, and the effect proves contagious.",
+      "weakness": "Recklessness",
+      "weaknessDescription": "Commits first and reckons the cost afterward."
+    },
+    {
+      "range": [
+        33,
+        40
+      ],
+      "strength": "Compassion",
+      "strengthDescription": "Registers the burdens of others and moves to relieve them, accepting the cost.",
+      "weakness": "Hatred",
+      "weaknessDescription": "Witnessed suffering and turned it into loathing that does not diminish."
+    },
+    {
+      "range": [
+        41,
+        48
+      ],
+      "strength": "Mercy",
+      "strengthDescription": "Treats the defeated fairly. Spares the defenseless and declines to press an advantage.",
+      "weakness": "Weakness",
+      "weaknessDescription": "Tolerates wrongs because confronting them is difficult."
+    },
+    {
+      "range": [
+        49,
+        56
+      ],
+      "strength": "Curiosity",
+      "strengthDescription": "Compelled to discover. New territory, new knowledge, the question behind the question.",
+      "weakness": "Obsession",
+      "weaknessDescription": "Lets one interest eclipse all others, and cannot set it down."
+    },
+    {
+      "range": [
+        57,
+        64
+      ],
+      "strength": "Pride",
+      "strengthDescription": "Takes genuine satisfaction in work done well, and labors to merit it.",
+      "weakness": "Arrogance",
+      "weaknessDescription": "Is not satisfied by success unless someone else has fallen short of it."
+    },
+    {
+      "range": [
+        65,
+        72
+      ],
+      "strength": "Independence",
+      "strengthDescription": "Carries their own weight and declines support not yet earned.",
+      "weakness": "Coldness",
+      "weaknessDescription": "Has hardened self-reliance into indifference. If another cannot manage, that is their concern."
+    },
+    {
+      "range": [
+        73,
+        80
+      ],
+      "strength": "Ambition",
+      "strengthDescription": "Sets a demanding objective and pursues it steadily. Difficulty strengthens the commitment rather than deterring it.",
+      "weakness": "Greed",
+      "weaknessDescription": "Wants power, wealth and comfort, and then more of each."
+    },
+    {
+      "range": [
+        81,
+        88
+      ],
+      "strength": "Justice",
+      "strengthDescription": "Pursues the equitable outcome in preference to the convenient or the merciful.",
+      "weakness": "Cruelty",
+      "weaknessDescription": "Takes pleasure in punishment, then declares it deserved."
+    },
+    {
+      "range": [
+        89,
+        96
+      ],
+      "strength": "Discipline",
+      "strengthDescription": "Chooses deliberately and acts precisely. Provocation does not divert the plan.",
+      "weakness": "Obstinance",
+      "weaknessDescription": "Will not correct course and will not hear a second opinion."
+    },
+    {
+      "range": [
+        97,
+        100
+      ],
+      "special": "Roll twice",
+      "note": "The PC has multiple emotional strengths and weaknesses."
+    }
+  ],
+  "notes": [
+    "Range mapping is from the printed Morality table (your screenshot).",
+    "If a roll hits 97–100, roll twice and the PC has multiple strengths/weaknesses.",
+    "Description text is ORIGINAL, authored for this project (F-EDS-1 lap C-1, 2026-07-25); it mirrors morality-pairs.json and replaces transcribed FFG rulebook prose. The d100 ranges and the strength/weakness pairings are unchanged."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "steps": [
+    {
+      "id": "nemesis",
+      "label": "Nemesis",
+      "defaultView": "nemesis-concept",
+      "views": {
+        "nemesis-concept": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "faction": { "type": "FactionSelector", "slot": "content", "props": {} },
+            "role": { "type": "NarrativeRoleSelector", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 BACK", "action": "close" },
+              { "label": "INTEL \u203a", "action": "navigate", "target": "faction-reveal" }
+            ]}}
+          }
+        },
+        "faction-reveal": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "reveal": { "type": "FactionRevealPanel", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 BACK", "action": "navigate", "target": "nemesis-concept" },
+              { "label": "CONTINUE \u203a", "action": "navigate", "target": "key-figures" }
+            ]}}
+          }
+        },
+        "key-figures": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "figures": { "type": "KeyFiguresPanel", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 INTEL", "action": "navigate", "target": "faction-reveal" },
+              { "label": "CONTINUE \u203a", "action": "navigate", "target": "nemesis-archetype" }
+            ]}}
+          }
+        },
+        "figure-reveal": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "reveal": { "type": "FigureRevealCard", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 FIGURES", "action": "navigate", "target": "key-figures" },
+              { "label": "REFERENCE \u203a", "action": "navigate", "target": "figure-reference" }
+            ]}}
+          }
+        },
+        "figure-reference": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "reference": { "type": "FigureReferenceCard", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 DOSSIER", "action": "navigate", "target": "figure-reveal" },
+              { "label": "CONTINUE \u203a", "action": "navigate", "target": "nemesis-archetype" }
+            ]}}
+          }
+        },
+        "nemesis-archetype": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "header": { "type": "NemesisSubjectHeader", "slot": "content", "props": {} },
+            "archetypes": { "type": "NemesisArchetypeBrowser", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 FIGURES", "action": "navigate", "target": "key-figures" },
+              { "label": "REFERENCE \u203a", "action": "navigate", "target": "nemesis-reference" }
+            ]}}
+          }
+        },
+        "nemesis-reference": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "reference": { "type": "NemesisReferenceCard", "slot": "content", "props": {} },
+            "nav": { "type": "StepperNav", "slot": "nav", "props": { "actions": [
+              { "label": "\u2039 ARCHETYPE", "action": "navigate", "target": "nemesis-archetype" },
+              { "label": "SAVE \u2713", "action": "confirm" }
+            ]}}
+          }
+        }
+      }
+    }
+  ]
+}

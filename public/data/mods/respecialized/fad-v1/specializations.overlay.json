@@ -1,0 +1,3737 @@
+{
+  "specializations": {
+    "arbiter": {
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "congenial",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "keen_eyed",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_savvy",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_crucpoint",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_disarmingpersonality",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_deflect",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_goodrelations",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_block",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_nobfoolimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_settone",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_disarmingpersimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "sunder_improved",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_condemnation",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_disarmingperssup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "force_rating": 1,
+      "bonus_career_powers": [
+        "bind",
+        "warde_s_foresight"
+      ]
+    },
+    "archivist": {
+      "id": "archivist",
+      "_source_key": "ARCHIVIST",
+      "name": "Archivist",
+      "description": "CAREER + SPECIALIZATION POWERS: Influence, Move, Manipulate, and Psychometry.\n\nThe Archivist is the Force Librarian. They are Knowledge of the Force and different force culture, and history.",
+      "universal": false,
+      "career_skills": [
+        "computers",
+        "education",
+        "lore",
+        "perception"
+      ],
+      "force_rating": 1,
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "well_read",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "researcher",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "keen_eyed",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_historian",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_valfact",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "researcher",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_astuobse",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_astuobse",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_researchimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_livingholocron",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "stroke_of_genius",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_mastercurator",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_comptech",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_livingholoimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_knowledgesum",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_researchsup",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized",
+      "bonus_career_powers": [
+        "manipulate",
+        "psychometry"
+      ]
+    },
+    "ascetic": {
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "physical_training",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_gowithout",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_emptyself",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "confidence",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "physical_training",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_emptyselfimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "sixth_sense",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_indwill",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "confidence",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_emptysoul",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_mindbleed",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_forcewill",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_ironsoul",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_emptyselfsup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_onlyforce",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "force_rating": 1,
+      "bonus_career_powers": [
+        "ebb_flow",
+        "endure"
+      ]
+    },
+    "cyber_soldier": {
+      "id": "cyber_soldier",
+      "_source_key": "CYBERSOLDIER",
+      "name": "Cyber Soldier",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "athletics",
+        "ranged_heavy",
+        "resilience",
+        "vigilance"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "more_machine_than_man",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "pilot_training",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "rapid_reaction",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_strofles",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_cyberjunky",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_engredun",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "conditioned",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "toughened",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "more_machine_than_man",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "more_machine_than_man",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_limitbreaker",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_strfleimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_macmanimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_unnaturalreflexes",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_strflesup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_cybercolossus",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_limitbreakerimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "detective": {
+      "id": "detective",
+      "_source_key": "DETECTIVE",
+      "name": "Detective",
+      "description": "",
+      "universal": true,
+      "career_skills": [
+        "charm",
+        "education",
+        "perception",
+        "underworld"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "congenial",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "street_smarts",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_inquire",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "keen_eyed",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_actilist",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_relentless",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_recscene",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "street_smarts",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_inquire",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_chaselead",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_crossexamine",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_inqimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_strsmartimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_breakthrough",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_dedreasoning",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "field_agent": {
+      "id": "field_agent",
+      "_source_key": "FIELDAGENT",
+      "name": "Field Agent",
+      "description": "The field agent is the jack-of-all-trades spy that operates in the field, often sent to investigate and infiltrate a situation socially. While a decent combatant, they mostly talk their way out of problems and resort to fisticuffs and light concealable weapons.",
+      "universal": true,
+      "career_skills": [
+        "charm",
+        "cool",
+        "deception",
+        "stealth"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "basic_combat_training",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "stalker",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "congenial",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_quickdr",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "dodge",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_suavesoph",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_keeptalking",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_creatkill",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_usertalent3",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_inform",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_creativeimproved",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_silenttake",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_quickwitted",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "dedication",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_nodie",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_dynamicper",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_keeptalkingimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "healer": {
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "surgeon",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "physician",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "surgeon",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_purification",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_soothingpresence",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "physician",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_masdoc",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_knowheal",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "physician",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_soothimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_impsurg",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_harmonybeing",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_physimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_soothsup",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_masterhealer",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_vitalforce",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "force_rating": 1,
+      "bonus_career_powers": [
+        "heal_harm",
+        "protect_unleash"
+      ]
+    },
+    "infochant": {
+      "id": "infochant",
+      "_source_key": "INFOCHANT",
+      "name": "Infochant",
+      "description": "",
+      "universal": true,
+      "career_skills": [
+        "discipline",
+        "negotiation",
+        "streetwise"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "researcher",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "street_smarts",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "leverage",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_tradeinsecrets",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_eyesandears",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "greased_palms",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_valfact",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "bought_info",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "talk_the_talk",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "researcher",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_inform",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "greased_palms",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "leverage",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_researchimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_badinfo",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_dirtysecrets",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "majordomo": {
+      "id": "majordomo",
+      "_source_key": "MAJORDOMO",
+      "name": "Majordomo",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "charm",
+        "cool",
+        "deception",
+        "negotiation"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_frlow",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "congenial",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "leverage",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "leverage",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_blather",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "convincing_demeanor",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_powerbroker",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_exudecon",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_discredit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_friendlowimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_frlow",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "intense_presence",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_benevolentpatr",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_powerbrokeimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_scapegoat",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "nerf_herder": {
+      "id": "nerf_herder",
+      "_source_key": "NERFHERDER",
+      "name": "Nerf Herder",
+      "description": "The Nerf herder is the animal husbandry maximalist, and the outdoors person who can shepherd a flock of animals in the most inhospitable situations.",
+      "universal": true,
+      "career_skills": [
+        "athletics",
+        "resilience",
+        "survival",
+        "xenology"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_outdoor",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_animalhandler",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_gatherer",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_scruffy",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_animcomp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_spur",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_slytooka",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "toughened",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_soothtone",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "expert_handler",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_landprov",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_wrangle",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_ancoimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_animalhandler",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_animalhandleimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_stubbornbantha",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_nerfwhisper",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_animalhandlesup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "overseer": {
+      "id": "overseer",
+      "_source_key": "OVERSEER",
+      "name": "Overseer",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "brawl",
+        "coercion",
+        "leadership",
+        "underworld"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "street_smarts",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_imposingleader",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_unquauth",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "plausible_deniability",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_negativereinforce",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_willbreaker",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_wellconn",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_veiledthreats",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_willbreakerimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_makeanoffer",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_unquauth",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_ironwilled",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_theycantrefuse",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_negativereimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_mindmat",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "pit_fighter": {
+      "id": "pit_fighter",
+      "_source_key": "PITFIGHTER",
+      "name": "Pit Fighter",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "brawl",
+        "melee",
+        "skulduggery",
+        "survival"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_scrappy",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_lowblowre",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_block",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_creatkill",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_anythingkills",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "iron_body",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_precstr",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_killerinstinct",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "toughened",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_unarmedblock",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_unarmedblockimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_creativeimproved",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_exploitweakness",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_lowblowre",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "precision_strike_improved",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_anythingkillsimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_dirttric",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_lowblowimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "poisoner": {
+      "id": "poisoner",
+      "_source_key": "POISONERSPEC",
+      "name": "Poisoner",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "resilience",
+        "skulduggery",
+        "stealth",
+        "survival"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_gatherer",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_potenttinc",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "convincing_demeanor",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "stalker",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_blo",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_delayeddose",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_hiddenfangs",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_natureme",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_pickyourpoi",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_masshad",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "convincing_demeanor",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_bloimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_potenttinc",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "contingency_plan",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_perfcrim",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_neutralizer",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_potenttincimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_potenttincsup",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "sage": {
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_deepunderstand",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "kill_with_kindness",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "confidence",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_oneuni",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "nobody_s_fool",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_longstory",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_starsalign",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_deepunderstand",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_sageadvice",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "balance",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_universeimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_preemavoid",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "the_force_is_my_ally",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_starsalignimp",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_universesup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_adviceimproved",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "force_rating": 1,
+      "bonus_career_powers": [
+        "foresee",
+        "sense"
+      ]
+    },
+    "spice_dealer": {
+      "id": "spice_dealer",
+      "_source_key": "SPICEDEALER",
+      "name": "Spice Dealer",
+      "description": "",
+      "universal": false,
+      "career_skills": [
+        "medicine",
+        "negotiation",
+        "skulduggery",
+        "streetwise"
+      ],
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "convincing_demeanor",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_wheel",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "savvy_negotiator",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "respec_stimap",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_spicelife",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_frlow",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "greased_palms",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_stimspec",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_handoff",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_whe_deaimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_wheel",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_synth",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_badinflu",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_maodl",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "respec_spicelifeimp",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_badtrip",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_firstonefree",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "teacher": {
+      "talent_tree": [
+        {
+          "cost": 5,
+          "talents": [
+            {
+              "talent": "respec_skilledteach",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "kill_with_kindness",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "well_rounded",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "talents": [
+            {
+              "talent": "encouraging_words",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_inspiringleadership",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "researcher",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_wellroundimp",
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 15,
+          "talents": [
+            {
+              "talent": "respec_unconventsolimp",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_encourageimp",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_grit",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_nowmast",
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 20,
+          "talents": [
+            {
+              "talent": "respec_unconventsol",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_mostimpressive",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_skilledteach",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_oncelearn",
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cost": 25,
+          "talents": [
+            {
+              "talent": "dedication",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "respec_encouragesup",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "talent": "respec_greatestteacher",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "talent": "force_rating",
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "description": "",
+      "force_rating": 1,
+      "bonus_career_powers": [
+        "jerserra_s_influence",
+        "imbue"
+      ]
+    },
+    "ataru_striker": {
+      "bonus_career_powers": [
+        "enhance",
+        "seek"
+      ]
+    },
+    "juyo_berserker": {
+      "bonus_career_powers": [
+        "enhance",
+        "jerserra_s_influence"
+      ]
+    },
+    "makashi_duelist": {
+      "bonus_career_powers": [
+        "influence",
+        "warde_s_foresight"
+      ]
+    },
+    "niman_disciple": {
+      "bonus_career_powers": [
+        "move",
+        "influence"
+      ]
+    },
+    "shien_expert": {
+      "bonus_career_powers": [
+        "misdirect",
+        "sense"
+      ]
+    },
+    "shii_cho_knight": {
+      "bonus_career_powers": [
+        "enhance",
+        "endure"
+      ]
+    },
+    "soresu_defender": {
+      "bonus_career_powers": [
+        "endure",
+        "sense"
+      ]
+    },
+    "padawan": {
+      "bonus_career_powers": {
+        "choose": "any",
+        "count": 1,
+        "upgrade_if_owned": "non_mastery"
+      }
+    },
+    "general": {
+      "bonus_career_powers": [
+        "endure",
+        "battle_meditation"
+      ]
+    },
+    "knight": {
+      "bonus_career_powers": [
+        "influence",
+        "move"
+      ]
+    },
+    "master": {
+      "bonus_career_powers": {
+        "choose": "any",
+        "count": 2,
+        "upgrade_if_owned": "non_mastery"
+      }
+    },
+    "armorer": {
+      "bonus_career_powers": [
+        "manipulate",
+        "endure"
+      ]
+    },
+    "peacekeeper": {
+      "bonus_career_powers": [
+        "battle_meditation",
+        "influence"
+      ]
+    },
+    "protector": {
+      "bonus_career_powers": [
+        "heal_harm",
+        "move"
+      ]
+    },
+    "warden": {
+      "bonus_career_powers": [
+        "bind",
+        "jerserra_s_influence"
+      ]
+    },
+    "warleader": {
+      "bonus_career_powers": [
+        "alter",
+        "foresee"
+      ]
+    },
+    "advisor": {
+      "bonus_career_powers": [
+        "imbue",
+        "influence"
+      ]
+    },
+    "alchemist": {
+      "bonus_career_powers": [
+        "heal_harm",
+        "conjure"
+      ]
+    },
+    "magus": {
+      "bonus_career_powers": [
+        "heal_harm",
+        "protect_unleash"
+      ]
+    },
+    "prophet": {
+      "bonus_career_powers": [
+        "influence",
+        "jerserra_s_influence"
+      ]
+    },
+    "seer": {
+      "bonus_career_powers": [
+        "ebb_flow",
+        "seek"
+      ]
+    },
+    "executioner": {
+      "bonus_career_powers": [
+        "bind",
+        "enhance"
+      ]
+    },
+    "hermit": {
+      "bonus_career_powers": [
+        "alter",
+        "commune"
+      ]
+    },
+    "hunter": {
+      "bonus_career_powers": [
+        "alter",
+        "warde_s_foresight"
+      ]
+    },
+    "navigator": {
+      "bonus_career_powers": [
+        "ebb_flow",
+        "foresee"
+      ]
+    },
+    "pathfinder": {
+      "bonus_career_powers": [
+        "commune",
+        "endure"
+      ]
+    },
+    "artisan": {
+      "bonus_career_powers": [
+        "manipulate",
+        "psychometry"
+      ]
+    },
+    "investigator": {
+      "bonus_career_powers": [
+        "psychometry",
+        "sense"
+      ]
+    },
+    "racer": {
+      "bonus_career_powers": [
+        "enhance",
+        "foresee"
+      ]
+    },
+    "sentry": {
+      "bonus_career_powers": [
+        "enhance",
+        "warde_s_foresight"
+      ]
+    },
+    "shadow": {
+      "bonus_career_powers": [
+        "farsight",
+        "suppress"
+      ]
+    },
+    "aggressor": {
+      "bonus_career_powers": [
+        "endure",
+        "jerserra_s_influence"
+      ]
+    },
+    "colossus": {
+      "bonus_career_powers": [
+        "bind",
+        "endure"
+      ]
+    },
+    "starfighter_ace": {
+      "bonus_career_powers": [
+        "manipulate",
+        "seek"
+      ]
+    },
+    "steel_hand_adept": {
+      "bonus_career_powers": [
+        "move",
+        "suppress"
+      ]
+    }
+  }
+}

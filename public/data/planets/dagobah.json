@@ -1,0 +1,416 @@
+{
+  "id": "dagobah",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Dagobah",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Sluis sector",
+    "system": "Dagobah",
+    "grid": "M-19",
+    "era": "galactic_civil_war",
+    "essence": "Dagobah is the galaxy's blind spot made sacred. An unpopulated swamp world in the Outer Rim where the Living Force flows so powerfully that even the most gifted Force users can vanish within its currents. No civilization ever arose here — only the pure ebb and flow of life itself, from the smallest rootworm to the six-meter dragonsnake. The planet is missing from Bureau of Ships and Services hyperspace records, possibly deleted intentionally. Those who crash-land here rarely leave. Those who come deliberately are seeking something the rest of the galaxy cannot provide: communion with the Force at its most raw, a confrontation with their deepest fears in the dark side cave, or the wisdom of an exile no one knows exists. Dagobah is not hostile out of malice. It is indifferent, ancient, and overwhelmingly alive.",
+    "atmosphere": "Perpetual fog and low cloud cover blotting out the sun. The stench of decaying organic matter in stifling heat and humidity. Gnarltrees rising on root-stilts from murky water, their canopies blocking what little light survives the clouds. The sound of dripping, buzzing, and unseen creatures splashing through shallow water. Bioluminescent organisms flickering in the permanent twilight beneath the canopy. Mount Dagger's igneous spire punching above the clouds — the only place on the planet where sunlight reaches the ground. The cold, unnatural chill near the dark side cave, where twisted roots frame a narrow entrance into darkness.",
+    "reputation": "Dagobah has no reputation because almost no one knows it exists. It does not appear on standard astrogation charts. The handful of smugglers who know of it come only to snatch jubba birds from the upper canopy and leave as quickly as possible. To the rare Force-sensitive who senses its pull, Dagobah is a place of pilgrimage — a vergence where the boundaries of time, space, life, and death intertwine. To everyone else, it is an unmarked swamp world in an empty system, not worth the fuel to reach."
+  },
+  "compendium": {
+    "background": "",
+    "government": "none",
+    "population": "",
+    "languages": "none",
+    "terrain": "bayous, bogs, jungles, swampland",
+    "major_cities": "none",
+    "areas_of_interest": "",
+    "exports": "none",
+    "imports": "none",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Jedi Master Yoda visited Dagobah for the first time shortly before Order 66, guided by the spirit of Qui-Gon Jinn. Qui-Gon led Yoda to the Wellspring of Life, where Yoda began learning the secrets of how the spirit survives the death of the body. The planet was otherwise unchanged — no sentient presence, no strategic value to either side of the war."
+    }
+  ],
+  "geography": {
+    "structure_type": "wilderness_swamp",
+    "structure_notes": "",
+    "districts": []
+  },
+  "species": [],
+  "factions": [],
+  "strategic_locations": [
+    {
+      "id": "dark_side_cave",
+      "name": "Dark Side Cave (Tree Cave)",
+      "district_id": null,
+      "type": [
+        "force_vergence",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls this location. It is a natural phenomenon of the Force, hidden deep within Dagobah's equatorial swamps.",
+      "strategic_value": "",
+      "vergence_rules": "",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 373,
+          "detail": "Dark Side Cave description"
+        },
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": "77-78",
+          "detail": "Dagobah Tree Cave vergence description and full mechanical rules"
+        }
+      ]
+    },
+    {
+      "id": "mount_dagger",
+      "name": "Mount Dagger",
+      "district_id": null,
+      "type": [
+        "geological",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls this location. It is an uninhabited geological formation.",
+      "strategic_value": "",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 373,
+          "detail": "Mount Dagger listed as area of interest"
+        },
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": 26,
+          "detail": "Detailed Mount Dagger description"
+        }
+      ]
+    },
+    {
+      "id": "wellsprings_of_the_living_force",
+      "name": "Wellsprings of the Living Force",
+      "district_id": null,
+      "type": [
+        "force_vergence",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls these locations. They are transient phenomena of the Force that cannot be mapped or deliberately found.",
+      "strategic_value": "",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": 27,
+          "detail": "Wellsprings of the Living Force description"
+        }
+      ]
+    },
+    {
+      "id": "gnarltree_swamps",
+      "name": "Gnarltree Swamps",
+      "district_id": null,
+      "type": [
+        "wilderness",
+        "environmental_hazard"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No sentient presence. The gnarltree swamps are the dominant biome covering most of Dagobah's surface.",
+      "strategic_value": "The primary terrain of Dagobah. Massive gnarltrees grow with airborne trunks atop seven or eight major roots, each hollow underneath containing a miniature ecosystem. The gnarltrees begin life as knobby white spiders — carnivorous creatures up to two meters tall that wander and feed until adulthood, when they plant their legs as roots and become trees. The canopy blocks nearly all sunlight, creating permanent twilight on the swamp floor. Environmental hazards include catastrophic upper-atmosphere winds that endanger landing craft, stiflingly hot and humid conditions near the equator, aggressive fauna at every trophic level, and butcherbug web traps with razor-sharp silk that can shred creatures or even humanoids on contact.",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 373,
+          "detail": "Gnarltree and ecosystem description"
+        },
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": "25-28",
+          "detail": "Expanded biome description, knobby white spider lifecycle, butcherbug web traps"
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "living_force_vergence",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "overwhelming",
+      "strength_FaD_preset": "overwhelming",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": ""
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "overwhelming",
+          "modifier": "Force-sensitive PCs are constantly aware of the Force's intensity on Dagobah. Meditation checks may yield unexpected visions or insights at the GM's discretion. Force users can attempt to hide their presence within Dagobah's Living Force, adding setback dice to any attempts to sense them remotely."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 373,
+          "detail": "Dagobah as vergence in the Force"
+        },
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": "25-27",
+          "detail": "Living Force strength, camouflage properties"
+        },
+        {
+          "book": "GM Holocron 5.1.2",
+          "page": 78,
+          "detail": "Vergence enabling Yoda to hide from the Empire"
+        }
+      ]
+    },
+    {
+      "id": "dark_side_cave_influence",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": ""
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Within the cave, Force checks add Force dice equal to the character's Force rating, with dark side pips canceling successes. Fear checks within the cave are Daunting difficulty. Failure generates 5+ Conflict. See dark_side_cave strategic location for full vergence rules."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 373,
+          "detail": "Dark Side Cave description"
+        },
+        {
+          "book": "Nexus of Power (Worlds Strong in the Force)",
+          "page": "77-78",
+          "detail": "Full vergence mechanical rules"
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "rimma_trade_route",
+        "destination": "Rimma Trade Route (major hyperspace lane)",
+        "travel_time": null,
+        "route_quality": "accessible_but_unlisted",
+        "notes": "Dagobah is located along the Rimma Trade Route in the Sluis sector. However, the planet does not appear on standard astrogation charts. The Bureau of Ships and Services maintains comprehensive hyperspace records but Dagobah is missing from their datafiles. If BoSS bureaucrats knew about the lack, they would likely blame corrupted data, but it is possible someone deleted information on Dagobah intentionally. Finding reliable hyperroutes to the system can prove very difficult.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 373,
+            "detail": "Trade Routes: Rimma Trade Route"
+          },
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": 26,
+            "detail": "Missing from BoSS datafiles, hyperroutes difficult to find"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "missing_astrogation_data",
+        "type": "data_absence",
+        "description": "",
+        "mechanical_effect": "Astrogation checks to plot a course to Dagobah without prior knowledge of its location should be upgraded in difficulty significantly, or may be impossible without a specific lead, Force guidance, or coordinates from someone who has been there.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": "25-26",
+            "detail": "Missing from BoSS datafiles, only found by accident or guidance"
+          }
+        ]
+      },
+      {
+        "id": "hazardous_landing",
+        "type": "environmental",
+        "description": "Dagobah's relatively flat terrain produces catastrophically strong upper-atmosphere wind speeds. Even experienced pilots can be taken by surprise during landing. Finding a flat, dry patch to set down safely is extremely difficult — otherwise the pilot risks landing in a swamp. Thick clouds of water vapor and carbon dioxide further complicate approach.",
+        "mechanical_effect": "Piloting checks to land on Dagobah should be Hard difficulty at minimum, with setback dice for weather conditions. Failure may result in a swamp landing that damages or submerges the craft.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": 25,
+            "detail": "Hazardous wind speeds and landing conditions"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": null,
+      "faction_label": "Environmental Hazards (Fauna)",
+      "presence_levels": {
+        "canopy": {
+          "description": "The upper biome above and within the gnarltree canopy. Flying lizards, rodents, bogwings, jubba birds, and flying leaf-tails inhabit this zone. Butcherbug web traps are strung between branches with razor-sharp silk. Smugglers who attempt to capture jubba birds from the canopy risk leaf-tail swarms damaging their ship's wiring.",
+          "roles": [
+            {
+              "role": "Lesser Bogwing flock",
+              "archetype_ref": "lesser_bogwing",
+              "tier": "minion",
+              "count": "4-8",
+              "notes": "Winged reptavians with four spindly legs and leathery skin. Dark brown coloration. Feed on rodents and lizards. Harmless individually but a flock is a nuisance. Flyer ability.",
+              "source_ref": "Nexus of Power p.28"
+            },
+            {
+              "role": "Jubba Bird",
+              "archetype_ref": "jubba_bird",
+              "tier": "rival",
+              "count": "1-2",
+              "notes": "Brightly colored avians with reptilian features. Force-sensitive — their song calms prey through subtle Force manipulation. Deceptively intelligent. Prized throughout the galaxy for plumage and song. Charm 2, Sense Emotions talent, Soothing Song ability (Average Charm check to heal 1 strain per success from all within medium range).",
+              "source_ref": "FaD Core p.418"
+            },
+            {
+              "role": "Flying Leaf-tail swarm",
+              "archetype_ref": "flying_leaf_tail",
+              "tier": "minion",
+              "count": "6-12",
+              "notes": "Winged rodents ~30cm long. Tail membrane mimics gnarltree leaf for camouflage. Omnivorous. Not threatening individually but attack in swarms of dozens if a nest is disturbed. Known to rip out ship wiring. Silhouette 0.",
+              "source_ref": "Nexus of Power p.28"
+            },
+            {
+              "role": "Butcherbug Web Trap",
+              "archetype_ref": null,
+              "tier": null,
+              "count": "variable",
+              "notes": "Trap, not a creature encounter. Razor-sharp hardened silk web. Hard Vigilance check to spot and avoid (add setback for Dagobah's low light and mist). Failure: 5 wounds +1 per threat. Triumph on failure: Critical Injury. The butcherbug itself is fingernail-sized with green chitin shell — easily squashed but the traps are the danger.",
+              "source_ref": "Nexus of Power p.27"
+            }
+          ]
+        },
+        "swamp_floor": {
+          "description": "The lower biome beneath the canopy, in permanent twilight. Larger predators dominate. Dragonsnakes lurk beneath debris on the swamp surface. Knobby white spiders — the mobile juvenile form of gnarltrees — wander and hunt as carnivorous creatures up to two meters tall. Creeping posenaurs hunt in packs. The scrange is the apex predator.",
+          "roles": [
+            {
+              "role": "Gigantic Dragonsnake",
+              "archetype_ref": "gigantic_dragonsnake",
+              "tier": "nemesis",
+              "count": "1",
+              "notes": "Almost five meters long, half of which is serpentine tail. Two large forearms with clawed digits. Lurks beneath floating debris. Aquatic — cannot survive on land. Adversary 2. Terrifying (Hard fear check). Athletics 3, Brawl 4, Stealth 3. Claws: Damage 10 Crit 2 Knockdown Pierce 3. Maw: Damage 6 Crit 4. Knight-level adversary recommended.",
+              "source_ref": "Nexus of Power p.28"
+            },
+            {
+              "role": "Lurking Scrange",
+              "archetype_ref": "lurking_scrange",
+              "tier": "nemesis",
+              "count": "1",
+              "notes": "",
+              "source_ref": "Nexus of Power p.28"
+            },
+            {
+              "role": "Creeping Posenaur pack",
+              "archetype_ref": "creeping_posenaur",
+              "tier": "rival",
+              "count": "3-6",
+              "notes": "Small vicious lizards, one meter tall, two-legged with long tails and webbed feet. Pack hunters. Individual posenaurs avoid larger creatures but a pack can take down prey many times their size. Brawl 3. Bite: Damage 6 Crit 3. Clawed foot: Damage 4 Crit 3 Pierce 3.",
+              "source_ref": "Nexus of Power p.26"
+            },
+            {
+              "role": "Knobby White Spider",
+              "archetype_ref": "knobby_white_spider",
+              "tier": "rival",
+              "count": "1-2",
+              "notes": "The mobile juvenile form of gnarltrees. Carnivorous creatures reaching up to two meters in height. Wander and feed until adulthood, when they plant their legs as roots and become gnarltrees. No stat block provided in sourcebooks.",
+              "source_ref": "FaD Core p.373, Nexus of Power p.25"
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "fad_force_pilgrimage": {
+        "name": "Force Pilgrimage to Dagobah",
+        "description": "The PCs are Force-sensitive characters who have learned of Dagobah's existence — through a holocron, a vision, a dying mentor's last words, or a fragment of corrupted BoSS data. They must first solve the problem of finding the planet, then survive the landing, then navigate the hostile swamps to reach the dark side cave. The pilgrimage is a test of character: the cave will force each PC to confront their deepest fears and emotional weaknesses. Success or failure in the cave is less about the skill checks and more about whether the PC gave in to fear, anger, or hate. The GM should personalize each PC's vision based on their Morality, emotional strengths and weaknesses, and backstory. PCs who emerge may have a deeper understanding of themselves — or may have taken a step closer to the dark side.",
+        "initial_faction_states": {},
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A recovered Jedi holocron contains fragmented coordinates and a cryptic warning: 'The cave holds what you bring with you.' The coordinates point to an empty region of the Rimma Trade Route in the Sluis sector.",
+          "A Force vision during meditation shows a gnarled tree above a dark cave entrance, and a cold presence beckoning. The PC knows instinctively that this place exists and that they must find it.",
+          "A dying hermit — a former Jedi who escaped Order 66 — presses a datacard into the PC's hand and whispers 'Dagobah' before expiring. The datacard contains partial hyperspace coordinates that will require an Astrogation check to complete.",
+          "Jubba bird smugglers in a cantina let slip the name of a swamp world where the Force is 'thick enough to drink.' They refuse to share coordinates unless the PCs do them a dangerous favor first.",
+          "The Empire is racing to follow up on a lead about a possible surviving Jedi hiding on an uncharted Outer Rim world. The PCs must reach the planet first — to find the Jedi, to warn them, or simply to get there before Imperial Inquisitors do."
+        ],
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": "77-78",
+            "detail": "Adventuring in the Tree — GM guidance for running Dagobah adventures and dark side cave encounters"
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "373, 418",
+      "detail": "Primary Dagobah planet entry, Dark Side Cave description, Jubba Bird stat block"
+    },
+    {
+      "book": "Nexus of Power (Worlds Strong in the Force)",
+      "pages": "24-29, 77-78",
+      "detail": "Expanded Dagobah entry: background, history, points of interest (Mount Dagger, Dark Side Cave, Wellsprings), creatures (creeping posenaur, flying leaf-tail, butcherbug, gigantic dragonsnake, lesser bogwing, lurking scrange), vergence rules, GM guidance for Dagobah adventures"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "339",
+      "detail": "Dagobah listed as notable Rimma Trade Route location"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "348",
+      "detail": "Dagobah listed as notable Rimma Trade Route location"
+    },
+    {
+      "book": "GM Holocron 5.1.2",
+      "pages": "78",
+      "detail": "Vergence enabling Yoda to hide from the Empire; dark side cave obscuring Force presence"
+    },
+    {
+      "book": "Disciples of Harmony (Consular Sourcebook)",
+      "pages": "77, 79",
+      "detail": "Yoda and Luke Skywalker's mentor relationship on Dagobah; testing a student's character through pretending to be a simple native"
+    }
+  ]
+}

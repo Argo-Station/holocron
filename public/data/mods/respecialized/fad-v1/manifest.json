@@ -1,0 +1,37 @@
+{
+  "mod": "respecialized",
+  "version": "fad-v1",
+  "line": "fad",
+  "attribution": "reSpecialized Project (community). Rebuilds specialization trees; consumed with credit.",
+  "source_notes": {
+    "jerserra_s_influence": "",
+    "manipulate": "",
+    "misdirect": "Force and Destiny Core Rulebook",
+    "suppress": "Keeping the Peace",
+    "warde_s_foresight": "User Data"
+  },
+  "dataset_version": "tagged release 6Aug2026 1637 (reSpecialized Project)",
+  "retrieved": "2026-08-25",
+  "consumption_note": "Force and Destiny slice from the tagged release (R-F9-1: post-EotE slices bind at the August tag), consumed for NEW characters at F-100 M11 (rulings f100-m11-finish-line R-M11F-5, f100-m11-build-card step 11); held out of F-100 M6 by f100-m6-contracts R-M6K-20 until then.",
+  "counts": {
+    "specs": 16,
+    "added_specs": 11,
+    "overlay_talents": 171,
+    "career_powers": {
+      "careers": 7,
+      "specializations": 41,
+      "choice": 2,
+      "no_record": 8
+    }
+  },
+  "base_talents_reused": 40,
+  "label": "reSpecialized — Force and Destiny",
+  "group": "Community",
+  "kind": "variant",
+  "counts_basis": "rewrites = specs - added_specs (a tree the overlay carries that the base already had) · adds = added_specs · talents = overlay_talents - base_talents_reused (the remainder are the base’s own talents reused inside rewritten trees, and are not this mod’s to claim)",
+  "overlays": [
+    "careers",
+    "force_powers",
+    "signature_abilities"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/specialization.schema.json",
+  "title": "Specialization",
+  "description": "Canonical, app-owned specialization record incl. its talent tree. Ingested ONCE from oggdude_merged.json `specializations` (120 entries, clean dicts). The tree keeps layout-as-data (5 rows × 4 columns, connector links) because RAW purchase eligibility IS the grid (eote p.102). Replaces normalizeOggdude's specMap block.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "career_skills", "talent_tree"],
+  "$comment": "INGEST CONTRACT — Universal: 'true'|'false'|ABSENT -> bool, default false (69/120 absent). Source (114) OR Sources (14) -> sources[]. CareerSkills absent on 2 -> empty list allowed but reported. AddlCareerSkills (2/120) -> addl_career_skills. Attributes captured ONLY for non-zero ForceRating (4 universal Force-sensitive specs grant FR 1); all-zero Attributes/Requirements blocks are OggDude editor noise — dropped with the same all-zero integrity check as careers; Requirements with any non-zero member fail loud -> adjudication. TalentRows: Index/Cost/Talents.Key/Directions.Direction coerce; row cost integrity-checked against 5×(row+1) (eote p.102) — mismatch is a REPORT flag, not exclusion (custom content may differ).",
+  "properties": {
+    "id": { "$ref": "charbuild-common.schema.json#/$defs/id" },
+    "_source_key": { "type": "string", "description": "OggDude Key (e.g. 'ADVISOR'). Traceability only." },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "$ref": "charbuild-common.schema.json#/$defs/description" },
+    "universal": {
+      "type": "boolean",
+      "default": false,
+      "description": "Purchasable regardless of career (supplement category; core mechanism: any character may buy any spec, non-career +10 XP — fad p.106, eote p.39). Cost treatment of universal specs is an OPEN ITEM (U-CB1) in Docs/RULES_FOUNDATION_CHARBUILD.md."
+    },
+    "career_skills": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/skill_ref" },
+      "description": "The spec's additional career skills; they count as career skills for the PC. Only the STARTING spec grants 2 free ranks from these (eote p.44, p.102)."
+    },
+    "addl_career_skills": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/skill_ref" },
+      "description": "Rare extra career-skill grants (OggDude AddlCareerSkills, 2/120)."
+    },
+    "career_skill_choice_grants": {
+      "$ref": "charbuild-common.schema.json#/$defs/career_skill_choice_grants",
+      "description": "PLAYER-CHOSEN career skills: the player picks `count` skills from `pool`, and each becomes a CAREER SKILL for the PC (it does NOT grant a rank). Ruled by `f-eds-6-specializations-full-read` Q1a after the full read found the fact living only in prose (B-40): Republic Representative's printed grant is 'Charm, Cool, Knowledge (choose any one), and Negotiation', so `career_skills` could only ever hold three of its four. DELIBERATE DEVIATION from the ruling's letter, disclosed at the strip gate: Q1a said mirror the species `skill_choice_grants` shape, but that shape REQUIRES `rank_cap` because a species grant confers a RANK. This grant confers career-skill STATUS only — the spec has no free-rank sentence (it is universal; Q3) — so importing `rank_cap` would encode a rank that RAW does not give. The valuable half of the mirror is kept exactly: same `pool` vocabulary and R-ENUM-1 semantics, same generic-by-group resolver that THROWS on an unknown pool (B-36), same validator vocab-coverage arm (L1cb.5's template, extended as L1cb.6)."
+    },
+    "species_requirement": {
+      "type": "string",
+      "description": "Canonical species id a PC must have to take this spec; the creator prompts a species switch when it does not match. Promoted from the hardcoded `FC_SPEC_SPECIES_REQUIREMENT` map in player/app.jsx (condition C5, ruling `f-eds-6-specializations-full-read` §7) — the same app-shadows-registry class as the deleted FC_CAREER_DESC. One source: the map is retired and the UI reads this field. NOTE (§7, on the record): requiring the Clone species is STRICTER than the printed rule — Dawn of Rebellion p.108 predates the Clone species and says 'human males', so a plain-Human clone would be legal by the book. The mapping stands as ruled unless Jason says otherwise."
+    },
+    "restriction_note": {
+      "type": "string",
+      "description": "Short plain-language statement of a printed restriction on who may take this spec. DISPLAYED, NEVER ENFORCED — Jason ruled INFORM (§7 addendum, 2026-07-28): the tool informs the table and polices nothing new. Exists because Retired Clone Trooper's 'must be human males' (Dawn of Rebellion p.108) is a RAW fact whose SEX half has no other carrier in the product (the SPECIES half is enforced structurally via species_requirement). Mechanics voice: state the rule, not the book's prose. Rendered wherever the spec's details teach — picker detail and ADVANCEMENT."
+    },
+    "force_rating": { "$ref": "charbuild-common.schema.json#/$defs/force_rating" },
+    "min_force_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Printed Force Rating prerequisite to take this spec, from OggDude Attributes.Requirement.MinForceRating (1/120: Jedi Knight '2'). Mirrors force-power min_force_rating; the only non-noise Requirement in the data."
+    },
+    "bonus_career_powers": {
+      "oneOf": [
+        { "$ref": "charbuild-common.schema.json#/$defs/career_power_pair" },
+        { "$ref": "charbuild-common.schema.json#/$defs/career_power_choice" }
+      ],
+      "description": "F-100 M12 Career Powers (R-M12C-86): the tree's two bonus career powers (primer p.5, the tree's row; e.g. Healer Heal/Harm, Protect/Unleash), or the CHOICE form for Padawan and Master. A character's career powers are the career's pair plus every OWNED tree's bonus pair (primer p.4, the Prophet example). Pack-overlay only (D-146); DARK (R-M12B-2)."
+    },
+    "talent_tree": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "Five rows, top to bottom. Row XP costs are 5/10/15/20/25 (eote p.102). Eligibility: top row, or link-connected to an already-purchased talent (eote p.102).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cost", "talents"],
+        "properties": {
+          "cost": { "$ref": "charbuild-common.schema.json#/$defs/xp_cost" },
+          "talents": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "Four columns, left to right. The same ranked talent may appear at multiple positions; each position is a separate purchase (eote p.102).",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["talent", "links"],
+              "properties": {
+                "talent": { "$ref": "charbuild-common.schema.json#/$defs/talent_ref" },
+                "links": { "$ref": "charbuild-common.schema.json#/$defs/tree_links" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sources": { "$ref": "charbuild-common.schema.json#/$defs/sources" },
+    "_provenance": { "$ref": "charbuild-common.schema.json#/$defs/provenance" },
+    "_dataset": { "$ref": "charbuild-common.schema.json#/$defs/dataset" }
+  }
+}

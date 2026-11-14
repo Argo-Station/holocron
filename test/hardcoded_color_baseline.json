@@ -1,0 +1,33 @@
+{
+  "_why": "F-101 ratchet baseline (R-VR-4b). Per-module ceilings for UNKEYED hardcoded colours in shared view modules. A literal inside var(--token, fallback) is NOT counted: it is overridable by a ground, so it is the target state, not the defect. Ceilings may only go DOWN. Regenerate: .venv/bin/python scripts/census_hardcoded_colors.py --json",
+  "_measured_at": "feat/visual-revision, F-101 mechanism card, after R-VR-4c keyed the 17 SYMBOLS inks",
+  "_note": "The first cut of this baseline read 1139 because it counted var() fallbacks as hardcoded. That was wrong in two ways: it overstated the debt by 16 pre-existing fallbacks, and it made tokenizing invisible — keying the 17 SYMBOLS inks moved the total by zero. Fixed before any ceiling was trusted.",
+  "_transfer_2026_09_24": "R-SYV-1 (ruling shipyard-s0-vessel-store-reds, D-SYS0-1 (a)): the F-54 banner moved from lib/library/npc/view.jsx to lib/shared/ui.jsx with its one literal (commit f7be334b) — ui.jsx 239 -> 240, npc view.jsx 400 -> 399, net 0. A move adds no literal; the ratchet counts per module. The total is unchanged.",
+  "_transfer_2026_09_28": "lib/shared/treeView.jsx banked at 37 by ruling f100-m5-talents R-M5T-4: the talent/Force tree's block MOVED WHOLE out of player/app.jsx (C7), its old colours with it — not new code, so row 6b admits it by name; tokenizing it is a looks change (R-MU1), not M5's. The same lap added 8 rgba() literals on the player's DARK face (the legacy house-rules notice, 3; the legacy U15 door, 5): THIS LAP'S, counted in player/app.jsx's surface figure (1513 at carry -> 1484 now: -37 moved, +8 new) until N-post deletes that face; the surface ceiling (1329) is not re-banked here — row 6e was red before this lap.",
+  "_transfer_2026_11_09": "lib/shared/diceHub.jsx banked at 4 by ruling encounters-e3-dicehub-move D-E3DM1 (a), condition M1, on R-M5T-4's precedent: DiceHub's closure MOVED WHOLE out of player/app.jsx (D-507), its 4 colours with it (2 functional, 2 named) — not new code, so row 6b admits it by name; tokenizing them is a looks change (R-MU1) that the move's clause 1 forbids. player/app.jsx's surface ceiling is not re-banked here.",
+  "total": 1085,
+  "ceilings": {
+    "lib/dice/diceSurface.jsx": 39,
+    "lib/game/hyperspaceRun/ui.jsx": 21,
+    "lib/library/npc/view.jsx": 399,
+    "lib/shared/desktopLayout.jsx": 1,
+    "lib/shared/diceRoll.jsx": 61,
+    "lib/shared/diceUI.jsx": 34,
+    "lib/shared/holotableCompose.jsx": 0,
+    "lib/shared/holotableView.jsx": 5,
+    "lib/shared/roomSession.jsx": 0,
+    "lib/shared/ui.jsx": 240,
+    "lib/shared/vesselView.jsx": 12,
+    "lib/shared/yardView.jsx": 36,
+    "lib/store/view.jsx": 237,
+    "lib/shared/treeView.jsx": 37,
+    "lib/shared/diceHub.jsx": 4
+  },
+  "_surface_why": "R-CSC-5: a SECOND, separately-banked section for SURFACES. The `ceilings` map above is the MODULE population and its meaning is untouched — coverage grows by ADDING sections, never by redefining a banked one, because a re-tuned yardstick makes every number anyone has quoted mean something else. Surfaces were invisible to the module census by its own definition (\"app.jsx is a surface, not shared\"), which left surface one's whole debt outside the ratchet — a hole exactly where the work was.",
+  "_surface_measured_at": "feat/visual-revision, F-101 surface one. Re-banked 2026-08-30 at the template gate's SIGN-OFF (ruling `visual-revision-creator-template-gate` R-VTG-2, decision D-VRT2(a)) from 1456 to the measured 1329 — 127 sites keyed across the flip and the characteristics adoption. The re-bank lands in the SIGN-OFF commit and never inside the gate that cites the measurement: a yardstick is not moved in the same act it measures. Banked at the measured count, not at zero: a 21,968-line surface born at ceiling 0 would be a guard that is red on arrival and therefore switched off.",
+  "surface_total": 1712,
+  "surface_ceilings": {
+    "gm/app.jsx": 256,
+    "player/app.jsx": 1329
+  }
+}

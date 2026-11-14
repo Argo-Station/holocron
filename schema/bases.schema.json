@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/bases.schema.json",
+  "title": "Bases of operation registry",
+  "description": "S4's registry (release-r4-shapes A1.3; shape ruled by release-r6-bases-registry Q1 (a)). Ids are OggDude's keys, matching the save shape's `<BaseFoci key>` / `<BaseUpgrades key>`; option keys are scoped by their upgrade. Every number is the printed table's (cite = PRINTED page). A group's base stores keys only; every derived number is worked out at render (lib/shared/baseDerive.js).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "generated_from", "generated_by", "_provenance", "_doc", "count", "types", "foci", "upgrades"],
+  "properties": {
+    "schema": {"const": "bases.schema.json"},
+    "schema_version": {"const": 1},
+    "generated_from": {"type": "string"},
+    "generated_by": {"type": "string"},
+    "_provenance": {"type": "string"},
+    "_doc": {"type": "string"},
+    "count": {
+      "type": "object", "additionalProperties": false, "required": ["types", "foci", "upgrades"],
+      "properties": {"types": {"type": "integer"}, "foci": {"type": "integer"}, "upgrades": {"type": "integer"}}
+    },
+    "types": {"type": "object", "additionalProperties": {"$ref": "#/$defs/type"}},
+    "foci": {"type": "object", "additionalProperties": {"$ref": "#/$defs/focus"}},
+    "upgrades": {"type": "object", "additionalProperties": {"$ref": "#/$defs/upgrade"}}
+  },
+  "$defs": {
+    "key": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "cite": {"type": "string", "pattern": "^.+ p\\.[0-9]+(-[0-9]+)?$"},
+    "type": {
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "name", "cite", "cost", "pays", "rank_grant_max", "profit", "core_ally", "allies_get_focus_rank", "text", "foci", "upgrades", "ogg_key"],
+      "properties": {
+        "key": {"enum": ["HOMESTEAD", "BUSINESS", "REBELBASE", "CIVREFIT"]},
+        "name": {"type": "string", "minLength": 1},
+        "cite": {"$ref": "#/$defs/cite"},
+        "cost": {
+          "description": "The type's basic price, or null when none is printed. `waived_when`: the `start` value that waives it (Far Horizons pp.82, 84: in lieu of the starting ship).",
+          "oneOf": [
+            {"type": "null"},
+            {"type": "object", "additionalProperties": false, "required": ["credits", "obligation", "waived_when"],
+             "properties": {"credits": {"type": "integer", "minimum": 0}, "obligation": {"type": "integer", "minimum": 0},
+                            "waived_when": {"enum": ["creation"]}}}
+          ]
+        },
+        "pays": {"type": "array", "items": {"enum": ["credits", "obligation", "rank"]}, "minItems": 1, "uniqueItems": true},
+        "rank_grant_max": {"oneOf": [{"type": "null"}, {"type": "integer", "minimum": 1}]},
+        "profit": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "object", "additionalProperties": false, "required": ["upgrade", "per_member_per_month", "text", "cite"],
+             "properties": {"upgrade": {"$ref": "#/$defs/key"}, "per_member_per_month": {"type": "integer", "minimum": 1},
+                            "text": {"description": "The rule told beside the profit line (FH p.82's sidebar: GM discretion, no number).", "type": "string"},
+                            "cite": {"$ref": "#/$defs/cite"}}}
+          ]
+        },
+        "core_ally": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "object", "additionalProperties": false, "required": ["name", "cite", "stats", "text"],
+             "properties": {"name": {"type": "string"}, "cite": {"$ref": "#/$defs/cite"}, "stats": {"type": "null"}, "text": {"type": "string"}}}
+          ]
+        },
+        "allies_get_focus_rank": {"type": "boolean", "description": "Far Horizons p.83: an NPC Ally has 1 rank in the base's focus skill. Desperate Allies p.89 grants none."},
+        "text": {"type": "string", "minLength": 1},
+        "foci": {"type": "array", "items": {"$ref": "#/$defs/key"}, "uniqueItems": true},
+        "upgrades": {"type": "array", "items": {"$ref": "#/$defs/key"}, "minItems": 1, "uniqueItems": true},
+        "ogg_key": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/key"}]}
+      }
+    },
+    "focus": {
+      "type": "object", "additionalProperties": false, "required": ["key", "name", "cite", "skill", "choose", "text"],
+      "properties": {
+        "key": {"$ref": "#/$defs/key"},
+        "name": {"type": "string", "minLength": 1},
+        "cite": {"$ref": "#/$defs/cite"},
+        "skill": {"description": "The skill this focus makes a career skill for every member, or null (a chosen skill, or a Rebel focus with no mechanic).", "oneOf": [{"type": "null"}, {"type": "string"}]},
+        "choose": {
+          "description": "The focus's skill is the party's pick from this list, stored as the base's `focusSkill`.",
+          "oneOf": [{"type": "null"},
+                    {"type": "object", "additionalProperties": false, "required": ["from"],
+                     "properties": {"from": {"type": "array", "items": {"type": "string"}, "minItems": 2, "uniqueItems": true}}}]
+        },
+        "text": {"type": "string"}
+      }
+    },
+    "ally": {
+      "type": "object", "additionalProperties": false, "required": ["characteristics", "others", "skills"],
+      "properties": {
+        "characteristics": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1, "maximum": 6},
+                            "propertyNames": {"enum": ["brawn", "agility", "intellect", "cunning", "willpower", "presence"]}},
+        "others": {"type": "integer", "minimum": 1},
+        "skills": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["skill_ref", "rank"],
+                                              "properties": {"skill_ref": {"type": "string"}, "rank": {"type": "integer", "minimum": 1}}}}
+      }
+    },
+    "upgrade": {
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "name", "cite", "credits", "obligation", "count", "distinct_options", "options", "text", "ogg_key"],
+      "properties": {
+        "key": {"$ref": "#/$defs/key"},
+        "name": {"type": "string", "minLength": 1},
+        "cite": {"$ref": "#/$defs/cite"},
+        "credits": {"type": "integer", "minimum": 0},
+        "obligation": {"description": "The printed Obligation price, or null where the type pays no Obligation.", "oneOf": [{"type": "null"}, {"type": "integer", "minimum": 1}]},
+        "count": {"description": "How many times it may be bought; null = no printed cap.", "oneOf": [{"type": "null"}, {"type": "integer", "minimum": 1}]},
+        "distinct_options": {"type": "boolean"},
+        "options": {
+          "oneOf": [{"type": "null"},
+                    {"type": "array", "minItems": 2, "items": {
+                      "type": "object", "additionalProperties": false, "required": ["key", "name"],
+                      "properties": {"key": {"$ref": "#/$defs/key"}, "name": {"type": "string"}, "skill": {"type": "string"}, "ally": {"$ref": "#/$defs/ally"}}}}]
+        },
+        "text": {"type": "string", "minLength": 1},
+        "rarity_decrease": {"type": "integer", "minimum": 1},
+        "restricted": {"type": "boolean"},
+        "decision": {"description": "The DECISIONS.md entry whose page read supplies a value the scan lost (R-DIB-8), e.g. 'D-373'.", "type": "string", "pattern": "^D-[0-9]+$"},
+        "ogg_key": {"description": "OggDude's key, or null for a printed row OggDude lacks.", "oneOf": [{"type": "null"}, {"$ref": "#/$defs/key"}]}
+      }
+    }
+  }
+}

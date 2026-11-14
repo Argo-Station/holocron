@@ -1,0 +1,166 @@
+{
+  "id": "church_of_the_force",
+  "name": "Church of the Force",
+  "type": "religious_movement",
+  "era_active": [
+    "imperial",
+    "rebellion",
+    "sequel"
+  ],
+  "overview": "The Church of the Force is an underground faith of ordinary, non-Force-sensitive believers who hold that the Jedi ideal — compassion, selflessness, harmony with the living Force — must be kept alive in the galaxy even with the Jedi Order destroyed. It has no temples it can defend, no army, and no Force-users; it has pilgrims, hidden congregations, memorized lore, and an unkillable conviction that the light returns. Under the Empire its faith is sedition: venerating the Jedi is venerating traitors. Its members light lanterns on Jedha, hide fragments of Jedi teaching inside folk practice, and pass artifacts and oral histories from hand to trusted hand.",
+  "short_descriptor": "Believers without powers, keeping the Jedi flame lit in secret. Harmless to everyone except the Empire's version of history.",
+  "witness_statement": {
+    "text": "You expect robes and lightsabers and you get a dusty old man pouring tea who happens to know the lineage of every Jedi master back nine hundred years. They don't fight. They remember. The Empire burned the archives, so these people became the archive — and the Empire hates them for it more than it ever hated a blaster."
+  },
+  "history": [
+    {
+      "heading": "ORIGINS",
+      "text": "The Church coalesced in the Empire's first years from prayer circles, Jedi-adjacent lay traditions, and pilgrimage communities — most visibly in Jedha's Holy City, where the faith's public face survived longest under occupation."
+    },
+    {
+      "heading": "SURVIVAL UNDER THE EMPIRE",
+      "text": "Driven underground by Imperial doctrine that recast the Jedi as traitors, congregations scattered and adapted: worship folded into local custom, relics dispersed into private hands, teaching reduced to what could be carried in memory. The faith endured the Empire's fall and outlived it; decades later its village congregations and old believers were still keeping vigil for the light's return."
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "CONGREGATIONS",
+      "text": "Cell-like by necessity rather than design: autonomous congregations under local elders, connected by pilgrim routes, traveling preachers, and relic custodians."
+    },
+    {
+      "heading": "WHAT IT TRADES IN",
+      "text": "The Church doesn't recruit; it receives. It trades in shelter, memory, and quiet logistics — a safe room for a hunted Force-sensitive, a name in another system, a fragment of teaching recited from memory."
+    },
+    {
+      "heading": "DISCIPLINE",
+      "text": "Its discipline is silence: members compartmentalize knowledge of one another as a matter of devotion as much as security."
+    }
+  ],
+  "motivations": {
+    "primary": "Preserve the Jedi ideal and its teachings through the dark age",
+    "secondary": [
+      "Protect relics, texts, and oral lore from Imperial destruction",
+      "Shelter the persecuted — Force-sensitives above all",
+      "Keep the pilgrimage traditions alive, openly where possible, secretly where not"
+    ]
+  },
+  "goals": {
+    "strategic": [
+      "Outlast the Empire: carry the memory of the Jedi intact to whatever comes after",
+      "Maintain the dispersed network of custodians so no single raid can erase the faith's holdings"
+    ],
+    "tactical": [
+      "Move endangered relics and people along pilgrim routes ahead of Imperial sweeps",
+      "Maintain plausible cover as folk religion, charity, and local custom",
+      "Vet seekers carefully — the ISB's favorite door into the Church is a forged conversion"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "concealment",
+      "memorization",
+      "sanctuary",
+      "pilgrimage_networks",
+      "quiet_charity"
+    ],
+    "avoided": [
+      "violence",
+      "armed_resistance",
+      "public_confrontation",
+      "centralization"
+    ]
+  },
+  "strengths": [
+    "Nothing to decapitate: no hierarchy, no headquarters, no membership rolls — every congregation lost is a wound, never a kill",
+    "Genuine popular cover: the faith lives inside ordinary communities that will not inform on their own",
+    "Custodians of irreplaceable knowledge — Jedi lore, relic provenance, and pilgrimage-route geography that exists nowhere else"
+  ],
+  "weaknesses": [
+    "Defenseless in any direct confrontation — survival depends entirely on not being found",
+    "Compartmentalization cuts both ways: when a custodian dies unexpectedly, what they carried dies with them",
+    "Visible devotion is identifiable devotion — pilgrimage sites like Jedha concentrate believers where an occupier can watch them"
+  ],
+  "behavior_under_threat": {
+    "low": "Go quiet. Services fold into ordinary gatherings; relics move to secondary custodians; the congregation becomes a neighborhood again.",
+    "medium": "Disperse and reroute: endangered members and holdings travel the pilgrim network out-system; elders submit to questioning to buy time for the rest.",
+    "high": "Scatter and endure. Congregations dissolve entirely, members martyred or imprisoned; the faith survives as memorized teaching carried by survivors to seed new circles elsewhere."
+  },
+  "alert_escalation": {
+    "communication_method": "word_of_mouth",
+    "escalation_speed": "days",
+    "chain_of_command": [
+      "Congregation elder",
+      "Route custodian (pilgrim-network contact)",
+      "No higher authority exists — escalation is dispersal, not command"
+    ]
+  },
+  "ally_factions": [
+    "guardians_of_the_whills",
+    "jedi_remnants"
+  ],
+  "enemy_factions": [
+    "imperial_security_bureau",
+    "inquisitorius"
+  ],
+  "relationship_notes": {
+    "guardians_of_the_whills": "Kindred but distinct: the Guardians are Jedha's warrior-monastic order protecting the holy sites; the Church is the lay faith of believers across the galaxy. On Jedha they interleave — Guardians protect what the Church venerates.",
+    "jedi_remnants": "The Church shelters surviving Force-users without hesitation and asks nothing in return — though a hunted Jedi's presence endangers any congregation that hides one, and both sides know it.",
+    "imperial_security_bureau": "The ISB treats the Church as a sedition vector: bounty hunters work Jedha from ISB-generated suspect lists of rumored Church members (source: dawn p.42). Its infiltration attempts are patient and its raids exemplary.",
+    "inquisitorius": "Inquisitors follow the Church's trails hunting the Force-sensitives it shelters — to an Inquisitor, a congregation is bait."
+  },
+  "tension_patterns": [
+    "Sheltering a hunted Force-sensitive versus endangering an entire congregation — the Church's recurring moral crisis",
+    "Custodians who treat relics as sacred trusts versus desperate members who would trade them for lives",
+    "Rebel cells courting Church networks for logistics, against the faith's refusal of violence — sympathy without enlistment"
+  ],
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "low",
+    "weapon": "low",
+    "person": "high",
+    "artifact": "high",
+    "technology": "low",
+    "notes": "Jedi artifacts and the people who carry the teaching are everything; the Church will move worlds quietly for a relic or a refugee and lift no finger for credits or weapons."
+  },
+  "presence_by_location_type": {
+    "infrastructure": "minimal",
+    "transit": "minimal",
+    "economic": "minimal",
+    "command": "minimal",
+    "informational": "skeleton",
+    "military": "minimal",
+    "hidden": "garrison"
+  },
+  "regional_presence": {
+    "deep_core": "minimal",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "moderate",
+    "mid_rim": "moderate",
+    "outer_rim": "significant",
+    "wild_space": "minimal",
+    "unknown_regions": "minimal"
+  },
+  "prominent_figures": [
+    {
+      "name": "Lor San Tekka",
+      "role": "Traveling believer and lorekeeper; custodian of Jedi-related knowledge",
+      "suggested_tier": "rival",
+      "stat_block_ref": null,
+      "era": [
+        "rebellion",
+        "sequel"
+      ]
+    }
+  ],
+  "field_sources": {
+    "overview": "FFG corpus: Dawn of Rebellion p.42 — the underground Church of the Force has rumored members on Jedha, hunted by bounty hunters working ISB-generated suspect lists (a passing but direct mention; the only corpus appearance found). Screen canon (Rogue One's Jedha; The Force Awakens' Lor San Tekka) supplies the wider framing.",
+    "presence_by_location_type": "App-authored GM-toolkit calibration: a hidden faith — negligible open presence, deep hidden presence.",
+    "regional_presence": "App-authored calibration: strongest where Imperial attention is thinnest and pilgrimage sites lie (Outer Rim, Jedha)."
+  },
+  "source_material_notes": "RPG-GROUNDED at the mention level (oracle pass 2026-06-11): Dawn of Rebellion p.42 names the underground Church of the Force on Jedha with ISB suspect lists after its members — directly corroborating this dossier's hunted-underground framing. No substantive FFG treatment exists; the full dossier is screen-canon synthesis (Rogue One, The Force Awakens) shaped to the GM-toolkit schema, anchored to that citation.",
+  "source_refs": [
+    "Dawn of Rebellion"
+  ]
+}

@@ -1,0 +1,1024 @@
+{
+  "id": "mon_calamari",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Mon Calamari",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Calamari sector",
+    "system": "Calamari",
+    "grid": "U-6",
+    "era": "galactic_civil_war",
+    "essence": "Mon Cala is an ocean world that gave rise to two civilizations and then liberated itself from the Empire through sheer collective will. The Mon Calamari are artists and dreamers who build warships as works of art. The Quarren are pragmatists and miners who build with their hands in the dark. Together they endured Imperial enslavement, orbital bombardment, and the destruction of three cities before fighting their way to freedom. Now their shipyards churn out capital ships for the Rebel Alliance, making Mon Cala one of the most strategically vital worlds in the galaxy. The abyssal oceans hold wonders the Empire never discovered: the Knowledge Bank, a telepathic hive-mind organism that has recorded all of Mon Cala's history; keelkana war mounts ridden by an ancient order of knights; and sentient Whaladons who communicate in song. It is a vertical world where floating cities drift above trenches miles deep, and the politics between surface-dwellers and deep-sea miners mirror the planet's geography.",
+    "atmosphere": "An endless ocean under a pale sky, broken only by scattered reefs and atolls. Floating cities of pearl-pink coral and bright blue-green architecture drift across the surface, connected by drone shuttle networks. Below the waterline, the cities extend downward for hundreds of meters, illuminated by bioluminescence and bright-green navigation lights. Current tubes shoot swimmers through the depths at thirty kilometers per hour. Pressurized turbolifts dangle from buoyant surface districts to ancient anchored foundations on the ocean floor. In the deep trenches, Quarren mining camps cluster around volcanic vents in murky darkness. The orbital shipyards form a ring around the planet, busy with construction gantries where every vessel emerging is unique, shaped by the artistic whims of its builders.",
+    "reputation": "The Mon Calamari are among the most respected species in the galaxy: artisans, engineers, dreamers, and devoted allies once they choose a cause. Their ships are works of art that also happen to be devastating warships. The Quarren are their opposite in temperament but equal in capability: pragmatic, cautious, superb miners and builders who distrust outsiders and resent millennia of Mon Calamari cultural dominance. Together they liberated their world from the Empire and committed everything to the Rebellion. Admiral Ackbar is from Coral Depths. The B-Wing fighter was designed by the Mon Calamari engineer Quarrie. The MC80 star cruisers are the backbone of the Alliance fleet. Mon Cala is one of the few worlds to openly and formally join the Rebellion, and its shipyards are the reason the Alliance has any capital ships at all."
+  },
+  "compendium": {
+    "background": "",
+    "government": "representative council (Dac Council)",
+    "population": "",
+    "languages": "Mon Calamarian, Quarrenese, Basic",
+    "terrain": "oceans, reefs",
+    "major_cities": "Coral City (capital, formerly Mon Calamari City), Coral Depths, Foamwander, Quarren City, Aquarius, Heurkea",
+    "areas_of_interest": "",
+    "exports": "seafood, high technology, starships",
+    "imports": "foodstuffs, medicine, technology",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": ""
+    },
+    {
+      "era": "imperial_occupation",
+      "delta": ""
+    }
+  ],
+  "geography": {
+    "structure_type": "oceanic_vertical",
+    "structure_notes": "A water-covered world with no significant landmasses. Cities are vertical environments extending from the ocean floor to the surface. Floating buoyant cities drift on the surface while deep-sea settlements are anchored to the seafloor or built into trench walls. The planet's geography is defined by depth: Mon Calamari traditionally occupy the surface and shallow waters, while Quarren occupy the deep ocean floor. Mining trenches, volcanic vents, coral reefs, and undersea forests create a complex three-dimensional environment.",
+    "districts": [
+      {
+        "id": "coral_city",
+        "name": "Coral City (Mon Calamari City)",
+        "character": "The capital of Mon Cala. A buoyant metropolis half-submerged. The surface portion stretches toward the stars in pearl, pink, salmon, and bright blue-green buildings. Below the waterline, the city extends hundreds of meters down. Transit via current tubes that shoot swimmers at thirty kilometers per hour, undersea mounts, and pressurized turbolifts connecting surface to depths. Since restoring their government, the Mon Calamari and Quarren call it Coral City.",
+        "authority": "Dac Council",
+        "crime_index": "low",
+        "strategic_value": [
+          "political",
+          "infrastructure",
+          "cultural"
+        ],
+        "notes": "Features the high-tech infrastructure used by the Dac Council. One of three shield generator sites. Hometown of Admiral Ackbar (Coral Depths district). Built to facilitate trade and negotiations with non-aquatic species."
+      },
+      {
+        "id": "coral_depths",
+        "name": "Coral Depths",
+        "character": "",
+        "authority": "Dac Council",
+        "crime_index": "low",
+        "strategic_value": [
+          "cultural",
+          "political"
+        ],
+        "notes": "Contains earliest engineering marvels of Mon Calamari and Quarren. The Royal Palace's museum preserves the history of eighty-three generations of monarchy."
+      },
+      {
+        "id": "quarren_city",
+        "name": "Quarren City",
+        "character": "",
+        "authority": "Quarren Industrial (de facto), Dac Council (official)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Considered the Quarren capital until the Dac Council unified governance. Site from which the Quarren amassed a Confederacy army during the Clone Wars. Quarren Industrial is one of the city's most powerful factions."
+      },
+      {
+        "id": "foamwander",
+        "name": "Foamwander",
+        "character": "Among Mon Cala's oldest and largest floating cities. Drifts in a small pattern around the Knowledge Bank. Vaguely pyramidal, pearl-colored outer shell often mistaken for a large iceberg. Surface is almost entirely docking bays funneling toward a central marketplace. Bulk is below the waterline. One of the largest trade hubs on Mon Cala.",
+        "authority": "Dac Council, local merchants",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Contains the Datum District (financial market and commodity exchanges), the Hangar Market (central marketplace for offworld and local goods), and is near the Knowledge Bank. One of three shield generator sites. Early resistance conducted by the Foamwander Five."
+      },
+      {
+        "id": "heurkea",
+        "name": "Heurkea",
+        "character": "",
+        "authority": "Dac Council",
+        "crime_index": "low",
+        "strategic_value": [
+          "military"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "morjanssik",
+        "name": "Morjanssik",
+        "character": "",
+        "authority": "Quarren leadership, Dac Council (nominal)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Built during the Clone Wars era as a symbol of Quarren independence. Farium mining supports the shipbuilding industry."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Quarren",
+      "population_level": "dominant",
+      "social_role": "Miners, laborers, shipbuilders, fire-keepers. Pragmatic and cautious. Operate heavy machinery and build ships alongside the Mon Calamari. Long history of resentment toward Mon Calamari cultural dominance. Skilled gem-cutters and coral-shapers. Taught hundreds of ancestral songs preserving their history. Better adapted to endure hardship than the Mon Calamari.",
+      "districts": [
+        "quarren_city",
+        "coral_depths",
+        "morjanssik",
+        "heurkea"
+      ]
+    },
+    {
+      "name": "Mon Calamari",
+      "population_level": "significant_minority",
+      "social_role": "Engineers, shipwrights, artists, scientists, explorers, naval officers. Value creativity, honor, and intelligence. Great patrons of the arts: ballet, shell horn bands, sculpture. Consider shipbuilding an art form. Traditionally surface-dwellers. Natural amphibians who live primarily above the ocean surface on floating cities. Now vowed to treat the Quarren as equals after recognizing the injustice of millennia of inequality.",
+      "districts": [
+        "coral_city",
+        "coral_depths",
+        "foamwander",
+        "heurkea"
+      ]
+    },
+    {
+      "name": "Whaladon",
+      "population_level": "minority",
+      "social_role": "Sentient cetacean marine mammals reaching nearly thirty meters in length. Coexisted with Quarren and Mon Calamari for millennia. Maintain an unofficial embassy around the domed city of Aquarius. Communicate in songlike calls. Hunted by offworlders for sport and profit despite their sentience.",
+      "districts": []
+    },
+    {
+      "name": "Other (Moappa, Knowledge Bank, transient species)",
+      "population_level": "minority",
+      "social_role": "The Moappa possess forms of intelligence. The Knowledge Bank is a semisentient telepathic hive-mind organism. Various offworld species pass through for trade, particularly at Foamwander's Hangar Market. Priapulins and Iyra seek asylum at Krinemonen 3.",
+      "districts": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "dac_council",
+      "name": "Dac Council (Planetary Government)",
+      "galaxy_faction_ref": "rebel_alliance",
+      "type": "government",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "low",
+        "financial": "moderate",
+        "note": ""
+      },
+      "motivation": "Defend Mon Cala's independence from Imperial reprisal. Build warships for the Rebel Alliance. Maintain the fragile peace between Mon Calamari and Quarren under the new representative government. Ensure the Quarren are genuinely represented after millennia of systemic inequality under the monarchy.",
+      "assets": [
+        "Mon Calamari Shipyards (orbital ring)",
+        "Krinemonen 3 shipyards (MC30a and MC40a production)",
+        "Defensive fleet of converted passenger liners",
+        "Three-layer defense system: sensor net, interdiction pickets, home fleet",
+        "Planetary shield generators at Coral City, Foamwander, and Reef Home",
+        "Dac Council legislative authority over Mon Cala and colonial systems"
+      ],
+      "relationships": [
+        {
+          "faction_id": "rebel_alliance_moncala",
+          "type": "allied",
+          "notes": "Mon Cala formally joined the Rebellion after liberation. The Alliance helped fortify Mon Calamari Space and receives capital ships from the shipyards."
+        },
+        {
+          "faction_id": "quarren_industrial",
+          "type": "cooperative_tense",
+          "notes": "Quarren Industrial is represented on the council. The truce between species is real but the Quarren harbor historical resentment. Many Quarren are willing to try the new government but old prejudices remain."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Fleet construction schedules, defensive fleet dispositions, sensor net coverage gaps. Any intelligence about Mon Calamari Space defenses."
+        },
+        {
+          "type": "resource",
+          "reason": "Raw materials for shipbuilding. The nearby asteroid belt provides bulk materials but specialized components must be imported."
+        }
+      ]
+    },
+    {
+      "id": "imperial_remnant_sector",
+      "name": "Imperial Forces (Calamari Sector)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "none",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Empire was driven from Mon Cala after the planetwide uprising. Grand Moff Therbon commands sector forces but has been unable to retake the system. Imperial forces are positioned outside Mon Calamari Space, probing defenses and seeking opportunities to strike. The destruction of Ruisto was an act of frustrated vengeance."
+      },
+      "motivation": "Retake Mon Calamari Space and its shipyards. Punish the Mon Calamari and Quarren for their rebellion. Deny the Rebel Alliance its primary source of capital ships. Grand Moff Therbon is personally frustrated by his inability to reconquer the system.",
+      "assets": [
+        "Sector fleet outside Mon Calamari Space",
+        "Intelligence operatives seeking weaknesses in the three-layer defense",
+        "Potential Quarren collaborators who still harbor pro-Imperial or anti-Mon Calamari sentiment"
+      ],
+      "relationships": [
+        {
+          "faction_id": "rebel_alliance_moncala",
+          "type": "adversarial",
+          "notes": "Primary military opposition. Imperial forces probe Alliance defenses and seek opportunities for a decisive strike."
+        },
+        {
+          "faction_id": "dac_council",
+          "type": "adversarial",
+          "notes": "The Empire considers the Dac Council an illegitimate rebel government."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Sensor net coverage maps, interdiction picket schedules, fleet deployment data. Anything that reveals gaps in Mon Calamari Space defenses."
+        },
+        {
+          "type": "person",
+          "reason": "Quarren dissidents willing to sabotage defenses as Seggor Tels did during the initial invasion. Mon Calamari shipwrights who could be coerced or turned."
+        },
+        {
+          "type": "resource",
+          "reason": "Stolen shipyard schematics, particularly the MC-series modular weapons blister designs adapted from Loronar Corporation Strike-class cruiser plans."
+        }
+      ]
+    },
+    {
+      "id": "quarren_industrial",
+      "name": "Quarren Industrial",
+      "galaxy_faction_ref": null,
+      "type": "corporate",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "Quarren Industrial creates mining vehicles, some automated, drawing on its wealth of mining experience. Tests designs in the Alopia Rift, then sells them across the galaxy. Designs are among the best for undersea mining. Also offers repulsorlift mining vehicles for non-aquatic markets. One of the most powerful factions in Quarren City."
+      },
+      "motivation": "Profit from mining vehicle sales. Expand into galactic markets beyond Mon Calamari Space. Assert Quarren economic independence and influence within the Dac Council.",
+      "assets": [
+        "Mining vehicle design and manufacturing facilities",
+        "Alopia Rift testing grounds",
+        "Distribution network for undersea and repulsorlift mining vehicles",
+        "Political influence in Quarren City and on the Dac Council"
+      ],
+      "relationships": [
+        {
+          "faction_id": "dac_council",
+          "type": "cooperative",
+          "notes": "Represented on the council. Uses economic influence to advocate for Quarren interests."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Heavy metals and gemstones from the Alopia Rift. New mining sites. Raw materials for vehicle production."
+        },
+        {
+          "type": "data",
+          "reason": "Competitor mining vehicle designs. New market opportunities in systems with underwater or subterranean mining operations."
+        }
+      ]
+    },
+    {
+      "id": "mon_calamari_priesthood",
+      "name": "Priesthood of Pakoukou",
+      "galaxy_faction_ref": null,
+      "type": "religious",
+      "control_type": [
+        "cultural"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "none",
+        "financial": "none",
+        "note": ""
+      },
+      "motivation": "Protect the Knowledge Bank from discovery. Safeguard the Mkbuto Seatree Preserve and the undersea forests. Preserve Mon Calamari spiritual traditions and creation myths. Recent expeditions have uncovered a massive fault line along the Mkbuto island chain, sparking renewed interest in the priesthood.",
+      "assets": [
+        "Exclusive access to the Knowledge Bank",
+        "Mkbuto Seatree Preserve guardianship",
+        "Meditative communion techniques",
+        "Network of devotees with Calamari blessing pots in their homes"
+      ],
+      "relationships": [
+        {
+          "faction_id": "dac_council",
+          "type": "advisory",
+          "notes": "The priesthood historically advised the king. Their role under the Dac Council is less defined but their control of Knowledge Bank access gives them unique value."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "The Knowledge Bank has recorded all history on Mon Cala since achieving sentience. Any historical question can potentially be answered through communion."
+        },
+        {
+          "type": "artifact",
+          "reason": ""
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "mon_calamari_shipyards",
+      "name": "Mon Calamari Shipyards (Orbital Ring)",
+      "district_id": null,
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "dac_council",
+      "controlling_faction_notes": "",
+      "strategic_value": "The premier source of capital ships for the Rebel Alliance. Without these shipyards, the Alliance would have no warships capable of engaging Star Destroyers. Mon Calamari ships are individually unique — each customized by its builders — making them difficult to counter with standardized tactics. The yards also produce the MC-18 light freighter for civilian and military use.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mon_calamari_shipwright",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": ""
+        },
+        {
+          "archetype_ref": "mon_calamari_commander",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": ""
+        },
+        {
+          "archetype_ref": "quarren_shipbuilder",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Quarren workers collaborating with Mon Calamari engineers. Expertise in heavy construction and structural work."
+        }
+      ]
+    },
+    {
+      "id": "krinemonen_3_yards",
+      "name": "Krinemonen 3 Shipyards",
+      "district_id": null,
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "rebel_alliance_moncala",
+      "controlling_faction_notes": "",
+      "strategic_value": "Secondary production facility churning out MC30a and MC40a light cruisers. Designs modified from stolen Loronar Corporation Strike-class cruiser schematics. Disperses shipbuilding capacity away from Mon Cala itself, reducing vulnerability to a single strike.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "refugee",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Aquatic species seeking asylum from Imperial persecution."
+        },
+        {
+          "archetype_ref": "shipyard_worker",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Mixed Mon Calamari and Quarren shipyard workers producing light cruisers."
+        }
+      ]
+    },
+    {
+      "id": "knowledge_bank",
+      "name": "The Knowledge Bank",
+      "district_id": null,
+      "type": [
+        "informational",
+        "cultural"
+      ],
+      "controlling_faction_id": "mon_calamari_priesthood",
+      "controlling_faction_notes": "",
+      "strategic_value": "",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mon_calamari_priest",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Priests of Pakoukou who enter meditative states to commune with the Knowledge Bank. Guard access zealously."
+        }
+      ]
+    },
+    {
+      "id": "foamwander_hangar_market",
+      "name": "Foamwander Hangar Market",
+      "district_id": "foamwander",
+      "type": [
+        "economic"
+      ],
+      "controlling_faction_id": "dac_council",
+      "controlling_faction_notes": "",
+      "strategic_value": "Mon Cala's primary trade hub for offworld commerce. Essential for importing foodstuffs, medicine, and technology that the ocean world cannot produce. Paying full price without negotiating is considered rude.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "merchant",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Independent traders dealing in offworld and local goods. Expect negotiation."
+        },
+        {
+          "archetype_ref": "spacer",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Transient spacers arriving with cargo or seeking goods. Source of offworld news and rumors."
+        }
+      ]
+    },
+    {
+      "id": "alopia_rift",
+      "name": "Alopia Rift Mining Camps",
+      "district_id": "quarren_city",
+      "type": [
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "quarren_industrial",
+      "controlling_faction_notes": "Home to thousands of Quarren mining camps extracting heavy metals and precious gemstones. One of the safest mining trenches on Mon Cala. The biggest danger is cave-in potential — the rift has been plumbed so long that structural stability is undermined in some places.",
+      "strategic_value": "Primary source of heavy metals and gemstones for Mon Cala's economy and shipbuilding industry. Quarren Industrial tests new mining vehicle designs here before selling them across the galaxy.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "quarren_miner",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Quarren miners working extraction operations in the deep trench. Hardy and self-reliant."
+        },
+        {
+          "archetype_ref": "quarren_industrial_rep",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Quarren Industrial representative overseeing mining operations and testing new equipment designs."
+        }
+      ]
+    },
+    {
+      "id": "mkbuto_preserve",
+      "name": "Mkbuto Seatree Preserve",
+      "district_id": null,
+      "type": [
+        "cultural",
+        "hidden"
+      ],
+      "controlling_faction_id": "mon_calamari_priesthood",
+      "controlling_faction_notes": "",
+      "strategic_value": "Sacred site with potential archaeological and Force-related significance. The creation myths, the fault line, and the priesthood's protective fervor suggest something genuinely unusual may be hidden here.",
+      "takeover_priority": 6,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mon_calamari_priest",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Guardian priest protecting the preserve from unauthorized access."
+        }
+      ]
+    },
+    {
+      "id": "reef_home",
+      "name": "Reef Home",
+      "district_id": null,
+      "type": [
+        "infrastructure"
+      ],
+      "controlling_faction_id": "dac_council",
+      "controlling_faction_notes": "Elegant floating city webbed in polished pink coral. Houses one of the three planetary shield generators alongside Coral City and Foamwander.",
+      "strategic_value": "Shield generator site critical to planetary defense. Destruction of the shield generators enabled the original Imperial invasion.",
+      "takeover_priority": 3,
+      "encounter_roles": []
+    }
+  ],
+  "influences": [
+    {
+      "id": "species_tension",
+      "type": "political",
+      "source_faction_id": null,
+      "source_description": "Millennia of systemic inequality between Mon Calamari and Quarren. The Mon Calamari pursued arts and sciences while the Quarren were pushed into mining and construction. The monarchy served Mon Calamari interests. Quarren resentment boiled over during the Clone Wars when the Quarren Isolationist League allied with the Separatists. Imperial enslavement ironically united the species, but the truce remains uneasy. Many Quarren still harbor resentment. The new Dac Council represents genuine reform, but old prejudices run deep on both sides.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "quarren_industrial",
+          "description": "Quarren Industrial asserts economic independence and uses its influence to advocate for Quarren interests on the council. Some Quarren secretly relished watching Mon Calamari struggle under Imperial slavery."
+        },
+        {
+          "faction_id": "dac_council",
+          "description": "The council structure is designed to address historical inequality, but achieving genuine parity after millennia of Mon Calamari dominance is an ongoing challenge."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Social checks between Mon Calamari and Quarren NPCs may reveal underlying tension. Quarren NPCs may respond poorly to perceived Mon Calamari condescension. Mon Calamari NPCs may be overly deferential to Quarren in an attempt to prove their commitment to equality."
+        }
+      ]
+    },
+    {
+      "id": "imperial_threat",
+      "type": "military",
+      "source_faction_id": "imperial_remnant_sector",
+      "source_description": "The Empire wants Mon Calamari Space back. Grand Moff Therbon destroyed Ruisto in frustrated revenge. Imperial intelligence operatives seek weaknesses in the three-layer defense. The threat of another orbital bombardment hangs over every floating city. The memory of the three cities destroyed during the initial uprising is fresh.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "rebel_alliance_moncala",
+          "description": "The Alliance maintains constant vigilance. Sensor nets, interdiction pickets, and a home fleet at Mon Cala. The shipyards work at capacity to build the fleet needed to deter a major Imperial assault."
+        },
+        {
+          "faction_id": "dac_council",
+          "description": "The council balances civilian priorities against military spending. Every converted passenger liner sent to the defense fleet is one fewer ship serving the civilian economy."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Security is tight in Mon Calamari Space. Unknown ships are challenged. The population is alert to signs of Imperial infiltration. Strangers face scrutiny, especially near shipyard facilities or defense installations."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "overic_griplink",
+        "destination": "Overic Griplink (hyperspace route)",
+        "travel_time": null,
+        "route_quality": "established",
+        "notes": "One of two routes connecting Mon Calamari Space to the broader galaxy. Defended by Alliance sensor buoys and interdiction pickets.",
+        "source_refs": [
+          {
+            "book": "Alliance Worlds Sourcebook (Strongholds of Resistance)",
+            "page": 29,
+            "detail": "Listed as a trade route for Mon Cala"
+          }
+        ]
+      },
+      {
+        "id": "giblim_route",
+        "destination": "Giblim Route (hyperspace route)",
+        "travel_time": null,
+        "route_quality": "established",
+        "notes": "Second route into Mon Calamari Space. Alliance interdiction pickets positioned just past New Alderaan along this route.",
+        "source_refs": [
+          {
+            "book": "Alliance Worlds Sourcebook (Strongholds of Resistance)",
+            "page": 29,
+            "detail": "Listed as trade route; interdiction pickets mentioned on p.29"
+          }
+        ]
+      },
+      {
+        "id": "perlemian_branch",
+        "destination": "Perlemian Trade Route (branch connection)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "The Perlemian Trade Route has key branches winding their way to Mon Calamari Space. This connects Mon Cala to the broader galactic trade network via the northern galactic arc.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 349,
+            "detail": "Key branches wind their way to Mon Calamari Space"
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "rebel_alliance_moncala",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The Alliance defensive fleet has been redeployed elsewhere. Sensor buoys operational but interdiction pickets pulled back. Mon Cala relies on its own converted passenger liners and the planetary shield for defense. The shipyards continue working but without fleet protection.",
+          "presence_reason": "A major Alliance operation elsewhere in the galaxy has drawn away the defensive fleet. Mon Calamari Space is temporarily vulnerable.",
+          "roles": [
+            {
+              "role": "Mon Calamari militia patrol",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Local defense forces maintaining basic security around shipyard facilities."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Alliance defensive posture. Sensor buoys active along all hyperlanes. Interdiction pickets at Reginard, Kamdon, and the Giblim Route past New Alderaan. Defensive fleet at Mon Cala composed of converted passenger liners. Shipyards at capacity. Patrols around the orbital ring are constant.",
+          "presence_reason": "Normal defensive operations. The Alliance maintains enough presence to deter probing attacks and respond to incursions.",
+          "roles": [
+            {
+              "role": "Alliance naval officer",
+              "archetype_ref": "rebel_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Coordinating defensive fleet operations and shipyard security."
+            },
+            {
+              "role": "Mon Calamari bridge crew",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Crew manning defensive fleet vessels. Few know Mon Cala battle cruisers better."
+            },
+            {
+              "role": "Interdiction picket crew",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Manning picket ships at Reginard, Kamdon, and the Giblim Route."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Alliance has reinforced Mon Calamari Space. Additional warships detached from the mobile fleet. Interdiction pickets doubled. Patrol frequency increased. Civilian traffic screened thoroughly. The shipyards are placed on alert and non-essential personnel evacuated from outer facilities.",
+          "presence_reason": "Imperial fleet movements detected near Mon Calamari Space. Intelligence suggests a possible strike. Grand Moff Therbon may be planning another attack after the destruction of Ruisto.",
+          "roles": [
+            {
+              "role": "Alliance fleet commander",
+              "archetype_ref": "rebel_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Alliance naval officer commanding the reinforced defensive fleet. May be a Mon Calamari captain of an MC80 cruiser."
+            },
+            {
+              "role": "Alliance starfighter squadron",
+              "archetype_ref": "rebel_pilot",
+              "tier": "minion",
+              "count": 8,
+              "notes": "B-Wing and other starfighter elements providing close defense for the shipyards."
+            },
+            {
+              "role": "Alliance special forces",
+              "archetype_ref": "rebel_commando",
+              "tier": "rival",
+              "count": 2,
+              "notes": "SpecForce operatives conducting counter-intelligence and security sweeps."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Alliance fleet commitment to Mon Calamari Space. Multiple MC80 and MC75 cruisers, full starfighter wings, and SpecForce elements. The mobile fleet has arrived. This level of commitment means Mon Cala is under direct threat or the Alliance is staging a major operation from Mon Calamari Space.",
+          "presence_reason": "An Imperial assault on Mon Calamari Space is imminent or underway. Alternatively, the Alliance is using Mon Cala as a staging ground for a major offensive.",
+          "roles": [
+            {
+              "role": "Alliance fleet admiral",
+              "archetype_ref": "rebel_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Flag officer commanding the combined fleet. The defense of Mon Cala is an existential priority for the Rebellion."
+            },
+            {
+              "role": "MC80 cruiser crew",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Full capital ship crews. Mon Calamari commanders maximize the unique capabilities of each individually designed vessel."
+            },
+            {
+              "role": "Alliance starfighter wings",
+              "archetype_ref": "rebel_pilot",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Multiple squadrons of B-Wings, A-Wings, X-Wings. B-Wings designed by Mon Calamari engineer Quarrie."
+            },
+            {
+              "role": "SpecForce infiltration team",
+              "archetype_ref": "rebel_commando",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Counter-intelligence, sabotage prevention, and boarding operations."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Unidentified vessels challenged at hyperlane entry points. Sensor sweeps increased. Civilian shipping questioned more thoroughly.",
+        "targeted": "Specific ship signatures flagged. Alliance intelligence tracking suspected Imperial agents. Security tightened at shipyard access points.",
+        "manhunt": "All traffic in Mon Calamari Space halted. Interdiction pickets activated at full power. Every vessel boarded and searched. Planetary shield raised. The memory of Imperial invasion makes Mon Cala take threats extremely seriously."
+      }
+    },
+    {
+      "faction_id": "imperial_remnant_sector",
+      "presence_levels": {
+        "skeleton": {
+          "description": "No Imperial military presence in Mon Calamari Space. A handful of deep-cover intelligence operatives may be embedded in the civilian population or among offworld traders at Foamwander.",
+          "presence_reason": "The Empire was expelled. Grand Moff Therbon's forces are positioned outside Mon Calamari Space. Only covert operatives remain.",
+          "roles": [
+            {
+              "role": "Imperial intelligence operative",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Deep-cover agent gathering information on defenses, shipyard output, and fleet movements."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Imperial probe droids and scout ships testing the edges of Mon Calamari Space. Reconnaissance of sensor buoy positions and interdiction picket patrol patterns. No direct engagement.",
+          "presence_reason": "Grand Moff Therbon is gathering intelligence for a potential strike. Standard Imperial reconnaissance operations.",
+          "roles": [
+            {
+              "role": "Imperial probe droid",
+              "archetype_ref": "probe_droid",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Automated reconnaissance at the edges of Mon Calamari Space."
+            },
+            {
+              "role": "Imperial scout",
+              "archetype_ref": "imperial_pilot",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Scout ship probing hyperlane entry points and timing interdiction picket rotations."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Imperial fleet assembling outside Mon Calamari Space. Multiple Star Destroyers gathering. Coastal troopers and aquatic assault units prepared. Imperial agents inside Mon Cala activating sabotage operations targeting shield generators.",
+          "presence_reason": "Grand Moff Therbon has received authorization for a reconquest operation. The Empire is committed to retaking the shipyards.",
+          "roles": [
+            {
+              "role": "Imperial naval task force",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Task force commander preparing the assault fleet."
+            },
+            {
+              "role": "Coastal trooper assault team",
+              "archetype_ref": "coastal_trooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Specialized stormtroopers trained for aquatic operations. Modified armor with heat-modulating dry suits."
+            },
+            {
+              "role": "Imperial saboteur",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Agents targeting shield generators at Coral City, Foamwander, and Reef Home — repeating the tactic that enabled the original invasion."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial invasion force entering Mon Calamari Space. Star Destroyers engaging the Alliance defensive fleet. Coastal troopers assaulting floating cities. TIE squadrons dueling B-Wings over the shipyards. Orbital bombardment threatened or underway. The nightmare scenario for Mon Cala.",
+          "presence_reason": "The Empire has committed to retaking Mon Calamari Space regardless of cost. Grand Moff Therbon has staked his career on this operation.",
+          "roles": [
+            {
+              "role": "Imperial fleet admiral",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Grand Moff Therbon or his designated fleet commander directing the invasion."
+            },
+            {
+              "role": "Stormtrooper invasion force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Ground forces occupying cities. Coastal troopers for underwater operations."
+            },
+            {
+              "role": "TIE squadron",
+              "archetype_ref": "imperial_pilot",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Including the 181st Imperial Fighter Wing, previously stationed at Heurkea during the occupation."
+            },
+            {
+              "role": "Imperial bombardment officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Officer with authority to order orbital bombardment of floating cities. The destruction of three cities during the uprising and the annihilation of Ruisto prove the Empire will carry out this threat."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Increased probe droid activity at the borders of Mon Calamari Space. Imperial communications traffic spike detected by Alliance signals intelligence.",
+        "targeted": "Imperial agents inside Mon Cala activated. Sabotage attempts against shield generators or defense infrastructure. Specific Alliance patrol schedules compromised.",
+        "manhunt": "Full Imperial assault. Every ship in Mon Calamari Space is either fighting or fleeing. Civilian evacuation underway. The shipyards are the primary objective."
+      }
+    },
+    {
+      "faction_id": "dac_council",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Council governance is disrupted. Representatives dispersed to their districts. Central authority weak. Local leaders making independent decisions.",
+          "presence_reason": "A political crisis — Quarren-Mon Calamari tensions flaring, a contested election, or external pressure fracturing the council.",
+          "roles": [
+            {
+              "role": "Local district governor",
+              "archetype_ref": "politician",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A district governor operating without central direction."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Normal governance. The Dac Council meets in Coral City. District governors manage local affairs. Elections held every two years. The chief of state, prime minister, and defense minister coordinate planetary policy. The new representative system is functioning but still finding its footing.",
+          "presence_reason": "Standard peacetime governance. The system works but is young and untested.",
+          "roles": [
+            {
+              "role": "Dac Council representative",
+              "archetype_ref": "politician",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Mon Calamari and Quarren council members. Working to make the new government succeed."
+            },
+            {
+              "role": "Council security",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Security forces protecting government facilities and the Royal Palace museum."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Council has declared an emergency. Defense minister mobilizing planetary forces. Chief of state coordinating with Alliance military. All districts placed on alert. Civilian defense preparations underway.",
+          "presence_reason": "Imperial threat detected or internal crisis requiring unified response.",
+          "roles": [
+            {
+              "role": "Defense minister",
+              "archetype_ref": "politician",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Coordinating planetary defense with Alliance fleet command."
+            },
+            {
+              "role": "Planetary militia",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Armed citizens mobilized for defense. Mon Calamari and Quarren fighting together as they did during liberation."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full wartime governance. The council operates as a unified command authority. All civilians mobilized. The entire population fights as it did during the liberation. Mon Calamari and Quarren differences set aside in the face of existential threat.",
+          "presence_reason": "Mon Cala is under direct attack. The planet's population unites as it did against the Empire.",
+          "roles": [
+            {
+              "role": "Chief of state",
+              "archetype_ref": "politician",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Unified command authority directing the planet's defense."
+            },
+            {
+              "role": "Planetary defense force",
+              "archetype_ref": "mon_calamari_soldier",
+              "tier": "minion",
+              "count": 16,
+              "notes": "The entire planet fights. Mon Calamari and Quarren unified. Ships secretly modified for combat, just as during the original uprising."
+            },
+            {
+              "role": "Keelkana cavalry",
+              "archetype_ref": "mon_calamari_knight",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Revived keelkana war mount riders. The ancient order of Mon Calamari knights defending the ocean depths."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Council security increased around government buildings. District governors instructed to report unusual activity.",
+        "targeted": "Specific threats identified. Council convenes emergency session. Defense minister coordinates with Alliance intelligence.",
+        "manhunt": "Planetary lockdown. All citizens ordered to report to local authorities. Underwater city transit restricted. Keelkana patrols in deep trenches."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "dac_council",
+      "rebel_alliance_moncala"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Defensive fleet at Mon Cala (converted passenger liners and purpose-built warships)",
+      "Rebel Alliance: Interdiction pickets at Reginard, Kamdon, and along the Giblim Route past New Alderaan",
+      "Rebel Alliance: Sensor buoy net along hyperlanes to Mon Calamari Space",
+      "Rebel Alliance: MC80, MC75, MC40a, MC30c cruiser production lines",
+      "Rebel Alliance: Mon Calamari bridge crews and naval officers",
+      "Rebel Alliance on this planet: Defend Mon Calamari Space from Imperial reprisals. Maintain the shipyards as the Alliance's premier source of capital ships. Protect one of the few worlds openly allied with the Rebellion."
+    ],
+    "presets": {
+      "aor_fleet_construction": {
+        "name": "Shipyards of Freedom",
+        "description": "The PCs are Alliance operatives assigned to Mon Calamari Space during the critical period of fleet construction. The shipyards work at capacity building the warships the Rebellion needs to challenge the Empire. Grand Moff Therbon lurks outside the system with a sector fleet, and Imperial agents are attempting to infiltrate and sabotage the yards. The Dac Council struggles to balance military priorities with civilian needs. Quarren-Mon Calamari tensions simmer beneath the surface of the new government. The PCs must protect the shipyards, root out Imperial infiltrators, maintain the fragile peace between species, and ensure the Alliance fleet grows strong enough to deter the inevitable Imperial counterattack. Foamwander's Hangar Market is where supplies arrive. The Alopia Rift miners provide raw materials. The Knowledge Bank holds secrets that could change everything — if the priesthood allows access.",
+        "initial_faction_states": {
+          "dac_council": "patrol",
+          "rebel_alliance_moncala": "patrol",
+          "imperial_remnant_sector": "patrol",
+          "quarren_industrial": "patrol",
+          "mon_calamari_priesthood": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A Mon Calamari shipwright reports that someone has been altering construction schematics on the MC80 currently in the yards. The changes are subtle — weakened hull joints that would only fail under combat stress. An Imperial saboteur is embedded in the construction crew.",
+          "Quarren Industrial's representative on the Dac Council is blocking a vote to increase farium mining quotas needed for warship construction. The Quarren miners are overworked and the Alopia Rift is becoming structurally unstable. Both sides have legitimate grievances.",
+          "A Rebel patrol along the Giblim Route captured an Imperial probe droid. Its data cores contain detailed maps of sensor buoy positions. The Empire knows the exact coverage of the sensor net. Someone on Mon Cala leaked the information.",
+          "The priesthood of Pakoukou refuses to allow Alliance intelligence to consult the Knowledge Bank about historical Imperial invasion tactics. The priests say the Knowledge Bank is sacred, not a military asset. The Alliance needs that information before Therbon attacks.",
+          "An old Quarren fire-keeper in Quarren City claims to know the location of a cache of weapons hidden during the liberation uprising. He will only share it with someone who proves they value Quarren interests equally to Mon Calamari. The weapons may include prototype mining vehicles modified for combat."
+        ]
+      },
+      "aor_liberation": {
+        "name": "Liberation of Mon Cala",
+        "description": "Set during the uprising. The PCs participate in the liberation of Mon Cala from Imperial occupation. The Mon Calamari and Quarren have united against the Empire. Grand Moff Tarkin's garrison holds key cities. The 181st Imperial Fighter Wing operates from Heurkea. Shield generators at Coral City, Foamwander, and Reef Home must be protected — the Quarren traitor Seggor Tels already sabotaged them once. Ships are being secretly modified for combat in hidden underwater facilities. The Alliance fleet waits at the edge of the system for the signal to spring an ambush on retreating Imperial forces. Three cities will be destroyed by orbital bombardment. The question is whether the PCs can minimize the devastation and turn the tide.",
+        "initial_faction_states": {
+          "dac_council": "skeleton",
+          "rebel_alliance_moncala": "skeleton",
+          "imperial_remnant_sector": "dominant",
+          "quarren_industrial": "skeleton",
+          "mon_calamari_priesthood": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "The PCs must infiltrate Heurkea to disable the 181st Imperial Fighter Wing before the uprising begins. Underwater approaches are guarded by coastal troopers.",
+          "Seggor Tels' Quarren holdouts are being manipulated by the Empire again. The PCs must convince them to switch sides before the shield generators are sabotaged a second time.",
+          "Mon Calamari resistance leaders need to coordinate the timing of the uprising across multiple cities simultaneously. Communications are monitored by the Empire. The PCs must carry messages physically through the deep ocean.",
+          "As Imperial forces retreat with ships full of slaves, the Alliance fleet needs precise timing to spring the ambush. The PCs are aboard one of the secretly modified passenger liners."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Alliance Worlds Sourcebook (Strongholds of Resistance)",
+      "pages": "29-36",
+      "detail": "Primary source for Mon Cala full planet entry: history, cities, floating cities sidebar, Knowledge Bank, shipyards, Krinemonen 3, Pammant, Ruisto, creatures (Mon Cala eel, keelkana, whaladon), NPCs (shipwright, commander), Dac Council, priesthood of Pakoukou, Alopia Rift, Quarren Industrial, three-layer defense system, Foamwander, Datum District"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "353, 380",
+      "detail": "Mon Calamari planet summary; Alliance negotiations with Mon Calamari for shipbuilding capabilities"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "57-60",
+      "detail": "Mon Calamari species entry: physiology, society, homeworld, language, life in the Alliance"
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "349, 362-363",
+      "detail": "Perlemian Trade Route branch to Mon Calamari Space; Outer Rim notable locations entry"
+    },
+    {
+      "book": "Starships and Speeders",
+      "pages": "37, 45, 121, 125, 139",
+      "detail": "Keelkana-class submarine, B-Wing (Mon Calamari engineer Quarrie), MC40a light cruiser, MC75 star cruiser stats"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "pages": "37, 51",
+      "detail": "Coastal troopers stationed on Mon Cala; Quarrie the shipwright on Shantipole"
+    },
+    {
+      "book": "Commander Sourcebook (Lead by Example)",
+      "pages": "10, 21, 45, 56",
+      "detail": "Admiral Ackbar background; Chagrians in liberation of Mon Cala; Mon Calamari commanders; Home One type heavy star cruiser"
+    },
+    {
+      "book": "Soldier Sourcebook (Forged in Battle)",
+      "pages": "15, 91",
+      "detail": "Mon Calamari/Quarren commandos seeking revenge; underwater city combat considerations"
+    },
+    {
+      "book": "Seeker Sourcebook (Savage Spirits)",
+      "pages": "45-46",
+      "detail": "Mon Calamari Energy Lance weapon stats and description"
+    },
+    {
+      "book": "Smuggler Sourcebook (Fly Casual)",
+      "pages": "19, 24-25",
+      "detail": "Quarren species entry: physiology, society, homeworld Dac, Coral Depths City, multiple sentient species"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "pages": "18, 60",
+      "detail": "Karkarodon Separatist alliance targeting Mon Cala; aquasuit equipment for water worlds"
+    }
+  ]
+}

@@ -1,0 +1,674 @@
+{
+  "id": "ossus",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Ossus",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Auril sector",
+    "system": "Adega",
+    "grid": "R-6",
+    "era": "galactic_civil_war",
+    "essence": "Once the greatest repository of Jedi knowledge and artifacts in the galaxy, Ossus was devastated nearly four thousand years ago when Sith Lord Naga Sadow triggered the Cron Supernovae. The planet has slowly recovered — its hills and forests have returned — but it remains a scarred, lightning-ravaged world hidden behind the near-impassable Cron Drift. The Ysanna, primitive Force-sensitive descendants of Jedi trapped during the evacuation, roam the surface in tribal bands. The Empire blockades the system, and the planet's existence is officially unconfirmed. For those who can find it, Ossus is a graveyard of Jedi secrets waiting to be unearthed.",
+    "atmosphere": "Lightning storms ravage the surface unpredictably. The air carries the charge of distant strikes. Rolling green hills and stubby mountains give way to overgrown forests that swallow the ruins of Jedi outposts. The Eocho Mountains loom in the distance, their crystal caves a source of reverence and dread for the Ysanna. The ruins of the Great Jedi Library sit atop Ooroo Canyon, stone steps worn smooth by four millennia of wind and rain. Everything feels ancient and watched — the Force is palpable here, pressing against visitors like a physical weight.",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": "",
+    "government": "Ysanna tribal government",
+    "population": "",
+    "languages": "Ysannan, Basic",
+    "terrain": "hills, forests, mountains, caves",
+    "major_cities": "Knossa",
+    "areas_of_interest": "",
+    "exports": "none",
+    "imports": "Technology",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "old_republic",
+      "delta": "Ossus is the center of Jedi lore and teaching. The Great Jedi Library on Ooroo Canyon is the largest repository of Jedi knowledge in the galaxy. The Jedi Praxeum in Knossa trains Padawans near the Eye of Ashlanae vergence. Pilgrims from across the galaxy visit. The planet is accessible and well-connected via the Perlemian Trade Route."
+    },
+    {
+      "era": "clone_wars",
+      "delta": "Ossus is a protected historical site. The Jedi conduct excavation projects and artifact recovery. Rumors swirl of a secret Jedi hyperspace route to Ossus and of hidden Jedi treasure. Count Dooku allegedly led IG-100 MagnaGuards to Ossus to establish a Separatist base and search for artifacts. Jedi Master Tholme reportedly sent ARC troopers to infiltrate the base, recover artifacts, and call in an airstrike."
+    },
+    {
+      "era": "post_empire",
+      "delta": "The Imperial blockade dissolves. Ossus becomes accessible again, though the Cron Drift remains dangerous. The planet could serve as a hidden base from which to rebuild the Jedi Order — if a safe, secret hyperspace route can be mapped."
+    }
+  ],
+  "geography": {
+    "structure_type": "wilderness_with_ruins",
+    "structure_notes": "A recovering world. Green hills and forests have reclaimed most of the surface, growing over and around the ruins of Jedi civilization. The Eocho Mountains in the west contain crystal caves and the ruins of Knossa. The Great Jedi Library ruins sit atop Ooroo Canyon, a several-day pilgrimage from Knossa Spaceport. Imhar Canyon contains submerged tunnel networks. Lightning storms ravage the surface unpredictably. The Ysanna farm the nitrogen-rich valleys near the Eocho Mountains.",
+    "districts": [
+      {
+        "id": "eocho_mountains",
+        "name": "Eocho Mountains (Western Highlands)",
+        "character": "A mountain range riddled with crystal caves. The ruins of the city of Knossa sit high in the western peaks. Knossa Spaceport once wrapped around Agorn Mountain as a sprawling promenade for pilgrims visiting the Eye of Ashlanae. The Ysanna tribes farm the valleys below and shelter in the caves during lightning storms.",
+        "authority": "Ysanna tribal",
+        "crime_index": "none",
+        "strategic_value": [
+          "force_nexus",
+          "hidden",
+          "resources"
+        ],
+        "notes": "The crystal caves are the primary draw for Force users. Ysanna shamans undergo a mastery ritual requiring meditation in the caves until they defeat the visions within. Lightsaber crystals (mephite Adegan) can be found here."
+      },
+      {
+        "id": "ooroo_canyon",
+        "name": "Ooroo Canyon (Great Jedi Library Ruins)",
+        "character": "A lone hill far from Knossa, atop which the ruins of the Great Jedi Library stand. Several days' pilgrimage from the spaceport. Stone steps worn by millennia of exposure lead up to the ruins. The structure has largely collapsed, but subterranean chambers including the Chamber of Antiquities may remain intact.",
+        "authority": "none — Ysanna avoid the ruins",
+        "crime_index": "none",
+        "strategic_value": [
+          "force_nexus",
+          "informational",
+          "hidden"
+        ],
+        "notes": "The Chamber of Antiquities is two levels below ground — a labyrinth of rooms and vaults designed to protect valuable contents. Accessible by two lifts from the first sublevel. Jedi defense droids disguised as statues may still be active. Unstable ground can cause cave-ins into turbolift shafts."
+      },
+      {
+        "id": "imhar_canyon",
+        "name": "Imhar Canyon (Submerged Tunnels)",
+        "character": "A great canyon a few days' walk from the Great Jedi Library. Contains a network of submerged tunnels once used by aquatic Jedi Master Anstak. The tunnels held an archive for delicate aquatic-species artifacts, a training praxeum for aquatic Padawans, and a vault for Force artifacts related to underwater endeavors.",
+        "authority": "none",
+        "crime_index": "none",
+        "strategic_value": [
+          "hidden",
+          "informational"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "ysanna_lowlands",
+        "name": "Ysanna Lowlands (Tribal Territory)",
+        "character": "",
+        "authority": "Ysanna tribal",
+        "crime_index": "none",
+        "strategic_value": [
+          "hidden"
+        ],
+        "notes": "The Ysanna avoid vergences and ruins, marking most with circles of dark stones. They believe vergences are haunted, evil places. Outsiders who encounter Ysanna hunters may face hostility — the tribes have no context for offworlders."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Ysanna",
+      "population_level": "dominant",
+      "social_role": "Near-human tribal population descended from Jedi survivors of the Cron Supernovae. High percentage of Force-sensitive members. Their shamans, known as storm shepherds, define the Force as atavistic magic and can predict lightning storms. They farm the valleys near the Eocho Mountains and avoid the ancient ruins. Ysanna shamans undergo a mastery ritual requiring them to visit a crystal cave and meditate until they defeat the visions within.",
+      "districts": [
+        "eocho_mountains",
+        "ysanna_lowlands"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "galactic_empire_blockade",
+      "name": "Imperial Blockade Force",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "orbital_only",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "very_low",
+        "note": ""
+      },
+      "motivation": "Restricting access to Ossus under orders from the Emperor's office. The Empire immediately blockaded Ossus when it emerged as the galactic power. The blockade prevents unauthorized recovery of Jedi artifacts and denies potential Force users access to the planet's vergences and training resources. Access is restricted to only those cleared by the Emperor's office.",
+      "assets": [
+        "Orbital blockade fleet",
+        "Hyperspace checkpoints on Perlemian Trade Route jump points",
+        "Patrol vessels monitoring the Cron Drift approaches"
+      ],
+      "relationships": [
+        {
+          "faction_id": "ysanna_tribes",
+          "type": "unaware",
+          "notes": "The Empire has no ground presence and does not interact with the Ysanna. The blockade exists to control access, not to govern the surface."
+        },
+        {
+          "faction_id": "artifact_hunters",
+          "type": "hostile",
+          "notes": "The blockade exists specifically to intercept treasure hunters, archaeologists, and anyone attempting to reach Ossus without Imperial clearance."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "Standing orders from the Emperor's office: all Jedi artifacts from Ossus are to be secured for the Empire. The blockade's primary purpose is denying others access to these artifacts."
+        },
+        {
+          "type": "person",
+          "reason": "Force-sensitives attempting to reach Ossus are of high interest. The Inquisitorius would want to know about anyone drawn to this world."
+        }
+      ]
+    },
+    {
+      "id": "ysanna_tribes",
+      "name": "Ysanna Tribes",
+      "type": "indigenous",
+      "control_type": [
+        "territorial"
+      ],
+      "control_strength": "ground_surface",
+      "susceptibility": {
+        "imperial": "very_low",
+        "dark_side": "moderate",
+        "financial": "very_low",
+        "note": "The Ysanna are a primitive tribal society with no awareness of the galactic political situation. They cannot be pressured financially because they have no economy beyond subsistence. The dark side vergences on the planet (particularly Qel-Droma's Grave) represent a real spiritual threat. The Empire has no ground presence to pressure them directly."
+      },
+      "motivation": "Survival and tradition. The Ysanna live as their ancestors have for millennia — farming, sheltering from lightning storms, and practicing Force traditions they understand as ancestral magic. They avoid the ancient ruins and vergences, which they consider haunted. Their storm shepherds are the spiritual leaders of the tribes.",
+      "assets": [
+        "Knowledge of the planet's terrain and lightning storm patterns",
+        "Force-sensitive shamans (storm shepherds)",
+        "Ancestral knowledge passed through oral tradition",
+        "Familiarity with the crystal caves of the Eocho Mountains"
+      ],
+      "relationships": [
+        {
+          "faction_id": "galactic_empire_blockade",
+          "type": "unaware",
+          "notes": "The Ysanna have no knowledge of the orbital blockade or the Empire. They do not possess technology capable of detecting ships in orbit."
+        },
+        {
+          "faction_id": "artifact_hunters",
+          "type": "hostile",
+          "notes": "Offworlders who have reached Ossus in the past have been met with hostility by Ysanna hunters. The tribes have no context for outsiders and treat them as threats to their territory."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "The Ysanna do not seek Jedi artifacts. They avoid the ruins and vergences. However, their shamans' crystal cave rituals suggest an unconscious connection to the Jedi tradition they descended from."
+        }
+      ]
+    },
+    {
+      "id": "artifact_hunters",
+      "name": "Artifact Hunters and Treasure Seekers",
+      "type": "independent",
+      "control_type": [
+        "none"
+      ],
+      "control_strength": "none",
+      "susceptibility": {
+        "imperial": "extreme",
+        "dark_side": "high",
+        "financial": "high",
+        "note": "Artifact hunters who reach Ossus have already evaded the Imperial blockade and survived the Cron Drift — they are resourceful but isolated. The dark side vergences on the planet pose serious danger to unprepared Force-sensitives. Their financial motivation means they can be bought, sold, or turned against each other."
+      },
+      "motivation": "",
+      "assets": [
+        "Ships capable of navigating the Cron Drift (or extreme luck)",
+        "Forged or authentic star charts",
+        "Archaeological equipment",
+        "Connections to black market antiquities dealers"
+      ],
+      "relationships": [
+        {
+          "faction_id": "galactic_empire_blockade",
+          "type": "hostile",
+          "notes": "Must evade the Imperial blockade to reach or leave Ossus. Capture means Imperial detention and confiscation of any recovered artifacts."
+        },
+        {
+          "faction_id": "ysanna_tribes",
+          "type": "hostile",
+          "notes": "Ysanna treat all offworlders as hostile intruders."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "This is their entire reason for being here. Lightsabers, holocrons, talismans, Adegan crystals — any Jedi artifact from Ossus would be worth a fortune on the black market or to interested Imperial parties."
+        }
+      ]
+    },
+    {
+      "id": "inquisitorius",
+      "name": "Inquisitorius (Potential Presence)",
+      "type": "imperial_covert",
+      "control_type": [
+        "none — potential deployment"
+      ],
+      "control_strength": "none",
+      "susceptibility": {
+        "criminal": "very_low",
+        "dark_side": "irrelevant",
+        "financial": "very_low",
+        "note": "Inquisitors answer to Darth Vader and the Emperor. They operate with Imperial authority but independently from the regular military chain of command. On Ossus, an Inquisitor would be pursuing specific intelligence about Force-sensitive activity or artifact recovery."
+      },
+      "motivation": "Hunting Force-sensitives drawn to Ossus and securing Force artifacts for the Emperor. If the Inquisitorius learns that Force users have reached Ossus, they would deploy agents. The planet's vergences, crystal caves, and lost artifacts represent exactly the kind of resources the Emperor wants denied to potential Jedi survivors.",
+      "assets": [
+        "Imperial clearance to pass the blockade",
+        "Dark side Force abilities",
+        "Access to Imperial intelligence networks",
+        "Authority to commandeer blockade resources"
+      ],
+      "relationships": [
+        {
+          "faction_id": "galactic_empire_blockade",
+          "type": "superior",
+          "notes": "An Inquisitor can commandeer blockade resources and demand cooperation. The blockade commander may resent this but cannot refuse."
+        },
+        {
+          "faction_id": "artifact_hunters",
+          "type": "enemy",
+          "notes": "Artifact hunters are targets — either for elimination or interrogation about what they have found."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "Force-sensitives on Ossus are the primary target. A Jedi survivor attempting to reconnect with the old Order through Ossus would be an irresistible target for an Inquisitor."
+        },
+        {
+          "type": "artifact",
+          "reason": "Holocrons, lightsaber crystals, Sith artifacts — anything recovered from Ossus goes to the Emperor's collection. The Ductavis Holocron in particular would be of enormous interest."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "great_jedi_library",
+      "name": "Great Jedi Library (Ruins)",
+      "district_id": "ooroo_canyon",
+      "type": [
+        "force_nexus",
+        "informational",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned for nearly four thousand years. No faction controls the site. The Ysanna avoid it. Jedi defense droids may still be active in the subterranean chambers.",
+      "strategic_value": "The physical remains of the largest Jedi knowledge repository in galactic history. The Chamber of Antiquities — two subterranean levels of vaults containing the most treasured and dangerous items in the library — may still be intact. Ancient scrolls, holocrons, lightsaber crystals, and Force artifacts could survive in sealed underground chambers. The Ductavis Holocron, created by a Jedi Grand Master over eleven thousand years ago, is believed lost in a special vault here.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "ossus_stone_guardian",
+          "tier": "rival",
+          "count": "2+",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "eye_of_ashlanae",
+      "name": "Eye of Ashlanae",
+      "district_id": "eocho_mountains",
+      "type": [
+        "force_nexus"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "A fifty-meter-tall ochre stone ziggurat, almost twice as wide at its base as tall. Ancient even during the time of Ulic Qel-Droma. Built atop the site of a battle from the First Great Schism between Jedi. Original survivors each carved a bantha-sized boulder from the lower Eocho Mountains and levitated it to the site. The city of Knossa grew around it.",
+      "strategic_value": "",
+      "takeover_priority": 2,
+      "encounter_roles": []
+    },
+    {
+      "id": "qel_droma_grave",
+      "name": "Qel-Droma's Grave",
+      "district_id": "ooroo_canyon",
+      "type": [
+        "force_nexus"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "",
+      "strategic_value": "",
+      "takeover_priority": null,
+      "encounter_roles": []
+    },
+    {
+      "id": "crystal_caves",
+      "name": "Crystal Caves of the Eocho Mountains",
+      "district_id": "eocho_mountains",
+      "type": [
+        "force_nexus",
+        "resources"
+      ],
+      "controlling_faction_id": "ysanna_tribes",
+      "controlling_faction_notes": "The Ysanna shamans undergo mastery rituals in the crystal caves. The caves are sacred to them, though they consider them dangerous.",
+      "strategic_value": "Deep caves riddled throughout the Eocho Mountains. Force sensitives who enter are beset by a feeling of unease — probed and watched. Experiences have a dreamlike, surreal quality. The Force measures a hopeful Jedi and exposes deepest vulnerabilities. Historically used for the Jedi Trial of Spirit. Contain mephite Adegan lightsaber crystals. Legend says Jedi trapped during the Cron Supernovae evacuation survived within these caves — possibly the progenitors of the Ysanna. Use the Gathering trial rules (FaD Core p.74), substituting mephite crystals for Ilum crystals.",
+      "takeover_priority": 3,
+      "encounter_roles": []
+    },
+    {
+      "id": "jedi_praxeum",
+      "name": "Ossus Jedi Praxeum (Ruins)",
+      "district_id": "eocho_mountains",
+      "type": [
+        "force_nexus",
+        "informational"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "",
+      "strategic_value": "Each tier was dedicated to a value of the Jedi. Top tier (Knowledge): most treasured artifacts and tomes. Harmony tier: Masters' council chamber, diplomatic offices, meditation rooms. Serenity tier: dormitories, meditative balconies, pools, gardens. Peace tier: combat training. Ground level (Force): exclusively for training students in Force manipulation. Jedi Master Odan-Urr received his training here under Jedi Master Ooroo.",
+      "takeover_priority": 4,
+      "encounter_roles": []
+    },
+    {
+      "id": "gardens_of_talla",
+      "name": "Gardens of T'alla (Ruins)",
+      "district_id": "ooroo_canyon",
+      "type": [
+        "force_nexus"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "",
+      "strategic_value": "If any remnant of T'alla's tree survived the Cron Supernovae, it would be an artifact of immense significance — a living Neti Jedi Master, potentially still aware after four millennia. The rock gardens were favored for physical Padawan training; librarians taught courses outdoors among vine-covered pillars, gazebos, and fountains.",
+      "takeover_priority": null,
+      "encounter_roles": []
+    },
+    {
+      "id": "knossa_spaceport",
+      "name": "Knossa Spaceport (Ruins)",
+      "district_id": "eocho_mountains",
+      "type": [
+        "infrastructure"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "A sprawling promenade wrapped around Agorn Mountain, originally built to support pilgrims visiting the Eye of Ashlanae. The only named spaceport on Ossus. In ruins for nearly four millennia.",
+      "strategic_value": "Any functional landing area near the ruins of Knossa would be the logical arrival point for expeditions to Ossus. The ruins may contain navigational data or communication equipment that survived in protected underground sections.",
+      "takeover_priority": null,
+      "encounter_roles": []
+    }
+  ],
+  "influences": [
+    {
+      "id": "jedi_vergence_legacy",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "Ossus was the center of Jedi culture for approximately twelve thousand years. The planet is saturated with Force vergences — light side, dark side, and neutral. The Ysanna have marked most vergences with circles of dark stones and avoid them as haunted places. The Eye of Ashlanae is a powerful light-side vergence. Qel-Droma's Grave is a dark-side vergence that twists allies against each other. The crystal caves test and measure Force sensitives. Vergences are common enough across the surface that the Ysanna encounter them routinely.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": "dominant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "ysanna_tribes",
+          "description": "The Ysanna are living expressions of Ossus's Force legacy — descendants of Jedi who survived the Cron Supernovae. They understand their Force sensitivity as ancestral magic, not Jedi tradition. Their storm shepherds predict lightning storms using abilities that are functionally Foresee and Sense powers."
+        },
+        {
+          "faction_id": "artifact_hunters",
+          "description": "The vergences are a constant hazard for unprepared visitors. Non-Force-sensitives may feel unease or emotional manipulation near vergences without understanding why. Force-sensitives who stumble onto Qel-Droma's Grave without preparation risk turning on their companions."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "default",
+          "modifier": "Force power checks gain additional Force pips at vergence sites. Dark side vergences inflict Conflict and emotional manipulation. The crystal caves function as the Gathering trial (FaD Core p.74). Lightning storms can be triggered by Despair on any check."
+        }
+      ]
+    },
+    {
+      "id": "cron_supernova_aftermath",
+      "type": "environmental",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "artifact_hunters",
+          "description": "The Cron Drift is the primary obstacle. Thousands of expeditions have entered the Drift and never returned. The astronomical danger is real — gravitational anomalies, asteroids, and black holes make standard hyperspace navigation impossible."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "default",
+          "modifier": "Lightning storms are an ever-present environmental hazard on the surface. Any check generating Despair can trigger a lightning strike at GM discretion. Storm shepherds among the Ysanna can predict storm timing and safe windows."
+        }
+      ]
+    },
+    {
+      "id": "imperial_information_control",
+      "type": "political",
+      "source_faction_id": "galactic_empire_blockade",
+      "source_description": "The Empire has no official stance on whether Ossus exists. This deliberate ambiguity serves their purpose — it discourages organized expeditions while avoiding confirming the planet's value. The Imperial Navy actively restricts traffic to the Cron Drift with hyperspace checkpoints but frames this as a safety measure to prevent ships from being lost in the Drift. The truth — that the Emperor wants Jedi artifacts denied to potential Force users — is classified.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": "artifact_hunters",
+          "description": "The Imperial checkpoints on the Perlemian Trade Route near the Cron Drift are a practical obstacle. Treasure hunters use the less-patrolled Salin Corridor and Tion Cluster approaches instead, where an entire cottage industry supporting expeditions exists on worlds like Belderone and Foran Tutha."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "default",
+          "modifier": "Attempting to jump to the Cron Drift from the Perlemian Trade Route risks Imperial interception. Approaching from the Salin Corridor or Tion Cluster reduces this risk but adds travel time."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "perlemian_trade_route",
+        "destination": "Perlemian Trade Route",
+        "travel_time": "variable — see route table (Ossus to Coruscant: ~4.5 days, Ossus to Roche: ~1 day, Ossus to Taanab: ~2.5 days, Ossus to Brentaal: ~3.5 days class 1 hyperdrive)",
+        "route_quality": "major hyperspace lane — but Ossus itself is not directly on the route",
+        "notes": ""
+      },
+      {
+        "id": "cron_drift_approach",
+        "destination": "Through Cron Drift to Ossus",
+        "travel_time": "variable — navigation is the obstacle, not distance",
+        "route_quality": "extremely hazardous — no established route",
+        "notes": "Navigating a jump to Ossus requires a Formidable Astrogation check with Setback dice. Force users making a Foresee check beforehand can spend Force pips to reduce difficulty. Ancient star charts or probe droid data may further downgrade difficulty. Failed checks with Threat can cause collisions or hyperspace mishaps. Successful checks with Despair or Threat may result in lightning strikes upon atmospheric entry (10 system strain to the ship)."
+      },
+      {
+        "id": "salin_corridor_approach",
+        "destination": "Salin Corridor / Tion Cluster (alternate approach)",
+        "travel_time": null,
+        "route_quality": "less patrolled than the Perlemian",
+        "notes": "Less patrolled by the Imperial Navy than the Perlemian Trade Route jump points. Worlds like Belderone and Foran Tutha along these routes host cottage industries supporting treasure hunters. Still requires navigating the Cron Drift to reach Ossus."
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "cron_drift",
+        "name": "Cron Drift",
+        "type": "hyperspace_hazard",
+        "description": "",
+        "mechanical_effect": "Formidable Astrogation check with Setback to navigate. Force users can use Foresee to reduce difficulty. Ancient star charts or probe droid data can downgrade the check. Failed checks may cause collisions or hyperspace mishaps. The GM Holocron travel table lists Ossus on the Perlemian Trade Route, suggesting the route is theoretically navigable for those with accurate charts."
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "galactic_empire_blockade",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A minimal Imperial presence — a single patrol vessel or automated monitoring station covering the most common approach vectors from the Perlemian Trade Route. The Cron Drift itself serves as the primary deterrent.",
+          "presence_reason": "Imperial resources have been diverted elsewhere. The Cron Drift's natural dangers are considered sufficient to deter most unauthorized access. A skeleton presence exists only to flag unusual hyperspace activity near the Drift.",
+          "roles": [
+            {
+              "role": "Imperial patrol vessel crew",
+              "archetype_ref": "imperial_navy_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commanding a single patrol vessel. May not have authority or firepower to stop a determined intruder — would call for reinforcements."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard blockade operations. Multiple Imperial vessels maintain hyperspace checkpoints at the primary jump points from the Perlemian Trade Route. Periodic sensor sweeps of the Cron Drift perimeter. Ships attempting unauthorized jumps toward Ossus are intercepted and turned back or detained.",
+          "presence_reason": "Standing orders from the Emperor's office to restrict access to Ossus. The blockade is routine and has been maintained since the Empire's founding.",
+          "roles": [
+            {
+              "role": "Imperial Navy officer (blockade command)",
+              "archetype_ref": "imperial_navy_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Commanding the checkpoint vessels. Authorized to detain and search ships attempting to enter the Cron Drift."
+            },
+            {
+              "role": "Stormtrooper boarding party",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "For boarding and searching detained vessels."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Checking clearances and cargo manifests. Anyone without Emperor's office authorization is turned back."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened blockade. The Empire has reason to believe Force-sensitives or a significant expedition is attempting to reach Ossus. Additional warships deployed. Inquisitorius agents may be attached. The Salin Corridor and Tion Cluster approaches are also being monitored.",
+          "presence_reason": "Intelligence suggests Jedi survivors, Rebel agents, or a major treasure-hunting expedition is targeting Ossus. The Emperor's office has escalated the blockade priority.",
+          "roles": [
+            {
+              "role": "Imperial Navy officer (task force command)",
+              "archetype_ref": "imperial_navy_officer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Multiple warships covering all known approach vectors."
+            },
+            {
+              "role": "Stormtrooper detachment",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Boarding parties and potential ground deployment if the Empire decides to establish a surface presence."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Deployed if Force-sensitive activity is suspected. Has authority over the blockade commander. Will pursue targets to the surface if necessary."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "faction_id": "ysanna_tribes",
+      "presence_levels": {
+        "skeleton": null,
+        "patrol": {
+          "description": "Ysanna hunting parties in the lowlands and foothills of the Eocho Mountains. Small tribal bands of 4-8 hunters, lightly armed with primitive weapons. One or two members per band may be Force-sensitive, able to sense approaching strangers or predict weather patterns.",
+          "presence_reason": "Normal tribal activity — hunting, foraging, and patrolling territory near their settlements.",
+          "roles": [
+            {
+              "role": "Ysanna hunter",
+              "archetype_ref": null,
+              "tier": "minion",
+              "count": 6,
+              "notes": "Primitive weapons. Territorial but not inherently aggressive. Will confront outsiders with hostility if they approach Ysanna settlements."
+            },
+            {
+              "role": "Ysanna storm shepherd",
+              "archetype_ref": null,
+              "tier": "rival",
+              "count": 1,
+              "notes": "Force-sensitive shaman. Can predict lightning storms. Understands the Force as ancestral magic. May sense Force-sensitive visitors and react with fear, curiosity, or reverence depending on the situation."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "A full Ysanna tribal gathering — multiple bands converging to address a threat or major event. Dozens of hunters and multiple storm shepherds. This would occur if offworlders are perceived as a significant threat to the tribes.",
+          "presence_reason": "Outsiders have been detected near Ysanna settlements or sacred sites. The tribes have gathered to confront the threat.",
+          "roles": [
+            {
+              "role": "Ysanna hunter",
+              "archetype_ref": null,
+              "tier": "minion",
+              "count": 20,
+              "notes": "Multiple hunting bands united. Coordinated by storm shepherds."
+            },
+            {
+              "role": "Ysanna storm shepherd",
+              "archetype_ref": null,
+              "tier": "rival",
+              "count": 3,
+              "notes": "The spiritual leaders of the combined tribes. Their Force abilities are crude but genuine. They can predict storms, sense emotions, and potentially communicate through the Force with visiting Force users."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      {
+        "faction_id": "galactic_empire_blockade",
+        "scope": "orbital",
+        "notes": "The Empire controls space access to the system but has no ground presence."
+      },
+      {
+        "faction_id": "ysanna_tribes",
+        "scope": "planetary_surface",
+        "notes": "The Ysanna are the only permanent inhabitants but do not control the ruins or vergence sites, which they avoid."
+      }
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "fad_artifact_recovery": {
+        "name": "Jedi Artifact Recovery",
+        "system": "fad",
+        "description": "A Force and Destiny campaign centered on reaching Ossus and recovering lost Jedi knowledge. The PCs must navigate the Cron Drift, evade or bypass the Imperial blockade, survive the planet's lightning storms and vergence hazards, navigate relations with the Ysanna tribes, and explore the ruins of the Great Jedi Library. The Chamber of Antiquities contains the Vault of Justice encounter — ancient defenses, Jedi defense droids, a puzzle based on the Jedi Code, and a powerful trapped presence that may be a treasure or a trap. The crystal caves offer lightsaber crystals and the Trial of Spirit. The Eye of Ashlanae provides meditation and visions. Qel-Droma's Grave tests the party's unity.",
+        "initial_flags": [
+          "blockade_active",
+          "ysanna_uncontacted",
+          "library_sealed",
+          "vergences_undiscovered"
+        ],
+        "initial_heat": [
+          {
+            "faction_id": "galactic_empire_blockade",
+            "level": "patrol",
+            "notes": "Standard blockade. Escalates to fortified if the Empire detects the PCs' approach or learns of their mission."
+          }
+        ],
+        "encounter_presets": [
+          {
+            "location_id": "great_jedi_library",
+            "encounter_ref": "vault_of_justice",
+            "source_ref": "Nexus of Power p.128-131",
+            "notes": "Modular encounter: PCs fall through unstable ground into the Chamber of Antiquities. Jedi defense droids, a Jedi Code tapestry puzzle, and a powerful trapped Force presence. The presence is a Jedi Knight named Gel Marcolf, alive for four thousand years through a combination of carbonite and the Force, functioning as a living holocron gatekeeper who tests visitors before sharing knowledge."
+          },
+          {
+            "location_id": "crystal_caves",
+            "encounter_ref": "gathering_trial",
+            "source_ref": "FaD Core p.74, Nexus of Power p.89",
+            "notes": "Crystal cave trial for lightsaber construction. Use Gathering rules with mephite Adegan crystals instead of Ilum crystals."
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    "FaD Core Rulebook p.377",
+    "Nexus of Power (Worlds Strong in the Force) p.65-67",
+    "Nexus of Power p.89-90 (Ossus Vergences)",
+    "Nexus of Power p.127-130 (Vault of Justice modular encounter)",
+    "FaD Core p.399 (Ductavis Holocron)",
+    "FaD Core p.383 (Temples and Enclaves — Ossus history)",
+    "FaD Core p.385 (Great Sith War — Ossus decimated)",
+    "EotE Core p.335 (Perlemian Trade Route — Ossus reference)",
+    "EotE Core p.352 (Outer Rim exploration — Jedi world of Ossus)",
+    "AoR Core p.347 (Perlemian Trade Route)",
+    "GM Holocron 5.1.2 p.39 (Hyperspace travel times — Ossus on Perlemian)"
+  ]
+}

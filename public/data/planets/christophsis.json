@@ -1,0 +1,876 @@
+{
+  "id": "christophsis",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Christophsis",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim Territories",
+    "sector": "Savareen",
+    "system": "Christoph",
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Christophsis is a world that should be beautiful and instead is a scar. Its surface was crystalline — towers of translucent mineral growing like frozen lightning across entire continents. Then the Clone Wars came and turned it into a battleground, and then the Empire came and turned it into a garrison. The crystal forests still exist in places, but the cities built to mimic them are pockmarked with artillery damage and patched with duracrete. The mineral wealth that made it worth fighting over is still being extracted, now under Imperial license. The population is loyal to the Empire in the way that people who remember starvation under a Separatist blockade are loyal to whoever feeds them.",
+    "atmosphere": "The light is wrong on Christophsis. Sunlight refracts through the crystal formations and the crystal-faceted architecture, throwing prismatic patterns across streets and walls at certain hours. In the undamaged districts this is striking. In the war-scarred zones the broken crystal faces scatter light in jagged, disorienting ways — beautiful and uncomfortable simultaneously. The air is clean, the climate temperate. City services function. From a distance it looks like a prosperous Imperial world. Up close the blast marks and hastily rebuilt facades tell a different story.",
+    "reputation": "A world that suffered. Everyone in the Outer Rim knows Christophsis was blockaded and starved during the Clone Wars, fought over repeatedly, and then handed to the Empire as a loyal subject. It is held up as an example of Imperial order restoring stability — or as an example of how the Empire exploits gratitude, depending on who is talking. Its crystal exports are famous. Its kyber deposits are a closely guarded secret."
+  },
+  "compendium": {
+    "background": "",
+    "government": "Imperial governance. Once loyal to the Republic, now equally loyal to the Empire. Local civil administration operates under Imperial oversight.",
+    "population": "",
+    "languages": null,
+    "terrain": "",
+    "major_cities": "Crystal City is the primary urban center referenced in Clone Wars veteran slang. The planet's cities are characterized by towering crystalline architecture.",
+    "areas_of_interest": null,
+    "exports": "",
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": "",
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Christophsis is under active siege. A Separatist blockade starves the civilian population while CIS forces mine the planet's resources. The Trade Federation holds exploitation rights acquired through coercion. The Battle of Christophsis encompasses multiple engagements in orbit and on the ground — Admiral Trench commands the Separatist naval forces until Anakin Skywalker destroys his flagship. Republic forces fight to break the blockade and liberate the world. Clone veterans will later identify themselves by referencing 'cracking that crystal' — the assault on Crystal City. The crystalline forests contain kyber crystal deposits that are important to the Jedi Order."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With Imperial forces withdrawn or defeated, Christophsis faces an uncertain future. The population's loyalty was always pragmatic rather than ideological — they supported whoever provided stability. A New Republic that can maintain order and commerce may earn similar loyalty, but the world has been fought over so many times that trust comes slowly. The crystal mining infrastructure remains valuable. The kyber deposits, no longer suppressed by Imperial security, become a point of interest for Force traditions seeking lightsaber crystals."
+    }
+  ],
+  "geography": {
+    "structure_type": "urban_crystalline_world",
+    "structure_notes": "The native surface is crystalline, but sprawling cities have covered most of it. Urban architecture deliberately mimics the natural crystal formations on a grander scale. The planet's asteroid belts are also mineral-rich.",
+    "districts": [
+      {
+        "id": "crystal_towers_district",
+        "name": "Crystal Towers District",
+        "character": "The signature skyline of Christophsis. Towering buildings with faceted crystalline facades that refract light across the cityscape. The most prestigious and intact district, where Imperial administration and corporate interests are concentrated. Architecture mimics the natural crystal formations but on an enormous scale.",
+        "authority": "Imperial administration, corporate interests",
+        "crime_index": "low",
+        "strategic_value": [
+          "political",
+          "economic"
+        ],
+        "notes": "The part of Christophsis that appears in Imperial propaganda — gleaming towers, functioning infrastructure, order restored. The crystal facades hide duracrete reinforcement from Clone Wars damage in places."
+      },
+      {
+        "id": "corporate_mining_district",
+        "name": "Corporate Mining District",
+        "character": "Industrial extraction zones where the planet's mineral wealth is processed. Heavy machinery, refinery complexes, ore transport infrastructure. The economic engine that makes Christophsis worth holding. Imperial-licensed mining corporations operate under strict quotas and surveillance.",
+        "authority": "Imperial Mining Authority, licensed corporations",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "industrial"
+        ],
+        "notes": "The mineral wealth of Christophsis and its asteroid belts is the reason every government has fought to control this world. Smuggling raw crystal out of the mining district is a persistent problem the Empire has never fully solved."
+      },
+      {
+        "id": "war_scarred_residential",
+        "name": "War-Scarred Residential Zones",
+        "character": "Districts that bore the brunt of Clone Wars and Galactic Civil War fighting. Buildings shattered by artillery, patched with duracrete, some still structurally compromised. Civilian population is dense and desperate. Infrastructure functions intermittently. The crystal facades are broken here, scattering light in jagged patterns.",
+        "authority": "Imperial garrison (nominal), local community leaders (practical)",
+        "crime_index": "high",
+        "strategic_value": [
+          "none_conventional",
+          "high_humanitarian"
+        ],
+        "notes": "Millions of displaced citizens sheltering in partially destroyed buildings. Hungry and desperate people. Some have become desperate enough to steal from military supplies. The human cost of successive wars is visible on every block."
+      },
+      {
+        "id": "crystalline_wilds",
+        "name": "Crystalline Wilds",
+        "character": "The remaining accessible stretches of Christophsis's natural crystalline surface. Forests of translucent mineral formations where pure kyber crystals form naturally. Hauntingly beautiful and largely off-limits under Imperial regulation.",
+        "authority": "Imperial restricted zone",
+        "crime_index": "low",
+        "strategic_value": [
+          "military_strategic",
+          "force_significant"
+        ],
+        "notes": "The kyber crystal deposits are the planet's most closely guarded resource. The Empire restricts access to the crystalline forests. A lightsaber crystal from Christophsis amplifies kinetic energy in a unique way, resulting in powerful impacts. The crystals are valued at approximately 11,000 credits on the black market."
+      },
+      {
+        "id": "imperial_fortifications",
+        "name": "Imperial Fortifications",
+        "character": "Military installations and defensive positions established during the Galactic Civil War. Trenches, shield generators, artillery emplacements. The Empire has fortified Christophsis heavily, using the urban terrain and civilian population as a deterrent against Alliance assault.",
+        "authority": "Imperial Military",
+        "crime_index": "none",
+        "strategic_value": [
+          "military"
+        ],
+        "notes": "Extensive Imperial forces remain stationed on the planet. Imperial defenders are willing to exploit the civilian population as shields — they have prevented inhabitants from fleeing buildings and cities nearest their fortifications."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "The primary population of Christophsis. Civilians, workers, Imperial personnel, corporate employees. The population remembers the Clone Wars blockade and the starvation that followed — this memory shapes their pragmatic loyalty to whoever maintains order and keeps the supply lines open.",
+      "districts": [
+        "crystal_towers_district",
+        "corporate_mining_district",
+        "war_scarred_residential",
+        "imperial_fortifications"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial garrison on Christophsis is large, well-supplied, and entrenched. This is not a token presence — it is a full military occupation with fortified positions, shield generators, and artillery. The garrison's mission is to hold the planet and its mineral wealth. Individual corruption is unlikely given the military discipline and the strategic importance of the posting."
+      },
+      "motivation": "Holding Christophsis for its mineral wealth, its strategic position in the Savareen sector, and as a demonstration that Imperial order brings stability to worlds devastated by the Clone Wars. The population's loyalty validates the Imperial narrative.",
+      "assets": [
+        "Extensive ground forces with fortified positions",
+        "Shield generators and artillery emplacements",
+        "Urban defensive infrastructure exploiting civilian population as deterrent",
+        "Trench networks throughout key urban zones",
+        "Control of the mining infrastructure and crystal export licenses",
+        "Restricted access to kyber crystal deposits in the crystalline wilds"
+      ],
+      "relationships": [
+        {
+          "faction_id": "corporate_interests",
+          "type": "allied",
+          "notes": "Mining corporations operate under Imperial license. The arrangement is profitable for both sides. The corporations get access to mineral wealth; the Empire gets revenue and economic justification for its military presence."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "type": "enemy",
+          "notes": "The Empire is aware that some portion of the population sympathizes with the Rebellion. Active ISB operations monitor for Rebel recruitment and activity. The civilian population is both a shield and a surveillance challenge."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "The mineral wealth is the primary Imperial interest. Crystal exports and — secretly — kyber crystal deposits. Any threat to mining operations or unauthorized crystal extraction triggers immediate military response."
+        },
+        {
+          "type": "data",
+          "reason": "Military intelligence regarding Rebel assault planning is critical. The Empire knows the Alliance has targeted Christophsis and is actively preparing for urban warfare."
+        },
+        {
+          "type": "artifact",
+          "reason": "Kyber crystals from the crystalline wilds are reported to ISB. The Empire's interest in Force-related materials is standing policy, not local initiative."
+        }
+      ]
+    },
+    {
+      "id": "corporate_interests",
+      "name": "Imperial-Licensed Mining Corporations",
+      "type": "corporate",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The mining corporations exist at the pleasure of Imperial licensing. They are entirely dependent on Imperial goodwill for their operations. Financial pressure is effective because profit is their sole motivation. They have no ideological commitments beyond the balance sheet."
+      },
+      "motivation": "Extracting and exporting Christophsis's mineral wealth at maximum profit. The planet and its asteroid belts represent an enormous resource base. The corporations want stability, continued Imperial licensing, and minimal disruption to extraction operations.",
+      "assets": [
+        "Mining infrastructure across the planet and asteroid belts",
+        "Refinery and processing facilities in the Corporate Mining District",
+        "Transport contracts for crystal exports",
+        "Technical expertise the Empire depends on for efficient extraction",
+        "Labor force drawn from local population"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "allied",
+          "notes": "Symbiotic. The corporations need Imperial security; the Empire needs corporate expertise and revenue. The arrangement works as long as both sides profit."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "type": "neutral-hostile",
+          "notes": "The corporations view Rebel activity as a threat to stability and therefore to profit. They cooperate with Imperial security but are not ideologically committed — if the Rebellion won, they would negotiate new licenses with whoever replaced the Empire."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Mineral extraction is the entire business. Any new crystal deposit, asteroid survey data, or mining technology is of immediate interest."
+        },
+        {
+          "type": "data",
+          "reason": "Shipping manifests, competitor intelligence, and Imperial quota schedules. The corporations compete for the best extraction contracts and any informational edge is valuable."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "crystal_city_center",
+      "name": "Crystal City Center",
+      "district_id": "crystal_towers_district",
+      "type": [
+        "political",
+        "command"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Imperial administration governs from the most prestigious district. The crystal towers serve as both administrative headquarters and a symbol of Imperial order restoring Christophsis after the Clone Wars.",
+      "strategic_value": "The political and administrative heart of Imperial Christophsis. Controlling this location controls the civilian government, communications infrastructure, and the Imperial narrative about the planet's recovery.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Senior Imperial administrators. Competent bureaucrats who manage the civil-military interface."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Garrison detail. Well-equipped and visible — this is the face of Imperial Christophsis."
+        },
+        {
+          "archetype_ref": "isb_agent",
+          "tier": "rival",
+          "count": "1",
+          "notes": "ISB presence monitoring for Rebel sympathizers among the administrative staff and visiting population."
+        }
+      ]
+    },
+    {
+      "id": "mining_refinery_complex",
+      "name": "Mining Refinery Complex",
+      "district_id": "corporate_mining_district",
+      "type": [
+        "economic",
+        "industrial"
+      ],
+      "controlling_faction_id": "corporate_interests",
+      "controlling_faction_notes": "Licensed corporations operate under Imperial oversight. The refinery processes raw crystal from surface mines and asteroid belt operations. Heavy security due to the value of processed materials.",
+      "strategic_value": "The economic engine of Christophsis. Disrupting the refinery disrupts crystal exports and Imperial revenue. The workforce has knowledge of smuggling routes and processing schedules that would be valuable to any faction.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "corporate_security",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Private security employed by the mining corporations. Professional but not military. Their loyalty is to their employer, not the Empire."
+        },
+        {
+          "archetype_ref": "mine_worker",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Local laborers. Some sympathize with the Rebellion. Most just want to keep their jobs and feed their families."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Imperial oversight detail. Monitoring production quotas and watching for crystal smuggling."
+        }
+      ]
+    },
+    {
+      "id": "shield_generator_network",
+      "name": "Shield Generator Network",
+      "district_id": "imperial_fortifications",
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Heavily defended military installation. The shield generators protect Imperial fortifications and are the primary target for any Alliance assault on the planet.",
+      "strategic_value": "Without the shield generators, Imperial fortifications become vulnerable to artillery and orbital bombardment. Disabling the generators is the essential first objective of any planetary assault — and the Empire knows it.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Generator complex commander. Understands the strategic importance of his position and defends accordingly."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Heavy garrison. Multiple defensive positions with overlapping fields of fire."
+        },
+        {
+          "archetype_ref": "imperial_combat_engineer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Technical personnel maintaining the shield generators. They know the systems' vulnerabilities."
+        }
+      ]
+    },
+    {
+      "id": "crystalline_forest_preserve",
+      "name": "Crystalline Forest Preserve",
+      "district_id": "crystalline_wilds",
+      "type": [
+        "hidden",
+        "force_significant"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Imperial restricted zone with patrol perimeter. Access is prohibited to civilians. The Empire officially claims the restriction is for 'geological preservation.' The actual reason is the kyber crystal deposits.",
+      "strategic_value": "Contains naturally forming kyber crystals suitable for lightsaber construction. A Christophsis crystal amplifies kinetic energy uniquely among lightsaber crystals, resulting in powerful impacts. The deposits are worth enormous sums — approximately 11,000 credits per crystal on the black market — and are strategically significant to any Force tradition.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Patrol perimeter. Rotational shifts. They know the official cover story, not the real reason they're guarding crystal forests."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "ISB-affiliated officer who understands the true nature of the deposits. Reports directly to sector command, not the local garrison commander."
+        }
+      ]
+    },
+    {
+      "id": "refugee_district",
+      "name": "War-Scarred Refugee District",
+      "district_id": "war_scarred_residential",
+      "type": [
+        "hidden",
+        "covert"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No single faction controls the war-scarred residential zones. Imperial patrols are infrequent. Community leaders provide what order exists. Rebel sympathizers operate in the margins.",
+      "strategic_value": "The best place to disappear on Christophsis. The shattered urban terrain provides cover. The desperate population can be recruited — or exploited. Imperial forces have prevented evacuation of areas near their fortifications, trapping civilians who could become allies or obstacles.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "refugee_leader",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Community organizer holding things together. Protective of their people. Deeply suspicious of anyone in uniform — Imperial or Rebel."
+        },
+        {
+          "archetype_ref": "desperate_civilian",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Hungry, desperate people. Some will beg, some will steal from military supplies. Most just want safety for their families."
+        },
+        {
+          "archetype_ref": "rebel_sympathizer",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "A local who has crossed the line from resentment to action. No professional tradecraft but genuine commitment and invaluable local knowledge."
+        }
+      ]
+    }
+  ],
+  "influences": [],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "corellian_run_rimward",
+        "destination": "Savareen Sector Worlds",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Christophsis sits in the Savareen sector along established Outer Rim trade routes. The same routes that made it strategically valuable during the Clone Wars continue to carry commercial and military traffic."
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "asteroid_belt_hazard",
+        "type": "navigation_hazard",
+        "name": "Christoph Asteroid Belts",
+        "description": "The mineral-rich asteroid belts surrounding the Christoph system are both an economic resource and a navigation hazard. Mining operations and debris fields from Clone Wars-era engagements complicate approach vectors.",
+        "trigger": "Non-standard approach vector, damaged navicomputer, or deliberate attempt to avoid Imperial patrols by routing through the belt",
+        "possible_destinations": [
+          "Asteroid mining station — corporate-operated, Imperial-licensed",
+          "Clone Wars debris field — derelict warships from the Battle of Christophsis",
+          "Open belt space — stranded among mineral-rich asteroids, must navigate out manually"
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal Imperial visibility. A garrison exists but is keeping a low profile — perhaps resources have been pulled to another front or command has ordered reduced posture to avoid provoking unrest. Patrols are infrequent, checkpoints are unstaffed, and the civilian population notices the change.",
+          "presence_reason": "Imperial resources diverted elsewhere. A major offensive on another front, supply line disruption, or deliberate de-escalation order from sector command.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Skeleton patrol maintaining visibility in the Crystal Towers district only. Other districts effectively unpatrolled."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Stretched thin and aware of it. Making hard choices about where to deploy limited personnel."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial garrison operations. Regular patrols through the Crystal Towers and Corporate Mining districts. Checkpoint at the primary starport. ISB monitoring of the war-scarred residential zones. The population accepts this as normal — it has been the baseline since the Empire took control.",
+          "presence_reason": "Routine occupation. Christophsis is a valuable Imperial asset and the garrison maintains order, protects mining operations, and monitors for Rebel activity.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Regular patrols on established routes through main districts. Professional and visible."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Starport checkpoint. Monitoring arrivals and departures. Watching for crystal smuggling and Rebel operatives."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Plainclothes operative monitoring the war-scarred residential zones for Rebel recruitment activity."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the occupation. Experienced with urban garrison duty and the political complexities of a loyal but war-weary population."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced garrison. Something has triggered escalation — confirmed Rebel activity, an Alliance fleet sighting, or intelligence suggesting an imminent assault. Stormtroopers at every junction, shield generators powered up, artillery positions manned. The civilian population is restricted in movement. Fortifications in the residential zones are actively using civilian presence as a deterrent.",
+          "presence_reason": "Credible threat identified. The Empire is preparing for an assault or responding to confirmed Rebel operations on the surface.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple squads with overlapping coverage. No district unpatrolled. Building-to-building search capability in the residential zones."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "All entry and exit points monitored. No ship leaves without clearance."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full intelligence operation. Running informants, monitoring communications, conducting field interrogations."
+            },
+            {
+              "role": "Imperial combat engineer",
+              "archetype_ref": "imperial_combat_engineer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Maintaining shield generators and defensive systems at full readiness."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior command authority. Coordinating ground defense with orbital assets."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full wartime posture. The Alliance has assaulted Christophsis or an assault is imminent. Every Imperial asset is deployed. Defensive shields are active. Artillery positions are firing. The civilian population is trapped in the combat zone — the Empire has prevented evacuation of areas near fortifications. Urban combat is building-to-building, sometimes room-to-room. Landing zones are contested. The body count is extreme on all sides.",
+          "presence_reason": "Active combat operations. Rebel troops are landing or have landed. This is the city fight described in Alliance military planning — protracted, brutal, and devastating to the civilian population caught in the middle.",
+          "roles": [
+            {
+              "role": "Stormtrooper infantry",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Full infantry deployment. Defensive positions in every structure. Exploiting civilian presence as deterrent against Rebel heavy weapons use."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Running counter-intelligence during active combat. Identifying sympathizers who are aiding Rebel forces."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior command staff coordinating multi-district defense. One manages ground operations, one coordinates with orbital assets."
+            },
+            {
+              "role": "Imperial combat engineer",
+              "archetype_ref": "imperial_combat_engineer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Maintaining shield generators under fire. Repairing damaged fortifications. Their survival is the difference between holding and losing each position."
+            },
+            {
+              "role": "Imperial artillery crew",
+              "archetype_ref": "imperial_heavy_weapons",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Manning artillery emplacements. Firing with extraordinary care required due to civilian presence — or not, depending on the local commander's conscience."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Patrols increase in frequency. Stormtroopers stop and question unfamiliar faces, especially in the mining district. Crystal export manifests are audited more frequently. The population notices and grows quiet.",
+        "targeted": "The Empire is looking for specific individuals. Holos distributed to all checkpoints. Informants activated in the residential zones. Mining workforce subjected to identity checks. Departing ships inspected.",
+        "manhunt": "Full lockdown. No civilian movement between districts without authorization. Shield generators powered to standby. Artillery positions manned. The Empire treats Christophsis as a fortress under threat — because if they're at manhunt level, it is."
+      }
+    },
+    {
+      "faction_id": "corporate_interests",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Mining operations at minimum capacity. Skeleton crew maintaining equipment but not extracting. Something has disrupted normal operations — Imperial requisition of facilities, combat in the mining district, or a labor dispute.",
+          "presence_reason": "Disruption to normal operations. The corporations maintain minimum presence to protect their equipment and resume extraction when conditions allow.",
+          "roles": [
+            {
+              "role": "Corporate security guard",
+              "archetype_ref": "corporate_security",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Protecting equipment, not people. Will not engage in combat beyond facility defense."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Normal mining operations. Full workforce extracting and processing crystal. Corporate security handles facility access. Transport ships move refined materials offworld on regular schedules. The economic engine runs.",
+          "presence_reason": "Business as usual. The corporations are extracting maximum value under their Imperial licenses.",
+          "roles": [
+            {
+              "role": "Corporate security",
+              "archetype_ref": "corporate_security",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Facility access control. Watching for theft and unauthorized access."
+            },
+            {
+              "role": "Mining crew",
+              "archetype_ref": "mine_worker",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Local laborers. Knowledgeable about the underground tunnel networks and crystal deposits."
+            },
+            {
+              "role": "Corporate overseer",
+              "archetype_ref": "corporate_manager",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages operations and quotas. Answers to offworld corporate headquarters and the Imperial Mining Authority."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened corporate security. Mining operations continue but under armed guard. Valuable crystal shipments are being prepared or a security breach has been detected. Corporate mercenaries supplement normal security.",
+          "presence_reason": "High-value extraction in progress, smuggling ring detected, or approaching conflict threatening the facilities.",
+          "roles": [
+            {
+              "role": "Corporate security",
+              "archetype_ref": "corporate_security",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Reinforced security details at all facility access points."
+            },
+            {
+              "role": "Corporate mercenary",
+              "archetype_ref": "hired_gun",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Contracted muscle. More aggressive than normal security. Armed for combat."
+            },
+            {
+              "role": "Mining crew",
+              "archetype_ref": "mine_worker",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Full crew under pressure to meet accelerated quotas."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Corporate lockdown. All facilities sealed. Maximum security. The corporations are either protecting an extraordinarily valuable shipment or preparing to evacuate ahead of a planetary assault. Offworld corporate leadership is making decisions about whether to cut losses.",
+          "presence_reason": "Crisis conditions. Either an imminent military threat to the facilities or an internal crisis that threatens the entire operation.",
+          "roles": [
+            {
+              "role": "Corporate security",
+              "archetype_ref": "corporate_security",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Every access point defended. Evacuation protocols prepared."
+            },
+            {
+              "role": "Corporate mercenary",
+              "archetype_ref": "hired_gun",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full mercenary complement. Authorized to use lethal force against any intruder."
+            },
+            {
+              "role": "Corporate director",
+              "archetype_ref": "corporate_executive",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior corporate figure on-site making evacuation or last-stand decisions. Has authority to destroy facilities rather than let them fall into enemy hands."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Security checks at facility entrances become thorough. Manifest audits increase. Workers are watched more closely.",
+        "targeted": "Specific individuals flagged. Corporate security cooperates with Imperial forces. Facility access logs reviewed.",
+        "manhunt": "Facilities sealed. No entry or exit without corporate director authorization. Security cameras at maximum coverage."
+      }
+    },
+    {
+      "faction_id": "rebel_sympathizers",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A handful of individuals with Rebel sympathies who haven't acted on them. They talk in private, share resentment of Imperial occupation, but have no organization, no leadership, and no contact with the Alliance.",
+          "presence_reason": "Baseline civilian discontent in an occupied world. Not organized resistance — just people who are unhappy.",
+          "roles": [
+            {
+              "role": "Disgruntled civilian",
+              "archetype_ref": "civilian",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Will express anti-Imperial sentiment in private. Will not act. Will deny everything if questioned by authority."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "An informal network of sympathizers who share information and provide minor assistance to anyone working against the Empire. No formal structure, no contact with Alliance command, but a willingness to look the other way, hide a fugitive for a night, or pass along what they've overheard.",
+          "presence_reason": "Imperial overreach — civilian shields, mining exploitation, military occupation — has pushed some citizens past passive resentment into quiet action.",
+          "roles": [
+            {
+              "role": "Sympathizer lookout",
+              "archetype_ref": "civilian",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Watches patrol schedules, knows blind spots. Shares information with trusted contacts."
+            },
+            {
+              "role": "Rebel-sympathetic community leader",
+              "archetype_ref": "refugee_leader",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A figure in the war-scarred residential zones who quietly helps those the Empire is looking for. No professional tradecraft but deep local knowledge."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Organized resistance. Alliance operatives have made contact and are building a network. Safe houses established. Supply caches hidden. The sympathizers are becoming a resistance cell with external support and direction.",
+          "presence_reason": "Alliance Intelligence has identified Christophsis as a target and has inserted operatives to organize the sympathizer network into an effective resistance.",
+          "roles": [
+            {
+              "role": "Alliance operative",
+              "archetype_ref": "rebel_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Inserted by Alliance Intelligence. Professional. Organizing the sympathizers into a functioning cell."
+            },
+            {
+              "role": "Resistance fighter",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Armed civilians. Brave but untrained. Their local knowledge compensates for lack of military experience."
+            },
+            {
+              "role": "Resistance leader",
+              "archetype_ref": "rebel_commander",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A local who has stepped up. Trusted by the community. Learning operational security from the Alliance operative."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full uprising. The population has risen against the Imperial occupation, coordinated with an Alliance planetary assault. Civilians are fighting alongside Rebel troops. The residential zones have become a battleground where local knowledge and desperation compensate for lack of military hardware.",
+          "presence_reason": "Alliance assault on Christophsis has begun and the resistance network has been activated. The civilian population is choosing sides.",
+          "roles": [
+            {
+              "role": "Alliance operative",
+              "archetype_ref": "rebel_operative",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Coordinating civilian resistance with Alliance military operations."
+            },
+            {
+              "role": "Resistance fighter",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Armed civilians fighting building-to-building. High casualty rate but unshakeable commitment."
+            },
+            {
+              "role": "Resistance leader",
+              "archetype_ref": "rebel_commander",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Local leaders coordinating district-level resistance. Their knowledge of the urban terrain is the resistance's greatest asset."
+            },
+            {
+              "role": "Community protector",
+              "archetype_ref": "refugee_leader",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Not a fighter. Organizing civilian evacuation from combat zones and protecting non-combatants. Their moral authority holds the resistance together."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Sympathizers go quiet. Information sharing stops. Everyone watches everyone else. The network contracts to only the most trusted contacts.",
+        "targeted": "Safe houses relocated. Supply caches moved or destroyed. The Alliance operative goes to ground. The local sympathizers scatter and wait for the all-clear.",
+        "manhunt": "The network activates emergency protocols. Key figures attempt to flee or go deep underground. Those who can't run rely on the community to hide them — and the community's willingness to do so depends on how much they trust the person versus how much they fear the Empire."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Local knowledge of the urban terrain — every building, every shortcut, every blind spot",
+      "Rebel Alliance: Sympathy from war-scarred residential populations who have seen Imperial brutality firsthand",
+      "Rebel Alliance: Knowledge of mining operations and crystal smuggling routes",
+      "Rebel Alliance: Desperation — some civilians are willing to do anything for their families",
+      "Rebel Alliance on this planet: Some portion of the population sympathizes with the Rebellion, but the overwhelming majority is far more concerned about immediate well-being than long-term political implications. Sympathizers are mo"
+    ],
+    "presets": {
+      "AoR_city_fight": {
+        "label": "Age of Rebellion — City Fight",
+        "description": "",
+        "controlling_factions": [
+          {
+            "location_id": "crystal_city_center",
+            "faction_id": "imperial_military",
+            "presence_level": "dominant",
+            "notes": "Imperial command headquarters. Heavily defended. The last position the Empire will surrender."
+          },
+          {
+            "location_id": "shield_generator_network",
+            "faction_id": "imperial_military",
+            "presence_level": "dominant",
+            "notes": "Primary military objective. Disabling the generators opens Imperial fortifications to artillery. The Empire knows this and defends accordingly."
+          },
+          {
+            "location_id": "mining_refinery_complex",
+            "faction_id": "imperial_military",
+            "presence_level": "fortified",
+            "notes": "Imperial forces have occupied the mining facilities. Corporate security has been overridden. The Empire is using the industrial infrastructure for military purposes."
+          },
+          {
+            "location_id": "refugee_district",
+            "faction_id": "rebel_sympathizers",
+            "presence_level": "fortified",
+            "notes": "The resistance network has been activated. Civilians are providing intelligence and shelter to Alliance forces. The residential zones are contested ground."
+          }
+        ],
+        "faction_relationship_overrides": [
+          {
+            "faction_id": "corporate_interests",
+            "target_faction_id": "imperial_military",
+            "type": "strained",
+            "notes": "The Empire has commandeered corporate facilities for military purposes. The corporations cooperate under duress but are privately calculating whether their assets will survive the battle."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "maximum",
+            "reason": "Active combat operations. The Empire is fighting for control of the planet."
+          }
+        ],
+        "flags": [
+          "",
+          "Shield generators must be disabled before Imperial fortifications become vulnerable to artillery. Without the generators, the shielding systems cannot be sustained. But disabling one facility only secures part of the planet — success must be repeated.",
+          "Imperial defenders have prevented inhabitants from fleeing buildings nearest their fortifications. Every structure must be entered and cleared, eliminating enemies without harming citizens. Imperial forces are willing to exploit this constraint.",
+          "",
+          "Hungry and desperate civilians abound. Some will beg for supplies, some will attempt theft from military stocks. In battle-scarred areas, scavenged supplies come at the expense of refugees. The war's cost in sentient lives is abundantly manifest."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "title": "Edge of the Empire Core Rulebook",
+      "page": 353,
+      "detail": "Planet entry: crystalline planet still recovering from Clone Wars battleground"
+    },
+    {
+      "title": "Age of Rebellion Core Rulebook",
+      "page": 365,
+      "detail": "Planet entry: crystalline planet, suffered greatly as Clone Wars battleground, once loyal to Republic, now equally loyal to Empire"
+    },
+    {
+      "title": "Forged in Battle (Soldier Sourcebook)",
+      "page": 83,
+      "detail": "City Fight scenario: densely populated Outer Rim world, crystalline surface covered by cities, mineral wealth, extended GCW battles, temperate climate, civilian population used as shields, urban combat conditions"
+    },
+    {
+      "title": "Collapse of the Republic",
+      "page": 13,
+      "detail": "Clone veteran slang: 'cracking that crystal' references assault on Crystal City"
+    },
+    {
+      "title": "Collapse of the Republic",
+      "page": 64,
+      "detail": "Christophsis Crystal lightsaber attachment: kyber crystals forming in crystalline forests, 11000 credits, damage 7, crit 3, Breach 1, Sunder, Knockdown mod"
+    },
+    {
+      "title": "Rise of the Separatists",
+      "page": 86,
+      "detail": "Battle of Christophsis: Separatist blockade, resource mining, Savareen sector, multiple battles in orbit and ground, Republic victory at steep cost"
+    },
+    {
+      "title": "Rise of the Separatists",
+      "page": 104,
+      "detail": "Admiral Trench survival revealed at Christophsis, Anakin Skywalker destroys flagship"
+    },
+    {
+      "title": "Rise of the Separatists",
+      "page": 106,
+      "detail": "Trade Federation gained exploitation rights to Christophsis through coerced deal with Senator Farr of Rodia"
+    },
+    {
+      "title": "Disciples of Harmony (Consular Sourcebook)",
+      "page": 59,
+      "detail": "Ascendant personal flyer prototype destroyed over Christophsis during Clone Wars"
+    }
+  ]
+}

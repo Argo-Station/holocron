@@ -1,0 +1,861 @@
+{
+  "table": "Morality (OggDude dataset)",
+  "roll": "d100",
+  "notes": [
+    "Description text is ORIGINAL, authored for this project. PROVENANCE, corrected in lap C9 (ruling `mechanic-prose-two-sources`, R-C9-1): F-EDS-1 lap C-1 (2026-07-25) removed the transcribed FFG rulebook prose inherited from a community-completed OggDude dataset, and THAT REMOVAL STANDS. The descriptions carried here are no longer F-EDS-1's replacement copy: they are the app's own descriptions (origin f548401, 2026-04-04, refined by the COPY-1 pass), promoted verbatim by script in lap C9 because they teach better at the point of choosing. Mechanics — keys, names, types, pairings — are unchanged. Do NOT re-ingest descriptions from that dataset: the DescOnly tag marks transcribed book text. That warning is unchanged and still binding. SCOPE, stated because this file is MIXED: only the STRENGTHS (39) carry the promoted app copy. The WEAKNESSES (48) were never described in the app and retain their F-EDS-1 lap C-1 text (2026-07-25). Both bodies are ORIGINAL project prose; neither is transcribed book text.",
+    "This file is generated from oggdude_merged.json.gz.",
+    "OggDude stores Strength entries with their default paired WeakKey. d100 range mapping (01–08 etc.) is not included in OggDude."
+  ],
+  "strengths": [
+    {
+      "key": "AMBITION",
+      "name": "Ambition",
+      "type": "Strength",
+      "weakKey": "GREED",
+      "description": "Sets lofty goals and pursues them relentlessly.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "ASSERTIVENESS",
+      "name": "Assertiveness",
+      "type": "Strength",
+      "weakKey": "OBSTINACY",
+      "description": "Firm conviction in speech and action.",
+      "source": null
+    },
+    {
+      "key": "BRAVERY",
+      "name": "Bravery",
+      "type": "Strength",
+      "weakKey": "ANGER",
+      "description": "Remarkable courage in the face of danger.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "CAMARADERIE",
+      "name": "Camaraderie",
+      "type": "Strength",
+      "weakKey": "CONFORMITY",
+      "description": "A deep sense of fellowship and loyalty to companions.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "CAUTION",
+      "name": "Caution",
+      "type": "Strength",
+      "weakKey": "FEAR",
+      "description": "Prudence and forethought. Looks before leaping, plans before acting.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "CERTAINTY",
+      "name": "Certainty",
+      "type": "Strength",
+      "weakKey": "EGOISM",
+      "description": "Absolute confidence in one's understanding of the Force.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "CHARITY",
+      "name": "Charity",
+      "type": "Strength",
+      "weakKey": "MARTYR",
+      "description": "Willing to give time, resources, and energy to those in need.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "CLARITY",
+      "name": "Clarity",
+      "type": "Strength",
+      "weakKey": "CONFUSION",
+      "description": "Mental precision and clear-headedness.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "CLEVER",
+      "name": "Cleverness",
+      "type": "Strength",
+      "weakKey": "SOPH",
+      "description": "Quick-witted and resourceful. Finds creative solutions to problems.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "COMPASSION",
+      "name": "Compassion",
+      "type": "Strength",
+      "weakKey": "HATRED",
+      "description": "A deep capacity for empathy and concern for others' suffering.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "CONFIDENCE",
+      "name": "Confidence",
+      "type": "Strength",
+      "weakKey": "ARROGANCE",
+      "description": "Strong self-assurance without arrogance. Trusts their own abilities and decisions.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "CONSIDERATION",
+      "name": "Consideration",
+      "type": "Strength",
+      "weakKey": "HESITANCY",
+      "description": "Thoughtful and deliberate in all dealings.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "CONSISTENCY",
+      "name": "Consistency",
+      "type": "Strength",
+      "weakKey": "OBSTINATENESS",
+      "description": "Reliable and steady. Others know exactly what to expect.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "CONVICTION",
+      "name": "Conviction",
+      "type": "Strength",
+      "weakKey": "OBSTINACY",
+      "description": "Unshakeable belief in a chosen path or principle.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "CURIOSITY",
+      "name": "Curiosity",
+      "type": "Strength",
+      "weakKey": "OBSESSION",
+      "description": "An insatiable drive to understand the unknown.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "DEDICATION",
+      "name": "Dedication",
+      "type": "Strength",
+      "weakKey": "OBSESSION",
+      "description": "Total commitment to a chosen cause, person, or goal.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "DISCIPLINE",
+      "name": "Discipline",
+      "type": "Strength",
+      "weakKey": "OBSTINATENESS",
+      "description": "Iron self-control and mental fortitude.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "EMPATHY",
+      "name": "Empathy",
+      "type": "Strength",
+      "weakKey": "VENGEANCE",
+      "description": "An intuitive understanding of others' emotional states.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "ENTHUSIASM",
+      "name": "Enthusiasm",
+      "type": "Strength",
+      "weakKey": "RECKLESSNESS",
+      "description": "Infectious energy and optimism.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "FONDNESS",
+      "name": "Fondness",
+      "type": "Strength",
+      "weakKey": "DEMANDING",
+      "description": "Deep affection for friends, companions, and the people encountered.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "FRUGAL",
+      "name": "Frugality",
+      "type": "Strength",
+      "weakKey": "CONDEMN",
+      "description": "Careful stewardship of resources. Wastes nothing, plans ahead.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "HONOR",
+      "name": "Honor",
+      "type": "Strength",
+      "weakKey": "VANITY",
+      "description": "A personal code of conduct that governs behavior.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "HUMILITY",
+      "name": "Humility",
+      "type": "Strength",
+      "weakKey": "WORTHLESSNESS",
+      "description": "Genuine modesty about one's abilities and accomplishments.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "IDEALISM",
+      "name": "Idealism",
+      "type": "Strength",
+      "weakKey": "NAIVETY",
+      "description": "A sincere belief that the galaxy can be better.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "INDEPENDENCE",
+      "name": "Independence",
+      "type": "Strength",
+      "weakKey": "COLDNESS",
+      "description": "Self-reliance and personal autonomy.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "JOY",
+      "name": "Joy",
+      "type": "Strength",
+      "weakKey": "ANTIPATHY",
+      "description": "A wellspring of happiness that persists even in dark times.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "JUSTICE",
+      "name": "Justice",
+      "type": "Strength",
+      "weakKey": "CRUELTY",
+      "description": "A deep commitment to fairness and accountability.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "LOVE",
+      "name": "Love",
+      "type": "Strength",
+      "weakKey": "JEALOUSY",
+      "description": "An open heart and genuine affection for others.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "MALLEAB",
+      "name": "Malleability",
+      "type": "Strength",
+      "weakKey": "DOGMATIC",
+      "description": "Flexibility and openness to new ideas.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "MERCY",
+      "name": "Mercy",
+      "type": "Strength",
+      "weakKey": "APATHY",
+      "description": "The capacity for forgiveness and restraint.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "MODESTY",
+      "name": "Modesty",
+      "type": "Strength",
+      "weakKey": "VANITY",
+      "description": "Understated and unpretentious.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "PATIENT",
+      "name": "Patience",
+      "type": "Strength",
+      "weakKey": "CONDES",
+      "description": "Willing to wait for the right moment.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "PRIDE",
+      "name": "Pride",
+      "type": "Strength",
+      "weakKey": "ARROGANCE",
+      "description": "A healthy sense of personal worth and accomplishment.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "REASON",
+      "name": "Reason",
+      "type": "Strength",
+      "weakKey": "APATHYW",
+      "description": "Logic and rational analysis guide decision-making.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "RIGHT",
+      "name": "Righteousness",
+      "type": "Strength",
+      "weakKey": "SPITE",
+      "description": "A burning sense of moral correctness.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "SYMPATHY",
+      "name": "Sympathy",
+      "type": "Strength",
+      "weakKey": "DESPERATION",
+      "description": "A natural capacity to share in others' pain and joy.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "TRUST",
+      "name": "Trust",
+      "type": "Strength",
+      "weakKey": "GUARDED",
+      "description": "A willingness to believe in others' good intentions.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "WELLNESS",
+      "name": "Wellness",
+      "type": "Strength",
+      "weakKey": "RIGID",
+      "description": "Commitment to physical, mental, and spiritual health.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "WONDER",
+      "name": "Wonder",
+      "type": "Strength",
+      "weakKey": "ALIENATION",
+      "description": "A profound sense of awe at the galaxy's vastness and mystery.",
+      "source": "Endless Vigil"
+    }
+  ],
+  "weaknesses": [
+    {
+      "key": "ALIENATION",
+      "name": "Alienation",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Withdraws from the company. Connection feels unfamiliar, and the isolation begins to seem deserved.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "ANGER",
+      "name": "Anger",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Answers provocation with force, then finds the justification afterward.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "ANTIPATHY",
+      "name": "Antipathy",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Finds the defect in every good thing, and treats the contentment of others as something to correct.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "APATHYW",
+      "name": "Apathy",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Weighs the crisis, decides it belongs to someone else, and returns to what they were doing.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "ARROGANCE",
+      "name": "Arrogance",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Is not satisfied by success unless someone else has fallen short of it.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "CLOSEDMIND",
+      "name": "Closed-mindedness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Settled the question long ago and stopped listening at the same time.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "COLDHEART",
+      "name": "Cold-Heartedness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Registers the suffering of others without feeling any claim from it.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "COLDNESS",
+      "name": "Coldness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Has hardened self-reliance into indifference. If another cannot manage, that is their concern.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "CONDEMN",
+      "name": "Condemnation",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Measures others by what they spend, and finds them wanting.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "CONDES",
+      "name": "Condescension",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Helps with visible reluctance, explaining what nobody asked to have explained.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "CONFORMITY",
+      "name": "Conformity",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Defers in order to belong, and buys fellowship at the cost of independent judgment.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "CONFUSION",
+      "name": "Confusion",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Loses the thread of events and seizes on whatever certainty lies nearest.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "CRUELTY",
+      "name": "Cruelty",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Takes pleasure in punishment, then declares it deserved.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "DEFIANCE",
+      "name": "Defiance",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Resists on principle, including help the character genuinely needs.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "DEMANDING",
+      "name": "Demanding",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Extends warmth and expects repayment for it.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "DESPERATION",
+      "name": "Desperation",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Seizes any remedy at any cost, and seizes it now.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "DISARRAY",
+      "name": "Disarray",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Scatters obligations and brings little of them to completion.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "DISDAIN",
+      "name": "Disdain",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Holds most people and most proposals beneath consideration.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "DOGMATIC",
+      "name": "Dogmatic",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Keeps the rule long after the reason for it has gone.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "EGOISM",
+      "name": "Egoism",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Is certain of one thing only: their own precedence.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "FEAR",
+      "name": "Fear",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Sees the risk clearly and withdraws from it, every time.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "GREED",
+      "name": "Greed",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Wants power, wealth and comfort, and then more of each.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "GUARDED",
+      "name": "Guardedness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Has withdrawn trust and not restored it, keeping the defenses raised even toward allies.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "HATRED",
+      "name": "Hatred",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Witnessed suffering and turned it into loathing that does not diminish.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "HESITANCY",
+      "name": "Hesitancy",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Deliberates without end and decides never.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "IMPATIENCE",
+      "name": "Impatience",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Forces the moment and damages what needed time.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "INDECISION",
+      "name": "Indecision",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Keeps every option open by never selecting one.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "INTOLERANCE",
+      "name": "Intolerance",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Reads difference as defect, and has no patience for other ways of proceeding.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "JEALOUSY",
+      "name": "Jealousy",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Envies what others possess, and whom else is loved.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "JUDGING",
+      "name": "Judging",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Delivers the verdict first and treats the evidence as optional.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "MARTYR",
+      "name": "Martyrdom",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Makes certain the sacrifice is witnessed, and treats it afterward as a credential.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "MERCILESSNESS",
+      "name": "Mercilessness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Gives no quarter under any circumstance. The defeated are finished rather than spared.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "NAIVETY",
+      "name": "Naivety",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Trusts the galaxy to be better than it is.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "NAIVETE",
+      "name": "Naïveté",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Accepts the galaxy at face value and absorbs the difference.",
+      "source": "Keeping the Peace"
+    },
+    {
+      "key": "OBSESSION",
+      "name": "Obsession",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Lets one interest eclipse all others, and cannot set it down.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "OBSTINACY",
+      "name": "Obstinacy",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Holds the position because it is the position they hold.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "OBSTINATENESS",
+      "name": "Obstinence",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Will not correct course and will not hear a second opinion.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "RECKLESSNESS",
+      "name": "Recklessness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Commits first and reckons the cost afterward.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "REPRESSION",
+      "name": "Repression",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Suppresses what they feel until it governs them from within.",
+      "source": "Knights of Fate"
+    },
+    {
+      "key": "RIGID",
+      "name": "Rigid",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Reads any deviation as a threat, and treats routine as the only safe ground.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "SOPH",
+      "name": "Sophism",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Builds arguments to prevail rather than to be true.",
+      "source": "Disciples of Harmony"
+    },
+    {
+      "key": "SORROW",
+      "name": "Sorrow",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Persistent grief that informs someone's actions.",
+      "source": "Unlimited Power"
+    },
+    {
+      "key": "SPITE",
+      "name": "Spite",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Keeps accounts and settles them in small increments.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "VANITY",
+      "name": "Vanity",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Tends to the appearance more carefully than the substance.",
+      "source": null
+    },
+    {
+      "key": "VENGEANCE",
+      "name": "Vengeance",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Empathy for the wronged sharpened into an instrument against the wrongdoer.",
+      "source": "Savage Spirits"
+    },
+    {
+      "key": "APATHY",
+      "name": "Weakness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Tolerates wrongs because confronting them is difficult.",
+      "source": "Force and Destiny Core Rulebook"
+    },
+    {
+      "key": "WEARINESS",
+      "name": "Weariness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Finds effort spent before it begins, and has been depleted past caring.",
+      "source": "Endless Vigil"
+    },
+    {
+      "key": "WORTHLESSNESS",
+      "name": "Worthlessness",
+      "type": "Weakness",
+      "weakKey": null,
+      "description": "Is persuaded of their own insignificance, and acts upon it.",
+      "source": "Unlimited Power"
+    }
+  ],
+  "pairing": {
+    "strengthToWeakness": {
+      "BRAVERY": "ANGER",
+      "LOVE": "JEALOUSY",
+      "CAUTION": "FEAR",
+      "CONSISTENCY": "OBSTINATENESS",
+      "ENTHUSIASM": "RECKLESSNESS",
+      "EMPATHY": "VENGEANCE",
+      "COMPASSION": "HATRED",
+      "MERCY": "APATHY",
+      "DEDICATION": "OBSESSION",
+      "ASSERTIVENESS": "OBSTINACY",
+      "CURIOSITY": "OBSESSION",
+      "PRIDE": "ARROGANCE",
+      "INDEPENDENCE": "COLDNESS",
+      "AMBITION": "GREED",
+      "JUSTICE": "CRUELTY",
+      "DISCIPLINE": "OBSTINATENESS",
+      "FRUGAL": "CONDEMN",
+      "WONDER": "ALIENATION",
+      "RIGHT": "SPITE",
+      "MODESTY": "VANITY",
+      "TRUST": "GUARDED",
+      "MALLEAB": "DOGMATIC",
+      "REASON": "APATHYW",
+      "CLEVER": "SOPH",
+      "PATIENT": "CONDES",
+      "CHARITY": "MARTYR",
+      "CERTAINTY": "EGOISM",
+      "CLARITY": "CONFUSION",
+      "HUMILITY": "WORTHLESSNESS",
+      "WELLNESS": "RIGID",
+      "JOY": "ANTIPATHY",
+      "FONDNESS": "DEMANDING",
+      "CONFIDENCE": "ARROGANCE",
+      "CAMARADERIE": "CONFORMITY",
+      "CONVICTION": "OBSTINACY",
+      "HONOR": "VANITY",
+      "CONSIDERATION": "HESITANCY",
+      "SYMPATHY": "DESPERATION",
+      "IDEALISM": "NAIVETY"
+    },
+    "weaknessToStrengths": {
+      "ANGER": [
+        "BRAVERY"
+      ],
+      "JEALOUSY": [
+        "LOVE"
+      ],
+      "FEAR": [
+        "CAUTION"
+      ],
+      "OBSTINATENESS": [
+        "CONSISTENCY",
+        "DISCIPLINE"
+      ],
+      "RECKLESSNESS": [
+        "ENTHUSIASM"
+      ],
+      "VENGEANCE": [
+        "EMPATHY"
+      ],
+      "HATRED": [
+        "COMPASSION"
+      ],
+      "APATHY": [
+        "MERCY"
+      ],
+      "OBSESSION": [
+        "DEDICATION",
+        "CURIOSITY"
+      ],
+      "OBSTINACY": [
+        "ASSERTIVENESS",
+        "CONVICTION"
+      ],
+      "ARROGANCE": [
+        "PRIDE",
+        "CONFIDENCE"
+      ],
+      "COLDNESS": [
+        "INDEPENDENCE"
+      ],
+      "GREED": [
+        "AMBITION"
+      ],
+      "CRUELTY": [
+        "JUSTICE"
+      ],
+      "CONDEMN": [
+        "FRUGAL"
+      ],
+      "ALIENATION": [
+        "WONDER"
+      ],
+      "SPITE": [
+        "RIGHT"
+      ],
+      "VANITY": [
+        "MODESTY",
+        "HONOR"
+      ],
+      "GUARDED": [
+        "TRUST"
+      ],
+      "DOGMATIC": [
+        "MALLEAB"
+      ],
+      "APATHYW": [
+        "REASON"
+      ],
+      "SOPH": [
+        "CLEVER"
+      ],
+      "CONDES": [
+        "PATIENT"
+      ],
+      "MARTYR": [
+        "CHARITY"
+      ],
+      "EGOISM": [
+        "CERTAINTY"
+      ],
+      "CONFUSION": [
+        "CLARITY"
+      ],
+      "WORTHLESSNESS": [
+        "HUMILITY"
+      ],
+      "RIGID": [
+        "WELLNESS"
+      ],
+      "ANTIPATHY": [
+        "JOY"
+      ],
+      "DEMANDING": [
+        "FONDNESS"
+      ],
+      "CONFORMITY": [
+        "CAMARADERIE"
+      ],
+      "HESITANCY": [
+        "CONSIDERATION"
+      ],
+      "DESPERATION": [
+        "SYMPATHY"
+      ],
+      "NAIVETY": [
+        "IDEALISM"
+      ]
+    }
+  }
+}

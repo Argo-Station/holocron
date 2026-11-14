@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/career.schema.json",
+  "title": "Career",
+  "description": "Canonical, app-owned career record. Ingested ONCE from oggdude_merged.json `careers` (20 entries, clean dicts). Specializations are id-refs, NOT embedded — normalizeOggdude embedded full spec objects (talent tree included) inside every career, duplicating each spec; canonical joins at load. Replaces normalizeOggdude's career block.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "career_skills",
+    "specializations",
+    "free_ranks"
+  ],
+  "$comment": "INGEST CONTRACT — CareerSkills.Key / Specializations.Key are scalar-or-list (coerce to list); skill keys resolve via skills.vocab (fail-loud); spec keys -> spec ids (referential integrity, Layer 1). FreeRanks present only on the 8 careers granting !=4 (the 6 F&D careers + GUARD/JEDI, all '3') -> free_ranks is EXPLICIT on every record: 4 default (eote p.89: one rank in 4 of the 8 career skills) else to_int(FreeRanks). Attributes captured ONLY for non-zero ForceRating (F&D careers grant FR 1, fad p.282); all-zero Attributes blocks are OggDude editor noise — dropped with an integrity check that every non-ForceRating member is '0'/'false', else fail loud.",
+  "properties": {
+    "id": {
+      "$ref": "charbuild-common.schema.json#/$defs/id"
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key (e.g. 'THEACE'). Traceability only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "$ref": "charbuild-common.schema.json#/$defs/description"
+    },
+    "career_skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "charbuild-common.schema.json#/$defs/skill_ref"
+      },
+      "description": "The career's career skills (8 in EotE/AoR, 6 in FaD), as canonical skill ids (R-M12B-96). Career skills advance at 5×new-rank; non-career at 5×new-rank+5 (eote p.101-102; aor p.104)."
+    },
+    "specializations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "charbuild-common.schema.json#/$defs/id"
+      },
+      "description": "Specialization id-refs available in-career. Additional specs cost 10× the new total; +10 surcharge when non-career (eote p.102; fad p.106)."
+    },
+    "free_ranks": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8,
+      "description": "Free career-skill ranks granted at creation by this career (player's choice among career_skills). 4 for EotE/AoR careers (eote p.89); 3 for the F&D-style Force careers (OggDude FreeRanks). The starting specialization grants 2 more from its own list (eote p.44). NOTE: the legacy creator hardcoded 4 (player FCSkillPicker) — wrong for F&D careers; canonical data fixes this by construction."
+    },
+    "starting_entitlements": {
+      "description": "Things the career grants at creation that are not skills or ranks. Added by F-EDS-6 (ruling f-eds-6-careers-strip-recon §4.3) to give the Bounty Hunter's automatic IPKC a structural home — it previously existed only inside the verbatim book prose that lap removed, and so reached no user. An ARRAY because a second entitlement in the line is likelier than never.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "force_rating": {
+      "$ref": "charbuild-common.schema.json#/$defs/force_rating"
+    },
+    "career_powers": {
+      "$ref": "charbuild-common.schema.json#/$defs/career_power_pair",
+      "description": "F-100 M12 Career Powers (R-M12C-86): the career's two Force powers (primer p.5, the career's group row; e.g. CONSULAR Influence, Move). At creation one of them is a free basic power (primer p.4); afterwards a basic power on the character's career powers takes the Mentor discount the book prints (FaD Core p.109, R-M12C-87). Pack-overlay only (D-146); DARK (R-M12B-2)."
+    },
+    "effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/career_attribute_effect" },
+      "description": "F-100 M12 career Attributes as effect rows (R-M12C-79 shape B, R-M12C-100): what the career itself adds to a sheet number, in the existing ops. Absent = none (every shipped career). The OggDude ingest's all-zero Attributes stay dropped ($comment above); a non-zero key maps 1:1 (Docs/briefs/f100-m12-gate-table.md §4). DARK (R-M12B-2)."
+    },
+    "xp_adjustment": {
+      "type": "integer",
+      "not": { "const": 0 },
+      "description": "F-100 M12 (R-M12C-79/100): OggDude's career Attributes `Experience`, the ONE flat field — a delta on the creation XP pool, the career's twin of a species option's `xp_adjustment`. Absent = 0 (every shipped career). Read by CharResolve.careerXpAdjustment ONLY, DARK (R-M12B-2)."
+    },
+    "sources": {
+      "$ref": "charbuild-common.schema.json#/$defs/sources"
+    },
+    "_provenance": {
+      "$ref": "charbuild-common.schema.json#/$defs/provenance"
+    },
+    "_dataset": { "$ref": "charbuild-common.schema.json#/$defs/dataset" }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "formatVersion": 1,
+  "packId": "my_data",
+  "name": "My Data",
+  "_provenance": "custom",
+  "createdAt": "2026-07-17T00:00:00Z",
+  "updatedAt": "2026-09-23T00:00:00Z",
+  "sections": {
+    "weapons": {
+      "blaster_pistol": {
+        "_mode": "redefine",
+        "_base": {
+          "ref": "sha256:p1:3f1d49bf1f4d7482b26e42c8d9e7a9f8e5d24ae45ec8e1e481e76c9fef530ad8",
+          "tag": "1f0f1bbc",
+          "editedAt": "2026-09-23T00:00:00Z"
+        },
+        "id": "blaster_pistol",
+        "_source_key": "BLASTPIS",
+        "name": "Blaster Pistol",
+        "description": "",
+        "skill": "ranged_light",
+        "damage": {
+          "value": 7,
+          "base": "flat"
+        },
+        "crit": 3,
+        "range": "medium",
+        "encumbrance": 1,
+        "hardpoints": 3,
+        "price": 400,
+        "rarity": 4,
+        "restricted": false,
+        "type": "Energy Weapon",
+        "categories": [
+          "Blaster Pistol",
+          "Blaster",
+          "Pistol",
+          "Ranged"
+        ],
+        "qualities": [
+          {
+            "id": "stun_setting",
+            "name": "Stun Setting",
+            "ranked": false
+          }
+        ],
+        "sources": [
+          "eote",
+          "aor",
+          "fad"
+        ],
+        "_provenance": "oggdude"
+      }
+    },
+    "gear": {
+      "custom_my_data_lucky_dice": {
+        "_mode": "add",
+        "id": "custom_my_data_lucky_dice",
+        "name": "Lucky Dice",
+        "type": "Trinket",
+        "description": "A pair of worn chance cubes that have never once rolled the number their owner needed.",
+        "price": 5,
+        "rarity": 1,
+        "restricted": false,
+        "encumbrance": 0,
+        "sources": []
+      }
+    },
+    "species": {
+      "human": {
+        "_mode": "redefine",
+        "_base": {
+          "ref": "sha256:p1:3e802706da428983a917fc9b7ad906f2f4c1e9575256dc724c810a3d8304ce5b",
+          "editedAt": "2026-09-23T00:00:00Z"
+        },
+        "id": "human",
+        "_source_key": "HUMAN",
+        "name": "Human",
+        "description": "Humans are everywhere. They are the galaxy's most numerous and most widely spread species, found in every role from moisture farmer to Emperor, and the standard against which most other species are casually measured — usually by Humans.",
+        "characteristics": {
+          "brawn": 2,
+          "agility": 2,
+          "intellect": 2,
+          "cunning": 2,
+          "willpower": 2,
+          "presence": 2
+        },
+        "wound_threshold_base": 10,
+        "strain_threshold_base": 10,
+        "starting_xp": 120,
+        "special_abilities": [
+          {
+            "name": "Additional Non-Career Skills",
+            "description": ""
+          }
+        ],
+        "skill_choice_grants": [
+          {
+            "count": 2,
+            "pool": "non_career",
+            "rank_cap": 2
+          }
+        ],
+        "sources": [
+          "eote",
+          "aor",
+          "fad"
+        ],
+        "_provenance": "oggdude",
+        "physiology": "Humans are mammalian bipeds of unremarkable build, which is rather the point: they run neither especially fast nor especially long, see a narrow band of light, and hear a narrow band of sound. What they lack in specialisation they make up for in tolerance. A Human can eat almost anything organic, endure a wide span of temperature and pressure, and adapt to gravity well outside their ancestral norm. Lifespans run around a standard century, and the species reaches maturity slowly enough that culture, rather than instinct, does most of the teaching.",
+        "society": "There is no single Human society, and any attempt to describe one collapses immediately. Humans have built theocracies, corporate holdings, hereditary monarchies, brutal autocracies and functioning democracies, often on neighbouring worlds and occasionally on the same one. What travels with them is a restless appetite for organisation: Humans arrive, form institutions, and argue about them. The Empire is the current and ugliest expression of that habit, and its human-centric doctrine has made the species' name a grievance across the Outer Rim — resented in places no Human has ever visited.",
+        "homeworld": "Humans no longer agree on where they began. Coruscant claims the honour and has the records to argue it, but Human populations are so old and so widely seeded that dozens of worlds hold plausible traditions of their own. In practice the question is academic: Humans have been a spacefaring species for so long that their homeworld is wherever a given family has been for the last few generations, whether that is a Core ecumenopolis, a Rim mining colony, or a freighter that has not made planetfall in a year.",
+        "language": "Humans speak Basic, and Basic is the galaxy's common tongue largely because Humans went everywhere and insisted on it. Regional dialects run deep enough that a Corellian and a Coruscanti can misunderstand each other in a bar, and many Human worlds keep a local language alongside Basic for use at home. Most Humans read and write it, and a great many never learn a second language at all — an assumption other species find revealing.",
+        "_name_precedence": 0
+      }
+    },
+    "talents": {
+      "custom_my_data_iron_will": {
+        "_mode": "add",
+        "id": "custom_my_data_iron_will",
+        "name": "Iron Will",
+        "description": "Increase strain threshold by 1 per rank of Iron Will.",
+        "ranked": true,
+        "activation": "passive",
+        "sources": [],
+        "effects": [
+          {
+            "op": "strain_threshold_delta",
+            "amount": 1,
+            "per_rank": true
+          }
+        ]
+      }
+    }
+  }
+}

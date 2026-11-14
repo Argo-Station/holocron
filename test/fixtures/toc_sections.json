@@ -1,0 +1,68 @@
+{
+  "_provenance": {
+    "method": "R-CVM-1 — the TOC method. Sections come from the corpus's `toc` tool: the PDF's own bookmarks,",
+    "_2": "which carry CORPUS page ranges (the PDF's page index), NOT printed ones. RE-POINTED by ruling",
+    "_3": "`release-r7-bug-burndown` ADDENDUM 56 (F-2, B-1349): this line used to say PRINTED, and every creator",
+    "_4": "step cite judged against it shipped a corpus page as a printed one. Measured: EotE Step 6 bookmarks",
+    "_5": "corpus 101-102 (where the raise-cost text sits; the converter prints 92-93); EotE's own cross-reference",
+    "_5b": "lands at offset 9; FaD's index at offset 3. A containment judgement here is sound for the CORPUS page",
+    "_5c": "a cite was read at; the PRINTED page is the converter's (swrpg_index.pdf_pages, offsets in",
+    "_5d": "Docs/pdf_sources.json), guarded by test/b1349_step_cites_printed.cjs.",
+    "captured": "2026-09-01, via mcp swrpg toc(alias) for eote/aor/fad",
+    "scope": "The CHARACTER-CREATION and PLAYING-THE-GAME chapters, which is where every page number",
+    "_6": "the app currently ships falls. A cite landing outside these ranges judges UNJUDGEABLE by",
+    "_7": "this fixture rather than silently passing — widen the fixture, never the tolerance."
+  },
+  "eote": {
+    "book": "Edge of the Empire",
+    "sections": [
+      { "title": "1: Playing the Game", "level": 2, "start": 16, "end": 41 },
+      { "title": "Other Key Elements", "level": 3, "start": 35, "end": 37 },
+      { "title": "Obligations", "level": 3, "start": 38, "end": 38 },
+      { "title": "Experience & Development", "level": 3, "start": 38, "end": 39 },
+      { "title": "Derived Attributes", "level": 3, "start": 40, "end": 41 },
+      { "title": "2: Character Creation", "level": 2, "start": 42, "end": 109 },
+      { "title": "Step 1: Character Backgrounds", "level": 3, "start": 45, "end": 46 },
+      { "title": "Step 2: Obligation", "level": 3, "start": 47, "end": 51 },
+      { "title": "Step 3: Selecting a Species", "level": 3, "start": 52, "end": 61 },
+      { "title": "Step 4 and 5: Choosing a Career and Specializations", "level": 3, "start": 62, "end": 100 },
+      { "title": "Step 6: Invest Experience Points", "level": 3, "start": 101, "end": 102 },
+      { "title": "2-4: Spending Starting Experience", "level": 3, "start": 101, "end": 102 },
+      { "title": "Step 7: Determine Derived Attributes", "level": 3, "start": 103, "end": 103 }
+    ]
+  },
+  "aor": {
+    "book": "Age of Rebellion",
+    "sections": [
+      { "title": "1: Playing the Game", "level": 2, "start": 16, "end": 39 },
+      { "title": "Other Key Elements", "level": 3, "start": 34, "end": 36 },
+      { "title": "Experience & Development", "level": 3, "start": 37, "end": 37 },
+      { "title": "Derived Attributes", "level": 3, "start": 38, "end": 39 },
+      { "title": "2: Character Creation", "level": 2, "start": 40, "end": 113 },
+      { "title": "Step 1: Determine Background", "level": 3, "start": 44, "end": 46 },
+      { "title": "Step 2: Determine Duty", "level": 3, "start": 47, "end": 51 },
+      { "title": "Step 3: Select a Species", "level": 3, "start": 52, "end": 61 },
+      { "title": "Steps 4 and 5: Select Career and Specializations", "level": 3, "start": 62, "end": 102 },
+      { "title": "Step 6: Invest Experience Points", "level": 3, "start": 103, "end": 104 },
+      { "title": "2-4: Spending Starting Experience", "level": 3, "start": 103, "end": 104 },
+      { "title": "Step 7: Determine Derived Attributes", "level": 3, "start": 105, "end": 105 }
+    ]
+  },
+  "fad": {
+    "book": "Force and Destiny",
+    "sections": [
+      { "title": "1: Playing the Game", "level": 2, "start": 18, "end": 43 },
+      { "title": "Other Key Elements", "level": 3, "start": 37, "end": 39 },
+      { "title": "Experience and Development", "level": 3, "start": 40, "end": 41 },
+      { "title": "Derived Attributes", "level": 3, "start": 42, "end": 43 },
+      { "title": "2: Character Creation", "level": 2, "start": 44, "end": 113 },
+      { "title": "Step 1: Determine Background", "level": 3, "start": 48, "end": 50 },
+      { "title": "Step 2: Determine Morality", "level": 3, "start": 51, "end": 56 },
+      { "title": "Step 3: Select a Species", "level": 3, "start": 57, "end": 65 },
+      { "title": "Steps 4 and 5: Select a Career and Specialization", "level": 3, "start": 66, "end": 104 },
+      { "title": "Step 6: Invest Experience Points", "level": 3, "start": 105, "end": 106 },
+      { "title": "2-2: Spending Starting Experience", "level": 3, "start": 105, "end": 107 },
+      { "title": "Step 7: Determine Derived Attributes", "level": 3, "start": 107, "end": 107 }
+    ]
+  }
+}

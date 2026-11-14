@@ -1,0 +1,653 @@
+{
+  "version": "1.0",
+  "locations": [
+    {
+      "location_id": "kuat-sector-command",
+      "name": "Kuat Sector Command Garrison",
+      "type": "interior_imperial",
+      "faction": "Imperial Military",
+      "status": "occupied_active",
+      "inhabitants": ["Stormtrooper platoon", "Imperial Navy officers", "ISB liaison"],
+      "last_event": "A routine prisoner transfer went wrong when the detainee revealed concealed cortosis weave armor and escaped into the ventilation system.",
+      "mood": ["urgency", "paranoia"],
+      "secrets": [
+        "The garrison commander has been skimming weapons shipments and selling E-11 blaster rifles to a Pyke Syndicate contact.",
+        "A sealed sublevel contains prototype interrogation droids that were officially decommissioned."
+      ],
+      "threat_level": "high",
+      "tags": ["garrison", "military", "stormtroopers", "imperial", "kuat"]
+    },
+    {
+      "location_id": "bureau-listening-post",
+      "name": "Imperial Intelligence Listening Post Besh-7",
+      "type": "interior_imperial",
+      "faction": "Imperial Intelligence",
+      "status": "occupied_tense",
+      "inhabitants": ["ISB analysts", "Comm-scan technicians", "Protocol droid supervisor"],
+      "last_event": "Intercepted a coded Rebel transmission referencing an operative embedded within the post itself — no one knows who to trust.",
+      "mood": ["paranoia", "fear", "trapped"],
+      "secrets": [
+        "The protocol droid has been reprogrammed by Rebel sympathizers and is relaying sanitized intelligence reports.",
+        "One analyst discovered the mole's identity but was silenced with a neurotoxin before they could report it.",
+        "The listening post sits atop an ancient Jedi waystation buried during the Clone Wars."
+      ],
+      "threat_level": "high",
+      "tags": ["intelligence", "espionage", "communications", "isb", "mole"]
+    },
+    {
+      "location_id": "tarkin-initiative-lab",
+      "name": "Tarkin Initiative Research Annex",
+      "type": "interior_imperial",
+      "faction": "Imperial Military",
+      "status": "quarantined",
+      "inhabitants": ["Imperial science officers", "Security droids", "Confined test subjects"],
+      "last_event": "An experimental bioweapon breached containment in Lab Section Aurek, killing three researchers before emergency protocols sealed the wing.",
+      "mood": ["danger", "eerie", "fear"],
+      "secrets": [
+        "The bioweapon was derived from Dathomir nightsister alchemy, not conventional Imperial science.",
+        "A surviving researcher has been secretly documenting the experiments on a hidden datapad, hoping to defect."
+      ],
+      "threat_level": "extreme",
+      "tags": ["research", "bioweapon", "quarantine", "tarkin", "laboratory"]
+    },
+    {
+      "location_id": "moff-residency-tower",
+      "name": "Moff Delvaris's Administrative Tower",
+      "type": "interior_imperial",
+      "faction": "Imperial Military",
+      "status": "occupied_active",
+      "inhabitants": ["Moff Delvaris", "Royal Guard detachment", "Administrative aides", "Serving droids"],
+      "last_event": "Moff Delvaris received a death mark hologram from Black Sun and has tripled her personal security detail.",
+      "mood": ["calm_before_storm", "paranoia"],
+      "secrets": [
+        "Delvaris is negotiating a secret ceasefire with a Rebel cell to eliminate a mutual Black Sun rival.",
+        "The tower's transparisteel observation deck conceals a hidden turbolaser emplacement."
+      ],
+      "threat_level": "high",
+      "tags": ["moff", "politics", "administration", "tower", "black-sun-conflict"]
+    },
+    {
+      "location_id": "compnor-recruitment-center",
+      "name": "COMPNOR Youth Recruitment Center",
+      "type": "interior_imperial",
+      "faction": "Imperial Military",
+      "status": "occupied_active",
+      "inhabitants": ["COMPNOR officers", "Youth recruits", "Propaganda droids"],
+      "last_event": "A teenager smuggled an anti-Imperial holozine into the center, and three recruits have gone missing since its discovery.",
+      "mood": ["corrupt", "trapped"],
+      "secrets": [
+        "The recruitment center doubles as a screening facility for Force-sensitive children, who are quietly transferred off-world.",
+        "A hidden room behind the holoprojector stores confiscated personal belongings that were supposed to be destroyed."
+      ],
+      "threat_level": "medium",
+      "tags": ["compnor", "recruitment", "propaganda", "youth", "force-sensitive"]
+    },
+    {
+      "location_id": "detention-block-aurek",
+      "name": "Sector Detention Block Aurek-12",
+      "type": "interior_imperial",
+      "faction": "Imperial Intelligence",
+      "status": "occupied_tense",
+      "inhabitants": ["Detention guards", "IT-O interrogation droids", "Political prisoners"],
+      "last_event": "A prisoner exchange with the Hutts went sideways when the Hutt envoy was assassinated in the lobby by an unknown sniper.",
+      "mood": ["desperation", "fear", "danger"],
+      "secrets": [
+        "Cell block seven houses a former Jedi Padawan kept sedated with Class-4 neural suppressants.",
+        "The head guard runs a gambling ring using confiscated credit chips from prisoners."
+      ],
+      "threat_level": "extreme",
+      "tags": ["prison", "detention", "interrogation", "jedi", "political-prisoners"]
+    },
+    {
+      "location_id": "fulcrum-safehouse",
+      "name": "Fulcrum Safehouse — The Luma Den",
+      "type": "interior_civilian",
+      "faction": "Rebel Alliance",
+      "status": "occupied_tense",
+      "inhabitants": ["Rebel intelligence operatives", "Sympathetic cantina owner", "Disguised courier droids"],
+      "last_event": "An operative returned from a dead drop missing two fingers and carrying a datacube encrypted with an unknown Imperial cipher.",
+      "mood": ["paranoia", "defiance", "urgency"],
+      "secrets": [
+        "The cantina's fermentation tanks contain hidden compartments used to smuggle thermal detonators.",
+        "The owner's daughter is an unwitting ISB informant, reporting her mother's visitors to a handler she believes is a suitor."
+      ],
+      "threat_level": "medium",
+      "tags": ["safehouse", "fulcrum", "intelligence", "cantina", "rebel"]
+    },
+    {
+      "location_id": "rebel-comm-bunker",
+      "name": "Rebel Communications Bunker Cresh-4",
+      "type": "interior_cave",
+      "faction": "Rebel Alliance",
+      "status": "occupied_active",
+      "inhabitants": ["Rebel comm officers", "Astromech droids", "Pathfinder scouts"],
+      "last_event": "A burst transmission from Alliance High Command revealed that an Imperial fleet is en route — evacuation protocols have been initiated.",
+      "mood": ["urgency", "fear", "defiance"],
+      "secrets": [
+        "The bunker's power generator is failing and has maybe twelve hours of operation left.",
+        "A Pathfinder scout discovered Separatist-era battle droid parts in a collapsed tunnel nearby."
+      ],
+      "threat_level": "high",
+      "tags": ["bunker", "communications", "evacuation", "rebel", "cave"]
+    },
+    {
+      "location_id": "cell-medstation",
+      "name": "Onderon Rebel Cell Field Hospital",
+      "type": "interior_rebel",
+      "faction": "Rebel Cell",
+      "status": "occupied_active",
+      "inhabitants": ["Rebel medics", "Wounded fighters", "2-1B medical droid"],
+      "last_event": "A critically wounded Imperial defector arrived carrying a datachip with garrison patrol schedules — but his injuries suggest he may have been allowed to escape.",
+      "mood": ["grief", "hopeful", "desperation"],
+      "secrets": [
+        "The bacta supply is almost gone; the medics have been diluting it with kolto and hoping no one notices.",
+        "The 2-1B droid's memory banks contain the location of a hidden Separatist medical cache."
+      ],
+      "threat_level": "medium",
+      "tags": ["medical", "bacta", "rebel-cell", "defector", "onderon"]
+    },
+    {
+      "location_id": "partisan-armory",
+      "name": "Saw's Partisan Forward Armory",
+      "type": "interior_cave",
+      "faction": "Rebel Cell",
+      "status": "recently_abandoned",
+      "inhabitants": ["Scavenging Jawas", "Remnant booby traps"],
+      "last_event": "Saw Gerrera's partisans cleared out in haste after an internal purge — at least two bodies remain, killed by vibroblade wounds, not blaster fire.",
+      "mood": ["eerie", "danger", "paranoia"],
+      "secrets": [
+        "A crate of kyber crystal shards is hidden behind a collapsed wall section, wrapped in lead-lined cloth.",
+        "One of the dead partisans has a coded journal detailing a planned assassination of a Rebel Alliance senator.",
+        "A proximity-triggered proton charge is wired to the main entrance, set by the departing partisans."
+      ],
+      "threat_level": "high",
+      "tags": ["partisan", "armory", "booby-trap", "kyber", "saw-gerrera", "cave"]
+    },
+    {
+      "location_id": "rebel-hangar-bay",
+      "name": "Rebel Hangar Bay — Whisper Base",
+      "type": "interior_rebel",
+      "faction": "Rebel Alliance",
+      "status": "occupied_active",
+      "inhabitants": ["Rebel pilots", "Astromech droids", "Ground crew", "Quartermaster"],
+      "last_event": "A supply run returned with only half the expected fuel — the other half was intercepted by pirates who knew the exact route.",
+      "mood": ["industrious", "paranoia"],
+      "secrets": [
+        "One of the X-wing fighters has a malfunctioning transponder that periodically broadcasts its location on an Imperial frequency.",
+        "The quartermaster has been trading surplus weapons to a local Mandalorian clan in exchange for beskar patches for hull repairs."
+      ],
+      "threat_level": "medium",
+      "tags": ["hangar", "starfighters", "supply", "rebel", "pilots"]
+    },
+    {
+      "location_id": "grakkus-vault",
+      "name": "Grakkus the Hutt's Trophy Vault",
+      "type": "interior_criminal",
+      "faction": "Hutt Cartel",
+      "status": "occupied_active",
+      "inhabitants": ["Grakkus the Hutt", "Gamorrean guards", "Twi'lek majordomo", "MagnaGuard sentinels"],
+      "last_event": "A thief bypassed the vault's ray shields and stole a Sith holocron — Grakkus has placed a 50,000-credit bounty on their head.",
+      "mood": ["predatory", "corrupt", "danger"],
+      "secrets": [
+        "Grakkus possesses a functioning Jedi lightsaber hidden inside a hollowed-out rancor tusk trophy.",
+        "The majordomo is embezzling spice profits and funneling them to an orphanage on Ryloth."
+      ],
+      "threat_level": "high",
+      "tags": ["hutt", "vault", "jedi-artifacts", "sith-holocron", "bounty", "grakkus"]
+    },
+    {
+      "location_id": "black-sun-lounge",
+      "name": "The Obsidian Orchid — Black Sun Social Club",
+      "type": "interior_criminal",
+      "faction": "Black Sun",
+      "status": "occupied_active",
+      "inhabitants": ["Black Sun vigo", "Falleen enforcers", "Devaronian bartender", "Wealthy patrons"],
+      "last_event": "A Bothan information broker was found dead in the refresher, strangled with a garrote wire — the security holorecordings for that hour have been wiped.",
+      "mood": ["corrupt", "predatory", "calm_before_storm"],
+      "secrets": [
+        "The lounge's sabacc tables are rigged with micro-repulsorlifts controlled by the dealer's ring.",
+        "A hidden turbolift behind the bar descends to a slave processing facility.",
+        "The vigo is secretly dying of a degenerative disease and has not named a successor."
+      ],
+      "threat_level": "high",
+      "tags": ["black-sun", "lounge", "sabacc", "murder", "slavery", "vigo"]
+    },
+    {
+      "location_id": "crimson-dawn-warehouse",
+      "name": "Crimson Dawn Coaxium Warehouse",
+      "type": "interior_criminal",
+      "faction": "Crimson Dawn",
+      "status": "occupied_tense",
+      "inhabitants": ["Crimson Dawn operatives", "Enslaved laborers", "Security droids"],
+      "last_event": "A coaxium shipment arrived unstable and nearly detonated — three laborers were killed in the containment breach, and the supplier has gone silent.",
+      "mood": ["danger", "fear", "industrious"],
+      "secrets": [
+        "The warehouse floor conceals a tunnel network connecting to the city's old sewer system — an escape route known only to the site commander.",
+        "One of the laborers is a Mandalorian warrior stripped of their armor, biding their time."
+      ],
+      "threat_level": "high",
+      "tags": ["crimson-dawn", "coaxium", "warehouse", "smuggling", "laborers"]
+    },
+    {
+      "location_id": "pyke-refinery",
+      "name": "Pyke Syndicate Spice Refinery",
+      "type": "interior_criminal",
+      "faction": "Pyke Syndicate",
+      "status": "occupied_active",
+      "inhabitants": ["Pyke overseers", "Indentured chemists", "Kowakian monkey-lizard mascot", "Trandoshan muscle"],
+      "last_event": "An entire batch of processed glitterstim was contaminated with a neurotoxin — sabotage is suspected but no one is talking.",
+      "mood": ["corrupt", "paranoia", "industrious"],
+      "secrets": [
+        "The refinery's ventilation system has been gradually poisoning the chemists with trace spice residue, causing hallucinations.",
+        "A hidden safe contains blackmail holos of an Imperial sector governor partaking in spice."
+      ],
+      "threat_level": "medium",
+      "tags": ["pyke", "spice", "refinery", "glitterstim", "sabotage"]
+    },
+    {
+      "location_id": "exchange-info-den",
+      "name": "The Exchange Data Parlor",
+      "type": "interior_criminal",
+      "faction": "Exchange",
+      "status": "occupied_active",
+      "inhabitants": ["Exchange infochant", "Slicers", "Bodyguard droids", "Desperate clients"],
+      "last_event": "A slicer cracked an Imperial encryption key and has been selling copies to the highest bidder — three factions are now racing to acquire it.",
+      "mood": ["chaotic", "predatory"],
+      "secrets": [
+        "The infochant maintains a dead man's switch that will broadcast compromising data on every client if they are killed.",
+        "A back room houses a neural interface chair used for involuntary memory extraction."
+      ],
+      "threat_level": "medium",
+      "tags": ["exchange", "slicing", "information", "encryption", "data-broker"]
+    },
+    {
+      "location_id": "bounty-hunter-lodge",
+      "name": "The Krayt's Maw — Bounty Posting House",
+      "type": "interior_criminal",
+      "faction": "Bounty Hunter",
+      "status": "occupied_active",
+      "inhabitants": ["Veteran bounty hunters", "Rodian guild liaison", "Pit fighter champions", "Protocol droid clerk"],
+      "last_event": "Two hunters returned claiming the same bounty — one produced a severed hand, the other a cryo-frozen head. The guild liaison has locked down payouts pending verification.",
+      "mood": ["predatory", "chaotic", "danger"],
+      "secrets": [
+        "The lodge's fighting pit conceals a smuggler's tunnel that exits two blocks away in a junk dealer's shop.",
+        "The guild liaison has been inflating bounty values and skimming the difference for years."
+      ],
+      "threat_level": "high",
+      "tags": ["bounty-hunter", "guild", "fighting-pit", "bounties", "krayt"]
+    },
+    {
+      "location_id": "smuggler-den-kessel",
+      "name": "Kessel Run Staging Den",
+      "type": "interior_criminal",
+      "faction": "Independent Criminal",
+      "status": "occupied_active",
+      "inhabitants": ["Smuggler crews", "Weequay mechanics", "Droid chop-shop operators"],
+      "last_event": "A smuggler returned from the Kessel Run with an uncharted hyperspace route recorded in their navicomputer — and half the Outer Rim wants it.",
+      "mood": ["chaotic", "industrious", "danger"],
+      "secrets": [
+        "The den's droid chop-shop has been reprogramming Imperial probe droids and selling them as surveillance tools.",
+        "A hidden compartment in the ceiling rafters holds 200,000 credits in untraceable bearer bonds."
+      ],
+      "threat_level": "medium",
+      "tags": ["smuggler", "kessel-run", "hyperspace", "droid-chop-shop", "navicomputer"]
+    },
+    {
+      "location_id": "hutt-fighting-pit",
+      "name": "Gorga's Arena of Agony",
+      "type": "interior_criminal",
+      "faction": "Hutt Cartel",
+      "status": "occupied_active",
+      "inhabitants": ["Gorga the Hutt", "Captured gladiators", "Wealthy spectators", "Nikto beast handlers"],
+      "last_event": "A captured Wookiee gladiator broke free and killed two Nikto handlers before being stunned — Gorga is now offering triple pay for anyone who can tame the beast.",
+      "mood": ["predatory", "chaotic", "corrupt"],
+      "secrets": [
+        "The arena's subfloor cages connect to old mining tunnels that lead outside the city.",
+        "Gorga is planning to betray a rival Hutt by poisoning the celebratory feast at next week's Grand Melee."
+      ],
+      "threat_level": "high",
+      "tags": ["hutt", "arena", "gladiator", "wookiee", "gambling"]
+    },
+    {
+      "location_id": "mos-espa-market",
+      "name": "Mos Espa Lower Market Bazaar",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Jawa traders", "Toydarian merchants", "Moisture farmers", "Off-duty spacers"],
+      "last_event": "A Jawa trading party arrived with a crate of unidentified Clone Wars-era technology that is attracting dangerous attention.",
+      "mood": ["industrious", "chaotic"],
+      "secrets": [
+        "The Toydarian junk dealer has a working Republic-era holoprojector that contains a partial Jedi Council recording.",
+        "A seemingly ordinary moisture vaporator on display is actually a disguised signal booster used by a Rebel cell."
+      ],
+      "threat_level": "low",
+      "tags": ["market", "bazaar", "jawa", "tatooine", "clone-wars-tech"]
+    },
+    {
+      "location_id": "corellian-cantina",
+      "name": "The Starboard Turn — Corellian Spacer's Cantina",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Off-duty freighter crews", "Bith musicians", "Duros bartender", "CorSec retiree"],
+      "last_event": "A drunken spacer claimed to have seen a Star Destroyer under construction in a hidden shipyard — he was found dead in the alley the next morning.",
+      "mood": ["calm_before_storm", "corrupt"],
+      "secrets": [
+        "The cantina's back room hosts a weekly high-stakes sabacc game attended by mid-level crime bosses.",
+        "The Duros bartender is a retired Rebel operative who still maintains a network of informants across three systems."
+      ],
+      "threat_level": "low",
+      "tags": ["cantina", "corellia", "spacers", "sabacc", "informant"]
+    },
+    {
+      "location_id": "alderaanian-consulate",
+      "name": "Alderaanian Cultural Preservation Society",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_tense",
+      "inhabitants": ["Alderaanian refugees", "Cultural archivists", "Grief counselors"],
+      "last_event": "An anonymous donor delivered a sealed container of Alderaanian soil — its authenticity has sparked both hope and suspicion of an Imperial trap.",
+      "mood": ["grief", "hopeful", "defiance"],
+      "secrets": [
+        "The society's archive contains encrypted coordinates to a hidden Alderaanian seed vault on a remote moon.",
+        "The lead archivist is Princess Leia's childhood tutor and maintains indirect contact with the Rebel Alliance."
+      ],
+      "threat_level": "low",
+      "tags": ["alderaan", "refugee", "archive", "preservation", "rebel-connection"]
+    },
+    {
+      "location_id": "dex-diner-analog",
+      "name": "Grek's Fuel Stop and Grill",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Besalisk cook", "WA-7 waitress droids", "Regulars from the docks"],
+      "last_event": "Imperial officers confiscated the diner's entire supply of Corellian ale, claiming it was contraband — the real reason was to pressure Grek into informing.",
+      "mood": ["defiance", "industrious"],
+      "secrets": [
+        "Grek hides fugitives in a false-bottomed freezer unit behind the kitchen.",
+        "The diner's jukebox contains a hidden compartment where patrons leave coded messages for a local Rebel cell."
+      ],
+      "threat_level": "low",
+      "tags": ["diner", "besalisk", "safe-haven", "rebel-messages", "docks"]
+    },
+    {
+      "location_id": "medical-clinic-rim",
+      "name": "Dr. Vossk's Outer Rim Clinic",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Dr. Vossk (Cerean physician)", "Nurse droids", "Desperate patients"],
+      "last_event": "A patient arrived with a blaster wound and an Imperial tracking implant embedded in their shoulder — removing it would alert the Empire, leaving it risks everyone.",
+      "mood": ["desperation", "hopeful"],
+      "secrets": [
+        "Dr. Vossk performs unlicensed cybernetic implantations in the basement for those who can pay.",
+        "A locked cabinet contains three doses of a rare antitoxin worth 10,000 credits each on the black market."
+      ],
+      "threat_level": "low",
+      "tags": ["clinic", "medical", "cybernetics", "tracking-implant", "outer-rim"]
+    },
+    {
+      "location_id": "monastery-of-the-central-isopter",
+      "name": "Monastery of the Central Isopter",
+      "type": "interior_civilian",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Monks of the Central Isopter", "Pilgrims", "Ancient caretaker droid"],
+      "last_event": "The monks' meditation chamber began resonating with an unidentifiable harmonic frequency that shattered every transparisteel panel in the building.",
+      "mood": ["reverent", "eerie"],
+      "secrets": [
+        "The monastery was built atop a vergence in the Force, and the monks unknowingly channel its energy during their rituals.",
+        "The caretaker droid's memory core dates to the High Republic era and contains star charts to forgotten Jedi outposts."
+      ],
+      "threat_level": "none",
+      "tags": ["monastery", "force-vergence", "monks", "high-republic", "pilgrimage"]
+    },
+    {
+      "location_id": "spaceport-docking-bay",
+      "name": "Docking Bay 87 — Ord Mantell Spaceport",
+      "type": "interior_spaceport",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Docking bay attendants", "Customs droids", "Transient spacer crews", "Fuel haulers"],
+      "last_event": "A YT-2400 freighter landed with its crew unconscious and the autopilot engaged — no one knows who programmed the landing sequence.",
+      "mood": ["chaotic", "eerie"],
+      "secrets": [
+        "Bay 87's fuel lines have been tapped by a slicer who sells discounted fuel to smugglers at a 40% markup from what they steal.",
+        "The customs droid has been compromised and waves through any cargo tagged with a specific Pyke Syndicate transponder code."
+      ],
+      "threat_level": "medium",
+      "tags": ["spaceport", "docking-bay", "ord-mantell", "customs", "ghost-ship"]
+    },
+    {
+      "location_id": "shadowport-bazaar",
+      "name": "Port Tooga — Shadowport Trading Floor",
+      "type": "interior_spaceport",
+      "faction": "Independent Criminal",
+      "status": "occupied_active",
+      "inhabitants": ["Smugglers", "Arms dealers", "Zygerrian slavers", "Freelance mechanics"],
+      "last_event": "An arms dealer unveiled a crate of Mandalorian vambraces and a bidding war nearly turned into a firefight.",
+      "mood": ["chaotic", "predatory", "danger"],
+      "secrets": [
+        "Port Tooga's location shifts every standard month — the current coordinates are only shared via a dead-drop network.",
+        "The shadowport's administrator is a former Imperial Moff who faked their own death."
+      ],
+      "threat_level": "high",
+      "tags": ["shadowport", "black-market", "arms-dealing", "mandalorian-gear", "zygerrian"]
+    },
+    {
+      "location_id": "transit-hub-corellia",
+      "name": "Coronet City Central Transit Hub",
+      "type": "interior_spaceport",
+      "faction": "Civilian/Neutral",
+      "status": "occupied_active",
+      "inhabitants": ["Commuters", "Imperial checkpoint officers", "Pickpockets", "Street vendors"],
+      "last_event": "An Imperial checkpoint scanner malfunctioned and flagged every passenger as a wanted fugitive, causing a stampede that injured twelve people.",
+      "mood": ["chaotic", "fear"],
+      "secrets": [
+        "A maintenance corridor beneath Platform 7 connects to the old Corellian resistance tunnels from the Clone Wars.",
+        "A vendor selling roasted nuna legs is actually a Rebel courier exchanging datachips hidden inside the food containers."
+      ],
+      "threat_level": "medium",
+      "tags": ["transit", "corellia", "coronet-city", "checkpoint", "crowd"]
+    },
+    {
+      "location_id": "fueling-depot-rishi",
+      "name": "Rishi Station Refueling Depot",
+      "type": "interior_spaceport",
+      "faction": "Corporate",
+      "status": "occupied_active",
+      "inhabitants": ["Corporate technicians", "Fuel hauler crews", "Maintenance droids"],
+      "last_event": "A fuel tanker arrived with its cargo bay sealed from the inside — when they cut it open, they found a family of Togruta refugees who had been hiding for three standard weeks.",
+      "mood": ["industrious", "calm_before_storm"],
+      "secrets": [
+        "The depot manager is laundering credits for a Hutt Cartel subsidiary through inflated fuel invoices.",
+        "Fuel Cell 9 has a slow leak that has been creating a volatile gas pocket in the sublevel — one spark and the whole depot goes."
+      ],
+      "threat_level": "medium",
+      "tags": ["refueling", "depot", "rishi", "corporate", "refugees", "volatile"]
+    },
+    {
+      "location_id": "kaminoan-cloning-ruin",
+      "name": "Abandoned Kaminoan Cloning Sublaboratory",
+      "type": "interior_cave",
+      "faction": "Scavenger/Salvager",
+      "status": "long_abandoned",
+      "inhabitants": ["Scavenger crew", "Mutated specimens", "Collapsed battle droids"],
+      "last_event": "A scavenger team broke through a sealed door and found rows of intact cloning tanks — one of them still has power and something is growing inside.",
+      "mood": ["eerie", "fear", "danger"],
+      "secrets": [
+        "The active cloning tank contains a partially-developed clone of an unknown human — genetic markers suggest Jango Fett's template.",
+        "A hidden databank in the facility stores the complete Kaminoan cloning genome database.",
+        "The facility's automated defense systems are dormant but not deactivated — any significant power draw will reactivate them."
+      ],
+      "threat_level": "high",
+      "tags": ["kaminoan", "cloning", "abandoned", "scavenger", "clone-wars", "specimen"]
+    },
+    {
+      "location_id": "sith-temple-entrance",
+      "name": "Threshold of the Sith Temple of Vaal",
+      "type": "interior_cave",
+      "faction": "Force Tradition",
+      "status": "long_abandoned",
+      "inhabitants": ["Dark side spirits", "Cave-dwelling predators", "Force echoes"],
+      "last_event": "A group of treasure hunters entered the temple three standard days ago — only their comlinks remain, endlessly broadcasting static and whispered Sith incantations.",
+      "mood": ["eerie", "fear", "reverent"],
+      "secrets": [
+        "The temple's inner sanctum contains a meditation focus that amplifies dark side abilities but slowly corrupts the user.",
+        "A Force ghost of the temple's last guardian remains, testing any who enter with visions of their deepest fears.",
+        "The cave walls are inscribed with a Sith alchemical formula for creating cortosis-laced armor."
+      ],
+      "threat_level": "extreme",
+      "tags": ["sith", "temple", "dark-side", "force-ghost", "alchemy", "cave"]
+    },
+    {
+      "location_id": "jedi-hidden-library",
+      "name": "The Librarium of Ossus — Hidden Archive",
+      "type": "interior_cave",
+      "faction": "Force Tradition",
+      "status": "long_abandoned",
+      "inhabitants": ["Guardian droid (ancient)", "Force-bonded crystal formations"],
+      "last_event": "The guardian droid activated for the first time in centuries after detecting a Force-sensitive presence entering the outer tunnels.",
+      "mood": ["reverent", "eerie", "calm_before_storm"],
+      "secrets": [
+        "The archive contains holocrons from twelve different Jedi Masters, each teaching a forgotten lightsaber form.",
+        "A sealed vault requires Force telekinesis to open and contains a map to the original Jedi homeworld."
+      ],
+      "threat_level": "medium",
+      "tags": ["jedi", "library", "holocron", "lightsaber-forms", "ossus", "guardian"]
+    },
+    {
+      "location_id": "nightsister-altar",
+      "name": "Nightsister Altar of the Fading Moon",
+      "type": "interior_cave",
+      "faction": "Force Tradition",
+      "status": "recently_abandoned",
+      "inhabitants": ["Surviving Nightsister", "Ichor-infused wildlife", "Undead sentinels"],
+      "last_event": "A lone Nightsister returned to the altar and performed a resurrection ritual — it partially worked, and now something walks the caves that should not.",
+      "mood": ["eerie", "danger", "reverent"],
+      "secrets": [
+        "The altar can be used to craft a talisman that grants temporary immunity to Force mind-affecting powers.",
+        "The resurrected entity retains fragmented memories of General Grievous's assault on Dathomir."
+      ],
+      "threat_level": "extreme",
+      "tags": ["nightsister", "dathomir", "dark-magick", "undead", "altar", "ichor"]
+    },
+    {
+      "location_id": "mining-rig-kessel",
+      "name": "Kessel Deep Core Mining Rig 7",
+      "type": "interior_cave",
+      "faction": "Mining Operation",
+      "status": "occupied_tense",
+      "inhabitants": ["Enslaved miners", "Pyke overseers", "Mining droids", "Wookiee laborers"],
+      "last_event": "A tunnel collapse trapped fourteen miners in Shaft Besh — rescue efforts are stalled because the Pykes refuse to halt production in adjacent shafts.",
+      "mood": ["desperation", "trapped", "industrious"],
+      "secrets": [
+        "The deepest shaft has broken through into a natural cavern containing unrefined coaxium deposits worth millions.",
+        "A Wookiee labor leader is organizing a coordinated revolt timed to coincide with the next shift change.",
+        "One of the mining droids has been reprogrammed to map escape routes and transmit them to an Abolitionist network."
+      ],
+      "threat_level": "high",
+      "tags": ["mining", "kessel", "spice", "slavery", "wookiee", "revolt"]
+    },
+    {
+      "location_id": "tibanna-platform",
+      "name": "Bespin Tibanna Gas Processing Platform Delta",
+      "type": "interior_urban",
+      "faction": "Corporate",
+      "status": "occupied_active",
+      "inhabitants": ["Corporate administrators", "Ugnaught workers", "Wing Guard security"],
+      "last_event": "An Ugnaught union representative was found frozen in a carbonite block in the loading bay — no one has claimed responsibility.",
+      "mood": ["corrupt", "fear", "industrious"],
+      "secrets": [
+        "Platform Delta has been secretly processing spin-sealed tibanna gas for Imperial weapons contracts while publicly claiming neutrality.",
+        "An Ugnaught technician discovered that the platform's repulsorlift array is degrading — without repairs, it will lose altitude within six standard months."
+      ],
+      "threat_level": "medium",
+      "tags": ["bespin", "tibanna", "corporate", "ugnaught", "carbonite", "cloud-city"]
+    },
+    {
+      "location_id": "czerka-weapons-lab",
+      "name": "Czerka Arms Prototype Testing Facility",
+      "type": "interior_urban",
+      "faction": "Corporate",
+      "status": "occupied_active",
+      "inhabitants": ["Czerka engineers", "Test subjects", "Corporate security team", "Quality assurance droids"],
+      "last_event": "A prototype disruptor pistol overloaded during testing and vaporized the firing range wall, revealing a previously unknown chamber behind it.",
+      "mood": ["industrious", "danger"],
+      "secrets": [
+        "The hidden chamber contains old Czerka records from the Mandalorian Wars, including schematics for a mass-shadow generator component.",
+        "Czerka is developing a neural-linked targeting system that requires involuntary test subjects — several are being held in sublevel cells."
+      ],
+      "threat_level": "high",
+      "tags": ["czerka", "weapons", "prototype", "disruptor", "corporate", "testing"]
+    },
+    {
+      "location_id": "mandalorian-forge",
+      "name": "Clan Rook's Hidden Beskar Forge",
+      "type": "interior_cave",
+      "faction": "Mandalorian Clan",
+      "status": "occupied_active",
+      "inhabitants": ["Mandalorian armorer", "Clan warriors", "Foundlings"],
+      "last_event": "An Imperial Inquisitor tracked a Force-sensitive foundling to the forge — the clan repelled the attack but knows more will come.",
+      "mood": ["defiance", "danger", "reverent"],
+      "secrets": [
+        "The forge contains enough beskar to outfit an entire company of warriors, hidden during the Great Purge.",
+        "The armorer possesses a fragment of the Darksaber's original mold, a relic of immense cultural significance."
+      ],
+      "threat_level": "high",
+      "tags": ["mandalorian", "beskar", "forge", "foundling", "inquisitor", "great-purge"]
+    },
+    {
+      "location_id": "mandalorian-safehouse",
+      "name": "Clan Wren Forward Safehouse",
+      "type": "interior_urban",
+      "faction": "Mandalorian Clan",
+      "status": "occupied_tense",
+      "inhabitants": ["Clan Wren scouts", "Wounded warriors", "Nite Owl operative"],
+      "last_event": "A coded transmission arrived containing proof that a fellow clan member has been feeding intel to an Imperial Super Commando unit.",
+      "mood": ["paranoia", "defiance", "trapped"],
+      "secrets": [
+        "The safehouse armory contains a pair of Whistling Bird launchers — extremely rare and jealously guarded.",
+        "The Nite Owl operative carries sealed orders from Bo-Katan Kryze herself, meant only for the clan chief."
+      ],
+      "threat_level": "medium",
+      "tags": ["mandalorian", "clan-wren", "safehouse", "nite-owl", "bo-katan", "traitor"]
+    },
+    {
+      "location_id": "refugee-camp-lothal",
+      "name": "Lothal Displacement Camp 4",
+      "type": "interior_civilian",
+      "faction": "Refugee",
+      "status": "occupied_tense",
+      "inhabitants": ["Displaced Lothal farmers", "Ithorian aid workers", "Imperial relief liaison"],
+      "last_event": "The Imperial liaison announced ration cuts of 30%, and tensions are reaching a breaking point — a riot is one bad day away.",
+      "mood": ["desperation", "defiance", "grief"],
+      "secrets": [
+        "The Ithorian aid coordinator is smuggling children off-world to families on Alderaan — or was, before its destruction.",
+        "Buried beneath Tent Row 7 is a cache of hunting blasters hidden by farmers who refused to surrender their weapons.",
+        "The Imperial liaison genuinely wants to help but is being pressured by their superiors to provoke an incident that justifies a crackdown."
+      ],
+      "threat_level": "medium",
+      "tags": ["refugee", "lothal", "displacement", "rations", "riot", "humanitarian"]
+    },
+    {
+      "location_id": "scavenger-hulk",
+      "name": "The Jawbone — Crashed Separatist Frigate",
+      "type": "interior_cave",
+      "faction": "Scavenger/Salvager",
+      "status": "recently_abandoned",
+      "inhabitants": ["Scavenger clan remnants", "Deactivated battle droids", "Jakku sand vermin"],
+      "last_event": "A power surge reactivated the ship's central computer, which began broadcasting a decades-old Separatist distress signal — attracting Imperial scouts.",
+      "mood": ["eerie", "danger", "chaotic"],
+      "secrets": [
+        "The frigate's still-intact armory contains crates of droideka components that could be reassembled by a skilled mechanic.",
+        "The central computer holds navigation logs pointing to a Separatist gold reserve hidden in the Unknown Regions.",
+        "A scavenger scratched a warning into the hull near the engine room: 'DON'T WAKE THE TACTICAL DROID.'"
+      ],
+      "threat_level": "medium",
+      "tags": ["scavenger", "separatist", "crashed-ship", "jakku", "droideka", "distress-signal"]
+    }
+  ]
+}

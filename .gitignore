@@ -1,0 +1,74 @@
+# OS and editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+
+# Node
+node_modules/
+
+# Build output: `npm run build` writes these from the .jsx sources. Never commit them.
+vendor.js
+vendor.js.map
+version.json
+_worker.js
+player/app.js
+player/app.js.map
+player/creator.js
+player/creator.js.map
+player/sheet.js
+player/sheet.js.map
+gm/app.js
+gm/app.js.map
+dice/app.js
+dice/app.js.map
+lib/dice/diceSurface.js
+lib/dice/diceSurface.js.map
+lib/game/hyperspaceRun/ui.js
+lib/game/hyperspaceRun/ui.js.map
+lib/library/npc/view.js
+lib/library/npc/view.js.map
+lib/store/view.js
+lib/store/view.js.map
+lib/editor/view.js
+lib/editor/view.js.map
+lib/modify/view.js
+lib/modify/view.js.map
+lib/shared/vesselView.js
+lib/shared/vesselView.js.map
+lib/shared/desktopLayout.js
+lib/shared/desktopLayout.js.map
+lib/shared/diceHub.js
+lib/shared/diceHub.js.map
+lib/shared/yardView.js
+lib/shared/yardView.js.map
+lib/shared/treeView.js
+lib/shared/treeView.js.map
+lib/shared/holotableView.js
+lib/shared/holotableView.js.map
+lib/shared/holotableCompose.js
+lib/shared/holotableCompose.js.map
+lib/shared/roomSession.js
+lib/shared/roomSession.js.map
+
+# Cloudflare wrangler local state
+.wrangler/
+
+# A rules index you build from your own PDFs (swrpg_index), and its SQLite sidecars
+Docs/swrpg_index.db*
+Docs/swrpg_community.db*
+
+# Your own art (BRING_YOUR_OWN_ART.md): it stays on your machine unless you have the right to share it
+public/SWDataSet-Master/species_portraits/*.webp
+public/fonts/
+public/audio/
+art/items/*.webp
+art/items/*.png
+art/items/*.jpg

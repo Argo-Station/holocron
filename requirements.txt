@@ -1,0 +1,21 @@
+# Python is needed only for the rules-index search engine (swrpg_index/) and the dev server (serve.py).
+# The apps themselves build with `npm ci && npm run build` and need no Python.
+#
+#   python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+#
+# Searching an index (swrpg_index.api, the MCP server):
+mcp>=1.27
+PyYAML>=6.0
+numpy>=2.0
+sentence-transformers>=3.0
+jsonschema>=4.26
+
+# BUILDING an index from your own PDFs also needs PyMuPDF, which is licensed AGPL-3.0 (or commercially by
+# Artifex). It is NOT part of this project and is not installed by this file. If you want to build an index,
+# install it yourself and accept its licence:
+#
+#   .venv/bin/pip install PyMuPDF
+#
+# OCR of scanned books additionally uses pytesseract and Pillow:
+#
+#   .venv/bin/pip install pytesseract Pillow

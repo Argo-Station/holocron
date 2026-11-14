@@ -1,0 +1,7307 @@
+{
+  "schema": "force-power.schema.json",
+  "schema_version": 1,
+  "generated_from": "oggdude_merged.json",
+  "generated_by": "scripts/canonical/run_phase4.py (ADR 0003)",
+  "count": 21,
+  "force_powers": {
+    "alter": {
+      "id": "alter",
+      "_source_key": "ALTER",
+      "name": "Alter",
+      "description": "Reshapes physical surroundings: terrain, matter, and the conditions of a place.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "alterbasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "altercontrol1",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "alterrange",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "altercontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "altercontrol3",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "altercontrol4",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "alterduration",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "alterstrength",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "alterrange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "altercontrol5",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "alterstrength",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "altercontrol6",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "altercontrol7",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "altermastery",
+              "cost": 25,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "alterstrength",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "alterbasic": {
+          "name": "Alter Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "altercontrol1": {
+          "name": "Control: Survival",
+          "description": "",
+          "family": "control"
+        },
+        "altercontrol2": {
+          "name": "Control: Concealment",
+          "description": "",
+          "family": "control"
+        },
+        "altercontrol3": {
+          "name": "Control: Animal Senses",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_boost",
+              "die": "boost",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "perception"
+                },
+                {
+                  "scope": "skill",
+                  "value": "vigilance"
+                }
+              ],
+              "cite": {
+                "book": "unlimited_power",
+                "page": 42
+              },
+              "words": {
+                "start": 0,
+                "end": 145,
+                "hash": "27e9825362e9"
+              },
+              "condition": {
+                "start": 0,
+                "end": 68,
+                "hash": "cc121e62fc32"
+              }
+            }
+          ]
+        },
+        "altercontrol4": {
+          "name": "Control: Firm Terrain",
+          "description": "",
+          "family": "control"
+        },
+        "altercontrol5": {
+          "name": "Control: Impassible Terrain",
+          "description": "",
+          "family": "control"
+        },
+        "altercontrol6": {
+          "name": "Control: Corrosive Atmosphere",
+          "description": "",
+          "family": "control"
+        },
+        "altercontrol7": {
+          "name": "Control: Upgrade Difficulty",
+          "description": "",
+          "family": "control"
+        },
+        "alterduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 1
+        },
+        "altermastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "alterrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "alter"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "alter.alterrange"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "unlimited_power",
+                "page": 43
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "afd3dced0cda"
+              }
+            }
+          ]
+        },
+        "alterstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "alter"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "alter.alterstrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "unlimited_power",
+                "page": 43
+              },
+              "words": {
+                "start": 0,
+                "end": 112,
+                "hash": "ebccc084a9aa"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "unlimited_power"
+      ],
+      "_provenance": "oggdude"
+    },
+    "battle_meditation": {
+      "id": "battle_meditation",
+      "_source_key": "BATMED",
+      "name": "Battle Meditation",
+      "description": "Coordinates allies so a group acts with more effect.",
+      "min_force_rating": 2,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "batmedbasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "batmedmagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "batmedrange",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "batmedcontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "batmedmagnitude",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "batmedrange",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "batmedstrength",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "batmedmagnitude",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "batmedrange",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "batmedduration",
+              "cost": 25,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "batmedmagnitude",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "batmedcontrol2",
+              "cost": 20,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "batmedmastery",
+              "cost": 25,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "batmedbasic": {
+          "name": "Battle Meditation Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "batmedcontrol1": {
+          "name": "Control: Orders",
+          "description": "",
+          "family": "control"
+        },
+        "batmedcontrol2": {
+          "name": "Control: Planetary Scale",
+          "description": "",
+          "family": "control"
+        },
+        "batmedduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 3
+        },
+        "batmedmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "battle_meditation"
+                }
+              ],
+              "unit": "target",
+              "amount": {
+                "of": "characteristic",
+                "key": "presence"
+              },
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "battle_meditation.batmedmagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 285
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "8e13d11b1847"
+              }
+            }
+          ]
+        },
+        "batmedmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "batmedrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "battle_meditation"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "battle_meditation.batmedrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 285
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "batmedstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "bind": {
+      "id": "bind",
+      "_source_key": "BIND",
+      "name": "Bind",
+      "description": "Holds a target in place and keeps it from acting.",
+      "min_force_rating": 2,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "bindbasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "bindrange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindmagnitude",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindstrength",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindcontrol1",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "bindrange",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindmagnitude",
+              "cost": 20,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindstrength",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "bindduration",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "bindcontrol2",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindmagnitude",
+              "cost": 25,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "bindstrength",
+              "cost": 20,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "bindrange",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "bindmastery",
+              "cost": 25,
+              "col": 1,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "bindbasic": {
+          "name": "Bind Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "bindcontrol1": {
+          "name": "Control: Strain",
+          "description": "",
+          "family": "control"
+        },
+        "bindcontrol2": {
+          "name": "Control: Move",
+          "description": "",
+          "family": "control"
+        },
+        "bindduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 3
+        },
+        "bindmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "bind"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "bind.bindmagnitude"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 286
+              },
+              "words": {
+                "start": 0,
+                "end": 90,
+                "hash": "907ec5263979"
+              }
+            }
+          ]
+        },
+        "bindmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "bindrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "bind"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "bind.bindrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 286
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "bindstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "bind"
+                }
+              ],
+              "unit": "round",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "bind.bindstrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 286
+              },
+              "words": {
+                "start": 0,
+                "end": 95,
+                "hash": "7ddebc1cbb74"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "fad",
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude"
+    },
+    "conjure": {
+      "id": "conjure",
+      "_source_key": "CONJURE",
+      "name": "Conjure",
+      "description": "Calls a temporary object or figure into being.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "conjurebasic",
+              "cost": 20,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "conjureduration",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "conjurenumber",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "conjuremagnitude",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "conjuremagnitude",
+              "cost": 20,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "conjurecontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "conjureduration",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "conjurenumber",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "conjurecontrol2",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "conjurerange",
+              "cost": 20,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "conjureduration",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "conjuremastery",
+              "cost": 20,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "conjurebasic": {
+          "name": "Conjure Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "conjurecontrol1": {
+          "name": "Control: Defense Qualities",
+          "description": "",
+          "family": "control"
+        },
+        "conjurecontrol2": {
+          "name": "Control: Offense Qualities",
+          "description": "",
+          "family": "control"
+        },
+        "conjureduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 1
+        },
+        "conjuremagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "conjure"
+                }
+              ],
+              "unit": "encumbrance",
+              "amount": 2,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "conjure.conjuremagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": false,
+              "cite": {
+                "book": "unlimited_power",
+                "page": 40
+              },
+              "words": {
+                "start": 0,
+                "end": 122,
+                "hash": "9a22658ef418"
+              }
+            }
+          ]
+        },
+        "conjuremastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "conjurenumber": {
+          "name": "Number",
+          "description": "",
+          "family": "other",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "conjure"
+                }
+              ],
+              "unit": "conjuration",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "conjure.conjurenumber"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "unlimited_power",
+                "page": 40
+              },
+              "words": {
+                "start": 0,
+                "end": 103,
+                "hash": "58be39f23d82"
+              }
+            }
+          ]
+        },
+        "conjurerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "conjure"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "unlimited_power",
+                "page": 40
+              },
+              "words": {
+                "start": 0,
+                "end": 117,
+                "hash": "eb68b816df78"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "unlimited_power"
+      ],
+      "_provenance": "oggdude"
+    },
+    "ebb_flow": {
+      "id": "ebb_flow",
+      "_source_key": "EBBFLOW",
+      "name": "Ebb/Flow",
+      "description": "Draws strength inward or pulls it out of a target.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "ebbflowbasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ebbflowmagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "ebbflowrange",
+              "cost": 10,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "ebbflowstrength",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ebbflowcontrol1",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "ebbflowcontrol2",
+              "cost": 10,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "ebbflowstrength2",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ebbflowmagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "ebbflowcontrol3",
+              "cost": 10,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "ebbflowstrength3",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ebbflowcontrol4",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "ebbflowcontrol5",
+              "cost": 20,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "ebbflowbasic": {
+          "name": "Ebb/Flow Basic Power",
+          "description": "",
+          "family": "basic",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 113,
+                "end": 204,
+                "hash": "4f828a4535cc"
+              },
+              "condition": {
+                "start": 113,
+                "end": 204,
+                "hash": "4f828a4535cc"
+              }
+            }
+          ],
+          "told": [
+            {
+              "id": "told",
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 0,
+                "end": 106,
+                "hash": "720d91e4ff87"
+              }
+            },
+            {
+              "id": "told_2",
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 359,
+                "end": 553,
+                "hash": "ec4d8d694583"
+              }
+            }
+          ]
+        },
+        "ebbflowcontrol1": {
+          "name": "Control: Question",
+          "description": "",
+          "family": "control"
+        },
+        "ebbflowcontrol2": {
+          "name": "Control: Threat/Advantage",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_advantage",
+              "symbol": "advantage",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 141,
+                "end": 277,
+                "hash": "750748f32264"
+              },
+              "condition": {
+                "start": 218,
+                "end": 276,
+                "hash": "339acf9ee582"
+              }
+            }
+          ],
+          "told": [
+            {
+              "id": "told",
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 0,
+                "end": 139,
+                "hash": "5cc61a9587ad"
+              }
+            }
+          ]
+        },
+        "ebbflowcontrol3": {
+          "name": "Control: Failure/Success",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_success",
+              "symbol": "success",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 141,
+                "end": 277,
+                "hash": "c0455c273a59"
+              },
+              "condition": {
+                "start": 218,
+                "end": 276,
+                "hash": "339acf9ee582"
+              }
+            }
+          ],
+          "told": [
+            {
+              "id": "told",
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 0,
+                "end": 139,
+                "hash": "b9aa7aa16abf"
+              }
+            }
+          ]
+        },
+        "ebbflowcontrol4": {
+          "name": "Control: Skill Checks",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cost": {
+                "commit_force": 1
+              },
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 38
+              },
+              "words": {
+                "start": 0,
+                "end": 125,
+                "hash": "3d2c22f1afd6"
+              },
+              "condition": {
+                "start": 12,
+                "end": 50,
+                "hash": "f8682f142a1d"
+              }
+            }
+          ],
+          "commit_dice": 2
+        },
+        "ebbflowcontrol5": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "ebbflowmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "ebb_flow"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "ebb_flow.ebbflowmagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 39
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "4aabccc1d668"
+              }
+            }
+          ]
+        },
+        "ebbflowrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range"
+        },
+        "ebbflowstrength": {
+          "name": "Strength: Strain",
+          "description": "",
+          "family": "strength"
+        },
+        "ebbflowstrength2": {
+          "name": "Strength: Threat/Advantage",
+          "description": "",
+          "family": "strength",
+          "pool_mods": [
+            {
+              "id": "add_advantage",
+              "symbol": "advantage",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 39
+              },
+              "words": {
+                "start": 0,
+                "end": 70,
+                "hash": "78212a1874d6"
+              },
+              "condition": {
+                "start": 0,
+                "end": 70,
+                "hash": "78212a1874d6"
+              }
+            }
+          ]
+        },
+        "ebbflowstrength3": {
+          "name": "Strength: Failure/Success",
+          "description": "",
+          "family": "strength",
+          "pool_mods": [
+            {
+              "id": "add_success",
+              "symbol": "success",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 39
+              },
+              "words": {
+                "start": 0,
+                "end": 70,
+                "hash": "a3eb2f69b4d0"
+              },
+              "condition": {
+                "start": 0,
+                "end": 70,
+                "hash": "a3eb2f69b4d0"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "_provenance": "oggdude"
+    },
+    "endure": {
+      "id": "endure",
+      "_source_key": "ENDURE",
+      "name": "Endure",
+      "description": "Shrugs off a Critical Injury as it lands.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "endurebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "endurestrength1",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "endurecontrol",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "endureduration",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "endurecontrol",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "endurestrength1",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "enduremagnitude",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "endurestrength1",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "endurecontrol",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "endurestrength2",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "endurerange",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "enduremastery",
+              "cost": 20,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "endurebasic": {
+          "name": "Endure Basic Power",
+          "description": "",
+          "family": "basic",
+          "commit_dice": 2
+        },
+        "endurecontrol": {
+          "name": "Control - Additional Injuries",
+          "description": "",
+          "family": "control",
+          "commit_dice": 1
+        },
+        "endureduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration"
+        },
+        "enduremagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude"
+        },
+        "enduremastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery",
+          "commit_dice": 1
+        },
+        "endurerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range"
+        },
+        "endurestrength1": {
+          "name": "Strength - Increase Severity",
+          "description": "",
+          "family": "strength"
+        },
+        "endurestrength2": {
+          "name": "Strength - Ignore Death",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "knights_of_fate"
+      ],
+      "_provenance": "oggdude"
+    },
+    "enhance": {
+      "id": "enhance",
+      "_source_key": "ENHANCE",
+      "name": "Enhance",
+      "description": "Augments the user's own physical capability on athletic and coordination checks.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "enhancebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "enhancecont1",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont2",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont3",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "enhancecont4",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont5",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont6",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "enhancecont7",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont8",
+              "cost": 10,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancerange",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "enhancecont9",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "enhancecont0",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "enhancebasic": {
+          "name": "Enhance Basic Power",
+          "description": "",
+          "family": "basic",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "athletics"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 288
+              },
+              "words": {
+                "start": 0,
+                "end": 99,
+                "hash": "9b6bb86be3f6"
+              },
+              "condition": {
+                "start": 0,
+                "end": 99,
+                "hash": "9b6bb86be3f6"
+              }
+            }
+          ],
+          "told": [
+            {
+              "id": "told",
+              "cite": {
+                "book": "fad",
+                "page": 288
+              },
+              "words": {
+                "start": 103,
+                "end": 177,
+                "hash": "995425b60310"
+              }
+            }
+          ]
+        },
+        "enhancecont0": {
+          "name": "Control: Force Leap (Maneuver)",
+          "description": "",
+          "family": "control"
+        },
+        "enhancecont1": {
+          "name": "Control: Coordination",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "coordination"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 48,
+                "hash": "4026836d62e4"
+              },
+              "condition": {
+                "start": 0,
+                "end": 48,
+                "hash": "4026836d62e4"
+              }
+            }
+          ]
+        },
+        "enhancecont2": {
+          "name": "Control: Resilience",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "resilience"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 46,
+                "hash": "d54f2897b33f"
+              },
+              "condition": {
+                "start": 0,
+                "end": 46,
+                "hash": "d54f2897b33f"
+              }
+            }
+          ]
+        },
+        "enhancecont3": {
+          "name": "Control: Force Leap (Horizontal)",
+          "description": "",
+          "family": "control"
+        },
+        "enhancecont4": {
+          "name": "Control: Piloting - Planetary",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "piloting_planetary"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 56,
+                "hash": "7d06f8421e3d"
+              },
+              "condition": {
+                "start": 0,
+                "end": 56,
+                "hash": "7d06f8421e3d"
+              }
+            }
+          ]
+        },
+        "enhancecont5": {
+          "name": "Control: Brawl",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "brawl"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 41,
+                "hash": "c5a2349acac9"
+              },
+              "condition": {
+                "start": 0,
+                "end": 41,
+                "hash": "c5a2349acac9"
+              }
+            }
+          ]
+        },
+        "enhancecont6": {
+          "name": "Control: Force Leap (Vertical)",
+          "description": "",
+          "family": "control"
+        },
+        "enhancecont7": {
+          "name": "Control: Piloting - Space",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "piloting_space"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 52,
+                "hash": "d2e30d482481"
+              },
+              "condition": {
+                "start": 0,
+                "end": 52,
+                "hash": "d2e30d482481"
+              }
+            }
+          ]
+        },
+        "enhancecont8": {
+          "name": "Control: Brawn",
+          "description": "",
+          "family": "control",
+          "effects": [
+            {
+              "id": "characteristic_delta",
+              "op": "characteristic_delta",
+              "characteristic": "brawn",
+              "amount": 1,
+              "cost": {
+                "commit_force": 1
+              },
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 96,
+                "hash": "c8c5cc6649de"
+              }
+            }
+          ],
+          "commit_dice": 1
+        },
+        "enhancecont9": {
+          "name": "Control: Agility",
+          "description": "",
+          "family": "control",
+          "effects": [
+            {
+              "id": "characteristic_delta",
+              "op": "characteristic_delta",
+              "characteristic": "agility",
+              "amount": 1,
+              "cost": {
+                "commit_force": 1
+              },
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 100,
+                "hash": "b16cdf192484"
+              }
+            }
+          ],
+          "commit_dice": 1
+        },
+        "enhancerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "enhance"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "enhance.enhancerange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": false,
+              "cite": {
+                "book": "fad",
+                "page": 289
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "aor",
+        "fad",
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude"
+    },
+    "farsight": {
+      "id": "farsight",
+      "_source_key": "FARSIGHT",
+      "name": "Farsight",
+      "description": "Extends sight past its normal limits: darkness, distance, obstruction.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "farsightbasic",
+              "cost": 5,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "farsightcontrol1",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "farsightcontrol2",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightcontrol6",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightduration",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "farsightrange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "farsightduration",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightcontrol3",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightrange",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "farsightcontrol4",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightcontrol5",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "farsightmastery",
+              "cost": 20,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "farsightbasic": {
+          "name": "Farsight Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "farsightcontrol1": {
+          "name": "Control: Microscopic Details",
+          "description": "",
+          "family": "control"
+        },
+        "farsightcontrol2": {
+          "name": "Control: Transparent",
+          "description": "",
+          "family": "control"
+        },
+        "farsightcontrol3": {
+          "name": "Control: Vigilance",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "vigilance"
+                },
+                {
+                  "scope": "skill",
+                  "value": "perception"
+                }
+              ],
+              "cite": {
+                "book": "savage_spirits",
+                "page": 36
+              },
+              "words": {
+                "start": 0,
+                "end": 92,
+                "hash": "5f666cfafc66"
+              },
+              "condition": {
+                "start": 0,
+                "end": 92,
+                "hash": "5f666cfafc66"
+              }
+            }
+          ]
+        },
+        "farsightcontrol4": {
+          "name": "Control: Perception",
+          "description": "",
+          "family": "control",
+          "effects": [
+            {
+              "id": "skill_rank_delta",
+              "op": "skill_rank_delta",
+              "skill": "perception",
+              "amount": 1,
+              "max": 5,
+              "cost": {
+                "commit_force": 1
+              },
+              "each_time": true,
+              "cite": {
+                "book": "savage_spirits",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 135,
+                "hash": "b0b2e88d6a8a"
+              }
+            }
+          ],
+          "commit_dice": 1,
+          "after_power": "farsight"
+        },
+        "farsightcontrol5": {
+          "name": "Control: Panoramic Vision",
+          "description": "",
+          "family": "control"
+        },
+        "farsightcontrol6": {
+          "name": "Control: Fine Details",
+          "description": "",
+          "family": "control"
+        },
+        "farsightduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "farsight"
+                }
+              ],
+              "unit": "round",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "farsight.farsightduration"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "cite": {
+                "book": "savage_spirits",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 101,
+                "hash": "843ef7d776a8"
+              }
+            }
+          ]
+        },
+        "farsightmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "farsightrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "farsight"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "farsight.farsightrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "savage_spirits",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 89,
+                "hash": "cf2d2df258e2"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "savage_spirits"
+      ],
+      "_provenance": "oggdude"
+    },
+    "foresee": {
+      "id": "foresee",
+      "_source_key": "FORSEE",
+      "name": "Foresee",
+      "description": "Catches a glimpse of what is about to happen.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "forseebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "forseecontrol1",
+              "cost": 10,
+              "col": 0,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseestrength",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "forseemagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseerange",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseecontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseeduration",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "forseemagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseerange",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "forseerange",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseestrength",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "forseecontrol3",
+              "cost": 15,
+              "col": 0,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "forseeduration",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "forseebasic": {
+          "name": "Foresee Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "forseecontrol1": {
+          "name": "Control: Initiative (Success)",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "cool"
+                },
+                {
+                  "scope": "skill",
+                  "value": "vigilance"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 291
+              },
+              "words": {
+                "start": 0,
+                "end": 111,
+                "hash": "fb7c1e740341"
+              },
+              "condition": {
+                "start": 0,
+                "end": 111,
+                "hash": "fb7c1e740341"
+              }
+            }
+          ]
+        },
+        "forseecontrol2": {
+          "name": "Control: Defense",
+          "description": "",
+          "family": "control"
+        },
+        "forseecontrol3": {
+          "name": "Control: Initiative (Maneuver)",
+          "description": "",
+          "family": "control"
+        },
+        "forseeduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "foresee"
+                }
+              ],
+              "unit": "day",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "foresee.forseeduration"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 291
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "fb0719e1c9fc"
+              }
+            }
+          ]
+        },
+        "forseemagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "foresee"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "foresee.forseemagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 291
+              },
+              "words": {
+                "start": 0,
+                "end": 78,
+                "hash": "b48fa9bac67a"
+              }
+            }
+          ]
+        },
+        "forseerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "foresee"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "foresee.forseerange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 291
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "forseestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "foresee"
+                }
+              ],
+              "unit": "detail",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "foresee.forseestrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 291
+              },
+              "words": {
+                "start": 0,
+                "end": 77,
+                "hash": "11673a04ed4b"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "heal_harm": {
+      "id": "heal_harm",
+      "_source_key": "HEALHARM",
+      "name": "Heal/Harm",
+      "description": "Restores a wounded ally or drains vitality from a target.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "healharmbasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "healharmrange",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "healharmmagnitude",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "healharmmagnitude",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "healharmcontrol2",
+              "cost": 20,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "healharmrange",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "healharmmagnitude",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "healharmstrength",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "healharmcontrol3",
+              "cost": 20,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "healharmcontrol1",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "healharmcontrol4",
+              "cost": 20,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "healharmmastery",
+              "cost": 20,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "healharmstrength",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "healharmbasic": {
+          "name": "Heal/Harm Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "healharmcontrol1": {
+          "name": "Control: Medicine",
+          "description": "",
+          "family": "control"
+        },
+        "healharmcontrol2": {
+          "name": "Control: Strain",
+          "description": "",
+          "family": "control"
+        },
+        "healharmcontrol3": {
+          "name": "Control: Status",
+          "description": "",
+          "family": "control"
+        },
+        "healharmcontrol4": {
+          "name": "Control: Critical",
+          "description": "",
+          "family": "control"
+        },
+        "healharmmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "heal_harm"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "heal_harm.healharmmagnitude"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 293
+              },
+              "words": {
+                "start": 0,
+                "end": 90,
+                "hash": "907ec5263979"
+              }
+            }
+          ]
+        },
+        "healharmmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "healharmrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "heal_harm"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "heal_harm.healharmrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 293
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "healharmstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "heal_harm"
+                }
+              ],
+              "unit": "wound",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "heal_harm.healharmstrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 293
+              },
+              "words": {
+                "start": 0,
+                "end": 182,
+                "hash": "87c4f2d4796c"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "imbue": {
+      "id": "imbue",
+      "_source_key": "IMBUE",
+      "name": "Imbue",
+      "description": "Lends an ally a temporary boost to their characteristics.",
+      "min_force_rating": 2,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "imbuebasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "imbuestrength",
+              "cost": 5,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "imbuecontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "imbuerange",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "imbuerange",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "imbuerange",
+              "cost": 15,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "imbuestrength",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "imbuemastery",
+              "cost": 25,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "imbueduration",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "imbuerange",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "imbuestrength",
+              "cost": 20,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "imbueduration2",
+              "cost": 20,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "imbuebasic": {
+          "name": "Imbue Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "imbuecontrol1": {
+          "name": "Control: Skill Ranks",
+          "description": "",
+          "family": "control"
+        },
+        "imbueduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 2
+        },
+        "imbueduration2": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 1
+        },
+        "imbuemastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "imbuerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "imbue"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "imbue.imbuerange"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "disciples_of_harmony",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "afd3dced0cda"
+              }
+            }
+          ]
+        },
+        "imbuestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "_provenance": "oggdude"
+    },
+    "influence": {
+      "id": "influence",
+      "_source_key": "INFLUENCE",
+      "name": "Influence",
+      "description": "Guides or twists what another character thinks and feels.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "influencebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "influencerange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influencemagnitude",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influencecontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "influencecontrol2",
+              "cost": 15,
+              "col": 0,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influencestrength",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "influencerange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influencemagnitude",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influenceduration",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "influenceduration",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "influencerange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influencemagnitude",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "influenceduration",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "influenceduration",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "influencebasic": {
+          "name": "Influence Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "influencecontrol1": {
+          "name": "Control: Emotion/Belief",
+          "description": "",
+          "family": "control"
+        },
+        "influencecontrol2": {
+          "name": "Control: Skills",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "coercion"
+                },
+                {
+                  "scope": "skill",
+                  "value": "charm"
+                },
+                {
+                  "scope": "skill",
+                  "value": "deception"
+                },
+                {
+                  "scope": "skill",
+                  "value": "leadership"
+                },
+                {
+                  "scope": "skill",
+                  "value": "negotiation"
+                }
+              ],
+              "cite": {
+                "book": "fad",
+                "page": 295
+              },
+              "words": {
+                "start": 0,
+                "end": 149,
+                "hash": "c71f05382dc5"
+              },
+              "condition": {
+                "start": 0,
+                "end": 149,
+                "hash": "c71f05382dc5"
+              }
+            }
+          ]
+        },
+        "influenceduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "influence"
+                }
+              ],
+              "unit": "round",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "influence.influenceduration"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 295
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "bb8af1a1d107"
+              }
+            }
+          ]
+        },
+        "influencemagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "influence"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "influence.influencemagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 295
+              },
+              "words": {
+                "start": 0,
+                "end": 78,
+                "hash": "b48fa9bac67a"
+              }
+            }
+          ]
+        },
+        "influencerange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "influence"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "influence.influencerange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 295
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "influencestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "eote",
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "jerserra_s_influence": {
+      "id": "jerserra_s_influence",
+      "_source_key": "JERINF",
+      "name": "Jerserra's Influence",
+      "description": "Projects a terrifying vision onto a target.",
+      "min_force_rating": 2,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "jerinfbasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "jerinfrange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "jerinfstrength",
+              "cost": 10,
+              "col": 1,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "jerinfcontrol1",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "jerinfrange",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "jerinfcontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "jerinfmagnitude",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "jerinfmagnitude",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "jerinfstrength",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "jerinfcontrol3",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "jerinfrange",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "jerinfmastery1",
+              "cost": 15,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "jerinfmastery2",
+              "cost": 5,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "jerinfbasic": {
+          "name": "Jerserra's Influence Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "jerinfcontrol1": {
+          "name": "Control: Strain",
+          "description": "",
+          "family": "control"
+        },
+        "jerinfcontrol2": {
+          "name": "Control: Fear",
+          "description": "",
+          "family": "control"
+        },
+        "jerinfcontrol3": {
+          "name": "Control: Willpower",
+          "description": "",
+          "family": "control",
+          "commit_dice": 1
+        },
+        "jerinfmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude"
+        },
+        "jerinfmastery1": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery",
+          "commit_dice": 3
+        },
+        "jerinfmastery2": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "jerinfrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "jerserra_s_influence"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "jerserra_s_influence.jerinfrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "7e78e74a6e79"
+              }
+            }
+          ]
+        },
+        "jerinfstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "ghosts_of_dathomir"
+      ],
+      "_provenance": "oggdude"
+    },
+    "manipulate": {
+      "id": "manipulate",
+      "_source_key": "MANIPULATE",
+      "name": "Manipulate",
+      "description": "Repairs and reshapes machinery at a molecular level.",
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "manipulatebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "manipulatecontrol1",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "manipulatestrength",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "manipulatecontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "manipulatecontrol3",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "manipulaterange",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "manipulatecontrol4",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "manipulatecontrol5",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "manipulatecontrol6",
+              "cost": 15,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "manipulaterange",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "manipulatestrength",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "manipulatecontrol7",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "manipulaterange",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "manipulatemastery",
+              "cost": 20,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "manipulatebasic": {
+          "name": "Manipulate Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "manipulatecontrol1": {
+          "name": "Control: Item Damage",
+          "description": "",
+          "family": "control",
+          "commit_dice": 1
+        },
+        "manipulatecontrol2": {
+          "name": "Control: Increase System Strain",
+          "description": "",
+          "family": "control",
+          "commit_dice": 2
+        },
+        "manipulatecontrol3": {
+          "name": "Control: Mechanics",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "mechanics"
+                }
+              ],
+              "cite": {
+                "book": "endless_vigil",
+                "page": 36
+              },
+              "words": {
+                "start": 0,
+                "end": 99,
+                "hash": "8b288fccae8c"
+              },
+              "condition": {
+                "start": 0,
+                "end": 99,
+                "hash": "8b288fccae8c"
+              }
+            }
+          ]
+        },
+        "manipulatecontrol4": {
+          "name": "Control: Heal Droid",
+          "description": "",
+          "family": "control"
+        },
+        "manipulatecontrol5": {
+          "name": "Control: Inflict Strain",
+          "description": "",
+          "family": "control"
+        },
+        "manipulatecontrol6": {
+          "name": "Control: Increase Hull Trauma",
+          "description": "",
+          "family": "control",
+          "commit_dice": 2
+        },
+        "manipulatecontrol7": {
+          "name": "Control: Upgrade Computers and Mechanics",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "upgrade_ability",
+              "die": "ability",
+              "direction": "upgrade",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "computers"
+                },
+                {
+                  "scope": "skill",
+                  "value": "mechanics"
+                }
+              ],
+              "cost": {
+                "commit_force": 1
+              },
+              "cite": {
+                "book": "endless_vigil",
+                "page": 36
+              },
+              "words": {
+                "start": 29,
+                "end": 87,
+                "hash": "e0681120cf92"
+              }
+            }
+          ],
+          "commit_dice": 1
+        },
+        "manipulatemastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "manipulaterange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "manipulate"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "manipulate.manipulaterange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "endless_vigil",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "7e78e74a6e79"
+              }
+            }
+          ]
+        },
+        "manipulatestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "manipulate"
+                }
+              ],
+              "unit": "strain",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "manipulate.manipulatestrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "endless_vigil",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 162,
+                "hash": "2c7811387dc0"
+              }
+            },
+            {
+              "id": "power_dial_2",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "manipulate"
+                }
+              ],
+              "unit": "wound",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "manipulate.manipulatestrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "endless_vigil",
+                "page": 37
+              },
+              "words": {
+                "start": 0,
+                "end": 162,
+                "hash": "2c7811387dc0"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "endless_vigil"
+      ],
+      "_provenance": "oggdude"
+    },
+    "misdirect": {
+      "id": "misdirect",
+      "_source_key": "MISDIRECT",
+      "name": "Misdirect",
+      "description": "Builds illusions: hiding what is present, or showing what is not.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "misdirbasic",
+              "cost": 15,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "misdirrange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "misdirduration",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "misdirstrength",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "misdircontrol1",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "misdirmagnitude",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "misdirmagnitude",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "misdirstrength",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "misdircontrol2",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "misdirrange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "misdircontrol3",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "misdirstrength",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "misdirmastery",
+              "cost": 20,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "misdirrange",
+              "cost": 15,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "misdirstrength",
+              "cost": 15,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "misdirbasic": {
+          "name": "Misdirect Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "misdircontrol1": {
+          "name": "Control: Appearance",
+          "description": "",
+          "family": "control"
+        },
+        "misdircontrol2": {
+          "name": "Control: Illusion",
+          "description": "",
+          "family": "control"
+        },
+        "misdircontrol3": {
+          "name": "Control: Combat",
+          "description": "",
+          "family": "control",
+          "commit_dice": 2
+        },
+        "misdirduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 2
+        },
+        "misdirmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "misdirect"
+                }
+              ],
+              "unit": "target",
+              "amount": {
+                "of": "characteristic",
+                "key": "presence"
+              },
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "misdirect.misdirmagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 297
+              },
+              "words": {
+                "start": 0,
+                "end": 90,
+                "hash": "1877b98e69e3"
+              }
+            }
+          ]
+        },
+        "misdirmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "misdirrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "misdirect"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "misdirect.misdirrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 297
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "misdirstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "misdirect"
+                }
+              ],
+              "unit": "silhouette",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "misdirect.misdirstrength"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 297
+              },
+              "words": {
+                "start": 0,
+                "end": 121,
+                "hash": "7e265afe3700"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "move": {
+      "id": "move",
+      "_source_key": "MOVE",
+      "name": "Move",
+      "description": "Moves objects at a distance, from small items to considerable mass.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "movebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "movemagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movestrength",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "moverange",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "moverange",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "movemagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movestrength",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movecontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "movemagnitude",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movestrength",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movecontrol2",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "moverange",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "movemagnitude",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movestrength",
+              "cost": 20,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "movecontrol3",
+              "cost": 15,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "movebasic": {
+          "name": "Move Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "movecontrol1": {
+          "name": "Control: Hurl",
+          "description": "",
+          "family": "control"
+        },
+        "movecontrol2": {
+          "name": "Control: Pull",
+          "description": "",
+          "family": "control"
+        },
+        "movecontrol3": {
+          "name": "Control: Manipulate",
+          "description": "",
+          "family": "control"
+        },
+        "movemagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "move"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "move.movemagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 299
+              },
+              "words": {
+                "start": 0,
+                "end": 78,
+                "hash": "b48fa9bac67a"
+              }
+            }
+          ]
+        },
+        "moverange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "move"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "move.moverange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 299
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "movestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "move"
+                }
+              ],
+              "unit": "silhouette",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "move.movestrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "cite": {
+                "book": "fad",
+                "page": 298
+              },
+              "words": {
+                "start": 0,
+                "end": 91,
+                "hash": "872b196bb307"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "protect_unleash": {
+      "id": "protect_unleash",
+      "_source_key": "PROTUNL",
+      "name": "Protect/Unleash",
+      "description": "Shields against energy or releases it as a blast.",
+      "min_force_rating": 3,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "protunlbasicpower",
+              "cost": 20,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "protunlrange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "protunlstrength",
+              "cost": 5,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlstrength",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlcontrol1",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "protunlrange",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlmagnitude",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlrange",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlcontrol2",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "protunlmagnitude",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "protunlstrength",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "protunlstrength",
+              "cost": 20,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "protunlduration",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "protunlcontrol3",
+              "cost": 25,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "protunlmastery",
+              "cost": 25,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "protunlbasicpower": {
+          "name": "Protect/Unleash Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "protunlcontrol1": {
+          "name": "Control: Defense/Strain",
+          "description": "",
+          "family": "control"
+        },
+        "protunlcontrol2": {
+          "name": "Control: All Attacks/Ensnare",
+          "description": "",
+          "family": "control"
+        },
+        "protunlcontrol3": {
+          "name": "Control: Incidental/Maneuver",
+          "description": "",
+          "family": "control"
+        },
+        "protunlduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration"
+        },
+        "protunlmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "protect_unleash"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "protect_unleash.protunlmagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 301
+              },
+              "words": {
+                "start": 0,
+                "end": 86,
+                "hash": "1d0156f57776"
+              }
+            }
+          ]
+        },
+        "protunlmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "protunlrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "protect_unleash"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "protect_unleash.protunlrange"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 301
+              },
+              "words": {
+                "start": 0,
+                "end": 102,
+                "hash": "afd3dced0cda"
+              }
+            }
+          ]
+        },
+        "protunlstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "protect_unleash"
+                }
+              ],
+              "unit": "damage",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "protect_unleash.protunlstrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 301
+              },
+              "words": {
+                "start": 0,
+                "end": 81,
+                "hash": "818af445fd75"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "seek": {
+      "id": "seek",
+      "_source_key": "SEEK",
+      "name": "Seek",
+      "description": "Locates something lost, hidden, or deliberately concealed.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "seekbasicpower",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "seekmagnitude",
+              "cost": 5,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "seekcontrol1",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "seekstrength",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "seekmagnitude",
+              "cost": 5,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "seekmagnitude",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "seekcontrol2",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "seekstrength",
+              "cost": 15,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "seekmagnitude",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "seekduration",
+              "cost": 20,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "seekcontrol3",
+              "cost": 15,
+              "col": 1,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "seekmastery",
+              "cost": 20,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "seekbasicpower": {
+          "name": "Seek Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "seekcontrol1": {
+          "name": "Control: Skills",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "upgrade_ability",
+              "die": "ability",
+              "direction": "upgrade",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "perception"
+                },
+                {
+                  "scope": "skill",
+                  "value": "vigilance"
+                }
+              ],
+              "cost": {
+                "commit_force": 1
+              },
+              "cite": {
+                "book": "fad",
+                "page": 303
+              },
+              "words": {
+                "start": 29,
+                "end": 89,
+                "hash": "6a4ec2f5db0a"
+              }
+            }
+          ],
+          "commit_dice": 1
+        },
+        "seekcontrol2": {
+          "name": "Control: Target",
+          "description": "",
+          "family": "control"
+        },
+        "seekcontrol3": {
+          "name": "Control: Pierce",
+          "description": "",
+          "family": "control",
+          "commit_dice": 3
+        },
+        "seekduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 1
+        },
+        "seekmagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "seek"
+                }
+              ],
+              "unit": "detail",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "seek.seekmagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "cite": {
+                "book": "fad",
+                "page": 303
+              },
+              "words": {
+                "start": 0,
+                "end": 73,
+                "hash": "cb6eae7163cb"
+              }
+            }
+          ]
+        },
+        "seekmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery"
+        },
+        "seekstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "seek"
+                }
+              ],
+              "unit": "illusion",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "seek.seekstrength"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 303
+              },
+              "words": {
+                "start": 0,
+                "end": 78,
+                "hash": "aa1f22dc15ff"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "sense": {
+      "id": "sense",
+      "_source_key": "SENSE",
+      "name": "Sense",
+      "description": "Detects living things nearby and reads the intent.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "sensebasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "sensecontrol1",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "sensecontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "senseduration",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "senserange",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "sensemagnitude",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "sensestrength",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "senserange",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "sensemagnitude",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "sensecontrol3",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "senserange",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "sensemagnitude",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "sensebasic": {
+          "name": "Sense Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "sensecontrol1": {
+          "name": "Control: Upgrade Difficulty",
+          "description": "",
+          "family": "control",
+          "commit_dice": 1
+        },
+        "sensecontrol2": {
+          "name": "Control: Sense Thoughts",
+          "description": "",
+          "family": "control"
+        },
+        "sensecontrol3": {
+          "name": "Control: Upgrade Ability",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "upgrade_ability",
+              "die": "ability",
+              "direction": "upgrade",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "group",
+                  "value": "combat"
+                }
+              ],
+              "cost": {
+                "commit_force": 1
+              },
+              "limit": "once_per_round",
+              "cite": {
+                "book": "fad",
+                "page": 305
+              },
+              "words": {
+                "start": 29,
+                "end": 130,
+                "hash": "72c57ef04714"
+              }
+            }
+          ],
+          "commit_dice": 1
+        },
+        "senseduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration"
+        },
+        "sensemagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "sense"
+                }
+              ],
+              "unit": "target",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "sense.sensemagnitude"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 305
+              },
+              "words": {
+                "start": 0,
+                "end": 97,
+                "hash": "530f91403254"
+              }
+            }
+          ]
+        },
+        "senserange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "sense"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "sense.senserange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "fad",
+                "page": 305
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "sensestrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "pool_mods": [
+            {
+              "id": "upgrade_ability",
+              "die": "ability",
+              "direction": "upgrade",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "group",
+                  "value": "combat"
+                }
+              ],
+              "limit": "once_per_round",
+              "cite": {
+                "book": "fad",
+                "page": 305
+              },
+              "words": {
+                "start": 0,
+                "end": 76,
+                "hash": "163ca1ba4adb"
+              },
+              "condition": {
+                "start": 0,
+                "end": 34,
+                "hash": "6c32838f337f"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "eote",
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "suppress": {
+      "id": "suppress",
+      "_source_key": "SUPPRESS",
+      "name": "Suppress",
+      "description": "Dampens Force powers used against the user and those with them.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "suppressbasic",
+              "cost": 10,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "suppressstrength",
+              "cost": 5,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "suppressduration",
+              "cost": 5,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "suppressrange",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "suppresscontrol1",
+              "cost": 10,
+              "col": 0,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": true
+              }
+            },
+            {
+              "ability": "suppressrange",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "suppressstrength",
+              "cost": 10,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "suppresscontrol2",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "suppressrange",
+              "cost": 5,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "suppressmastery",
+              "cost": 20,
+              "col": 0,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "suppresscontrol3",
+              "cost": 15,
+              "col": 2,
+              "span": 2,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "suppressbasic": {
+          "name": "Suppress Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "suppresscontrol1": {
+          "name": "Control: Commit",
+          "description": "",
+          "family": "control",
+          "commit_dice": 2
+        },
+        "suppresscontrol2": {
+          "name": "Control: Destiny",
+          "description": "",
+          "family": "control"
+        },
+        "suppresscontrol3": {
+          "name": "Control: Strain",
+          "description": "",
+          "family": "control"
+        },
+        "suppressduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "commit_dice": 1
+        },
+        "suppressmastery": {
+          "name": "Mastery",
+          "description": "",
+          "family": "mastery",
+          "commit_dice": 2
+        },
+        "suppressrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "suppress"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "suppress.suppressrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "cite": {
+                "book": "keeping_the_peace",
+                "page": 39
+              },
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "suppressstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength"
+        }
+      },
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "_provenance": "oggdude"
+    },
+    "warde_s_foresight": {
+      "id": "warde_s_foresight",
+      "_source_key": "WARFOR",
+      "name": "Warde's Foresight",
+      "description": "Reads one particular individual's likely actions before they take them.",
+      "min_force_rating": 1,
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "warforbasic",
+              "cost": 10,
+              "col": 0,
+              "span": 3,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "warforrange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "warforcontrol1",
+              "cost": 10,
+              "col": 1,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "warforstrength",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "warforcontrol2",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "warforduration",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "warforduration",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "warforrange",
+              "cost": 5,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "warforduration",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              }
+            },
+            {
+              "ability": "warforcontrol3",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              }
+            },
+            {
+              "ability": "warformagnitude",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              }
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "warforstrength",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            },
+            {
+              "ability": "warforcontrol4",
+              "cost": 15,
+              "col": 1,
+              "span": 3,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              }
+            }
+          ]
+        }
+      ],
+      "abilities": {
+        "warforbasic": {
+          "name": "Warde's Foresight Basic Power",
+          "description": "",
+          "family": "basic"
+        },
+        "warforcontrol1": {
+          "name": "Control: Successes",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_force",
+              "die": "force",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "force_rating",
+                "key": "self"
+              },
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "cool"
+                },
+                {
+                  "scope": "skill",
+                  "value": "vigilance"
+                }
+              ],
+              "words": {
+                "start": 0,
+                "end": 126,
+                "hash": "2fe6e987fb5f"
+              },
+              "condition": {
+                "start": 0,
+                "end": 126,
+                "hash": "2fe6e987fb5f"
+              }
+            },
+            {
+              "id": "add_success",
+              "symbol": "success",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "words": {
+                "start": 128,
+                "end": 240,
+                "hash": "32b6c7240ef4"
+              },
+              "condition": {
+                "start": 171,
+                "end": 239,
+                "hash": "91df94254a27"
+              }
+            }
+          ]
+        },
+        "warforcontrol2": {
+          "name": "Control: Maneuver",
+          "description": "",
+          "family": "control"
+        },
+        "warforcontrol3": {
+          "name": "Control:  Initiative",
+          "description": "",
+          "family": "control",
+          "pool_mods": [
+            {
+              "id": "add_advantage",
+              "symbol": "advantage",
+              "direction": "add",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "words": {
+                "start": 0,
+                "end": 140,
+                "hash": "273ecc35a1ad"
+              },
+              "condition": {
+                "start": 103,
+                "end": 139,
+                "hash": "6072d27f7929"
+              }
+            }
+          ]
+        },
+        "warforcontrol4": {
+          "name": "Control: Ally Initiative",
+          "description": "",
+          "family": "control"
+        },
+        "warforduration": {
+          "name": "Duration",
+          "description": "",
+          "family": "duration",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "warde_s_foresight"
+                }
+              ],
+              "unit": "round",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "warde_s_foresight.warforduration"
+              },
+              "cost": {
+                "force_points": 2
+              },
+              "repeatable": false,
+              "words": {
+                "start": 0,
+                "end": 120,
+                "hash": "5f367360b588"
+              }
+            }
+          ]
+        },
+        "warformagnitude": {
+          "name": "Magnitude",
+          "description": "",
+          "family": "magnitude"
+        },
+        "warforrange": {
+          "name": "Range",
+          "description": "",
+          "family": "range",
+          "roll_numbers": [
+            {
+              "id": "power_dial",
+              "op": "power_dial",
+              "moment": "check",
+              "applies_to": [
+                {
+                  "scope": "force_power",
+                  "value": "warde_s_foresight"
+                }
+              ],
+              "unit": "range_band",
+              "amount": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "warde_s_foresight.warforrange"
+              },
+              "cost": {
+                "force_points": 1
+              },
+              "repeatable": true,
+              "words": {
+                "start": 0,
+                "end": 98,
+                "hash": "1a127ddfb23a"
+              }
+            }
+          ]
+        },
+        "warforstrength": {
+          "name": "Strength",
+          "description": "",
+          "family": "strength",
+          "pool_mods": [
+            {
+              "id": "add_boost",
+              "die": "boost",
+              "direction": "add",
+              "count": 1,
+              "count_of": {
+                "of": "power_upgrades",
+                "key": "warde_s_foresight.warforstrength"
+              },
+              "applies_to": [
+                {
+                  "scope": "all"
+                }
+              ],
+              "cost": {
+                "force_points": 2
+              },
+              "words": {
+                "start": 0,
+                "end": 104,
+                "hash": "9a7ac8a08f6f"
+              },
+              "condition": {
+                "start": 67,
+                "end": 103,
+                "hash": "3c65b4b763a5"
+              }
+            }
+          ]
+        }
+      },
+      "sources": [
+        "chronicles_of_the_gatekeeper"
+      ],
+      "_provenance": "oggdude"
+    }
+  }
+}

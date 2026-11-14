@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/vehicle-frame.schema.json",
+  "title": "Vehicle Frame",
+  "description": "",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "name",
+    "source",
+    "cite",
+    "type",
+    "category",
+    "is_starship",
+    "silhouette",
+    "hull_trauma",
+    "hard_points_total",
+    "crew",
+    "crew_short",
+    "passengers",
+    "encumbrance_capacity",
+    "sensor_range_value",
+    "sensor_range_label",
+    "max_altitude_m",
+    "price_credits",
+    "rarity",
+    "restricted",
+    "check",
+    "time_hours",
+    "speed",
+    "handling",
+    "armor",
+    "system_strain",
+    "defense",
+    "hyperdrive_primary",
+    "hyperdrive_backup",
+    "weapons"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "description": "The page name in snake case (speeder_bike ... space_station). 12 rows; OggDude's VEHFRCUSTOM has no FO entry and is never a row (R-S8V-7)."
+    },
+    "kind": {
+      "const": "frame"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "const": "Fully Operational"
+    },
+    "cite": {
+      "$ref": "charbuild-common.schema.json#/$defs/cite"
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The page's 'Vehicle Type:' (the four planetary frames) or 'Class:' (the eight starship frames) word."
+    },
+    "category": {
+      "enum": [
+        "starfighters",
+        "freighters",
+        "capital_ships",
+        "transports",
+        "patrol_gunships",
+        "airspeeders",
+        "landspeeders",
+        "walkers_tanks",
+        "support"
+      ],
+      "description": "Card ADDENDUM 19 (H-6 (a)): the library's own category (public/data/vehicle-library/taxonomy.json), the family the recognition schematic draws (shipSchematic.famOf, D-205); read from the approved frames' census (census.json @ ui-lab 1fddaae94)."
+    },
+    "category_subtype": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "description": "Card ADDENDUM 19 (H-6 (a)): the Space Station's [\"Station\"] only (D-205's split rule: a support record whose subtype holds Station is a STATION); from the census."
+    },
+    "is_starship": {
+      "type": "boolean",
+      "description": "false on the four 'Vehicle Type' frames, true on the eight 'Class' frames; read by must_not_be_starship (R-S8V-3) and by the seats' piloting skill."
+    },
+    "silhouette": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hull_trauma": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hard_points_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "'Customization Hard Points'. The engine and hull spend none of them (silence s-1, R-S8C-14, shown to Jason at D-238)."
+    },
+    "crew": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The page's words."
+    },
+    "crew_short": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Card ADDENDUM 19 (H-5 (b)): the crew as the approved frames draw it (\"one pilot\", \"100\", \"60,000+\"), printed on every face that draws a frame's crew; read from the census (census.json @ ui-lab 1fddaae94), never retyped. `crew` keeps the page's words."
+    },
+    "passengers": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "'Passenger Capacity'; the page's 'None' is 0."
+    },
+    "encumbrance_capacity": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sensor_range_value": {
+      "enum": [
+        "srClose",
+        "srShort",
+        "srMedium",
+        "srLong",
+        "srExtreme"
+      ]
+    },
+    "sensor_range_label": {
+      "enum": [
+        "Close",
+        "Short",
+        "Medium",
+        "Long",
+        "Extreme"
+      ]
+    },
+    "max_altitude_m": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "'Maximum Altitude' in meters; null where the page prints none (the Walker, every starship frame)."
+    },
+    "price_credits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Table 3-4's Material Price (FO p.80): TOLD under D-225 (no cost), carried for the face's TOLD line."
+    },
+    "rarity": {
+      "$ref": "item-common.schema.json#/$defs/rarity"
+    },
+    "restricted": {
+      "$ref": "item-common.schema.json#/$defs/restricted"
+    },
+    "check": {
+      "enum": [
+        "Simple",
+        "Easy",
+        "Average",
+        "Hard",
+        "Daunting",
+        "Formidable"
+      ],
+      "description": "Table 3-4's Mechanics check difficulty (TOLD, D-225: no dice)."
+    },
+    "time_hours": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Table 3-4's time (TOLD, D-225: no clock)."
+    },
+    "fixed": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "speed": {
+          "type": "integer"
+        },
+        "handling": {
+          "type": "integer"
+        },
+        "armor": {
+          "type": "integer"
+        },
+        "hull_threshold": {
+          "type": "integer"
+        },
+        "strain_threshold": {
+          "type": "integer"
+        },
+        "hard_points": {
+          "type": "integer"
+        },
+        "passengers": {
+          "type": "integer"
+        },
+        "encumbrance": {
+          "type": "integer"
+        },
+        "massive": {
+          "type": "integer"
+        }
+      },
+      "description": ""
+    },
+    "book_error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "printed",
+        "cite",
+        "decision",
+        "words"
+      ],
+      "properties": {
+        "printed": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "silhouette": {
+              "type": "integer"
+            },
+            "hull_trauma": {
+              "type": "integer"
+            }
+          }
+        },
+        "cite": {
+          "$ref": "charbuild-common.schema.json#/$defs/cite"
+        },
+        "decision": {
+          "const": "D-231"
+        },
+        "words": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "description": "D-231 (R-S8C-19): on FO p.80 the four capital frames' stat blocks print 'Silhouette: 4. Hull Trauma Threshold: 25.' (the Shuttle's pair) under paragraphs that give each frame its own numbers. Jason chose the paragraph; the row carries the paragraph's numbers and discloses the stat block's here."
+    },
+    "speed": {
+      "const": 0
+    },
+    "handling": {
+      "const": 0
+    },
+    "armor": {
+      "const": 0
+    },
+    "system_strain": {
+      "const": 0
+    },
+    "defense": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fore",
+        "aft",
+        "port",
+        "starboard"
+      ],
+      "properties": {
+        "fore": {
+          "const": 0
+        },
+        "aft": {
+          "const": 0
+        },
+        "port": {
+          "const": 0
+        },
+        "starboard": {
+          "const": 0
+        }
+      }
+    },
+    "hyperdrive_primary": {
+      "const": null,
+      "description": "A built ship has no hyperdrive until a Hyperdrive Module is fitted as an ordinary part (FO p.82: 'handled as a starship attachment'; silence s-3, R-S8C-14)."
+    },
+    "hyperdrive_backup": {
+      "const": null
+    },
+    "weapons": {
+      "type": "array",
+      "maxItems": 0,
+      "description": "No frame, engine or hull prints a weapon (FO pp.78-84): weapons come only as attachments."
+    }
+  }
+}

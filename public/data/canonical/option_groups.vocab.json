@@ -1,0 +1,91 @@
+{
+ "schema_version": 1,
+ "vocabulary": "option_groups",
+ "_doc": "Canonical option-group vocabulary for species creation choices. Keyed on the group's DISPLAYED name (`display_name` when present, else `name` — the same expression the app uses at player/app.jsx `fcSpeciesOwedLabel`; 32 of 208 groups carry no display_name). `noun` is the singular head noun the held-commit CTA speaks: count 1 renders \"Pick one <noun> to continue\". Lowercase — the CTA's text-transform paints the capitals. The app NEVER singularizes a label by string; the noun comes from here. Ruled R-B409D-1/2 (b409-data-half-recon); B-409.",
+ "entries": [
+  {
+   "id": "skills",
+   "label": "Skills",
+   "noun": "skill"
+  },
+  {
+   "id": "subspecies",
+   "label": "Subspecies",
+   "noun": "subspecies"
+  },
+  {
+   "id": "genders",
+   "label": "Genders",
+   "noun": "gender"
+  },
+  {
+   "id": "castes",
+   "label": "Castes",
+   "noun": "caste"
+  },
+  {
+   "id": "sizes",
+   "label": "Sizes",
+   "noun": "size"
+  },
+  {
+   "id": "size",
+   "label": "Size",
+   "noun": "size"
+  },
+  {
+   "id": "ages",
+   "label": "Ages",
+   "noun": "age"
+  },
+  {
+   "id": "talents",
+   "label": "Talents",
+   "noun": "talent"
+  },
+  {
+   "id": "types",
+   "label": "Types",
+   "noun": "type"
+  },
+  {
+   "id": "classes",
+   "label": "Classes",
+   "noun": "class"
+  },
+  {
+   "id": "cultures",
+   "label": "Cultures",
+   "noun": "culture"
+  },
+  {
+   "id": "species",
+   "label": "Species",
+   "noun": "species"
+  },
+  {
+   "id": "technology",
+   "label": "Technology",
+   "noun": "technology level"
+  },
+  {
+   "id": "breathing",
+   "label": "Breathing",
+   "noun": "breathing type"
+  },
+  {
+   "id": "vocal_cords",
+   "label": "Vocal Cords",
+   "noun": "vocal-cord type"
+  },
+  {
+   "id": "variable_forms",
+   "label": "Variable Forms",
+   "noun": "form"
+  }
+ ],
+ "_meta": {
+  "noun": "The singular head noun for the held-commit CTA (R-B409D-2). Four entries add a head noun to the book's heading because the heading is not itself a countable noun: Technology -> technology level, Breathing -> breathing type, Vocal Cords -> vocal-cord type, Variable Forms -> form.",
+  "spelling": "`Vocal Cords` is the SOURCE's spelling, read at the CSG page (Polis Massan.docx: 'Cords' x3, 'Chords' x0). The registry previously carried 'Vocal Chords'; corrected at the import path under R-B409D-3."
+ }
+}

@@ -1,0 +1,230 @@
+/* files.css — THE CHARACTER FILES RECEIPT'S OWN LAYER (the import/export room on paper).
+   Ruling `character-files-paper-concept` R-CFP-1..6; mockup `lab/holocron/files.html` @ lab
+   `e92c9b0a` (Jason 2026-09-21: "Character files approved" — 25 frames; LAB_NOTES §200/§201).
+   B-770 lands it.
+
+   ⚠ IT IS A RECEIPT, NOT A COLOPHON (R-CFP-1). `PAPER_COVERAGE` A3 called this page a colophon and
+   the concept OVERRULES the word: a colophon records a FINISHED thing, and the match report is the
+   screen read BEFORE the commit, with Cancel sitting beside "Add to my roster". The ledger reading
+   survives; the name does not. "Colophon" is retired for this surface and appears in this file only
+   in this paragraph, saying so.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/files_build.py`'s `BOARD_CSS` at that pin — 34 rules, in the board's own
+   order, with the board's own comments, because the comments ARE the design record (the `hp-lkey`
+   specificity finding is the one this file would be incomplete without: it was invisible to every
+   check on that board and only the eyes caught it). The board's page chrome (`CSS`, the frame
+   furniture and `holocron.css` itself) is NOT ported — `lib/shared/paper.css` is the app's copy of
+   that kit.
+
+   ── THE TOKEN MAP, and it is value-for-value ──────────────────────────────────────────────────
+   `--pp-*` is the lab's vocabulary; the app's contract is `--doc-*` (`lib/shared/grounds/creator.css`).
+   Every pair below was checked as a VALUE and not as a name, so the port cannot silently recolour:
+      `--pp-ink    #17161B            → --doc-ink`          (4 sites)
+      `--pp-ink-2  #403D38            → --doc-ink-muted`    (4 sites)
+      `--pp-hair   rgba(23,22,27,.28) → --doc-rule`         (1 site)
+      `--pp-hair-2 rgba(23,22,27,.17) → --doc-rule-fine`    (1 site)
+      `--pp-red    #7E1414            → --doc-action`       (4 sites)
+   14 substitutions, 0 `--pp-*` left. The board's other four names — `--desk-read-max`,
+   `--desk-prose-max`, `--font-display`, `--font-body` — are ALREADY the app's own
+   (`tokens.css` :98/:112 and the font contract), so they cross unchanged and no new token is owed.
+
+   TWO COLOUR LITERALS CROSS VERBATIM AND THEY ARE NOT NEW COLOURS. `rgba(23,22,27,.02)` is
+   `--doc-ink`'s own channels at a wash alpha and `rgba(126,20,20,.06)` is `--doc-action`'s; neither
+   is a hue this surface invents, and store.css's port carries its four the same way (`.st-scrim`,
+   :256). A token for a 2%-alpha wash would be a name for one rule's fill, which is the kind of
+   token `ground_token_contract` exists to keep out.
+
+   ── EVERY RULE GAINS `[data-files-shell] ` AS AN ANCESTOR ─────────────────────────────────────
+   27 ported rules, 27 selectors, and the 5 rules this file ADDS at the foot wear it too, so the
+   fence has no hole (32 / 32). NOT `[data-doc-ground="creator"]`, which every transplanted surface
+   already wears: the reason is the NAMESPACE, exactly as store.css and qsg.css gave it. `.cf-*` is
+   a TWO-LETTER prefix — the shortest in the repo — and `.cf-col`, `.cf-lines`, `.cf-drop` are names
+   a card-front, a chat feed or a form builder would reach for on sight. The fence makes the prefix
+   safe without renaming a class the approved board drew.
+
+   ── SEVEN BOARD RULES ARE NOT PORTED, and each is a decision rather than an omission ───────────
+   1. `.hp-wide` and `.hpw-bar`. The board's header calls these a ⚠ FINDING — two rules it had to
+      copy out of a sibling generator because `holocron.css` does not carry them, and the SECOND
+      board to copy them (R-CFP-6 → B-776). IN THE APP THAT FINDING IS ALREADY CLOSED: `paper.css`
+      carries both under the ground, and its `.hpw-bar` adds `padding-top:env(safe-area-inset-top,0px)`
+      which the lab's copy does not have. Porting the board's two would have SHADOWED the app's and
+      silently dropped the notch inset on every desk page of this room. qsg.css refused them for the
+      same reason and says so; this is the second refusal and B-776 is still owed.
+   2. `.cf-sub`. It is DEAD IN THE BOARD ITSELF — harvested across all 25 rendered frames, `cf-sub`
+      is emitted ZERO times. A port of a rule nothing draws is a rule nobody can ever delete safely.
+   3. `.cf-door`, `.cf-door-t`, `.cf-door-s`, `.cf-door span.hp-none`. These draw frame V, which is
+      the LANDING's quiet row and not a state of this room — R-CFP-4 assigns frame V to no build row
+      and its subject is B-712 (`p-landing-import-row` absent while R-OEC-1 pins it). The landing's
+      row is `landing.css`'s to dress; a files stylesheet growing a landing class would put the door
+      in two files.
+
+   ── FOUR RULES REACHED NOTHING AT ROW 1; B-771 REACHED SIX OF THEM AND FOUR REMAIN ─────────────
+   B-770 built frames A · B · C · D · E · F · M · N · U · Y and named `.hp-sechead[data-stack="1"]`
+   (four rules), `.cf-ledger-l td.hp-lkey`, `.cf-lines` (four rules) and `.cf-prose` as carried but
+   unreached. They were ported with the rest of the delta because the board is one drawing and
+   splitting its stylesheet across three rows would make each row's diff argue about the same cascade
+   three times. Named so a reader can tell "not reached yet" from "not reached ever" — qsg.css's own
+   §"SIX RULES REACH NO APP SURFACE YET" is the precedent and its reason is this one.
+
+   B-771 (the MATCH RECEIPT, frames G · H · I · J · K · L) REACHES SIX: the four
+   `.hp-sechead[data-stack="1"]` rules (every section head on the receipt), `.cf-ledger-l td.hp-lkey`
+   (NOT IN OUR DATA, the one register whose values are left-aligned — which is what made
+   `VEHICLESDUNELIZARD` visible in the first place) and `.cf-prose` (the EXPERIENCE and FORCE
+   UPGRADES plates).
+
+   `.cf-lines` (FOUR RULES) IS STILL UNREACHED, AND THAT IS A MEASUREMENT RATHER THAN AN EXPECTATION.
+   The two SENTENCE lanes R-CFP-1 refuses the ledger for are the EXPORT receipt's — `NEEDS COMMUNITY
+   DATA` and `DIDN'T MAKE THE TRIP`, the engine's own `row.player` lines — and the approved board
+   emits `cf-lines` ZERO times across frames G–L against twice each on frames R and S. The match
+   receipt's own sentences (EXPERIENCE, FORCE UPGRADES) are the ROOM's, with the engine's numbers in
+   their slots, and the board sets them as `hp-prose` inside a `cf-prose` plate. So this rule leaves
+   with B-772, not with B-771. Stated because this row's brief expected it here, and a rule reported
+   as reached that draws nothing is a false claim about the cascade.
+
+   ── AND B-772 REACHED THE LAST FOUR. NOTHING IN THIS FILE IS UNREACHED NOW ──────────────────────
+   The EXPORT receipt (frames R · S · T) draws `NEEDS COMMUNITY DATA` and `COULD NOT BE EXPRESSED` as
+   `.cf-lines`, which is what those four rules were ported for, so the prediction above was a
+   measurement and it came true where it said it would. The section head the lanes hang under is the
+   room's `sect(...)` title — and note the SECTION IS NAMED `COULD NOT BE EXPRESSED` in the product
+   and on the approved board; `DIDN'T MAKE THE TRIP` above is the concept ruling's paraphrase of it
+   and exists in neither. The room's name is what ships (R-CFP-3: the engines' and the room's words,
+   verbatim). `.cf-door*` were never ported at all (frame V is the LANDING's quiet row and R-CFP-4
+   assigns it to no build row), and the one CODE path still unreached is the match receipt's populated
+   ADAPTED ledger, which reuses `.cf-ledger-l` — already drawn by NOT IN OUR DATA — so no rule waits
+   on it.
+
+   ── THE BANDS ARE A CLASS, not a media query ──────────────────────────────────────────────────
+   There is not one `@media` in `BOARD_CSS`. The phone/desk fork arrives from JS (`useLayoutMode()`,
+   as the landing, the sheet and both CREATE doors take it) and lands as `data-band` on the shell;
+   the desk column is a TOKEN (`--desk-read-max`) and not a width. Left as the board wrote it. */
+
+
+/* ── THE CHARACTER FILES BOARD — a DELTA over holocron.css, which is NOT TOUCHED. ───────────────
+ * The precedent is the store's, the landing's and Quick Start's: every concept the paper already
+ * owns reuses its `hp-` primitive, and an own-prefix class grows only where this room has a concept
+ * the vocabulary lacks.
+ *
+ * ADOPTED WHOLE, not restated: hp-sheet · hp-phonesheet/hp-phonebody/hp-phoneact · hpw-shell +
+ * hp-onecol* (the desk page) · hp-runhead + hp-folio · hp-desig + hp-desig-rule + hp-maker +
+ * hp-slash · hp-plate · hp-sechead + hp-cite · hp-ledger + hp-lkey/hp-lval · hp-index + hp-row* ·
+ * hp-prose · hp-lead · hp-none · hp-commit · hp-quiet · hp-hr. */
+
+/* THE ROOM IS THE SCREEN, and that is read from the app rather than chosen: `immersive` includes
+ * 'import' (player/app.jsx) and the bottom bar excludes it, so both global bars are off and the
+ * sheet is the whole viewport. The BODY is the scroller, never the page (AS-4) — qsg measured
+ * 1,437px falling off the bottom of a `min-height:100%` phone sheet, invisible in the picture, in
+ * the markup and in every check. Written with both classes so it outranks the kit's own min-height
+ * without touching it. */
+[data-files-shell] .hp-sheet.hp-phonesheet.cf{height:100%}
+[data-files-shell] .hp-phonesheet.cf > .hp-phonebody{min-height:0;overflow-y:auto}
+[data-files-shell] .hp-phonesheet.cf > .hp-phoneact{flex:none}
+[data-files-shell] .cf-scroll{flex:1;min-height:0;overflow-y:auto}
+[data-files-shell] .hp-onecol > div.cf-scroll{flex:1 1 auto;min-height:0;overflow-y:auto}
+
+/* THE DESK PAGE IS A MEASURE, NOT A WIDTH — and taking ONE measure for the whole room is the single
+ * arrangement decision on this board, stated so it can be refused. The room caps its own column at
+ * TWO widths: 620px on entry, drop, pick and the export report, 720px on the match report. 720 is
+ * exactly `--desk-read-max`; 620 is not a token and is not derivable from one. A paper face that
+ * kept both would carry a magic number for one of them, so the column is `--desk-read-max`
+ * everywhere and the room reads at one measure. Derived beats fixed: the day the token moves, the
+ * whole room moves with it. (Jason was told this was separately refusable — decision 1 of three —
+ * and refused none of the three; LAB_NOTES §201.) */
+[data-files-shell] .cf-col{width:100%;margin:0 auto;max-width:var(--desk-read-max)}
+
+/* THE TWO LANES. The room's entry is two peer acts, not a menu — one brings a character IN, one
+ * sends one OUT — so they are the kit's index rows with the room's OWN arrows standing in the
+ * row's plate slot. `hp-row-plate` is the kit's 46px mat; a glyph on a mat is what that slot is,
+ * and reusing it for a mark rather than for art is reuse where the CONCEPT matches. */
+[data-files-shell] .cf-lane{font-family:var(--font-display,'Orbitron',sans-serif);font-size:22px;
+  color:var(--doc-ink-muted);display:flex;align-items:center;justify-content:center;height:100%;
+  line-height:1}
+
+/* THE DROP TARGET — the one concept the paper kit has no unit for, said plainly rather than bent
+ * into a plate. A plate is a printed CARD; a drop target is an EMPTY FIELD waiting to be filled,
+ * and the printed form's way of saying that is a ruled enclosure with nothing in it. Dashed, on the
+ * page's own hairline, taking the kit's SELECTION ink when the file is over it — `--doc-action`,
+ * which is what selection is here (Jason, lab §31.4), never a new colour. */
+[data-files-shell] .cf-drop{border:2px dashed var(--doc-rule);padding:34px 22px;text-align:center;
+  background:rgba(23,22,27,.02)}
+[data-files-shell] .cf-drop[data-over="1"]{border-color:var(--doc-action);
+  background:rgba(126,20,20,.06)}
+[data-files-shell] .cf-drop-g{font-size:40px;line-height:1;color:var(--doc-ink-muted);display:block;
+  margin-bottom:12px}
+[data-files-shell] .cf-drop[data-over="1"] .cf-drop-g{color:var(--doc-action)}
+[data-files-shell] .cf-drop-t{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;
+  font-size:19px;letter-spacing:.02em;text-transform:uppercase;color:var(--doc-ink);margin:0 0 10px}
+[data-files-shell] .cf-drop .hp-prose{margin:0 auto 18px;max-width:var(--desk-prose-max)}
+
+/* THE FAILURE PAGE is the drop target's twin and takes the same enclosure, solid rather than
+ * dashed: a form that came back rejected is still a form, and the reader should recognise the box
+ * they are being sent back to. */
+[data-files-shell] .cf-stop{border:1px solid var(--doc-action);padding:30px 22px;text-align:center}
+[data-files-shell] .cf-stop-g{font-size:34px;line-height:1;color:var(--doc-action);display:block;
+  margin-bottom:10px}
+
+/* THE REPORT'S SENTENCE LANES (B-771 / B-772 reach these). Three of the report's registers are
+ * key/value and take the ledger; two of them are SENTENCES the engine wrote and the page may not
+ * paraphrase, condense or drop (the room's own contract 4, and R-CFP-3's verbatim rule). A sentence
+ * is not a ledger value — `hp-lval` is 16px semibold, right-aligned, tabular — so the sentence lanes
+ * take the prose measure and a hairline per line, which is the ledger's RHYTHM without its columns. */
+[data-files-shell] .cf-lines{list-style:none;padding:0;margin:0}
+[data-files-shell] .cf-lines li{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16.5px;
+  line-height:1.6;color:var(--doc-ink);padding:8px 0;border-top:1px solid var(--doc-rule-fine);
+  max-width:72ch}
+[data-files-shell] .cf-lines li:first-child{border-top:0}
+[data-files-shell] .cf-lines li .hp-none{display:block;margin-bottom:3px}
+
+/* THE SECTION HEAD AT 390 — and this is a FINDING drawn rather than a fix applied (B-771 / B-772
+ * reach these four). `hp-sechead` is a flex row of head + rule + cite, calibrated over the one- and
+ * two-word heads a species entry has. This room's longest head is 47 characters and its longest cite
+ * is 34, and `hp-cite` is `white-space:nowrap`. At 390 the pair cannot share a line, so the rule
+ * between them collapses to nothing and the head wraps against the cite. `data-stack="1"` is this
+ * board's reading: the cite drops to its own line under the head and the rule survives. It is a
+ * DELTA IN THIS STYLESHEET, not a change to the kit — R-CFP-6 files the real fix as B-774
+ * (`min-width:0` + `flex-wrap` on `hp-sechead`, or shorter copy, and shorter copy is Jason's). */
+[data-files-shell] .hp-sechead[data-stack="1"]{flex-wrap:wrap;row-gap:4px}
+[data-files-shell] .hp-sechead[data-stack="1"] h2{min-width:0;flex:1 1 100%;order:0}
+[data-files-shell] .hp-sechead[data-stack="1"]::after{order:1;flex:1 1 auto}
+[data-files-shell] .hp-sechead[data-stack="1"] .hp-cite{order:2;white-space:normal}
+
+/* THE PHONE'S DESIGNATION. `hp-desig` sizes itself from the VIEWPORT in the lab's kit, which a
+ * fixed-width frame cannot supply, so every board that draws a phone has had to override it. IN THE
+ * APP the designation is inside a real viewport and paper.css's own phone rule applies, so this is
+ * the one board override the port does NOT need to carry — it is dropped, and the kit's size stands.
+ * (Kept as a paragraph rather than a rule so the board's finding is not lost: R-CFP-6's `hp-desig`
+ * clash is a BOARD problem, not an app one, and that asymmetry is worth one sentence.) */
+
+/* THE LEFT-ALIGNED LEDGER, AND THE KIT DECLARATION IT HAS TO RESTATE (B-771 reaches this).
+ * `.hp-lkey` asks for `padding-right:14px` and NEVER GETS IT: `.hp-ledger td{padding:7px 0}` is
+ * (0,1,1) against the key's (0,1,0), so the shorthand wins on specificity and zeroes it. Nothing
+ * shows while values are right-aligned — the free space between the columns supplies the gap — and
+ * the moment a value is left-aligned the key and the value touch, and it rendered
+ * `VEHICLESDUNELIZARD`. FOUND BY THE EYES AND INVISIBLE TO EVERY CHECK ON THAT BOARD. Restated here
+ * rather than fixed in the kit; R-CFP-6 files the real fix as B-775. */
+[data-files-shell] .cf-ledger-l td.hp-lkey{padding-right:14px}
+
+/* THE ROW'S CHEVRON IS NOT A TAB. `hp-row-tab` is a FIXED 76px column with a rule down its left
+ * edge, and the comment above it in the kit says why: it exists so a register of starting-XP
+ * numerals keeps one seam down its right edge. A chevron is not a column of numerals, and wearing
+ * that class to get a chevron placed drew a 76px empty gutter with a rule in it on every row.
+ * Refusing a class whose laws do not fit is obeying the kit, not working around it — so the chevron
+ * rides the row the way the approved landing's own quiet row carries it. */
+[data-files-shell] .cf-chev{margin-left:auto;padding:0 14px;display:flex;align-items:center;
+  color:var(--doc-ink-muted);font-size:18px;line-height:1}
+
+/* PROSE KEEPS THE READING MEASURE AND A LEDGER KEEPS THE COLUMN, so a plate never holds both: two
+ * right edges inside one card reads as a broken card. +38px is the read plate's own 19px insets,
+ * derived from the furniture that is there. (B-771 / B-772 reach this.) */
+[data-files-shell] .cf-prose{max-width:calc(var(--desk-prose-max) + 38px)}
+
+
+/* ── THE APP'S SCREEN, which the board's fixed cell gave it for free ──────────────────────────────
+ * The room mounts inside `PlayerApp`'s wipe wrapper, and the dark body it replaces carries its own
+ * `position:absolute; inset:0` root (`p-import-screen`). The paper root takes exactly that geometry
+ * and nothing more, so the switch changes the FACE and not where the screen sits. `overflow:hidden`
+ * is the board's own claim about this surface — AS-4: the page never scrolls, the zones scroll
+ * inside themselves. qsg.css's `.qsg-surface` and store.css's `.st-surface` are the precedent. */
+[data-files-shell].cf-surface{position:absolute;inset:0;display:flex;flex-direction:column;
+  overflow:hidden}
+

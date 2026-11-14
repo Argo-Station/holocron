@@ -1,0 +1,6561 @@
+{
+  "schema": "crafting-spend.schema.json",
+  "schema_version": 1,
+  "generated_from": "Docs/worksheets/crafting-melee-spend-tables.md (human visual inspection, Jason, 2026-07-29)",
+  "generated_by": "hand-authored from the worksheet — NOT a machine ingest; see _provenance",
+  "_provenance": "human_inspection",
+  "_doc": "Crafting spend tables — what a crafter buys with Advantage/Triumph and what the GM imposes with Threat/Despair. Entry shape is concept `crafting-module-concept` §4.4 as AMENDED (Amendment 1, ruling `crafting-spend-cost-shape` Q1 option (a)): the superseded `cost {symbol, count}` could not express the book's 'N Advantage OR 1 Triumph' pricing, so entries carry a `cost` display string plus a `req` ARRAY of satisfying alternatives — ANY ONE ENTRY PAYS. `req` keys are FIXED as ad/tr/th/de; a row needing any other key is a fresh R-SY4 halt, not a quiet addition. This is the same encoding the combat spend tables ship (spend_tables.json), deliberately, so the idea has one shape everywhere it appears. KEYED BY CATEGORY because RAW prints a separate spend table per category (Table 3-3 melee, Table 3-6 ranged, ...); adding a category is a data lap that adds a key (R-CRAFT-1). Every cost was read from the printed book — the OCR of this table rendered its entire cost column as noise, and R-CRAFT-4 makes the worksheet the only legal entry path.",
+  "scope": "Special Modifications crafting spend tables: Brawl and Melee (Table 3-3, printed p.77), Ranged Weapons (Table 3-6, p.79), Gadgets (Table 3-14, p.84), Cybernetics (Table 3-17, p.85); Unlimited Power alchemy spend tables: Potions (Table 3-2, printed p.82), Talismans (Table 3-4, p.85); Endless Vigil lightsaber hilt spend table (Table 3-12, printed p.87); Keeping the Peace armor spend table (Table 3-2, printed p.91); Forged in Battle fortification spend table (Table 3-2, printed p.85); Special Modifications droid spend tables (Tables 3-8, 3-10, printed pp.81, 83)",
+  "count": 223,
+  "spend": {
+    "brawl_melee": {
+      "cite": "Special Modifications p.77",
+      "sources": [
+        "Special Modifications"
+      ],
+      "improvements": [
+        {
+          "id": "practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPMELEEPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "two_handed",
+          "name": "Two-Handed",
+          "ogg_key": "IMPMELEE2H",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "damage_delta",
+              "value": 1
+            },
+            {
+              "type": "encumbrance_delta",
+              "value": 2
+            },
+            {
+              "type": "hands_set",
+              "value": "two_handed"
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightweight",
+          "name": "Lightweight",
+          "ogg_key": "IMPMELEELIGHT",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": -1,
+              "floor": 1
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "knockdown_quality",
+          "name": "Knockdown Quality",
+          "ogg_key": "IMPMELEEKNOCK",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "knockdown",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lessons_learned",
+          "name": "Lessons Learned",
+          "ogg_key": "IMPMELEELESSON",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Lowers the difficulty of the next crafting check; the app keeps no crafting session."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "defensive_quality",
+          "name": "Defensive Quality",
+          "ogg_key": "IMPMELEEDEFQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "defensive",
+              "ranked": true,
+              "cap": 3
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "customizable",
+          "name": "Customizable",
+          "ogg_key": "IMPMELEECUST",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "hard_points_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "pierce_quality",
+          "name": "Pierce Quality",
+          "ogg_key": "IMPMELEEPIERCEQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "pierce",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "vicious_quality",
+          "name": "Vicious Quality",
+          "ogg_key": "IMPMELEEVICQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "vicious",
+              "ranked": true,
+              "cap": 5
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "stun_quality",
+          "name": "Stun Quality",
+          "ogg_key": "IMPMELEESTUNQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "stun",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "efficient_construction",
+          "name": "Efficient Construction",
+          "ogg_key": "IMPMELEEEFFCONST",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ensnare_quality",
+          "name": "Ensnare Quality",
+          "ogg_key": "IMPMELEEENSQ",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "ensnare",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "deflection_quality",
+          "name": "Deflection Quality",
+          "ogg_key": "IMPMELEEDEFLQ",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "deflection",
+              "ranked": true,
+              "cap": 3
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "destructive",
+          "name": "Destructive",
+          "ogg_key": "IMPMELEEDESTR",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "damage_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "accurate_quality",
+          "name": "Accurate Quality",
+          "ogg_key": "IMPMELEEACCQ",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "accurate",
+              "ranked": true,
+              "cap": 3
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lethal",
+          "name": "Lethal",
+          "ogg_key": "IMPMELEELETHAL",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "crit_delta",
+              "value": -1
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "sunder_quality",
+          "name": "Sunder Quality",
+          "ogg_key": "IMPMELEESUNDQ",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "sunder",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "schematic",
+          "name": "Schematic",
+          "ogg_key": "IMPMELEESCHEM",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The schematic is kept on your sheet; this item is unchanged."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "concussive_quality",
+          "name": "Concussive Quality",
+          "ogg_key": "IMPMELEECONCQ",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "concussive",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "integral_attachment",
+          "name": "Integral Attachment",
+          "ogg_key": "IMPMELEEATT",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Adds a hard point and installs an attachment into it, both or neither; install the attachment yourself."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPMELEEEXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "heavy",
+          "name": "Heavy",
+          "ogg_key": "IMPMELEEHVY",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cumbersome_quality",
+          "name": "Cumbersome Quality",
+          "ogg_key": "IMPMELEECUMBQ",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "cumbersome",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "hard_to_modify",
+          "name": "Hard to Modify",
+          "ogg_key": "IMPMELEEHARDMOD",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to modify this weapon's attachments are 1 harder; the app does not track it."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "wear_and_tear",
+          "name": "Wear and Tear",
+          "ogg_key": "IMPMELEEWEARTEAR",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter's tools are damaged one step; the app keeps no tools."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "difficult_to_repair",
+          "name": "Difficult to Repair",
+          "ogg_key": "IMPMELEEDIFFREP",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to repair this weapon are 1 harder; the app does not track it."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "inaccurate_quality",
+          "name": "Inaccurate Quality",
+          "ogg_key": "IMPMELEEINACCQ",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "inaccurate",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "brittle",
+          "name": "Brittle",
+          "ogg_key": "IMPMELEEBRITT",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On a Despair in combat the weapon is damaged one step; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "hidden_flaw",
+          "name": "Hidden Flaw",
+          "ogg_key": "IMPMELEEFLAW",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM may flip a Destiny Point to break the weapon; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.77",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "ranged": {
+      "cite": "Special Modifications p.79",
+      "sources": [
+        "Special Modifications"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctRanged) for structure and numbers; names, once-only limits and cites read off Special Modifications printed pp.78-79 (corpus +3); scripts/canonical/crafting_sm_batch.py",
+      "improvements": [
+        {
+          "id": "ranged_practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPRANGEDPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_ion_quality",
+          "name": "Ion Quality",
+          "ogg_key": "IMPRANGEDIONQ",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "ion",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_lightweight",
+          "name": "Lightweight",
+          "ogg_key": "IMPRANGEDLIGHT",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": -1,
+              "floor": 1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_disorient_quality",
+          "name": "Disorient Quality",
+          "ogg_key": "IMPRANGEDDISORQ",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "disorient",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_expanded_magazine",
+          "name": "Expanded Magazine",
+          "ogg_key": "IMPRANGEDEXMAG",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "limited_ammo",
+              "ranked": true,
+              "if_present": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_lessons_learned",
+          "name": "Lessons Learned",
+          "ogg_key": "IMPRANGEDLESSON",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Lowers the difficulty of the next crafting check; the app keeps no crafting session."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_customizable",
+          "name": "Customizable",
+          "ogg_key": "IMPRANGEDCUST",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "hard_points_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_increased_range",
+          "name": "Increased Range",
+          "ogg_key": "IMPRANGEDINCRANGE",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "range_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_knockdown_quality",
+          "name": "Knockdown Quality",
+          "ogg_key": "IMPRANGEDKNOCKQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "knockdown",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_vicious_quality",
+          "name": "Vicious Quality",
+          "ogg_key": "IMPRANGEDVICQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "vicious",
+              "ranked": true,
+              "cap": 5
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_stun_setting",
+          "name": "Stun Setting",
+          "ogg_key": "IMPRANGEDSTUNSETQ",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "stun_setting",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_efficient_construction",
+          "name": "Efficient Construction",
+          "ogg_key": "IMPRANGEDEFFCONST",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_destructive",
+          "name": "Destructive",
+          "ogg_key": "IMPRANGEDDESTR",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "damage_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_ensnare_quality",
+          "name": "Ensnare Quality",
+          "ogg_key": "IMPRANGEDENSQ",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "ensnare",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_stun_quality",
+          "name": "Stun Quality",
+          "ogg_key": "IMPRANGEDSTUNQ",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "stun",
+              "ranked": true,
+              "start": 3
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_pierce_quality",
+          "name": "Pierce Quality",
+          "ogg_key": "IMPRANGEDPIERCEQ",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "pierce",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_auto_fire_quality",
+          "name": "Auto-Fire Quality",
+          "ogg_key": "IMPRANGEDAUTOFQ",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "auto_fire",
+              "ranked": false
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_burn_quality",
+          "name": "Burn Quality",
+          "ogg_key": "IMPRANGEDBURNQ",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "burn",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_lethal",
+          "name": "Lethal",
+          "ogg_key": "IMPRANGEDLETHAL",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "crit_delta",
+              "value": -1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_accurate_quality",
+          "name": "Accurate Quality",
+          "ogg_key": "IMPRANGEDACCQ",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "accurate",
+              "ranked": true,
+              "cap": 3
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_schematic",
+          "name": "Schematic",
+          "ogg_key": "IMPRANGEDSCHEM",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The schematic is kept on your sheet; this item is unchanged."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_blast_quality",
+          "name": "Blast Quality",
+          "ogg_key": "IMPRANGEDBLASTQ",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "blast",
+              "ranked": true,
+              "start": 5,
+              "by": 2
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_concussive_quality",
+          "name": "Concussive Quality",
+          "ogg_key": "IMPRANGEDCONCQ",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "concussive",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_integral_attachment",
+          "name": "Integral Attachment",
+          "ogg_key": "IMPRANGEDATT",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Adds a hard point and installs an attachment into it, both or neither; install the attachment yourself."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "ranged_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPRANGEDEXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_heavy",
+          "name": "Heavy",
+          "ogg_key": "IMPRANGEDHVY",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_cumbersome_quality",
+          "name": "Cumbersome Quality",
+          "ogg_key": "IMPRANGEDCUMBQ",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "cumbersome",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_expensive",
+          "name": "Expensive",
+          "ogg_key": "IMPRANGEDEXPENSIVE",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Repairs to this weapon cost double; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_hard_to_modify",
+          "name": "Hard to Modify",
+          "ogg_key": "IMPRANGEDHARDMOD",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to modify this weapon's attachments are 1 harder; the app does not track it."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_difficult_to_repair",
+          "name": "Difficult to Repair",
+          "ogg_key": "IMPRANGEDDIFFREP",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to repair this weapon are 1 harder; the app does not track it."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_wear_and_tear",
+          "name": "Wear and Tear",
+          "ogg_key": "IMPRANGEDWEARTEAR",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter's tools are damaged one step; the app keeps no tools."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_prepare_quality",
+          "name": "Prepare Quality",
+          "ogg_key": "IMPRANGEDPREPQ",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "prepare",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_ammunition_inefficient",
+          "name": "Ammunition-Inefficient",
+          "ogg_key": "IMPRANGEDAMMOINEFF",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM may spend three Threat to empty the weapon; the app does not track ammunition."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_inaccurate_quality",
+          "name": "Inaccurate Quality",
+          "ogg_key": "IMPRANGEDINACCQ",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "inaccurate",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_limited_ammo_quality",
+          "name": "Limited Ammo Quality",
+          "ogg_key": "IMPRANGEDLIMAMMOQ",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Limited Ammo 3 on a weapon without it, or 1 less on one that has it; change the weapon's Limited Ammo yourself."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_slow_firing_quality",
+          "name": "Slow-Firing Quality",
+          "ogg_key": "IMPRANGEDSLOWQ",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "slow_firing",
+              "ranked": true
+            }
+          ],
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "ranged_dangerously_volatile",
+          "name": "Dangerously Volatile",
+          "ogg_key": "IMPRANGEDVOLA",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM may spend a Despair to make the weapon explode; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.79",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "gadget": {
+      "cite": "Special Modifications p.84",
+      "sources": [
+        "Special Modifications"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctGadget) for structure and numbers; names, once-only limits and cites read off Special Modifications printed p.84 (corpus +3); scripts/canonical/crafting_sm_batch.py",
+      "improvements": [
+        {
+          "id": "gadget_lightweight",
+          "name": "Lightweight",
+          "ogg_key": "IMPGADGLIGHT",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": -1,
+              "floor": 1
+            }
+          ],
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPGADGPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_compact",
+          "name": "Compact",
+          "ogg_key": "IMPGADGCOMP",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Setback on someone else's check to find the gadget; the app does not roll for them."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_lessons_learned",
+          "name": "Lessons Learned",
+          "ogg_key": "IMPGADGLESSON",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Lowers the difficulty of the next crafting check; the app keeps no crafting session."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_efficient_construction",
+          "name": "Efficient Construction",
+          "ogg_key": "IMPGADGEFFCONST",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_safety_features",
+          "name": "Safety Features",
+          "ogg_key": "IMPGADGSAFETY",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An automatic Advantage on checks with this tool's skill; add it when you roll."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_inbuilt_weapon",
+          "name": "Inbuilt Weapon",
+          "ogg_key": "IMPGADGINWEAP",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A weapon you own is built into the gadget; keep both on your sheet."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_supreme_craftsmanship",
+          "name": "Supreme Craftsmanship",
+          "ogg_key": "IMPGADGCRAFT",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Upgrade checks with the chosen skill made with this tool; upgrade them when you roll."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "gadget_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPGADGEXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_heavy",
+          "name": "Heavy",
+          "ogg_key": "IMPGADGHVY",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_difficult_to_repair",
+          "name": "Difficult to Repair",
+          "ogg_key": "IMPGADGDIFFREP",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to repair this gadget are 1 harder; the app does not track it."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_delicate",
+          "name": "Delicate",
+          "ogg_key": "IMPGADGDELICATE",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM may spend Threat or Despair to damage the gadget; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_unpresentable",
+          "name": "Unpresentable",
+          "ogg_key": "IMPGADGUNPRES",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Buyers pay half price for it; the app does not sell items."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_fragile",
+          "name": "Fragile",
+          "ogg_key": "IMPGADGFRAGILE",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Damage to the gadget counts double; the app keeps no item damage."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "gadget_faulty",
+          "name": "Faulty",
+          "ogg_key": "IMPGADGFAULT",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Upgrade the difficulty of checks made with this gadget; upgrade it when you roll."
+          },
+          "cite": "Special Modifications p.84",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          },
+          "corrections": [
+            {
+              "field": "flags.once_only",
+              "from": true,
+              "to": false,
+              "cite": "Special Modifications p.84",
+              "why": "the printed line ends without \"(this can only be selected once)\"; OggDude once only (DECISIONS D-321 @ 8d57c86ef)"
+            }
+          ]
+        }
+      ]
+    },
+    "cyber": {
+      "cite": "Special Modifications p.85",
+      "sources": [
+        "Special Modifications"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctCyber) for structure and numbers; names, once-only limits and cites read off Special Modifications printed p.85 (corpus +3); scripts/canonical/crafting_sm_batch.py",
+      "improvements": [
+        {
+          "id": "cyber_practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPCYBERPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_integrated_tool",
+          "name": "Integrated Tool",
+          "ogg_key": "IMPCYBERINTTOOL",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The cybernetic works as a tool for the chosen skill; the GM decides when it counts."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_unobtrusive",
+          "name": "Unobtrusive",
+          "ogg_key": "IMPCYBERUNOB",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Setback on someone else's check to spot the cybernetic; the app does not roll for them."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_tailored",
+          "name": "Tailored",
+          "ogg_key": "IMPCYBERTAIL",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "No install check for the being it was built for; the app does not track installing."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_inbuilt_weapon",
+          "name": "Inbuilt Weapon",
+          "ogg_key": "IMPCYBERINWEAP",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A weapon you own is built into the cybernetic; keep both on your sheet."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_ion_shielded",
+          "name": "Ion-Shielded",
+          "ogg_key": "IMPCYBERION",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Ion weapons do not shut the cybernetic down; the app does not track it."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          },
+          "corrections": [
+            {
+              "field": "flags.once_only",
+              "from": true,
+              "to": false,
+              "cite": "Special Modifications p.85",
+              "why": "the printed line ends without \"(this can only be selected once)\"; OggDude once only (DECISIONS D-321 @ 8d57c86ef)"
+            }
+          ]
+        }
+      ],
+      "flaws": [
+        {
+          "id": "cyber_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPCYBEREXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_difficult_to_install",
+          "name": "Difficult to Install",
+          "ogg_key": "IMPCYBERDIFFINS",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to install this cybernetic are 1 harder; the app does not track installing."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_wear_and_tear",
+          "name": "Wear and Tear",
+          "ogg_key": "IMPCYBERWEARTEAR",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter's tools are damaged one step; the app keeps no tools."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "cyber_severe_feedback",
+          "name": "Severe Feedback",
+          "ogg_key": "IMPCYBERSEVFEED",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "1 strain on each check made with the cybernetic; the app does not apply it."
+          },
+          "cite": "Special Modifications p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "potion": {
+      "cite": "Unlimited Power p.82",
+      "sources": [
+        "Unlimited Power"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctAlchemyPotion) for structure and numbers; names, once-only limits, template cells and cites read off Unlimited Power printed pp.80-83 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_up_batch.py",
+      "improvements": [
+        {
+          "id": "potion_fortifying",
+          "name": "Fortifying",
+          "ogg_key": "IMPALCHPOTFORT",
+          "cost": "[AD] or [TR] or [LI]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Healing when the potion is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_reviving",
+          "name": "Reviving",
+          "ogg_key": "IMPALCHPOTREV",
+          "cost": "[AD] or [TR] or [LI]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Healing when the potion is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_draining",
+          "name": "Draining",
+          "ogg_key": "IMPALCHPOTDRAIN",
+          "cost": "[AD] or [TR] or [LI]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Strain on the target applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_long_lasting",
+          "name": "Long-Lasting",
+          "ogg_key": "IMPALCHPOTLONG",
+          "cost": "[AD][AD] or [TR] or [LI][LI]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A longer duration; the app keeps no durations."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_careful_measuring",
+          "name": "Careful Measuring",
+          "ogg_key": "IMPALCHPOTCOST",
+          "cost": "[AD][AD] or [TR] or [LI][LI]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_large_batch",
+          "name": "Large Batch",
+          "ogg_key": "IMPALCHPOTDUP",
+          "cost": "[AD][AD][AD] or [TR] or [LI][LI][LI]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On the gear list, not the item: a finished project lands a second copy."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": true,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_extra_potency",
+          "name": "Extra Potency",
+          "ogg_key": "IMPALCHPOTPOTENT",
+          "cost": "[AD][AD][AD] or [TR] or [LI][LI][LI]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A harder resistance check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_recipe",
+          "name": "Recipe",
+          "ogg_key": "IMPALCHPOTSCHEM",
+          "cost": "[AD][AD][AD][AD] or [TR] or [LI][LI][LI][LI]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On the sheet, not the item: the template's schematic level goes up by 1 when the project is finished."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_virulent",
+          "name": "Virulent",
+          "ogg_key": "IMPALCHPOTVIR",
+          "cost": "[AD][AD][AD][AD] or [TR] or [LI][LI][LI][LI]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An upgraded resistance check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_empowered",
+          "name": "Empowered",
+          "ogg_key": "IMPALCHPOTEMP",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A second round of effect; the app keeps no rounds."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "potion_foul_taste",
+          "name": "Foul Taste",
+          "ogg_key": "IMPALCHPOTFOUL",
+          "cost": "[TH] or [DE] or [DA]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Strain on the user applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_vile_smell",
+          "name": "Vile Smell",
+          "ogg_key": "IMPALCHPOTVILE",
+          "cost": "[TH] or [DE] or [DA]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A die on someone else's check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_brief_effect",
+          "name": "Brief Effect",
+          "ogg_key": "IMPALCHPOTBRIEF",
+          "cost": "[TH][TH] or [DE] or [DA][DA]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A shorter duration; the app keeps no durations."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_sloppy_brewing",
+          "name": "Sloppy Brewing",
+          "ogg_key": "IMPALCHPOTSLOP",
+          "cost": "[TH][TH] or [DE] or [DA][DA]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter must buy more supplies; the app does not charge it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_diluted_strength",
+          "name": "Diluted Strength",
+          "ogg_key": "IMPALCHPOTDIL",
+          "cost": "[TH][TH][TH] or [DE] or [DA][DA][DA]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An easier resistance check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_empowered_by_evil",
+          "name": "Empowered by Evil",
+          "ogg_key": "IMPALCHPOTEVIL",
+          "cost": "[TH][TH][TH] or [DE] or [DA][DA][DA]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Conflict on the user applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "potion_unexpected_side_effects",
+          "name": "Unexpected Side Effects",
+          "ogg_key": "IMPALCHPOTSIDE",
+          "cost": "[DE][DE] or [DA][DA][DA][DA]",
+          "req": [
+            {
+              "de": 2
+            },
+            {
+              "ds": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM's pick when the potion is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.82",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "talisman": {
+      "cite": "Unlimited Power p.85",
+      "sources": [
+        "Unlimited Power"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctAlchemyTalisman) for structure and numbers; names, once-only limits, template cells and cites read off Unlimited Power printed pp.80, 84-85 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_up_batch.py",
+      "improvements": [
+        {
+          "id": "talisman_draining",
+          "name": "Draining",
+          "ogg_key": "IMPALCHTALDRAIN",
+          "cost": "[AD] or [TR] or [LI]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Strain on the target applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_hidden_purpose",
+          "name": "Hidden Purpose",
+          "ogg_key": "IMPALCHTALHID",
+          "cost": "[AD] or [TR] or [LI]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A die on someone else's check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_growing_power",
+          "name": "Growing Power",
+          "ogg_key": "IMPALCHTALPOW",
+          "cost": "[AD][AD] or [TR] or [LI][LI]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A harder check for the enemy; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_invigorating",
+          "name": "Invigorating",
+          "ogg_key": "IMPALCHTALINVIG",
+          "cost": "[AD][AD] or [TR] or [LI][LI]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Strain recovered applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_careful_measuring",
+          "name": "Careful Measuring",
+          "ogg_key": "IMPALCHTALMAT",
+          "cost": "[AD][AD] or [TR] or [LI][LI]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_additional_power_inflicted",
+          "name": "Additional Power (damage dealt)",
+          "ogg_key": "IMPALCHTALADDL1",
+          "exclusive_group": "additional_power",
+          "cost": "[AD][AD][AD] or [TR] or [LI][LI][LI]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "More damage when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_additional_power_reduced",
+          "name": "Additional Power (damage reduced)",
+          "ogg_key": "IMPALCHTALADDL2",
+          "exclusive_group": "additional_power",
+          "cost": "[AD][AD][AD] or [TR] or [LI][LI][LI]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Less damage taken when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_clever_construction",
+          "name": "Clever Construction",
+          "ogg_key": "IMPALCHTALDUP",
+          "cost": "[AD][AD][AD] or [TR] or [LI][LI][LI]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On the gear list, not the item: a finished project lands a second copy."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": true,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_blueprint",
+          "name": "Blueprint",
+          "ogg_key": "IMPALCHTALDUP",
+          "cost": "[AD][AD][AD][AD] or [TR] or [LI][LI][LI][LI]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On the sheet, not the item: the template's schematic level goes up by 1 when the project is finished."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_redirect_energy",
+          "name": "Redirect Energy",
+          "ogg_key": "IMPALCHTALREDIR",
+          "cost": "[AD][AD][AD][AD] or [TR] or [LI][LI][LI][LI]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            },
+            {
+              "ls": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A maneuver when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_empowered_single_use",
+          "name": "Empowered (single use)",
+          "ogg_key": "IMPALCHTALEMPOW1",
+          "exclusive_group": "empowered",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "One more use; the app does not count a talisman's uses."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_empowered_per_session",
+          "name": "Empowered (once per session)",
+          "ogg_key": "IMPALCHTALEMPOW2",
+          "exclusive_group": "empowered",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A second use each session; the app does not count a talisman's uses."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_mighty_removes_setback",
+          "name": "Mighty (removes Setback)",
+          "ogg_key": "IMPALCHTALMIGHTY1",
+          "exclusive_group": "mighty",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "One more die when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_mighty_adds_setback",
+          "name": "Mighty (adds Setback)",
+          "ogg_key": "IMPALCHTALMIGHTY2",
+          "exclusive_group": "mighty",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "One more die when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_mighty_adds_boost",
+          "name": "Mighty (adds Boost)",
+          "ogg_key": "IMPALCHTALMIGHTY3",
+          "exclusive_group": "mighty",
+          "cost": "[TR][TR] or [LI][LI][LI][LI][LI]",
+          "req": [
+            {
+              "tr": 2
+            },
+            {
+              "ls": 5
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "One more die when the talisman is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "talisman_noticeable",
+          "name": "Noticeable",
+          "ogg_key": "IMPALCHTALNOTICE",
+          "cost": "[TH] or [DE] or [DA]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A die on someone else's check; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_cumbersome",
+          "name": "Cumbersome",
+          "ogg_key": "IMPALCHTALCUMB",
+          "cost": "[TH] or [DE] or [DA]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_bad_feeling",
+          "name": "Bad Feeling",
+          "ogg_key": "IMPALCHTALBAD",
+          "cost": "[TH][TH] or [DE] or [DA][DA]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Conflict on the user applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_sloppy_integration",
+          "name": "Sloppy Integration",
+          "ogg_key": "IMPALCHTALSLOP",
+          "cost": "[TH][TH] or [DE] or [DA][DA]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter must buy more supplies; the app does not charge it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_hard_to_control",
+          "name": "Hard to Control",
+          "ogg_key": "IMPALCHTALHARD",
+          "cost": "[TH][TH][TH] or [DE] or [DA][DA][DA]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A check when the talisman is used; the app does not roll it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_empowered_by_evil",
+          "name": "Empowered by Evil",
+          "ogg_key": "IMPALCHTALEVIL",
+          "cost": "[TH][TH][TH] or [DE] or [DA][DA][DA]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            },
+            {
+              "ds": 3
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Conflict on the user applies when the item is used; the app does not apply it."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_twisted_fates",
+          "name": "Twisted Fates",
+          "ogg_key": "IMPALCHTALTWIST",
+          "cost": "[DE][DE] or [DA][DA][DA][DA]",
+          "req": [
+            {
+              "de": 2
+            },
+            {
+              "ds": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A Destiny Point when the talisman is used; the app keeps no Destiny pool."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "talisman_failure_to_activate",
+          "name": "Failure to Activate",
+          "ogg_key": "IMPALCHTALFAIL",
+          "cost": "[DE][DE] or [DA][DA][DA][DA]",
+          "req": [
+            {
+              "de": 2
+            },
+            {
+              "ds": 4
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM's Destiny Points when the talisman is used; the app keeps no Destiny pool."
+          },
+          "cite": "Unlimited Power p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "lightsaber": {
+      "cite": "Endless Vigil p.87",
+      "sources": [
+        "Endless Vigil"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctLightsaber) for structure and numbers; names, once-only limits, failure rows, profile cells and cites read off Endless Vigil printed pp.84-87 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_ev_batch.py",
+      "improvements": [
+        {
+          "id": "lightsaber_lightweight",
+          "name": "Lightweight",
+          "ogg_key": "IMPLTSABERLIGHT",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": -1,
+              "floor": 1
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_two_handed",
+          "name": "Two-Handed",
+          "ogg_key": "IMPLTSABER2H",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "limits": {
+            "not_for": [
+              {
+                "field": "hands",
+                "is": "two_handed"
+              }
+            ]
+          },
+          "effects": [
+            {
+              "type": "damage_delta",
+              "value": 1
+            },
+            {
+              "type": "encumbrance_delta",
+              "value": 2
+            },
+            {
+              "type": "hands_set",
+              "value": "two_handed"
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_disguised",
+          "name": "Disguised",
+          "ogg_key": "IMPLTSABERDISG",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A die on someone else's check; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_counterweight",
+          "name": "Counterweight",
+          "ogg_key": "IMPLTSABERCW",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Moves one quality's rating onto another; the app does not carry a rating across. Apply it yourself."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_crossguard",
+          "name": "Crossguard",
+          "ogg_key": "IMPLTSABERCG",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "defensive",
+              "ranked": true
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_customizable",
+          "name": "Customizable",
+          "ogg_key": "IMPLTSABERCUST",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "hard_points_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_delicate_balance",
+          "name": "Delicate Balance",
+          "ogg_key": "IMPLTSABERDB",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Moves one quality's rating onto another; the app does not carry a rating across. Apply it yourself."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_personalized_design",
+          "name": "Personalized Design",
+          "ogg_key": "IMPLTSABERPD",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Automatic results that depend on who wields it; add them when you roll."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_inbuilt",
+          "name": "Inbuilt",
+          "ogg_key": "IMPLTSABERINBUILT",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Joins two items into one; the app keeps them as two."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_energy_bleed",
+          "name": "Energy Bleed",
+          "ogg_key": "IMPLTSABERENBLEED",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "stun",
+              "ranked": true,
+              "start": 2,
+              "by": 2
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_fine_tuned_emitter",
+          "name": "Fine-Tuned Emitter",
+          "ogg_key": "IMPLTSABERFTE",
+          "cost": "[TR]",
+          "req": [
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An automatic Advantage on combat checks with it; add it when you roll."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_personalized_inlay",
+          "name": "Personalized Inlay",
+          "ogg_key": "IMPLTSABERPERS",
+          "cost": "[TR]",
+          "req": [
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A crystal-modification check's difficulty; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_integral_attachment",
+          "name": "Integral Attachment",
+          "ogg_key": "IMPLTSABERATT",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Adds a hard point and installs an attachment into it, both or neither; install the attachment yourself."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_learning_experience",
+          "name": "Learning Experience",
+          "ogg_key": "IMPLTSABERLEARN",
+          "cost": "[TR]",
+          "req": [
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A die and the materials for the crafter's next attempt; the app keeps no next attempt."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": true
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "lightsaber_heavy",
+          "name": "Heavy",
+          "ogg_key": "IMPLTSABERHVY",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPLTSABEREXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Strain on the crafter; the app does not apply it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_oddly_weighted",
+          "name": "Oddly Weighted",
+          "ogg_key": "IMPLTSABERODD",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "cumbersome",
+              "ranked": true,
+              "start": 2
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_fragile_casing",
+          "name": "Fragile Casing",
+          "ogg_key": "IMPLTSABERFRAG",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A repair check's difficulty; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_awkward_grip",
+          "name": "Awkward Grip",
+          "ogg_key": "IMPLTSABERAWK",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "quality_grant",
+              "key": "unwieldy",
+              "ranked": true,
+              "start": 2
+            }
+          ],
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_misaligned_emitter",
+          "name": "Misaligned Emitter",
+          "ogg_key": "IMPLTSABERME",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An action's cost in combat; the app does not track actions."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_erratic",
+          "name": "Erratic",
+          "ogg_key": "IMPLTSABERERRATIC",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM's Despair in play; the app does not apply it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_poor_focusing_lens",
+          "name": "Poor Focusing Lens",
+          "ogg_key": "IMPLTSABERPF",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Which quality moves depends on whether the lightsaber has Accurate; apply it yourself."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_faulty_inlay",
+          "name": "Faulty Inlay",
+          "ogg_key": "IMPLTSABERFAULT",
+          "cost": "[DE]",
+          "req": [
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A crystal-modification check's difficulty; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_tragic_accident",
+          "name": "Tragic Accident",
+          "ogg_key": "IMPLTSABERACCI",
+          "cost": "[DE]",
+          "req": [
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A Critical Injury on the crafter; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_unstable",
+          "name": "Unstable",
+          "ogg_key": "IMPLTSABERUNST",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM's Despair in play; the app does not apply it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "lightsaber_horrible_accident",
+          "name": "Horrible Accident",
+          "ogg_key": "IMPLTSABERHORR",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A Critical Injury on the crafter; the app does not roll it."
+          },
+          "cite": "Endless Vigil p.87",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": true
+          }
+        }
+      ]
+    },
+    "armor": {
+      "cite": "Keeping the Peace p.91",
+      "sources": [
+        "Keeping the Peace"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctArmor) for structure and numbers; names, once-only limits, profile cells and cites read off Keeping the Peace printed pp.90-91 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_kp_batch.py",
+      "improvements": [
+        {
+          "id": "armor_practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPARMPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_lightweight",
+          "name": "Lightweight",
+          "ogg_key": "IMPARMLIGHT",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": -1,
+              "floor": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_sealable",
+          "name": "Sealable",
+          "ogg_key": "IMPARMSEAL",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The suit can now take the Vacuum Sealed attachment (page 57); the app does not track which suits can."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_lessons_learned",
+          "name": "Lessons Learned",
+          "ogg_key": "IMPARMLESSON",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Lowers the difficulty of the next crafting check; the app keeps no crafting session."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_extra_melee_defense",
+          "name": "Extra Melee Defense",
+          "ogg_key": "IMPARMMDEF",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "defense_delta",
+              "subtype": "melee",
+              "value": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_special_embellishment",
+          "name": "Special Embellishment",
+          "ogg_key": "IMPARMSPECEMB",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An automatic Advantage on checks with one skill picked from the printed list; add it when you roll."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_efficient_construction",
+          "name": "Efficient Construction",
+          "ogg_key": "IMPARMEFFCONST",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Half the material price comes back as supplies; the app does not refund it."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_extra_ranged_defense",
+          "name": "Extra Ranged Defense",
+          "ogg_key": "IMPARMRDEF",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "defense_delta",
+              "subtype": "ranged",
+              "value": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_extra_hard_point",
+          "name": "Extra Hard Point",
+          "ogg_key": "IMPARMHP",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "limits": {
+            "max_count": 2
+          },
+          "effects": [
+            {
+              "type": "hard_points_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_extra_soak",
+          "name": "Extra Soak",
+          "ogg_key": "IMPARMSOAK",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "soak_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_duplicate",
+          "name": "Duplicate",
+          "ogg_key": "IMPARMDUP",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "On the gear list, not the item: a finished project lands a second copy."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": true,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_schematic",
+          "name": "Armor Schematic",
+          "ogg_key": "IMPARMSCHEM",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The schematic is kept on your sheet; this item is unchanged."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_integral_attachment",
+          "name": "Integral Attachment",
+          "ogg_key": "IMPARMATT",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Adds a hard point and installs an attachment into it, both or neither; install the attachment yourself."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "armor_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPARMEXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_heavy",
+          "name": "Heavy",
+          "ogg_key": "IMPARMHVY",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "encumbrance_delta",
+              "value": 1
+            }
+          ],
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_poor_fit",
+          "name": "Poor Fit",
+          "ogg_key": "IMPARMFIT",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Putting it on and taking it off takes one more action; the app does not track actions."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_complex",
+          "name": "Complex",
+          "ogg_key": "IMPARMCOMPLEX",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to repair this armour are 1 harder; the app does not track it."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_difficult_to_customize",
+          "name": "Difficult to Customize",
+          "ogg_key": "IMPARMDIFCUST",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Checks to modify its attachments are 1 harder; the app does not roll them."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_restrictive",
+          "name": "Restrictive",
+          "ogg_key": "IMPARMRESTR",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "An automatic Threat on checks with one skill picked from the printed list; add it when you roll."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_wear_and_tear",
+          "name": "Wear and Tear",
+          "ogg_key": "IMPARMWEARTEAR",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter's tools are damaged one step; the app keeps no tools."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_fragile",
+          "name": "Fragile",
+          "ogg_key": "IMPARMFRAG",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Damage to the armour counts as moderate at least; the app keeps no item damage."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_expensive",
+          "name": "Expensive",
+          "ogg_key": "IMPARMEXPENSIVE",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Repairs to this armour cost double; the app keeps no item damage."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_supply_shortage",
+          "name": "Supply Shortage",
+          "ogg_key": "IMPARMSHORTAGE",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A quarter of the material price more, paid before finishing; the app does not charge it."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "armor_unexpected_flaw",
+          "name": "Unexpected Flaw",
+          "ogg_key": "IMPARMFLAW",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM may spend a Destiny Point to break the armour; the app keeps no item damage."
+          },
+          "cite": "Keeping the Peace p.91",
+          "flags": {
+            "once_only": true,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "fortification": {
+      "cite": "Forged in Battle p.85",
+      "sources": [
+        "Forged in Battle"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml (data-sources/oggdude_current/2026-07-14, TempType ctFortification) for structure and numbers; names, once-only limits, profile cells and cites read off Forged in Battle printed pp.84-86 (corpus +2, swrpg_index.pdf_pages); scripts/canonical/crafting_fib_batch.py",
+      "improvements": [
+        {
+          "id": "fortification_expanded_capacity",
+          "name": "Expanded Capacity",
+          "ogg_key": "IMPFORTCAP",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "vehicle_effects": [
+            {
+              "op": "passengers_delta",
+              "amount": 1
+            }
+          ],
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_additional_cover",
+          "name": "Additional Cover",
+          "ogg_key": "IMPFORTCOVER",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "defense_delta",
+              "subtype": "ranged",
+              "value": 1
+            }
+          ],
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_additional_feature",
+          "name": "Additional Feature",
+          "ogg_key": "IMPFORTADDL",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "exclusive_group": "fortification_additional_feature",
+          "told": {
+            "reason": "A turret, camouflage or another feature, as the GM agrees; the app does not build it."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_additional_feature_weapon_turret",
+          "name": "Additional Feature (weapon turret)",
+          "ogg_key": "IMPFORTADDLWEAP",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "exclusive_group": "fortification_additional_feature",
+          "told": {
+            "reason": "A turret, camouflage or another feature, as the GM agrees; the app does not build it."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_additional_feature_custom_weapon_turret",
+          "name": "Additional Feature (custom weapon turret)",
+          "ogg_key": "IMPFORTADDLWEAPM",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "exclusive_group": "fortification_additional_feature",
+          "told": {
+            "reason": "A turret, camouflage or another feature, as the GM agrees; the app does not build it."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_reinforced_armor",
+          "name": "Reinforced Armor",
+          "ogg_key": "IMPFORTARMOR",
+          "cost": "[TR]",
+          "req": [
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "vehicle_effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ],
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "fortification_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPFORTEXHAUST",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "Each builder suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_inferior_protection",
+          "name": "Inferior Protection",
+          "ogg_key": "IMPFORTINFPROT",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "effects": [
+            {
+              "type": "defense_delta",
+              "subtype": "ranged",
+              "value": -1
+            }
+          ],
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_vulnerability",
+          "name": "Vulnerability",
+          "ogg_key": "IMPFORTVULN",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM decides the flaw; the app does not track it."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "fortification_limited_lifespan",
+          "name": "Limited Lifespan",
+          "ogg_key": "IMPFORTLIFE",
+          "cost": "[DE]",
+          "req": [
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The GM decides how many attacks it lasts; the app does not count them."
+          },
+          "cite": "Forged in Battle p.85",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "droid_chassis": {
+      "cite": "Special Modifications p.81",
+      "sources": [
+        "Special Modifications"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml + CraftDroidTraits.xml (data-sources/oggdude_current/2026-07-14, TempType ctDroid) for structure and numbers; names, once-only limits, profile cells and cites read off the render of Special Modifications printed pp.80-81 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_droid_batch.py",
+      "improvements": [
+        {
+          "id": "droid_practice_makes_perfect",
+          "name": "Practice Makes Perfect",
+          "ogg_key": "IMPDROIDPRAC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A boost die on the next check with the same skill, this session; the app keeps no session."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_reinforced_chassis",
+          "name": "Reinforced Chassis",
+          "ogg_key": "IMPDROIDREINFCHAS",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "wound_threshold_delta",
+              "amount": 1
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_unobtrusive",
+          "name": "Unobtrusive",
+          "ogg_key": "IMPDROIDUNOB",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "talent_add",
+              "talent": "indistinguishable",
+              "rank": 1
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_lessons_learned",
+          "name": "Lessons Learned",
+          "ogg_key": "IMPDROIDLESSON",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The next crafting check is easier by 1; the app does not carry it to the next project."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_deflective_carapace",
+          "name": "Deflective Carapace",
+          "ogg_key": "IMPDROIDDEFLCARAP",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "defense_delta",
+              "target": "melee",
+              "amount": 1
+            }
+          ],
+          "limits": {
+            "max_value": 2
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_narrow_profile",
+          "name": "Narrow Profile",
+          "ogg_key": "IMPDROIDNARRPROF",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "defense_delta",
+              "target": "ranged",
+              "amount": 1
+            }
+          ],
+          "limits": {
+            "max_value": 2
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_armor_plating",
+          "name": "Armor Plating",
+          "ogg_key": "IMPDROIDARMORPL",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "soak_delta",
+              "amount": 1
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_unusual_size",
+          "name": "Unusual Size",
+          "ogg_key": "IMPDROIDSIZE",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "silhouette_delta",
+              "target": "chosen",
+              "amount": 1,
+              "floor": 0
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_modular_hardware",
+          "name": "Modular Hardware",
+          "ogg_key": "IMPDROIDMODHARD",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "cybernetic_add",
+              "target": "chosen"
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_chassis_schematic",
+          "name": "Chassis Schematic",
+          "ogg_key": "IMPDROIDSCHEM",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The schematic is kept on your sheet; this droid is unchanged."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_superior_hardware",
+          "name": "Superior Hardware",
+          "ogg_key": "IMPDROIDSUPHARD",
+          "cost": "[AD][AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 4
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "characteristic_delta",
+              "target": "chosen",
+              "amount": 1,
+              "max": 6
+            }
+          ],
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_doppelganger",
+          "name": "Doppelganger",
+          "ogg_key": "IMPDROIDDOPP",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "A second identical droid lands as its own companion."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": true,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "droid_exhausting_effort",
+          "name": "Exhausting Effort",
+          "ogg_key": "IMPDROIDEXH",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter suffers 3 strain; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_specialized_hardware",
+          "name": "Specialized Hardware",
+          "ogg_key": "IMPDROIDSPECHARD",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_difficult_to_customize",
+          "name": "Difficult to Customize",
+          "ogg_key": "IMPDROIDDIFFCUST",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_wear_and_tear",
+          "name": "Wear and Tear",
+          "ogg_key": "IMPDROIDWEARTEAR",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The crafter's tools are damaged one step; the app does not track the tools."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_delicate_mechanisms",
+          "name": "Delicate Mechanisms",
+          "ogg_key": "IMPDROIDDELMECH",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_erratic_power_core",
+          "name": "Erratic Power Core",
+          "ogg_key": "IMPDROIDERATCORE",
+          "cost": "[TH][TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 4
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "droid_volatile_power_core",
+          "name": "Volatile Power Core",
+          "ogg_key": "IMPDROIDVOLACORE",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.81",
+          "flags": {
+            "once_only": true,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    },
+    "droid_directive": {
+      "cite": "Special Modifications p.83",
+      "sources": [
+        "Special Modifications"
+      ],
+      "_provenance": "oggdude",
+      "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml + CraftDroidTraits.xml (data-sources/oggdude_current/2026-07-14, TempType ctDroidDirect) for structure and numbers; names, once-only limits, profile cells and cites read off the render of Special Modifications printed pp.82-83 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_droid_batch.py",
+      "improvements": [
+        {
+          "id": "directive_random_positive_quirk",
+          "name": "Random Positive Quirk",
+          "ogg_key": "IMPDROIDDIRRPQUIRK",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "trait_add",
+              "polarity": "positive",
+              "how": "rolled"
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": true,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_archival_functions",
+          "name": "Archival Functions",
+          "ogg_key": "IMPDROIDDIRARCHFUNC",
+          "cost": "[AD] or [TR]",
+          "req": [
+            {
+              "ad": 1
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "skill_add",
+              "group": "knowledge",
+              "rank": 1
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_adaptive_programming",
+          "name": "Adaptive Programming",
+          "ogg_key": "IMPDROIDDIRADAPPROG",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "skill_rank_delta",
+              "target": "chosen",
+              "amount": 1
+            }
+          ],
+          "limits": {
+            "not_for": [
+              {
+                "field": "tier",
+                "is": "minion"
+              }
+            ]
+          },
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_broad_utility",
+          "name": "Broad Utility",
+          "ogg_key": "IMPDROIDDIRBROADUTIL",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "skill_add",
+              "group": "general",
+              "rank": 1
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_positive_quirk",
+          "name": "Positive Quirk",
+          "ogg_key": "IMPDROIDDIRPQUIRK",
+          "cost": "[AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 2
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "trait_add",
+              "polarity": "positive",
+              "how": "chosen"
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_defense_programming",
+          "name": "Defense Programming",
+          "ogg_key": "IMPDROIDDIRDEFPROG",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "skill_add",
+              "group": "combat",
+              "rank": 1
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_behavioral_optimization",
+          "name": "Behavioral Optimization",
+          "ogg_key": "IMPDROIDDIRBEHOPT",
+          "cost": "[AD][AD][AD] or [TR]",
+          "req": [
+            {
+              "ad": 3
+            },
+            {
+              "tr": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "talent_rank_delta",
+              "target": "chosen",
+              "amount": 1
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_program_pattern",
+          "name": "Program Pattern",
+          "ogg_key": "IMPDROIDDIRSCHEM",
+          "cost": "[TR][TR]",
+          "req": [
+            {
+              "tr": 2
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "The schematic is kept on your sheet; this droid is unchanged."
+          },
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": true,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ],
+      "flaws": [
+        {
+          "id": "directive_eccentric",
+          "name": "Eccentric",
+          "ogg_key": "IMPDROIDDIRECCEN",
+          "cost": "[TH] or [DE]",
+          "req": [
+            {
+              "th": 1
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "trait_add",
+              "polarity": "negative",
+              "how": "rolled"
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": true,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_poor_listening_skills",
+          "name": "Poor Listening Skills",
+          "ogg_key": "IMPDROIDDIRPOORLIST",
+          "cost": "[TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 2
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_negative_quirk",
+          "name": "Negative Quirk",
+          "ogg_key": "IMPDROIDDIRNQUIRK",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "trait_add",
+              "polarity": "negative",
+              "how": "chosen"
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": true,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_limited_programming",
+          "name": "Limited Programming",
+          "ogg_key": "IMPDROIDDIRLIMPROG",
+          "cost": "[TH][TH][TH] or [DE]",
+          "req": [
+            {
+              "th": 3
+            },
+            {
+              "de": 1
+            }
+          ],
+          "effect": "",
+          "told": {
+            "reason": "It prints on the droid's stat block; the app does not apply it."
+          },
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": false,
+            "persistent": true,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        },
+        {
+          "id": "directive_unknown_flaw",
+          "name": "Unknown Flaw",
+          "ogg_key": "IMPDROIDDIRUNKFLAW",
+          "cost": "[DE][DE]",
+          "req": [
+            {
+              "de": 2
+            }
+          ],
+          "effect": "",
+          "droid_effects": [
+            {
+              "op": "trait_add",
+              "polarity": "negative",
+              "how": "secret"
+            }
+          ],
+          "cite": "Special Modifications p.83",
+          "flags": {
+            "once_only": false,
+            "persistent": false,
+            "rolls_subtable": false,
+            "schematic": false,
+            "extra_copy": false,
+            "on_failure": false
+          }
+        }
+      ]
+    }
+  }
+}

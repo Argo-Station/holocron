@@ -1,0 +1,102 @@
+{
+  "table": "EotE Table 2-1 Obligation",
+  "roll": "d100",
+  "results": [
+    {
+      "range": [
+        1,
+        8
+      ],
+      "type": "Addiction"
+    },
+    {
+      "range": [
+        9,
+        16
+      ],
+      "type": "Betrayal"
+    },
+    {
+      "range": [
+        17,
+        24
+      ],
+      "type": "Blackmail"
+    },
+    {
+      "range": [
+        25,
+        32
+      ],
+      "type": "Bounty"
+    },
+    {
+      "range": [
+        33,
+        40
+      ],
+      "type": "Criminal"
+    },
+    {
+      "range": [
+        41,
+        48
+      ],
+      "type": "Debt"
+    },
+    {
+      "range": [
+        49,
+        56
+      ],
+      "type": "Dutybound"
+    },
+    {
+      "range": [
+        57,
+        64
+      ],
+      "type": "Family"
+    },
+    {
+      "range": [
+        65,
+        72
+      ],
+      "type": "Favor"
+    },
+    {
+      "range": [
+        73,
+        80
+      ],
+      "type": "Oath"
+    },
+    {
+      "range": [
+        81,
+        88
+      ],
+      "type": "Obsession"
+    },
+    {
+      "range": [
+        89,
+        96
+      ],
+      "type": "Responsibility"
+    },
+    {
+      "range": [
+        97,
+        100
+      ],
+      "special": "roll_twice_split",
+      "note": ""
+    }
+  ],
+  "notes": [
+    "Range mapping is from the printed Obligation table (your screenshot).",
+    "If a roll hits 97–100, roll twice and split the starting Obligation equally between the two results."
+  ]
+}

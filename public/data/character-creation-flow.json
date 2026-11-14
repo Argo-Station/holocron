@@ -1,0 +1,873 @@
+{
+  "version": "1.0.0",
+  "notes": [
+    "View composition config — the 'what goes where' layer.",
+    "Each step maps to one or more views. Each view names a layoutId and wires",
+    "widget instances into layout slots.",
+    "Data bindings use dot-path notation resolved by the renderer:",
+    "  swData.*       — normalized game data loaded at startup",
+    "  char.*         — current character state",
+    "  ui.*           — transient UI state (search text, selected tab, etc.)",
+    "  computed.*     — derived values (xpSpent, encumbranceTotal, etc.)",
+    "Widget type library: TitleBar | SearchBox | CardList | DetailsPane |",
+    "  StatBlock | XPSpender | TradePanel | InventoryList | RadioGroup |",
+    "  TextInput | SummaryDossier | StepperNav"
+  ],
+
+  "widgetLibrary": {
+    "TitleBar": {
+      "props": ["text", "subtext", "subheader", "instruction"],
+      "description": "Label strip. Standard mode: text + subtext. Narrative mode: subheader + instruction renders a SAFEHOUSE OPERATIONS TERMINAL header block."
+    },
+    "SearchBox": {
+      "props": ["placeholder", "bind"],
+      "description": "Text input that writes to ui.* for downstream CardList filtering."
+    },
+    "CardList": {
+      "props": ["dataset", "labelField", "subField", "filter", "selected", "onSelect", "onNavigate",
+                "multiSelect", "maxSelect", "selectedSet", "onSelectSet"],
+      "description": "Scrollable list of tappable rows. onSelect writes to char.* (single). For multi-select mode set multiSelect:true, maxSelect:N, selectedSet binds to a char.* array, onSelectSet writes the updated array. Rows show a checkbox and dim once maxSelect is reached."
+    },
+    "DetailsPane": {
+      "props": ["bind", "fields", "imageField"],
+      "description": "Read-only detail view for a selected entity. fields lists which data keys to render."
+    },
+    "StatBlock": {
+      "props": ["bind", "stats"],
+      "description": "Compact numeric grid for characteristics. bind points to a species/char object."
+    },
+    "XPSpender": {
+      "props": ["poolBind", "targetBind", "costTable", "category"],
+      "description": "Interactive XP purchase panel. Reads poolBind for available XP, writes to targetBind.",
+      "costTables": {
+        "characteristic": "newRating * 10",
+        "skill-career":   "newRank * 5",
+        "skill-general":  "newRank * 5",
+        "notes": "career vs general distinction tracked per skill via careerSkills list"
+      }
+    },
+    "TradePanel": {
+      "props": ["mechType", "mechData", "partySize", "onPartySize", "bind"],
+      "description": "Obligation / Duty / Morality trade-off UI. mechType inferred from career source."
+    },
+    "InventoryList": {
+      "props": ["dataset", "category", "creditsBind", "encumbranceBind", "bind"],
+      "description": "Tabbed gear browser + purchased-items list. Writes purchases to char.inventory.*."
+    },
+    "RadioGroup": {
+      "props": ["dataset", "labelField", "descField", "bind"],
+      "description": "Single-select option list. Used for Background and Motivation choices."
+    },
+    "TextInput": {
+      "props": ["label", "placeholder", "bind", "maxLength"],
+      "description": "Single-line text field. Writes to char.*."
+    },
+    "SummaryDossier": {
+      "props": ["sections"],
+      "description": "Read-only block list. Each section: { label, bind, subBind? }."
+    },
+    "StepperNav": {
+      "props": ["actions"],
+      "description": "Bottom nav bar. actions: array of { label, action, style, requires? }.",
+      "actionTypes": ["cancel", "confirm", "navigate", "export-pdf"]
+    }
+  },
+
+  "steps": [
+
+    {
+      "id": "background",
+      "hotspotId": "background",
+      "label": "Recruitment Dossier",
+      "defaultView": "background-intro",
+      "views": {
+        "background-intro": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "OPERATIVE HISTORY",
+                "body": "Prior history influences mission behavior.\n\nOrigin, behavioral pressure, and operative intent must be logged before deployment parameters can be assembled.\n\nProceed to record background."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "ACCESS RECORDS ›", "action": "navigate", "target": "background-form", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "background-form": {
+          "layoutId": "form-nav",
+          "widgets": {
+            "header": {
+              "slot": "header",
+              "type": "TextInput",
+              "props": {
+                "label": "OPERATIVE NAME",
+                "placeholder": "Enter character name",
+                "bind": "char.name",
+                "maxLength": 40
+              }
+            },
+            "background-picker": {
+              "slot": "form",
+              "type": "RadioGroup",
+              "props": {
+                "dataset": "swData.backgrounds",
+                "labelField": "label",
+                "descField": "desc",
+                "bind": "char.background"
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm", "style": "primary",
+                    "requires": ["char.name", "computed.backgroundComplete"] }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "species",
+      "hotspotId": "species",
+      "label": "Species Identification",
+      "defaultView": "species-intro",
+      "views": {
+        "species-intro": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "BIOLOGICAL IDENTIFICATION",
+                "body": "Operative biometric profile incomplete.\n\nGenetic origin determines base physical capability. Wound tolerance, neural agility, and cognitive baseline are derived from biological classification and cannot be altered after registration.\n\nCross-reference the biological registry and confirm species before proceeding."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "ACCESS REGISTRY ›", "action": "navigate", "target": "species-list", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "species-list": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "browser": {
+              "slot": "content",
+              "type": "SpeciesBrowser",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  { "label": "VIEW DOSSIER ›", "action": "navigate", "target": "species-detail", "style": "primary", "requires": "char.species" }
+                ]
+              }
+            }
+          }
+        },
+        "species-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "dossier": {
+              "slot": "content",
+              "type": "SpeciesDossier",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "species-list", "style": "secondary" },
+                  { "label": "CONFIRM SPECIES ›", "action": "confirm", "style": "primary", "requires": "char.species" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "career",
+      "hotspotId": "career",
+      "label": "Career & Specialization",
+      "defaultView": "career-intro",
+      "notes": [
+        "View flow: career-list → career-detail → spec-list → spec-detail → confirm.",
+        "Free skill selection has moved to the chars step (chars-career-skills, chars-spec-skills)."
+      ],
+      "views": {
+        "career-intro": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "TACTICAL ROLE DECLARATION",
+                "body": "Operational capability classification is required before mission parameters can be finalized.\n\nCareer selection determines field skill access and specialization path. Choose carefully — this designation follows the operative through all subsequent assignments.\n\nProceed to declare primary field role."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "VIEW CAREERS ›", "action": "navigate", "target": "career-list", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "career-list": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "browser": {
+              "slot": "content",
+              "type": "CareerBrowser",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL",  "action": "cancel",                           "style": "secondary" },
+                  { "label": "VIEW ›",    "action": "navigate", "target": "career-detail", "style": "primary",
+                    "requires": "char.career" }
+                ]
+              }
+            }
+          }
+        },
+        "career-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "CareerDetail",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "career-list", "style": "secondary" },
+                  { "label": "SELECT SPECIALIZATION ›", "action": "navigate", "target": "spec-list", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+
+        "spec-list": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "browser": {
+              "slot": "content",
+              "type": "SpecBrowser",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",        "action": "navigate", "target": "career-detail", "style": "secondary" },
+                  { "label": "VIEW DETAIL ›",  "action": "navigate", "target": "spec-detail",   "style": "primary",
+                    "requires": "char.spec" }
+                ]
+              }
+            }
+          }
+        },
+
+        "spec-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "SpecDetail",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "spec-list", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm", "style": "primary", "requires": "char.spec" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "chars",
+      "hotspotId": "chars",
+      "label": "Skills & Characteristics",
+      "defaultView": "chars-intro",
+      "notes": [
+        "View flow: chars-intro → chars-career-skills → chars-spec-skills (if non-universal) → chars-training-summary → chars-xp-intro → chars-stats → confirm.",
+        "Free skill pickers moved here from career step so all skill work lives in one place.",
+        "char.freeCareerSkills: array of 4 skill keys chosen from selectedCareer.careerSkills.",
+        "char.freeSpecSkills: array of 2 skill keys chosen from selectedSpec.careerSkills.",
+        "spec-skill-picker is skipped when selectedSpec.universal === true.",
+        "XP pool = selectedSpecies.xp + char.mechanic.xpAdjustment.",
+        "At character creation characteristics CAN be raised with starting XP (EotE core rules).",
+        "computed.freeSkillRanks maps skill key → total free ranks (1 per pick; 2 if picked in both lists).",
+        "XPSpender for skills shows effective rank = freeSkillRanks[key] + xpPurchases.skills[key].",
+        "XP cost applies only to ranks ABOVE the free threshold — rank n costs n*5 per rank.",
+        "Career skills (not free-picked) and non-career skills are all charged at rank*5.",
+        "computed.xpSpent tracks total XP committed. computed.xpRemaining = pool - xpSpent."
+      ],
+      "views": {
+        "chars-intro": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "OPERATIVE TRAINING BRIEFING",
+                "body": "Field readiness requires sequential training registration before resource allocation.\n\n\u2022 CAREER TRAINING \u2014 Select 4 core competencies from your career skill list. Each begins at Rank 1.\n\n\u2022 SPECIALIZATION TRAINING \u2014 Select 2 specialist disciplines. If a selected discipline overlaps with prior career training, the rank increases accordingly.\n\n\u2022 EXPERIENCE ALLOCATION \u2014 Remaining XP may then be distributed across characteristics and additional skills.\n\nTraining selections are registered before experience distribution begins."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "BEGIN TRAINING ›", "action": "navigate", "target": "chars-career-skills", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "chars-career-skills": {
+          "layoutId": "content-nav",
+          "notes": "Player selects exactly 4 of the career's 8 skills for a free rank 1.",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "SkillPickerPanel",
+              "props": {
+                "dataset": "selectedCareer.careerSkills",
+                "selectedSet": "char.freeCareerSkills",
+                "onSelectSet": "char.freeCareerSkills",
+                "maxSelect": 4,
+                "title": "CAREER SKILL TRAINING",
+                "instruction": "Register 4 core competencies. Each selected skill begins at rank 1."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  {
+                    "label": "NEXT ›", "action": "navigate", "target": "chars-spec-skills",
+                    "style": "primary",
+                    "requires": { "field": "char.freeCareerSkills", "minCount": 4 },
+                    "when": "selectedSpec.universal !== true"
+                  },
+                  {
+                    "label": "NEXT ›", "action": "navigate", "target": "chars-training-summary",
+                    "style": "primary",
+                    "requires": { "field": "char.freeCareerSkills", "minCount": 4 },
+                    "when": "selectedSpec.universal === true"
+                  }
+                ]
+              }
+            }
+          }
+        },
+
+        "chars-spec-skills": {
+          "layoutId": "content-nav",
+          "notes": [
+            "Player selects exactly 2 of the specialization's 4 skills for a free rank 1.",
+            "Only shown when selectedSpec.universal !== true.",
+            "If a skill already has rank 1 from freeCareerSkills, picking it here grants rank 2 free."
+          ],
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "SkillPickerPanel",
+              "props": {
+                "dataset": "selectedSpec.careerSkills",
+                "selectedSet": "char.freeSpecSkills",
+                "onSelectSet": "char.freeSpecSkills",
+                "maxSelect": 2,
+                "title": "SPECIALIZATION TRAINING",
+                "instruction": "Register 2 specialist disciplines. Prior career training compounds.",
+                "annotateFrom": "char.freeCareerSkills"
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",    "action": "navigate", "target": "chars-career-skills", "style": "secondary" },
+                  { "label": "NEXT ›",    "action": "navigate", "target": "chars-training-summary", "style": "primary",
+                    "requires": { "field": "char.freeSpecSkills", "minCount": 2 } }
+                ]
+              }
+            }
+          }
+        },
+
+        "chars-training-summary": {
+          "layoutId": "content-nav",
+          "notes": "Confirmation screen showing free ranks gained from career + spec training.",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TrainingSummaryPanel",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  {
+                    "label": "‹ BACK", "action": "navigate", "target": "chars-spec-skills",
+                    "style": "secondary",
+                    "when": "selectedSpec.universal !== true"
+                  },
+                  {
+                    "label": "‹ BACK", "action": "navigate", "target": "chars-career-skills",
+                    "style": "secondary",
+                    "when": "selectedSpec.universal === true"
+                  },
+                  { "label": "NEXT ›", "action": "navigate", "target": "chars-xp-intro", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+
+        "chars-xp-intro": {
+          "layoutId": "briefing",
+          "notes": "Briefing screen before XP allocation.",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "EXPERIENCE DISTRIBUTION AUTHORIZED",
+                "body": "Training registration complete. Remaining experience points are now available for allocation.\n\nPrioritize characteristic improvements carefully. They are significantly more expensive than skill development and are most efficient during initial character creation.\n\nSkills are less costly to improve, and your previously registered free ranks are already applied.\n\nAllocate experience carefully before confirming deployment readiness.",
+                "instruction": "WARNING: Characteristic improvements are most efficient during initial development."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "chars-training-summary", "style": "secondary" },
+                  { "label": "ALLOCATE XP ›", "action": "navigate", "target": "chars-stats", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+
+        "chars-stats": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "StatsPanel",
+              "props": {
+                "stats": ["brawn", "agility", "intellect", "cunning", "willpower", "presence"],
+                "max": 5,
+                "maxPurchasedRank": 2
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",    "action": "navigate", "target": "chars-xp-intro", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm",   "style": "primary" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "talents",
+      "label": "Talent Acquisition",
+      "defaultView": "talents-intro",
+      "views": {
+        "talents-intro": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TitleBar",
+              "props": {
+                "subheader": "TRAINING TERMINAL",
+                "body": "Your specialization unlocks a unique talent tree — a matrix of abilities earned through training and experience.\n\nEach talent costs XP based on its depth in the tree. You must unlock connected talents to reach deeper tiers.\n\nReview your available talents and invest any remaining experience points."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  { "label": "VIEW TALENT TREES ›", "action": "navigate", "target": "talents-tree", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "talents-tree": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "TalentTreePanel",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "talents-intro", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm", "style": "primary" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "weapons",
+      "hotspotId": "weapons",
+      "label": "Gear & Equipment",
+      "defaultView": "weapons-intro",
+      "views": {
+        "weapons-intro": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "ArmoryBriefingPanel",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  { "label": "OPEN ARMORY ›", "action": "navigate", "target": "weapons-browser", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "weapons-browser": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "loadout": {
+              "slot": "content",
+              "type": "GearLoadoutPanel",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",    "action": "navigate", "target": "weapons-intro", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm", "style": "primary" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "narrative-reveal",
+      "label": "Intercepted Transmission",
+      "defaultView": "narrative-intro",
+      "notes": "Three mechanic-variant hotspots share this stepId (obligation/duty/morality). Only the matching one activates. Flow: narrative-intro → mechanic-form → motivation-form → reveal (summary).",
+      "views": {
+        "narrative-intro": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "NarrativeIntroPanel",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "✕ CANCEL", "action": "cancel", "style": "secondary" },
+                  { "label": "OPEN TRANSMISSION ›", "action": "navigate", "target": "mechanic-form", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "mechanic-form": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "mechanic": {
+              "slot": "content",
+              "type": "TradePanel",
+              "props": {
+                "mechType": "computed.mechType",
+                "mechData": "mechData",
+                "partySize": "ui.partySize",
+                "onPartySize": "ui.partySize",
+                "bind": "char.mechanic"
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",    "action": "navigate", "target": "narrative-intro", "style": "secondary" },
+                  { "label": "PROCEED ›", "action": "navigate", "target": "motivation-form", "style": "primary",
+                    "requires": "computed.mechanicValid" }
+                ]
+              }
+            }
+          }
+        },
+        "motivation-form": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "motivation-picker": {
+              "slot": "content",
+              "type": "RadioGroup",
+              "props": {
+                "dataset": "swData.motivations",
+                "labelField": "label",
+                "descField": "desc",
+                "bind": "char.narrative.motivationId",
+                "title": "PERSONAL DIRECTIVE",
+                "instruction": "Every operative carries a private objective. Log motivating factor."
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",     "action": "navigate", "target": "mechanic-form", "style": "secondary" },
+                  { "label": "REVIEW PROFILE ›",  "action": "navigate", "target": "reveal", "style": "primary",
+                    "requires": "char.narrative.motivationId" }
+                ]
+              }
+            }
+          }
+        },
+        "reveal": {
+          "layoutId": "dossier-reveal",
+          "notes": "Closing summary — shows the full narrative profile (mechanic + motivation) after all choices are made.",
+          "widgets": {
+            "dossier": {
+              "slot": "dossier",
+              "type": "NarrativeProfile",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK",    "action": "navigate", "target": "motivation-form", "style": "secondary" },
+                  { "label": "CONFIRM ›", "action": "confirm",                                "style": "primary" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": "review",
+      "hotspotId": "tunnel",
+      "label": "Operative Dossier — Classified",
+      "defaultView": "dossier",
+      "notes": "Preceded by twist cinematic (handled in app layer, not by renderer). This view is the final review before export.",
+      "views": {
+        "dossier": {
+          "layoutId": "review-panel",
+          "widgets": {
+            "name-input": {
+              "slot": "name-input",
+              "type": "TextInput",
+              "props": {
+                "label": "OPERATIVE NAME",
+                "placeholder": "Enter operative name…",
+                "bind": "char.name",
+                "maxLength": 60
+              }
+            },
+            "summary": {
+              "slot": "summary",
+              "type": "SummaryDossier",
+              "props": {
+                "sections": [
+                  { "label": "Background",      "bind": "char.background",  "resolve": "swData.backgrounds.label" },
+                  { "label": "Motivation",      "bind": "char.motivation",  "resolve": "swData.motivations.label" },
+                  { "label": "Species",         "bind": "char.species" },
+                  { "label": "Career",          "bind": "char.career" },
+                  { "label": "Specialization",  "bind": "char.spec" },
+                  { "label": "Obligation / Duty / Morality", "bind": "char.mechanic", "fields": ["type", "descriptor.primary", "finalValue"] },
+                  { "label": "Characteristics", "bind": "computed.finalCharacteristics" },
+                  { "label": "Wound Threshold", "bind": "computed.woundThreshold" },
+                  { "label": "Strain Threshold","bind": "computed.strainThreshold" },
+                  { "label": "Starting XP",        "bind": "computed.xpPool" },
+                  { "label": "XP Spent",           "bind": "computed.xpSpent" },
+                  { "label": "Free Career Skills",  "bind": "char.freeCareerSkills" },
+                  { "label": "Free Spec Skills",    "bind": "char.freeSpecSkills" },
+                  { "label": "Starting Credits",    "bind": "computed.credits.remaining" }
+                ]
+              }
+            },
+            "actions": {
+              "slot": "actions",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "PROFILE DETAILS ›", "action": "navigate", "target": "profile-details", "style": "secondary" }
+                ]
+              }
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "CLOSE",               "action": "cancel",  "style": "secondary" },
+                  { "label": "COMMENCE OPERATION",  "action": "confirm", "style": "primary" }
+                ]
+              }
+            }
+          }
+        },
+        "profile-details": {
+          "layoutId": "briefing",
+          "widgets": {
+            "content": {
+              "slot": "content",
+              "type": "OptionalProfile",
+              "props": {}
+            },
+            "nav": {
+              "slot": "nav",
+              "type": "StepperNav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK TO DOSSIER", "action": "navigate", "target": "dossier", "style": "secondary" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+
+  ],
+
+  "computedFields": {
+    "notes": "Computed values derived at render time. The renderer resolves these before mounting widgets.",
+
+    "freeSkillRanks": {
+      "notes": [
+        "Dict: { [skillKey]: freeRanks } — built from char.freeCareerSkills and char.freeSpecSkills.",
+        "Each appearance in freeCareerSkills contributes +1. Each appearance in freeSpecSkills contributes +1.",
+        "A skill picked in BOTH lists gets freeRanks = 2 (rank 1 from career pick, rank 2 from spec pick).",
+        "Max freeRanks for any skill is 2 (can't appear more than once in each list)."
+      ],
+      "formula": "mergeCount(char.freeCareerSkills, char.freeSpecSkills)"
+    },
+
+    "xpPool":              "selectedSpecies.xp + (char.mechanic.xpAdjustment ?? 0)",
+    "xpSpent": {
+      "notes": [
+        "Characteristics: each purchased increase costs newRating * 10.",
+        "Skills: each rank purchased WITH XP costs newEffectiveRank * 5.",
+        "  newEffectiveRank = freeSkillRanks[key] + purchasedRankIndex (1-based).",
+        "  e.g. skill with 1 free rank, buying 1 more: costs (1+1)*5 = 10 XP (rank 2 cost).",
+        "  e.g. skill with 2 free ranks, buying 1 more: costs (2+1)*5 = 15 XP (rank 3 cost)."
+      ],
+      "formula": "sum(characteristics XP) + sum(skills XP above free threshold)"
+    },
+    "xpRemaining":         "computed.xpPool - computed.xpSpent",
+    "mechType":            "inferRuleset(selectedCareer.source)",
+    "mechanicValid":       "!computed.mechType || !!char.mechanic.descriptor.primary",
+    "credits.base":        500,
+    "credits.tradeBonus":  "char.mechanic.creditAdjustment ?? 0",
+    "credits.spent":       "sum(char.inventory.*.price)",
+    "credits.remaining":   "computed.credits.base + computed.credits.tradeBonus - computed.credits.spent",
+    "encumbrance.carried": "sum(char.inventory.*.encumbrance)",
+    "encumbrance.limit":   "computed.finalCharacteristics.brawn + 5",
+    "woundThreshold":      "selectedSpecies.wound",
+    "strainThreshold":     "selectedSpecies.strain",
+    "finalCharacteristics": {
+      "notes": "Base from species + XP purchases applied on top.",
+      "brawn":      "selectedSpecies.brawn     + (char.xpPurchases.characteristics.brawn     ?? 0)",
+      "agility":    "selectedSpecies.agility   + (char.xpPurchases.characteristics.agility   ?? 0)",
+      "intellect":  "selectedSpecies.intellect + (char.xpPurchases.characteristics.intellect ?? 0)",
+      "cunning":    "selectedSpecies.cunning   + (char.xpPurchases.characteristics.cunning   ?? 0)",
+      "willpower":  "selectedSpecies.willpower + (char.xpPurchases.characteristics.willpower ?? 0)",
+      "presence":   "selectedSpecies.presence  + (char.xpPurchases.characteristics.presence  ?? 0)"
+    }
+  }
+}

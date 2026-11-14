@@ -1,0 +1,38 @@
+{
+  "id": "gm_toolkit",
+  "version": "1.0",
+  "defaultView": "galaxy",
+  "views": [
+    {
+      "id": "galaxy",
+      "label": "Galaxy",
+      "icon": "✦",
+      "tools": []
+    },
+    {
+      "id": "planet",
+      "label": "Planet",
+      "icon": "◉",
+      "tools": []
+    },
+    {
+      "id": "district",
+      "label": "District",
+      "icon": "⌖",
+      "tools": [
+        {
+          "id": "mcguffin",
+          "label": "MCGUFFIN",
+          "icon": "◈",
+          "panel": "McGuffinPanel"
+        },
+        {
+          "id": "navigation",
+          "label": "NAV",
+          "icon": "⊕",
+          "panel": "NavigationPanel"
+        }
+      ]
+    }
+  ]
+}

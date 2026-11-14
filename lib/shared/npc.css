@@ -1,0 +1,499 @@
+/* npc.css — THE NPC LIBRARY ON PAPER (both hosts; one module, `lib/library/npc/view.jsx`).
+   Ruling `npc-library-paper-concept` R-NPC-6 (the kernel, the carrier, the switch, this file);
+   mockup `lab/holocron/npc.html` @ lab `7fd7b29d` (Jason 2026-09-23: "NPC library approved." —
+   56 frames; LAB_NOTES §206 @ `af823577`). B-862 (NPC 1/9) lands it; rows B-864…B-870 draw the
+   frames its rules serve. It was dark behind the NPC switch until B-871's deletion ledger made it the
+   library's only face.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/npc_build.py`'s `NL_CSS` at that pin — ALL 247 rule blocks (257
+   selectors), in the board's own order, with the board's own comments, because the comments ARE
+   the design record. Nothing is dropped and nothing is re-ordered: most of these rules serve frames
+   later rows draw, and a port that waited for each row would leave the rows arguing about which one
+   owns a shared rule. The board's page chrome (the kit, holocron.css, sheet.css, the frame
+   furniture) is NOT ported: `lib/shared/paper.css` is the app's copy of the kit, and the `sb-*`
+   stat-block parts come from `lib/shared/sheet.css`, never a copy (R-NPC-6).
+
+   ⚠ A COUNT THE RULING QUOTES DOES NOT REPRODUCE, and it is reported rather than bent. R-NPC-1 /
+   R-NPC-6 say "the `nl-*` rules number 136". At the pin, `NL_CSS` holds 247 rule blocks naming 134
+   distinct `nl-*` classes; the rendered page's second stylesheet carries the same 245 `.nl` rules.
+   136 matches neither unit. This file ports the whole block; the gate names the discrepancy.
+
+   ── THE TOKEN MAP, value-for-value ────────────────────────────────────────────────────────────
+   `--pp-*` is the lab's vocabulary; the app's contract is `--doc-*` (`lib/shared/grounds/creator.css`).
+   Every pair was checked as a VALUE (lab `holocron.css` @ 7fd7b29d against the ground file), so the
+   port cannot silently recolour — the same map `store.css`, `landing.css` and `files.css` applied:
+      `--pp-ink      #17161B            → --doc-ink`          (25 sites)
+      `--pp-ink-2    #403D38            → --doc-ink-muted`    (26)
+      `--pp-hair     rgba(23,22,27,.28) → --doc-rule`         (18)
+      `--pp-hair-2   rgba(23,22,27,.17) → --doc-rule-fine`    (9)
+      `--pp-red      #7E1414            → --doc-action`       (19)
+      `--pp-critical #7F2A14            → --doc-critical`     (10)
+      `--pp-ochre    #5E4316            → --doc-accent`       (7)
+      `--pp-plate    #F2F1EC            → --doc-paper-raised` (7)
+      `--pp-page     #DEDCD4            → --doc-paper`        (2)
+      `--pp-lift     (two shadows)      → --doc-lift`         (2)
+      `--pp-indigo   #241E30            → --doc-state`        (1)
+      `--pp-caution  #431F4C            → --doc-caution`      (1)
+   127 substitutions, 0 `--pp-*` left (guard: `test/npc_css_port.cjs`). The board's other names —
+   `--font-*`, `--desk-read-max`, `--desk-prose-max`, `--u` — are already the app's own.
+
+   TWO COLOUR LITERALS CROSS VERBATIM AND THEY ARE NOT NEW COLOURS. `rgba(23,22,27,.18)` (the
+   summoned overlay's shadow) and `rgba(23,22,27,.28)` (its scrim) are `--doc-ink`'s own channels at
+   a shadow/scrim alpha — the precedent `files.css` and `store.css` (`.st-scrim`) set; a token for one
+   rule's fill is the kind `ground_token_contract` exists to keep out.
+
+   ── EVERY SELECTOR IS FENCED TO `[data-npc-shell]` ────────────────────────────────────────────
+   257 / 257. The nine that name the shell's OWN classes (`.nl`, `.nl-scr`) take the fence as a
+   COMPOUND (`[data-npc-shell].nl-scr`), because the fence and the class are the same element — the
+   module's paper root carries `data-npc-shell`, `nl-scr`, `nl` and the ground together. Every other
+   selector takes it as an ancestor. NOT `[data-doc-ground="creator"]`, which every transplanted
+   surface wears: the reason is the NAMESPACE, as store.css / qsg.css / files.css gave it — `.nl-*`
+   is a short prefix and `.nl-card`, `.nl-list`, `.nl-grid` are names a newsletter or a nav list would
+   reach for on sight. The fence makes the prefix safe without renaming a class the approved board drew.
+
+   ── LOAD ORDER ────────────────────────────────────────────────────────────────────────────────
+   AFTER `paper.css` (and after `sheet.css` where the host links it) in both shells: several board
+   rules tie the kit on specificity (`[data-npc-shell] .nl-loading` against
+   `[data-doc-ground="creator"] .hp-none`, both 0,2,0) and rely on order, exactly as qsg.css's does. */
+
+/* ── THE NPC LIBRARY BOARD — a DELTA over holocron.css + sheet.css, which are NOT TOUCHED. ─────────
+ * Every concept the paper already owns reuses its part: hp-sheet · hp-plate · hp-index/hp-row ·
+ * hp-sechead/hp-cite · hp-desig · hp-rail/hp-char · hp-quiet/hp-commit · hp-prose · hp-none ·
+ * sb-vit/sb-vitrow/sb-meter/sb-trk (the vitals and the tracker) · sb-sk (the skill row and its pool) ·
+ * sb-e/sb-qual (an entry). An `nl-` class grows only where the library has a concept the kit lacks:
+ * the library's own header and tab strip, the chip rail, the tile, the minion pool, the bench card. */
+/* the sheet's unit, on the whole library: every sheet part sizes in calc(N * var(--u)), and outside a
+ * `.sbwrap` the unit is undefined — a tracker button then collapses to its glyph (measured: 22px). */
+[data-npc-shell].nl{--u:1px}
+/* the title's own 10px, read by the board's main zone as its top margin (B-908, R-PN3-3: read from it, not retyped) */
+[data-npc-shell].nl{--nl-head-gap:10px}
+[data-npc-shell].nl-scr{height:100%;display:flex;flex-direction:column;overflow:hidden}
+[data-npc-shell].nl-scr > .nl-body{flex:1 1 auto;min-height:0;overflow-y:auto;padding:14px 15px 22px}
+[data-npc-shell].nl-scr[data-desk="1"] > .nl-body{padding:18px 26px 26px}
+[data-npc-shell].nl-scr > .pb-bot, [data-npc-shell].nl-scr > .pb-top{flex:none}
+/* B-954 — ABOVE 1440 THE LIBRARY GROWS AS ONE PIECE (Jason, "NPC 1440 B, 1080 B"; ruling paper-hotfix-grow-occupancy
+   R-PHGO-1): every block of the page (head, tabs, chips, body) zooms by the app's ONE grow rule (`--page-grow`,
+   lib/shared/tokens.css), uncapped, as in the render he picked (lab/paper/bothways_wide_e0609cba.md). 1 at 1440×900 and
+   below. The bars are never zoomed; the body keeps its own scroll. */
+[data-npc-shell].nl-scr > :not(.pb-bot):not(.pb-top){zoom:var(--page-grow)}
+/* THE LIBRARY'S OWN HEADER: BACK, then the title and subtitle centred.
+ * Furniture on the bare page: the running head's ochre, the maker's tracking. */
+[data-npc-shell] .nl-head{flex:none;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;
+  padding:6px 10px 6px 6px;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .nl-back{justify-self:start;display:flex;align-items:center;gap:5px;min-width:44px;min-height:44px;
+  padding:0 8px;border:0;background:none;cursor:pointer;color:var(--doc-ink-muted);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.18em}
+[data-npc-shell] .nl-back svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;
+  stroke-linejoin:round}
+[data-npc-shell] .nl-title{text-align:center}
+[data-npc-shell] .nl-title b{display:block;font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;
+  font-size:11px;letter-spacing:.24em;color:var(--doc-accent);text-transform:uppercase}
+[data-npc-shell] .nl-title span{display:block;margin-top:3px;font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:9.5px;letter-spacing:.22em;color:var(--doc-ink-muted);text-transform:uppercase}
+/* THE TAB STRIP. Where you are is a MARK (the red ink AND a rule under it),
+ * never a filled pill: state is a mark, not a hue. */
+[data-npc-shell] .nl-tabs{flex:none;display:flex;gap:2px;padding:0 10px;border-bottom:1px solid var(--doc-rule);
+  overflow-x:auto;scrollbar-width:none}
+[data-npc-shell] .nl-tab{flex:none;min-height:44px;padding:0 12px;border:0;background:none;cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-ink-muted);white-space:nowrap}
+[data-npc-shell] .nl-tab[data-on="1"]{color:var(--doc-action);box-shadow:inset 0 -3px 0 var(--doc-action)}
+/* THE CHIP RAIL — the phone strip. The faction's own hue is GONE: sixteen
+ * faction accents have no place on a palette that spends red on DOES and indigo on IS. */
+[data-npc-shell] .nl-chips{flex:none;display:flex;gap:6px;padding:7px 15px;overflow-x:auto;scrollbar-width:none;
+  border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .nl-chip{flex:none;white-space:nowrap}
+[data-npc-shell] .nl-chip[data-on="1"], [data-npc-shell] .nl-pill[data-on="1"]{border-color:var(--doc-action);color:var(--doc-action)}
+/* THE DESK RAIL — NpcPaperDeskRail, the >=1367 left column. A list of rows, the live one marked. */
+[data-npc-shell] .nl-desk{display:flex;gap:24px;align-items:flex-start}
+[data-npc-shell] .nl-main{flex:1 1 auto;min-width:0}
+[data-npc-shell] .nl-rail{flex:0 0 232px;position:sticky;top:8px;overflow-y:auto}
+[data-npc-shell] .nl-rail > b{display:block;padding:0 0 8px;font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-weight:400;font-size:10.5px;letter-spacing:.22em;color:var(--doc-accent);text-transform:uppercase}
+[data-npc-shell] .nl-railrow{display:flex;align-items:center;width:100%;min-height:44px;padding:0 11px;border:0;
+  border-top:1px solid var(--doc-rule-fine);background:none;cursor:pointer;text-align:left;
+  font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:600;font-size:15px;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-railrow:first-of-type{border-top:0}
+[data-npc-shell] .nl-railrow[data-on="1"]{color:var(--doc-ink);box-shadow:inset 3px 0 0 var(--doc-action)}
+/* index rows: the designation WRAPS here. `hp-row-desig` is nowrap+ellipsis by the kit, and a
+ * library whose longest division is "Imperial Bureaucracy / COMPNOR" cannot afford to lose names. */
+[data-npc-shell].nl .hp-row-desig{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.25}
+[data-npc-shell] .nl-sub{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:15px;line-height:1.45;
+  color:var(--doc-ink-muted)}
+[data-npc-shell].nl .hp-row-tab{width:auto;min-width:76px}
+[data-npc-shell] .nl-count{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:12px;letter-spacing:.08em;
+  color:var(--doc-ink);font-variant-numeric:tabular-nums}
+[data-npc-shell] .nl-count i{font-style:normal;font-size:9px;letter-spacing:.14em;color:var(--doc-ink-muted);margin-left:4px}
+[data-npc-shell] .nl-tier{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.14em;
+  color:var(--doc-ink-muted);text-transform:uppercase}
+[data-npc-shell] .nl-tag{display:inline-block;margin-left:8px;padding:1px 6px;border:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;letter-spacing:.14em;
+  color:var(--doc-ink-muted);vertical-align:middle}
+/* THE SEARCH — an input is a thing you act on, so it keeps the plate's input lift (holocron §3). */
+[data-npc-shell] .nl-search{display:flex;align-items:center;gap:10px;padding:0 12px}
+[data-npc-shell] .nl-search i{font-style:normal;color:var(--doc-ink-muted);font-size:18px}
+[data-npc-shell] .nl-search input{flex:1;min-width:0;min-height:44px;border:0;background:transparent;color:var(--doc-ink);
+  font-family:var(--font-body,'Rajdhani',sans-serif);font-size:17px}
+[data-npc-shell] .nl-search input::placeholder{color:var(--doc-ink-muted)}
+/* THE TILE — the front at the desk (F1's wide arm): a chapter as a card. */
+[data-npc-shell] .nl-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+[data-npc-shell] button.hp-plate.nl-tile{display:flex;flex-direction:column;gap:8px;text-align:left;cursor:pointer;
+  border:0;min-height:172px;color:inherit}
+[data-npc-shell] .nl-tile-t{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:17px;
+  letter-spacing:.02em;line-height:1.1;text-transform:uppercase;color:var(--doc-ink)}
+[data-npc-shell] .nl-tile .nl-sub{flex:1 1 auto}
+[data-npc-shell] .nl-tile-f{display:flex;justify-content:space-between;align-items:baseline}
+[data-npc-shell] .nl-enter{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.14em;
+  color:var(--doc-action)}
+/* THE BREADCRUMB — furniture, and a control: every crumb but the last takes you there. */
+[data-npc-shell] .nl-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px;margin:0 0 4px}
+[data-npc-shell] .nl-crumb{min-height:44px;min-width:44px;padding:0 6px;border:0;background:none;cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-accent)}
+[data-npc-shell] .nl-crumb[data-last="1"]{cursor:default;color:var(--doc-ink)}
+[data-npc-shell] .nl-crumbs i{font-style:normal;color:var(--doc-ink-muted)}
+/* THE PROMINENT FIGURES — a run of small cards, visually apart from the division index. */
+[data-npc-shell] .nl-figs{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}
+[data-npc-shell] button.hp-plate.nl-fig{flex:none;width:150px;min-height:78px;border:0;cursor:pointer;text-align:left;
+  display:flex;flex-direction:column;justify-content:space-between;gap:6px;color:inherit}
+[data-npc-shell] .nl-fig b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:12.5px;
+  line-height:1.2;letter-spacing:.03em;text-transform:uppercase;color:var(--doc-ink)}
+/* THE TIER PILLS — single-select filters (handleToggleTier). */
+[data-npc-shell] .nl-pills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+[data-npc-shell] .nl-pill b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;margin-left:6px;
+  color:var(--doc-ink)}
+[data-npc-shell] .nl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+[data-npc-shell] .nl-grid > .hp-plate{padding:0}
+[data-npc-shell] .nl-grid .hp-row{border-top:0}
+/* B-954 · R-PHGO-3 — ABOVE 1440 EACH BROWSE GRID SHOWS AT MOST ITS 1440×900 COUNT, at any height (Jason picked 4 over 5 at
+   1920×1080; ruling paper-hotfix-grow-occupancy). The column's floor is the larger of its own minimum and a quarter of the
+   row, so the auto-fill can never make a fifth. The 4 is the count MEASURED at 1440×900 on both hosts, for both grids (the
+   leg measures it again; it never copies this line). Scoped ABOVE 1440: at 1366×900 the roster has no rail and live shows
+   5 there, so an unscoped maximum moved a width the ruling keeps identical to live (measured; gate paper-hotfix). The
+   scope is a switch, not an at-rule (this layer carries none: npc_css_port, R-NPC-6): `--nl-wide` is 0 at 1440 and below
+   and 1 above (the landing's typed-arithmetic device), and at 0 the floor falls back to the grid's own minimum. */
+[data-npc-shell]{--nl-wide:clamp(0, (100vw - 1440px) / 1px, 1)}
+[data-npc-shell] .nl-tiles{grid-template-columns:repeat(auto-fill,minmax(max(300px, calc((100% - 3 * 16px) / 4 * var(--nl-wide))),1fr))}
+[data-npc-shell] .nl-grid{grid-template-columns:repeat(auto-fill,minmax(max(240px, calc((100% - 3 * 10px) / 4 * var(--nl-wide))),1fr))}
+/* THE STAT BLOCK takes the sheet's unit so its parts render at the sheet's own sizes. */
+[data-npc-shell] .nl-sbs.sb-surface{height:auto}
+[data-npc-shell] .nl-sbs .sbwrap{display:block}
+[data-npc-shell] .nl-sbs .sb-sk{grid-template-columns:minmax(0,1fr) auto auto}
+[data-npc-shell] .nl-sbs .sb-e-t{margin:6px 0 0}
+[data-npc-shell] .nl-sbs .sb-pool{margin-top:8px}
+[data-npc-shell] .nl-tabrow{display:flex;gap:2px;border-bottom:1px solid var(--doc-rule);margin:14px 0 4px}
+[data-npc-shell] .nl-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
+[data-npc-shell] .nl-panels > section > h3, [data-npc-shell] .nl-stack > section > h3{margin:0 0 4px;padding-bottom:8px;border-bottom:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:11px;
+  letter-spacing:.24em;color:var(--doc-accent)}
+[data-npc-shell] .nl-panels .hp-sechead:first-of-type{margin-top:14px}
+[data-npc-shell] .nl-stack > section{margin-top:22px}
+[data-npc-shell] .nl-note{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:15px;line-height:1.5;
+  color:var(--doc-ink-muted);margin:8px 0 0}
+[data-npc-shell] .nl-srcline{margin:12px 0 0}
+[data-npc-shell] .nl-pips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+[data-npc-shell] .nl-pips i{width:13px;height:13px;border:1px solid var(--doc-ink-muted)}
+[data-npc-shell] .nl-pips i[data-on="1"]{background:var(--doc-ink);border-color:var(--doc-ink)}
+[data-npc-shell] .nl-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+[data-npc-shell] .nl-cite{margin-top:10px}
+/* THE DANGER BANDS in the status inks (§B) — the sheet has three marks (clear · pressed · down); the
+ * bench's tracker has four bands and the RAW edge, so two are added ON TOP OF the sheet's own rules:
+ * band 1 takes the caution ink on the meter only, and AT the threshold the value takes the critical
+ * ink without reversing — reversal and the word are the sheet's DOWN, which RAW reaches only PAST it. */
+[data-npc-shell] .sb-vitrow[data-band="1"] .sb-meter i{background:var(--doc-caution)}
+[data-npc-shell] .sb-vitrow[data-band="3"]:not([data-state="down"]) .sb-vitval{color:var(--doc-critical);border-bottom:2px solid var(--doc-critical)}
+[data-npc-shell] .sb-vitrow[data-band="3"] .sb-meter i{background:var(--doc-critical)}
+/* THE BENCH CARD — a member's paper on the encounter sheet. */
+[data-npc-shell] .nl-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+[data-npc-shell] .nl-card-h{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+[data-npc-shell] .nl-card-h .nl-cn{flex:1 1 150px;min-width:0}
+[data-npc-shell] .nl-cn b{display:block;font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;
+  font-size:13.5px;line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:var(--doc-ink);
+  overflow-wrap:anywhere}
+/* THE LIST'S CONTROLS ARE RANKED (Jason 2026-09-23, "the buttons are just outlines"): the − / +
+ * steppers are the controls and keep the sheet's own part; the row actions are bare glyphs; the
+ * conditions are options — OFF is plain second-ink text, ON is the red mark; adding a craft is a DOES. */
+[data-npc-shell] .nl-glyphs{display:inline-flex;flex:none;gap:0}
+[data-npc-shell] .nl-glyph{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;margin:0;
+  border:0;background:transparent;cursor:pointer;color:var(--doc-ink-muted);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:13px;line-height:1}
+[data-npc-shell] .nl-glyph[data-g="x"]{font-size:19px}
+[data-npc-shell] .nl-glyph:hover{color:var(--doc-ink)}
+[data-npc-shell] .nl-glyph:focus-visible,[data-npc-shell] .nl-vadd:focus-visible,[data-npc-shell] .nl-vname:focus-visible{outline:2px solid var(--doc-ink);outline-offset:-2px}
+[data-npc-shell] .nl-vadd,[data-npc-shell] .nl-vname{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border:0;background:transparent;
+  cursor:pointer;white-space:nowrap;text-align:left}
+[data-npc-shell] .nl-vadd{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--doc-action)}
+[data-npc-shell] .nl-vadd:hover{text-decoration:underline}
+[data-npc-shell] .nl-vname{min-width:0;max-width:100%;gap:0;font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:700;
+  font-size:15px;color:var(--doc-ink)}
+[data-npc-shell] .nl-vname .nl-tag{flex:none}
+[data-npc-shell] .nl-conds{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+[data-npc-shell] .nl-cond[data-on="0"]{border-color:transparent}
+[data-npc-shell] .nl-cond[data-on="1"]{border-color:var(--doc-action);color:var(--doc-action)}
+[data-npc-shell] .nl-add{border-style:dashed}
+[data-npc-shell] .nl-notes{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;margin-top:10px;
+  padding:0 11px;border:1px dashed var(--doc-rule);background:transparent;cursor:pointer;text-align:left;
+  font-family:var(--font-body,'Rajdhani',sans-serif);font-size:15px;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-sel{min-height:44px;padding:0 8px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);
+  font-family:var(--font-body,'Rajdhani',sans-serif);font-size:15px;color:var(--doc-ink)}
+/* B-908 · AS-4 ON THE DESK BOARD (ruling paper-n3-bench R-PN3-1/-2; frames B4 · B5 · B6 · B12 · B16b · B17, N3 V4): the
+   page never scrolls. While the board is open the body holds it as a flex column and the board fills it (min-height:0
+   down the chain), so the body has no range; every other library view keeps the body's own scroll. The main column is
+   a flex column: its head (the toolbar, the title, the banner) stays put and its ONE zone (`.hp-zone`, paper.css) takes
+   what is left. The pane and the overlay are flex columns too, each scrolling its reference in its own zone; the
+   overlay's × CLOSE sits above it. Both arms are one `.nl-board`: the overlay and the scrim are positioned against it. */
+[data-npc-shell].nl-scr > .nl-body:has(> [data-npc-state="board"]){display:flex;flex-direction:column}
+[data-npc-shell] .nl-board{display:flex;gap:16px;align-items:stretch;position:relative;flex:1 1 auto;min-height:0}
+[data-npc-shell] .nl-board > .nl-main{flex:1 1 auto;min-width:0;min-height:0;display:flex;flex-direction:column}
+[data-npc-shell] .nl-board > .nl-main > :not(.hp-zone){flex:none}
+[data-npc-shell] .nl-board > .nl-main > :has(+ .hp-zone){margin-bottom:0}
+[data-npc-shell] .nl-board > .nl-main > .hp-zone{margin-top:var(--nl-head-gap)}
+[data-npc-shell] .nl-pane{flex:0 0 380px;border-left:1px solid var(--doc-rule);padding-left:16px;display:flex;flex-direction:column;min-height:0}
+[data-npc-shell] .nl-overlay{position:absolute;top:0;right:0;bottom:0;width:440px;z-index:5;background:var(--doc-paper);
+  border-left:1px solid var(--doc-rule);box-shadow:-12px 0 30px rgba(23,22,27,.18);padding:14px 18px;
+  display:flex;flex-direction:column}
+[data-npc-shell] .nl-overlay > .nl-acts{flex:none}
+[data-npc-shell] .nl-scrim{position:absolute;inset:0;z-index:4;background:rgba(23,22,27,.28)}
+[data-npc-shell] .nl-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+[data-npc-shell] .nl-bar .nl-sp{flex:1}
+[data-npc-shell] .nl-seg{display:inline-flex;border:1px solid var(--doc-rule)}
+[data-npc-shell] .nl-seg .nl-tab{min-height:44px}
+[data-npc-shell] .nl-gname{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:20px;
+  letter-spacing:.01em;text-transform:uppercase;color:var(--doc-ink);margin:0 0 var(--nl-head-gap)}
+[data-npc-shell] .nl-strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0 8px}
+[data-npc-shell] .nl-sc{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:44px;
+  padding:5px 11px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);cursor:pointer;text-align:left}
+[data-npc-shell] .nl-sc b{font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:700;font-size:14px;color:var(--doc-ink);white-space:nowrap}
+[data-npc-shell] .nl-sc span{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.06em;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-sc[data-on="1"]{border-color:var(--doc-action);box-shadow:inset 0 -3px 0 var(--doc-action)}
+[data-npc-shell] .nl-sc[data-miss="1"] b{color:var(--doc-critical)}
+[data-npc-shell] .nl-led{width:100%;border-collapse:collapse}
+[data-npc-shell] .nl-led th{text-align:left;padding:6px 10px;border-bottom:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:10px;
+  letter-spacing:.14em;color:var(--doc-accent)}
+[data-npc-shell] .nl-led td{padding:8px 10px;border-bottom:1px solid var(--doc-rule-fine);vertical-align:middle}
+[data-npc-shell] .nl-led .sb-vitrow{padding:0;border:0}
+[data-npc-shell] .nl-mark{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.14em;
+  color:var(--doc-ink-muted);text-transform:uppercase}
+[data-npc-shell] .nl-mark[data-miss="1"]{color:var(--doc-critical)}
+[data-npc-shell] .nl-cast-rail{flex:0 0 260px;display:flex;flex-direction:column;gap:7px}
+[data-npc-shell] .nl-ci{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:6px 11px;
+  border:1px solid var(--doc-rule);background:var(--doc-paper-raised);cursor:pointer;text-align:left}
+[data-npc-shell] .nl-ci[data-on="1"]{border-color:var(--doc-action);box-shadow:inset 3px 0 0 var(--doc-action)}
+[data-npc-shell] .nl-ci .nl-cn{flex:1;min-width:0}
+[data-npc-shell] .nl-ci em{font-style:normal;color:var(--doc-ink-muted);font-size:12px;letter-spacing:1px}
+[data-npc-shell] .nl-mono{flex:none;width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--doc-rule);font-family:var(--font-display,'Orbitron',sans-serif);
+  font-weight:900;font-size:13px;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-create{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;
+  border:1px dashed var(--doc-action);background:transparent;cursor:pointer;color:var(--doc-action);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.16em}
+[data-npc-shell] .nl-create[data-v="grid"]{min-height:104px;flex-direction:column}
+[data-npc-shell] .nl-castgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+[data-npc-shell] .nl-routes{display:flex;gap:14px;align-items:stretch}
+[data-npc-shell] .nl-routes[data-col="1"]{flex-direction:column}
+[data-npc-shell] .nl-routes > .hp-plate{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+[data-npc-shell] .nl-ghosts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+[data-npc-shell] .nl-ghosts i{height:92px;border:1px dashed var(--doc-rule)}
+[data-npc-shell] .nl-face{display:flex;align-items:center;justify-content:space-between;width:100%;box-sizing:border-box;min-height:44px;
+  padding:0 14px;border:0;background:var(--doc-state);color:var(--doc-paper-raised);cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase}
+[data-npc-shell] .nl-form{display:flex;gap:24px;align-items:flex-start}
+[data-npc-shell] .nl-form > .nl-main{max-width:var(--desk-read-max)}
+[data-npc-shell] .nl-prev{flex:0 0 340px}
+[data-npc-shell] .nl-field{display:block;margin-top:10px}
+[data-npc-shell] .nl-field b{display:block;margin-bottom:5px;font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-weight:400;font-size:10.5px;letter-spacing:.16em;color:var(--doc-accent);text-transform:uppercase}
+[data-npc-shell] .nl-in{width:100%;box-sizing:border-box;min-height:44px;padding:8px 11px;border:1px solid var(--doc-rule);
+  background:var(--doc-paper-raised);font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;color:var(--doc-ink)}
+[data-npc-shell] .nl-in::placeholder{color:var(--doc-ink-muted)}
+[data-npc-shell] textarea.nl-in{min-height:64px;resize:none}
+[data-npc-shell] .nl-charcells{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+[data-npc-shell] .nl-cc{display:flex;flex-direction:column;align-items:stretch;gap:0}
+[data-npc-shell] .nl-cc .hp-char{clip-path:none}
+[data-npc-shell] .nl-cc > div:last-child{display:flex}
+[data-npc-shell] .nl-cc > div:last-child button{flex:1;min-height:44px;border:1px solid var(--doc-rule);background:transparent;
+  cursor:pointer;color:var(--doc-ink-muted);font-size:18px}
+/* ── THE REST OF THE SURFACE — every rule below is a DELTA for a concept the kit does not carry ── */
+[data-npc-shell] .nl-sp{flex:1}
+[data-npc-shell] .nl-gap{height:10px}
+[data-npc-shell] .nl-wide{width:100%;justify-content:center;margin-top:10px}
+[data-npc-shell] .nl-dashed{border-style:dashed}
+[data-npc-shell] .nl-tog{display:flex;justify-content:flex-end;margin-bottom:4px}
+[data-npc-shell] .nl-pillset{display:flex;flex-wrap:wrap;gap:6px}
+[data-npc-shell].nl .hp-unit .hp-name{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.35}
+[data-npc-shell] .nl-lp{margin:0 0 10px;white-space:pre-wrap}
+[data-npc-shell] .nl-lp:last-child{margin-bottom:0}
+[data-npc-shell] .hp-unit .nl-lp{margin:11px 15px 15px}
+[data-npc-shell] .nl-loading{margin:40px 0 0;text-align:center;letter-spacing:.2em}
+/* Adversary under the defence rows: glyphs, not a number */
+[data-npc-shell] .nl-adv .sb-vitval{font-size:18px;letter-spacing:2px}
+/* THE DOSSIER — a key/phrase row. A vital is a PHRASE ("Prince Xizor — Underlord"), and a phrase is
+ * not a ledger value (§200: `hp-lval` is 16px semibold, right-aligned and tabular). */
+[data-npc-shell] .nl-kvhead{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.18em;
+  color:var(--doc-accent);text-transform:uppercase;margin:0 0 8px}
+[data-npc-shell] .nl-kv{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:7px 0;border-top:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .nl-kv > span:first-child{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.12em;
+  color:var(--doc-ink-muted);padding-top:3px}
+[data-npc-shell] .nl-kv > span:last-child{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.45;color:var(--doc-ink)}
+[data-npc-shell] .nl-quote{font-style:italic;margin:0}
+[data-npc-shell] .nl-list{margin:0;padding:0 0 0 18px}
+[data-npc-shell] .nl-list li{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.5;color:var(--doc-ink);margin:0 0 5px}
+[data-npc-shell] .nl-dossier{display:flex;gap:24px;align-items:flex-start}
+[data-npc-shell] .nl-dmain{flex:0 1 var(--desk-prose-max,373px);min-width:0}
+[data-npc-shell] .nl-dossier .nl-dmain{flex-basis:520px}
+[data-npc-shell] .nl-companion{flex:0 0 340px;min-width:0}
+[data-npc-shell] .nl-readcap{max-width:var(--desk-read-max)}
+[data-npc-shell] .hp-row.nl-inert{cursor:default}
+/* THE ENCOUNTERS LIST — a row is not a button here: it carries two. */
+[data-npc-shell] .nl-newrow{display:flex;gap:8px;margin:0 0 14px}
+[data-npc-shell] .nl-newrow .nl-in{flex:1}
+[data-npc-shell] .nl-glist{display:flex;flex-direction:column}
+[data-npc-shell] .nl-grow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 12px;border-top:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .nl-grow:first-child{border-top:0}
+[data-npc-shell] .nl-gn{flex:0 0 auto;min-width:0;max-width:240px}
+[data-npc-shell] .nl-gn b{display:block;font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:13.5px;
+  letter-spacing:.03em;text-transform:uppercase;color:var(--doc-ink);overflow-wrap:anywhere}
+[data-npc-shell] .nl-gn span{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.1em;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-mstrip{flex:1 1 220px;min-width:0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+[data-npc-shell] .nl-mchip{flex:none;display:flex;align-items:center;gap:6px;padding:3px 9px 3px 3px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised)}
+[data-npc-shell] .nl-mchip b{font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:600;font-size:14px;color:var(--doc-ink);white-space:nowrap}
+[data-npc-shell] .nl-mchip > span:last-child{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;color:var(--doc-ink-muted);white-space:nowrap}
+[data-npc-shell] .nl-mchip[data-hurt="1"]{border-color:var(--doc-critical)}
+[data-npc-shell] .nl-mchip[data-hurt="1"] > span:last-child{color:var(--doc-critical)}
+[data-npc-shell] .nl-mchip .nl-mono{width:24px;height:24px;font-size:10.5px}
+[data-npc-shell] .nl-more{flex:none;align-self:center;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-gacts{display:flex;gap:6px;margin-left:auto}
+/* THE POOL FRAME */
+[data-npc-shell] .nl-poolh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px}
+[data-npc-shell] .nl-step{display:inline-flex;align-items:center;gap:6px}
+[data-npc-shell] .nl-step b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:14px;color:var(--doc-ink);min-width:22px;text-align:center}
+[data-npc-shell] .nl-poolrow{padding:4px 0 6px;border-bottom:0}
+[data-npc-shell] .nl-poolrow .sb-vitkey b{color:var(--doc-ink)}
+[data-npc-shell] .nl-poolacts{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}
+[data-npc-shell] .nl-crit{min-height:44px}
+/* THE CRAFT ROW, THE BOARD CARD, THE LEDGER */
+[data-npc-shell] .nl-craftrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .nl-craftrow b{font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:700;font-size:15px;color:var(--doc-ink)}
+[data-npc-shell] .nl-bcard{padding:12px 12px 14px}
+[data-npc-shell] .nl-bcard[data-sel="1"]{box-shadow:inset 3px 0 0 var(--doc-action),var(--doc-lift)}
+[data-npc-shell] .nl-bcard > .hp-plate{box-shadow:none;border:1px solid var(--doc-rule-fine);margin-top:8px}
+[data-npc-shell] .nl-arrows{display:inline-flex;flex:none;margin-left:auto}
+[data-npc-shell] .nl-lname{display:flex;align-items:center;gap:10px;min-width:170px}
+[data-npc-shell] .nl-cn b[data-miss="1"]{color:var(--doc-critical)}
+[data-npc-shell] .nl-cn .nl-tier{display:block;margin-top:2px}
+[data-npc-shell] .nl-lacts{display:inline-flex;align-items:center;gap:2px;white-space:nowrap}
+[data-npc-shell] .nl-c{text-align:center}
+[data-npc-shell] .nl-led .sb-vitrow{min-width:150px;grid-template-columns:minmax(0,1fr) auto;gap:6px}
+[data-npc-shell] .nl-led .sb-vitrow > div:first-child{min-width:0}
+[data-npc-shell] .nl-led td{padding:8px 4px}
+[data-npc-shell] .nl-led .nl-lname{min-width:130px}
+[data-npc-shell] .nl-led td.nl-c .nl-lacts{display:flex;flex-direction:column;align-items:flex-end;width:132px;gap:0}
+/* The desk's action column is 132px and a craft's name is longer: it breaks at its SPACES, right-aligned,
+ * never clipped (AS-5 measures an ellipsis as clipped text) and never mid-word. */
+[data-npc-shell] .nl-led td.nl-c .nl-vname{display:inline-block;max-width:132px;padding:6px 0;white-space:normal;text-align:right;line-height:1.3}
+/* B-907 fit (a) — Jason 2026-09-24 "B15d, (a)"; frames B15c (1367) · B15d (1440) at lab pin `becc3e1a`: CONDITIONS
+ * narrows 186 → 144, the widest that fits at 1367 beside the 380px pane (the lab measured it; the chips stack). */
+[data-npc-shell] .nl-led .nl-conds{flex-wrap:wrap;width:144px;min-width:144px;margin-top:0}
+[data-npc-shell] .nl-led .nl-conds[data-dense="1"] .hp-quiet{padding:0 6px}
+[data-npc-shell] .nl-led .nl-cn b,[data-npc-shell] .nl-lrow .nl-cn b{overflow-wrap:normal;word-break:normal;hyphens:none}
+/* B-907 fit (a), the same frames: the LEDGER TABLE's unit name breaks ANYWHERE (the registry's long single words —
+ * `grand_admiral_thrawn` — measured the UNIT column 239px against the frame's 163). ONE selector, the table only:
+ * the stacked ledger (`.nl-lrow`) keeps the board's no-break rule above, ported verbatim. The card's unit name was
+ * never under that rule — the base `.nl-cn b` already breaks anywhere (measured, ruling `npc-flip` R-NFL-2). */
+[data-npc-shell] .nl-led .nl-cn b{overflow-wrap:anywhere}
+[data-npc-shell] .nl-led .nl-step,[data-npc-shell] .nl-lrow .nl-step,[data-npc-shell] .nl-step b{white-space:nowrap}
+[data-npc-shell] .nl-led .nl-step{gap:3px}
+[data-npc-shell] .nl-lstack{display:flex;flex-direction:column;gap:10px}
+/* R-SAP-5 (D-463): the resting ground steps aside, so the stripe can land */
+:where([data-npc-shell] .nl-lrow){background:var(--doc-paper-raised)}
+[data-npc-shell] .nl-lrow{border:1px solid var(--doc-rule-fine);padding:10px 11px}
+[data-npc-shell] .nl-lrow-t .sb-vitrow{padding:4px 0}
+[data-npc-shell] .nl-lrow-p{display:flex;align-items:center;justify-content:space-between;padding:4px 0}
+[data-npc-shell] .nl-lrow-a{display:flex;justify-content:flex-end;margin-top:6px}
+[data-npc-shell] .nl-lrow-a .nl-lacts{display:flex;flex-wrap:wrap;width:100%;justify-content:space-between;gap:0 8px}
+[data-npc-shell] .nl-lrow-a .nl-glyphs{margin-left:auto}
+[data-npc-shell] .nl-lrow-a .nl-vname,[data-npc-shell] .nl-lrow-a .nl-vadd{margin-left:-8px}
+[data-npc-shell] .nl-lrow .nl-conds{margin-top:6px}
+[data-npc-shell] .nl-conds[data-dense="1"] .hp-quiet{padding:0 9px}
+[data-npc-shell] .nl-add{min-width:44px;justify-content:center}
+[data-npc-shell] .nl-condin{width:130px;min-height:44px;flex:none}
+[data-npc-shell] .nl-stale{margin-bottom:10px}
+[data-npc-shell] .nl-stale b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--doc-critical)}
+[data-npc-shell] [data-stale="1"]{box-shadow:inset 3px 0 0 var(--doc-critical)}
+[data-npc-shell] .nl-rename{display:block;margin:0 0 12px}
+[data-npc-shell] .nl-gname-in{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:18px;text-transform:uppercase}
+/* THE CAST AND THE CREATOR */
+[data-npc-shell] .nl-back2{margin:0 0 8px}
+[data-npc-shell] .nl-pick{display:flex;flex-direction:column;gap:6px;width:100%;margin-top:12px;border:0;cursor:pointer;text-align:left;color:inherit}
+[data-npc-shell] .nl-pick-h{display:flex;justify-content:space-between;align-items:baseline;color:var(--doc-action)}
+[data-npc-shell] .nl-rg{font-size:22px;line-height:1;color:var(--doc-ink-muted)}
+[data-npc-shell] .nl-rh{margin:0;font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:13.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--doc-ink)}
+[data-npc-shell] .nl-cehead{text-align:center;padding:4px 0 16px}
+[data-npc-shell] .nl-cehead .nl-gname{margin:0 0 6px}
+[data-npc-shell] .nl-dtiles{display:flex;flex-wrap:wrap;gap:10px 18px}
+[data-npc-shell] .nl-dt{display:flex;align-items:center;gap:8px}
+[data-npc-shell] .nl-namein{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:16px;text-transform:uppercase}
+/* THE BOARD'S SLIDE-OUT RAIL (768–1366), open — ported with NL_CSS; the product draws D3b's chip strip there */
+[data-npc-shell] .nl-slide{position:absolute;top:0;left:0;bottom:0;width:100px;z-index:5;background:var(--doc-paper);
+  border-right:1px solid var(--doc-rule);overflow-y:auto;padding-top:4px}
+[data-npc-shell] .nl-slide .nl-railrow{font-size:12px;letter-spacing:.06em;padding:0 8px;min-height:44px;line-height:1.2}
+/* THE SEAM */
+[data-npc-shell] .nl-seam{flex:none;padding:12px 15px;border-bottom:2px solid var(--doc-action)}
+[data-npc-shell] .nl-seam [data-pressed="1"]{box-shadow:inset 3px 0 0 var(--doc-action),var(--doc-lift)}
+[data-npc-shell] .nl-seamdoor{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+[data-npc-shell] .nl-seamdoor > div{display:flex;flex-direction:column;gap:4px;min-width:0}
+
+/* ══ ADDED BY THE APP (not the board) — THE INTERIM ISLAND (B-862) ═══════════════════════════════
+ * While a view's paper drawing is not built yet, its dark body stands on an ISLAND inside the paper
+ * shell: `[data-npc-interim="<zone>"]`, the zones declared ONCE in `NPC_INTERIM_ZONES`
+ * (`lib/library/npc/view.jsx`), each naming the row that retires it — the files/QSG precedent. The
+ * DOM query `[data-npc-interim]` is what "what is left to transplant" MEANS, and R-NPC-8's last
+ * measurement counts it.
+ *
+ * THE ISLAND IS A **BODY** SWAP, NEVER A SCREEN SWAP. The paper head and tab strip stand above every
+ * view; the island is the `nl-body` scroller itself, holding exactly what the dark body held — so the
+ * dark head (`chrome.Header`) and the dark tabs (`chrome.Nav`) are never drawn under the paper ones.
+ * It keeps the dark body's own padding, because its children were laid out against it (the host
+ * rails' sticky strips reach `-16px` into it).
+ *
+ * `#0a0a0a` / `#fff` are not new colours: they are `.sb-legacy`'s and `.cf-legacy`'s island ground
+ * and ink, the same literals, so every surface's islands read as one device. The block leaves with
+ * the last zone. */
+/* B-866 — ONE RULE THE BOARD'S FRAMES DRAW WITH THAT SITS OUTSIDE `NL_CSS`: the generator's page stylesheet
+ * (`write_page`, npc_build.py @ f99c6a92) sets `.hp-desig.nl-d2{font-size:25px}` beside `NL_CSS`, and row 1
+ * ported `NL_CSS` alone, so every drawn designation (the drill-down, the dossier, the stat block's name, the
+ * pane) printed at the kit's own clamp instead of the board's 25px. Ported here, fenced. (`.nl-bw` beside it
+ * is the frame's top-bar word — chrome.css's, not this surface's.) */
+[data-npc-shell] .hp-desig.nl-d2{font-size:25px}
+/* B-893: the vehicle picker is DRAWN (B14a–d) — its island selector, added at B-866, is removed; the zone
+ * island's own rule stays (the interim table is empty since B-869; the rule answers only a zoned view). */
+[data-npc-shell].nl-scr > .nl-body.nl-legacy{padding:0 16px 24px;background:#0a0a0a;color:#fff}
+[data-npc-shell] .nl-legacy *::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22)}
+/* PAPER N6 · the CRAFT face (ruling `paper-npc-vehicle-dossier-concept` R-NVD-C2; board npc_vessel @ b0d578e1). With a
+   fourth face the desk keeps STATS and ARSENAL in their columns and CRAFT heads the third, above LORE; the phone's stack
+   is untouched (STATS · ARSENAL · CRAFT · LORE). Only the CRAFT face makes four, so the face count is the fence. */
+[data-npc-shell] .nl-panels[data-n="4"]{grid-template-rows:auto 1fr}
+[data-npc-shell] .nl-panels[data-n="4"]>[data-testid="npc-panel-stats"]{grid-column:1;grid-row:1/span 2}
+[data-npc-shell] .nl-panels[data-n="4"]>[data-testid="npc-panel-arsenal"]{grid-column:2;grid-row:1/span 2}
+[data-npc-shell] .nl-panels[data-n="4"]>[data-testid="npc-panel-craft"]{grid-column:3;grid-row:1}
+[data-npc-shell] .nl-panels[data-n="4"]>[data-testid="npc-panel-lore"]{grid-column:3;grid-row:2;margin-top:18px}
+/* the Yard's ship rows on the NPC plate: the plate is the frame, so the first row's rule and the last row's foot go */
+[data-npc-shell] .nl-craft .yd .y-vship:first-child{border-top:0;padding-top:0}
+[data-npc-shell] .nl-craft .yd .y-vship:last-child{padding-bottom:0}
+/* Encounter craft (card `shipyard-encounter-craft-build`, D-268 frames v1 @ ui-lab 38ae96e59; PAPER's G5 @ 28b7ad083): the craft
+   row's two tracks under its name line — one column, two on the desk shell (`data-desk`: this layer takes no at-rules,
+   test/npc_css_port.cjs). Every selector is the craft row's own. */
+[data-npc-shell] .nl-craftrow .nl-craft-trks{flex-basis:100%;grid-template-columns:minmax(0,1fr);column-gap:24px}
+[data-npc-shell][data-desk="1"] .nl-craftrow .nl-craft-trks{grid-template-columns:repeat(2,minmax(0,1fr))}
+[data-npc-shell] .nl-craftrow .nl-craft-trks .sb-vitrow{border-bottom:0}
+
+/* R6 S1-pick (card release-r6-ui §2.3; ruling release-r6-ui-c0 U10): the host's PICK head under the tabs (Animal Bond's limit, shown,
+   never enforced) and the PICK / MAKE YOUR OWN foot under the reference card */
+[data-npc-shell] .nl-pickhead{flex:none;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:13px;color:var(--doc-ink);
+  padding:10px 16px;border-bottom:1px solid var(--doc-rule-fine);background:var(--doc-paper-raised)}
+[data-npc-shell] [data-npc-pick-foot] .hp-commit,[data-npc-shell] [data-npc-pick-foot] .hp-quiet{min-height:44px}

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/weapon.schema.json",
+  "title": "Weapon",
+  "description": "Canonical, app-owned weapon record for the FFG Star Wars RPG. Ingested ONCE from OggDude's `weapons` category (480 entries), with every code decoded (via the SWItems maps) and every value coerced at ingest. Replaces the runtime resolvers resolveNpcWeapon (gm/index.html), resolveWeapon (lib/gm/encounterStore.js), and the SWItems decode-at-render functions. LOCKED — verified against BLASTPIS (ranged) + VIBKN (melee), and the decode maps (RANGE_LABELS / QUALITY_NAMES / SKILL_KEY_TO_NAME). The canonical damage model also fixes a live bug: SWItems drops DamageAdd, so catalog melee weapons currently render 'Br+0'; here damage.value comes from DamageAdd. SCOPE (set at Gate 1): personal-scale weapons ONLY. The ingest filters OUT, before validating against this schema: vehicle-scale weapons (Type=='Vehicle' / Gunnery / sensor-scale ranges), ammunition & components (no range / wrNoRange), and non-weapons such as shields (negative Damage). Those belong to the vehicle and items clusters.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "skill",
+    "damage",
+    "crit",
+    "range",
+    "qualities"
+  ],
+  "$comment": "INGEST CONTRACT — OggDude differs from this shape in five ways the pipeline MUST normalize, all verified against BLASTPIS + VIBKN: (1) every numeric value arrives as a STRING ('6','3','400','2') and is coerced to a number, including quality Counts; (2) Qualities arrives as absent | {Quality:{...}} | {Quality:[{...}]} and is normalized to the array below; (3) SkillKey/RangeValue are codes decoded via the same maps SWItems hardcodes today (lift them into the pipeline); (4) Description carries [H3]/[P]/[BR]/[B] markup to decode, and is the field lore-overrides.json overlays; (5) Sources is a list of full book NAMES (no page) mapped onto rules-index pdfs.alias. Damage uses two source fields — see the damage block.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app-owned id, slugged once from Name (e.g. 'blaster_pistol', 'vibroknife'); dedupe on collision. Unique within the weapon registry. This is what cross-entity references (NPC loadouts, vehicle hardpoints, shop inventory) point at."
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key the record was ingested from (e.g. 'BLASTPIS', 'VIBKN'). Traceability/round-trip only; never an app reference — OggDude Keys are unique, which is why dedupe falls back here."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name, e.g. 'Vibroknife'."
+    },
+    "description": {
+      "type": "string",
+      "description": "Decoded from OggDude Description markup at ingest ([H3]/[P]/[BR]/[B] -> clean text/HTML). This is the field the lore-overrides overlay patches; keep extracted text and the overlay cleanly separable so a re-extract never clobbers curation."
+    },
+    "skill": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Canonical skill id, decoded from SkillKey ('RANGLT' -> 'ranged_light', 'MELEE' -> 'melee'). MUST match an id in the Skill registry. Replaces normalizeSkill at runtime, and is one of the signals cross-checked against damage.base."
+    },
+    "damage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "base"
+      ],
+      "$comment": "FINAL — value-driven, empirically validated against all 480 weapons across three Gate-1 rounds. Skill-class is NOT a reliable discriminator: FFG lightsabers are FLAT-damage, not Brawn+X (16 of 30 lightsaber-skill weapons are flat). RULE, in order: (1) DamageAdd>0 AND Damage 0/absent -> base='brawn', value=DamageAdd (the Brawn-add; VIBKN +1, exotic melee +2/+3); (2) Damage>0 AND DamageAdd>0 -> base='flat', value=Damage, and FLAG (ambiguous both-signal; the 7 MECH demolition charges); (3) else Damage>0 -> base='flat', value=Damage (BLASTPIS 6, Lightsaber 10); (4) else both 0/absent -> SkillKey class is the TIEBREAKER ONLY: melee-class {MELEE,BRAWL,LTSAB/LTSABER} -> 'brawn' value 0 (Brawn+0, e.g. garrote); non-melee -> 'flat' value 0. Skill-class is the both-zero tiebreaker, never the primary discriminator.",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "description": "flat: the absolute Damage (BLASTPIS = 6), never negative (the `if`/`then` below). brawn: the Brawn ADD from DamageAdd (VIBKN = 1), signed: Nexus of Power p.104's Gungan Personal Energy Shield prints Brawn -1 (B-1429)."
+        },
+        "base": {
+          "enum": [
+            "flat",
+            "brawn"
+          ],
+          "description": "'flat' = ranged, value is absolute. 'brawn' = melee/brawl; effective damage = wielder Brawn + value."
+        }
+      },
+      "if": {
+        "properties": {
+          "base": {
+            "const": "flat"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "crit": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Critical rating; coerced from string Crit. Lower triggers crits more easily. CORRECTED to minimum 0 at Gate 1: grenades, mines, nets, ion weapons, and tractor beams legitimately carry Crit='0' (no crit rating)."
+    },
+    "crystal_damage_mod": {
+      "type": "integer",
+      "not": {
+        "const": 0
+      },
+      "description": ""
+    },
+    "crystal_default": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "OPTIONAL. The attachments.json id of the crystal a ready-made lightsaber HOST is printed with (\"a basic lightsaber hilt containing an unmodded Ilum crystal\", FaD p.176). When an installed attachment SETS the damage (a crystal), ItemResolve.applyInstalledAttachments PASS 1 takes this crystal's qualities_add off the host before PASS 2 adds the new crystal's, so a replaced crystal's qualities never stack (FaD p.196: one crystal per lightsaber; a removed crystal's qualities are lost). The id must carry a damage_set. Written ONLY by scripts/canonical/apply_weapon_crystal_mods.py from its page-cited CRYSTAL_DEFAULTS manifest (eleven hosts), which validate_registries (1w.crystal) asserts exactly; the hosts that print no default stay without it (ruling f100-b1189-followups-card R-B11FU-5). Registry-only: no saved-character shape carries it."
+    },
+    "refuses_crystals": {
+      "type": "boolean",
+      "const": true,
+      "description": "OPTIONAL (F-100 M12, ruling f100-m12-census-card R-M12C-64). A host whose page bars lightsaber crystals while its categories still admit the item's other Lightsaber-limited attachments: the lightwhip (Endless Vigil p.43). ItemResolve.attachmentFit refuses every `is_crystal` attachment for it. Absent = the categories alone decide. A narrow member with its first user, not a general exclude grammar."
+    },
+    "range": {
+      "enum": [
+        "engaged",
+        "close",
+        "short",
+        "medium",
+        "long",
+        "extreme"
+      ],
+      "description": "Canonical range band, decoded from RangeValue via the RANGE_LABELS map ('wrMedium'->'medium', 'wrEngaged'->'engaged', 'wrClose'->'close'). 'close' is rare for personal weapons (it's the vehicle/sensor-scale band); flag a personal weapon that uses it. Replaces SWItems.rangeLabel — but the map itself survives as shared vocabulary (see _provenance note)."
+    },
+    "encumbrance": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Coerced from string Encumbrance. CONFIRMED present (both = 1)."
+    },
+    "hardpoints": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Customization hard points; coerced from OggDude field 'HP'. null = source states no capacity (20 weapons); 0 = has slots, none available. Both legal and distinct (R-LBS-3). CONFIRMED present on the reference pair (BLASTPIS 3, VIBKN 2)."
+    },
+    "price": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Base price in credits; coerced from string Price. CONFIRMED present (BLASTPIS 400, VIBKN 250)."
+    },
+    "rarity": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Rarity rating; coerced from string Rarity. CONFIRMED present (BLASTPIS 4, VIBKN 3)."
+    },
+    "restricted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Restricted/illegal flag. CONFIRMED: OggDude carries `Restricted` as a string 'true'/'false' (or boolean); coerce to boolean, default false when absent (as on BLASTPIS/VIBKN). SWItems reads it as raw.Restricted === 'true' || raw.Restricted === true."
+    },
+    "availability": {
+      "enum": [
+        "catalog",
+        "adversary",
+        "unaudited"
+      ],
+      "description": "Whether this weapon is a player-buyable CATALOG item, an ADVERSARY-specific weapon lifted from an NPC statblock and not generically available (e.g. the Forsaken Jedi's lightsaber, EotE Core p.421, which OggDude folded into its weapons list as a generic 'Lightsaber'), or UNAUDITED (provenance not yet confirmed). OggDude provides NO marker distinguishing catalog gear from lifted adversary equipment, so this is set at ingest — known-adversary entries flagged explicitly, the rest default 'unaudited' pending the catalog-provenance audit, which promotes each to 'catalog' or 'adversary' via the suspect->oracle->human cascade. The player character-creator should show 'catalog' (or 'catalog'+'unaudited' until the audit completes); NPC resolution may reference any. Candidate shared concern across item-like entities (armor/gear/attachments) when the items cluster lands. Optional/absent == 'unaudited'.",
+      "default": "unaudited"
+    },
+    "type": {
+      "type": "string",
+      "description": "Weapon classification from OggDude Type (e.g. 'Energy Weapon', 'Melee'). For filtering; corroborates damage.base but is not the primary discriminator (DamageAdd presence is)."
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tag taxonomy from OggDude Categories (BLASTPIS ['Blaster Pistol','Blaster','Pistol','Ranged']; VIBKN ['Cutting Edge Melee','Powered Melee']) for browse/filter/shop generation. Do NOT use these free-text tags to infer damage.base."
+    },
+    "qualities": {
+      "type": "array",
+      "description": "Normalized from OggDude Qualities (object | array | absent) into a uniform array. VIBKN -> [{id:'pierce',name:'Pierce',ranked:true,rank:2},{id:'vicious',name:'Vicious',ranked:true,rank:1}]; BLASTPIS -> [{id:'stun_setting',name:'Stun Setting',ranked:false}]. Count is a string to coerce. Replaces SWItems.formatQualities.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "ranked"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Canonical quality id, e.g. 'pierce'."
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name, e.g. 'Pierce'."
+          },
+          "ranked": {
+            "type": "boolean",
+            "description": "True if the quality carries a numeric rank (OggDude Count present); false for binary qualities like Stun Setting."
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Present if and only if ranked is true; maps from coerced OggDude Count."
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "ranked": {
+                  "const": true
+                }
+              },
+              "required": [
+                "ranked"
+              ]
+            },
+            "then": {
+              "required": [
+                "rank"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "rank"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Books that define this weapon, from OggDude Sources.Source (both records = the three core rulebooks). OggDude carries multiple book NAMES and NO page. Map each name onto a rules-index pdfs.alias at ingest. In-app rule lookup is therefore search-by-name within these books, not a page jump."
+    },
+    "_provenance": {
+      "type": "string",
+      "default": "oggdude",
+      "description": "Source tag. OggDude's own Custom flag (e.g. 'DescOnly' on both records) may be captured here if useful. Kept simple because the driver is technical control, not IP; curated text rides the lore-overrides overlay, not this field."
+    },
+    "pool_mods": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_entry"
+          },
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused"
+          }
+        ]
+      },
+      "description": "Extracted dice-pool modifiers at row level (R-DPS-1). Weapons have no mod objects, so from is absent."
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "item-common.schema.json#/$defs/base_mods/items/properties/effect"
+      },
+      "description": "Non-dice structured effects at row level (R-DPS-8). Same effect object as base_mods[].effect, referenced by $ref. Weapons carry these at row level because they have no mod objects."
+    },
+    "never_modelled": {
+      "enum": [
+        "narrative",
+        "see_source",
+        "gm_discretion",
+        "conditional_triggered"
+      ],
+      "description": "Row-level marker for descriptions deliberately not structured (R-DPS-8, R-IEE-3). Records that a human read the description and judged its remainder unmodellable."
+    },
+    "_book_page": {
+      "$ref": "item-common.schema.json#/$defs/book_page"
+    },
+    "_cite": {
+      "type": "string",
+      "description": "Page-granular print citation for a record whose numbers were read off a printed page rather than imported (free text, e.g. 'hobs p.60' or 'aor p.225 (eote p.220, fad p.221)'). Declared by ruling b299-b308-weapon-record-fields R-WRF-1: `sources` carries book NAMES and `_provenance` is a source TAG, so neither can carry a page, and A2-NWG-1's citation duty is page-granular. Absent on imported records, which are attributable through `sources` + `_provenance` instead."
+    },
+    "store_hidden": {
+      "$ref": "item-common.schema.json#/$defs/store_hidden"
+    },
+    "not_purchasable": {
+      "type": "boolean",
+      "description": "True = the record is not a thing a character can buy. DECLARED AS SHIPPED-DATA DOCUMENTATION ONLY: as of ruling b299-b308-weapon-record-fields (2026-08-26) NO SOURCE CONSUMER READS THIS FIELD -- verified by grep across lib/, player/, gm/, dice/. It is declared so the flag on shipped records is explained rather than mysterious. A future consumer that gives it behaviour cites R-WRF-1 and updates this description; until then, `store_hidden` is the field that actually does something."
+    }
+  }
+}

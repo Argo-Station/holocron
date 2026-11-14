@@ -1,0 +1,918 @@
+{
+  "id": "bothawui",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Bothawui",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Mid Rim",
+    "sector": "Bothan Sector",
+    "system": "Both",
+    "grid": "R-14",
+    "era": "galactic_civil_war",
+    "essence": "",
+    "atmosphere": "A temperate world of forests and mountains and bustling urban centers. Drev'starn sprawls across rolling terrain, its government towers and clan compounds threaded with secure communications networks. Fur-rippled conversations in Wrendui carry coded intelligence through crowded market streets. Off-worlders feel watched because they are. The Combined Clans Center Building dominates the capital skyline. Orbital traffic is heavy — freighters, diplomatic shuttles, and unmarked courier ships arriving from every corner of the galaxy, all seeking or selling information.",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": "",
+    "government": "Bothan Council",
+    "population": "",
+    "languages": "Bothese, Basic",
+    "terrain": "forests, mountains, urban",
+    "major_cities": "Drev'starn (capital), Breil, Gre Shev'starn",
+    "areas_of_interest": "",
+    "exports": "High technology, Information, Mid technology",
+    "imports": "High technology, Information, Mid technology",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 1,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Bothawui maintains its characteristic neutrality during the Clone Wars. The Bothan Council positions itself to profit from both Republic and Separatist intelligence needs. The Spynet operates openly for hire, selling intelligence to the highest bidder while building the network infrastructure that will later serve the Rebel Alliance."
+    },
+    {
+      "era": "post_empire",
+      "delta": "The sacrifice of Bothan agents to obtain the second Death Star plans elevates Bothan prestige enormously within the New Republic. Bothans enjoy a prestigious role in the new government. The Spynet transitions from covert Rebel support to a semi-official intelligence apparatus. Clan competition intensifies as new political positions and influence become available."
+    }
+  ],
+  "geography": {
+    "structure_type": "temperate_urbanized",
+    "structure_notes": "A temperate world of forests, mountains, and dense urban centers. The capital Drev'starn is the largest city and seat of the Bothan Council. Multiple cities serve as clan strongholds and commercial hubs. The terrain is varied enough to support diverse agriculture and industry, but the planet's primary output is information and high technology.",
+    "districts": [
+      {
+        "id": "drevstarn",
+        "name": "Drev'starn",
+        "character": "Capital city and seat of the Bothan Council. A sprawling urban center of government towers, clan compounds, intelligence offices, and commercial districts. Every major Bothan clan maintains a presence here. The city hums with covert activity — information brokers operate from tapcafes, dead drops are exchanged in market squares, and the Combined Clans Center Building dominates the skyline as the seat of government.",
+        "authority": "Bothan Council, local clan administrators",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "informational",
+          "economic"
+        ],
+        "notes": "Home to the Combined Clans Center Building, Tiaran'grast, and the densest concentration of Spynet infrastructure on the planet. Off-world embassies and trade missions cluster in designated districts. Imperial monitors maintain a presence but are outmaneuvered by Bothan counter-intelligence routinely."
+      },
+      {
+        "id": "bothawui_shipyards",
+        "name": "Bothawui Shipyards",
+        "character": "Orbital and surface shipyard facilities producing vessels for the Bothan Defense Corps and commercial trade. Not on the scale of Kuat or CEC, but capable of producing well-equipped mid-range vessels. Also serves as a maintenance and repair hub for the heavy commercial traffic passing through Bothan Space.",
+        "authority": "Bothan Council defense ministry, shipyard clan operators",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Provides the Bothawui Defense Corps with patrol vessels and supports the commercial fleet. Shipyard workers are vetted by clan security. Imperial monitors observe output levels but lack direct control."
+      },
+      {
+        "id": "breil",
+        "name": "Breil",
+        "character": "Secondary city serving as a commercial and residential center. Less politically charged than Drev'starn, Breil is where Bothans who prefer to stay out of the worst clan intrigues settle.",
+        "authority": "Local clan administrators",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Commercial hub with manufacturing and trade facilities."
+      },
+      {
+        "id": "gre_shevstarn",
+        "name": "Gre Shev'starn",
+        "character": "Third major city, functioning as an industrial and technological center. High-technology manufacturing and research facilities serve both domestic consumption and export markets.",
+        "authority": "Local clan administrators",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Technology exports originate primarily from facilities in and around Gre Shev'starn."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Bothan",
+      "population_level": "dominant",
+      "social_role": "",
+      "districts": [
+        "drevstarn",
+        "bothawui_shipyards",
+        "breil",
+        "gre_shevstarn"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "minority",
+      "social_role": "Diplomats, trade representatives, Imperial monitors, intelligence operatives from various organizations. Humans on Bothawui are almost always present for a specific purpose — commerce, diplomacy, or espionage. They are tolerated and watched carefully.",
+      "districts": [
+        "drevstarn"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "trace",
+      "social_role": "Transient traders, information buyers, diplomatic staff, Spynet foreign agents. Bothawui attracts visitors from across the galaxy seeking to buy or sell intelligence. Most are temporary residents in Drev'starn's commercial districts.",
+      "districts": [
+        "drevstarn"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "bothan_council",
+      "name": "Bothan Council",
+      "galaxy_faction_ref": null,
+      "type": "government",
+      "control_type": [
+        "political",
+        "informational"
+      ],
+      "control_strength": "dominant",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "low",
+        "financial": "moderate",
+        "note": ""
+      },
+      "motivation": "Maintaining Bothan Space's Allied Region autonomy under the Empire. Advancing Bothan prestige and influence on the galactic stage. Balancing clan rivalries to prevent internal collapse. Officially neutral in the Galactic Civil War while covertly supporting the Rebellion through the Spynet. The Council's ultimate motivation is ensuring Bothawui remains indispensable to whoever holds galactic power.",
+      "assets": [
+        "Combined Clans Center Building — seat of government in Drev'starn",
+        "Bothan Council ministries and committees",
+        "Bothan Defense Corps — planetary military force",
+        "Diplomatic missions across the galaxy",
+        "Allied Region status granting limited Imperial autonomy",
+        "Control over 150+ inhabited systems in Bothan Space"
+      ],
+      "relationships": [
+        {
+          "faction_id": "bothan_spynet",
+          "type": "symbiotic",
+          "notes": "The Council and the Spynet are intertwined. Senior Council members have Spynet connections. The Spynet's intelligence gathering supports Council policy. The relationship is not one of direct control — the Spynet operates semi-independently but serves Bothan interests as defined by the Council."
+        },
+        {
+          "faction_id": "imperial_monitoring",
+          "type": "adversarial_covert",
+          "notes": "Officially cooperative. The Council maintains polite diplomatic relations with Imperial representatives while the Spynet works to blunt Imperial surveillance efforts. Bothawui's Allied Region status depends on maintaining this delicate fiction."
+        },
+        {
+          "faction_id": "rebel_intelligence_bothawui",
+          "type": "covert_support",
+          "notes": "The Council officially maintains neutrality. Covertly, senior members allow Rebel operatives limited protection within Bothan Space. Any direct connection between the Council and the Rebellion would endanger Allied Region status."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on Imperial fleet movements, political developments in the Senate, trade route disruptions, and rival faction schemes. Information is Bothawui's primary export and the Council's primary tool of governance."
+        },
+        {
+          "type": "person",
+          "reason": "Off-world agents, defectors, political dissidents, and anyone who possesses intelligence of value. The Council tracks arrivals and departures meticulously."
+        }
+      ]
+    },
+    {
+      "id": "bothan_spynet",
+      "name": "Bothan Spynet",
+      "galaxy_faction_ref": null,
+      "type": "intelligence",
+      "control_type": [
+        "informational"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "low",
+        "financial": "high",
+        "note": ""
+      },
+      "motivation": "",
+      "assets": [
+        "Galaxy-spanning agent network — moles, provocateurs, sleepers, and drop-offs",
+        "Spynet hubs on Bothawui — Bothan-run intelligence processing centers",
+        "Foreign species agents placed across Imperial and Rebel territories",
+        "Coded Wrendui communication — fur-ripple cipher systems unreadable to non-Bothans",
+        "Information brokerage infrastructure — tapcafes, dead drops, encrypted channels"
+      ],
+      "relationships": [
+        {
+          "faction_id": "bothan_council",
+          "type": "symbiotic",
+          "notes": "The Spynet serves Bothan interests broadly. Council members leverage Spynet intelligence for policy and personal gain. The Spynet operates with semi-independence."
+        },
+        {
+          "faction_id": "rebel_intelligence_bothawui",
+          "type": "transactional",
+          "notes": "The Spynet provides regular and crucial intelligence to the Alliance, but at a high cost in credits. The Bothans sell their information to the highest bidder — the Alliance simply bids highest for the intelligence that matters most to them."
+        },
+        {
+          "faction_id": "imperial_monitoring",
+          "type": "adversarial",
+          "notes": "The Empire closely monitors Bothan Space and suspects Spynet involvement with the Rebellion. The Spynet helps conceal Rebel presence within Bothan Space. Discovery of this connection would likely result in an Imperial crackdown."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "All intelligence has value. Military deployments, political secrets, criminal operations, trade route surveys, scientific discoveries — the Spynet collects and sells everything."
+        },
+        {
+          "type": "person",
+          "reason": "Agents, defectors, witnesses, anyone with knowledge worth extracting. The Spynet recruits and handles assets across the galaxy."
+        },
+        {
+          "type": "resource",
+          "reason": "Credits to fund operations. Advanced communications and slicing technology. Encrypted data storage systems."
+        }
+      ]
+    },
+    {
+      "id": "imperial_monitoring",
+      "name": "Imperial Monitoring Force",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Monitoring Bothan Space for signs of Rebel activity. Ensuring Bothan compliance with Imperial decrees. Attempting to penetrate or co-opt the Spynet for Imperial use. Maintaining the fiction that Allied Region status means Imperial authority is respected.",
+      "assets": [
+        "Imperial diplomatic mission in Drev'starn",
+        "ISB monitoring agents (limited effectiveness against Bothan counter-intelligence)",
+        "Imperial naval patrols on the borders of Bothan Space",
+        "Authority to issue Imperial decrees within Allied Region framework"
+      ],
+      "relationships": [
+        {
+          "faction_id": "bothan_council",
+          "type": "supervisory_nominal",
+          "notes": "The Empire has nominal authority but limited practical control. The Council cooperates on surface matters while the Spynet ensures Imperial intelligence gathering remains ineffective."
+        },
+        {
+          "faction_id": "bothan_spynet",
+          "type": "adversarial",
+          "notes": "Imperial Intelligence suspects the Spynet feeds information to the Rebellion but cannot prove it. The Spynet's counter-intelligence capabilities consistently frustrate Imperial monitoring efforts."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Evidence of Rebel activity in Bothan Space. Proof of Spynet collaboration with the Alliance. Intelligence on Bothan military capabilities and Defense Corps readiness."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives hiding under Bothan protection. Disaffected Bothans who might be turned as Imperial assets."
+        }
+      ]
+    },
+    {
+      "id": "bothan_clans",
+      "name": "Bothan Clan Network",
+      "galaxy_faction_ref": null,
+      "type": "cultural",
+      "control_type": [
+        "political",
+        "economic",
+        "informational"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": ""
+      },
+      "motivation": "Clan prestige and political influence above all else. Wealth is secondary to reputation and control. Each clan seeks to place its members in key Council positions, ministry appointments, and Spynet roles. Inter-clan rivalry is constant, complex, and rarely violent — information warfare and political maneuvering are the preferred weapons.",
+      "assets": [
+        "Clan compounds and estates in Drev'starn and across Bothan Space",
+        "Clan-affiliated businesses and trade networks",
+        "Clan intelligence operations (separate from but overlapping with the Spynet)",
+        "Patronage networks controlling ministry appointments and committee seats"
+      ],
+      "relationships": [
+        {
+          "faction_id": "bothan_council",
+          "type": "constituent",
+          "notes": "The clans make up the Council. Each major clan has one representative. Clan politics determine Council policy. The Council Chief election is the apex of inter-clan competition."
+        },
+        {
+          "faction_id": "bothan_spynet",
+          "type": "embedded",
+          "notes": "Clan members staff the Spynet at every level. Clans use Spynet intelligence for their own schemes. The boundary between clan intelligence operations and Spynet operations is deliberately blurred."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on rival clans' schemes, alliances, and vulnerabilities. Off-world intelligence that can be leveraged for clan prestige."
+        },
+        {
+          "type": "person",
+          "reason": "Off-worlders who can be recruited as agents or manipulated into serving clan interests. Rival clan members who can be compromised or turned."
+        }
+      ]
+    },
+    {
+      "id": "information_trade_criminal",
+      "name": "Black Market Information Trade",
+      "galaxy_faction_ref": null,
+      "type": "criminal",
+      "control_type": [
+        "economic",
+        "informational"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "high",
+        "financial": "high",
+        "note": "Spying is the Bothans' main industry, and a shadow economy of illicit information trade operates alongside the legitimate Spynet. Criminal syndicates including Black Sun maintain information-buying operations on Bothawui, purchasing intelligence that the Spynet itself might not officially sell. Off-world crime lords send representatives to acquire data on competitors, Imperial patrol routes, and smuggling opportunities. The line between legitimate intelligence brokerage and criminal information fencing is deliberately vague on Bothawui."
+      },
+      "motivation": "Profit from selling intelligence that falls outside official Spynet channels. Criminal organizations purchase military intelligence, shipping schedules, law enforcement data, and blackmail material. Some Bothan clans operate unofficial information-selling operations that undercut or supplement the Spynet.",
+      "assets": [
+        "Black market information brokers in Drev'starn's commercial districts",
+        "Encrypted communication channels to off-world criminal networks",
+        "Compromised Spynet agents willing to sell intelligence independently",
+        "Front businesses — tapcafes, import/export firms, courier services"
+      ],
+      "relationships": [
+        {
+          "faction_id": "bothan_spynet",
+          "type": "parasitic",
+          "notes": "The black market feeds off Spynet leaks and operates in spaces the Spynet does not officially serve. The Spynet tolerates some black market activity as useful cover for its own operations."
+        },
+        {
+          "faction_id": "bothan_council",
+          "type": "adversarial_tolerated",
+          "notes": "The Council officially prohibits unauthorized intelligence trading but enforcement is selective. Some Council members profit from the black market through clan proxies."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Any intelligence with resale value — Imperial patrol schedules, shipping manifests, political blackmail material, corporate secrets, criminal organization intel."
+        },
+        {
+          "type": "resource",
+          "reason": "Credits, advanced slicing equipment, encrypted communication hardware. The black market runs on technology and money."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "combined_clans_center",
+      "name": "Combined Clans Center Building",
+      "district_id": "drevstarn",
+      "type": [
+        "political",
+        "command"
+      ],
+      "controlling_faction_id": "bothan_council",
+      "controlling_faction_notes": "The seat of the Bothan Council government. All major clans maintain offices here. The Council Chief presides over sessions. Ministries and committees operate from the building's secure levels.",
+      "strategic_value": "The political nerve center of Bothan Space. Controlling or influencing decisions made here affects 150+ star systems. Intelligence gathered within these walls reveals the direction of Bothan policy, clan alliances, and the covert relationship between the Council and the Rebellion. Physically well-defended by Bothan Defense Corps security and clan guards.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "bothan_politician",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "A Bothan Council member. Cunning, well-informed, and always pursuing an agenda. Never acts without calculating personal and clan benefit."
+        },
+        {
+          "archetype_ref": "bothan_spy",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Clan intelligence operatives and Spynet agents working the halls of government. Observing visitors, monitoring communications, running counter-intelligence."
+        },
+        {
+          "archetype_ref": "defense_corps_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Bothawui Defense Corps personnel providing physical security. Professional, well-equipped, and loyal to the Council."
+        }
+      ]
+    },
+    {
+      "id": "tiaran_grast",
+      "name": "Tiaran'grast",
+      "district_id": "drevstarn",
+      "type": [
+        "informational",
+        "economic"
+      ],
+      "controlling_faction_id": "bothan_spynet",
+      "controlling_faction_notes": "The Tiaran'grast functions as a major Spynet hub and information exchange. Intelligence flows through this location from agents across the galaxy. While not exclusively controlled by the Spynet, its operations are deeply embedded here.",
+      "strategic_value": "A critical node in the galaxy's largest non-governmental intelligence network. Intelligence processed here affects military campaigns, political decisions, and criminal enterprises across the galaxy. Gaining access to Tiaran'grast operations would provide unparalleled intelligence insight. Losing it would blind the Spynet across multiple sectors.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "bothan_spymaster",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Senior Spynet coordinator processing intelligence from galaxy-wide agent networks. Knows more than almost anyone on the planet."
+        },
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Mid-level intelligence handlers meeting with off-world buyers. Negotiating prices, verifying credentials, assessing information value."
+        },
+        {
+          "archetype_ref": "slicer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Spynet technicians maintaining encrypted communications and processing intercepted data."
+        }
+      ]
+    },
+    {
+      "id": "drevstarn_commercial_district",
+      "name": "Drev'starn Commercial District",
+      "district_id": "drevstarn",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "bothan_clans",
+      "controlling_faction_notes": "Clan-operated businesses dominate the commercial district. Tapcafes, trading houses, courier services, and technology firms serve as both legitimate enterprises and intelligence-gathering fronts.",
+      "strategic_value": "The public-facing information marketplace of Bothawui. Off-worlders seeking to purchase intelligence, hire agents, or make contacts come here first. Every transaction is observed. Every conversation is potentially recorded. The commercial district is where the black market information trade operates most visibly, hidden in plain sight among legitimate businesses.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Independent or clan-affiliated brokers operating from tapcafes and trade offices. Selling intelligence of varying quality and reliability."
+        },
+        {
+          "archetype_ref": "off_world_buyer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Representatives of criminal syndicates, corporations, or governments purchasing intelligence. Wary of being sold false information."
+        },
+        {
+          "archetype_ref": "bothan_merchant",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Clan merchants running legitimate businesses that double as intelligence-gathering operations. Every sale comes with a question."
+        }
+      ]
+    },
+    {
+      "id": "bothawui_shipyards_facility",
+      "name": "Bothawui Shipyards",
+      "district_id": "bothawui_shipyards",
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "bothan_council",
+      "controlling_faction_notes": "Operated under Council defense ministry authority with clan-affiliated shipwright firms doing the actual construction. The Bothawui Defense Corps maintains military vessel contracts here.",
+      "strategic_value": "The primary military-industrial asset of Bothan Space. Produces patrol vessels and support craft for the Bothawui Defense Corps. Also serves as a commercial repair and maintenance hub for the heavy traffic transiting Bothan Space via the Bothan Run and Kaaga Run. Imperial monitors pay close attention to output levels.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "defense_corps_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Bothawui Defense Corps officer overseeing military contracts and shipyard security."
+        },
+        {
+          "archetype_ref": "shipyard_engineer",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Clan-affiliated shipwrights and technicians. Skilled but clan loyalty may override professional obligation."
+        },
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Imperial monitor observing shipyard output. Attempting to verify that production does not exceed declared levels or produce military vessels for the Rebellion."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "information_economy",
+      "type": "cultural",
+      "source_faction_id": "bothan_spynet",
+      "source_description": "Information is Bothawui's primary industry and export. The entire planetary economy and social structure revolves around the acquisition, analysis, and sale of intelligence. Every interaction on Bothawui carries the subtext of information exchange. Visitors are assessed for what they know, not what they own. This creates a uniquely paranoid and observant social environment where nothing is taken at face value.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "bothan_council",
+          "description": "Council policy is shaped entirely by intelligence assessments. Political decisions are information warfare decisions."
+        },
+        {
+          "faction_id": "bothan_clans",
+          "description": "Clan prestige is measured by the quality and quantity of intelligence they control. Inter-clan rivalry plays out through information operations."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "dominant",
+          "modifier": "All social interactions on Bothawui carry an information subtext. Deception checks against Bothans face automatic setbacks. Charm and Negotiation checks benefit from offering genuinely valuable information. Streetwise checks to acquire intelligence gain automatic advantages — Bothawui is the easiest place in the galaxy to buy information, if you can pay."
+        }
+      ]
+    },
+    {
+      "id": "clan_paranoia",
+      "type": "cultural",
+      "source_faction_id": "bothan_clans",
+      "source_description": "Bothan society is built on institutional paranoia. In the Bothan Way, anyone who is not working with you is working against you. Layer upon layer of schemes swirl around every clan. This paranoia is well founded — betrayal, character assassination, and political maneuvering are constants of daily life. Off-worlders who associate with Bothans often find themselves unwittingly caught in the web of clan politics.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "bothan_clans",
+          "description": "Clans assume the worst of rivals and prepare accordingly. No offer of alliance is accepted without suspicion. No favor is granted without expectation of return."
+        },
+        {
+          "faction_id": "bothan_spynet",
+          "description": "Spynet agents practice operational security that borders on obsession. Compartmentalization is extreme. Trust is a professional liability."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Bothans add automatic setbacks to all checks to determine if they are being deceived or manipulated — they are always watching for it. Players who demonstrate awareness of clan dynamics and offer appropriate deference gain advantages on social checks. Naive or blunt approaches generate suspicion."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "bothan_run",
+        "destination": "Bothan Run (Mid Rim hyperspace trade route)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "A Mid Rim hyperspace trade route passing through Bothan Space. Connects to Lannik Space and other Mid Rim systems. Serves as a primary commercial artery for Bothan trade and a channel for Spynet courier traffic.",
+        "source_refs": [
+          {
+            "book": "Keeping the Peace (Guardian Sourcebook)",
+            "page": 22,
+            "detail": "Lannik lies within Lannik Space sector, easily accessible by the Bothan Run trade route"
+          }
+        ]
+      },
+      {
+        "id": "kaaga_run",
+        "destination": "Kaaga Run (route connecting to Hutt Space via Circumtore and Nar Kaaga)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta (Hutt Space Sourcebook)",
+            "page": 33,
+            "detail": "Kaaga Run connects Circumtore with Nar Kaaga and the Imperial route to Bothan Space"
+          }
+        ]
+      },
+      {
+        "id": "manda_merchant_route",
+        "destination": "Manda Merchant Route",
+        "travel_time": null,
+        "route_quality": null,
+        "notes": "Trade route passing through or near Bothan Space. Listed in compendium data as a Bothawui trade route.",
+        "source_refs": [
+          {
+            "book": "Planet Compendium",
+            "page": 14,
+            "detail": "Listed as a Bothawui trade route"
+          }
+        ]
+      },
+      {
+        "id": "reena_trade_route",
+        "destination": "Reena Trade Route",
+        "travel_time": null,
+        "route_quality": null,
+        "notes": "Trade route connecting to Bothawui. Listed in compendium data as a Bothawui trade route.",
+        "source_refs": [
+          {
+            "book": "Planet Compendium",
+            "page": 14,
+            "detail": "Listed as a Bothawui trade route"
+          }
+        ]
+      },
+      {
+        "id": "kothlis",
+        "destination": "Kothlis (major Bothan colony)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Major Bothan colony world. One of two primary colony worlds alongside Torolis. Connected to Bothawui through Bothan Space's internal route network.",
+        "source_refs": [
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 53,
+            "detail": "Bothans have established major colonies on Kothlis and Torolis"
+          }
+        ]
+      },
+      {
+        "id": "torolis",
+        "destination": "Torolis (major Bothan colony)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Major Bothan colony world. Connected to Bothawui through Bothan Space's internal route network.",
+        "source_refs": [
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 53,
+            "detail": "Bothans have established major colonies on Kothlis and Torolis"
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "bothan_council",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The Council is in recess or distracted by an off-world crisis. Government functions continue through bureaucratic inertia but no active policy is being made. Defense Corps presence is reduced to minimal patrols. Clan compounds operate independently.",
+          "presence_reason": "Major political crisis dividing the clans, a Council Chief election contest consuming all political energy, or a galactic event drawing senior leadership off-world.",
+          "roles": [
+            {
+              "role": "Council bureaucrat",
+              "archetype_ref": "bothan_bureaucrat",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Minor officials keeping government functions running. No authority to make significant decisions."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Normal governance. The Council is in session. Ministries operate at full capacity. The Bothawui Defense Corps maintains standard patrols. Clan representatives are actively politicking. Off-world visitors are processed through standard surveillance protocols.",
+          "presence_reason": "Default peacetime state. The Council governs, the clans maneuver, and the Spynet watches.",
+          "roles": [
+            {
+              "role": "Council minister",
+              "archetype_ref": "bothan_politician",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior clan representatives attending Council sessions and managing ministry portfolios."
+            },
+            {
+              "role": "Defense Corps patrol",
+              "archetype_ref": "defense_corps_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "BDC personnel at government buildings, spaceports, and key infrastructure. Professional but not aggressive."
+            },
+            {
+              "role": "Clan intelligence operative",
+              "archetype_ref": "bothan_spy",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Clan agents monitoring off-world visitors and rival clan activities."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened security across Drev'starn. The Council has received intelligence suggesting an imminent threat — Imperial crackdown, assassination plot, or major espionage operation targeting Bothan Space. Defense Corps mobilized to visible positions. Counter-intelligence operations intensified. Off-world visitors subjected to enhanced scrutiny.",
+          "presence_reason": "Credible threat intelligence, discovery of an Imperial infiltration attempt, detection of hostile espionage operations, or internal clan conflict escalating toward violence.",
+          "roles": [
+            {
+              "role": "Defense Corps security detail",
+              "archetype_ref": "defense_corps_guard",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Visible armed presence at all government buildings, spaceports, and major intersections. Checking identification and scanning for weapons."
+            },
+            {
+              "role": "Spynet counter-intelligence team",
+              "archetype_ref": "bothan_spy",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Counter-intelligence operatives conducting active sweeps for foreign agents, surveillance devices, and compromised communications."
+            },
+            {
+              "role": "Council security chief",
+              "archetype_ref": "bothan_spymaster",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior security official coordinating planetary defense. Reports directly to the Council Chief."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full planetary lockdown. The Bothawui Defense Corps is mobilized for war footing. All off-world traffic is halted or rerouted under military escort. The Council operates from secure bunkers. The Spynet has gone to maximum alert, recalling agents and severing compromised networks. Clan compounds are sealed and defended. Drev'starn resembles a fortress.",
+          "presence_reason": "Imperial invasion force detected approaching Bothan Space, assassination of a Council Chief, exposure of the Spynet-Rebellion connection, or a catastrophic intelligence breach threatening all Bothan operations galaxy-wide.",
+          "roles": [
+            {
+              "role": "Defense Corps battalion",
+              "archetype_ref": "defense_corps_guard",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Full military deployment across the capital. Anti-spacecraft emplacements active. Military checkpoints at all major thoroughfares."
+            },
+            {
+              "role": "Spynet emergency operations",
+              "archetype_ref": "bothan_spy",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Agents conducting emergency protocols — burning compromised networks, evacuating high-value assets, purging sensitive data."
+            },
+            {
+              "role": "Council Chief (wartime authority)",
+              "archetype_ref": "bothan_politician",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The Council Chief assumes emergency executive authority. All clans subordinate their operations to unified defense. This level of cooperation is nearly unprecedented in Bothan politics."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Spynet handlers note unusual patterns in off-world visitor arrivals. Clan intelligence operatives increase surveillance frequency. Defense Corps patrols are briefed to watch for specific behaviors.",
+        "targeted": "Spynet assets are tasked with locating specific individuals. Clan networks activated to share intelligence on targets. Off-world communications monitored for keywords and known contact patterns.",
+        "manhunt": "All exits from Drev'starn monitored by Defense Corps checkpoints. Spaceport departures halted pending security clearance. Spynet activates the full depth of its local network — every tapcafe owner, courier, and merchant becomes an observer. On Bothawui, there is nowhere to hide from the Spynet."
+      }
+    },
+    {
+      "faction_id": "imperial_monitoring",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A single diplomatic liaison maintains an office in Drev'starn. No military presence. The Empire's attention is focused elsewhere. Bothan Space operates with near-complete autonomy.",
+          "presence_reason": "Imperial resources redirected to a major military campaign. Bothawui assessed as low priority. The fiction of Allied Region cooperation is maintained through minimal diplomatic contact.",
+          "roles": [
+            {
+              "role": "Imperial diplomatic liaison",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A lone diplomat maintaining Imperial presence. Isolated and outmaneuvered by Bothan counter-intelligence."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial monitoring posture. A diplomatic mission in Drev'starn with ISB analysts attempting to penetrate Bothan communications. Naval patrols on the borders of Bothan Space. Imperial customs inspectors at the shipyards.",
+          "presence_reason": "Default state. The Empire monitors Bothan Space as part of Allied Region oversight. Effectiveness is limited by Bothan counter-intelligence.",
+          "roles": [
+            {
+              "role": "ISB monitoring agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "ISB agents operating under diplomatic cover. Attempting to identify Rebel operatives and Spynet-Rebellion connections. Consistently frustrated by Bothan counter-intelligence."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Stationed at the Bothawui Shipyards monitoring military vessel production levels."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Empire has received intelligence suggesting Bothan involvement with the Rebellion. Additional ISB agents deployed. Naval presence increased at the borders of Bothan Space. The diplomatic mission demands increased access to Bothan government facilities. The Bothan Council offers polite cooperation while the Spynet works to identify and neutralize the intelligence leak.",
+          "presence_reason": "Specific intelligence suggesting Rebel operations in Bothan Space. Imperial High Command directive to increase pressure on Allied Regions suspected of disloyalty.",
+          "roles": [
+            {
+              "role": "ISB investigation team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "ISB agents conducting active investigation. Demanding access to shipping records, communication logs, and government facilities."
+            },
+            {
+              "role": "Imperial naval attaché",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer coordinating naval patrol intensification along Bothan Space borders."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Empire has suspended Bothan Space's Allied Region status. Imperial Star Destroyers in orbit over Bothawui. ISB conducting overt operations in Drev'starn. The Bothan Council protests through diplomatic channels while the Spynet executes emergency protocols to protect its most sensitive assets and Rebel connections.",
+          "presence_reason": "Proof of Spynet-Rebellion collaboration obtained. The Emperor or Moff Council has authorized direct Imperial intervention in Bothan Space. This is the scenario the Bothans have worked to prevent since the Empire's formation.",
+          "roles": [
+            {
+              "role": "Imperial occupation commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Imperial officer directing the occupation. Operating from orbit with Stormtrooper ground forces."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 6,
+              "notes": "ISB agents raiding Spynet facilities, seizing records, and arresting suspected Rebel collaborators."
+            },
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Ground troops securing government buildings, spaceports, and shipyard facilities."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "ISB monitoring agents increase communication intercept attempts. Diplomatic liaison requests additional meetings with Council officials. Naval patrol frequency increases at Bothan Space borders.",
+        "targeted": "ISB deploys surveillance assets against specific individuals or locations. Imperial diplomatic mission issues formal inquiries about named persons or organizations.",
+        "manhunt": "Imperial naval blockade of Bothawui orbital space. All departing vessels subject to boarding and search. ISB teams operating openly in Drev'starn. The Council faces a critical decision — comply and expose Rebel connections, or resist and lose Allied Region status."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "bothan_council",
+      "bothan_spynet"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Covert operatives embedded in Drev'starn's commercial districts",
+      "Rebel Alliance: Purchasing agreements with Spynet brokers",
+      "Rebel Alliance: Safe houses provided by sympathetic Bothan clans",
+      "Rebel Alliance: Courier networks using commercial traffic through Bothan Space",
+      "Rebel Alliance on this planet: Acquiring intelligence from the Spynet to support Alliance military and political operations. Running agents through Bothan Space's commercial traffic. Maintaining the critical intelligence pipeline t"
+    ],
+    "presets": {
+      "aor_intelligence": {
+        "name": "Spynet Operations",
+        "description": "The PCs are Alliance Intelligence operatives embedded in Drev'starn, purchasing intelligence from the Spynet and running their own espionage operations under the limited protection the Bothans provide. The Bothan Council officially maintains neutrality — any exposure of the Alliance-Bothan connection would endanger the entire Spynet pipeline. The PCs must navigate the treacherous waters of clan politics, negotiate with information brokers who sell to the highest bidder, dodge Imperial ISB agents attempting to penetrate Bothan counter-intelligence, and maintain operational security while extracting the intelligence the Alliance desperately needs. Trust no one. Everyone on Bothawui is selling something, and the PCs might be the product.",
+        "initial_faction_states": {
+          "bothan_council": "patrol",
+          "bothan_spynet": "patrol",
+          "imperial_monitoring": "patrol",
+          "rebel_intelligence_bothawui": "patrol",
+          "bothan_clans": "patrol",
+          "information_trade_criminal": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A Spynet broker offers intelligence on an Imperial fleet staging area — but the price is a favor, not credits. The favor involves retrieving a data package from a rival clan's compound in Drev'starn. The clan connection makes the operation politically explosive.",
+          "An Alliance courier has gone silent on the Kaaga Run between Hutt Space and Bothawui. The last transmission mentioned Imperial naval activity near the route. The courier was carrying intelligence too sensitive to lose — and too dangerous to let the Empire capture.",
+          "An ISB agent operating under diplomatic cover has been asking questions about Alliance purchasing patterns in the commercial district. The Spynet wants the agent neutralized quietly — but the PCs must determine if the agent has already transmitted findings to Imperial Intelligence.",
+          "A Bothan clan leader approaches the PCs with an offer: his clan will provide a permanent safe house and Spynet access in exchange for Alliance help discrediting a rival clan in the Council. The rival clan is rumored to be negotiating with the Empire to sell out Rebel operations in Bothan Space.",
+          "Two dozen Bothan agents are preparing for a high-risk intelligence operation that could change the course of the war. They need off-world support — extraction planning, equipment procurement, and a fallback position if the operation is compromised. The Alliance cannot officially know the details."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "52-53, 350, 363",
+      "detail": "Bothan species entry (physiology, society, Spynet, homeworld, language, Wrendui); Bothawui gazetteer entry; Bothan Space Allied Region entry"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "53, 73, 324, 362, 373",
+      "detail": "Bothan species entry (society, Wrendui, Spynet, Life in the Alliance); Arkhan Brem'tu / Bothawui Defense Corps sidebar; Alliance Intelligence and Spynet relationship; Bothawui gazetteer entry; Bothan Space Allied Region entry"
+    },
+    {
+      "book": "Spy Sourcebook (Cyphers and Masks)",
+      "pages": "8",
+      "detail": "Bothawui listed as a Mid Rim system with strong military providing Rebel recruits; agents in the Mid Rim operate with local support"
+    },
+    {
+      "book": "Lords of Nal Hutta (Hutt Space Sourcebook)",
+      "pages": "33",
+      "detail": "Kaaga Run trade route connecting Circumtore/Nar Kaaga to Bothan Space"
+    },
+    {
+      "book": "Keeping the Peace (Guardian Sourcebook)",
+      "pages": "22",
+      "detail": "Bothan Run trade route referenced in Lannik homeworld entry"
+    },
+    {
+      "book": "Planet Compendium",
+      "pages": "14",
+      "detail": "Primary compendium entry — background, government, population, terrain, cities, trade routes, orbital metrics"
+    }
+  ]
+}

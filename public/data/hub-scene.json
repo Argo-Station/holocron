@@ -1,0 +1,142 @@
+{
+  "sceneId": "creation-hub",
+  "backgroundAsset": "public/Assets/Background.png",
+  "hotspots": [
+    {
+      "id": "background-clipboard",
+      "kind": "creation",
+      "stepId": "background",
+      "x": 39.0,
+      "y": 72.0,
+      "img": "public/Assets/background/Recruitment_Dossier.png",
+      "imgWidth": 180,
+      "tooltip": "Recruitment Dossier"
+    },
+    {
+      "id": "species-datapad",
+      "kind": "creation",
+      "stepId": "species",
+      "x": 69.5,
+      "y": 63.6,
+      "img": "public/Assets/species/Species_Tubes.png",
+      "imgWidth": 110,
+      "tooltip": "Species IDs"
+    },
+    {
+      "id": "career-board",
+      "kind": "creation",
+      "stepId": "career",
+      "x": 87.0,
+      "y": 88.0,
+      "img": "public/Assets/career/Career_Stand.png",
+      "imgWidth": 207,
+      "anchor": "bottom",
+      "tooltip": "Career & Specialization"
+    },
+    {
+      "id": "xp-scanner",
+      "kind": "creation",
+      "stepId": "chars",
+      "x": 43.6,
+      "y": 61.0,
+      "img": "public/Assets/chars/Medical_Pad.png",
+      "imgWidth": 119,
+      "anchor": "center",
+      "tooltip": "Skills & XP"
+    },
+    {
+      "id": "talent-terminal",
+      "kind": "creation",
+      "stepId": "talents",
+      "x": 56.0,
+      "y": 54.7,
+      "img": "public/Assets/terminal/Datapad_Background.png",
+      "imgWidth": 120,
+      "anchor": "center",
+      "tooltip": "Talent Training"
+    },
+    {
+      "id": "narrative-obligation",
+      "kind": "creation",
+      "stepId": "narrative-reveal",
+      "mechanic": "obligation",
+      "x": 28.5,
+      "y": 29.0,
+      "img": "public/Assets/narrative/Bounty_Poster.png",
+      "imgWidth": 112,
+      "anchor": "center",
+      "tooltip": "Intercepted Transmission"
+    },
+    {
+      "id": "narrative-duty",
+      "kind": "creation",
+      "stepId": "narrative-reveal",
+      "mechanic": "duty",
+      "x": 27.0,
+      "y": 63.0,
+      "img": "public/Assets/narrative/Rebel_Medal.png",
+      "imgWidth": 85,
+      "rotation": 20,
+      "anchor": "center",
+      "tooltip": "Alliance Commendation"
+    },
+    {
+      "id": "narrative-morality",
+      "kind": "creation",
+      "stepId": "narrative-reveal",
+      "mechanic": "morality",
+      "x": 86.5,
+      "y": 52.0,
+      "img": "public/Assets/narrative/Broken_Holocron.png",
+      "imgWidth": 72,
+      "anchor": "center",
+      "tooltip": "Fractured Memory"
+    },
+    {
+      "id": "gear-crate",
+      "kind": "creation",
+      "stepId": "weapons",
+      "x": 19.0,
+      "y": 83.2,
+      "img": "public/Assets/weapons/Gear_Weapons_Armor.png",
+      "imgWidth": 254,
+      "anchor": "center",
+      "tooltip": "Gear & Equipment"
+    },
+    {
+      "id": "review-tunnel",
+      "kind": "creation",
+      "stepId": "review",
+      "x": 84.0,
+      "y": 34.4,
+      "eventId": "twist-cinematic",
+      "tooltip": "\u25c8 CLASSIFIED"
+    },
+    {
+      "id": "lore-map",
+      "kind": "lore",
+      "loreId": "galactic-map",
+      "x": 60.5,
+      "y": 44.3,
+      "img": "public/Assets/map/Holo_globe.png",
+      "imgWidth": 58,
+      "anchor": "center",
+      "tooltip": "Corellian Map"
+    },
+    {
+      "id": "lore-tripod",
+      "kind": "lore",
+      "loreId": "survey-rig",
+      "x": 15.8,
+      "y": 37.7,
+      "tooltip": "Illegal Laser"
+    },
+    {
+      "id": "random-operative",
+      "kind": "random",
+      "x": 36.5,
+      "y": 66.0,
+      "tooltip": "Roll Operative"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "frame": {
+    "asset": "public/Assets/Datapad_UI.png",
+    "width": 1365,
+    "height": 2048
+  },
+  "safeArea": {
+    "x": 270,
+    "y": 240,
+    "width": 825,
+    "height": 1483
+  },
+  "contentInset": {
+    "top": 16,
+    "right": 16,
+    "bottom": 16,
+    "left": 16
+  },
+  "layouts": [
+    {
+      "id": "list-nav",
+      "description": "Searchable list view with bottom navigation.",
+      "slots": {
+        "hint":   { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.07 },
+        "search": { "x": 0.05, "y": 0.12, "w": 0.9,  "h": 0.06 },
+        "list":   { "x": 0.05, "y": 0.20, "w": 0.9,  "h": 0.64 },
+        "nav":    { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "detail-nav",
+      "description": "Portrait/detail layout for species-style views.",
+      "slots": {
+        "hint":     { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.07 },
+        "portrait": { "x": 0.05, "y": 0.12, "w": 0.3,  "h": 0.16 },
+        "identity": { "x": 0.39, "y": 0.12, "w": 0.56, "h": 0.16 },
+        "stats":    { "x": 0.05, "y": 0.31, "w": 0.9,  "h": 0.53 },
+        "nav":      { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "card-detail",
+      "description": "Top summary card with large detail panel and bottom navigation.",
+      "slots": {
+        "hint":   { "x": 0.05, "y": 0.03, "w": 0.9, "h": 0.07 },
+        "card":   { "x": 0.05, "y": 0.12, "w": 0.9, "h": 0.17 },
+        "detail": { "x": 0.05, "y": 0.32, "w": 0.9, "h": 0.52 },
+        "nav":    { "x": 0.05, "y": 0.87, "w": 0.9, "h": 0.09 }
+      }
+    },
+    {
+      "id": "form-nav",
+      "description": "Header, long-form content, and bottom navigation.",
+      "slots": {
+        "hint":   { "x": 0.05, "y": 0.03, "w": 0.9, "h": 0.09 },
+        "header": { "x": 0.05, "y": 0.12, "w": 0.9, "h": 0.09 },
+        "form":   { "x": 0.05, "y": 0.24, "w": 0.9, "h": 0.60 },
+        "nav":    { "x": 0.05, "y": 0.87, "w": 0.9, "h": 0.09 }
+      }
+    },
+    {
+      "id": "stat-xp",
+      "description": "Portrait plus XP/characteristic spending view.",
+      "slots": {
+        "hint":     { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.06 },
+        "portrait": { "x": 0.05, "y": 0.11, "w": 0.28, "h": 0.13 },
+        "xp-pool":  { "x": 0.37, "y": 0.11, "w": 0.58, "h": 0.13 },
+        "stats":    { "x": 0.05, "y": 0.27, "w": 0.9,  "h": 0.22 },
+        "skills":   { "x": 0.05, "y": 0.52, "w": 0.9,  "h": 0.32 },
+        "nav":      { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "mechanic-inventory",
+      "description": "Credits, tabs, inventory list, and bottom navigation.",
+      "slots": {
+        "hint":      { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.07 },
+        "mechanic":  { "x": 0.05, "y": 0.12, "w": 0.57, "h": 0.10 },
+        "credits":   { "x": 0.66, "y": 0.12, "w": 0.29, "h": 0.10 },
+        "tabs":      { "x": 0.05, "y": 0.25, "w": 0.9,  "h": 0.06 },
+        "inventory": { "x": 0.05, "y": 0.33, "w": 0.9,  "h": 0.51 },
+        "nav":       { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "mechanic-nav",
+      "description": "Full-height narrative mechanic panel with credits summary and bottom navigation.",
+      "slots": {
+        "hint":     { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.07 },
+        "mechanic": { "x": 0.05, "y": 0.12, "w": 0.9,  "h": 0.55 },
+        "credits":  { "x": 0.05, "y": 0.70, "w": 0.9,  "h": 0.12 },
+        "nav":      { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "gear-nav",
+      "description": "Gear browser with credits bar, tabs strip, and inventory list.",
+      "slots": {
+        "hint":      { "x": 0.05, "y": 0.03, "w": 0.9,  "h": 0.07 },
+        "credits":   { "x": 0.05, "y": 0.12, "w": 0.9,  "h": 0.08 },
+        "tabs":      { "x": 0.05, "y": 0.22, "w": 0.9,  "h": 0.06 },
+        "inventory": { "x": 0.05, "y": 0.30, "w": 0.9,  "h": 0.54 },
+        "nav":       { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "briefing",
+      "description": "Full-height dossier preface — terminal header, briefing text, single action.",
+      "slots": {
+        "content": { "x": 0.05, "y": 0.05, "w": 0.9, "h": 0.79 },
+        "nav":     { "x": 0.05, "y": 0.87, "w": 0.9, "h": 0.09 }
+      }
+    },
+    {
+      "id": "dossier-reveal",
+      "description": "Full-height narrative dossier with bottom navigation.",
+      "slots": {
+        "dossier": { "x": 0.05, "y": 0.03, "w": 0.9, "h": 0.81 },
+        "nav":     { "x": 0.05, "y": 0.87, "w": 0.9, "h": 0.09 }
+      }
+    },
+    {
+      "id": "species-detail",
+      "description": "Tall portrait left, compact name + 3x3 stat grid right, large description below, nav at bottom.",
+      "slots": {
+        "portrait": { "x": 0.05, "y": 0.07, "w": 0.30, "h": 0.34 },
+        "name":     { "x": 0.38, "y": 0.07, "w": 0.57, "h": 0.07 },
+        "chars":    { "x": 0.38, "y": 0.16, "w": 0.57, "h": 0.25 },
+        "desc":     { "x": 0.05, "y": 0.44, "w": 0.9,  "h": 0.40 },
+        "nav":      { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "full-panel",
+      "description": "Single full-height slot for self-contained widgets that manage their own internal layout.",
+      "slots": {
+        "content": { "x": 0.04, "y": 0.02, "w": 0.92, "h": 0.96 }
+      }
+    },
+    {
+      "id": "content-nav",
+      "description": "Full-height scrollable content slot with standard bottom navigation.",
+      "slots": {
+        "content": { "x": 0.04, "y": 0.05, "w": 0.92, "h": 0.79 },
+        "nav":     { "x": 0.05, "y": 0.87, "w": 0.9,  "h": 0.09 }
+      }
+    },
+    {
+      "id": "review-panel",
+      "description": "Name entry, review summary, actions, and bottom navigation.",
+      "slots": {
+        "name-input": { "x": 0.05, "y": 0.03, "w": 0.9, "h": 0.08 },
+        "summary":    { "x": 0.05, "y": 0.14, "w": 0.9, "h": 0.56 },
+        "actions":    { "x": 0.05, "y": 0.73, "w": 0.9, "h": 0.11 },
+        "nav":        { "x": 0.05, "y": 0.87, "w": 0.9, "h": 0.09 }
+      }
+    }
+  ]
+}

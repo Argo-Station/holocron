@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/vehicle-attachment.schema.json",
+  "title": "Vehicle Attachment",
+  "description": "Canonical, app-owned vehicle-attachment record (SHIPYARD Y3d, ruling shipyard-y3d-census Contract 1). Ingested ONCE from OggDude's itemattachments Type='Vehicle' (120). base_mods/added_mods are DISPLAY prose. SHIP YARD S3 (R-S3K-4) adds the ENCODED form beside them: base_effects, pool_mods (pool_upgrades until F-100 M8's fold, R-M8C8-2) and added_options, written only for keyed mods the book agrees with. hp is null-HONEST: null = source lists no hard-point cost (24 entries), never defaulted to 0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "hp", "_provenance"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "_source_key": { "type": "string", "description": "OggDude Key. Traceability only." },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "description": "Decoded from OggDude Description markup." },
+    "hp": { "type": ["integer", "null"], "minimum": 0, "description": "Hard-point install COST; null = the source lists none — never defaulted to 0 (no-fake-precision)." },
+    "hp_note": {"type": "string", "description": "The book's own words when the hard-point cost is conditional (Upgraded Weapons, EotE p.271: 0 when replacing, 1 when adding). `hp` then holds the adding cost."},
+    "price": { "$ref": "item-common.schema.json#/$defs/price" },
+    "price_per_silhouette": { "const": true, "description": "R-S4WB-6 (ruling shipyard-s4-workbench): the books price this part PER POINT OF SILHOUETTE (FaD Table 7-15, \"2,000 x silhouette\"; FaD p.269–270), so `price` is the printed base and a hull's list price is price × its silhouette, read at ONE place (lib/shared/vesselView.jsx listPrice). Present only where OggDude's ItemAttachment carries <PriceSizeMult>true</PriceSizeMult>; absent = a flat price." },
+    "price_per_passenger": { "const": true, "description": "R-S5R-3 (ruling shipyard-s5-ready, B-1025): the book prices this part PER PASSENGER (\"Price: 2,000 credits times the vehicle's passenger capacity\", Desperate Allies p.65), so `price` is the printed base and a ship's list price is price × its passenger capacity, read at ONE place (lib/shared/vesselView.jsx listPrice); a 0 or null capacity gives no price, no sale (R-S5R-4). Present only where OggDude's ItemAttachment carries <PricePassMult>true</PricePassMult>; at most one price_per_* flag per row." },
+    "price_per_laser_weapon": { "const": true, "description": "R-S5R-3/16 (ruling shipyard-s5-ready, B-1025): the book prices this part PER LASER WEAPON (\"3,000 credits per laser weapon enhanced\", Special Modifications p.66; Table 2-11 p.67's 5,000 is named in the row's cite, DECISIONS D-45), so `price` is the printed base and a ship's list price is price × the count of its weapons whose category is exactly \"Laser\" (public/data/canonical/vehicle_weapon_categories.vocab.json; null is not a laser), read at ONE place (lib/shared/vesselView.jsx listPrice); zero lasers gives no price, no sale (R-S5R-4). Present only where OggDude's ItemAttachment carries <PriceWeponCatMult>Laser</PriceWeponCatMult>; at most one price_per_* flag per row." },
+    "rarity": { "$ref": "item-common.schema.json#/$defs/rarity" },
+    "restricted": { "$ref": "item-common.schema.json#/$defs/restricted" },
+    "sources": { "$ref": "item-common.schema.json#/$defs/sources" },
+    "base_mods": { "$ref": "item-common.schema.json#/$defs/base_mods" },
+    "added_mods": { "$ref": "item-common.schema.json#/$defs/base_mods" },
+    "base_effects": {"type": "array", "items": {"allOf": [{"$ref": "charbuild-common.schema.json#/$defs/vehicle_effect"}, {"not": {"anyOf": [{"required": ["id"]}, {"required": ["per_rank"]}, {"required": ["cite"]}, {"required": ["words"]}]}, "$comment": "R-M8C8-1: id, per_rank, cite and words are TALENT rows only; a part REFUSES them."}, {"properties": {"op": {"not": {"enum": ["weapon_quality_delta"]}}}, "$comment": "R-M8C8-3: weapon_quality_delta is a TALENT-only op; a part REFUSES it (a part that needs it lifts this in its own ruling)."}]}, "description": "SHIP YARD S3 K3: the base mods ENCODED — only those the printed-text check agreed with (data-sources/vehicle_attachment_print_check.json)."},
+    "pool_mods": {"type": "array", "items": {"allOf": [{"$ref": "item-common.schema.json#/$defs/pool_mod_entry"}, {"required": ["applies_to"], "properties": {"die": {"const": "ability"}, "direction": {"const": "upgrade"}, "applies_to": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"properties": {"scope": {"const": "skill"}}}}}}]}, "description": "SHIP YARD (R-M8C8-2): a dice UPGRADE this part gives the crew member rolling that skill from their seat (R-S3K-4); C3's family (R-M8K-3), on a part only upgrade · ability · one skill, until another verb enters with its arm (R-S1RJ-5)."},
+    "added_options": {"type": "array", "description": "SHIP YARD S3 K3 + AM-1: one entry per AddedMods line, in order (index-aligned with added_mods). `id` is STABLE — the OggDude mod Key, else a slug of the printed text — and a saved install names it (InstalledAttachment.mods[].option); `max` is the printed count (EotE p.187).", "items": {"type": "object", "additionalProperties": false, "required": ["id", "max", "effects"], "properties": {"id": {"type": "string", "minLength": 1}, "max": {"type": "integer", "minimum": 1}, "talent_grant": {"type": "string", "minLength": 1, "description": "THE SURFACING MISSION (R-SYC-5, card f100-surfacing-yard-concept ADDENDUM 2 Q3): the talent this option grants whoever uses the system, a talents.json id; vesselResolve projects it on out.seat_talents, never saved."}, "effects": {"type": "array", "items": {"allOf": [{"$ref": "charbuild-common.schema.json#/$defs/vehicle_effect"}, {"not": {"anyOf": [{"required": ["id"]}, {"required": ["per_rank"]}, {"required": ["cite"]}, {"required": ["words"]}]}, "$comment": "R-M8C8-1: id, per_rank, cite and words are TALENT rows only; a part REFUSES them."}, {"properties": {"op": {"not": {"enum": ["weapon_quality_delta"]}}}, "$comment": "R-M8C8-3: weapon_quality_delta is a TALENT-only op; a part REFUSES it (a part that needs it lifts this in its own ruling)."}]}}, "pool_mods": {"type": "array", "items": {"allOf": [{"$ref": "item-common.schema.json#/$defs/pool_mod_entry"}, {"required": ["applies_to"], "properties": {"die": {"const": "ability"}, "direction": {"const": "upgrade"}, "applies_to": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"properties": {"scope": {"const": "skill"}}}}}}]}, "description": "SHIP YARD (R-M8C8-2): a dice UPGRADE this part gives the crew member rolling that skill from their seat (R-S3K-4); C3's family (R-M8K-3), on a part only upgrade · ability · one skill, until another verb enters with its arm (R-S1RJ-5)."}}}},
+    "prints": {"type": "string", "minLength": 1, "description": "R-S3K-7: present when any effect line of the row is NOT encoded — one line saying why, by class."},
+    "cite": {"type": "string", "description": "Printed-page cite for text taken from the book rather than OggDude (B-924), or for a number the book decides (R-S3CR-3's counts; R-S4WB-6's per-silhouette price; R-S5R-3's per-passenger and per-laser prices)."},
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "RAW install limits (carried as data; the UI may filter/annotate, the registry never drops for them).",
+      "properties": {
+        "min_size": { "type": "integer" },
+        "max_size": { "type": "integer" },
+        "must_be_starship": { "type": "boolean" },
+        "must_not_be_starship": { "type": "boolean", "description": "SHIP YARD S8 (ruling f100-s8-vocabulary R-S8V-3): the inverse of must_be_starship, read where it is read (vesselStore resolveFit) against the row's `is_starship` (a library row's, or a frame row's). \"This engine type cannot be mounted on starships\" (Fully Operational p.82, the High-Performance Repulsor Cluster)." },
+        "must_have_hyperdrive": { "type": "boolean" },
+        "type_limit": { "type": "array", "items": { "type": "string" } },
+        "category_limit": { "type": "array", "items": { "type": "string" } },
+        "item_limit": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "kind": {"enum": ["engine", "hull", "conversion"], "description": "SHIP YARD S8 (card shipyard-s8-build R-S8B-3; ruling shipyard-s8-census-card R-S8C-8): what the record IS when it is not an ordinary part — a crafting core component (engine | hull, Fully Operational pp.81-84) or a conversion template (Dangerous Covenants p.71). Absent = an ordinary part. The ONE offer rule (lib/shared/vesselStore.js `offerable`) offers only kind-less rows; a saved ship that holds a kinded one keeps it."},
+    "defense_picks": {"type": "integer", "minimum": 1, "description": "SHIP YARD S8 (card shipyard-s8-build R-S8B-5 + ADDENDUM 2 Q3; ruling shipyard-s8-census-card R-S8C-10): a conversion template only — how many arcs the GM picks for its \"+1\" defense (DC p.71: \"the GM decides which arc the increase applies to\"); its ONE chosen defense_delta applies once per pick, pick i into the ship's conversion.arcs[i]. Absent = no pick."},
+    "_provenance": {"type": "string", "enum": ["oggdude", "book"], "default": "oggdude", "description": "oggdude = ingested; book = a row OggDude does not carry, written from the cited page (B-924)."}
+  }
+}

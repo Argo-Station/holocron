@@ -1,0 +1,192 @@
+{
+  "version": "1.0.0",
+  "notes": [
+    "Deterministic PDF field mapping for FFG SWRPG fillable character sheets.",
+    "Designed for static web app usage with pdf-lib.",
+    "This mapping uses exact AcroForm field names extracted from the PDFs."
+  ],
+  "templates": {
+    "EotE": {
+      "file": "EotE Character Sheet (Form Fillable).pdf"
+    },
+    "AoR": {
+      "file": "AoR Character Sheet (Form Fillable).pdf"
+    },
+    "FaD": {
+      "file": "FaD Character Sheet (Form Fillable).pdf"
+    }
+  },
+  "exportPaths": {
+    "common": {
+      "character.name": "string",
+      "character.playerName": "string",
+      "character.species": "string",
+      "character.career": "string",
+      "character.specialization": "string",
+      "character.age": "string",
+      "character.gender": "string",
+      "character.height": "string",
+      "character.build": "string",
+      "character.hair": "string",
+      "character.eyes": "string",
+      "character.soak": "number",
+      "character.defense.melee": "number",
+      "character.defense.ranged": "number",
+      "character.wounds.threshold": "number",
+      "character.wounds.current": "number",
+      "character.strain.threshold": "number",
+      "character.strain.current": "number",
+      "character.forceRating": "number",
+      "xp.total": "number",
+      "xp.available": "number",
+      "credits": "number"
+    },
+    "narrative": {
+      "EotE": {
+        "struggle.primary": "string",
+        "struggle.secondary": "string",
+        "struggle.value": "number",
+        "struggle.value2": "number"
+      },
+      "AoR": {
+        "struggle.primary": "string",
+        "struggle.secondary": "string",
+        "struggle.value": "number",
+        "struggle.value2": "number"
+      },
+      "FaD": {
+        "struggle.primary": "string",
+        "struggle.secondary": "string",
+        "struggle.value": "number",
+        "conflict": "number"
+      }
+    },
+    "skills": {
+      "skills.<SkillKey>.ability": "number",
+      "skills.<SkillKey>.proficiency": "number",
+      "skills.<SkillKey>.ranks": "number"
+    }
+  },
+  "fieldMap": {
+    "common": {
+      "Name": "character.name",
+      "Player": "character.playerName",
+      "Species": "character.species",
+      "Career": "character.career",
+      "Specializations": "character.specialization",
+      "Age": "character.age",
+      "Gender": "character.gender",
+      "Height": "character.height",
+      "Build": "character.build",
+      "Hair": "character.hair",
+      "Eyes": "character.eyes",
+      "Brawn": "characteristics.brawn",
+      "Agility": "characteristics.agility",
+      "Intellect": "characteristics.intellect",
+      "Cunning": "characteristics.cunning",
+      "Willpower": "characteristics.willpower",
+      "Presence": "characteristics.presence",
+      "Soak": "character.soak",
+      "MelDef": "character.defense.melee",
+      "RngDef": "character.defense.ranged",
+      "WT": "character.wounds.threshold",
+      "WT Current": "character.wounds.current",
+      "ST": "character.strain.threshold",
+      "ST Current": "character.strain.current",
+      "ForceRating": "character.forceRating",
+      "Total XP": "xp.total",
+      "Current XP": "xp.available",
+      "Credits": "credits"
+    },
+    "EotE": {
+      "Obligation1": "struggle.primary",
+      "Obligation2": "struggle.secondary",
+      "ObligationDesc1": "struggle.primaryDescription",
+      "ObligationDesc2": "struggle.secondaryDescription",
+      "Magnitude1": "struggle.value",
+      "Magnitude2": "struggle.value2",
+      "GroupObligation1": "groupStruggle.primary",
+      "GroupObligation2": "groupStruggle.secondary"
+    },
+    "AoR": {
+      "Duty1": "struggle.primary",
+      "Duty2": "struggle.secondary",
+      "Magnitude1": "struggle.value",
+      "Magnitude2": "struggle.value2"
+    },
+    "FaD": {
+      "Morality": "struggle.value",
+      "Conflict": "conflict",
+      "EmotionalStrength": "struggle.primary",
+      "EmotionalWeakness": "struggle.secondary"
+    }
+  },
+  "skillFieldRules": {
+    "skillKeys": [
+      "Astrogation",
+      "Athletics",
+      "Brawl",
+      "Charm",
+      "Coercion",
+      "Computers",
+      "Cool",
+      "Coordination",
+      "CoreWorlds",
+      "Deception",
+      "Discipline",
+      "Education",
+      "Gunnery",
+      "Leadership",
+      "Lightsaber",
+      "Lore",
+      "Mechanics",
+      "Medicine",
+      "Melee",
+      "Negotiation",
+      "Other",
+      "OuterRim",
+      "Perception",
+      "PilotingPlanetary",
+      "PilotingSpace",
+      "RangedHvy",
+      "RangedLight",
+      "Resilience",
+      "Skullduggery",
+      "Stealth",
+      "Streetwise",
+      "Survival",
+      "Underworld",
+      "Vigilance",
+      "Xenology"
+    ],
+    "rules": [
+      {
+        "pdfFieldPattern": "{SkillKey}.Ability",
+        "exportPathPattern": "skills.{SkillKey}.ability"
+      },
+      {
+        "pdfFieldPattern": "{SkillKey}.Proficiency",
+        "exportPathPattern": "skills.{SkillKey}.proficiency"
+      },
+      {
+        "pdfFieldPattern": "{SkillKey}",
+        "exportPathPattern": "skills.{SkillKey}.ranks",
+        "notes": [
+          "This maps the top-level skill rank field if you store ranks as a numeric value.",
+          "The PDF also includes rank pips as checkboxes ({SkillKey}.0 ... {SkillKey}.4). You can ignore or fill those later."
+        ]
+      }
+    ],
+    "rankPips": {
+      "pdfFieldPattern": "{SkillKey}.{pipIndex}",
+      "pipIndexRange": [
+        0,
+        4
+      ],
+      "exportPathPattern": "skills.{SkillKey}.ranks",
+      "notes": [
+        "Optional: if you want to tick rank pips, check pipIndex < ranks."
+      ]
+    }
+  }
+}

@@ -1,0 +1,877 @@
+{
+  "id": "yavin_iv",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Yavin IV",
+    "type": "moon",
+    "parent_body": "Yavin Prime (red gas giant)",
+    "region": "Outer Rim",
+    "sector": "Gordian Reach Sector",
+    "system": "Yavin",
+    "grid": "P-6",
+    "era": "galactic_civil_war",
+    "essence": "Yavin 4 is a jungle moon layered with contradictions. A lush, green world of dense rainforest and extraordinary wildlife orbiting a red gas giant, it has no permanent population, no cities, no trade routes, and no strategic value on any military planner's chart. Yet it has been the site of galaxy-shaking events across millennia. The Massassi warrior caste built colossal temples here to honor Sith god-kings. Exar Kun drained their life force in dark sorcery. The Jedi burned the jungle from orbit and erased the system from the galactic charts. Centuries later the jungle grew back, the moon was rediscovered, and the Rebel Alliance moved into the ancient temples without knowing their history. The Death Star tracked Princess Leia here. Luke Skywalker fired the shot that destroyed it. The Alliance evacuated, the Empire blockaded, and now miners, academics, smugglers, and Imperial patrols pick over what both civilizations left behind. The dark side saturates the ancient ruins. The Force is strong here, and not in a comforting way.",
+    "atmosphere": "Endless green canopy broken by the stepped granite peaks of Massassi temples piercing the treetops. Massive trees with enormous branches and crowns. Humid air thick with the calls of woolamanders and the rustle of choku pack hunters. The red bulk of Yavin Prime dominating the sky. Crater lakes still and mirror-smooth, obsidian temple spires reflected on their surface. The interior of the Great Temple still smelling of coolant fluid and ozone from abandoned Rebel equipment. Imperial patrol craft droning overhead. The jungle reclaiming everything that was ever built here, patient and indifferent.",
+    "reputation": "The moon where the Rebellion destroyed the Death Star. Before that, a forgotten world of ancient ruins in an out-of-the-way system nobody visited. Force-sensitive beings may know it as a place steeped in dark side energy, though the reasons are lost to most living memory. Miners know it as the place to stage before diving for Corusca gems in Yavin Prime's atmosphere. Academics know it for the baffling Massassi ruins. Alliance veterans remember it as Base One. The Empire remembers it as the site of the most humiliating military defeat in galactic history."
+  },
+  "compendium": {
+    "background": "",
+    "government": "none",
+    "population": "",
+    "languages": "none",
+    "terrain": "jungle, rainforest",
+    "major_cities": "none",
+    "areas_of_interest": "",
+    "exports": "none",
+    "imports": "none",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "pre_battle_of_yavin",
+      "delta": "The Rebel Alliance has relocated its primary headquarters — Base One — inside the Great Massassi Temple. Alliance High Command, including General Jan Dodonna, coordinates sector forces across the galaxy from here. Up to four starfighter squadrons are housed in the temple hangars. Strict military protocols, code cylinders, sentry towers, and weapon emplacements at every temple entry point. The system is uncharted by the Empire and considered secure. The surrounding temples are unexplored and their dark side history unknown to Alliance personnel."
+    },
+    {
+      "era": "post_battle_of_yavin",
+      "delta": "The Alliance has evacuated, but some personnel were stranded by the speed of the Imperial blockade. These survivors organize small guerrilla assaults on Imperial scouts and make supply runs into the old base to retrieve cached equipment. They hop between Massassi temples for shelter, avoiding Imperial sensors. After six months, the Empire loosened traffic restrictions and the Mining Guild negotiated exemption passes. Miners, academics, Hutt Cartel smugglers, and Alliance operatives all filter back into the system through the mining outpost on the northern coast of the Wayward Jungle."
+    }
+  ],
+  "geography": {
+    "structure_type": "jungle_moon",
+    "structure_notes": "A lush jungle moon with sprawling rainforests separated by modest oceans. Dense ecology sustained by numerous active volcanoes. Most notable structures are ancient Massassi temples scattered across the surface, concentrated in the Massassi Site on the Wetyin continent. Continents include Wetyin (largest, location of the Massassi Site and most temples), Koos, Starloft, and Swivven. The Wayward Jungle lies along the northern coast. The Val'Arnos Jungle contains the Palace of the Woolamander along the Unnh River. Ersham Ridge is the site of the Great Massassi Temple. The Taurin Delta lies downstream from the Great Temple.",
+    "districts": [
+      {
+        "id": "massassi_site",
+        "name": "The Massassi Site",
+        "character": "The primary concentration of ancient Massassi temples on the Wetyin continent, including the Great Massassi Temple on Ersham Ridge and several smaller structures scattered through the jungle canopy. The area that the Rebel Alliance developed into Base One. Now occupied by Imperial survey teams and slowly being reclaimed by the jungle.",
+        "authority": "Galactic Empire (post-evacuation)",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "informational",
+          "hidden"
+        ],
+        "notes": "The Great Temple remains off-limits to all but Imperial personnel. Other temples in the area are accessible to academics with Imperial permits. Stranded Rebel survivors use the smaller temples as temporary shelters."
+      },
+      {
+        "id": "wayward_jungle",
+        "name": "Wayward Jungle (Northern Coast)",
+        "character": "Dense jungle along the northern coast of Yavin 4, site of the Mining Guild's prefabricated outpost buildings. The only semi-permanent civilian settlement on the moon. Spacers land here for guild inspections and resupply before departing for Corusca gem diving in Yavin Prime's atmosphere.",
+        "authority": "Mining Guild (nominal), Imperial customs (oversight)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Hutt Cartel bribes to Imperial customs officials have opened a security loophole allowing unauthorized traffic. Alliance smugglers use this to ferry personnel onto Yavin 4 for equipment retrieval and personnel rescue."
+      },
+      {
+        "id": "val_arnos_jungle",
+        "name": "Val'Arnos Jungle",
+        "character": "Dense overgrowth along the banks of the Unnh River. Location of the Palace of the Woolamander, a crumbling Massassi monastery with extensive subterranean passages. Remote and largely unexplored.",
+        "authority": "none",
+        "crime_index": "none",
+        "strategic_value": [
+          "hidden",
+          "exploration"
+        ],
+        "notes": "Named by the Sullustan scout Dr'uun Unnh, who discovered the Palace of the Woolamander. Explorers report disembodied wails and moans in the subterranean corridors. A golden globe artifact has been reported but cannot be relocated or recorded."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Woolamander",
+      "population_level": "native_fauna",
+      "social_role": "Arboreal creatures abundant in Yavin 4's jungles. Iconography of woolamanders appears throughout Massassi temple inscriptions. They inhabit the Palace of the Woolamander.",
+      "districts": [
+        "val_arnos_jungle",
+        "massassi_site"
+      ]
+    },
+    {
+      "name": "Runyip",
+      "population_level": "native_fauna",
+      "social_role": "One of the jungle's extraordinary life forms mentioned alongside woolamanders.",
+      "districts": []
+    },
+    {
+      "name": "Choku",
+      "population_level": "native_fauna",
+      "social_role": "Aggressive reptavian pack hunters that navigate the dense vines and tree limbs. Bright white and gray fur with brown and tan stripes. Travel in packs of three. Difficult to spot in jungle despite coloring due to camouflage ability.",
+      "districts": []
+    },
+    {
+      "name": "Mamien",
+      "population_level": "native_fauna",
+      "social_role": "",
+      "districts": []
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_military_yavin",
+      "name": "Imperial Military (Yavin Garrison)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "moderate",
+        "dark_side": "none",
+        "financial": "moderate",
+        "note": "The Empire blockaded the Yavin system immediately after the Battle of Yavin. After six months, traffic restrictions were loosened under Mining Guild pressure, but the Great Temple remains under exclusive Imperial control. Imperial patrols scour the jungle for stranded Rebels. Imperial customs officials at the mining outpost have been bribed by Hutt Cartel representatives. The Empire also maintains an outpost to analyze the Death Star wreckage and the abandoned Rebel base remains."
+      },
+      "motivation": "Recover intelligence from the abandoned Rebel base. Hunt down stranded Rebel personnel. Salvage Death Star wreckage technology. Prevent any remaining Rebel technology from falling into unauthorized hands. Maintain control of the system that was the site of the Empire's most humiliating defeat.",
+      "assets": [
+        "Occupation of the Great Massassi Temple",
+        "Jungle patrol teams hunting stranded Rebels",
+        "Death Star wreckage analysis outpost",
+        "Imperial customs officials at the mining outpost",
+        "System blockade forces (reduced after six months)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "rebel_alliance_yavin",
+          "type": "adversarial",
+          "notes": "Hunting stranded Rebels in the jungle. Scouring the Great Temple for abandoned intelligence."
+        },
+        {
+          "faction_id": "hutt_cartel_yavin",
+          "type": "corrupted",
+          "notes": "Hutt Cartel representatives bribed Imperial customs officials to allow unauthorized traffic through the mining outpost, circumventing Mining Guild fees and Imperial tariffs."
+        },
+        {
+          "faction_id": "mining_guild_yavin",
+          "type": "regulated",
+          "notes": "The Mining Guild negotiated exemption passes for prescreened mining traffic after months of negotiation and datawork."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Rebel intelligence abandoned in the Great Temple. Communications logs, mission planning documents, agent identities, sector force coordination data."
+        },
+        {
+          "type": "resource",
+          "reason": "Death Star wreckage technology. Any surviving Rebel weapons, starfighter components, or equipment."
+        },
+        {
+          "type": "person",
+          "reason": "Stranded Rebel personnel for interrogation. Any Alliance operatives infiltrating the system through the mining outpost."
+        }
+      ]
+    },
+    {
+      "id": "dark_side_influence_yavin",
+      "name": "Ancient Dark Side Influence",
+      "galaxy_faction_ref": null,
+      "type": "force_influence",
+      "control_type": [
+        "spiritual"
+      ],
+      "control_strength": "pervasive",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "none",
+        "financial": "none",
+        "note": ""
+      },
+      "motivation": "Not a faction with agency in the conventional sense, but a persistent environmental Force influence that shapes encounters and may affect Force-sensitive characters. The spirit of Exar Kun may persist in some form. The dark side history of the temples creates hazards and opportunities for Force users.",
+      "assets": [
+        "Temple of Exar Kun — dark vergence, Sith alchemy vaults, shadowy presences",
+        "Temple of the Blueleaf Cluster — Cronau radiation, devoid of life, sealed by Alliance High Command",
+        "Palace of the Woolamander — unrecordable golden globe artifact, disembodied sounds",
+        "Great Massassi Temple — built by Massassi for Naga Sadow, dark side resonance",
+        "Massassi Site temples — dark side inscriptions and glyphs throughout"
+      ],
+      "relationships": [],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "Sith artifacts recovered from temple vaults. The golden globe in the Palace of the Woolamander. Anything from Exar Kun's temple that bears traces of Sith alchemy."
+        },
+        {
+          "type": "knowledge",
+          "reason": "Massassi inscriptions and glyphs that could reveal Sith history. Dark side techniques. Information about Exar Kun, Naga Sadow, or the Massassi civilization."
+        }
+      ]
+    },
+    {
+      "id": "mining_guild_yavin",
+      "name": "Mining Guild (Yavin Operations)",
+      "galaxy_faction_ref": "mining_guild",
+      "type": "corporate",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "moderate",
+        "criminal": "high",
+        "financial": "high",
+        "note": "The Mining Guild negotiated exemption passes for prescreened mining traffic after the Battle of Yavin thrust the system into the galactic spotlight. They placed prefabricated buildings on the northern coast of the Wayward Jungle as a mining outpost. Thousands of miners and prospectors have flocked to Yavin Prime for Corusca gem harvesting. The outpost is the only semi-permanent civilian settlement on Yavin 4."
+      },
+      "motivation": "Profit from Corusca gem mining in Yavin Prime's atmosphere. Maintain the mining outpost as a staging area for gem-diving operations. Manage guild inspections and resupply for prospectors.",
+      "assets": [
+        "Prefabricated mining outpost on northern coast of Wayward Jungle",
+        "Mining Guild exemption passes for prescreened traffic",
+        "Guild inspection and resupply infrastructure"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military_yavin",
+          "type": "regulated",
+          "notes": "Operates under Imperial exemption passes after months of negotiation."
+        },
+        {
+          "faction_id": "hutt_cartel_yavin",
+          "type": "undermined",
+          "notes": "Hutt Cartel smugglers circumvent Mining Guild fees through bribed Imperial customs officials."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Corusca gems harvested from Yavin Prime's atmosphere. Valuable enough to attract miners, smugglers, and crime syndicates."
+        }
+      ]
+    },
+    {
+      "id": "hutt_cartel_yavin",
+      "name": "Hutt Cartel (Yavin Operations)",
+      "galaxy_faction_ref": "hutt_cartel",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": ""
+      },
+      "motivation": "Profit from smuggling Corusca gems, hallucinogenic blueleaves, and exotic animals. Bypass Mining Guild fees and Imperial tariffs. Exploit the security loophole created by customs corruption.",
+      "assets": [
+        "Bribed Imperial customs officials at the mining outpost",
+        "Smuggling infrastructure bypassing Mining Guild and Imperial controls",
+        "Poaching operations for exotic animals",
+        "Blueleaf harvesting and trafficking"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military_yavin",
+          "type": "corrupted",
+          "notes": "Bribed customs officials allow unauthorized Hutt traffic through the mining outpost."
+        },
+        {
+          "faction_id": "mining_guild_yavin",
+          "type": "parasitic",
+          "notes": "Hutt operations circumvent Mining Guild fees and undermine guild authority."
+        },
+        {
+          "faction_id": "rebel_alliance_yavin",
+          "type": "incidental",
+          "notes": "The same customs loophole used by Hutt smugglers also allows Alliance smugglers to infiltrate the system."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Corusca gems, hallucinogenic blueleaves, exotic fauna. All highly profitable contraband."
+        },
+        {
+          "type": "data",
+          "reason": "Knowledge of Imperial patrol patterns and customs schedules. Information that makes smuggling operations safer."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "great_massassi_temple",
+      "name": "Great Massassi Temple (Base One)",
+      "district_id": "massassi_site",
+      "type": [
+        "military",
+        "command",
+        "informational"
+      ],
+      "controlling_faction_id": "imperial_military_yavin",
+      "controlling_faction_notes": "The Empire occupies the abandoned Rebel base, scouring the complex for intelligence left behind by the Rebellion. The temple remains off-limits to all but Imperial personnel. The jungle has begun reclaiming the structure since the Rebel evacuation.",
+      "strategic_value": "",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Intelligence officers analyzing abandoned Rebel data and equipment."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Garrison troops securing the temple complex and surrounding perimeter."
+        },
+        {
+          "archetype_ref": "imperial_technician",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Technical staff analyzing Rebel communications equipment and sensor systems."
+        }
+      ]
+    },
+    {
+      "id": "temple_of_exar_kun",
+      "name": "Temple of Exar Kun",
+      "district_id": "massassi_site",
+      "type": [
+        "hidden",
+        "force_nexus"
+      ],
+      "controlling_faction_id": "dark_side_influence_yavin",
+      "controlling_faction_notes": "No living faction controls this temple. The dark side permeates it. Explorers experience dread and report shadowy figures in the catacombs. Artifacts removed from the vaults triggered a series of bizarre accidents.",
+      "strategic_value": "",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "xenoarchaeologist",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Academic researchers from Corellia University. May have partial knowledge of Sith inscriptions."
+        },
+        {
+          "archetype_ref": "dark_side_spirit",
+          "tier": "nemesis",
+          "count": "0-1",
+          "notes": "Shadowy presences reported in the catacombs. May be echoes of Exar Kun's spirit or Massassi ghosts. GM discretion."
+        }
+      ]
+    },
+    {
+      "id": "temple_of_blueleaf_cluster",
+      "name": "Temple of the Blueleaf Cluster",
+      "district_id": "massassi_site",
+      "type": [
+        "hidden",
+        "force_nexus"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Sealed by Alliance High Command due to Cronau radiation. No faction controls or occupies this site. The central chamber is devoid of all flora and fauna despite being exposed to the elements.",
+      "strategic_value": "",
+      "takeover_priority": 4,
+      "encounter_roles": []
+    },
+    {
+      "id": "palace_of_woolamander",
+      "name": "Palace of the Woolamander",
+      "district_id": "val_arnos_jungle",
+      "type": [
+        "hidden",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls this site. Located in remote jungle along the Unnh River. The Massassi built it for Exar Kun. Named by its discoverer, the Sullustan scout Dr'uun Unnh.",
+      "strategic_value": "",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "explorer",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "Xenoarchaeologists or treasure hunters seeking the golden globe artifact."
+        }
+      ]
+    },
+    {
+      "id": "mining_outpost",
+      "name": "Mining Guild Outpost",
+      "district_id": "wayward_jungle",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "mining_guild_yavin",
+      "controlling_faction_notes": "Mining Guild prefabricated buildings on the northern coast of the Wayward Jungle. The only semi-permanent civilian settlement. Imperial customs oversight is present but compromised by Hutt Cartel bribes.",
+      "strategic_value": "The sole civilian landing site on Yavin 4. Spacers land here for guild inspections and resupply before departing for Corusca gem diving in Yavin Prime. The corrupted customs checkpoint serves as an entry point for Hutt smugglers, Alliance operatives, and anyone else willing to pay. A nexus where miners, prospectors, smugglers, academics, and Imperial officials all cross paths.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mining_guild_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Mining Guild official managing inspections and resupply operations."
+        },
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Imperial customs official. Potentially corrupted by Hutt Cartel bribes."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Hutt Cartel or Alliance smugglers moving through the corrupted customs checkpoint."
+        },
+        {
+          "archetype_ref": "prospector",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Corusca gem miners staging for dives into Yavin Prime's atmosphere."
+        }
+      ]
+    }
+  ],
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military_yavin",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A token Imperial presence. A few technicians analyzing wreckage in the Great Temple. No active jungle patrols. The mining outpost customs checkpoint is staffed but cursory. The blockade has been fully lifted and only occasional patrol craft enter the system.",
+          "presence_reason": "The Empire's attention has shifted elsewhere. The Death Star wreckage analysis is winding down. The system has been assessed as strategically irrelevant beyond the initial intelligence sweep.",
+          "roles": [
+            {
+              "role": "Imperial intelligence technician",
+              "archetype_ref": "imperial_technician",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Final phase of Rebel base data extraction. Skeleton staff."
+            },
+            {
+              "role": "Customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "minion",
+              "count": 1,
+              "notes": "Processing mining traffic at the outpost. Potentially corrupted."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard post-blockade posture. Imperial troops garrison the Great Temple. Jungle patrols sweep for stranded Rebels. Customs officials operate at the mining outpost. Periodic orbital patrols. The Empire is methodically processing the temple but not flooding the moon with troops.",
+          "presence_reason": "Default state. The Empire maintains enough presence to control the former Rebel base, hunt stragglers, and monitor civilian traffic without committing major fleet assets to an Outer Rim moon.",
+          "roles": [
+            {
+              "role": "Imperial intelligence officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commanding the base analysis operation. Interested in any recovered Rebel data."
+            },
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Securing the Great Temple and running jungle patrols in the surrounding area."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Operating at the mining outpost. Some have been bribed by Hutt Cartel representatives."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Escalated presence. Additional stormtrooper squads deployed to the jungle. Orbital patrols increased. The mining outpost is locked down and all traffic subjected to thorough inspection. ISB agents arrive to investigate specific intelligence — perhaps a Rebel cell has been detected, or a high-value cache located.",
+          "presence_reason": "Specific intelligence trigger — discovery of an active Rebel cell on the moon, interception of Alliance smuggler communications, or orders from sector command to tighten control following an incident.",
+          "roles": [
+            {
+              "role": "Stormtrooper sweep teams",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple squads conducting systematic jungle sweeps. Using sensor equipment to detect hidden personnel."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating a specific threat. May be running operations independently of the base garrison."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Enhanced command staff coordinating escalated operations."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Mining outpost locked down. All traffic inspected. Corrupt inspectors removed or watched."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military occupation. Multiple Star Destroyers in orbit. Complete system blockade restored. All civilian traffic halted. Stormtroopers sweep every temple and jungle sector. The mining outpost is shut down. No one enters or leaves without Imperial authorization. Potential deployment of an Inquisitor if Force-sensitive activity is detected in the temples.",
+          "presence_reason": "Catastrophic event — a major Rebel operation launched from Yavin 4, discovery of active Sith artifacts attracting Imperial attention, or the Emperor's direct interest in the dark side vergences.",
+          "roles": [
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Comprehensive occupation. Every known temple under guard. Jungle sectors mapped and patrolled."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Running the security operation. Interrogation of any captured Rebels or unauthorized civilians."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority. Direct line to Gordian Reach sector command."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed in the temples. The dark side vergences of Yavin 4 are of potential interest to the Emperor and the Inquisitorius."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Jungle patrols increase frequency. Customs inspections become thorough. Imperial technicians in the Great Temple receive additional security detail.",
+        "targeted": "ISB arrives. Specific individuals or ships are flagged. Mining outpost traffic is screened against intelligence lists. Jungle patrol routes adjusted to focus on specific temple sectors.",
+        "manhunt": "System blockade partially restored. No vessel leaves without Imperial clearance. Stormtrooper sweeps of all accessible temple ruins. Mining outpost personnel detained for questioning."
+      }
+    },
+    {
+      "faction_id": "rebel_alliance_yavin",
+      "presence_levels": {
+        "skeleton": {
+          "description": "No active Alliance presence. All personnel have been evacuated or captured. Hidden supply caches remain undiscovered in the jungle.",
+          "presence_reason": "Successful Imperial sweep of stranded personnel, or Alliance command has deprioritized Yavin 4 retrieval operations.",
+          "roles": []
+        },
+        "patrol": {
+          "description": "Small groups of stranded Rebels surviving in the jungle, hopping between Massassi temples for shelter. Occasional Alliance smuggler infiltration through the mining outpost to retrieve equipment or extract personnel.",
+          "presence_reason": "Default post-evacuation state. Some personnel were stranded by the speed of the Imperial blockade and continue to survive in the jungle.",
+          "roles": [
+            {
+              "role": "Stranded Rebel soldier",
+              "archetype_ref": "rebel_soldier",
+              "tier": "rival",
+              "count": "2-4",
+              "notes": "Survivors organizing guerrilla assaults on Imperial scouts and making supply runs into the old base."
+            },
+            {
+              "role": "Alliance smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "0-1",
+              "notes": "Infiltrating through the mining outpost to ferry personnel or retrieve cached equipment."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "An organized Alliance cell operating from the jungle. Multiple supply caches located and consolidated. Coordinated guerrilla operations against Imperial patrols. Regular smuggler runs bringing supplies and extracting personnel.",
+          "presence_reason": "Alliance command has decided Yavin 4 operations are worth sustained investment — perhaps critical intelligence remains in the Great Temple, or the system serves as a waypoint for a larger operation.",
+          "roles": [
+            {
+              "role": "Rebel cell leader",
+              "archetype_ref": "rebel_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinating guerrilla operations and smuggler runs from a hidden jungle camp."
+            },
+            {
+              "role": "Rebel soldiers",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": "6-10",
+              "notes": "Organized resistance fighters conducting planned operations against Imperial targets."
+            },
+            {
+              "role": "Alliance smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "1-2",
+              "notes": "Regular supply and extraction runs through the mining outpost."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Not applicable in the post-Battle of Yavin era. The Alliance does not have the resources to retake and hold Yavin 4.",
+          "presence_reason": null,
+          "roles": []
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Stranded Rebels increase caution. Movement between temples is limited to night operations. Smuggler runs are delayed.",
+        "targeted": "The Rebel cell goes to ground. No movement. Cached equipment is buried or destroyed to prevent capture.",
+        "manhunt": "Full dispersal. Each survivor operates independently. Emergency extraction protocol activated via smuggler channels."
+      }
+    },
+    {
+      "faction_id": "hutt_cartel_yavin",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Occasional smuggler ships passing through. No permanent Hutt Cartel presence on the surface.",
+          "presence_reason": "Corusca gem profits have not yet justified sustained investment.",
+          "roles": []
+        },
+        "patrol": {
+          "description": "Regular smuggler traffic through the mining outpost. Poaching teams operating in the jungle. Blueleaf harvesting. Bribed customs officials facilitating passage.",
+          "presence_reason": "Default state. Corusca gem profits and exotic contraband make Yavin 4 operations worthwhile.",
+          "roles": [
+            {
+              "role": "Hutt Cartel smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "1-2",
+              "notes": "Moving Corusca gems, blueleaves, and exotic animals through the corrupted customs checkpoint."
+            },
+            {
+              "role": "Poacher",
+              "archetype_ref": "bounty_hunter",
+              "tier": "minion",
+              "count": "2-3",
+              "notes": "Capturing exotic fauna for off-world sale."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Cartel has established a semi-permanent presence. Multiple smuggler crews operating simultaneously. Organized poaching camps in the jungle. A Hutt representative may be stationed at the mining outpost.",
+          "presence_reason": "Yavin system operations have become highly profitable. The Cartel invests in infrastructure.",
+          "roles": [
+            {
+              "role": "Hutt Cartel agent",
+              "archetype_ref": "crime_boss",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Overseeing Cartel operations from the mining outpost."
+            },
+            {
+              "role": "Smuggler crews",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": "2-3",
+              "notes": "Multiple crews running contraband."
+            },
+            {
+              "role": "Poaching teams",
+              "archetype_ref": "bounty_hunter",
+              "tier": "minion",
+              "count": "4-6",
+              "notes": "Organized camps in the jungle."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Not applicable. The Hutt Cartel does not have the resources or motivation to dominate a remote jungle moon under Imperial occupation.",
+          "presence_reason": null,
+          "roles": []
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Smuggler traffic slows as captains wait for Imperial attention to shift.",
+        "targeted": "All Hutt operations suspended. Smugglers reroute. Bribed customs officials go quiet.",
+        "manhunt": "Complete withdrawal. Poaching camps abandoned. Smugglers avoid the system entirely."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_military_yavin"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Great Massassi Temple (Base One) — abandoned, contents partially retrieved",
+      "Rebel Alliance: Hidden supply and weapons caches throughout the jungles",
+      "Rebel Alliance: Stranded guerrilla fighters operating from Massassi temple shelters",
+      "Rebel Alliance: Smuggler infiltration route through the Mining Guild outpost",
+      "Rebel Alliance on this planet: Pre-battle: coordinate the galactic rebellion from a hidden base far from Imperial attention. Post-battle: retrieve abandoned equipment and rescue stranded personnel. Long-term: deny the Empire any re"
+    ],
+    "presets": {
+      "aor_rebel_base": {
+        "description": "Age of Rebellion campaign set during the Alliance's occupation of Base One, prior to the Battle of Yavin. The Great Massassi Temple serves as the player characters' home base. Alliance High Command coordinates operations from the topmost levels. General Jan Dodonna commands the installation. Up to four starfighter squadrons (typically X-wings and Y-wings) operate from the temple hangars. Strict military protocols, code cylinder security, sentry towers, and weapon emplacements at every entry point. The surrounding temples are unexplored and their dark side history is unknown to Alliance personnel.",
+        "era_override": "pre_battle_of_yavin",
+        "controlling_factions_override": [
+          "rebel_alliance_yavin"
+        ],
+        "faction_overrides": {
+          "rebel_alliance_yavin": {
+            "control_strength": "dominant"
+          },
+          "imperial_military_yavin": {
+            "control_strength": "none",
+            "notes": "The Empire has not yet discovered the base. Yavin system is uncharted on Imperial maps."
+          }
+        },
+        "flags": [
+          "base_one_active",
+          "death_star_threat_imminent"
+        ]
+      },
+      "post_yavin_guerrilla": {
+        "description": "Campaign set in the months following the Battle of Yavin. The Alliance has evacuated but stranded Rebels survive in the jungle. The Empire occupies the Great Temple and patrols for survivors. The mining outpost provides a way in and out of the system for smugglers and operatives. Players may be stranded Rebels, Alliance retrieval teams, or independent operators caught in the crossfire.",
+        "era_override": "post_battle_of_yavin",
+        "controlling_factions_override": [
+          "imperial_military_yavin"
+        ],
+        "faction_overrides": {
+          "rebel_alliance_yavin": {
+            "control_strength": "minimal"
+          },
+          "imperial_military_yavin": {
+            "control_strength": "heavy"
+          }
+        },
+        "flags": [
+          "base_one_abandoned",
+          "imperial_blockade_loosened",
+          "mining_outpost_active",
+          "stranded_rebels_present"
+        ]
+      },
+      "fad_dark_side_exploration": {
+        "description": "Force and Destiny campaign focused on the dark side vergences of Yavin 4. Players are Force-sensitive characters drawn to the moon by visions, rumors, or scholarly interest. The Massassi temples hold Sith artifacts, dark side knowledge, and potentially the lingering spirit of Exar Kun. The Temple of the Blueleaf Cluster emits dangerous Cronau radiation. The Palace of the Woolamander contains an unrecordable artifact. Imperial presence is secondary to the Force-based challenges.",
+        "era_override": null,
+        "controlling_factions_override": null,
+        "faction_overrides": {
+          "dark_side_influence_yavin": {
+            "control_strength": "dominant"
+          }
+        },
+        "flags": [
+          "dark_side_vergence_active",
+          "exar_kun_spirit_possible",
+          "sith_artifacts_present"
+        ]
+      }
+    }
+  },
+  "influences": [
+    {
+      "id": "dark_side_temples",
+      "type": "force",
+      "source_faction_id": "dark_side_influence_yavin",
+      "source_description": "",
+      "strength_default": "significant",
+      "strength_FaD_preset": "dominant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": "dark_side_influence_yavin",
+          "description": "The Temple of Exar Kun radiates dread. Shadowy figures haunt its catacombs. Sith alchemy vaults beneath the complex contain artifacts that cause bizarre accidents when removed. The Temple of the Blueleaf Cluster emits Cronau radiation and is devoid of life in its central chamber. The Palace of the Woolamander contains an artifact that defies recording technology and cannot be relocated."
+        },
+        {
+          "faction_id": "rebel_alliance_yavin",
+          "description": "The Alliance occupied the Great Massassi Temple without knowing its dark side history. Some personnel became concerned about other nearby structures, but it had little effect on the main base."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Force-sensitive characters within Massassi temple complexes add automatic Force dice results favoring the dark side. Fear checks may be required when entering deeper temple levels. Sith inscriptions can be read with Lore checks but always carry a Conflict cost."
+        },
+        {
+          "threshold": "dominant",
+          "modifier": "The dark side is overwhelming. Force-sensitive characters must make Discipline checks to avoid drawing on the dark side involuntarily. Visions and hallucinations are common. Extended exposure may grant dark side knowledge but always at a Conflict cost. The spirit of Exar Kun may manifest."
+        }
+      ]
+    },
+    {
+      "id": "imperial_occupation",
+      "type": "military",
+      "source_faction_id": "imperial_military_yavin",
+      "source_description": "Following the Battle of Yavin, the Empire blockaded the system, occupied the Great Massassi Temple, and deployed patrols to hunt stranded Rebels. After six months, traffic restrictions were loosened to accommodate mining operations, but Imperial military authority over the moon remains absolute. The temple is off-limits to civilians. The mining outpost operates under Imperial customs oversight, though this has been compromised by Hutt Cartel bribes.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_military_yavin",
+          "description": "Imperial troops garrison the Great Temple and patrol the surrounding jungle. Customs officials oversee the mining outpost. The system remains under Imperial military jurisdiction."
+        },
+        {
+          "faction_id": "mining_guild_yavin",
+          "description": "Mining operations are only possible because the Mining Guild negotiated exemption passes after months of bureaucratic effort."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Unauthorized presence on Yavin 4 outside the mining outpost risks detection by Imperial jungle patrols. Approaching the Great Massassi Temple requires avoiding or defeating the garrison. The mining outpost provides cover for infiltration but customs checks must be navigated or circumvented."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "gordian_reach_routes",
+        "destination": "Gordian Reach sector systems",
+        "travel_time": null,
+        "route_quality": "remote",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 57,
+            "detail": ""
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "yavin_prime_atmosphere",
+        "type": "environmental",
+        "description": "Yavin Prime is a red gas giant with twenty-six moons. Its atmosphere contains valuable Corusca gems that can be harvested by mining ships, though gem-diving operations are extremely dangerous. The gas giant itself is a navigational consideration for any approach to Yavin 4.",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 57,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "id": "death_star_debris",
+        "type": "debris_field",
+        "description": "Wreckage of the first Death Star orbits the Yavin system following its destruction. The Empire scoured the wreckage to prevent remaining technology from falling into the wrong hands, but debris may persist as a navigational hazard.",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 57,
+            "detail": ""
+          }
+        ]
+      }
+    ]
+  },
+  "source_refs": [
+    "Strongholds of Resistance pp.56-59",
+    "AoR Core pp.382-383",
+    "AoR Core pp.397-399",
+    "FaD Core p.370",
+    "EotE Core p.354",
+    "Engineer Sourcebook p.96"
+  ]
+}

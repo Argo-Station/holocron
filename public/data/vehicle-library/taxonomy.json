@@ -1,0 +1,141 @@
+{
+  "schema_version": "vehicle-taxonomy-1",
+  "description": "Vehicle library category + affiliation taxonomy. Categories mirror VEHICLE_CATEGORIES at gm/index.html:3772-3782. Affiliations derived per Docs/VEHICLE_LIBRARY_SPEC.md.",
+  "categories": {
+    "starfighters": {
+      "label": "Starfighters",
+      "count": 69
+    },
+    "freighters": {
+      "label": "Freighters",
+      "count": 51
+    },
+    "capital_ships": {
+      "label": "Capital Ships",
+      "count": 54
+    },
+    "transports": {
+      "label": "Shuttles & Transports",
+      "count": 56
+    },
+    "patrol_gunships": {
+      "label": "Gunships & Patrol",
+      "count": 22
+    },
+    "airspeeders": {
+      "label": "Airspeeders",
+      "count": 37
+    },
+    "landspeeders": {
+      "label": "Landspeeders",
+      "count": 74
+    },
+    "walkers_tanks": {
+      "label": "Walkers & Tanks",
+      "count": 31
+    },
+    "support": {
+      "label": "Stations & Other",
+      "count": 39
+    }
+  },
+  "affiliations": {
+    "empire": {
+      "label": "Galactic Empire",
+      "count": 30
+    },
+    "rebellion": {
+      "label": "Rebel Alliance",
+      "count": 38
+    },
+    "republic": {
+      "label": "Galactic Republic",
+      "count": 28
+    },
+    "cis": {
+      "label": "Confederacy of Independent Systems",
+      "count": 9
+    },
+    "hutt": {
+      "label": "Hutt Cartel",
+      "count": 17
+    },
+    "mandalorian": {
+      "label": "Mandalorian",
+      "count": 2
+    },
+    "independent": {
+      "label": "Independent / Scoundrel",
+      "count": 155
+    },
+    "multi_faction": {
+      "label": "Multi-faction",
+      "count": 154
+    }
+  },
+  "landing_layout": {
+    "shelves": [
+      {
+        "id": "iconic",
+        "label": "Iconic ships",
+        "description": "The ships everyone at the table already knows.",
+        "vehicle_keys": [
+          "ASF01BWING",
+          "BTLA4",
+          "BTLS3",
+          "GLADSTARDEST",
+          "STARDESTI",
+          "RZ1AWING",
+          "TIESABINE",
+          "T65BXWING",
+          "TIELN",
+          "VENATOR",
+          "VICTSTARDEST",
+          "YT1300"
+        ]
+      },
+      {
+        "id": "imperial_fleet",
+        "label": "Imperial fleet",
+        "description": "Ships of the Galactic Empire.",
+        "filter": {
+          "affiliation": "empire"
+        }
+      },
+      {
+        "id": "rebel_starfighters",
+        "label": "Rebel starfighters",
+        "description": "Alliance starfighter corps.",
+        "filter": {
+          "affiliation": "rebellion",
+          "category": "starfighters"
+        }
+      },
+      {
+        "id": "republic_clone_wars",
+        "label": "Republic forces",
+        "description": "Clone Wars era Republic military.",
+        "filter": {
+          "affiliation": "republic"
+        }
+      },
+      {
+        "id": "separatist_droids",
+        "label": "Separatist droid army",
+        "description": "Confederacy forces.",
+        "filter": {
+          "affiliation": "cis"
+        }
+      },
+      {
+        "id": "scoundrels_smugglers",
+        "label": "Scoundrels & smugglers",
+        "description": "Modified freighters and independent operators.",
+        "filter": {
+          "affiliation": "independent",
+          "category": "freighters"
+        }
+      }
+    ]
+  }
+}

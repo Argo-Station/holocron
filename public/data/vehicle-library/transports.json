@@ -1,0 +1,5693 @@
+{
+  "entries": [
+    {
+      "key": "ACTIONVI",
+      "name": "Action VI Bulk Transport",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Bulk Transport"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -3,
+      "armor": 2,
+      "hull_trauma": 40,
+      "system_strain": 20,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 20,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "Twenty Crew",
+      "encumbrance_capacity": 10000,
+      "passengers": 5,
+      "consumables": "Three Months",
+      "starfighter_complement": null,
+      "price_credits": 200000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "AINIKSURVEY",
+      "name": "Ainik-Class Scientific Survey Vessel",
+      "description": "",
+      "source": "Fully Operational",
+      "source_code": "fo",
+      "type": "Survey Vessel",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": null,
+      "armor": 2,
+      "hull_trauma": 22,
+      "system_strain": 10,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srExtreme",
+      "sensor_range_label": "Extreme",
+      "crew": "One pilot, one co-pilot, two engineers/scientists",
+      "encumbrance_capacity": 150,
+      "passengers": 6,
+      "consumables": "Six months",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [
+        {
+          "key": null,
+          "name": null,
+          "description": "Research Labs: Characters add to Education and Xenology checks made while in this vessel.",
+          "count": 1
+        }
+      ],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TRACTLT",
+          "name": "Light Tractor Beam",
+          "damage": 0,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "TRACTOR",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "AKAJOR",
+      "name": "Aka'jor-class Shuttle",
+      "description": "",
+      "source": "Friends Like These",
+      "source_code": "flt",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "rebellion",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 4,
+      "handling": 1,
+      "armor": 4,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": null,
+        "aft": null,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 4,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 75,
+      "passengers": 2,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 103300,
+      "rarity": 6,
+      "restricted": true,
+      "hard_points_total": 6,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "ALIDADESURV",
+      "name": "Alidade-Class Long-Range Survey Ship",
+      "description": "",
+      "source": "Savage Spirits",
+      "source_code": "sava",
+      "type": "Survey Vessel",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -1,
+      "armor": 3,
+      "hull_trauma": 35,
+      "system_strain": 30,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 14,
+      "navicomputer": "yes",
+      "sensor_range_value": "srExtreme",
+      "sensor_range_label": "Extreme",
+      "crew": "",
+      "encumbrance_capacity": 250,
+      "passengers": 5,
+      "consumables": "Two years",
+      "starfighter_complement": null,
+      "price_credits": 150000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONLT",
+          "name": "Light Ion Cannon",
+          "damage": 5,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "ARMOSMODULAR",
+      "name": "Armos Modular Transport",
+      "description": "",
+      "source": "Far Horizons",
+      "source_code": "fh",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 6,
+      "speed": 2,
+      "handling": -2,
+      "armor": 4,
+      "hull_trauma": 65,
+      "system_strain": 45,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srExtreme",
+      "sensor_range_label": "Extreme",
+      "crew": "150 officers and crew",
+      "encumbrance_capacity": 10000,
+      "passengers": 1000,
+      "consumables": "Four months",
+      "starfighter_complement": null,
+      "price_credits": 780000,
+      "rarity": 8,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "BANTHAII",
+      "name": "Bantha-II Cargo Skiff",
+      "description": "",
+      "source": "Lords of Nal Hutta",
+      "source_code": "lonh",
+      "type": "Cargo Skiff",
+      "category": "transports",
+      "category_subtype": "Land Vehicle",
+      "affiliation": "hutt",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 2,
+      "speed": 3,
+      "handling": 0,
+      "armor": 0,
+      "hull_trauma": 6,
+      "system_strain": 8,
+      "defense": {
+        "fore": 0,
+        "aft": 0,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 0,
+      "hyperdrive_backup": 0,
+      "navicomputer": "no",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One Pilot",
+      "encumbrance_capacity": 250,
+      "passengers": 16,
+      "consumables": "",
+      "starfighter_complement": null,
+      "price_credits": 8000,
+      "rarity": 4,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": 50,
+      "is_starship": false,
+      "is_single_pilot": true,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "BAUDOYACHT",
+      "name": "Baudo-Class Star Yacht",
+      "description": "",
+      "source": "Fly Casual",
+      "source_code": "fc",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 1,
+      "hull_trauma": 26,
+      "system_strain": 10,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer",
+      "encumbrance_capacity": 60,
+      "passengers": 8,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 250000,
+      "rarity": 9,
+      "restricted": false,
+      "hard_points_total": 6,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Unspecified",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "CAISSONCAR",
+      "name": "Caisson-Class Engineering Troop Carrier",
+      "description": "",
+      "source": "Fully Operational",
+      "source_code": "fo",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": -1,
+      "armor": 5,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot, one comms operator",
+      "encumbrance_capacity": 110,
+      "passengers": 40,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 190000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "AUTOBLAST",
+          "name": "Auto-Blaster",
+          "damage": 3,
+          "crit": 5,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Aft",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "AUTOFIRE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "PATHSCOUTCIV",
+      "name": "Civilian Pathfinder Scout Ship",
+      "description": "",
+      "source": "Force and Destiny Core Rulebook",
+      "source_code": "fad",
+      "type": "Scout Ship",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 2,
+      "hull_trauma": 16,
+      "system_strain": 10,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srExtreme",
+      "sensor_range_label": "Extreme",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 45,
+      "passengers": 2,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 45000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "CONESHIP",
+      "name": "Coneship",
+      "description": "",
+      "source": "Suns of Fortune",
+      "source_code": "sof",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": "Starship",
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 1,
+      "handling": -5,
+      "armor": 1,
+      "hull_trauma": 8,
+      "system_strain": 3,
+      "defense": {
+        "fore": 0,
+        "aft": 0,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 0,
+      "hyperdrive_backup": 0,
+      "navicomputer": "no",
+      "sensor_range_value": "srNone",
+      "sensor_range_label": "None",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 0,
+      "passengers": 0,
+      "consumables": "One week",
+      "starfighter_complement": null,
+      "price_credits": 5000,
+      "rarity": 8,
+      "restricted": false,
+      "hard_points_total": 0,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "CONSSALONPOD",
+      "name": "Consular-Class Cruiser's Salon Pod",
+      "description": "",
+      "source": "Disciples of Harmony",
+      "source_code": "doh",
+      "type": "Salon Pod",
+      "category": "transports",
+      "category_subtype": "Starship",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 2,
+      "handling": -4,
+      "armor": 1,
+      "hull_trauma": 10,
+      "system_strain": 4,
+      "defense": {
+        "fore": null,
+        "aft": null,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One pilot",
+      "encumbrance_capacity": 5,
+      "passengers": 10,
+      "consumables": "One week",
+      "starfighter_complement": null,
+      "price_credits": null,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": null,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": true,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "COURYACHT",
+      "name": "Courier-Class Yacht",
+      "description": "",
+      "source": "Jewel of Yavin",
+      "source_code": "joy",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": "Starship",
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 2,
+      "armor": 3,
+      "hull_trauma": 20,
+      "system_strain": 20,
+      "defense": {
+        "fore": 1,
+        "aft": 0,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 14,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "19 crew",
+      "encumbrance_capacity": 50,
+      "passengers": 25,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 185000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Starboard",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Port",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "CSS1",
+      "name": "CSS-1 Corellian Star Shuttle",
+      "description": "",
+      "source": "Suns of Fortune",
+      "source_code": "sof",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -2,
+      "armor": 4,
+      "hull_trauma": 30,
+      "system_strain": 22,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 2,
+        "starboard": 2
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One pilot, one co-pilot, one navigator, two comm officers, three engineers",
+      "encumbrance_capacity": 1000,
+      "passengers": 200,
+      "consumables": "Three months to three years",
+      "starfighter_complement": null,
+      "price_credits": 325000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "CURICHSHUTTLE",
+      "name": "Curich-Class Shuttle",
+      "description": "",
+      "source": "Desperate Allies",
+      "source_code": "da",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "rebellion",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": 0,
+      "armor": 3,
+      "hull_trauma": 38,
+      "system_strain": 18,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer, one gunner",
+      "encumbrance_capacity": 300,
+      "passengers": 50,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 130000,
+      "rarity": 5,
+      "restricted": true,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "BLASTCANHVY",
+          "name": "Heavy Blaster Cannon",
+          "damage": 5,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "DELTASHUTTLE",
+      "name": "Delta-class T-3c Shuttle",
+      "description": "",
+      "source": "Dawn of Rebellion",
+      "source_code": "dor",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": null,
+      "armor": 4,
+      "hull_trauma": 30,
+      "system_strain": 20,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "",
+      "encumbrance_capacity": 250,
+      "passengers": 30,
+      "consumables": "Three months.",
+      "starfighter_complement": null,
+      "price_credits": 160000,
+      "rarity": 6,
+      "restricted": true,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "WingMounted",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "DROCH",
+      "name": "Droch-Class Boarding Ship",
+      "description": "",
+      "source": "Rise of the Separatists",
+      "source_code": "rots",
+      "type": "Boarding Vessel",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "republic",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 3,
+      "handling": null,
+      "armor": 2,
+      "hull_trauma": 10,
+      "system_strain": 8,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": null,
+      "sensor_range_label": "Close",
+      "crew": "One pilot",
+      "encumbrance_capacity": 10,
+      "passengers": 6,
+      "consumables": "One day",
+      "starfighter_complement": null,
+      "price_credits": 43000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": true,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 4,
+          "location": null,
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "description_source": "override"
+    },
+    {
+      "key": "ETASHUTTLE",
+      "name": "Eta-Class Shuttle",
+      "description": "",
+      "source": "Endless Vigil",
+      "source_code": "ev",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": "Non-Fighter Starship",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": null,
+      "armor": 3,
+      "hull_trauma": 17,
+      "system_strain": 12,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 100,
+      "passengers": 10,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 100000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [
+        {
+          "key": null,
+          "name": null,
+          "description": "Undicurs Aboard: Two Undicur Jumpspeeders are included with purchase. Eta-class shuttles can carry up to four.",
+          "count": 1
+        }
+      ],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "GOZANTI",
+      "name": "Gozanti-Class Armed Transport",
+      "description": "",
+      "source": "Age of Rebellion Core Rulebook",
+      "source_code": "aor",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -3,
+      "armor": 5,
+      "hull_trauma": 50,
+      "system_strain": 36,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 2,
+        "starboard": 2
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "",
+      "encumbrance_capacity": 1000,
+      "passengers": 12,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 200000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERQUAD",
+          "name": "Quad Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ACCURATE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        },
+        {
+          "key": "LASERQUAD",
+          "name": "Quad Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ACCURATE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        },
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 2,
+          "location": "Port",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 2,
+          "location": "Starboard",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "PTL",
+          "name": "Proton Torpedo Launcher",
+          "damage": 8,
+          "crit": 2,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 6
+            },
+            {
+              "key": "BREACH",
+              "count": 6
+            },
+            {
+              "key": "GUIDED",
+              "count": 2
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 3
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "GR75",
+      "name": "GR-75 Medium Transport",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship",
+        "Medium Transport"
+      ],
+      "affiliation": "rebellion",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -3,
+      "armor": 3,
+      "hull_trauma": 20,
+      "system_strain": 18,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 4,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "",
+      "encumbrance_capacity": 1000,
+      "passengers": 100,
+      "consumables": "Six Months",
+      "starfighter_complement": null,
+      "price_credits": 180000,
+      "rarity": 4,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "H22ADWING",
+      "name": "H-22A \"D-Wing\" Heavy Attack Boat",
+      "description": "",
+      "source": "Knights of Fate",
+      "source_code": "kof",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": -2,
+      "armor": 4,
+      "hull_trauma": 20,
+      "system_strain": 14,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": null,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, two gunners",
+      "encumbrance_capacity": 120,
+      "passengers": 12,
+      "consumables": "Two weeks",
+      "starfighter_complement": null,
+      "price_credits": 145000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 1,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "PTL",
+          "name": "Proton Torpedo Launcher",
+          "damage": 8,
+          "crit": 2,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "WingMounted",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 6
+            },
+            {
+              "key": "BREACH",
+              "count": 6
+            },
+            {
+              "key": "GUIDED",
+              "count": 2
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 3
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "AUTOBLAST",
+          "name": "Auto-Blaster",
+          "damage": 3,
+          "crit": 5,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "AUTOFIRE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "HTYPEYACHT",
+      "name": "H-Type Nubian Yacht",
+      "description": "",
+      "source": "Unlimited Power",
+      "source_code": "up",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 5,
+      "handling": 1,
+      "armor": 3,
+      "hull_trauma": 30,
+      "system_strain": 20,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 7,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one copilot",
+      "encumbrance_capacity": 75,
+      "passengers": 8,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 800000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": null,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "INDULGENT",
+      "name": "Indulgent-class Luxury Starliner",
+      "description": "",
+      "source": "Far Horizons",
+      "source_code": "fh",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 7,
+      "speed": 1,
+      "handling": -1,
+      "armor": 2,
+      "hull_trauma": 85,
+      "system_strain": 40,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "850 officers and crew",
+      "encumbrance_capacity": 3200,
+      "passengers": 1500,
+      "consumables": "Six months",
+      "starfighter_complement": null,
+      "price_credits": 25500000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 1,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "IONHVY",
+          "name": "Heavy Ion Cannon",
+          "damage": 7,
+          "crit": 4,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 2,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONHVY",
+          "name": "Heavy Ion Cannon",
+          "damage": 7,
+          "crit": 4,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 2,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "JTYPESKIFF",
+      "name": "J-Type Star Skiff",
+      "description": "",
+      "source": "Suns of Fortune",
+      "source_code": "sof",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": -1,
+      "armor": 4,
+      "hull_trauma": 28,
+      "system_strain": 18,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One pilot one c-pilot/navigator, one gunner",
+      "encumbrance_capacity": 90,
+      "passengers": 0,
+      "consumables": "Six months",
+      "starfighter_complement": null,
+      "price_credits": 260000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 0,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "JADTHULAND",
+      "name": "Jadthu-Class Landing Ship",
+      "description": "",
+      "source": "Knights of Fate",
+      "source_code": "kof",
+      "type": "Landing Ship",
+      "category": "transports",
+      "category_subtype": "Starship",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -3,
+      "armor": 5,
+      "hull_trauma": 30,
+      "system_strain": 15,
+      "defense": {
+        "fore": 1,
+        "aft": null,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot, one loadmaster, one loadmaster's assistant, one engineer",
+      "encumbrance_capacity": 800,
+      "passengers": 60,
+      "consumables": "Two days",
+      "starfighter_complement": null,
+      "price_credits": 200000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [
+        {
+          "key": null,
+          "name": null,
+          "description": "Caltrop-5 Chaff Gun: Upgrades difficulty of Gunnery checks and checks triggered by Guided quality made using missiles, rockets, or torpedoes targetting starship once. Upgrades difficulty of Piloting for other ships within close range once. on Piloting checks can inflict a Critical Hit on the pilot's ship.",
+          "count": 1
+        }
+      ],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Ventral",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "JEDISOJO",
+      "name": "Jedi Sojourner",
+      "description": "",
+      "source": "Unlimited Power",
+      "source_code": "up",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "long_range",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 3,
+      "hull_trauma": 24,
+      "system_strain": 14,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "One pilot",
+      "encumbrance_capacity": 20,
+      "passengers": 6,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 8,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": true,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "KAPPASHUTREB",
+      "name": "Kappa-Class Shuttle (Rebellion)",
+      "description": "",
+      "source": "Desperate Allies",
+      "source_code": "da",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "rebellion",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 0,
+      "armor": 4,
+      "hull_trauma": 28,
+      "system_strain": 14,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 18,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer, two gunners",
+      "encumbrance_capacity": 250,
+      "passengers": 40,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 110000,
+      "rarity": 5,
+      "restricted": true,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "BLASTCANHVY",
+          "name": "Heavy Blaster Cannon",
+          "damage": 5,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "AUTOBLAST",
+          "name": "Auto-Blaster",
+          "damage": 3,
+          "crit": 5,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "WingMounted",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "AUTOFIRE",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "T4A",
+      "name": "Lambda-Class T-4A Long Range Shuttle",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "empire",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 0,
+      "armor": 4,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "",
+      "encumbrance_capacity": 200,
+      "passengers": 20,
+      "consumables": "Two month",
+      "starfighter_complement": null,
+      "price_credits": 140000,
+      "rarity": 6,
+      "restricted": true,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Aft",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "LEGATECOUR",
+      "name": "Legate-Class Courier",
+      "description": "",
+      "source": "Endless Vigil",
+      "source_code": "ev",
+      "type": "Courier",
+      "category": "transports",
+      "category_subtype": "Non-Fighter Starship",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 4,
+      "speed": 4,
+      "handling": null,
+      "armor": 2,
+      "hull_trauma": 18,
+      "system_strain": 13,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 8,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 15,
+      "passengers": 4,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 65000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONLT",
+          "name": "Light Ion Cannon",
+          "damage": 5,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "LUXURIOUS",
+      "name": "Luxurious-class Yacht",
+      "description": "",
+      "source": "Far Horizons",
+      "source_code": "fh",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 1,
+      "hull_trauma": 25,
+      "system_strain": 22,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer, one steward",
+      "encumbrance_capacity": 80,
+      "passengers": 12,
+      "consumables": "Six months",
+      "starfighter_complement": null,
+      "price_credits": 210000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "MINSTRELYACHT",
+      "name": "Minstrel-Class Space Yacht",
+      "description": "",
+      "source": "Lords of Nal Hutta",
+      "source_code": "lonh",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Capital Ship",
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "hutt",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -1,
+      "armor": 6,
+      "hull_trauma": 45,
+      "system_strain": 28,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "37",
+      "encumbrance_capacity": 800,
+      "passengers": 75,
+      "consumables": "One year",
+      "starfighter_complement": "Six starfighters, two shuttles",
+      "price_credits": 1750000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 3,
+          "location": "Port",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 3,
+          "location": "Starboard",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONMED",
+          "name": "Medium Ion Cannon",
+          "damage": 6,
+          "crit": 4,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 3,
+          "location": "Port",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONMED",
+          "name": "Medium Ion Cannon",
+          "damage": 6,
+          "crit": 4,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 3,
+          "location": "Starboard",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TRACTHVY",
+          "name": "Heavy Tractor Beam",
+          "damage": 0,
+          "crit": 0,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "TRACTOR",
+              "count": 6
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "MOBQUETTRANSPORTLTL",
+      "name": "Mobquet Medium Transport (Light Turbolaser)",
+      "description": "",
+      "source": "Fly Casual",
+      "source_code": "fc",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship",
+        "Medium Transport"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 1,
+      "handling": -4,
+      "armor": 3,
+      "hull_trauma": 40,
+      "system_strain": 28,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer, two gunners/crew",
+      "encumbrance_capacity": 5000,
+      "passengers": 90,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 275000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 5,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 1,
+          "location": "Forward",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 1,
+          "location": "Aft",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "MOBQUETTRANS",
+      "name": "Mobquet Medium Transport (Medium Laser)",
+      "description": "",
+      "source": "Fly Casual",
+      "source_code": "fc",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship",
+        "Bulk Transport"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 1,
+      "handling": -4,
+      "armor": 3,
+      "hull_trauma": 40,
+      "system_strain": 28,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/engineer, two gunners/crew",
+      "encumbrance_capacity": 5000,
+      "passengers": 90,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 275000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 5,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Aft",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "NUTRANS",
+      "name": "Nu-Class Transport",
+      "description": "",
+      "source": "Rise of the Separatists",
+      "source_code": "rots",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "republic",
+      "focus_primary": "transports",
+      "focus_secondary": "long_range",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": null,
+      "armor": 3,
+      "hull_trauma": 30,
+      "system_strain": 12,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/gunner",
+      "encumbrance_capacity": null,
+      "passengers": null,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 85000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERHVY",
+          "name": "Heavy Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "description_source": "override"
+    },
+    {
+      "key": "PHANTOM",
+      "name": "Phantom",
+      "description": "",
+      "source": "Dawn of Rebellion",
+      "source_code": "dor",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 4,
+      "handling": null,
+      "armor": 3,
+      "hull_trauma": 12,
+      "system_strain": 10,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": null,
+      "sensor_range_label": "Close",
+      "crew": "One pilot.",
+      "encumbrance_capacity": null,
+      "passengers": null,
+      "consumables": "One day.",
+      "starfighter_complement": null,
+      "price_credits": 22000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "PHOENIXCARGO",
+      "name": "Phoenix Cell's Cargo Skiff",
+      "description": "",
+      "source": "Dawn of Rebellion",
+      "source_code": "dor",
+      "type": "Cargo Skiff",
+      "category": "transports",
+      "category_subtype": "Land Vehicle",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 2,
+      "handling": -1,
+      "armor": 1,
+      "hull_trauma": 5,
+      "system_strain": 8,
+      "defense": {
+        "fore": null,
+        "aft": null,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": "srNone",
+      "sensor_range_label": "None",
+      "crew": "One pilot.",
+      "encumbrance_capacity": 80,
+      "passengers": 8,
+      "consumables": "",
+      "starfighter_complement": null,
+      "price_credits": 1200,
+      "rarity": 4,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": 2,
+      "is_starship": false,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": []
+    },
+    {
+      "key": "PUNWORCCA116",
+      "name": "Punworcca 116-Class Interstellar Sloop",
+      "description": "",
+      "source": "Unlimited Power",
+      "source_code": "up",
+      "type": "Sloop",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "long_range",
+      "silhouette": 3,
+      "speed": 3,
+      "handling": -3,
+      "armor": 1,
+      "hull_trauma": 20,
+      "system_strain": 15,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot",
+      "encumbrance_capacity": 20,
+      "passengers": 2,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 240000,
+      "rarity": 9,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [
+        {
+          "key": null,
+          "name": null,
+          "description": "Let Out the Sail: When sail is unfurled, silhouette increases to 5. Port and starboard defenses are 0. Without the sail, primary hyperdrive is inoperable.",
+          "count": 1
+        }
+      ],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": true,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "TRACTLT",
+          "name": "Light Tractor Beam",
+          "damage": 0,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": null,
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "TRACTOR",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "RHO1LUMULUS",
+      "name": "Rho-1 Limulus-Class Courier",
+      "description": "",
+      "source": "Endless Vigil",
+      "source_code": "ev",
+      "type": "Courier",
+      "category": "transports",
+      "category_subtype": "Non-Fighter Starship",
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 3,
+      "speed": 4,
+      "handling": null,
+      "armor": 1,
+      "hull_trauma": 15,
+      "system_strain": 14,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 6,
+      "passengers": 1,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 55000,
+      "rarity": 8,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "S461SCOUT",
+      "name": "S-461-Series Scout Ship",
+      "description": "",
+      "source": "Cyphers and Masks",
+      "source_code": "cam",
+      "type": "Scout Ship",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -2,
+      "armor": 5,
+      "hull_trauma": 32,
+      "system_strain": 28,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 14,
+      "navicomputer": "yes",
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "",
+      "encumbrance_capacity": 300,
+      "passengers": 10,
+      "consumables": "Six Months",
+      "starfighter_complement": null,
+      "price_credits": 524000,
+      "rarity": 8,
+      "restricted": true,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": null,
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "description_source": "override"
+    },
+    {
+      "key": "SELTISS2",
+      "name": "Seltiss-2 Caravel",
+      "description": "",
+      "source": "Lords of Nal Hutta",
+      "source_code": "lonh",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "hutt",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -1,
+      "armor": 4,
+      "hull_trauma": 30,
+      "system_strain": 18,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 0,
+      "hyperdrive_backup": 0,
+      "navicomputer": "no",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "",
+      "encumbrance_capacity": 200,
+      "passengers": 12,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 550000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Port",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Starboard",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "SENTSHUTTLE",
+      "name": "Sentinel-Class Landing Shuttle",
+      "description": "",
+      "source": "Age of Rebellion Core Rulebook",
+      "source_code": "aor",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "empire",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": -1,
+      "armor": 5,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srClose",
+      "sensor_range_label": "Close",
+      "crew": "One pilot, one co-pilot, three gunners",
+      "encumbrance_capacity": 500,
+      "passengers": 54,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 240000,
+      "rarity": 7,
+      "restricted": true,
+      "hard_points_total": 0,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "IONLT",
+          "name": "Light Ion Cannon",
+          "damage": 5,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "BLASTHVYREP",
+          "name": "Heavy Repeating Blaster",
+          "damage": 15,
+          "crit": 2,
+          "range_value": "wrLong",
+          "range_label": "Long",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "AUTOFIRE",
+              "count": null
+            },
+            {
+              "key": "CUMBERSOME",
+              "count": 5
+            },
+            {
+              "key": "PIERCE",
+              "count": 2
+            },
+            {
+              "key": "VICIOUS",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        },
+        {
+          "key": "CML",
+          "name": "Concussion Missile Launcher",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 4
+            },
+            {
+              "key": "BREACH",
+              "count": 4
+            },
+            {
+              "key": "GUIDED",
+              "count": 3
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 8
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "SHADOWCASTER",
+      "name": "Shadow Caster",
+      "description": "",
+      "source": "Dawn of Rebellion",
+      "source_code": "dor",
+      "type": "Pursuit Craft",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 4,
+      "speed": 5,
+      "handling": 1,
+      "armor": 3,
+      "hull_trauma": 20,
+      "system_strain": 22,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot.",
+      "encumbrance_capacity": 35,
+      "passengers": 4,
+      "consumables": "One month.",
+      "starfighter_complement": null,
+      "price_credits": 155000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 5,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        },
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 1,
+          "location": null,
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TRACTLT",
+          "name": "Light Tractor Beam",
+          "damage": 0,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": null,
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "TRACTOR",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "SHEATHIPEDESPY",
+      "name": "Sheathipede-Class Spy Shuttle",
+      "description": "",
+      "source": "Rise of the Separatists",
+      "source_code": "rots",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "republic",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 1,
+      "armor": 4,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srLong",
+      "sensor_range_label": "Long",
+      "crew": "One pilot, one co-pilot, one comms operator, one engineer",
+      "encumbrance_capacity": 150,
+      "passengers": null,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [
+        {
+          "key": "SPYBRAIN",
+          "name": "SPYBRAIN",
+          "description": "",
+          "count": 1
+        }
+      ],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": []
+    },
+    {
+      "key": "SHEATHIPEDE",
+      "name": "Sheathipede-Class Transport Shuttle",
+      "description": "",
+      "source": "Unlimited Power",
+      "source_code": "up",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 1,
+      "armor": 4,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot, one comms operator, one engineer",
+      "encumbrance_capacity": 150,
+      "passengers": 8,
+      "consumables": "Two months",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [],
+      "description_source": "override"
+    },
+    {
+      "key": "SKYSCOUT",
+      "name": "Skywatcher-Class Deep Space Scout Ship",
+      "description": "",
+      "source": "Beyond the Rim",
+      "source_code": "btr",
+      "type": "Scout Ship",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 0,
+      "armor": 4,
+      "hull_trauma": 25,
+      "system_strain": 18,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "Three to twelve crew",
+      "encumbrance_capacity": 50,
+      "passengers": 6,
+      "consumables": "One year",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "LUXURY3000",
+      "name": "SoroSuub Luxury 3000 Space Yacht",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 0,
+      "armor": 1,
+      "hull_trauma": 30,
+      "system_strain": 12,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 14,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One Pilot, One Co-Pilot/Engineer",
+      "encumbrance_capacity": 100,
+      "passengers": 10,
+      "consumables": "One Months",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "SPACEMASTER",
+      "name": "Space Master Medium Transport",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship",
+        "Medium Transport"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -4,
+      "armor": 2,
+      "hull_trauma": 25,
+      "system_strain": 25,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 4,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "",
+      "encumbrance_capacity": 800,
+      "passengers": 0,
+      "consumables": "Three Months",
+      "starfighter_complement": null,
+      "price_credits": 150000,
+      "rarity": 4,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "STARGALLEON",
+      "name": "Star Galleon Armed Transport",
+      "description": "",
+      "source": "Edge of the Empire Core Rulebook",
+      "source_code": "eote",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 6,
+      "speed": 1,
+      "handling": -2,
+      "armor": 5,
+      "hull_trauma": 85,
+      "system_strain": 18,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 2,
+        "starboard": 2
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One-Hundred Fifty Officers and Enlisted Crew",
+      "encumbrance_capacity": 10000,
+      "passengers": 300,
+      "consumables": "Six Months",
+      "starfighter_complement": null,
+      "price_credits": 1500000,
+      "rarity": 7,
+      "restricted": true,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "TURBOMED",
+          "name": "Medium Turbolaser",
+          "damage": 10,
+          "crit": 3,
+          "range_value": "wrLong",
+          "range_label": "Long",
+          "count": 5,
+          "location": "Port",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 3
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "TURBOMED",
+          "name": "Medium Turbolaser",
+          "damage": 10,
+          "crit": 3,
+          "range_value": "wrLong",
+          "range_label": "Long",
+          "count": 5,
+          "location": "Starboard",
+          "turret": false,
+          "retractable": true,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 3
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "CML",
+          "name": "Concussion Missile Launcher",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 4
+            },
+            {
+              "key": "BREACH",
+              "count": 4
+            },
+            {
+              "key": "GUIDED",
+              "count": 3
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 3
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "T6SHUTTLE",
+      "name": "T-6 Shuttle",
+      "description": "",
+      "source": "Disciples of Harmony",
+      "source_code": "doh",
+      "type": "Shuttle",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 4,
+      "speed": 3,
+      "handling": 1,
+      "armor": 3,
+      "hull_trauma": 25,
+      "system_strain": 15,
+      "defense": {
+        "fore": 1,
+        "aft": null,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": null,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One pilot, one co-pilot",
+      "encumbrance_capacity": 80,
+      "passengers": 4,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 100000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "TL18BTRANS",
+      "name": "TL-18b Medium Transport",
+      "description": "",
+      "source": "Disciples of Harmony",
+      "source_code": "doh",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Medium Transport",
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "multi_faction",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": -1,
+      "armor": 4,
+      "hull_trauma": 22,
+      "system_strain": 16,
+      "defense": {
+        "fore": 2,
+        "aft": null,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "One pilot, one co-pilot, one liaison officer",
+      "encumbrance_capacity": 400,
+      "passengers": 4,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 157000,
+      "rarity": 7,
+      "restricted": false,
+      "hard_points_total": 5,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 2,
+          "location": "Forward",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "TRIDENTASSAULT",
+      "name": "Trident-Class Assault Ship",
+      "description": "",
+      "source": "Collapse of the Republic",
+      "source_code": "cotr",
+      "type": "Assault Ship",
+      "category": "transports",
+      "category_subtype": "Starship",
+      "affiliation": "republic",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 4,
+      "hull_trauma": 35,
+      "system_strain": 20,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": null,
+      "hyperdrive_backup": null,
+      "navicomputer": null,
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One droid pilot, one droid co-pilot, two droid gunners",
+      "encumbrance_capacity": 350,
+      "passengers": 30,
+      "consumables": "72 hours",
+      "starfighter_complement": null,
+      "price_credits": 120000,
+      "rarity": 8,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": null,
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 8,
+          "location": "Hull",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "WM_TRIDENTASSAULT_1",
+          "name": "Articulated Tentacles",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrEngaged",
+          "range_label": "Engaged",
+          "count": 4,
+          "location": "Ventral",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "BRAWL",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            },
+            {
+              "key": "TRACTOR",
+              "count": 2
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "WM_TRIDENTASSAULT_2",
+          "name": "High-Speed Boarding Drill",
+          "damage": 10,
+          "crit": 2,
+          "range_value": "wrEngaged",
+          "range_label": "Engaged",
+          "count": 1,
+          "location": "Ventral",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "MELEE",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 6
+            },
+            {
+              "key": "SUNDER",
+              "count": null
+            },
+            {
+              "key": "VICIOUS",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "UWING",
+      "name": "UT-60D U-Wing Troop Transport",
+      "description": "",
+      "source": "Dawn of Rebellion",
+      "source_code": "dor",
+      "type": "Troop Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "rebellion",
+      "focus_primary": "transports",
+      "focus_secondary": null,
+      "silhouette": 4,
+      "speed": 4,
+      "handling": 1,
+      "armor": 2,
+      "hull_trauma": 20,
+      "system_strain": 18,
+      "defense": {
+        "fore": 2,
+        "aft": 1,
+        "port": null,
+        "starboard": null
+      },
+      "hyperdrive_primary": 2,
+      "hyperdrive_backup": 10,
+      "navicomputer": "yes",
+      "sensor_range_value": null,
+      "sensor_range_label": "Close",
+      "crew": "One pilot, one co-pilot, two door gunners.",
+      "encumbrance_capacity": 25,
+      "passengers": 8,
+      "consumables": "Two weeks.",
+      "starfighter_complement": null,
+      "price_credits": 65000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [
+        {
+          "key": null,
+          "name": null,
+          "description": "",
+          "count": 1
+        }
+      ],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "AddedItem",
+      "weapons": [
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "HEAVYIONBLAS",
+          "name": "Heavy Ion Blaster",
+          "damage": 13,
+          "crit": 5,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 1,
+          "location": "Port",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ION",
+              "count": null
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        },
+        {
+          "key": "LIGHTREPBLASVEH20",
+          "name": "Light Repeating Blaster",
+          "damage": 20,
+          "crit": 2,
+          "range_value": "wrLong",
+          "range_label": "Long",
+          "count": 1,
+          "location": "Starboard",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "AUTOFIRE",
+              "count": null
+            },
+            {
+              "key": "PIERCE",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "VT49DECIMATOR",
+      "name": "VT-49 Decimator",
+      "description": "",
+      "source": "Fly Casual",
+      "source_code": "fc",
+      "type": "Assault Ship",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 4,
+      "speed": 3,
+      "handling": -3,
+      "armor": 4,
+      "hull_trauma": 30,
+      "system_strain": 20,
+      "defense": {
+        "fore": 2,
+        "aft": 2,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot/commander, one co-pilot/navigator, two gunners",
+      "encumbrance_capacity": 60,
+      "passengers": 6,
+      "consumables": "One month",
+      "starfighter_complement": null,
+      "price_credits": 160000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 1,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERQUAD",
+          "name": "Quad Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ACCURATE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERQUAD",
+          "name": "Quad Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "ACCURATE",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        },
+        {
+          "key": "CML",
+          "name": "Concussion Missile Launcher",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 4
+            },
+            {
+              "key": "BREACH",
+              "count": 4
+            },
+            {
+              "key": "GUIDED",
+              "count": 3
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 20
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "CECWUD500",
+      "name": "WUD-500 Star Yacht",
+      "description": "",
+      "source": "Fly Casual",
+      "source_code": "fc",
+      "type": "Yacht",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "luxury",
+      "silhouette": 4,
+      "speed": 4,
+      "handling": -1,
+      "armor": 1,
+      "hull_trauma": 18,
+      "system_strain": 14,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 0,
+        "starboard": 0
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 8,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one co-pilot/navigator",
+      "encumbrance_capacity": 65,
+      "passengers": 6,
+      "consumables": "Four months",
+      "starfighter_complement": null,
+      "price_credits": 98500,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 5,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "BLASTCANLT",
+          "name": "Light Blaster Cannon",
+          "damage": 4,
+          "crit": 4,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    },
+    {
+      "key": "XIYTIAR",
+      "name": "Xiytiar-class Heavy Transport",
+      "description": "",
+      "source": "Enter the Unknown",
+      "source_code": "etu",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -3,
+      "armor": 2,
+      "hull_trauma": 35,
+      "system_strain": 20,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 16,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "One pilot, one copilot, one engineer, one loadmaster, six technicians",
+      "encumbrance_capacity": 2000,
+      "passengers": 12,
+      "consumables": "Six months",
+      "starfighter_complement": "None",
+      "price_credits": 200000,
+      "rarity": 5,
+      "restricted": false,
+      "hard_points_total": 4,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": []
+    },
+    {
+      "key": "Y164SLAVE",
+      "name": "Y164 Slave Transport",
+      "description": "",
+      "source": "Lords of Nal Hutta",
+      "source_code": "lonh",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Starship",
+        "Non-Fighter Starship"
+      ],
+      "affiliation": "hutt",
+      "focus_primary": "transports",
+      "focus_secondary": "cargo",
+      "silhouette": 5,
+      "speed": 3,
+      "handling": -2,
+      "armor": 4,
+      "hull_trauma": 35,
+      "system_strain": 20,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 3,
+      "hyperdrive_backup": 15,
+      "navicomputer": "yes",
+      "sensor_range_value": "srShort",
+      "sensor_range_label": "Short",
+      "crew": "",
+      "encumbrance_capacity": 120,
+      "passengers": 1200,
+      "consumables": "Three months",
+      "starfighter_complement": null,
+      "price_credits": 245000,
+      "rarity": 6,
+      "restricted": false,
+      "hard_points_total": 3,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERLT",
+          "name": "Light Laser Cannon",
+          "damage": 5,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Ventral",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 3
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "YZ775",
+      "name": "YZ-775 Medium Transport",
+      "description": "",
+      "source": "Dangerous Covenants",
+      "source_code": "dc",
+      "type": "Transport",
+      "category": "transports",
+      "category_subtype": [
+        "Non-Fighter Starship",
+        "Starship",
+        "Medium Transport"
+      ],
+      "affiliation": "independent",
+      "focus_primary": "transports",
+      "focus_secondary": "stealth",
+      "silhouette": 5,
+      "speed": 2,
+      "handling": -3,
+      "armor": 4,
+      "hull_trauma": 34,
+      "system_strain": 25,
+      "defense": {
+        "fore": 1,
+        "aft": 1,
+        "port": 1,
+        "starboard": 1
+      },
+      "hyperdrive_primary": 1,
+      "hyperdrive_backup": 12,
+      "navicomputer": "yes",
+      "sensor_range_value": "srMedium",
+      "sensor_range_label": "Medium",
+      "crew": "",
+      "encumbrance_capacity": 850,
+      "passengers": 0,
+      "consumables": "Six months",
+      "starfighter_complement": null,
+      "price_credits": 500000,
+      "rarity": 3,
+      "restricted": false,
+      "hard_points_total": 2,
+      "hard_points_used": 0,
+      "base_mods": [],
+      "built_in_attachments": [],
+      "max_altitude_m": null,
+      "is_starship": true,
+      "is_single_pilot": false,
+      "massive": 0,
+      "stats_complete": true,
+      "custom_flag": "DescOnly",
+      "weapons": [
+        {
+          "key": "TURBOLT",
+          "name": "Light Turbolaser",
+          "damage": 9,
+          "crit": 3,
+          "range_value": "wrMedium",
+          "range_label": "Medium",
+          "count": 1,
+          "location": "Dorsal",
+          "turret": true,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BREACH",
+              "count": 2
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            },
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": false,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": true,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Port",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "LASERMED",
+          "name": "Medium Laser Cannon",
+          "damage": 6,
+          "crit": 3,
+          "range_value": "wrClose",
+          "range_label": "Close",
+          "count": 1,
+          "location": "Starboard",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "LINKED",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": false,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "key": "PTL",
+          "name": "Proton Torpedo Launcher",
+          "damage": 8,
+          "crit": 2,
+          "range_value": "wrShort",
+          "range_label": "Short",
+          "count": 2,
+          "location": "Forward",
+          "turret": false,
+          "retractable": false,
+          "qualities": "",
+          "skill": "GUNN",
+          "qualities_resolved": [
+            {
+              "key": "BLAST",
+              "count": 6
+            },
+            {
+              "key": "BREACH",
+              "count": 6
+            },
+            {
+              "key": "GUIDED",
+              "count": 2
+            },
+            {
+              "key": "LIMITEDAMMO",
+              "count": 8
+            },
+            {
+              "key": "SLOWFIRING",
+              "count": 1
+            }
+          ],
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ]
+    }
+  ]
+}

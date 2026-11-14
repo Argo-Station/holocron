@@ -1,0 +1,538 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/species.schema.json",
+  "title": "Species",
+  "description": "Canonical, app-owned playable-species record. Ingested ONCE from oggdude_merged.json `species` — a CORRUPTED flat list (117 records value-flattened into 1,157 elements by the 2026-03 merge). The ingest ports the player app's proven runtime chunker (player/index.html:449-511) to Python and hardens it fail-loud; output is bit-compared per-species against a checked-in fixture of the JS normalizer's output (D-CB1 rider). Replaces normalizeOggdude's species block.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "characteristics",
+    "wound_threshold_base",
+    "strain_threshold_base",
+    "starting_xp"
+  ],
+  "$comment": "INGEST CONTRACT — record boundary = ALLCAPS key string (^[A-Z0-9_]+$, len>1); within a chunk: [0]=Key, [1]=Name, [2]=Description, [3]=Source (string | {Source}); dict fields identified by content: {Brawn..}=starting characteristics, {WoundThreshold..}=attributes, {SkillModifier}=starting skills, {TalentModifier}=starting talents, {OptionChoice}=option choices. ANY unidentified dict shape in a chunk (SubSpeciesList, WeaponModifiers, ...) is a fail-loud problem -> adjudication ledger, never silently skipped (the runtime chunker silently ignores them — the ingest must not). Numerics are strings -> to_int. RAW: starting XP + characteristics eote p.39; thresholds eote p.103.",
+  "properties": {
+    "id": {
+      "$ref": "charbuild-common.schema.json#/$defs/id"
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key (e.g. 'ALEENA'). Traceability only."
+    },
+    "sidebar_title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "C-ORPH-1 (`csg-v7-orphan-columns-schema` Q1) — the source's per-species sidebar heading. IMPORTED, NOT RENDERED: the data is real authored content and dropping it means re-reading the source in whatever lap wants it, but RENDERING it is a surface decision that owes a mockup under R-MU1, and an import lap is the wrong place to take one. A lap that decides to show this owes a shape ruling first."
+    },
+    "sidebar_text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "C-ORPH-1 — the sidebar body, 198–1603 characters (median 642) across all 433 source rows. Same posture as `sidebar_title`: imported, unrendered, and 0 render sites is asserted by the import gate."
+    },
+    "canon": {
+      "type": "string",
+      "enum": [
+        "EU",
+        "EU fanon",
+        "TCW",
+        "TCW fanon",
+        "Disney",
+        "Disney fanon",
+        "RE"
+      ],
+      "description": "C-ORPH-2 — the source's continuity marker, stored VERBATIM as the author wrote it. The importer pins this enum and ABORTS on an unseen value; a new value is a question for the author, never a silent new member. DELIBERATELY NOT DECOMPOSED into {continuity, fanon}: that shape is more elegant and would require asserting every value fits `<continuity>[ fanon]`, which is true of six and unverifiable for `RE` (Rau-Ni, Vimbexian — undefined by anyone in this repo). Splitting a vocabulary asserts you understand all of it; that claim is the class R-Y2-1 was written about, and decomposition LOOKING safer is what makes it the trap. NOT RENDERED — whether a user ever sees 'fanon' is a product call, and a fanon badge reads as a quality judgement, which `divergence-is-design-not-defect` (R-DIV-1) forbids."
+    },
+    "_provenance_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "C-ORPH-4 — the source author's commentary ABOUT a record (93 rows in v7), never a rendered field. The condition said this lands 'under `_provenance` (e.g. `_provenance.author_note`)'; it cannot, because `_provenance` is a closed enum (oggdude|community|authored) ruled R-SY4 by `f-eds-6-species-lap-plan` §3.3 and shared via charbuild-common.schema.json, so making it an object would break that contract on every record and every registry that $refs it. This field is where that enum's OWN description already sends provenance metadata ('Verification metadata … lives in the inspection ledger and `_provenance_note`'). Declared here for the first time; 0 records used it before v7."
+    },
+    "_name_precedence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "R-B189-1 (`b189-validator-hard-fails-triage`) — the source-precedence rank that decides which source's NAME wins when more than one describes a species. Shipped by `species-name-precedence` on ALL 537 records (34 distinct values, range 0–1065) but never taught here, so `L1cb.4`'s ratchet correctly surfaced every record as schema-invalid until this property existed. IMPORTED, NOT RENDERED — a resolve-order key, not a display field. NOT `required`: a future record without a precedence rank must not become invalid."
+    },
+    "_book_notes": {
+      "type": "object",
+      "properties": {
+        "homeworld": { "type": "string" },
+        "language": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "description": "R-B189-1 (`b189-validator-hard-fails-triage`) — per-book frame notes (homeworld/language as the sourcebook frames them) shipped by the TOR ingest (`tor-p3-app-ingest-scope` R-P3A-1, lap `tor-p3-species`, commit 465ee02) on the 5 TOR species, never taught here. IMPORTED, NOT RENDERED. NOT `required`: present on 5 of 537 records, and a species without book notes must not become invalid."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "$ref": "charbuild-common.schema.json#/$defs/description"
+    },
+    "physiology": {
+      "type": "string",
+      "minLength": 1,
+      "description": "AUTHORED LORE SECTION — what the species IS physically. Ruled by `f-eds-6-species-classification` §4 (shape (c), R-SY4 paper): 116 of 124 records already carried this four-part structure as plain text inside `description`; making it data ends the blob and lets the surface improve per section. OPTIONAL AND TOLERANT: a record with no sections renders its `description` exactly as before, so the batches can land one at a time with no migration. `description` REMAINS as the short lead paragraph the picker previews — the just-looking teaser — never a duplicate of these sections."
+    },
+    "society": {
+      "type": "string",
+      "minLength": 1,
+      "description": "AUTHORED LORE SECTION — how it lives, organises, and behaves. Ruled by `f-eds-6-species-classification` §4 (shape (c), R-SY4 paper): 116 of 124 records already carried this four-part structure as plain text inside `description`; making it data ends the blob and lets the surface improve per section. OPTIONAL AND TOLERANT: a record with no sections renders its `description` exactly as before, so the batches can land one at a time with no migration. `description` REMAINS as the short lead paragraph the picker previews — the just-looking teaser — never a duplicate of these sections."
+    },
+    "homeworld": {
+      "type": "string",
+      "minLength": 1,
+      "description": "AUTHORED LORE SECTION — where it comes from and what that place is like. Ruled by `f-eds-6-species-classification` §4 (shape (c), R-SY4 paper): 116 of 124 records already carried this four-part structure as plain text inside `description`; making it data ends the blob and lets the surface improve per section. OPTIONAL AND TOLERANT: a record with no sections renders its `description` exactly as before, so the batches can land one at a time with no migration. `description` REMAINS as the short lead paragraph the picker previews — the just-looking teaser — never a duplicate of these sections."
+    },
+    "language": {
+      "type": "string",
+      "minLength": 1,
+      "description": "AUTHORED LORE SECTION — what it speaks, and how that shapes contact with others. Ruled by `f-eds-6-species-classification` §4 (shape (c), R-SY4 paper): 116 of 124 records already carried this four-part structure as plain text inside `description`; making it data ends the blob and lets the surface improve per section. OPTIONAL AND TOLERANT: a record with no sections renders its `description` exactly as before, so the batches can land one at a time with no migration. `description` REMAINS as the short lead paragraph the picker previews — the just-looking teaser — never a duplicate of these sections."
+    },
+    "characteristics": {
+      "$ref": "#/$defs/characteristics"
+    },
+    "wound_threshold_base": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Species base; PC wound threshold = base + Brawn at creation, later Brawn increases do NOT re-derive (eote p.103)."
+    },
+    "strain_threshold_base": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Species base; PC strain threshold = base + Willpower at creation, later Willpower increases do NOT re-derive (eote p.103)."
+    },
+    "starting_xp": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Species-granted starting XP (eote p.39). Same currency as in-play XP; characteristics may ONLY be bought with it at creation."
+    },
+    "force_rating": {
+      "$ref": "charbuild-common.schema.json#/$defs/force_rating"
+    },
+    "starting_skills": {
+      "type": "array",
+      "description": "Free skill ranks granted by the species (OggDude SkillModifier). Subject to the creation rank-2 cap (eote p.39).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "skill",
+          "rank_start"
+        ],
+        "properties": {
+          "skill": {
+            "$ref": "charbuild-common.schema.json#/$defs/skill_ref"
+          },
+          "rank_start": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          },
+          "rank_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Species-specific training cap when printed (OggDude RankLimit, e.g. Aleena Coordination limit 2)."
+          },
+          "as_career": {
+            "type": "boolean",
+            "description": "The species makes this skill a career skill regardless of career (OggDude isCareer, e.g. Squib Mechanics)."
+          }
+        }
+      }
+    },
+    "starting_talents": {
+      "$ref": "#/$defs/starting_talents"
+    },
+    "option_choices": {
+      "type": "array",
+      "description": "Pick-one species options (OggDude OptionChoice), structure PRESERVED — the runtime normalizer flattened these into a single abilities list, losing the choice semantics; canonical keeps them choosable.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "options"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "options": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "id"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "$ref": "charbuild-common.schema.json#/$defs/description"
+                },
+                "skill_grants": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "skill",
+                      "rank_start"
+                    ],
+                    "properties": {
+                      "skill": {
+                        "$ref": "charbuild-common.schema.json#/$defs/skill_ref"
+                      },
+                      "rank_start": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 2
+                      },
+                      "rank_limit": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 5,
+                        "description": "Option-conditional training cap when printed (e.g. Corellian Human)."
+                      },
+                      "as_career": {
+                        "type": "boolean",
+                        "description": "The option makes this skill a career skill regardless of career (OggDude isCareer, e.g. Squib Mechanics)."
+                      },
+                      "_provenance_note": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Stable option id — B-22 option-grant mechanics (ruled + prod-verified). The schema lagged the shipped feature; surfaced by L1cb.4 (ruling f-eds-6-pipeline-replacements Q1). PROMOTED TO REQUIRED by C-OCS-1: the pick persists `option.id` into sheet.speciesOptionPicks (charResolve.js:542-546), so an option without one is a silently unpersistable choice — a data-loss class. Free today: all 259 shipped options carry an id."
+                },
+                "xp_adjustment": {
+                  "type": "integer",
+                  "description": "Starting-XP delta for taking this option (e.g. Gand Has Lungs +10). B-22 option-grant mechanics (ruled + prod-verified). The schema lagged the shipped feature; surfaced by L1cb.4 (ruling f-eds-6-pipeline-replacements Q1). C-OCS-1: mutually exclusive with the option's own `starting_xp` — exactly one form per option. This is the DELTA form and it stays, because the source prints deltas too (Gand +10, H'nemthe +15)."
+                },
+                "_provenance": {
+                  "type": "string"
+                },
+                "special_abilities": {
+                  "$ref": "#/properties/special_abilities",
+                  "description": "C-OAB-1 (`csg-v7-option-abilities-schema`) — abilities this variant grants, reusing the species-level shape unchanged. C-OAB-2: THE RESOLVER UNIONS — a character's abilities are the species' list PLUS the chosen option's, in that order, de-duplicated by name. The de-dup is belt-and-braces, not a behaviour: 0 collisions were measured across every variant block in the source, so today the union is always a concatenation; a future edition that introduces one must not silently double a line. C-OAB-3, AND DO NOT 'HARMONIZE' THIS: a variant's `characteristics` REPLACE the species' while its abilities ADD, and the asymmetry is deliberate because the SOURCE differs — a variant states a whole stat spread (an absolute, which can only replace) but lists extra abilities after the species' own (additive by construction). Making the two agree in either direction produces wrong characters."
+                },
+                "_default": {
+                  "type": "boolean",
+                  "description": "C-ORPH-3 (`csg-v7-orphan-columns-schema`) — marks the option a species defaults to when its variant axis is presented, 'rather than leaving the order to chance'. Derived from the source's `OWN` column, which is CONSUMED and never persisted: the True row is the representative species and therefore the default variant. The REQUIREMENT is ruled; only the field name is the implementer's, per that ruling's 'IMPLEMENTER'S: field naming'."
+                },
+                "skill_choice_grants": {
+                  "$ref": "#/$defs/skill_choice_grants"
+                },
+                "career_skill_choice_grants": {
+                  "$ref": "charbuild-common.schema.json#/$defs/career_skill_choice_grants",
+                  "description": "PLAYER-CHOSEN career skills granted by a SPECIES ability: the player picks `count` skills from `pool`; each becomes a CAREER SKILL for the PC and grants NO rank (The Complete Species Guide p.55, the Cerean's Intellectuals: 'Still may not receive a free rank in them without spending XP'). The ONE definition the specialization and the talent carry (charbuild-common $defs; ruling f100-cerean-intellectuals-card R-CI-1). The pick persists as `sheet.speciesSkillChoices = { <speciesId>: { <poolId>: [<skillId>, ...] } }`, poolId as the specialization twin computes it (`pool`, an array pool joined by '+'; ADDENDUM 2 Q1), so pool values must be unique within a record (validate_registries L1cb.6). Read by `careerSkillStatus` only (because 'species-choice:<id>'); no rank is granted anywhere (`speciesSkillGrants` never reads it)."
+                },
+                "starting_talents": {
+                  "$ref": "#/$defs/starting_talents"
+                },
+                "characteristics": {
+                  "$ref": "#/$defs/characteristics"
+                },
+                "characteristic_overrides": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "propertyNames": { "enum": ["brawn", "agility", "intellect", "cunning", "willpower", "presence"] },
+                  "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 5 },
+                  "description": "R-SOP-6 (`species-option-payload-contract` §9.4) — a PARTIAL characteristic override: an object of characteristic -> VALUE (never a delta), for a variant that changes SOME characteristics without restating the whole spread. VALUES not deltas because the book prints values (CSG v7 Vaathkree Humanoid = 'Presence 3'; the guide lists only the characteristics that differ from the species spread, so the field carries exactly the printed line). Applied OVER the resolved block in `speciesEffective`. This is the PARTIAL family for characteristics: L1cb.oc's all-or-none rule (R-SOP-1) covers the ABSOLUTE `characteristics` block only, so an override is free to vary across a group's options exactly as `wound_threshold_adjustment` is. MUTUALLY EXCLUSIVE with `characteristics` on the same option (the `not` below) — an absolute and a partial cannot compose order-independently, the same reason `starting_xp` and `xp_adjustment` cannot coexist."
+                },
+                "wound_threshold_base": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "FORK B variant override — ABSOLUTE, not a delta. Replaces the species' wound_threshold_base when this option is the recorded pick. Absolute because the source prints whole stat blocks and a delta invents arithmetic nobody printed (ruling `csg-v7-subspecies-and-sex` §5.1). Group completeness asserted by L1cb.oc."
+                },
+                "strain_threshold_base": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "FORK B variant override — ABSOLUTE, not a delta. Replaces the species' strain_threshold_base when this option is the recorded pick. See wound_threshold_base."
+                },
+                "starting_xp": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "FORK B variant override — ABSOLUTE starting XP, mutually exclusive with xp_adjustment (exactly one form per option, never both). BOTH forms exist because THE SOURCE PRINTS BOTH: v7 prints Togorian (Female) 95 / (Male) 90 as whole numbers, and H'nemthe's male option as \"+15 XP\". Forcing one form would print a number no book contains (ruling `csg-v7-option-characteristics-schema` Q2 = (a) BOTH; erratum to `csg-v7-subspecies-and-sex` §5.1, which extended the absolute rule to XP without checking). Resolution: effectiveXp = (option.starting_xp ?? species.starting_xp) + (option.xp_adjustment ?? 0)."
+                },
+                "wound_threshold_adjustment": {
+                  "type": "integer",
+                  "description": "Wound-threshold DELTA for taking this option (Droid Large +2, Small -2). Q2: deltas SUM across a multi-pick group, which is why this exists alongside the absolute `wound_threshold_base` — an absolute cannot combine order-independently. Consumer built in the same lap (never-ingest-without-consumers)."
+                },
+                "strain_threshold_adjustment": {
+                  "type": "integer",
+                  "description": "Strain-threshold DELTA for taking this option. Sibling of `wound_threshold_adjustment`; same summing rule (Q2). No shipped option uses it yet — added WITH its consumer so the two thresholds stay one idiom rather than one gaining a delta form and the other not."
+                }
+              },
+              "allOf": [
+                {
+                  "$comment": "Q2 — exactly one XP form per option (absolute starting_xp OR the xp_adjustment delta, never both).",
+                  "not": { "required": ["starting_xp", "xp_adjustment"] }
+                },
+                {
+                  "$comment": "R-SOP-6 — exactly one characteristics form per option: the ABSOLUTE `characteristics` block OR the PARTIAL `characteristic_overrides`, never both. An absolute and a partial cannot compose order-independently (§9.4).",
+                  "not": { "required": ["characteristics", "characteristic_overrides"] }
+                }
+              ]
+            }
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The heading a PLAYER reads. `name` is the PERSISTENCE KEY and stays internal forever: _groupId (charResolve.js:557) slugs it into sheet.speciesOptionPicks, so renaming a group silently re-keys every saved pick and the reader returns early on the unknown key (:546) — data loss wearing a copy fix's clothes. Hence a separate label rather than a rename (B-145, Jason's deploy blocker; ruling `csg-v7-option-characteristics-schema` Q3 = (i)). Renderers read `display_name || name`. DERIVE BEHAVIOUR, AUTHOR COPY."
+          },
+          "preselect": {
+            "type": "boolean",
+            "description": "When true, the group's first option is selected on open and the CTA names it. ABSENT MEANS FALSE, which is why all 129 shipped groups keep today's behaviour with no data written (Jason 2026-08-10: \"No preselect\"). AUTHORED, not derived: no property of the options separates 'complete the stat block' from 'make a mechanical choice' — Gand's Breathing grants no skill and must NOT pre-select, H'nemthe's Sex grants no skill and MUST. Set true only on v7 variant groups (Sex/Subspecies/Caste/Age/Condition). `preselect: true` on a skill-granting group is a VALIDATOR ERROR: it would tick a chip and gate the CTA (app.jsx:2373, \"PICK ONE SKILL TO CONTINUE\") at the same time, which is incoherent."
+          },
+          "noun": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The singular head noun the held-commit CTA speaks: count 1 renders \"Pick one <noun> to continue\" (player/app.jsx `fcSpeciesOwedLabel`). Lowercase — the CTA's text-transform paints the capitals. STAMPED from schema/vocab/option_groups.vocab.json by scripts/canonical/apply_option_group_nouns.py, never authored per group and never derived by singularizing the label: R-CRS-A4-2 is explicit that the app does not singularize by string. Required on every group that can be OWED (min_picks >= 1); a min_picks-0 group is never owed (R-B409D-A1-2) and carries none. B-409."
+          },
+          "min_picks": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Fewest options the player must take from this group. ABSENT DEFAULTS TO 1 — every shipped group predates this key and is a pick-exactly-one, so absence must keep meaning that (ruling `species-option-menu-multiselect-save-shape` Q1). Droid's menu is the first 0."
+          },
+          "max_picks": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Most options the player may take. ABSENT DEFAULTS TO 1. A group with max_picks > 1 persists an ARRAY of option ids; a scalar at rest stays legal forever and is read as a one-element list (Q1, lean c) — no saved character is rewritten."
+          }
+        }
+      }
+    },
+    "special_abilities": {
+      "type": "array",
+      "description": "Non-choice special abilities (single-option OptionChoice entries collapse here, matching how players read them).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "$ref": "charbuild-common.schema.json#/$defs/description"
+          },
+          "buyout_xp": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "R-CBC-1 (`creation-buyout-count-and-price`, amending R-SFC-1) — this ability is a PENALTY the player may pay XP to remove. The value is the COST PRINTED IN THAT ABILITY'S OWN SENTENCE, not a constant: the shelf carries two prices today (10 on 33 stamped carriers, 5 on Roonan's Small Comforts and Toong's Social Anxiety). MEMBERSHIP IS A MANIFEST, NOT A PATTERN — scripts/canonical/apply_creation_buyouts.py carries an enumerated 35-row list and `validate_registries` asserts exactly it, because the class has FOUR ability names and THREE printed phrasings and no regex is the contract. Two successive censuses under-counted by anchoring on one phrasing (error ledger #44; the brief that caught the first is Docs/briefs/creation-buyout-count-and-price.md), which is why enumeration replaced search. A DISCOVERY GUARD fails the build loudly on any XP-priced ability prose that is neither manifested nor a named exclusion, so a future import cannot add one silently. THE PROSE STAYS VERBATIM — it is the book's text and the species page's advertisement; this field is what the SURFACE reads, and only this field: an implementation keyed to the name 'Primitive' misses four carriers today. Legal on an option's `special_abilities` too, since that array $refs this one — the buyout then appears only when that option is the resolved pick (csg_kamarian's Badlander), which is correct by construction."
+          },
+          "buyout_window": {
+            "type": "string",
+            "enum": [
+              "creation",
+              "any"
+            ],
+            "description": "R-CBC-1 — WHEN the buyout may be taken. Absent means `creation`, which is the default and covers 34 of the 36 discovered carriers: the offer is creation-only by RAW and no advancement surface may present it. `any` is stamped where the printed text widens the window — `csg_toong`'s Social Anxiety says 'during or after character creation'. THE LEGAL VALUES ARE A RULED VOCABULARY (R-SY4 class): extending this enum is a halt and a brief, never an edit, because a third window would change what an advancement surface is allowed to offer. The window=`any` advancement-side surface is deliberately NOT built by the lap that introduces this field — it is a named deferral (R-CBC-5), and deferring it changes nothing a window=creation player sees."
+          },
+          "carried": {
+            "type": "array", "minItems": 1, "uniqueItems": true,
+            "items": { "enum": ["wound_threshold_base", "strain_threshold_base", "starting_xp", "characteristics", "starting_talents", "skill_choice_grants", "bonus_free_ranks", "career_skill_choice_grants", "option_choices"] },
+            "description": "F-100 THE SURFACING MISSION (ruling f100-surfacing-preflip-species-card R-SPF-5 as amended by ADDENDUM 2 R-SPF-11; f100-m9-build-card R-M9B-49): the species RECORD fields this ability's words are applied through, when the app applies it by a carried field rather than by its own rows (Scavengers through `starting_talents`, the Droid's Additional Career Skills through `bonus_free_ranks`). A fact, never a claim: STAMPED by scripts/canonical/apply_species_ability_rows.py only where the record truly carries the part (the re-count's `part_live` test), idempotent, `--check`; never hand-written. A homebrew copy carries it; editing the ability's description, or a named field, clears it (the editor re-stamps on the next save when the words are marked again). Read by effectClass's species chip: an ability with no rows and a non-empty `carried` chips AUTOMATIC."
+          },
+          "pool_mods": { "type": "array", "items": { "$ref": "#/$defs/ability_pool_mod" },
+            "description": "F-100 M9 (ruling f100-m9-shapes-card R-M9S-1): this ability's dice rows — the talent record's own `pool_mods` vocabulary (item-common $defs/pool_mod_entry), ON the ability, so a buyout (R-SFC-2) drops the ability and its rows together. Written by scripts/canonical/apply_species_ability_rows.py, never by hand." },
+          "roll_numbers": { "type": "array", "items": { "$ref": "#/$defs/ability_roll_number" },
+            "description": "F-100 M9 (R-M9S-1/4): this ability's roll numbers (charbuild-common $defs/roll_number), crit_rating_set included." },
+          "effects": { "type": "array", "items": { "$ref": "#/$defs/ability_effect" },
+            "description": "F-100 M9 (R-M9S-1/5): this ability's sheet-number rows (charbuild-common $defs/effect), the two M9 deltas included." },
+          "talent_pointer": {"type": "string", "minLength": 1, "description": "The id of the talent this ability only points to (Receive the talent X). R-AAC-27 (b), ruling argo-a1-export-fields D3: derived from the description by scripts/canonical/apply_text_encodings.py; the app reads it, else today's parse (D4)."},
+          "told": { "type": "array", "items": { "$ref": "#/$defs/ability_told" },
+            "description": "F-100 M9 (R-M9S-1): the words of a working ability that the app SHOWS and never computes (charbuild-common $defs/told_entry)." }
+        }
+      }
+    },
+    "skill_choice_grants": {
+      "$ref": "#/$defs/skill_choice_grants"
+    },
+    "career_skill_choice_grants": {
+      "$ref": "charbuild-common.schema.json#/$defs/career_skill_choice_grants",
+      "description": "PLAYER-CHOSEN career skills granted by a SPECIES ability: the player picks `count` skills from `pool`; each becomes a CAREER SKILL for the PC and grants NO rank (The Complete Species Guide p.55, the Cerean's Intellectuals: 'Still may not receive a free rank in them without spending XP'). The ONE definition the specialization and the talent carry (charbuild-common $defs; ruling f100-cerean-intellectuals-card R-CI-1). The pick persists as `sheet.speciesSkillChoices = { <speciesId>: { <poolId>: [<skillId>, ...] } }`, poolId as the specialization twin computes it (`pool`, an array pool joined by '+'; ADDENDUM 2 Q1), so pool values must be unique within a record (validate_registries L1cb.6). Read by `careerSkillStatus` only (because 'species-choice:<id>'); no rank is granted anywhere (`speciesSkillGrants` never reads it)."
+    },
+    "bonus_free_ranks": {
+      "description": "B-21's THIRD grant class: species that grant extra free skill ranks as prose rather than as a pick-one list (e.g. the Droid's additional career skills). Structured by the B-21 lap and oracle-verified; the schema was never taught about it, which L1cb.4 surfaced (ruling f-eds-6-pipeline-replacements Q1).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "career": {
+          "type": "integer",
+          "description": "free ranks usable on career skills"
+        },
+        "spec": {
+          "type": "integer",
+          "description": "free ranks usable on first-specialization skills"
+        },
+        "_provenance_note": {
+          "type": "string"
+        }
+      }
+    },
+    "sources": {
+      "$ref": "charbuild-common.schema.json#/$defs/sources"
+    },
+    "_provenance": {
+      "$ref": "charbuild-common.schema.json#/$defs/provenance"
+    },
+    "_dataset": { "$ref": "charbuild-common.schema.json#/$defs/dataset" }
+  },
+  "$defs": {
+    "ability_row_refusals": {
+      "not": { "anyOf": [{ "required": ["per_rank"] }, { "required": ["count_of"] }, { "required": ["floor"] }, { "required": ["pick"] }] },
+      "description": "F-100 M9 (ruling f100-m9-shapes-card R-M9S-2, settled by count at R-M9S-9): the talent-only members a SPECIES-ABILITY row refuses — `per_rank` (a species has no ranks), `count_of` and `floor` (0 users in the re-count) — and `pick` (a species ability has no owned cell to store a pick at). Admitted: `id` (unique within the ability across its four arrays), `cite` (its book in the species' `sources`), `words` and `condition` (spans of the ability's own description), `cost`, `limit` — checked by validate_registries L1cb.sp and packValidate."
+    },
+    "ability_pool_mod": {
+      "allOf": [
+        { "$ref": "item-common.schema.json#/$defs/pool_mod_entry" },
+        { "$ref": "#/$defs/ability_row_refusals" },
+        { "properties": { "applies_to": { "oneOf": [{ "type": "null" }, { "type": "array", "items": { "not": { "required": ["chosen"] } } }] } } } ],
+      "description": "F-100 M9 (R-M9S-1/2/3/6): a species ability's dice row. The ONE place `{die: difficulty, direction: upgrade}` is admitted (item-common does not wrap it with pool_mod_species_members_refused here, R-M9S-3); `count: all` as item-common rules it (R-M9S-6); no pick-valued anchor."
+    },
+    "ability_roll_number": {
+      "allOf": [{ "$ref": "charbuild-common.schema.json#/$defs/roll_number" }, { "$ref": "#/$defs/ability_row_refusals" }],
+      "description": "F-100 M9 (R-M9S-1/4): a species ability's roll number; crit_rating_set admitted (its anchor the unarmed attack only)."
+    },
+    "ability_effect": {
+      "allOf": [{ "$ref": "charbuild-common.schema.json#/$defs/effect" }, { "$ref": "#/$defs/ability_row_refusals" }],
+      "description": "F-100 M9 (R-M9S-1/5): a species ability's sheet-number row; never `per_rank`."
+    },
+    "ability_told": {
+      "allOf": [{ "$ref": "charbuild-common.schema.json#/$defs/told_entry" }, { "$ref": "#/$defs/ability_row_refusals" }],
+      "description": "F-100 M9 (R-M9S-1): a species ability's TOLD row — its own words, shown and never computed."
+    },
+    "skill_choice_grants": {
+      "type": "array",
+      "description": "CR-RAW #1: FREE-CHOICE starting skill grants — the player picks `count` skills from `pool` (any skill, or any non-career skill) and gains one rank in each, capped at `rank_cap` (the creation cap). Distinct from option_choices (a fixed pick-one list) and starting_skills (fixed grants). Only species whose RAW grant is a free choice from an un-enumerable pool (Human/Geonosian/Klatooinian).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "count",
+          "pool",
+          "rank_cap"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "pool": {
+            "oneOf": [
+              {
+                "enum": [
+                  "any",
+                  "non_career",
+                  "combat",
+                  "general",
+                  "knowledge",
+                  "social"
+                ],
+                "description": "'any' and 'non_career' are the broad pools. Every other value is a CATEGORY pool: a group id defined in schema/vocab/skills.vocab.json, resolved against that group at render (player/app.jsx speciesChoicePoolOf). R-ENUM-1: THE VOCAB IS THE SOURCE OF TRUTH FOR THIS LIST — a group added, renamed, or removed there updates this enum in the SAME change; validate_registries L1cb.5 asserts the vocab's group set is covered here. Ruled by `f-eds-6-pool-enum-halt` (shape C) after the strict two-value form was found to be fencing a silent over-grant rather than fixing it."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "description": "G11 (F-47): an explicit canonical skill-id list — 'one rank in THESE skills of your choice' (a 1-item list = a fixed single-skill grant)."
+              }
+            ]
+          },
+          "rank_cap": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          }
+        }
+      }
+    },
+    "starting_talents": {
+      "type": "array",
+      "description": "Free talents granted by the species (OggDude TalentModifier).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "talent",
+          "ranks"
+        ],
+        "properties": {
+          "talent": {
+            "$ref": "charbuild-common.schema.json#/$defs/talent_ref"
+          },
+          "ranks": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "characteristics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brawn",
+        "agility",
+        "intellect",
+        "cunning",
+        "willpower",
+        "presence"
+      ],
+      "properties": {
+        "brawn": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "agility": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "intellect": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "cunning": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "willpower": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "presence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      },
+      "description": "Species starting characteristic ratings. Bounds: PC creation cap is 5 (eote p.39); species bases are 1-4 in practice — 5 allowed for safety, >5 is corrupt data. Hoisted to $defs by C-OCS-1 (ruling `csg-v7-option-characteristics-schema`) so a variant option's set is the SAME object by construction — all six required, same bounds — rather than a second definition free to drift from this one."
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "id": "separatist_remnants",
+  "name": "Separatist Remnants",
+  "type": "military_force",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Collapse of the Republic",
+    "Rise of the Separatists",
+    "Dawn of Rebellion"
+  ],
+  "overview": "The Separatist Remnants are the scattered survivors, holdouts, and successor movements of the Confederacy of Independent Systems. After the deactivation of the droid armies and the execution of the Separatist Council, former CIS worlds, military units, and corporate assets fell under Imperial control or went underground. Some holdouts refuse to acknowledge the war's end, others seek to reclaim seized corporate assets, and a few have repurposed Separatist ideology and infrastructure for new causes — including, paradoxically, resistance against the Empire that destroyed them.",
+  "short_descriptor": "Holdouts from the Clone Wars. Some don't know the war ended. Some don't care. Droid armies on automated protocols, political survivors under false identities. The salvage is valuable. The loyalties are unpredictable.",
+  "how_they_operate": [
+    {
+      "heading": "AUTONOMOUS CELLS",
+      "text": "There is no central command. Each remnant cell operates autonomously — some are automated droid garrisons running on protocols programmed during the Clone Wars, others are organic holdouts led by former CIS officers or corporate agents."
+    },
+    {
+      "heading": "DROID FORCES",
+      "text": "Military cells rely on reactivated B1 and B2 battle droids coordinated by T-series tactical droids, which retain the strategic programming of General Grievous's command doctrine."
+    },
+    {
+      "heading": "HIDDEN FACILITIES",
+      "text": "Hidden facilities are scattered across former CIS territory in sealed mine shafts, abandoned factories, and decommissioned shipyards, often protected by proximity sensors and patrol droids that have been active for over a decade without organic oversight."
+    },
+    {
+      "heading": "CORPORATE REMNANTS",
+      "text": "Corporate remnants operate through front companies descended from Commerce Guild, Techno Union, and Corporate Alliance assets, attempting to reclaim seized holdings through legal and extralegal means."
+    },
+    {
+      "heading": "COMMUNICATION",
+      "text": "Communication between cells uses old CIS military frequencies, which the Empire monitors — making every transmission a calculated risk."
+    }
+  ],
+  "witness_statement": {
+    "text": "Found a sealed mine shaft on Agamar with blast doors still powered. Cracked it open expecting tibanna deposits. Got twenty B1s pointing blasters at me and a tactical droid asking for my 'CIS authorization codes.' That was fifteen years after the war ended. I gave it my cargo manifest and it spent two hours trying to validate it. I left while it was still processing.",
+    "source": "Independent salvager, Outer Rim survey operation",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "motivations": {
+    "primary": "Survival and reclamation",
+    "secondary": [
+      "Recovering seized corporate and military assets",
+      "Restoring sovereignty to former CIS worlds",
+      "Opposing Imperial occupation of former Separatist territory",
+      "Preserving the political ideals of independence from centralized galactic authority"
+    ],
+    "notes": "Separatist Remnants are not unified. Corporate remnants want their assets back. Military holdouts want to continue fighting. Political idealists want the independence the CIS promised but never delivered. These motivations often conflict — the corporate elements exploited the same worlds the political wing claims to champion."
+  },
+  "goals": {
+    "strategic": [
+      "Reclaim industrial and military assets seized by the Empire from former CIS corporate sponsors",
+      "Restore political sovereignty to Outer Rim worlds absorbed by the Empire after the Clone Wars",
+      "Build a credible resistance movement from the remnants of CIS military infrastructure"
+    ],
+    "operational": [
+      "Reactivate and maintain dormant droid army units and automated defense systems",
+      "Locate and secure hidden CIS supply caches, weapons depots, and shipyards",
+      "Recruit from populations of former Separatist worlds who resent Imperial rule",
+      "Establish contact with other resistance movements, including potential Alliance channels"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "military_force",
+      "information_control",
+      "hired_muscle",
+      "infiltration"
+    ],
+    "avoided": [
+      "Diplomacy with the Empire — the Empire considers all Separatist activity treason, making negotiation impossible",
+      "Open propaganda — drawing attention to Separatist activity invites Imperial retaliation on vulnerable Rim worlds"
+    ],
+    "notes": "The Separatists' original war strategy relied on overwhelming droid numbers controlled by tactical droid commanders, with defensive operations left to local organic forces augmented by corporate security. The remnants retain fragments of this infrastructure — reactivated battle droids, old supply lines, hidden facilities — but lack the centralized command and industrial capacity that made the CIS a galactic-scale threat. Methods now trend toward guerrilla operations, salvage, and opportunistic alliances."
+  },
+  "strengths": [
+    "Vast quantities of dormant military hardware scattered across former CIS territory — battle droids, vehicles, and warships waiting to be reactivated",
+    "Hidden facilities, sealed mine shafts, and abandoned bases provide infrastructure invisible to Imperial surveys",
+    "Former corporate sponsors (Commerce Guild, Techno Union, Corporate Alliance) left behind manufacturing knowledge and trade networks",
+    "T-series tactical droids and their successors can still coordinate military operations without organic officers",
+    "Deep resentment of Imperial rule on former CIS worlds provides a ready recruitment base"
+  ],
+  "weaknesses": [
+    "No central leadership, unified command structure, or inter-cell coordination mechanism exists — each remnant group operates autonomously with its own objectives, often in conflict with other remnant cells.",
+    "Imperial policy classifies all Separatist activity as treason, triggering military responses disproportionate to the actual threat level of most remnant cells.",
+    "Reactivated droid armies operate on Clone Wars-era tactical protocols that have not been updated, making their maneuvers predictable to any commander familiar with Separatist-era battle data.",
+    "The Confederacy of Independent Systems brand carries lasting stigma even on former member worlds, many of whose populations experienced direct exploitation by CIS corporate sponsors during the war.",
+    "Populations on former CIS worlds that originally joined the Confederacy to escape Republic trade tariffs now endure equivalent or greater extraction under Imperial rule, producing war-weariness rather than renewed resistance sentiment."
+  ],
+  "behavior_under_threat": {
+    "low": "Automated systems handle low-level threats. Proximity sensors and patrol droids guard hidden facilities. Organic members monitor Imperial communications for signs of discovery.",
+    "medium": "Reactivate additional droid units. Relocate valuable assets to deeper hiding. Cut communications with known contacts to prevent the threat from spreading through the network.",
+    "high": "Full military activation of available droid forces. Fortify positions using CIS-era defensive protocols. Attempt to contact other remnant cells or potential allies for reinforcement.",
+    "critical": "Fighting retreat. Destroy what cannot be evacuated to deny it to the Empire. Scatter personnel and critical data to pre-arranged fallback positions. Some holdouts will fight to the last droid rather than surrender."
+  },
+  "alert_escalation": {
+    "communication_method": "radio",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Automated security droids on-site",
+      "Tactical droid commander",
+      "Local remnant cell leader (organic)",
+      "No higher authority exists — each cell is autonomous"
+    ],
+    "notes": "Separatist Remnant escalation is fragmented by design and by circumstance. Automated facilities may respond to threats without any organic oversight, following protocols programmed years ago. Cells that still have organic leadership escalate through old CIS communication frequencies, which the Empire monitors — making every transmission a risk."
+  },
+  "tension_patterns": [
+    "Deactivated Separatist droid armies represent significant salvage value in raw materials and components, while reactivation carries Imperial criminal penalties under post-war decommissioning statutes — yet reactivation occurs regularly across former CIS territory.",
+    "Former CIS senators and political figures living under assumed identities retain political networks and institutional knowledge valuable to anti-Imperial movements, but public association with the Separatist cause carries a credibility cost that most Rebel Alliance leaders consider unacceptable.",
+    "Isolated military holdouts operating on decade-old programming frequently fail to distinguish between the Republic and the Empire, treating all centralized galactic authority as the enemy they were originally programmed to fight.",
+    "Corporate assets seized from Commerce Guild, Techno Union, and Corporate Alliance holdings after the Clone Wars have been converted into Imperial military installations, placing former owners' reclamation interests in direct conflict with Imperial military security.",
+    "Automated battle droid garrisons in sealed facilities across the Outer Rim continue executing defensive protocols programmed during the Clone Wars, responding to proximity incursions without awareness that the conflict ended over a decade ago."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "skeleton",
+    "economic": "skeleton",
+    "command": "skeleton",
+    "informational": "skeleton",
+    "military": "patrol",
+    "hidden": "fortified",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "medium",
+    "weapon": "high",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "high",
+    "notes": "The Remnants desperately need military technology to reactivate and maintain their droid forces, weapons to arm organic recruits, and data — both intelligence on Imperial dispositions and old CIS records that could locate hidden assets. Persons of interest include former CIS officers, engineers who built the droid armies, and potential allies. Artifacts hold no particular value."
+  },
+  "ally_factions": [],
+  "enemy_factions": [
+    "imperial_military",
+    "imperial_security_bureau"
+  ],
+  "relationship_notes": {
+    "imperial_military": "The Empire views all Separatist activity as treason deserving overwhelming force. Former CIS worlds are under Imperial military occupation, and any sign of remnant activity triggers immediate crackdown.",
+    "imperial_security_bureau": "The ISB actively hunts former Separatist leaders and monitors former CIS worlds for signs of reactivation. Former senators living under false identities are priority targets.",
+    "rebel_alliance": "An uneasy potential alliance. The Rebellion needs military assets the Remnants possess; the Remnants need allies the Rebellion can provide. But the CIS brand is toxic, and many Alliance members fought against the Separatists in the Clone Wars.",
+    "hutt_cartel": "The Hutts controlled the Triellus Trade Route during the Clone Wars, which the Separatists needed but could never secure. Remnant cells in Hutt Space operate under Hutt sufferance, paying for protection."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "none",
+    "colonies": "none",
+    "inner_rim": "minimal",
+    "expansion_region": "minimal",
+    "mid_rim": "minimal",
+    "outer_rim": "moderate",
+    "hutt_space": "minimal",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "General Grievous (legacy)",
+      "role": "Former Supreme Commander of the Droid Armies",
+      "era": [
+        "prequel"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "GENERAL_GRIEVOUS",
+      "notes": "Killed on Utapau at the war's end. His tactical protocols remain embedded in surviving tactical droids, meaning his strategic philosophy continues to shape remnant military operations long after his death.",
+      "network_assessment": "Grievous is dead but his tactical doctrine is not. Every T-series tactical droid running Clone Wars protocols is executing Grievous's playbook. Encountering remnant droid forces means fighting a dead general's strategy — predictable if you have the war records, lethal if you do not.",
+      "wants": "Not applicable — deceased. His embedded protocols prioritize territorial defense, aggressive counter-attack, and the destruction of Republic (now Imperial) military assets.",
+      "secret": "His tactical protocols contain hidden subroutines for a contingency scenario — a final offensive meant to be triggered if the Separatist Council was eliminated. The trigger conditions may have been partially met.",
+      "behavior": {
+        "under_pressure": "His droid forces execute escalating defensive protocols: perimeter hardening, counter-attack waves, and fighting withdrawal to prepared positions.",
+        "when_losing": "Protocol dictates scorched earth. Destroy the facility, destroy the data, destroy the droids if necessary. Deny everything to the enemy.",
+        "loyalty": "Grievous was loyal to the destruction of the Republic and to his own reputation. His droids carry the first objective but not the second.",
+        "tells": "Tactical droid units operating on Grievous protocols favor flanking maneuvers and overwhelming local superiority — identifiable patterns for anyone who studied the Clone Wars."
+      },
+      "useful_to_players": [
+        "Clone Wars tactical archives can predict how Grievous-protocol droids will respond to specific scenarios",
+        "His legacy gives remnant cells a command doctrine that functions without organic leadership",
+        "Facilities running his protocols often contain valuable CIS-era military hardware"
+      ],
+      "hooks": [
+        "A salvager found a tactical droid on Utapau still running Grievous's final command protocols — it thinks the war is still on and it is issuing orders to droid units that may still be listening",
+        "Someone is selling Grievous's personal weapon collection on the black market, piece by piece. The seller knows where the general's private armory was hidden."
+      ]
+    },
+    {
+      "name": "Count Dooku (legacy)",
+      "role": "Former Head of State, Confederacy of Independent Systems",
+      "era": [
+        "prequel"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "COUNT_DOOKU",
+      "notes": "Killed aboard the Invisible Hand over Coruscant. His political vision of galactic independence from centralized authority remains the ideological foundation that political remnants invoke — though the reality of CIS corporate exploitation undercuts it.",
+      "network_assessment": "Dooku is dead but his political brand lives. Former CIS senators living under false identities still invoke his rhetoric about galactic independence from centralized tyranny. The ideology is useful for recruitment. The man behind it was a Sith Lord — a fact most remnants do not know.",
+      "wants": "Not applicable — deceased. His political ideology called for galactic decentralization and independence from Republic corruption, though his actual objective was Sith domination.",
+      "secret": "Dooku maintained personal accounts and asset caches separate from CIS treasury systems, accessible through codes that died with him — unless he left them with someone.",
+      "behavior": {
+        "under_pressure": "His political disciples respond to pressure by invoking CIS founding principles and rallying support through anti-centralization rhetoric.",
+        "when_losing": "Political remnants go deeper underground — new identities, new planets, new front organizations. They have been doing this since the war ended.",
+        "loyalty": "Dooku's followers believe they are loyal to the ideal of galactic independence. They do not know their founder served a Sith master.",
+        "tells": "Political remnants using Dooku's rhetoric tend to emphasize corporate sovereignty and trade rights — the Commerce Guild and Techno Union roots show through."
+      },
+      "useful_to_players": [
+        "Former CIS political networks retain institutional knowledge about Outer Rim governance and corporate law",
+        "Dooku's ideology provides common ground with any faction opposed to Imperial centralization",
+        "Hidden CIS financial assets, if located, represent significant untraceable wealth"
+      ],
+      "hooks": [
+        "A former CIS senator surfaced on Eriadu under a new name and is building a political movement using Dooku's old speeches — word for word",
+        "An encrypted data vault on Serenno is supposedly locked with Dooku's personal codes. Multiple parties want in. Nobody has the key."
+      ]
+    },
+    {
+      "name": "Admiral Trench (legacy)",
+      "role": "One of the few organic Separatist naval commanders retained through the war",
+      "era": [
+        "prequel"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "ADMIRAL_TRENCH",
+      "notes": "Represented the exceptional organic officers whom Grievous tolerated because their strategic genius exceeded what tactical droids could achieve. His methods influence remnant cells that still employ organic leadership.",
+      "network_assessment": "Trench is dead but his tactical school persists. Remnant cells led by organic officers rather than tactical droids tend to follow his doctrine — patient, methodical, and significantly more dangerous than the predictable droid protocols. If a remnant cell is thinking instead of executing scripts, Trench's influence is present.",
+      "wants": "Not applicable — deceased. His doctrine emphasized patient naval superiority, blockade warfare, and the exploitation of enemy overconfidence.",
+      "secret": "Trench maintained a network of organic officers trained in his methods who were never formally registered in CIS military records. Some may have survived the war's end undetected.",
+      "behavior": {
+        "under_pressure": "Cells following Trench's doctrine maintain discipline and wait for the enemy to overextend rather than reacting to pressure with immediate counter-attacks.",
+        "when_losing": "Controlled withdrawal with rear-guard actions designed to inflict maximum casualties during pursuit. Trench never favored scorched earth — he preferred preserving assets for the next engagement.",
+        "loyalty": "Trench was loyal to professional military excellence and to the CIS cause as a legitimate state. His followers share that professionalism.",
+        "tells": "Trench-school remnant cells use layered defensive positions and avoid committing reserves early — a patience that distinguishes them from Grievous-protocol droid responses."
+      },
+      "useful_to_players": [
+        "Remnant cells following Trench's doctrine are more rational and negotiable than automated droid garrisons",
+        "His tactical methods are studied in military academies — recognizing them provides predictive advantage",
+        "Organic officers from his school may have intelligence about CIS assets that tactical droids were never programmed with"
+      ],
+      "hooks": [
+        "A Harch officer matching Trench's species was spotted commanding a flotilla of converted CIS frigates in Wild Space — either a survivor from his school or someone using his reputation",
+        "An old CIS naval codebook written in Trench's personal cipher turned up in a junk dealer's inventory. The codes might still work on dormant Separatist communication relays."
+      ]
+    }
+  ],
+  "source_material_notes": "Collapse of the Republic provides the most comprehensive treatment of the Separatist military structure, the corporate-world dynamic, and the Outer Rim Sieges across pages 86-89. Rise of the Separatists covers the CIS founding, Trade Federation history, and member world politics. Dawn of Rebellion references Separatist legacy in the context of stolen battle station plans and Saw Gerrera's origins as an anti-Separatist insurgent turned anti-Imperial fighter. No FFG sourcebook directly covers post-war Separatist Remnants; the remnant faction is inferred from the described infrastructure, dormant assets, and political conditions.",
+  "field_sources": {
+    "motivations": "Collapse of the Republic pp.88-89, Separatist member world motivations and corporate vs. political divisions",
+    "goals": "Inferred from Collapse of the Republic pp.88-89, seized assets, and Separatist territorial losses",
+    "methods": "Collapse of the Republic p.88, droid army structure and local defense delegation; Rise of the Separatists pp.83-84, Trade Federation military-economic model",
+    "strengths": "Collapse of the Republic pp.86-87, droid army scale, tactical droid commanders, hidden infrastructure",
+    "weaknesses": "Collapse of the Republic pp.86-87, lack of centralized command, CIS brand stigma, corporate exploitation legacy",
+    "behavior_under_threat": "Inferred from CIS defensive doctrine described in Collapse of the Republic p.88",
+    "tension_patterns": "Inferred from post-war conditions of deactivated droid armies, hidden identities, and Imperial seizure of CIS assets",
+    "regional_presence": "Collapse of the Republic pp.88-89, CIS territory concentrated in Outer Rim; Rise of the Separatists p.83, Trade Federation Rim presence",
+    "mcguffin_interest": "Inferred from remnant operational needs — reactivation, recruitment, and intelligence"
+  }
+}

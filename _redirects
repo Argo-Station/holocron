@@ -1,0 +1,113 @@
+# Cloudflare Pages _redirects — top-to-bottom, first-match-wins.
+#
+# Status codes:
+#   200 = REWRITE (browser URL stays as requested, content from target)
+#   301 = PERMANENT REDIRECT (browser URL changes to target)
+#   302 = TEMPORARY REDIRECT (browser URL changes to target)
+#
+# CRITICAL: rewrite destinations must use the DIRECTORY form
+# (e.g. /player/) not /player/index.html. Pages auto-canonicalizes
+# /index.html paths to their directory via 308; if the rewrite
+# destination is the .html form, that 308 surfaces to the visitor
+# and breaks SPA pushState routing. The directory form sidesteps
+# this entirely. (Confirmed via 2026-05-06 diagnostic deploys.)
+#
+# The bare app URLs (/player, /gm, /dice, /account) do NOT resolve on
+# their own: the B-267 root catch-all at the bottom matches them (the
+# app wildcards need the slash) and served the root landing. Each now
+# carries an explicit 301 to its slashed path — B-1423, ruling
+# `b1423-bare-app-paths-card` R-B1423-1. Wildcards below catch any
+# deeper path so the SPA shell is served for arbitrary in-app routes.
+
+# ── Precompiled JS bundles: serve the real static file, NOT the SPA shell ──
+# First-match-wins, so these MUST precede the /player/* catch-all below. Without
+# them the wildcard rewrites /player/app.js to /player/ (index.html) → the browser
+# gets text/html for a <script src> and refuses to execute it → blank app.
+# (babel-lap1 prod incident 2026-06-16: /player/app.js served the shell; MIME
+# 'text/html' not executable. Root-level /vendor.js was never affected — no wildcard.)
+# gm/dice get their equivalents when Lap 2 externalizes them.
+/player/app.js      /player/app.js      200
+/player/app.js.map  /player/app.js.map  200
+/player/pdf-lib.min.js  /player/pdf-lib.min.js  200
+/player/fontkit.umd.min.js  /player/fontkit.umd.min.js  200
+# B-139 (ADDENDUM 426): the split's two post-mount chunks. Without these the /player/* rewrite below answers them
+# with the SPA shell, and the creator and the sheet never load (test/guard_b213_redirects_asset_exemptions.cjs).
+/player/creator.js      /player/creator.js      200
+/player/creator.js.map  /player/creator.js.map  200
+/player/sheet.js        /player/sheet.js        200
+/player/sheet.js.map    /player/sheet.js.map    200
+/gm/app.js          /gm/app.js          200
+/gm/app.js.map      /gm/app.js.map      200
+
+# (dice has no /dice/app.js — its bootstrap is inline plain JS; its compiled
+#  diceSurface.js lives under /lib/ which no wildcard below touches.)
+
+# ── Bare app paths → their slashed form (B-1423, R-B1423-1) ─────
+# A 301, not a 200 rewrite: the URL a player bookmarks carries the slash,
+# so relative history routes resolve against the app's own base. They
+# must precede the root catch-all; the app wildcards cannot match a bare
+# path, so their order against those is free.
+/player         /player/   301
+/gm             /gm/       301
+/dice           /dice/     301
+/account        /account/  301
+
+# ── SPA shell rewrites for deep paths ────────────────────────────
+/player/*       /player/    200
+/gm/*           /gm/        200
+/dice/*         /dice/      200
+
+# ── Backward-compat: any externally-bookmarked .html URLs ────────
+# Each targets the SLASHED path, so it reaches its app in one hop (R-B1423-2).
+/player.html    /player/   301
+/gm.html        /gm/       301
+/dice.html      /dice/     301
+
+# ── Root: serve the launchpad (Lap L1) ──────────────────────────
+# `/` now serves the static front-door index.html (Pages directory-index) instead of
+# bouncing to /player. NO rule for `/` — a redirect here would shadow the static file.
+# (Was: `/  /player  302` — replaced by the launchpad 2026-06-26.)
+/new_player     /player/   301
+/new_gm         /gm/       301
+
+# ══ B-267: THE ROOT SERVING CONTRACT (ruling `b267-root-serving-contract`, R-B267-1/2) ══
+#
+# THE DEFECT THIS CLOSES: there was no ROOT catch-all — only the three app ones above — so every
+# tracked repo path outside player/gm/dice was served directly off the live site. Verified live
+# before the fix: /CLAUDE.md (22,585b, the law file), /Docs/BOARD.md (636,214b, every defect row),
+# /worker/auth.js (15,158b, the auth worker's source), /decisions/*, /.claude/commands/*, /test/*.
+# No credentials were exposed (secrets are read from env; /.env is not deployed) — but source and
+# internal process were.
+#
+# THE CONTRACT: what the site serves is ENUMERATED below; everything else falls through to the
+# root catch-all and gets the landing shell. Shell-not-404 keeps this consistent with the app
+# trees and leaves _routes.json / worker scope untouched.
+#
+# THE EXEMPTIONS ARE CENSUS-DERIVED, NEVER REMEMBERED — first-match-wins is the hazard here, and
+# this repo has the scar (babel-lap1, 2026-06-16: the /player/* wildcard swallowed a real
+# /player/app.js and the browser got text/html for a <script src>). The census that produced this
+# list: every src/href in the four shells (all three app shells carry `<base href="/">`, so their
+# RELATIVE refs like `lib/items.js` resolve to /lib/..., not /player/lib/...) + every client-side
+# fetch() path in the sources + the B-266 guard's asset class.
+
+# — served application surfaces (each keeps its own shell behaviour) —
+/account/*      /account/       200
+
+# — served static trees the apps load from (must return the REAL file, not the shell) —
+/lib/*          /lib/:splat     200
+/public/*       /public/:splat  200
+/art/*          /art/:splat     200
+# F-100 UD-1 (ruling f100-ud1-contracts H4): our own authored contract files — no FFG content, nothing
+# secret — served so the browser's pack rail (lib/shared/packValidate.js) reads the ONE schema copy.
+/schema/*       /schema/:splat  200
+
+# — served root files the apps load by name —
+/vendor.js          /vendor.js          200
+/vendor.js.map      /vendor.js.map      200
+/version.json       /version.json       200
+/manifest.webmanifest  /manifest.webmanifest  200
+
+# — THE ROOT CATCH-ALL. Last line by design: everything not named above serves the landing shell.
+#   This is what makes masking the DEFAULT — a file added tomorrow is masked unless someone
+#   deliberately exempts it, which is the property B-267 exists to create.
+/*              /               200

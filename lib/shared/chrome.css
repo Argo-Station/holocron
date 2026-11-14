@@ -1,0 +1,316 @@
+/* chrome.css — THE TWO BARS' OWN PAPER LAYER (SuiteBar + BottomNav, and the popovers that open out of them).
+   B-881, ruling `npc-paper-rows-1-2` R-NPR-2 (D-NPC1 → b). Linked by BOTH shells, after paper.css.
+
+   ── WHY A FILE OF ITS OWN ─────────────────────────────────────────────────────────────────────
+   These rules were built by the store (B-679) and stayed in `store.css` after B-689 renamed their scope from
+   `data-store-chrome` to `[data-paper-chrome]` — the day they "stopped being the store's alone". The GM
+   Holocron's NPC library is the first paper surface on the GM host (frames D1–D3), and its bars need these
+   rules, while `smoke_store_transplant.py` holds R-SPC-2's claim that `gm/index.html` links no store layer.
+   So the bars get their own layer rather than the GM loading a store it keeps dark.
+
+   NOT INTO paper.css: the kit is fenced to the document ground, and the bars stand OUTSIDE the document root
+   — siblings of each screen's paper root in `.app-shell`'s column — which is why store.css gave them a scope
+   of their own in the first place.
+
+   ── WHAT MOVED, AND HOW ───────────────────────────────────────────────────────────────────────
+   Verbatim, comments included: the whole `[data-paper-chrome]` block (the bars B-679/B-689, their popovers
+   B-793, ACTIVE SOURCES B-838), and the `[data-paper-chrome]` half of the four SHOPPING-FOR twins (the
+   `[data-store-shell]` half stays in store.css; that block's own comment explains the pairing). The token
+   map is store.css's header, applied unchanged. Every selector here starts with `[data-paper-chrome]`;
+   `.pb-*` is the bars' vocabulary and nothing else wears it.
+
+   CASCADE: the player links this file directly AFTER store.css, the place these rules held before the
+   move, so its order against every other layer is unchanged (measured: the bars' computed styles are
+   identical before and after, B-881's positive control). The GM links it after paper.css. */
+
+/* ── THE SHOPPING-FOR CHIP's `[data-paper-chrome]` half (B-514 · B-679) — the rule's reasoning is in
+ * store.css beside its `[data-store-shell]` half. `.st-ctx`'s twin is a COMPOUND (the bar IS the scope
+ * element); the chip's three are DESCENDANTS (the chip is inside the bar). */
+[data-paper-chrome].st-ctx{display:flex;align-items:center;gap:12px;padding:9px 14px;background:var(--doc-paper-raised);
+  border-bottom:1px solid var(--doc-rule)}
+[data-paper-chrome] .st-shopfor{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+[data-paper-chrome] .st-shopfor-l{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-paper-chrome] .st-shopfor-n{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:13px;
+  line-height:1.2;letter-spacing:.04em;text-transform:uppercase;color:var(--doc-ink);
+  overflow-wrap:anywhere}
+
+/* ── THE BARS, ON PAPER (B-679 · lab §191–§193, frames AA–AF @ lab `1e1e2f6a`) ────────────────
+ * Jason 2026-09-18: keep the bars, and they take the paper. THE PLACE AND THE WORDS ARE THE
+ * APP'S and every number here was read from its source at build time by the board's anatomy
+ * reader (`store_build.py`: SuiteBar's 54px header and `0 6px 0 4px` padding, its 44px tap
+ * floor, BottomNav's 54px tab, 3px gap and 1px rule, `navIcon`'s 20px glyph) — so the literals
+ * below are the app's own numbers, arriving here as the generator substituted them. The GROUND
+ * and the INKS are the paper's. Nothing new is declared: the bars stand on
+ * --doc-paper-raised with the paper's own hairline, exactly as `.st-ctx` and `.cr-purse`
+ * already do, and the section you are standing in prints in --doc-action with a rule under it,
+ * because state is a mark and not a hue.
+ *
+ * THE SCOPE IS `[data-paper-chrome]` AND NOT `[data-store-shell]`, and that is the one
+ * mechanical change this block makes to the board's rules. The bars are not inside the store's
+ * paper root: in the app they are the SIBLINGS of it — `.app-shell` is a 100dvh flex column of
+ * SuiteBar · `#suite-main` · BottomNav, which IS the board's `.pb-chrome`, and the store screen
+ * is the middle child. A second `[data-store-shell]` in the document would re-point
+ * `document.querySelector('[data-store-shell]')` — the first line of 40-odd legs of
+ * `scripts/smoke_store_transplant.py`, which read `data-band` and `data-store-face` off it —
+ * from the kernel's root to a bar wrapper. So the chrome gets its own scope attribute, carried
+ * by each paper bar itself (with `data-doc-ground="creator"`, which is what makes the `--doc-*`
+ * names resolve out there), and the store's layer still reaches nothing it does not own.
+ *
+ * B-689 · R-CGR-1 — THE NAME WIDENED AND THE RULES DID NOT. The attribute read `data-store-chrome`
+ * while the store was the only host allowed a paper bar; Jason retired the constant-chrome clause on
+ * 2026-09-21 ("the black ground is the old screen"), so the chrome now matches WHATEVER surface is
+ * under it and the sheet, the landing, the creator and the Quick Start / Guided doors pass the same
+ * `paper` prop under their own switches. A name pinned to one host would have read as a dead rule the
+ * day the second host arrived, so it is `data-paper-chrome` — the chrome's paper FACE — across 39
+ * sites in four files. Not one selector below changed; this block is still the only home of the
+ * bars' vocabulary, and a bar that asks for no paper face still wears none.
+ *
+ * THE BOARD'S TWO `.pb-chrome` RULES ARE NOT PORTED, because the app already is that element:
+ *     .pb-chrome{height:100%;display:flex;flex-direction:column;overflow:hidden;background:var(--pp-page)}
+ *     .pb-chrome > .st,.pb-chrome > .st-stack{flex:1 1 auto;min-height:0;height:auto}
+ * `.app-shell` is `height:100dvh; display:flex; flex-direction:column; overflow:hidden` and
+ * `[data-store-shell]` already carries `flex:1; min-height:0`, so porting them would be a second
+ * declaration of a column that exists. Quoted here so the record survives the decision. And the
+ * `overflow:hidden` is the half that must NOT arrive: the ⚙ and ? menus open downward out of a
+ * 54px bar, and a clipping column would cut them off.
+ *
+ * THE WEAR IS SUPPRESSED ON THE BAR, and that is measured rather than preferred: `paper.css`
+ * gives every `[data-doc-ground="creator"]` element the three wear layers as ::before/::after at
+ * z-index 0 with `> * { z-index:1 }` — and inside the store those layers are ALREADY invisible,
+ * because `.st` fills its whole parent with opaque `--doc-paper` above them. An un-suppressed
+ * bar would therefore be the only worn surface in a store that shows no wear anywhere else. */
+[data-paper-chrome][data-doc-ground="creator"]::before,
+[data-paper-chrome][data-doc-ground="creator"]::after{ content:none; }
+
+/* ── THE GROUND UNDER A FADED BAR (B-896 · ruling `npc-paper-rows-5-7` R-NPR57-7) ─────────────
+ * `tokens.css` `body.chrome-hidden .autohide-chrome{opacity:0}` keeps each bar's BOX and drops its
+ * paint, so a faded bar shows whatever paints behind it — and that was each host shell's own inline
+ * `background:'#000'` (the GM's root div, the player's `.app-shell`; MEASURED at 1440, both hosts,
+ * `smoke_npc_transplant --only flip`), not `index.html`'s `html,body,#root` rule, which the shell
+ * covers. No frame draws a hidden bar; every frame draws the GROUND as paper. So on the one screen
+ * whose paper bars auto-hide (the NPC library), the shell carries
+ * `data-paper-ground`, drops its inline `#000`, and paints the PAGE here — the bar recedes INTO the
+ * page and the auto-hide itself is untouched.
+ *
+ * ITS OWN ATTRIBUTE, NOT `data-paper-chrome` on the shell: the chrome scope is counted and queried
+ * DOCUMENT-WIDE (`document.querySelector('[data-paper-chrome]')`, `smoke_store_transplant`'s dark-door
+ * counts), and a shell wearing it would become the first match — the `data-store-shell` class above.
+ * NOT `data-doc-ground` either: that would hand the whole shell the ground's token set and paper.css's
+ * `> * {position:relative;z-index:1}` over every overlay the shell holds.
+ *
+ * THE VALUE is the creator ground's `--doc-paper` (grounds/creator.css, `pp-page`), written as its
+ * literal because the shell stands OUTSIDE any `data-doc-ground` element and there the name resolves to
+ * tokens.css's dark default. The leg reads the page off the NPC root LIVE and compares, so a moved
+ * palette turns it red rather than leaving this behind. */
+[data-paper-ground]{background:#DEDCD4}
+
+/* THE TOP BAR IS `.st-ctx` WEARING THE APP'S HEIGHT. The board grew that class for this exact
+ * strip — a back door and the SHOPPING-FOR chip — before it knew the strip was the app's top
+ * bar, so the bar takes the class rather than growing a second one, and store_fit.py's fourth
+ * claim (the chip stays inside its bar) keeps its subject.
+ *
+ * B-694 · R-SPC-10 (Jason 2026-09-18: "Grow") — 54 IS A FLOOR ON THIS ONE BAR, NOT A CEILING.
+ * B-514's stacked chip never cuts a character (`.st-shopfor-n` carries `overflow-wrap:anywhere`),
+ * so a long name wraps instead: measured at 390, 32 unbroken characters stack to three lines and
+ * the chip is 60.8px, 44 characters to four and it is 76.4px. Against a FIXED 54 the chip spilled
+ * the bar at top −3.9 / bottom 56.9 — nothing cut, but the chip standing outside its own box, which
+ * is what `store_fit.py`'s fourth claim forbids. The fork went to Jason both ways (clamp the name /
+ * grow the bar) and he ruled GROW: `min-height` in place of `height`, so the bar is the chip's own
+ * height whenever that exceeds 54 and is exactly 54 whenever it does not. `flex:none` keeps it out
+ * of the app-shell's distribution, so what grows here SHRINKS the body between the bars and the page
+ * stays bounded (54 + 735 + 55 = 844 becomes 61 + 728 + 55 = 844). THE DARK FACE IS UNTOUCHED: its
+ * `height: '54px'` lives in `SuiteBar`'s own inline style object (lib/shared/ui.jsx), which the
+ * paper branch sets to `undefined` and nothing else reads — so F-101 R-VR-1 bends on this one bar
+ * only, and `test/suite_bar_clearance.cjs` still reads its 54 out of that same untouched literal.
+ * There is no vertical padding to keep the grown chip off the bar's edges, because `0 6px 0 4px` is
+ * the APP's own padding and this row does not move the app's numbers (reported as a finding). */
+[data-paper-chrome].pb-top{flex:none;min-height:54px;box-sizing:border-box;padding:0 6px 0 4px;gap:6px}
+[data-paper-chrome] .pb-back{flex:none;display:flex;align-items:center;gap:6px;min-width:44px;min-height:44px;
+  padding:0 10px;border:0;background:none;cursor:pointer;color:var(--doc-ink-muted);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.14em}
+[data-paper-chrome] .pb-back svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+/* The chip is a BUTTON in the app (it opens the SHOPPING-FOR picker), so it is one here and takes
+ * the 44px floor with it. `margin:0 auto` does nothing at 390, where flex:1 has already eaten the
+ * row; at the desk it centres the chip the way the app's space-between row does. */
+[data-paper-chrome] .pb-chip{flex:1;min-width:0;max-width:340px;margin:0 auto;display:flex;align-items:center;gap:8px;
+  min-height:44px;padding:0 11px;cursor:pointer;background:var(--doc-mat);
+  border:1px solid var(--doc-rule);border-radius:2px}
+[data-paper-chrome] .pb-chip .st-shopfor{flex:1;min-width:0}
+[data-paper-chrome] .pb-caret{flex:none;color:var(--doc-ink-muted);font-size:11px;line-height:1}
+/* JUST BROWSING carries NO NAME, so it is not a `.st-shopfor`: B-514 is about a name being cut and
+ * there is nothing here to cut. The fit guard measures what has a subject and skips this. */
+[data-paper-chrome] .pb-browsing{flex:1;min-width:0;text-align:center;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-right{flex:none;display:flex;align-items:center}
+[data-paper-chrome] .pb-icon{min-width:44px;min-height:44px;display:flex;align-items:center;
+  justify-content:center;border:0;background:none;cursor:pointer;color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+
+/* ── THE THREE POPOVERS THAT OPEN OUT OF THIS BAR (B-793 · Jason's walk 2026-09-22: "Settings and
+ * help in the bar have legacy ui under them") ────────────────────────────────────────────────
+ *
+ * NOT BUILT TO A FRAME, and that is the first thing to say: NO APPROVED FRAME DRAWS AN OPEN MENU —
+ * it is the state B-689 deferred for want of one — so every value below is derived from THIS GROUND'S
+ * OWN TOKENS and from the bars' rules above it, and the drawing goes to Jason for his word rather
+ * than claiming a provenance it does not have. The ⚙ and the ? are one component (`ModuleMenu`,
+ * lib/shared/ui.jsx) and the HUB launchpad is `nav.suite-pop` in `SuiteBar`; all three open from this
+ * one bar and are one idiom, so all three take `.pb-pop` and its children. Two of three papered would
+ * be the "too many legacy and revised parts" Jason gave as his reason for a one-pass flip (R-PRS-3).
+ *
+ * WHAT THE JSX STILL OWNS, and it is most of it: the place (absolute, 8px under the bar), the
+ * measure (232/236px), the gaps, the padding, the 44px tap floor, the 46px row minimum, the type and
+ * the tracking are the APP'S NUMBERS and this row does not move them — B-679's rule. What arrives
+ * here is the GROUND and the INKS, exactly as the bars themselves did.
+ *
+ * THE PANEL stands on `--doc-paper-raised` like every other raised paper object in this file, with
+ * the page's own hairline. Two numbers are DERIVED rather than ported, and both are named as such:
+ *   · the 12px radius of the dark panel becomes 2px, this kit's own radius (`.pb-chip` above);
+ *   · the lift `0 20px 44px rgba(0,0,0,0.6)` becomes an INK shadow in the band the two other paper
+ *     overlays in this file already use (`6px 0 26px rgba(23,22,27,.30)` for the drawer at :258 and
+ *     `0 -8px 30px rgba(23,22,27,.34)` for the sheet at :326) — a menu on paper is a card lying on
+ *     the page, not a panel glowing above a black screen.
+ *
+ * AND THE ONE THING TO THINK ABOUT — THE ACCENT, which on the dark face carries three different
+ * jobs at once. On paper they part, because this ground's own docstring parts them (grounds/creator.css:
+ * "RED = a thing the character DOES · INDIGO = a thing that simply IS"):
+ *   · A GROUP HEAD (⚙'s [SCREEN] / GENERAL) is a head, so it takes this ground's section-head ink,
+ *     `--doc-sechead-ink` (= `--doc-accent`). DEVIATION, stated: the section-head contract's rule is
+ *     `2px solid var(--doc-action)` and the hairline here stays 1px `--doc-rule`, because the dark
+ *     face's own rule is 1px and a 2px action rule inside a 236px menu would out-shout the six
+ *     transplant switches under it. Reported both ways for Jason.
+ *   · A SETTING'S VALUE (the ON pill, the AUTO/MOBILE/DESKTOP pills) is a thing that simply IS, so it
+ *     is `--doc-state` with `--doc-state-ink` on it — 14.3:1, measured in the ground. It keeps its
+ *     WORD, which is the half that matters: state is never carried by hue alone here.
+ *   · WHERE YOU ARE (the HUB's current app) is the chrome's own claim and the chrome already has a
+ *     mark for it — `.pb-tab[data-on="1"]` prints the current tab in `--doc-action` with an inset
+ *     rule — so the row repeats it rather than inventing a second vocabulary, and the word HERE and
+ *     `aria-current="page"` are untouched. The bottom bar and this list now say "here" the same way.
+ * The OFF pill and the quiet SIGN IN row take `--doc-mat` with the muted ink, which is what every
+ * other unselected paper thing in this file does. */
+[data-paper-chrome] .pb-pop{background:var(--doc-paper-raised);border:1px solid var(--doc-rule);
+  border-radius:2px;box-shadow:0 10px 28px rgba(23,22,27,.30)}
+[data-paper-chrome] .pb-pop-lab{color:var(--doc-ink)}
+[data-paper-chrome] .pb-pop-row{color:var(--doc-ink);border-radius:2px}
+[data-paper-chrome] .pb-pop-row:hover,
+[data-paper-chrome] .pb-pop-lead:hover,
+[data-paper-chrome] .pb-pop-app:hover{background:var(--doc-mat)}
+[data-paper-chrome] .pb-pop-sep{background:var(--doc-rule-fine)}
+/* the group head: this ground's section-head ink over the dark face's own 1px hairline */
+[data-paper-chrome] .pb-pop-headn{color:var(--doc-sechead-ink)}
+[data-paper-chrome] .pb-pop-rule{background:var(--doc-rule)}
+/* LAUNCHPAD — the headline row, so it is the one raised plate inside the panel */
+[data-paper-chrome] .pb-pop-lead{background:var(--doc-mat);border:1px solid var(--doc-rule);border-radius:2px}
+[data-paper-chrome] .pb-pop-lead svg{fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;color:var(--doc-ink-muted)}
+/* the apps: an unmarked row is plain page furniture; the one you are standing in takes the bottom
+   bar's own mark — the action ink AND a rule, so it survives a photocopy (LAB_PRACTICE §21) */
+[data-paper-chrome] .pb-pop-app{background:none;border:1px solid transparent;border-radius:2px}
+[data-paper-chrome] .pb-pop-app[data-on="1"]{color:var(--doc-action);
+  box-shadow:inset 3px 0 0 var(--doc-action);background:var(--doc-mat)}
+[data-paper-chrome] .pb-pop-app[data-on="1"] .pb-pop-lab{color:var(--doc-action)}
+[data-paper-chrome] .pb-pop-here{color:var(--doc-action)}
+[data-paper-chrome] .pb-pop-dot{display:none}          /* B-689's decision for this same punctuation */
+[data-paper-chrome] .pb-pop-quiet .pb-pop-lab{color:var(--doc-ink-muted)}
+/* THE ROWS IN BODY LETTERS (D-95(3): "Body letters, as approved"; ruling `paper-n5-flip` R-N5F-2) — every ModuleMenu
+ * on a paper bar (the ⚙, the ?, Account, the Map controls): the label of a switch or segment row and the plain action
+ * row take the ground's body face at the values approved frame C1 COMPUTES (lab/holocron/map.html @ 16eb5206, measured
+ * from a served copy: Rajdhani · 16px · 400 · line-height normal · .12em = 1.92px). On the board that 16px is the
+ * document's inherited 1rem, not `--fs-body` (frame C2 at 1440 computes 16px too), so it is written as 1rem.
+ * The pills keep their inline mono (B-793's pill, the board's `:959`); the HUB launchpad (`.suite-pop`) is not a
+ * ModuleMenu and not in D-95, so it is fenced out and keeps its mono labels. */
+[data-paper-chrome] .pb-pop:not(.suite-pop) .pb-pop-row,
+[data-paper-chrome] .pb-pop:not(.suite-pop) .pb-pop-lab{font-family:var(--font-body);font-size:1rem;font-weight:400;
+  line-height:normal;letter-spacing:.12em}
+/* the pills — a setting's value, word first, state fill second */
+[data-paper-chrome] .pb-pill{border-radius:2px;color:var(--doc-ink-muted);background:var(--doc-mat);
+  border:1px solid var(--doc-rule)}
+[data-paper-chrome] .pb-pill[data-on="1"]{color:var(--doc-state-ink);background:var(--doc-state);
+  border-color:var(--doc-state)}
+/* B-787 · D-404 item 17: a segment pill (the ⚙ GENERAL LAYOUT row — AUTO · MOBILE · DESKTOP) is a tap target, 44 × 44 both
+   ways (WCAG 2.5.5); it was 21–23 tall. On BOTH faces, because the geometry is ModuleMenu's own (B-793): this sheet loads on
+   both apps, and ModuleMenu's inline style sets neither size nor display, so the floor lives here and the component's
+   render block stays as it is (f100_roll_options_f pins it byte for byte). */
+nav[id^="modmenu-"] [role="group"] > button{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+
+/* ── ACTIVE SOURCES ON PAPER (B-838 · Jason's walk 2026-09-23: "the active sources in the menu is using
+ * legacy ui") ────────────────────────────────────────────────────────────────────────────────────
+ *
+ * The ⚙ menu's `Active sources` opens `openActiveSources` (lib/shared/ui.jsx), a modal portalled to the
+ * body. B-793 papered the menu and stopped at its edge; this is the panel it opens, by B-793's device:
+ * the caller passes `paper` when its bar is paper, the panel's ROOT then carries `data-paper-chrome`
+ * and `data-doc-ground="creator"` itself (the body has no ground), the JSX spreads `undefined` over
+ * the ground / ink / border / radius / shadow keys ONLY and names each element with a `pb-src-*`
+ * class, and every rule below is fenced by `[data-paper-chrome]`. The GM Holocron passes nothing and
+ * does not link this file. Every layout number, every word and every a11y attribute is the panel's
+ * own and did not move (448px measure, 50px rows, the 7px row gap, the type and the tracking).
+ *
+ * NOT BUILT TO A FRAME: no approved frame draws this panel, so each choice names the DRAWN source it
+ * was taken from, for Jason's word —
+ *   · the SCRIM is the kit's one paper dim, `.hp-scrim` (paper.css), an empty sibling of the panel (B-1210,
+ *     DECISIONS D-174, which retired the store reading scrim's rgba(23,22,27,.42) drawn here before);
+ *   · the PANEL is the creator's own sources overlay band, `.sb-band` (paper.css, B-581/B-583): the
+ *     raised stock `--doc-paper-raised` with its `--doc-rule-fine` hairline and square corners; the
+ *     lift is B-793's menu shadow (`.pb-pop` above), a card lying on the page;
+ *   · the HEAD rule and title are `.sb-band-h` / `.sb-band-t` (`--doc-rule`, `--doc-ink`); the
+ *     funnel and the ✕ take the muted ink the bars' icons take (`.pb-icon`, `.pb-pop-lead svg`);
+ *   · the GROUP HEADS are B-793's `.pb-pop-headn` / `.pb-pop-rule` (reused, not restated); their count
+ *     and chevron are `.sb-grp-h`'s muted ink;
+ *   · a BOOK ROW is `.sb-bk`'s face — no stock, the `--doc-rule-fine` hairline, the 5% ink hover and
+ *     the action focus ring; its name is `.sb-bk-name`'s ink and an OFF book `.mk-off`'s muted ink;
+ *     the reSpecialized add-on row is the one raised row, `.pb-pop-lead`'s mat and rule;
+ *   · the ON / OFF PILL is B-793's `.pb-pill` (reused): a setting's value is a thing that simply IS,
+ *     so ON is `--doc-state` with its own ink and keeps its WORD — the same pill the ⚙ menu shows;
+ *   · the refusal line is `.sb-refused`'s action ink; RESET ALL is `.sb-toggle`'s outlined action;
+ *     DONE is the kit's action fill (`--doc-action` / `--doc-action-ink`, hover `--doc-action-lift`). */
+[data-paper-chrome].pb-src,[data-paper-chrome] .pb-src{background:var(--doc-paper-raised);border:1px solid var(--doc-rule-fine);
+  border-radius:0;box-shadow:0 10px 28px rgba(23,22,27,.30)}
+[data-paper-chrome] .pb-src-head{border-bottom:1px solid var(--doc-rule)}
+[data-paper-chrome] .pb-src-title{color:var(--doc-ink)}
+[data-paper-chrome] .pb-src-mark{stroke:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-src-x{color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-src-x:hover{color:var(--doc-action)}
+[data-paper-chrome] .pb-src-note,
+[data-paper-chrome] .pb-src-hint,
+[data-paper-chrome] .pb-src-count{color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-src-lab{color:var(--doc-ink)}
+[data-paper-chrome] .pb-src-lab[data-off="1"]{color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-src-row{background:transparent;border:1px solid var(--doc-rule-fine);border-radius:0}
+[data-paper-chrome] .pb-src-row:hover{background:rgba(23,22,27,.05)}
+[data-paper-chrome] .pb-src-row:focus-visible{outline:2px solid var(--doc-action);outline-offset:-2px}
+[data-paper-chrome] .pb-src-row[data-addon="1"]{background:var(--doc-mat);border-color:var(--doc-rule)}
+[data-paper-chrome] .pb-src-refused{color:var(--doc-action)}
+[data-paper-chrome] .pb-src-foot{border-top:1px solid var(--doc-rule);background:none}
+[data-paper-chrome] .pb-src-reset{color:var(--doc-action);border:1px solid var(--doc-action);border-radius:0}
+[data-paper-chrome] .pb-src-tally{color:var(--doc-ink-muted)}
+[data-paper-chrome] .pb-src-tally b{color:var(--doc-ink)}
+[data-paper-chrome] .pb-src-done{color:var(--doc-action-ink);background:var(--doc-action);border-radius:0}
+[data-paper-chrome] .pb-src-done:hover{background:var(--doc-action-lift)}
+
+/* THE BOTTOM BAR. The app's tab is a 54px column of glyph-over-label with a 1px rule above the
+ * bar; both numbers are the app's, read from BottomNav. */
+[data-paper-chrome].pb-bot{flex:none;display:flex;align-items:stretch;background:var(--doc-paper-raised);
+  border-top:1px solid var(--doc-rule)}
+[data-paper-chrome] .pb-tab{flex:1;min-width:44px;min-height:54px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;padding:6px 3px;border:0;
+  background:none;cursor:pointer;color:var(--doc-ink-muted);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase}
+[data-paper-chrome] .pb-tab svg{width:20px;height:20px;display:block;fill:none;stroke:currentColor;
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+[data-paper-chrome] .pb-mark{position:relative;display:block;line-height:0}
+[data-paper-chrome] .pb-lab{display:block}
+/* STATE IS A MARK, NOT A HUE (LAB_PRACTICE §21) — the selection ink AND a rule, so the section you
+ * are standing in survives a photocopy and a colour-blind reader. `.st-cat[data-on]` marks the
+ * rail's live row the same way, on the edge the rail is attached by. */
+[data-paper-chrome] .pb-tab[data-on="1"]{color:var(--doc-action);box-shadow:inset 0 3px 0 var(--doc-action)}
+/* The count bubble: --doc-mark is FILL ONLY by its own token docstring, and this is exactly the
+ * mark it was written for. Ink on it reads 7.3:1. (`--doc-mark-ink` carries the same #17161B in
+ * this ground; the token map's `--pp-ink → --doc-ink` is what the port is held to.) */
+[data-paper-chrome] .pb-badge{position:absolute;top:-6px;right:-10px;min-width:15px;height:15px;padding:0 3px;
+  box-sizing:border-box;border-radius:8px;background:var(--doc-mark);color:var(--doc-ink);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;line-height:15px;
+  text-align:center;letter-spacing:0}

@@ -1,0 +1,18 @@
+# Cloudflare Pages + the sign-in worker (_worker.js). Copy to wrangler.toml and fill in your own values.
+# Nothing here is a secret; the provider client secrets are set with `wrangler pages secret put`.
+
+name = "your-project-name"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "."
+
+[vars]
+# The origin your site is served from. The sign-in worker trusts exactly this origin.
+BETTER_AUTH_URL = "https://your-site.example"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "your_auth_db"
+# `wrangler d1 create your_auth_db` prints the id to put here; `migrations/` holds the schema.
+database_id = ""
+migrations_dir = "migrations"

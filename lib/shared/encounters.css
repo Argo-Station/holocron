@@ -1,0 +1,168 @@
+/* encounters.css — THE ENCOUNTER MANAGER'S OWN LAYER (ENCOUNTERS E3 lap B; ruling `encounters-e3-screens` §3,
+   ADDENDUM 9 @ `41b683471`). The frames of Docs/mockups/encounter-manager.html and the member card of
+   Docs/mockups/encounter-density.html, ported from the two drawings' paint layers
+   (Docs/mockups/assets/encounter-{manager,density}/paint.js), class for class (e2-/e3- → enc-).
+
+   ── THE FENCE ─────────────────────────────────────────────────────────────────────────────────
+   Every selector, inside an at-rule or not, starts with [data-npc-shell] and names an enc- class or a data-enc
+   attribute, which only the GM's switch-on screens draw (swrpg_encounters_door, R-E3S-1): with the switch off
+   nothing here matches. LINKED BY gm/index.html ONLY, after npc.css (so a tie with the library's layer goes to
+   this one: `.enc-addpc`'s drawn 8 px over `.nl-wide`'s 10 px). The player shell never links it. The library's
+   own layer (npc.css, R-NPC-6: no at-rules, no new literals) is untouched; this sheet carries its own width rules.
+
+   ── THE COLOUR RULE ───────────────────────────────────────────────────────────────────────────
+   Colours are the doc tokens (grounds/creator.css) and the kit's classes only. The ONE named exception:
+   the scroll-fade mask stops `#000` (×8: alpha only, never painted) and the drawn scrim `rgba(23,22,27,.42)`
+   (×1: --doc-ink's channels, the bench scrim's ink at the drawing's .42). test/encounters_css_fence.cjs
+   holds the fence, this rule and the link. */
+[data-npc-shell] .enc-dslot{display:flex;justify-content:flex-end}
+[data-npc-shell] .enc-destiny{display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--doc-ink-muted);white-space:nowrap}
+[data-npc-shell] .enc-destiny .enc-dlab{margin:0 4px 0 8px}
+[data-npc-shell] .enc-destiny .enc-dlab b{color:var(--doc-ink);font-weight:400}
+[data-npc-shell] .enc-pip{width:44px;height:44px;border:0;background:transparent;cursor:pointer;font-size:22px;display:inline-flex;align-items:center;justify-content:center;padding:0}
+[data-npc-shell] .enc-pip[data-side=light] > span{color:var(--doc-paper-raised)!important;-webkit-text-stroke:.12em var(--doc-sym-light)}
+[data-npc-shell] .enc-drow{display:flex;justify-content:flex-end;padding:0 12px;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .enc-state{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--doc-ink-muted);text-transform:uppercase;white-space:nowrap}
+[data-npc-shell] .enc-state[data-s=running]{color:var(--doc-action)}
+[data-npc-shell] .enc-gn{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+[data-npc-shell] .enc-tb{display:flex;flex-direction:column;gap:4px;flex:0 1 auto;min-width:0}
+[data-npc-shell] .enc-tb .nl-gname{margin:0;font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-npc-shell] .nl-bar.enc-bar{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+/* B-1798's desk: the ONE head row spans the board, the cards and the pane below it (D-504's D1/D2; the pane has no rule) */
+[data-npc-shell] .nl-board[data-enc=open]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);column-gap:16px;row-gap:0}
+[data-npc-shell] .nl-board[data-enc=open][data-board-arm=pane]{grid-template-columns:minmax(0,1fr) 380px}
+[data-npc-shell] .nl-board[data-enc=open]>.enc-bar{grid-column:1/-1}
+[data-npc-shell] .nl-board[data-enc=open]>.nl-pane{border-left:0;padding-left:0}
+[data-npc-shell] .enc-bar button{white-space:nowrap}
+[data-npc-shell] .enc-tphone .enc-state{display:block;margin-top:6px}
+[data-npc-shell] .enc-actrow{display:flex;gap:8px;padding:0 0 10px}
+[data-npc-shell] .enc-actrow>button{flex:1}
+[data-npc-shell] .enc-addpc{margin:8px 0 12px;width:100%}
+[data-npc-shell] .enc-done-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--doc-ink)}
+/* the ORDER rail — side marks: PC = the action ink, NPC = the state ink */
+[data-npc-shell] .enc-row2{display:flex;gap:14px;flex:1 1 auto;min-height:0}
+[data-npc-shell] .enc-row2>.hp-zone{flex:1 1 auto;min-width:0;position:relative}
+[data-npc-shell] .enc-row2>.enc-rail{flex:0 0 212px;overflow:hidden;min-height:0;padding-top:2px}
+[data-npc-shell] .enc-rail{display:flex;flex-direction:column;gap:8px;min-width:0}
+[data-npc-shell] .enc-railh{display:flex;align-items:center;gap:6px}
+[data-npc-shell] .enc-round{font-family:var(--font-display);font-weight:900;font-size:15px;letter-spacing:.06em;color:var(--doc-ink);margin-right:auto}
+[data-npc-shell] .enc-slots{display:flex;flex-direction:column;gap:6px;overflow:auto;min-height:0}
+[data-npc-shell] .enc-slot{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr);align-items:center;gap:8px;min-height:52px;padding:6px 10px 6px 12px;border:0;text-align:left;cursor:pointer;background:var(--doc-paper-raised);color:var(--doc-ink);box-shadow:inset 4px 0 0 var(--doc-state)}
+[data-npc-shell] .enc-slot[data-side=PC]{box-shadow:inset 4px 0 0 var(--doc-action)}
+[data-npc-shell] .enc-slot .enc-n{font-family:var(--font-mono);font-size:13px;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-slot .enc-who{display:flex;flex-direction:column;min-width:0}
+[data-npc-shell] .enc-slot .enc-side{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-slot[data-side=PC] .enc-side{color:var(--doc-action)}
+[data-npc-shell] .enc-slot .enc-nm{font-family:var(--font-body);font-weight:700;font-size:16px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-npc-shell] .enc-slot[data-open="1"] .enc-nm{font-family:var(--font-mono);font-weight:400;font-size:13px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-slot[data-active="1"]{box-shadow:inset 4px 0 0 var(--doc-state),var(--doc-lift);transform:translateY(-2px);outline:2px solid var(--doc-ink);outline-offset:-2px}
+[data-npc-shell] .enc-slot[data-active="1"][data-side=PC]{box-shadow:inset 4px 0 0 var(--doc-action),var(--doc-lift)}
+[data-npc-shell] .enc-slot .enc-now{position:absolute;right:8px;top:6px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--doc-ink)}
+[data-npc-shell] .enc-slot[data-acted="1"] .enc-nm{color:var(--doc-ink-muted)}
+[data-npc-shell] [data-npc-state=flip] .enc-rail{position:sticky;top:0;z-index:5;background:var(--doc-paper);padding:8px 0 10px;border-bottom:1px solid var(--doc-rule);margin-bottom:8px}
+[data-npc-shell] [data-npc-state=flip] .enc-slots{flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:6px;scrollbar-width:none}
+[data-npc-shell] [data-npc-state=flip] .enc-slot{flex:0 0 128px}
+/* the card's roll row, CRIT and its chips, the ENDS timer */
+[data-npc-shell] .enc-roll{display:flex;align-items:center;gap:8px;padding:6px 0 0;flex-wrap:wrap}
+[data-npc-shell] .enc-roll .enc-wn{font-family:var(--font-body);font-weight:600;font-size:16px;line-height:1.2;color:var(--doc-ink);margin-right:auto;min-width:0}
+[data-npc-shell] .enc-roll .enc-wn small{display:block;font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.12em;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 0 0}
+[data-npc-shell] .enc-chip{min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border:0;cursor:pointer;background:var(--doc-paper-raised);color:var(--doc-action);font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;box-shadow:inset 3px 0 0 var(--doc-action)}
+[data-npc-shell] .enc-chip b{font-family:var(--font-display);font-weight:900;font-size:13px;color:var(--doc-ink)}
+[data-npc-shell] .nl-cond.enc-ends{color:var(--doc-ink-muted)!important;outline:1px dashed var(--doc-ink-structural);outline-offset:-4px}
+[data-npc-shell] .enc-endtag{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--doc-ink);padding:0 2px 0 4px}
+/* sheets: a scrim and a paper plate (desk: centred; phone: full below the head) */
+[data-npc-shell] .enc-scrim{position:absolute;left:0;right:0;bottom:0;z-index:40;background:rgba(23,22,27,.42);display:flex;align-items:flex-start;justify-content:center;padding:28px 24px 12px;box-sizing:border-box}
+[data-npc-shell] .enc-sheet{position:relative;width:min(760px,100%);max-height:100%;display:flex;flex-direction:column;background:var(--doc-paper-raised);box-shadow:var(--doc-lift);color:var(--doc-ink)}
+[data-npc-shell] .enc-scrim[data-enc-sheet^=confirm]{align-items:center;padding:16px}
+@media (max-width:1023.98px){[data-npc-shell] .enc-scrim{padding:0;align-items:flex-end}[data-npc-shell] .enc-sheet{width:100%}}
+[data-npc-shell] .enc-sh{display:flex;align-items:center;gap:10px;padding:14px 16px 10px;border-bottom:2px solid var(--doc-action)}
+[data-npc-shell] .enc-sh h2{margin:0;font-family:var(--font-display);font-weight:900;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:var(--doc-ink);margin-right:auto}
+[data-npc-shell] .enc-sh .nl-glyph{min-width:44px;min-height:44px}
+[data-npc-shell] .enc-sb{overflow:auto;min-height:0;padding:12px 16px;border-top:2px dashed transparent;border-bottom:2px dashed transparent}
+[data-npc-shell] .enc-sb[data-more="1"]{border-bottom-color:var(--doc-ink-muted);-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 32px),transparent calc(100% - 2px),#000 calc(100% - 2px));mask-image:linear-gradient(180deg,#000 calc(100% - 32px),transparent calc(100% - 2px),#000 calc(100% - 2px))}
+[data-npc-shell] .enc-sb[data-more-above="1"]{border-top-color:var(--doc-ink-muted);-webkit-mask-image:linear-gradient(180deg,#000 2px,transparent 2px,#000 32px);mask-image:linear-gradient(180deg,#000 2px,transparent 2px,#000 32px)}
+[data-npc-shell] .enc-sides{display:flex;flex-wrap:wrap;gap:8px 20px;padding:10px 16px;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .enc-side2{display:flex;align-items:center;gap:10px}
+[data-npc-shell] .enc-side2>span{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--doc-ink);text-transform:uppercase;min-width:40px}
+[data-npc-shell] .enc-sf{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 16px 14px;border-top:1px solid var(--doc-rule)}
+[data-npc-shell] .enc-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--doc-accent);text-transform:uppercase;margin:12px 0 6px}
+[data-npc-shell] .enc-row{display:flex;align-items:center;gap:10px;min-height:52px;padding:4px 0;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .enc-row .enc-rn{font-family:var(--font-body);font-weight:700;font-size:16px;line-height:1.2;margin-right:auto;min-width:0}
+[data-npc-shell] .enc-row .enc-rn small{display:block;font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--doc-ink-muted);text-transform:uppercase}
+[data-npc-shell] .enc-row[data-acted="1"] .enc-rn{color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-pick{width:100%;border:0;border-bottom:1px solid var(--doc-rule-fine);background:transparent;text-align:left;cursor:pointer;color:inherit}
+[data-npc-shell] .enc-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--doc-ink-muted);text-transform:uppercase;white-space:nowrap}
+[data-npc-shell] .enc-tag[data-side=PC]{color:var(--doc-action)}
+[data-npc-shell] .enc-res{display:inline-flex;align-items:center;gap:4px}
+[data-npc-shell] .enc-res input{width:44px;height:44px;box-sizing:border-box;text-align:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--doc-ink);background:var(--doc-paper);border:1px solid var(--doc-rule);border-radius:0}
+[data-npc-shell] .enc-res .hp-sym{font-size:18px}
+[data-npc-shell] .enc-grip{width:44px;height:44px;border:0;background:transparent;cursor:grab;color:var(--doc-ink-muted);font-size:18px;letter-spacing:-2px;touch-action:none}
+[data-npc-shell] .enc-ord{display:grid;grid-template-columns:28px 44px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:52px;border-bottom:1px solid var(--doc-rule-fine);box-shadow:inset 4px 0 0 var(--doc-state);padding-left:10px}
+[data-npc-shell] .enc-ord[data-side=PC]{box-shadow:inset 4px 0 0 var(--doc-action)}
+[data-npc-shell] .enc-ord .enc-n{font-family:var(--font-mono);font-size:13px;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-ord b{font-family:var(--font-body);font-size:16px}
+[data-npc-shell] .enc-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+[data-npc-shell] .enc-ctab{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:16px}
+[data-npc-shell] .enc-ctab td{padding:8px 6px;border-bottom:1px solid var(--doc-rule-fine);vertical-align:top;color:var(--doc-ink-muted)}
+[data-npc-shell] .enc-ctab tr[data-lit="1"] td{color:var(--doc-ink);background:var(--doc-paper);box-shadow:inset 0 2px 0 var(--doc-action),inset 0 -2px 0 var(--doc-action)}
+[data-npc-shell] .enc-ctab td.enc-rg{font-family:var(--font-mono);font-size:13px;white-space:nowrap}
+[data-npc-shell] .enc-big{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:4px 0 8px}
+[data-npc-shell] .enc-big .enc-num{font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--doc-ink)}
+[data-npc-shell] .enc-d100{min-width:88px;min-height:56px;font-family:var(--font-display);font-weight:900;font-size:18px;letter-spacing:.04em;border:0;cursor:pointer;color:var(--doc-ink);background:var(--doc-paper-raised);box-shadow:var(--doc-lift);transform:translateY(-1px)}
+[data-npc-shell] .enc-read{font-family:var(--font-body);font-size:16px;line-height:1.4;color:var(--doc-ink);margin:0 0 8px;padding-left:10px;box-shadow:inset 3px 0 0 var(--doc-rule)}
+[data-npc-shell] .enc-sum{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 14px;font-family:var(--font-body);font-size:16px;line-height:1.35;margin:0}
+[data-npc-shell] .enc-sum dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--doc-accent);padding-top:3px;text-transform:uppercase}
+[data-npc-shell] .enc-sum dd{margin:0 0 8px;color:var(--doc-ink)}
+@media (max-width:1023.98px){
+  [data-npc-shell] .enc-two{grid-template-columns:1fr}
+  [data-npc-shell] .enc-sum{grid-template-columns:1fr;gap:0 14px}
+  [data-npc-shell] .enc-sum dd{margin-bottom:6px}
+  [data-npc-shell] .enc-read{margin-bottom:6px}
+  [data-npc-shell] .enc-sub{margin:8px 0 4px}
+  [data-npc-shell] .enc-sh{padding:10px 16px 8px}
+  [data-npc-shell] .enc-sf{padding:10px 16px}
+}
+/* the PREP drawer (desk): notes, add and craft, folded */
+[data-npc-shell] .enc-drawer{position:absolute;left:0;right:0;top:0;z-index:30;background:var(--doc-paper);box-shadow:var(--doc-lift);padding:12px 14px 14px;max-height:calc(100% - 8px);overflow:auto;box-sizing:border-box}
+[data-npc-shell] .enc-dcols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+[data-npc-shell] .enc-crew{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 12px;padding:10px 0 4px}
+[data-npc-shell] .enc-crewl{display:flex;flex-direction:column;gap:2px;font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--doc-ink)}
+[data-npc-shell] .enc-crewl .nl-sel{height:48px;min-height:48px;width:100%}
+/* D-504 · THE DENSER CARD: one 48 px menu at the header's right; the name wraps, never hyphenates */
+[data-npc-shell] [data-enc=open] .nl-bcard .nl-card-h{display:flex;flex-wrap:nowrap;align-items:center;gap:8px}
+[data-npc-shell] [data-enc=open] .nl-bcard .nl-card-h .nl-cn{flex:1 1 auto;min-width:0}
+[data-npc-shell] [data-enc=open] .nl-bcard .nl-card-h .nl-cn b{display:block;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;word-break:normal}
+[data-npc-shell] .enc-menuwrap{position:relative;flex:none;margin-left:auto}
+[data-npc-shell] .enc-menu{width:48px;height:48px;border:1px solid var(--doc-rule);background:transparent;color:var(--doc-ink);font-size:22px;line-height:1;cursor:pointer;padding:0;border-radius:0}
+[data-npc-shell] .enc-menu[aria-expanded="true"]{background:var(--doc-paper-raised);outline:2px solid var(--doc-ink);outline-offset:-2px}
+[data-npc-shell] .enc-pop{position:absolute;right:0;top:52px;z-index:40;min-width:180px;display:flex;flex-direction:column;background:var(--doc-paper-raised);box-shadow:var(--doc-lift);border:1px solid var(--doc-rule)}
+[data-npc-shell] .enc-pop button{min-height:48px;padding:0 16px;border:0;border-bottom:1px solid var(--doc-rule-fine);background:transparent;text-align:left;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;color:var(--doc-ink);cursor:pointer}
+[data-npc-shell] .enc-pop button:last-child{border-bottom:0;color:var(--doc-critical)}
+[data-npc-shell] .enc-pop button[disabled]{color:var(--doc-ink-muted);cursor:default}
+[data-npc-shell] .enc-standing{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:10px}
+[data-npc-shell] .enc-standing .nl-pips{margin:0!important}
+[data-npc-shell] .enc-skcite{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 10px;margin-top:8px}
+[data-npc-shell] .enc-skcite .nl-cite{margin:0!important}
+[data-npc-shell] .enc-aboard{display:inline-block;margin-top:3px;padding:1px 6px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink);box-shadow:inset 2px 0 0 var(--doc-state);background:var(--doc-paper-raised);max-width:100%;vertical-align:top}
+[data-npc-shell] .enc-conds[data-open="0"]{flex-wrap:nowrap;overflow:hidden}
+[data-npc-shell] .enc-conds>*{flex:none}
+[data-npc-shell] .enc-conds .enc-more{font-variant-numeric:tabular-nums;height:48px;min-height:48px;min-width:48px}
+/* B-1801 · THE DAMAGE BOX beside WOUNDS (key + meter · field · stepper), the proposal one line under it */
+/* the DAMAGE field sits between the track's label and its stepper (D-504's card): the track's row dissolves into this grid */
+[data-npc-shell] .enc-wrow{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;column-gap:8px;padding:7px 0;border-bottom:1px solid var(--doc-rule-fine)}
+[data-npc-shell] .enc-wrow:last-child{border-bottom:0}
+[data-npc-shell] .enc-wrow>.sb-vitrow{display:contents}
+[data-npc-shell] .enc-wrow>.sb-vitrow>div:first-child{min-width:0;grid-column:1}
+[data-npc-shell] .enc-wrow>.enc-dmg{grid-column:2;grid-row:1}
+[data-npc-shell] .enc-wrow>.sb-vitrow>.sb-trk{grid-column:3;grid-row:1}
+[data-npc-shell] .enc-dmg{display:flex;flex-direction:column;align-items:stretch;gap:2px}
+[data-npc-shell] .enc-dmg span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.2em;color:var(--doc-ink-muted);text-transform:uppercase;line-height:1}
+[data-npc-shell] .enc-in{box-sizing:border-box;width:64px;height:48px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);color:var(--doc-ink);font-family:var(--font-display);font-weight:900;font-size:18px;text-align:center;padding:0 4px;border-radius:0;font-variant-numeric:tabular-nums}
+[data-npc-shell] .enc-in:focus{outline:2px solid var(--doc-action);outline-offset:1px}
+[data-npc-shell] .enc-prop{grid-column:1 / -1;display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:6px 0 2px;border-top:1px solid var(--doc-rule-fine);margin-top:4px}
+[data-npc-shell] .enc-prop s{color:var(--doc-ink-muted);margin-left:6px}
+[data-npc-shell] .enc-prop .enc-psum{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--doc-ink);white-space:nowrap;font-variant-numeric:tabular-nums;margin-right:auto;display:inline}
+[data-npc-shell] .enc-res.enc-in,[data-npc-shell] .enc-in.enc-res{width:56px}
+[data-npc-shell] .enc-in.enc-res[data-edited="1"]{border-bottom:2px solid var(--doc-caution);color:var(--doc-caution)}
+[data-npc-shell] .enc-apply{min-height:48px;min-width:48px;padding:0 16px;border:0;border-radius:0;cursor:pointer;background:var(--doc-action);color:var(--doc-paper);font-family:var(--font-mono);font-size:12px;letter-spacing:.2em}

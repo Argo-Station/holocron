@@ -1,0 +1,995 @@
+{
+  "id": "felucia",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Felucia",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim Territories",
+    "sector": "Thanium sector",
+    "system": "Felucia system",
+    "grid": null,
+    "era": "clone_wars",
+    "essence": "Felucia is a planet that resists ownership. Every faction that has tried to claim it — the Commerce Guild, the Separatists, the Republic, the Empire — has found that the jungle simply grows over whatever they build. The nysillim herb draws them in, the fungal wilderness breaks them down, and the planet continues as it always has. The Felucians understand this. Everyone else learns it the hard way.",
+    "atmosphere": "Overwhelming. The air is thick with moisture, spores, and the sickly-sweet smell of decaying plant matter. Phosphorescent fungi cast everything in greenish light. The ground is spongy and wet. Giant mushroom stalks block the sky. Bioluminescent insects drift through the gloom. The jungle is beautiful in the way a carnivorous plant is beautiful — it draws you in and doesn't let go. The heat and humidity are oppressive to anyone not adapted to them.",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": "",
+    "government": "Corporate (Commerce Guild)",
+    "population": "",
+    "languages": [
+      "Basic",
+      "Felucian",
+      "Gossam"
+    ],
+    "terrain": [
+      "jungles",
+      "swamps",
+      "wasteland"
+    ],
+    "major_cities": [
+      "Kway Teow",
+      "Har Gau",
+      "Jiaozi",
+      "Niango"
+    ],
+    "areas_of_interest": [
+      "Commerce Guild headquarters",
+      "Nigkoe Detention Facility"
+    ],
+    "exports": [
+      "medicinal herbs (especially nysillim)"
+    ],
+    "imports": [
+      "fuel",
+      "foodstuffs",
+      "farming equipment"
+    ],
+    "trade_routes": [
+      "Perlemian Trade Route"
+    ],
+    "orbital_metrics": "",
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "galactic_civil_war",
+      "delta": "The Clone Wars are over but the scars remain. The Commerce Guild has been dissolved and absorbed into Imperial corporate structures. The Empire maintains small research outposts on the planet but shows little interest in direct governance. Nysillim farming continues under new corporate ownership. The Felucians who learned to fight during the war have not forgotten those skills. Impact spice derived from nysillim extract has become a growing commodity in the smuggling trade, drawing new criminal attention to the planet."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With Imperial withdrawal, Felucia returns to something closer to its pre-war state — contested between corporate interests seeking nysillim profits and the Felucians who have grown more assertive about defending their land. The jungle has reclaimed most Clone Wars battle sites. Former Imperial research outposts are abandoned or repurposed by local communities. The nysillim trade continues to attract entrepreneurs and criminals in equal measure."
+    }
+  ],
+  "geography": {
+    "structure_type": "fungal_jungle_world",
+    "structure_notes": "Felucia's surface is dominated by dense fungal jungles with enormous mushroom stalks, bioluminescent plant life, and hidden swamps. Rocky outcrops provide the only stable building foundations. War zones have created open wastelands where the jungle has been burned away. The ecosystem is aggressive — cleared areas are reclaimed quickly unless actively maintained.",
+    "districts": [
+      {
+        "id": "kway_teow",
+        "name": "Kway Teow",
+        "character": "Felucia's sprawling capital. A busy port town rather than a proper capital. Buildings situated in and around rocky outcrops, few more than a few stories high. Functional and bland — the verdant wildlife is kept beyond the city's walled boundaries. Gossams outnumber Felucians here, with a wide mix of other species. Traders, farmers, bounty hunters, and Commerce Guild members pass through constantly.",
+        "authority": "Commerce Guild (corporate governance)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "political"
+        ],
+        "notes": "The center of trade on Felucia. The Commerce Guild headquarters lies just outside the city with much tighter security. During the Clone Wars, casual visitors have largely disappeared."
+      },
+      {
+        "id": "nysillim_farmlands",
+        "name": "Nysillim Farmlands",
+        "character": "Scattered agricultural communities of Felucian farmers living in pod-like homes around central barns. The older farms like Akira are small operations struggling against competition from newer, larger Gossam-backed operations. Electric fences keep wild animals at bay. The newer farms push deeper into the jungle, clearing land with droids and provoking territorial predators.",
+        "authority": "Felucian community elders (traditional), Commerce Guild (economic)",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "resource"
+        ],
+        "notes": "The nysillim farms are the economic engine of Felucia. Attempts to cultivate nysillim offworld have universally failed, which keeps the planet's monopoly intact. Some farms have become more militant since the Jedi encouraged self-defense during the Clone Wars."
+      },
+      {
+        "id": "deep_jungle",
+        "name": "Deep Jungle Interior",
+        "character": "Dense, unmapped fungal wilderness. Enormous fungi block the sky, leaving everything in greenish phosphorescent gloom. The ground is spongy and wet. Spores stick to clothing and skin. Poisonous plants shoot barbs at intruders. Translucent seedpods are protected by toxic defenses. Jungle rancors, gelagrubs, and kaaten prowl the undergrowth. The Felucians warn against venturing too far in.",
+        "authority": "none — wilderness",
+        "crime_index": "none",
+        "strategic_value": [
+          "exploration",
+          "force_nexus"
+        ],
+        "notes": "The deep jungle may be a nexus of Force energy. Local flowers and insects reportedly react to the use of the Force. The nysillim herb's universal healing properties and its failure to grow offworld suggest something mystical about the environment. Nobody has investigated these claims because the jungle kills the curious."
+      },
+      {
+        "id": "war_zones",
+        "name": "Clone Wars Battle Sites",
+        "character": "Open wastelands where jungles and farms have been burned or destroyed by fighting between Republic and Separatist forces. Scorched earth, wrecked droid parts, abandoned fortifications. Neither the local Felucians nor the colonists find these areas hospitable. The jungle is slowly reclaiming the edges, but the centers remain barren.",
+        "authority": "contested — Republic and Separatist military",
+        "crime_index": "low",
+        "strategic_value": [
+          "military"
+        ],
+        "notes": "The fighting has permanently changed the landscape. Whatever the outcome of the Clone Wars, the scars on Felucia are already made. Salvageable military equipment may still be found in these areas."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Felucian",
+      "population_level": "dominant",
+      "social_role": "Indigenous farmers and the original inhabitants of the planet. Diminutive, stocky, and reptilian. Peaceful by tradition but increasingly forced into self-defense by predators displaced from cleared jungle, pirate raids, and the Clone Wars. Some younger Felucians have become hunters and warriors, particularly after Jedi encouragement at Akira. They understand the jungle in ways offworlders never will.",
+      "districts": [
+        "nysillim_farmlands",
+        "deep_jungle"
+      ]
+    },
+    {
+      "name": "Gossam",
+      "population_level": "significant",
+      "social_role": "",
+      "districts": [
+        "kway_teow",
+        "nysillim_farmlands"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "minority",
+      "social_role": "Republic military personnel, traders, entrepreneurs, and adventurers drawn by the nysillim trade or strategic importance of the planet. Clone troopers of the 104th Battalion and other Republic units are stationed here during the Clone Wars.",
+      "districts": [
+        "kway_teow",
+        "war_zones"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "commerce_guild",
+      "name": "Commerce Guild",
+      "type": "corporate",
+      "control_type": [
+        "economic",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": null,
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The Commerce Guild is a corporate entity motivated entirely by profit. It responds to financial incentives and threats. Dark side influence is irrelevant to its operations. The Guild is aligned with the Separatists during the Clone Wars, providing a political complication."
+      },
+      "motivation": "Maximizing nysillim production and export profits. The Commerce Guild built its headquarters on Felucia specifically to control this lucrative trade. Every decision — from encouraging Felucian farmers to clear more jungle, to importing Gossam colonists — serves this economic objective.",
+      "assets": [
+        "Commerce Guild headquarters outside Kway Teow",
+        "Corporate infrastructure and imported technology",
+        "Economic control of the nysillim trade",
+        "Gossam colonist population loyal to corporate interests",
+        "Imported predators (acklays) used as security"
+      ],
+      "relationships": [
+        {
+          "faction_id": "separatist_military",
+          "type": "allied",
+          "notes": "The Commerce Guild is a Separatist-aligned corporation. President Shu Mai sits on the Separatist Council. This alliance brings military resources to Felucia but also makes the planet a target for the Republic."
+        },
+        {
+          "faction_id": "republic_military",
+          "type": "enemy",
+          "notes": "The Republic seeks to drive the Separatists off Felucia and break the Commerce Guild's grip. This puts the Guild's corporate operations directly in the crossfire."
+        },
+        {
+          "faction_id": "felucian_communities",
+          "type": "exploitative",
+          "notes": "The Gossams present themselves as kinsmen and benefactors. In practice, they have made the Felucians dependent on trade they didn't need, undercut their farms with droid-operated plantations, and taken control of key planetary decisions through the Commerce Guild."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Nysillim is the entire reason the Commerce Guild is on Felucia. Any threat to the nysillim supply or any alternative source would be treated as an existential threat to their operation."
+        },
+        {
+          "type": "data",
+          "reason": "Trade route data and shipping manifests are commercially valuable. The Guild would pay well for intelligence on competitor operations or pirate movement patterns."
+        }
+      ]
+    },
+    {
+      "id": "separatist_military",
+      "name": "Separatist Military",
+      "type": "military",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "contested",
+      "susceptibility": {
+        "imperial": null,
+        "dark_side": "moderate",
+        "financial": "moderate",
+        "note": "The Separatist military on Felucia is a droid army directed by distant commanders. Individual Separatist officers can be corrupted, but the droids follow orders. The true vulnerability is the command structure — eliminate the tactical droid or jam communications and the army becomes inert."
+      },
+      "motivation": "Securing Felucia as a strategic foothold in the sector and controlling access to the Perlemian Trade Route. The Commerce Guild's presence gives them economic justification, but the real value is military positioning.",
+      "assets": [
+        "Droid army deployments on the surface",
+        "Vulture droid deployment station in orbit",
+        "Separatist outpost under construction",
+        "Blockade capability (intermittent)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "commerce_guild",
+          "type": "allied",
+          "notes": "The Commerce Guild provides economic infrastructure and political legitimacy. The Separatists provide military protection. Both benefit from controlling Felucia."
+        },
+        {
+          "faction_id": "republic_military",
+          "type": "enemy",
+          "notes": "Open warfare. The 104th Battalion and other Republic forces are engaged in active combat operations to drive the Separatists off Felucia."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Republic military intelligence — troop movements, supply routes, encryption codes. Actionable military intelligence that could turn the campaign."
+        },
+        {
+          "type": "resource",
+          "reason": "Control of the nysillim supply denies it to Republic medical operations. The medical station in orbit treats clone wounded — disrupting the herb supply is a strategic objective."
+        }
+      ]
+    },
+    {
+      "id": "republic_military",
+      "name": "Republic Military (GAR)",
+      "type": "military",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "contested",
+      "susceptibility": {
+        "imperial": null,
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Republic military on Felucia is disciplined and mission-focused. Clone troopers follow orders. Jedi commanders are resistant to corruption but may be conflicted about the war's toll on the local population. The main vulnerability is overextension — Republic forces are spread thin across the Outer Rim Sieges."
+      },
+      "motivation": "Driving the Separatists off Felucia and securing the sector for the Republic. Secondary objectives include protecting the medical station and maintaining access to the Perlemian Trade Route.",
+      "assets": [
+        "104th Battalion and attached clone units",
+        "Jedi commanders (Plo Koon, with Skywalker and Tano during key engagements)",
+        "Haven-class Medical Station HCTFF2 in orbit",
+        "Clone tank divisions",
+        "Local Felucian scouts and informants (from Akira)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "separatist_military",
+          "type": "enemy",
+          "notes": "Active combat operations. The Republic has had increasing success after initial Separatist dominance."
+        },
+        {
+          "faction_id": "felucian_communities",
+          "type": "allied",
+          "notes": "The Jedi — particularly Kenobi, Skywalker, and Tano — encouraged Felucian self-defense at Akira. The residents there actively support the Republic as scouts and informants. This relationship is genuine but fragile — the Felucians support the Republic because of the Jedi, not because of political allegiance."
+        },
+        {
+          "faction_id": "commerce_guild",
+          "type": "enemy",
+          "notes": "The Commerce Guild is Separatist-aligned. Republic operations inherently threaten Guild control of the planet."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Separatist fleet positions, outpost locations, droid deployment schedules. Intelligence that helps the Republic campaign on Felucia."
+        },
+        {
+          "type": "person",
+          "reason": "Jedi and clone personnel. Rescuing captured Republic personnel is a standing priority."
+        }
+      ]
+    },
+    {
+      "id": "felucian_communities",
+      "name": "Felucian Communities",
+      "type": "indigenous",
+      "control_type": [
+        "cultural"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Felucians were made dependent on the nysillim trade by Gossam economic manipulation. Financial pressure works because they now rely on trade for equipment and supplies they once didn't need. They are resistant to dark side influence — their connection to the land and community provides stability. Imperial authority means nothing to them."
+      },
+      "motivation": "Protecting their communities, their farms, and their way of life from predators, pirates, corporate exploitation, and the Clone Wars. The younger generation is increasingly willing to fight for these things rather than simply endure.",
+      "assets": [
+        "Intimate knowledge of the jungle and its dangers",
+        "Nysillim farming expertise (cannot be replicated offworld)",
+        "Growing warrior tradition among younger Felucians",
+        "Loyalty of communities like Akira who have been helped by the Jedi",
+        "Medicinal and poisonous herb knowledge"
+      ],
+      "relationships": [
+        {
+          "faction_id": "commerce_guild",
+          "type": "exploited",
+          "notes": "The Gossams present themselves as benefactors and kinsmen. The Felucians are gradually losing economic independence as larger Guild-backed farms undercut them."
+        },
+        {
+          "faction_id": "republic_military",
+          "type": "friendly",
+          "notes": "Gratitude toward the Jedi who helped at Akira. Some Felucians serve as scouts and informants. This is personal loyalty to specific Jedi, not political allegiance to the Republic."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Nysillim and medicinal herbs. The Felucians trade these for survival necessities. Threats to the harvest are existential."
+        }
+      ]
+    },
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "token",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial presence on Felucia is minimal — small research outposts, not a garrison. The Empire considers Felucia a backwater not worth significant investment. This means the personnel here are either researchers with specific objectives or officers who drew a bad posting."
+      },
+      "motivation": "Maintaining small research outposts. The specific research objectives are not publicly known. The nysillim herb's unusual properties and the planet's potential Force connection may be of interest to certain Imperial programs.",
+      "assets": [
+        "Small research outposts",
+        "Limited military personnel"
+      ],
+      "relationships": [
+        {
+          "faction_id": "felucian_communities",
+          "type": "indifferent",
+          "notes": "The Empire largely ignores the Felucians and the Felucians return the favor. As long as the research outposts don't interfere with farming, there is no friction."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "Standing orders to secure Force-related materials. The research outposts may exist specifically to study the planet's unusual Force properties."
+        },
+        {
+          "type": "resource",
+          "reason": "Nysillim's medicinal properties are of interest to Imperial medical and military research programs."
+        }
+      ]
+    },
+    {
+      "id": "pirate_smuggler_operations",
+      "name": "Pirates and Smugglers",
+      "type": "criminal",
+      "control_type": [
+        "none"
+      ],
+      "control_strength": "present",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Pirates and smugglers on Felucia are opportunists drawn by the nysillim trade. They respond to financial incentives and flee from superior force. No organizational loyalty beyond individual crews."
+      },
+      "motivation": "Profit from the nysillim trade — either stealing the herb directly from farms, hijacking shipments, or running nysillim and impact spice to offworld markets. The Pyke Syndicate has used military hardware against small farming villages to seize spice-producing operations.",
+      "assets": [
+        "Armed crews with ships",
+        "Knowledge of unmonitored landing sites in the jungle",
+        "Offworld distribution networks for nysillim and impact spice"
+      ],
+      "relationships": [
+        {
+          "faction_id": "felucian_communities",
+          "type": "hostile",
+          "notes": "Pirates raid farms for nysillim. The Felucians are learning to fight back, but their success is limited without a warrior tradition."
+        },
+        {
+          "faction_id": "commerce_guild",
+          "type": "hostile",
+          "notes": "The Commerce Guild's imported acklays were partly a response to pirate raids. Pirates target Guild shipments as well as independent farms."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Nysillim, whether raw medicinal herb or processed into impact spice. This is the only reason they're on Felucia."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "commerce_guild_hq",
+      "name": "Commerce Guild Headquarters",
+      "district_id": "kway_teow",
+      "type": [
+        "political",
+        "economic"
+      ],
+      "controlling_faction_id": "commerce_guild",
+      "controlling_faction_notes": "Heavily secured corporate facility just outside the capital. The seat of corporate governance on Felucia. Much tighter security than the city itself.",
+      "strategic_value": "Controls the planet's economic and political decision-making. President Shu Mai operates from here. Capturing or disrupting this facility would break the Commerce Guild's grip on Felucia's government.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "gossam_executive",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Senior Commerce Guild officials. Corporate authority backed by Separatist military alliance."
+        },
+        {
+          "archetype_ref": "battle_droid",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Separatist-supplied security droids guarding the facility."
+        },
+        {
+          "archetype_ref": "corporate_guard",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Commerce Guild private security. Better equipped than local militia."
+        }
+      ]
+    },
+    {
+      "id": "akira_farm",
+      "name": "Akira Nysillim Farm",
+      "district_id": "nysillim_farmlands",
+      "type": [
+        "community",
+        "resource"
+      ],
+      "controlling_faction_id": "felucian_communities",
+      "controlling_faction_notes": "A small Felucian farming community in pod-like homes around a central barn. Since the Jedi visit, some younger inhabitants have become hunters and warriors. The community actively supports the Republic.",
+      "strategic_value": "A Republic-friendly community in Felucian territory. The residents serve as scouts and informants. Their warrior-hunters know the jungle and can guide operations. Also a functioning nysillim farm — a resource worth protecting.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "felucian_farmer",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Peaceful farmers. Welcoming to Republic-aligned visitors. Wary of strangers."
+        },
+        {
+          "archetype_ref": "felucian_warrior",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Younger Felucians trained in self-defense since the Jedi visit. Armed with poisoned spears. Experienced hunters of rancors and gelagrubs."
+        },
+        {
+          "archetype_ref": "felucian_elder",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Community leader. Grateful for Jedi assistance. Makes decisions about who to trust and what information to share with outsiders."
+        }
+      ]
+    },
+    {
+      "id": "medical_station_hctff2",
+      "name": "Haven-class Medical Station HCTFF2",
+      "district_id": null,
+      "type": [
+        "military",
+        "medical"
+      ],
+      "controlling_faction_id": "republic_military",
+      "controlling_faction_notes": "",
+      "strategic_value": "Critical medical infrastructure for Republic operations in the sector. Placed in this key position to ensure access to care despite Separatist blockades and pirate interference. The Separatists have already destroyed one station, requiring replacement.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "clone_medic",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Clone troopers trained in field medicine. Running the station with droid assistance."
+        },
+        {
+          "archetype_ref": "medical_droid",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Automated medical staff. Efficient but lacking bedside manner."
+        },
+        {
+          "archetype_ref": "wounded_clone",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Recovering patients. Some eager to return to the fight, others carrying injuries that will end their service."
+        }
+      ]
+    },
+    {
+      "id": "separatist_outpost",
+      "name": "Separatist Forward Outpost",
+      "district_id": "war_zones",
+      "type": [
+        "military"
+      ],
+      "controlling_faction_id": "separatist_military",
+      "controlling_faction_notes": "Droid-defended outpost under construction or recently established. Part of the Separatist strategy to maintain a permanent foothold on Felucia.",
+      "strategic_value": "A beachhead for Separatist operations in the sector. The Republic cannot allow this foothold to be completed. Destroying it is a primary military objective.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "battle_droid",
+          "tier": "minion",
+          "count": "8-12",
+          "notes": "Standard B1 battle droids. Quantity over quality."
+        },
+        {
+          "archetype_ref": "super_battle_droid",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "B2 super battle droids. Heavier firepower and armor."
+        },
+        {
+          "archetype_ref": "tactical_droid",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Commands the outpost. Destroy the tactical droid and the rest become less coordinated."
+        }
+      ]
+    },
+    {
+      "id": "deep_jungle_interior",
+      "name": "Unmapped Jungle Interior",
+      "district_id": "deep_jungle",
+      "type": [
+        "exploration",
+        "force_nexus"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the deep jungle. The wildlife does. The Felucians know better than to go too far in, and everyone else who tries tends not to come back.",
+      "strategic_value": "",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "jungle_rancor",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Felucia's jungle rancors have hard horned shells, webbed feet, and feed on gelagrubs and gastropods. Normally herd animals, but the war has displaced some into solitary, confused aggression. Silhouette 3."
+        },
+        {
+          "archetype_ref": "kaaten",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "A 1.5-meter bipedal Force-sensitive predator that mimics the appearance of someone familiar to its prey to lure them close. Solitary and territorial. Semi-intelligent. Source: FaD Core p.418."
+        },
+        {
+          "archetype_ref": "gelagrub",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Gelatinous gastropods. A food source for rancors. Not inherently dangerous to sentients but the slimy trails they leave make terrain treacherous."
+        }
+      ]
+    },
+    {
+      "id": "nigkoe_detention_facility",
+      "name": "Nigkoe Detention Facility",
+      "district_id": null,
+      "type": [
+        "military",
+        "detention"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Listed as an area of interest in sourcebook data. Controlling faction depends on the current military situation — may be held by Republic, Separatist, or (in GCW era) Imperial forces.",
+      "strategic_value": "A detention facility on a contested world is both an asset and a liability. Holds prisoners of war during the Clone Wars. A target for rescue operations or a source of intelligence from captured personnel.",
+      "takeover_priority": null,
+      "encounter_roles": []
+    }
+  ],
+  "influences": [
+    {
+      "id": "living_force_nexus",
+      "type": "force_nexus",
+      "source_faction_id": null,
+      "source_description": "Felucia itself may be a nexus of the Living Force. The nysillim herb heals universally and cannot grow offworld despite replication of soil and atmosphere. Local flowers and insects reportedly react to use of the Force. The Felucians speak of a wild, untamed power in the deep jungle. Whether this is genuine Force activity or the effects of hallucinogenic spores is unknown — and while the planet remains a battleground, no one is investigating.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": "The nysillim herb's universal healing properties and its absolute refusal to grow offworld. This is the most visible expression of whatever makes Felucia unusual — the entire galactic economy of this planet rests on a phenomenon nobody can explain."
+        },
+        {
+          "faction_id": null,
+          "description": "Force-reactive flora and fauna in the deep jungle. Plants that retaliate when damaged. Bioluminescent insects that respond to Force use. The kaaten — a predator that uses the Force to mimic familiar faces. The jungle itself behaves as if it has awareness."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Force-sensitive characters feel the Living Force more intensely on Felucia. Force power checks involving Heal/Harm, Seek, or Sense add 1 automatic light side pip in natural jungle environments. The jungle feels alive — not hostile, but aware."
+        },
+        {
+          "threshold": "significant",
+          "modifier": "The Force is unmistakably strong. Force-sensitive characters experience vivid impressions from the Living Force — emotions of nearby creatures, the health or distress of the ecosystem, echoes of significant events. All Force power checks in jungle environments add 1 automatic light side pip. Dark side users feel resistance — the Living Force on Felucia is not neutral."
+        }
+      ]
+    },
+    {
+      "id": "clone_wars_devastation",
+      "type": "environmental",
+      "source_faction_id": null,
+      "source_description": "The Clone Wars have physically scarred Felucia. Both the Republic and Separatist armies have burned jungles, destroyed farms, and left wastelands behind. The war's damage goes beyond the battlefields — displaced predators threaten communities, farming communities have been disrupted, and the relationship between the Felucians and their planet has been altered. The fighting has already changed the face of Felucia forever, regardless of who wins.",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "felucian_communities",
+          "description": "Felucian farmers are being forced into warrior roles they never sought. Their peaceful culture is being militarized by necessity. Some communities have been displaced entirely."
+        },
+        {
+          "faction_id": null,
+          "description": "Jungle rancors that once stayed in the deep jungle are now wandering into settlements, confused and aggressive after their territories were destroyed by military operations. The ecosystem is destabilized."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "In war zone districts, terrain is treacherous — destroyed structures, unexploded ordnance, wrecked droids. Survival checks to navigate increase difficulty by 1. Salvage opportunities exist but carry risk."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "perlemian_trade_route",
+        "destination": "Perlemian Trade Route (major galactic hyperspace lane)",
+        "travel_time": "direct access — Felucia sits on the route",
+        "route_quality": "well-established",
+        "notes": "Felucia's position on the Perlemian Trade Route is why it matters strategically. The route connects the Core Worlds to the Outer Rim. Controlling Felucia means influencing traffic along one of the galaxy's most important trade lanes."
+      },
+      {
+        "id": "coruscant",
+        "destination": "Coruscant",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Perlemian Trade Route. The route is well-mapped but Separatist blockades and pirate activity make safe passage intermittent during the Clone Wars."
+      },
+      {
+        "id": "ossus",
+        "destination": "Ossus",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Perlemian Trade Route. Both are notable locations along the same hyperspace lane."
+      }
+    ],
+    "anomalies": []
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "One or two research outposts with minimal staff. The Empire knows Felucia exists and has personnel here, but this is not a priority posting. Researchers focused on specific objectives — likely nysillim properties or the planet's unusual Force characteristics.",
+          "presence_reason": "Standing Imperial research presence. Not a response to any specific threat. These outposts may predate the current administration.",
+          "roles": [
+            {
+              "role": "Imperial researcher",
+              "archetype_ref": "imperial_scientist",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Focused on specific research objectives. Not a military thinker. May know things about the planet's unusual properties that have value."
+            },
+            {
+              "role": "Stormtrooper guard",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Outpost security. Bored, isolated, and not expecting trouble."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Expanded Imperial interest. Multiple research teams, a small garrison, and occasional orbital patrols. Something has drawn increased attention — perhaps a discovery at one of the research outposts, or a policy directive from sector command about nysillim or Force-related phenomena.",
+          "presence_reason": "A discovery or directive has elevated Felucia's priority. Resources allocated but not yet at occupation levels.",
+          "roles": [
+            {
+              "role": "Imperial researcher",
+              "archetype_ref": "imperial_scientist",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple research teams with overlapping objectives."
+            },
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Garrison troops. Patrolling between outposts and the capital."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Garrison commander. Managing the expanded presence and dealing with local complications."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Empire has decided Felucia matters. A full garrison, orbital presence, and active operations in the jungle. The Felucians are being pressured to cooperate. Corporate operations are being brought under tighter Imperial control.",
+          "presence_reason": "A significant discovery — Force-related, military, or economic — has made Felucia strategically important. Alternatively, Rebel activity or a security incident has triggered escalation.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Multiple squads operating in the capital and surrounding farmlands."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Command staff coordinating ground and orbital operations."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Intelligence operative. Investigating whatever triggered the escalation."
+            },
+            {
+              "role": "Imperial researcher",
+              "archetype_ref": "imperial_scientist",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Expanded research teams with military escorts for jungle expeditions."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial occupation. Felucia is being locked down. The jungle is being mapped and cleared in sectors. Felucian communities are being relocated or monitored. Something on this planet has attracted attention at the highest levels — possibly the Inquisitorius.",
+          "presence_reason": "A confirmed Force nexus, a fugitive Jedi, or a discovery of galactic significance. The Empire is committing resources that far exceed what a backwater fungal world should warrant.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Occupation force. Checkpoints at all settlements. Jungle patrols with heavy equipment."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full command structure. Ground, orbital, and intelligence coordination."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Active interrogation and surveillance operations."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-related discovery confirmed. An Inquisitor on Felucia would be hunting something specific in the deep jungle."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Research outpost personnel are more cautious. Stormtroopers question visitors to the capital. Orbital sensors are actively monitoring traffic.",
+        "targeted": "The Empire is searching for specific individuals or objects. Felucian communities are being questioned. Jungle patrols are increased. Departing ships are inspected.",
+        "manhunt": "Full lockdown. No ships leave without Imperial authorization. Jungle expeditions deployed to suspected hiding locations. Felucian communities are pressured to inform or face consequences."
+      }
+    },
+    {
+      "faction_id": "felucian_communities",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A few scattered farmers going about their business. The community is quiet — either deliberately laying low or genuinely uninvolved in current events.",
+          "presence_reason": "Normal peaceful farming life. The Felucians are not mobilized.",
+          "roles": [
+            {
+              "role": "Felucian farmer",
+              "archetype_ref": "felucian_farmer",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Going about daily work. Friendly but cautious with strangers."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Felucian communities are active and alert. Young warrior-hunters patrol the perimeters. Farmers are armed. The community expects trouble — from predators, pirates, or armies.",
+          "presence_reason": "Recent attacks on farms or encroachment by outside forces. The community has learned that peace requires vigilance.",
+          "roles": [
+            {
+              "role": "Felucian farmer",
+              "archetype_ref": "felucian_farmer",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Armed and watchful. Not aggressive but prepared."
+            },
+            {
+              "role": "Felucian warrior-hunter",
+              "archetype_ref": "felucian_warrior",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Patrolling with poisoned spears. Know the terrain. Will engage threats proactively."
+            },
+            {
+              "role": "Felucian elder",
+              "archetype_ref": "felucian_elder",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Directing community defense. Makes decisions about engagement or retreat."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Felucian community is on a war footing. Warriors from multiple communities have gathered. Electric fences reinforced. Scouts deployed into the jungle. This is not normal — something has pushed the Felucians to organize beyond their usual community boundaries.",
+          "presence_reason": "A major threat — a large pirate force, corporate land seizure, or approaching army — has united multiple Felucian communities in common defense.",
+          "roles": [
+            {
+              "role": "Felucian warrior-hunter",
+              "archetype_ref": "felucian_warrior",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Warriors from multiple communities. Poisoned weapons. Knowledge of the jungle used for ambush tactics."
+            },
+            {
+              "role": "Felucian elder council",
+              "archetype_ref": "felucian_elder",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Elders from multiple communities coordinating defense. This level of cooperation is unprecedented."
+            }
+          ]
+        },
+        "dominant": null
+      },
+      "alert_modifiers": {
+        "suspicious": "Felucian scouts shadow unfamiliar visitors. Community members are less forthcoming with information. Electric fences are energized.",
+        "targeted": "Warriors are deployed to intercept specific threats. Jungle paths are trapped. Communities share intelligence about enemy movements.",
+        "manhunt": "The entire jungle becomes hostile to the target. Felucian hunters who know every trail, every poisonous plant, and every predator territory use that knowledge offensively. The jungle itself becomes a weapon."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "CW_republic_campaign": {
+        "label": "Clone Wars — Republic Jungle Campaign",
+        "description": "The Republic is fighting to drive the Separatists off Felucia. The 104th Battalion is engaged in active combat operations. Jedi commanders lead from the front. The Felucians at Akira are Republic allies. The Commerce Guild controls the capital. The medical station orbits overhead. Both sides are leaving scars on the planet that will outlast the war.",
+        "controlling_factions": [
+          {
+            "location_id": "kway_teow",
+            "faction_id": "commerce_guild",
+            "presence_level": "patrol",
+            "notes": "Corporate governance continues under Separatist protection. Business proceeds around the war."
+          },
+          {
+            "location_id": "war_zones",
+            "faction_id": "separatist_military",
+            "presence_level": "fortified",
+            "notes": "Active military operations. Droid army deployments. Outpost construction ongoing."
+          },
+          {
+            "location_id": "akira_farm",
+            "faction_id": "republic_military",
+            "presence_level": "patrol",
+            "notes": "Felucian scouts report to Republic forces. The community is a forward intelligence post."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "separatist_military",
+            "level": "hostile",
+            "reason": "Active combat zone. Republic-aligned visitors are enemy combatants."
+          }
+        ],
+        "flags": [
+          "The Separatist outpost under construction will be operational in two sessions if not disrupted. Once complete, it gives the Separatists a permanent droid staging area on the surface.",
+          "A Felucian elder at Akira knows a path through the deep jungle that bypasses the Separatist perimeter. She hasn't shared it because nobody has asked — and because the path goes through kaaten territory.",
+          "The medical station's nysillim supply is running low. The Clone Wars have disrupted harvesting. A resupply run to the farmlands would expose the convoy to Separatist interdiction.",
+          "A Commerce Guild administrator in Kway Teow is having second thoughts about the Separatist alliance. The war is destroying the nysillim harvest and his profit margins with it. He hasn't approached the Republic because he doesn't know how — and because Shu Mai would have him killed."
+        ]
+      },
+      "FaD_force_nexus_investigation": {
+        "label": "Force and Destiny — Living Force Investigation",
+        "description": "The Force is unusually strong on Felucia and no one understands why. Nysillim cannot grow offworld. Plants react to Force use. A Force-sensitive predator hunts in the deep jungle. The Felucians speak of a wild, untamed power. Something in the unmapped interior is the source — and the Empire's research outposts may be looking for the same answer. A Force-sensitive party could be the first to actually investigate what lies at the heart of Felucia's jungle.",
+        "controlling_factions": [
+          {
+            "location_id": "deep_jungle_interior",
+            "faction_id": null,
+            "presence_level": null,
+            "notes": "No faction controls the deep jungle. The Force itself may be the dominant presence here."
+          }
+        ],
+        "influences_override": [
+          {
+            "influence_id": "living_force_nexus",
+            "strength": "significant",
+            "known_to_players": true
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "watching",
+            "reason": "Imperial research outposts are monitoring Force-related phenomena. Force-sensitive visitors may attract attention from researchers who report to programs the local commander doesn't fully understand."
+          }
+        ],
+        "flags": [
+          "The deep jungle contains a vergence in the Living Force — a place where the barrier between the physical and the Force is thin. Nysillim grows closest to the center of this vergence. The further from the center, the less potent the herb. Nobody has mapped this correlation because nobody has survived the deep jungle long enough to take measurements.",
+          "An Imperial researcher at the eastern outpost has been filing reports about unusual energy readings from the jungle interior. Her superiors haven't responded. She doesn't know that her reports are being flagged by a program that operates above sector command — and that someone is coming to follow up.",
+          "A kaaten in the deep jungle has been mimicking a specific face to multiple travelers over the past year — the face of a Jedi who died during Order 66 on Felucia's surface. Whether this is coincidence, residual Force impression, or something else is unknown.",
+          "The Felucians have an oral tradition about the jungle's heart — a place they call the 'breathing place' where the ground moves and the air hums. They forbid their young from seeking it. The tradition is older than the Gossam arrival. Whether it describes a real location or a cautionary tale is unknown."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Collapse of the Republic",
+      "alias": "collapse",
+      "pages": "108-111",
+      "notes": "Primary source. Full planetary profile including astronavigation data, history, people and culture, points of interest, incidents and battles, modular encounter, creature stats (jungle rancor, Felucian minion), and Force-connection sidebar."
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "alias": "eote",
+      "pages": "335, 353",
+      "notes": ""
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": "347, 366, 387",
+      "notes": "Perlemian Trade Route mention, Outer Rim gazetteer (adds 'The Empire maintains small research outposts on the planet'), and Starkiller/Bail Organa rescue on Felucia."
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "alias": "fad",
+      "pages": "418-419",
+      "notes": "Kaaten creature stat block — Force-sensitive mimic predator native to Felucia."
+    },
+    {
+      "book": "Fly Casual (Smuggler Sourcebook)",
+      "alias": "smuggler",
+      "pages": "51",
+      "notes": "Impact spice — derived from nysillim plant extract of Felucia. Concentrated nysillim enhances reflexes (upgrades Agility checks) then causes lethargic crash."
+    },
+    {
+      "book": "Collapse of the Republic",
+      "alias": "collapse",
+      "pages": "85",
+      "notes": "Jedi Master Sifo-Dyas went missing during a mission to Felucia."
+    },
+    {
+      "book": "Collapse of the Republic",
+      "alias": "collapse",
+      "pages": "92",
+      "notes": ""
+    }
+  ]
+}

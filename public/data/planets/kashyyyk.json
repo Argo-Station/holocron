@@ -1,0 +1,932 @@
+{
+  "id": "kashyyyk",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Kashyyyk",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Mid Rim",
+    "sector": "Mytaranor Sector",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Kashyyyk is a world defined by its trees. Wroshyr trees kilometers tall create a layered ecology where altitude determines everything — safety, civilization, daylight, breathable air. The Wookiees built their cities on the seventh level, high enough to avoid the lethal predators below, low enough to stay hidden beneath the canopy. It was a world in balance until the Empire broke it. Now it is the largest open-air prison in the galaxy, and the Wookiees who once defended it are the ones in chains.",
+    "atmosphere": "The upper canopy is bright and windy, with mrawzim storms rolling across wide blue oceans and dense forest. Below the canopy, light filters through layers of leaves and bark into deepening shades of green. By the fourth level, the light is dappled. By the second, it is twilight. At the forest floor, it is absolute darkness. The air smells of bark, sap, and something alive and watchful. Every sound carries — the creak of branches, the call of creatures, the distant hum of an Imperial patrol craft breaking the tree line.",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Kashyyyk is governed by the Wookiee Council and is a reluctant Republic ally. The Separatists covet the planet for its strategic position, its natural resources, and the hyperspace mapping knowledge of the Claatuvac Guild in Kachirho. General Tarfful leads the defense. Jedi fight alongside Wookiee warriors at Kachirho during the Outer Rim Sieges. No Imperial presence. Trandoshan raiders are the primary external threat."
+    },
+    {
+      "era": "post_empire",
+      "delta": "The Imperial garrison is weakened or withdrawn. Wookiees are organizing to reclaim their world and free the remaining enslaved population. The Trandoshans may attempt to exploit the power vacuum. Former slave labor camps are being dismantled. The Wookiee Council is reconstituting. Offworld Wookiees are returning home. The scars of occupation — stripped forests, abandoned Imperial installations, disrupted ecosystems — will take generations to heal."
+    }
+  ],
+  "geography": {
+    "structure_type": "layered_forest_planet",
+    "structure_notes": "Kashyyyk's ecology is defined by vertical stratification through the wroshyr trees. The Wookiees identify seven distinct levels. Higher levels are safer and more civilized. Lower levels become progressively more dangerous, darker, and more primordial. The forest floor is near-total darkness and lethal to all but the most capable hunters. Wide blue oceans fringe sandy beaches between the continental forests. The mountainous poles are largely uninhabited.",
+    "districts": [
+      {
+        "id": "upper_canopy",
+        "name": "Upper Canopy (Level 7)",
+        "character": "The Wookiee city level. Platforms and walkways built between and around enormous wroshyr trunks. Homes carved into living wood without killing the trees. Technology blended with nature — wooden liftcars on kshyy vines stronger than metal cable. Bright, windy, open to the sky above the canopy.",
+        "authority": "Wookiee Council (nominal); Imperial garrison (actual, GCW era)",
+        "crime_index": "negligible (under Wookiee governance); suppressed (under Imperial control)",
+        "strategic_value": [
+          "population_center",
+          "infrastructure",
+          "political"
+        ],
+        "notes": "This is where the Wookiee cities exist — Rwookrrorro, Kachirho, Awrathakka, Thikkiiana. In the GCW era, Imperial garrisons occupy these cities. The Wookiees who remain are monitored, restricted, and used as forced labor. Resistance exists but is constrained by the threat of retaliation against families."
+      },
+      {
+        "id": "middle_forest",
+        "name": "Middle Forest (Levels 4-6)",
+        "character": "Dense canopy with dappled green light. Hunting grounds for Wookiees. Dangerous wildlife but navigable by experienced Wookiees. Young Wookiees hunt here during their coming-of-age rites. Kshyy vines, wroshyr lice colonies, and needle blossoms.",
+        "authority": "Wookiee traditional territory; Imperial patrols avoid this level",
+        "crime_index": "not applicable — wilderness",
+        "strategic_value": [
+          "military_guerrilla",
+          "resource"
+        ],
+        "notes": "The Empire does not effectively patrol below the city level. This is where Wookiee resistance fighters can operate with relative freedom. The terrain is impassable to stormtroopers without Wookiee guides. Foraging here provides orga roots and other traditional resources."
+      },
+      {
+        "id": "lower_forest",
+        "name": "Lower Forest (Levels 1-3)",
+        "character": "Near-total darkness. Predators that even Wookiees fear. Webweavers, kinraths, syren plants, anakkonas. Only the bravest hunters venture here, and then only briefly. The air is thick and wet. The ground is marshy and soft.",
+        "authority": "none — wilderness",
+        "crime_index": "not applicable",
+        "strategic_value": [
+          "none_conventional",
+          "high_hidden"
+        ],
+        "notes": "Trandoshans with infrared vision can navigate these levels better than most species. The presence of terentateks — creatures that hunt Force-sensitives — makes this area uniquely dangerous for Jedi or Force users. Even Wookiees rarely venture to the forest floor."
+      },
+      {
+        "id": "coastlines",
+        "name": "Coastal Settlements",
+        "character": "Where the wroshyr forests meet Kashyyyk's wide blue oceans. Kachirho is the primary coastal city, built into ancient wroshyr trees on the islands of the Wawaatt Archipelago. Piers and platforms extend over the water. No dark lower levels on the open coasts.",
+        "authority": "Wookiee Council (nominal); Imperial garrison (actual, GCW era)",
+        "crime_index": "negligible",
+        "strategic_value": [
+          "economic",
+          "informational",
+          "military"
+        ],
+        "notes": "Kachirho is the seat of the Claatuvac Guild — Kashyyyk's center for hyperspace mapping and hyperspatial theory. This knowledge base is a primary reason external powers covet the planet. General Tarfful defends this city during the Clone Wars."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Wookiee",
+      "population_level": "dominant",
+      "social_role": "The only sentient native species. Wookiees are the civilization of Kashyyyk — builders, engineers, hunters, warriors, and artisans. They live by strict codes of honor and loyalty, with friendship and family bonds as the foundation of their society. Mechanical skills and engineering come naturally to them. They carve homes from living wroshyr trees without killing them, build bowcasters and liftcars from natural materials, and blend technology with their environment. In the GCW era, most are enslaved — either on Kashyyyk under Imperial guard or shipped offworld for forced labor.",
+      "districts": [
+        "upper_canopy",
+        "middle_forest",
+        "coastlines"
+      ]
+    },
+    {
+      "name": "Trandoshan",
+      "population_level": "rare",
+      "social_role": "Sworn enemies of the Wookiees. Trandosha shares the same star system. Trandoshans hunt Wookiees for jagannath points — religious honor scored by killing. They collaborated with the Empire, advising Palpatine to enslave the Wookiees. In the GCW era, Trandoshan slavers operate in and around the system with Imperial sanction. Their infrared vision gives them an advantage in Kashyyyk's dark lower levels.",
+      "districts": [
+        "lower_forest"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "minority",
+      "social_role": "Imperial garrison troops, officers, administrators, and ISB personnel. Before the Empire, humans were rare visitors tolerated at Rwookrrorro's spaceport. Now they are the occupying force. Some Imperial personnel are stationed at labor processing centers. A small number may be sympathizers, smugglers, or Rebel operatives.",
+      "districts": [
+        "upper_canopy",
+        "coastlines"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "administrative"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial garrison on Kashyyyk is a dedicated occupation force. They are here to maintain the slave labor pipeline and prevent Wookiee uprisings. Individual soldiers may have moral qualms about enslaving sentient beings, but the institutional structure does not tolerate dissent. The garrison is well-supplied and answers directly to sector command."
+      },
+      "motivation": "",
+      "assets": [
+        "Garrison of stormtroopers and naval personnel at major Wookiee cities",
+        "Orbital patrol and blockade capability — no ships leave without authorization",
+        "Slave processing and labor camp infrastructure",
+        "Trandoshan collaborators providing intelligence and slave-catching capability",
+        "Communication links to sector fleet and ISB"
+      ],
+      "relationships": [
+        {
+          "faction_id": "wookiee_resistance",
+          "type": "enemy",
+          "notes": "The primary Imperial concern. Any organized Wookiee resistance threatens the slave labor pipeline. The Empire uses hostage-taking — holding families at gunpoint to ensure compliance from skilled workers — as the primary deterrent."
+        },
+        {
+          "faction_id": "trandoshan_hunters",
+          "type": "allied",
+          "notes": "The Trandoshans advised the Empire to enslave the Wookiees and continue to serve as slavers and trackers. The Empire tolerates their hunting practices because they are useful. The alliance is transactional — the Trandoshans gain access to Wookiee prey, the Empire gains trackers and enforcers."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "enemy",
+          "notes": "Any Rebel activity near Kashyyyk is treated as a maximum-priority threat. The liberation of Wookiee slaves would be a devastating propaganda blow to the Empire and a material loss of labor. Imperial security is calibrated to prevent exactly this."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "The Claatuvac Guild's hyperspace mapping data is strategically valuable. The Empire wants exclusive control of this knowledge base. Any leak of this data to the Rebellion would compromise Imperial navigation advantages."
+        },
+        {
+          "type": "resource",
+          "reason": "Wookiee labor is the resource. Kashyyyk's electronic components and natural resources are secondary. The Empire's interest is in maintaining the flow of forced workers to Imperial projects across the galaxy."
+        },
+        {
+          "type": "person",
+          "reason": "Escaped Wookiee slaves, Rebel operatives, and anyone who could organize resistance. Recapture is the priority. Any Wookiee who escapes becomes a symbol — the Empire cannot afford symbols."
+        },
+        {
+          "type": "artifact",
+          "reason": "Minimal interest unless Force-related. Terentateks in the lower levels suggest an ancient dark side presence, but the garrison is not equipped to investigate and ISB has not flagged it as a priority."
+        }
+      ]
+    },
+    {
+      "id": "wookiee_resistance",
+      "name": "Wookiee Resistance",
+      "type": "indigenous_resistance",
+      "control_type": [
+        "territorial_guerrilla"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "Wookiee resistance fighters are motivated by honor, family, and the liberation of their people. They cannot be bought or easily intimidated. The dark side has minimal purchase — Wookiee culture is grounded in loyalty, not ambition. The only effective Imperial leverage is threatening families, which works as a deterrent but also fuels deeper rage."
+      },
+      "motivation": "Liberation of the Wookiee people and expulsion of the Imperial occupation. This is not a political movement — it is survival. Every enslaved Wookiee has family members either imprisoned on Kashyyyk or shipped offworld. The resistance fights to free them and to restore Wookiee self-governance.",
+      "assets": [
+        "Knowledge of the wroshyr forest terrain that the Empire cannot replicate",
+        "Ability to move through the middle forest levels where Imperial patrols cannot follow",
+        "Wookiee engineering skills — improvised weapons, sabotage capability",
+        "The loyalty of the general Wookiee population, even those who cannot openly resist",
+        "Scattered caches of bowcasters and traditional weapons hidden in the forests"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "enemy",
+          "notes": "Total opposition. The resistance fights the Empire through guerrilla tactics — sabotaging equipment, freeing small groups of slaves, ambushing isolated patrols in the mid-levels. They avoid open confrontation because the Empire's retaliation against civilians is immediate and brutal."
+        },
+        {
+          "faction_id": "trandoshan_hunters",
+          "type": "enemy",
+          "notes": "Ancient hatred compounded by collaboration. The Trandoshans enabled the enslavement. Every Wookiee resistance fighter has personal reason to kill Trandoshans on sight. This blood feud predates the Empire by centuries."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "allied",
+          "notes": "Wookiees who escape Kashyyyk often join the Rebel Alliance. The Alliance recognizes the strategic and moral importance of Kashyyyk but lacks the military resources to liberate it. The relationship is one of shared purpose constrained by operational reality."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Imperial garrison schedules, patrol routes, slave transport manifests — anything that helps free Wookiees. The Claatuvac Guild data is also important to protect from Imperial exploitation."
+        },
+        {
+          "type": "resource",
+          "reason": "Weapons, medical supplies, communications equipment. The resistance is resource-starved. Any supply cache is worth fighting for."
+        },
+        {
+          "type": "person",
+          "reason": "Enslaved family members. A specific Wookiee held in a labor camp is worth any risk. Life debts extend this to non-Wookiee allies who have earned one."
+        },
+        {
+          "type": "artifact",
+          "reason": "No direct interest. Wookiee culture respects the Force but does not seek artifacts. However, if an artifact could help the liberation effort, pragmatism overrides tradition."
+        }
+      ]
+    },
+    {
+      "id": "trandoshan_hunters",
+      "name": "Trandoshan Hunters",
+      "type": "hostile_species",
+      "control_type": [
+        "none — raiding and slaving"
+      ],
+      "control_strength": "present",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "moderate",
+        "financial": "moderate",
+        "note": "Trandoshans are motivated by jagannath — honor points scored through killing and hunting. This religious motivation makes them resistant to simple bribery but susceptible to offers that enable more prestigious kills. Dark side influence could amplify their predatory instincts. Imperial leverage works because the Empire grants them access to Wookiee prey."
+      },
+      "motivation": "Hunting Wookiees for jagannath points and profit. The blood feud between Trandoshans and Wookiees is both religious and cultural — Trandoshans believe the Scorekeeper goddess rewards kills, and Wookiees are the most prestigious prey. The Empire's enslavement of the Wookiees has given Trandoshans unprecedented access to their ancient enemies.",
+      "assets": [
+        "Infrared vision — effective in Kashyyyk's dark lower levels",
+        "Slaving ships and equipment operating with Imperial sanction",
+        "Knowledge of Wookiee behavior and tactics from centuries of conflict",
+        "Base of operations on Trandosha in the same star system",
+        "Regenerative biology — limbs regrow, making them persistent threats"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "allied",
+          "notes": "The Trandoshans sent emissaries to Palpatine to recount their grievances against the Wookiees. The Imperials listened and authorized the enslavement. This alliance is stable as long as the Empire continues to grant Trandoshan access to Wookiee hunting grounds."
+        },
+        {
+          "faction_id": "wookiee_resistance",
+          "type": "enemy",
+          "notes": "Blood feud. Trandoshans and Wookiees fight on sight. The enmity is older than the Empire and will outlast it."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "hostile",
+          "notes": "The Rebellion represents a threat to the Trandoshan-Imperial arrangement. If the Rebels freed the Wookiees, Trandoshan access to their most valued prey would end."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Wookiee resistance hideout locations. Any intelligence that leads to more kills or captures."
+        },
+        {
+          "type": "resource",
+          "reason": "Wookiee pelts, trophies, and enslaved Wookiees for sale. The Trandoshans treat Wookiees as both prey and commodity."
+        },
+        {
+          "type": "person",
+          "reason": "High-value Wookiee targets — resistance leaders, escaped slaves with bounties, warriors who have killed Trandoshans. These represent the most prestigious jagannath."
+        },
+        {
+          "type": "artifact",
+          "reason": "No interest unless it grants hunting advantage. Trandoshan culture is practical about the Force — they respect it as a predator respects the terrain."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "rwookrrorro_spaceport",
+      "name": "Rwookrrorro Spaceport",
+      "district_id": "upper_canopy",
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "The spaceport is one of the few structures on Kashyyyk where metal is used more than wood. In the GCW era, the Empire controls all arrivals and departures. No ships leave without Imperial authorization.",
+      "strategic_value": "The primary point of entry and exit for Kashyyyk. Controls the slave transport pipeline offworld. Any liberation effort or smuggling operation must deal with this chokepoint. The city of Rwookrrorro extends around and below it through the wroshyr canopy.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Spaceport security. Checking arrivals, inspecting cargo, enforcing the blockade at ground level."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Spaceport commander. Controls landing permits and departure authorizations. Pragmatic but follows orders."
+        },
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Inspects all incoming and outgoing cargo. Looking for weapons, communications equipment, and escaped slaves."
+        }
+      ]
+    },
+    {
+      "id": "kachirho_guild_hall",
+      "name": "Kachirho — Claatuvac Guild Hall",
+      "district_id": "coastlines",
+      "type": [
+        "informational",
+        "economic"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "The Empire occupies Kachirho and controls access to the Claatuvac Guild. The Guild's hyperspace mapping knowledge is considered a strategic asset. Wookiee guild members work under Imperial supervision.",
+      "strategic_value": "The Claatuvac Guild is the Wookiee center for hyperspace mapping and hyperspatial theory. Their knowledge of routes and astrogation is coveted by every faction. The Separatists wanted it during the Clone Wars. The Empire controls it now. Whoever holds this data has a significant navigation advantage.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4",
+          "notes": "Garrison troops securing the guild hall and surrounding city."
+        },
+        {
+          "archetype_ref": "wookiee_engineer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Claatuvac Guild members. Working under duress. They know the hyperspace data and guard it — even from the Empire, in ways the Empire doesn't realize."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Intelligence officer assigned to extract and catalogue Guild knowledge. Frustrated by Wookiee passive resistance."
+        }
+      ]
+    },
+    {
+      "id": "slave_processing_camp",
+      "name": "Slave Processing Center",
+      "district_id": "upper_canopy",
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Imperial-built facility near a major Wookiee settlement. Wookiee children are held at gunpoint to ensure adult compliance with forced labor assignments.",
+      "strategic_value": "Where enslaved Wookiees are processed, assigned to labor details, and staged for offworld transport. The emotional and strategic center of the occupation. Liberating this facility would be the most symbolically powerful act of resistance possible — and the most heavily defended.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Camp guards. Alert and disciplined — this is a high-priority posting."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Camp administrator. Responsible for labor quotas and transport schedules."
+        },
+        {
+          "archetype_ref": "trandoshan_slaver",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Trandoshan collaborators serving as trackers and enforcers. They hunt escaped Wookiees and are feared as much as the stormtroopers."
+        },
+        {
+          "archetype_ref": "wookiee_gladiator",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "An enslaved Wookiee who has succumbed to despair and anger. Used as an enforcer against other Wookiees. Potentially redeemable."
+        }
+      ]
+    },
+    {
+      "id": "mid_forest_resistance_camp",
+      "name": "Resistance Holdout (Middle Forest)",
+      "district_id": "middle_forest",
+      "type": [
+        "hidden",
+        "covert"
+      ],
+      "controlling_faction_id": "wookiee_resistance",
+      "controlling_faction_notes": "A hidden encampment in the middle forest levels, accessible only by those who know the wroshyr trees. The Empire knows resistance camps exist but cannot locate them without Wookiee cooperation.",
+      "strategic_value": "Operating base for Wookiee guerrilla fighters. Weapon caches, communications with other resistance cells, and staging point for raids against Imperial patrols and slave convoys. The terrain itself is the primary defense — Imperial troops cannot navigate the mid-levels without Wookiee guides.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "wookiee_warrior",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Resistance fighters. Armed with bowcasters and traditional weapons. Suspicious of outsiders but honorable — they will not attack without cause."
+        },
+        {
+          "archetype_ref": "wookiee_elder",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Resistance leader. Old enough to remember freedom. Makes decisions for the cell and maintains contact with other groups."
+        },
+        {
+          "archetype_ref": "wookiee_engineer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Technical specialist maintaining improvised communications and weapons. Can repair almost anything from wroshyr wood and salvaged parts."
+        }
+      ]
+    },
+    {
+      "id": "lower_forest_depths",
+      "name": "Lower Forest Depths",
+      "district_id": "lower_forest",
+      "type": [
+        "hidden",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the forest floor. Predators rule here — webweavers, kinraths, syren plants, anakkonas, and in the deepest levels, terentateks. Wookiees hunt here during coming-of-age rites and when seeking mates, but do not linger.",
+      "strategic_value": "The forest floor of Kashyyyk may conceal ancient ruins, forgotten technology, or Force-related phenomena. The presence of terentateks — creatures believed to be Sith-created predators that hunt Force-sensitives — suggests a deep connection to the Force. No one has fully explored these depths.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "webweaver",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Spider-like predators that ambush from above. Excellent climbers and hiders. Wookiees hunt them for food but respect their danger."
+        },
+        {
+          "archetype_ref": "terentatek",
+          "tier": "nemesis",
+          "count": "0-1",
+          "notes": "Only encountered at the deepest levels. Craves Force-sensitive blood. Presence suggests ancient dark side connection. Tusks and claws are poisonous."
+        },
+        {
+          "archetype_ref": "trandoshan_hunter",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "Trandoshan hunters with infrared vision sometimes descend to the lower levels seeking Wookiee prey or valuable game. Dangerous and self-reliant."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_occupation",
+      "type": "authoritarian",
+      "source_faction_id": "imperial_military",
+      "source_description": "The Imperial occupation of Kashyyyk is systematic and deliberate. It is not a military campaign — it is industrial enslavement. The Empire does not seek to destroy Wookiee culture; it seeks to exploit Wookiee labor. The psychological impact is pervasive: fear for family members held hostage, despair at the loss of freedom, and the slow erosion of cultural practices that defined Wookiee identity.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "wookiee_resistance",
+          "description": "Resistance fighters operate under constant psychological pressure. They fight knowing that every action risks retaliation against enslaved family members. The rage that Wookiee culture channels into hunting and honor duels is now directed at Imperial targets — but it must be controlled, because uncontrolled action gets innocents killed."
+        },
+        {
+          "faction_id": "general_population",
+          "description": "Enslaved Wookiees are compliant not because they accept their situation but because their children are held hostage. The Wookiee honor code — which values loyalty and family above all — is being weaponized against them. Skilled engineers build Imperial war material because the alternative is watching their families suffer."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "occupied",
+          "modifier": "All social checks to persuade Wookiees to take risks add 1 difficulty die — they are weighing the safety of their families against everything else. Wookiees who believe their family is already lost or safe become significantly more willing to act."
+        },
+        {
+          "threshold": "liberation_imminent",
+          "modifier": "If players can credibly demonstrate that a liberation is possible, Wookiee NPCs become dramatically more cooperative. Social checks to recruit allies drop by 2 difficulty. The Wookiee population shifts from compliant to active resistance."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "great_kashyyyk_branch",
+        "destination": "Multiple (connects Kashyyyk to wider Mid Rim)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "One of four named routes connecting Kashyyyk to the wider galaxy. In the GCW era, the Empire patrols this route heavily. All traffic is monitored."
+      },
+      {
+        "id": "durkteel_loop",
+        "destination": "Durkteel and connected systems",
+        "travel_time": "variable",
+        "route_quality": "established",
+        "notes": "Named route from Kashyyyk's astronavigation data. Connects to systems along the Mid Rim."
+      },
+      {
+        "id": "randon_run",
+        "destination": "Randon and connected systems",
+        "travel_time": "variable",
+        "route_quality": "established",
+        "notes": "Named route from Kashyyyk's astronavigation data."
+      },
+      {
+        "id": "nightroad",
+        "destination": "Unknown — poorly documented",
+        "travel_time": "variable",
+        "route_quality": "dangerous",
+        "notes": "Named route from Kashyyyk's astronavigation data. The name suggests hazardous or poorly charted conditions."
+      },
+      {
+        "id": "trandosha",
+        "destination": "Trandosha",
+        "travel_time": "negligible — in-system",
+        "route_quality": "safe",
+        "notes": "Trandosha shares the same star system as Kashyyyk. Travel between the two is sublight. Trandoshan ships transit freely under Imperial sanction."
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The Empire is pulling resources away from Kashyyyk. The garrison is reduced to a token force maintaining the spaceport and one or two checkpoints. Slave processing is slowed. The orbital patrols are sparse. Something elsewhere demands Imperial attention more urgently.",
+          "presence_reason": "Major Imperial operation elsewhere in the sector has drawn garrison strength. Or the Empire is testing whether the Wookiees will remain compliant with reduced oversight. Either way, the window is temporary.",
+          "roles": [
+            {
+              "role": "Stormtrooper checkpoint",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Skeleton crew at the spaceport. Nervous and overstretched."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Garrison commander trying to maintain control with insufficient resources. Knows how thin the line is."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard occupation garrison. Stormtroopers at all major Wookiee settlements, regular patrols on the upper canopy level, orbital blockade maintained. Slave processing on schedule. The occupation is functioning as designed — a steady machine grinding Wookiee labor into Imperial war material.",
+          "presence_reason": "Normal operations. No specific threat detected. The occupation continues because it continues.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Paired patrols on walkways and platforms at the city level. Predictable routes through Wookiee settlements."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Spaceport authority. Every ship inspected. Every cargo manifest checked."
+            },
+            {
+              "role": "ISB observer",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Monitoring for signs of organized resistance. Running a minimal informant network — difficult on Kashyyyk since Wookiees are exceptionally loyal to each other."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the occupation. Responsible for labor quotas and security. Reports to sector command."
+            },
+            {
+              "role": "Trandoshan tracker",
+              "archetype_ref": "trandoshan_slaver",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Attached to the garrison as a specialist. Tracks escaped slaves. Tolerated by the Empire, hated by everyone else."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The garrison has been reinforced. Something has triggered an escalation — a successful resistance attack, an escape, or intelligence suggesting Rebel interest. Additional troops deployed. Slave transport operations suspended while the threat is neutralized. Orbital patrols doubled.",
+          "presence_reason": "A credible threat has been identified. Either the Wookiee resistance has scored a significant success, or Rebel activity has been detected in or near the system.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple squads with overlapping routes. Active sweeps of the upper canopy. Attempting to push into the mid-levels with limited success."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Every ship grounded until inspected. Departure authorization requires senior officer approval."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Running active interrogations. Attempting to break Wookiee loyalty networks through threats against families."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "On high alert. Authorized to use lethal force against resistance targets. Coordinating with orbital assets."
+            },
+            {
+              "role": "Trandoshan hunting party",
+              "archetype_ref": "trandoshan_slaver",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple Trandoshan teams deployed into the mid-levels to track resistance fighters. In their element."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military lockdown. The Empire is responding to an existential threat to the occupation — a major Rebel assault, a widespread Wookiee uprising, or both. Every resource available is deployed. The orbital blockade is impenetrable. Ground forces operate with authorization to kill on sight. The pretense of orderly administration is abandoned in favor of raw military suppression.",
+          "presence_reason": "The occupation itself is threatened. Either a Rebel fleet has appeared in-system, or the Wookiee resistance has escalated beyond what the garrison can contain. Sector fleet assets are in transit or already deployed.",
+          "roles": [
+            {
+              "role": "Stormtrooper assault units",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Full combat deployment. Sweeping through settlements, the mid-levels, and attempting the lower forest with Trandoshan guides."
+            },
+            {
+              "role": "Imperial customs blockade",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 3,
+              "notes": "No one lands. No one leaves. Orbital interdiction is absolute."
+            },
+            {
+              "role": "ISB interrogation teams",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Running field interrogations at every settlement. Mass detentions. The thin veneer of legality is gone."
+            },
+            {
+              "role": "Sector command staff",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior officers coordinating the suppression. One ground, one orbital. This is no longer a garrison — it is a military campaign."
+            },
+            {
+              "role": "Trandoshan hunter squads",
+              "archetype_ref": "trandoshan_slaver",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Every available Trandoshan tracker deployed. They are hunting with the full support of the Imperial military and they are relishing it."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed or if the lower-level terentateks have drawn Inquisitorius attention. An Inquisitor on Kashyyyk changes the dynamic — even the Trandoshans give them space."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols increase frequency. Wookiee work details are counted more carefully. The Trandoshan tracker is let off the leash to search the forest edges. Ships in orbit hold position longer before being cleared.",
+        "targeted": "The Empire is looking for specific individuals. Holos distributed to garrison troops. Wookiee settlements searched. Trandoshan trackers given scent markers. Leaving the planet becomes impossible without forged clearance or a very fast ship.",
+        "manhunt": "Full lockdown. No movement between settlements without escort. The orbital blockade fires on unauthorized departures. Stormtroopers conduct shelter-by-shelter searches. Trandoshan squads push into the mid-levels with orders to bring targets back alive — or bring proof they are dead."
+      }
+    },
+    {
+      "faction_id": "wookiee_resistance",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The resistance is shattered or dormant. One or two individuals maintaining hidden supply caches and waiting for an opportunity. The population is compliant out of despair, not loyalty to the Empire.",
+          "presence_reason": "A recent Imperial crackdown has broken the active resistance cells. Leadership is captured or dead. The survivors are in hiding, preserving what they can for the future.",
+          "roles": [
+            {
+              "role": "Wookiee survivor",
+              "archetype_ref": "wookiee_warrior",
+              "tier": "rival",
+              "count": 1,
+              "notes": "The last active resistance fighter in the area. Hiding in the mid-levels. Wary of everyone and everything."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Active but careful resistance. Small cells operating independently in the middle forest, coordinating through traditional communication methods the Empire cannot intercept. Occasional raids on isolated Imperial positions. The population quietly supports them.",
+          "presence_reason": "The resistance is functioning at sustainable levels — causing enough disruption to matter without provoking overwhelming retaliation.",
+          "roles": [
+            {
+              "role": "Wookiee guerrilla fighters",
+              "archetype_ref": "wookiee_warrior",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Moving through the mid-levels. Armed with bowcasters and improvised weapons. They know every branch and vine."
+            },
+            {
+              "role": "Wookiee resistance leader",
+              "archetype_ref": "wookiee_elder",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinates operations. Decides when to strike and when to wait. Carries the weight of every life lost."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The resistance is mobilizing. Multiple cells are coordinating for a significant operation — a large-scale slave liberation, an attack on an Imperial installation, or preparation for external support. Wookiee warriors are gathering in the mid-levels in numbers the Empire has not seen before.",
+          "presence_reason": "Something has changed the calculus — new weapons, a Rebel contact, intelligence about a garrison weakness, or simple desperation reaching critical mass.",
+          "roles": [
+            {
+              "role": "Wookiee guerrilla fighters",
+              "archetype_ref": "wookiee_warrior",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Organized into coordinated teams with overlapping objectives. This is not guerrilla harassment — this is preparation for a real operation."
+            },
+            {
+              "role": "Wookiee resistance commander",
+              "archetype_ref": "wookiee_elder",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A leader of sufficient stature to unify multiple cells. Possibly a figure like General Tarfful or his successors — someone the Wookiee population will follow."
+            },
+            {
+              "role": "Wookiee engineer",
+              "archetype_ref": "wookiee_engineer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Building weapons, communications equipment, and sabotage devices from natural materials and salvaged Imperial parts."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full uprising. The Wookiee population has risen against the occupation. Every settlement is in revolt. Wookiee warriors pour from the forests. The honor code and the rage that comes with centuries of intermittent enslavement and decades of Imperial slavery fuel a fury that stormtroopers are not equipped to face in close quarters on Wookiee terrain.",
+          "presence_reason": "The breaking point. Either external support has arrived — a Rebel fleet, weapons, or a catalyzing event — or the Empire has committed an atrocity severe enough to override the hostage calculus. The Wookiees have decided that freedom is worth any price.",
+          "roles": [
+            {
+              "role": "Wookiee warrior",
+              "archetype_ref": "wookiee_warrior",
+              "tier": "rival",
+              "count": 15,
+              "notes": "Armed population in open revolt. Bowcasters, improvised weapons, captured Imperial equipment. Fighting with Wookiee Rage."
+            },
+            {
+              "role": "Wookiee war chief",
+              "archetype_ref": "wookiee_elder",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Leading the uprising. A figure of legend in the making — or the last act of a desperate people."
+            },
+            {
+              "role": "Wookiee engineer squad",
+              "archetype_ref": "wookiee_engineer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Sabotaging Imperial equipment, building barricades, turning the infrastructure of occupation against the occupiers."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Wookiee workers are slower than usual. Tools go missing. Communications between settlements increase through traditional drum and howl signals the Empire cannot decode.",
+        "targeted": "The resistance has identified a specific Imperial target — a supply convoy, an officer, a communications relay. Fighters are moving into position through the mid-levels. The operation will be fast and brutal.",
+        "manhunt": "The resistance is hunting Trandoshan slavers or an Imperial collaborator. Every Wookiee in the forest is watching. The target's movements are tracked by observers in the canopy. When the resistance strikes, it is with the full force of Wookiee Rage."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Contact with escaped Wookiees who have joined the Alliance",
+      "Rebel Alliance: Knowledge of Kashyyyk's geography from Wookiee allies",
+      "Rebel Alliance: Potential smuggling routes past the Imperial blockade",
+      "Rebel Alliance: Moral authority — the Wookiee enslavement is one of the Empire's most indefensible acts",
+      "Rebel Alliance on this planet: Liberation of the Wookiee people is a strategic and moral priority for the Alliance. Wookiee slave labor built Imperial superweapons. Freeing them would deny the Empire a critical labor resource, gain",
+      "Rebel Alliance asset: Contact with escaped Wookiees who have joined the Alliance"
+    ],
+    "presets": {
+      "EotE_smuggling_run": {
+        "label": "Edge of the Empire — Smuggling Run to Kashyyyk",
+        "description": "The players are hired to smuggle weapons, medical supplies, or a specific person past the Imperial blockade and deliver them to the Wookiee resistance. Getting in is dangerous. Getting out may be impossible. The Wookiees are desperate enough to trust outsiders, which means whatever they need is critical.",
+        "controlling_factions": [
+          {
+            "location_id": "rwookrrorro_spaceport",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard garrison. The blockade is maintained but not at maximum alert. A skilled pilot with forged codes or a very fast ship has a chance."
+          },
+          {
+            "location_id": "mid_forest_resistance_camp",
+            "faction_id": "wookiee_resistance",
+            "presence_level": "patrol",
+            "notes": "Active resistance cell waiting for the delivery. They will provide forest cover and a landing site if the players can get past the orbital patrols."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "suspicious",
+            "reason": "Standard blockade operations. Not yet aware of the smuggling run."
+          }
+        ],
+        "flags": [
+          "The resistance contact at the landing zone is a Wookiee named Lohgarra who fought alongside Republic commandos during the Clone Wars. She trusts no human easily but honors life debts absolutely. She owes a debt to the person who arranged the run — that is why she agreed to trust the players.",
+          "A Trandoshan hunting party is operating in the mid-levels near the planned landing zone. The resistance knows about them but has not been able to neutralize them without risking exposure.",
+          "The cargo includes a compact communications relay that would allow the resistance to contact the Rebel Alliance directly. If the Empire intercepts it, they will trace it back to the source and the entire supply chain collapses.",
+          "An Imperial patrol frigate is running a randomized orbital sweep pattern. The players have a window of approximately 90 seconds between sweeps to break atmosphere and reach the tree canopy undetected."
+        ]
+      },
+      "AoR_liberation_planning": {
+        "label": "Age of Rebellion — Liberation Recon",
+        "description": "Alliance Command is considering a liberation operation for Kashyyyk but needs current intelligence on garrison strength, orbital defenses, and the state of the Wookiee resistance. The players are inserted covertly to gather intelligence and make contact with resistance leadership. They are not authorized to engage — but on Kashyyyk, circumstances rarely respect authorization.",
+        "controlling_factions": [
+          {
+            "location_id": "all",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard occupation. The players must move through this without detection."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "Alliance Command believes the Kashyyyk garrison has been weakened by redeployments to the Outer Rim. If true, this is the first realistic window for liberation planning in years. The players need to confirm or deny this.",
+          "The Wookiee resistance has not been in contact with the Alliance for months. The last courier — a Duros smuggler — never arrived. The players may find his ship in orbit, captured, or his remains in the forest. What happened to him reveals something about current Imperial capabilities.",
+          "The Claatuvac Guild in Kachirho has been cataloguing hyperspace routes under Imperial supervision. A Guild member has been secretly preserving data the Empire does not know exists. If the players can make contact, this data could be extracted — but the Guild member will not risk it without assurance that liberation is truly coming.",
+          "General Tarfful — or his successor — leads the resistance. Making contact requires navigating Wookiee trust protocols. A Wookiee life debt, if any player character holds one, bypasses these protocols entirely."
+        ]
+      },
+      "FaD_lower_depths": {
+        "label": "Force and Destiny — Depths of Kashyyyk",
+        "description": "A Force vision has drawn one or more players to Kashyyyk. Something ancient stirs in the lowest levels of the wroshyr forest — where terentateks hunt and no Wookiee willingly goes. The vision is unclear but urgent. The Imperial occupation is a complication, not the mission. The forest floor holds something the players need to find before something else finds it first.",
+        "controlling_factions": [
+          {
+            "location_id": "rwookrrorro_spaceport",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard garrison. The Empire is not aware of any Force-related activity in the lower levels."
+          },
+          {
+            "location_id": "lower_forest_depths",
+            "faction_id": null,
+            "presence_level": null,
+            "notes": "No faction controls the depths. The terentateks are the authority here."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "The terentateks in Kashyyyk's lower levels are not random predators. They are guardians — or were, once. Something placed them here to protect or contain something specific. A successful Knowledge (Lore) check reveals that terentateks were believed to be Sith-created creatures designed to hunt Jedi.",
+          "A Wookiee elder in the resistance knows stories about the forest floor that other Wookiees dismiss as myth. She speaks of a structure beneath the roots — not built by Wookiees, not built by any species she recognizes. She has never been there. Her grandmother told her never to go.",
+          "Force-sensitive players feel a pull downward through the forest levels. The sensation intensifies as they descend. At the forest floor, it becomes unmistakable — something is calling to them. Whether it is light side or dark side is not immediately clear.",
+          "A Trandoshan hunter has ventured deeper than any Trandoshan before, drawn by something he does not understand. He is not Force-sensitive — but the artifact below has been radiating influence for millennia, and some creatures respond to proximity alone. He may be an unwitting guide or a dangerous complication."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "source": "Collapse of the Republic",
+      "alias": "collapse",
+      "pages": "112-115",
+      "coverage": "Primary gazetteer. Astronavigation data, background, history, people and culture, points of interest (Rwookrrorro, Kachirho), Trandoshan rivalry sidebar, Life Day sidebar, modular encounter. Clone Wars era focus."
+    },
+    {
+      "source": "Edge of the Empire Core Rulebook",
+      "alias": "eote",
+      "pages": "61-62, 171, 196, 327-328, 351, 423",
+      "coverage": "Wookiee species entry (physiology, society, homeworld, language). Kashyyyk Mid Rim gazetteer blurb. Bowcaster reference. Wookiee Gladiator adversary (slave context). Adventure hooks involving Kashyyyk rescue missions."
+    },
+    {
+      "source": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": "45, 363, 372, 387",
+      "coverage": "Wookiee enslavement as Imperial practice. Kashyyyk as 'tightly controlled and highly subjugated world.' Imperial security zones around enslaved worlds. Rebellion origin connection to Kashyyyk (Starkiller). GCW era context."
+    },
+    {
+      "source": "Dawn of the Rebellion",
+      "alias": "dawn",
+      "pages": "125",
+      "coverage": "Auzituck-class gunship — Wookiee-built patrol vessel from Appazanna Engineering Works on Kashyyyk. Used to chase slavers."
+    },
+    {
+      "source": "Soldier Sourcebook (AoR)",
+      "alias": "soldier",
+      "pages": "15, 18",
+      "coverage": "Wookiee resistance fighters as example Trailblazers. Wookiee warriors of Kashyyyk as Clone Wars veterans in Rebel service."
+    }
+  ]
+}

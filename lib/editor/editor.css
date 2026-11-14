@@ -1,0 +1,501 @@
+/* editor.css — THE HOMEBREW EDITOR'S LAYER (lib/editor/, window.SWRPGEditorView).
+ *
+ * Ruling `f100-items-editor-contracts` §5 step C2 + `f100-items-shell-faces` R-FISF-2 (the GM face is the
+ * approved paper frames). The editor stands on the creator's document ground (`lib/shared/grounds/creator.css`)
+ * and takes the shared kit from `lib/shared/paper.css` unchanged: `.hp-plate`, `.hp-runhead`, `.hp-maker`,
+ * `.hp-desig`, `.hp-desig-rule`, `.hp-sechead`, `.hp-lead`, `.hp-prose`, `.hp-commit`, `.hp-quiet`, `.hp-ledger`.
+ * THIS file holds only the objects the approved record (`Docs/mockups/f100-editor.html`) drew for the editor and
+ * nothing shipped owns yet: the three chips and their legend, the shelf plate, the collection plate's switch
+ * and glance, the result panels, the store banner, the armed row, the menu, and the Sources overlay's
+ * "Your homebrew" group. Numbers are the record's, carried unchanged.
+ *
+ * THREE SHEET OBJECTS ARE CARRIED BY VALUE, NOT LINKED: the notice, the unfilled row and the confirm
+ * (`lib/shared/sheet.css` §16 `.sb-notice`, §9 `.sb-wait`, `.sb-confirm`). sheet.css's `.sb-*` rules are
+ * unscoped, and the GM app's vessel sheet (`lib/shared/vesselView.jsx`) uses that prefix for its own
+ * rows, so linking sheet.css into `gm/index.html` would restyle the Ship Yard (R-FISF-2: "no other GM surface
+ * changes its look"). They live here under `ed-` names, scoped to the ground.
+ *
+ * Everything is scoped under `[data-doc-ground="creator"]` (R-VR-1's non-leak clause), so nothing here reaches
+ * a surface that does not declare that ground. OFF (the switch), no element carries an `ed-` class. EVERY paper
+ * surface declares that ground, so a rule over a SHARED kit class (`.hp-*`) must also be fenced to the editor's own
+ * roots, `.ed-page` and `[data-sources-homebrew]` (R-NFLL-5; `scripts/smoke_editor_fence.py` measures it).
+ */
+
+/* ── the page ─────────────────────────────────────────────────────────────────────────────────────── */
+[data-doc-ground="creator"].ed-page { position:absolute; inset:0; overflow-y:auto; overflow-x:hidden;
+  background:var(--doc-paper); color:var(--doc-ink); font-family:var(--font-body,'Rajdhani',sans-serif); --u:1px; }
+[data-doc-ground="creator"] .ed-pad { padding:14px 16px 28px; max-width:100%; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-desk { padding:18px 40px 40px; box-sizing:border-box; max-width:1480px; }
+/* B-951 — ABOVE 1440 THE PAGE GROWS AS ONE PIECE (Jason, "Both B"; ruling f100-b951-wide, R-B951W-A3-1): the page's
+   content zooms by the app's ONE grow rule (`--page-grow`, lib/shared/tokens.css). 1 at 1440×900 and below. EVERY direct
+   child of the page, not only the desk: a shelf is `.ed-shelfgrid` (a full-width rail + list), and R-B951W-3.2 puts every
+   surface at the page's scale (measured: with the desk alone the shelves stayed at their 1440 size). The desk keeps its
+   1480 cap and is centred, as in the render he picked (lab/paper/bothways_wide_e0609cba.md, the Homebrew CSS). */
+[data-doc-ground="creator"].ed-page > * { zoom:var(--page-grow); }
+[data-doc-ground="creator"].ed-page > .ed-desk { margin-inline:auto; }
+[data-doc-ground="creator"] .ed-runhead { min-height:44px; align-items:center; }
+[data-doc-ground="creator"] .ed-back { display:inline-flex; align-items:center; min-height:44px; padding:0; border:0; background:transparent;
+  cursor:pointer; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em;
+  color:var(--doc-ink); text-transform:uppercase; }
+[data-doc-ground="creator"] .ed-desk .hp-desig { font-size:40px; }
+[data-doc-ground="creator"] .ed-dgrid { display:grid; gap:26px; align-items:start; }
+[data-doc-ground="creator"] .ed-btnrow { display:flex; flex-wrap:wrap; gap:9px; align-items:center; }
+[data-doc-ground="creator"] .ed-hint { font-size:14.5px; line-height:1.45; color:var(--doc-ink-muted); margin:6px 0 0; }
+[data-doc-ground="creator"] .ed-fk { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em;
+  color:var(--doc-accent); text-transform:uppercase; margin:0 0 5px; }
+[data-doc-ground="creator"] .ed-aside { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em;
+  color:var(--doc-ink-muted); text-transform:uppercase; white-space:nowrap; order:2; }
+/* The on-state fill is the EDITOR'S, fenced to its two roots (the page and its Sources group), because every paper
+ * surface declares this ground: unfenced it filled the NPC library's on-state pills indigo under their red ink
+ * (1.53:1; ruling npc-flip-ledger R-NFLL-5). :where() adds no specificity, so the editor resolves exactly as before. */
+[data-doc-ground="creator"]:where(.ed-page, [data-sources-homebrew]) .hp-quiet[data-on="1"] { background:var(--doc-state); color:var(--doc-state-ink); border-color:var(--doc-state); }
+/* …and so are its disabled cursor and its held look (ruling paper-prepass R-PPR-2): the disabled cursor is the KIT'S
+ * now (lib/shared/paper.css), so this copy is the editor's alone and changes nothing where the kit already says it. */
+[data-doc-ground="creator"]:where(.ed-page, [data-sources-homebrew]) .hp-quiet:disabled, [data-doc-ground="creator"]:where(.ed-page, [data-sources-homebrew]) .hp-commit:disabled { cursor:default; }
+[data-doc-ground="creator"]:where(.ed-page, [data-sources-homebrew]) .hp-quiet[data-held="1"] { border-color:var(--doc-rule-fine); color:var(--doc-ink-muted); background:var(--doc-paper-raised); }
+
+/* ── the three chips (R-FEDC-4) and the legend ────────────────────────────────────────────────────── */
+[data-doc-ground="creator"] .ed-chip { display:inline-flex; align-items:center; gap:5px; min-height:20px; padding:2px 7px;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  white-space:nowrap; line-height:1.2; }
+[data-doc-ground="creator"] .ed-chip[data-chip="AUTOMATIC"] { background:var(--doc-state); color:var(--doc-state-ink); }
+[data-doc-ground="creator"] .ed-chip[data-chip="SITUATIONAL"] { border:1px solid var(--doc-caution); color:var(--doc-caution); background:var(--doc-paper-raised); }
+[data-doc-ground="creator"] .ed-chip[data-chip="SITUATIONAL"]::before { content:""; width:6px; height:6px; border:1px solid currentColor; transform:rotate(45deg); }
+[data-doc-ground="creator"] .ed-chip[data-chip="NARRATIVE"] { border:1px dashed var(--doc-ink-muted); color:var(--doc-ink-muted); background:var(--doc-paper-raised); }
+[data-doc-ground="creator"] .ed-legend { display:grid; gap:8px; }
+[data-doc-ground="creator"] .ed-legend > div { display:grid; grid-template-columns:112px 1fr;   /* B-1197: SITUATIONAL with its mark needs 112px, as .ed-fl gives it */
+   gap:10px; align-items:center; font-size:15.5px; line-height:1.35; }
+
+/* ── rows, figures, the shelf plate ───────────────────────────────────────────────────────────────── */
+[data-doc-ground="creator"] .ed-row { display:flex; align-items:center; gap:12px; min-height:52px; padding:9px 2px; border-top:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .ed-row:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-rb { flex:1; min-width:0; }
+[data-doc-ground="creator"] .ed-rn { font-weight:700; font-size:17px; color:var(--doc-ink); line-height:1.2; overflow-wrap:anywhere; }
+[data-doc-ground="creator"] .ed-rn[data-yours="1"] { color:var(--doc-action); font-size:16px; }
+[data-doc-ground="creator"] .ed-rm { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.12em;
+  color:var(--doc-ink-muted); text-transform:uppercase; margin-top:3px; }
+[data-doc-ground="creator"] .ed-chev { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:14px; color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-yours { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.14em;
+  color:var(--doc-paper-raised); background:var(--doc-action); padding:2px 6px; text-transform:uppercase; white-space:nowrap; }
+[data-doc-ground="creator"] .ed-fig { display:flex; flex-direction:column; align-items:flex-end; line-height:1; }
+[data-doc-ground="creator"] .ed-fig b { font-family:var(--font-display,'Orbitron',sans-serif); font-weight:900; font-size:26px; color:var(--doc-ink); font-variant-numeric:tabular-nums; }
+/* P1c (ii), Jason's pick (ruling f100-items-live-contracts R-FILC-10, A4-1): "in the books" at the type floor, 10px (F1 drew 9.5px) */
+[data-doc-ground="creator"] .ed-fig i { font-family:var(--font-mono,'Share Tech Mono',monospace); font-style:normal; font-size:10px; letter-spacing:.16em;
+  color:var(--doc-ink-muted); text-transform:uppercase; margin-top:5px; }
+[data-doc-ground="creator"] .ed-shelves { display:grid; gap:10px; }
+[data-doc-ground="creator"] .ed-desk .ed-shelves { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+[data-doc-ground="creator"] .ed-shelf { display:flex; flex-direction:column; gap:6px; width:100%; text-align:left; border:0; font:inherit; color:inherit; }
+[data-doc-ground="creator"] button.ed-shelf { cursor:pointer; }
+[data-doc-ground="creator"] .ed-shelf .ed-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+[data-doc-ground="creator"] .ed-shelf .ed-t { font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:15px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-shelf .ed-roll { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.06em;
+  color:var(--doc-ink-muted); line-height:1.5; }
+[data-doc-ground="creator"] .ed-shelf .ed-foot { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:2px; }
+/* P1 / P1b SOON (ruling f100-items-live-card R-FIL-7, R-FIL-10; f100-items-live-contracts R-FILC-8): the shipped mark (lib/shared/ui.jsx
+   SubTabs) — bare, mono, letter-spaced, never boxed — muted by INK, not opacity, so the 4.5:1 floor holds; a SOON plate is flat
+   (no lift): not a door */
+[data-doc-ground="creator"] .ed-soon-mk { display:inline-block; margin-left:6px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-weight:400;
+  font-size:11px; letter-spacing:.18em; color:var(--doc-ink-muted); text-transform:uppercase; vertical-align:.12em; }
+[data-doc-ground="creator"] .hp-plate.ed-shelf.ed-soon { box-shadow:none; background:var(--doc-rule-fine); }
+[data-doc-ground="creator"] .hp-plate.ed-shelf.ed-soon::after { background:var(--doc-mat); }
+[data-doc-ground="creator"] .hp-plate.ed-shelf.ed-soon .ed-t, [data-doc-ground="creator"] .hp-plate.ed-shelf.ed-soon .ed-fig b { color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-row.ed-soon .ed-rn { color:var(--doc-ink-muted); font-size:16px; }
+[data-doc-ground="creator"] .ed-fld { display:flex; justify-content:space-between; gap:10px; padding:7px 0; font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-fld i { font-style:normal; color:var(--doc-ink); }
+
+/* ── the collection plate: the switch and the glance ──────────────────────────────────────────────── */
+[data-doc-ground="creator"] .ed-colhead { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+[data-doc-ground="creator"] .ed-switch { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0; border:0; background:transparent;
+  cursor:pointer; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-switch::before { content:""; width:40px; height:22px; border-radius:11px; flex:none;
+  background:radial-gradient(circle at 11px 11px,#F2F1EC 7px,transparent 7.6px),var(--doc-ink-structural); }
+[data-doc-ground="creator"] .ed-switch[aria-checked="true"]::before { background:radial-gradient(circle at 29px 11px,#F2F1EC 7px,transparent 7.6px),var(--doc-good); }
+[data-doc-ground="creator"] .ed-switch:disabled { cursor:default; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-glance { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px; letter-spacing:.04em; color:var(--doc-ink);
+  line-height:1.5; padding:9px 11px; background:var(--doc-mat); border-left:3px solid var(--doc-good); }
+[data-doc-ground="creator"] .ed-glance[data-off="1"] { border-left-color:var(--doc-ink-structural); color:var(--doc-ink-muted); }
+:where([data-doc-ground="creator"] .ed-recrow) { background:transparent; }   /* R-SAP-11 (D-463) */
+[data-doc-ground="creator"] .ed-recrow { width:100%; text-align:left; border-left:0; border-right:0; border-bottom:0; font:inherit; color:inherit; }
+[data-doc-ground="creator"] .ed-rename { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+[data-doc-ground="creator"] .ed-input { min-height:44px; padding:0 11px; background:var(--doc-paper-raised); border:1px solid var(--doc-rule);
+  box-shadow:0 1px 2px rgba(23,22,27,.13) inset; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:16px;
+  color:var(--doc-ink); min-width:0; flex:1 1 180px; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-input:focus { outline:none; border:2px solid var(--doc-action); }
+
+/* ── result panels (C2/L5 share, L4 import) and the store banner (L6) ─────────────────────────────── */
+[data-doc-ground="creator"] .ed-res-h { font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:17px; letter-spacing:.03em;
+  color:var(--doc-ink); margin:2px 0 8px; }
+[data-doc-ground="creator"] .ed-res-l { font-size:15.5px; line-height:1.45; color:var(--doc-ink); padding:7px 0; border-top:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .ed-res-l b { font-weight:700; }
+[data-doc-ground="creator"] .ed-res-sub { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--doc-accent); margin:12px 0 2px; }
+[data-doc-ground="creator"] .ed-res-note { font-size:15px; line-height:1.45; color:var(--doc-ink); margin-top:10px; padding:8px 11px;
+  background:var(--doc-mat); border-left:3px solid var(--doc-mark); }
+[data-doc-ground="creator"] .ed-res-refuse { font-size:15.5px; line-height:1.45; color:var(--doc-ink); padding:10px 12px; background:var(--doc-mat);
+  border-left:3px solid var(--doc-ink-structural); }
+[data-doc-ground="creator"] .ed-res-counts { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px; letter-spacing:.04em;
+  color:var(--doc-ink-muted); margin-top:6px; }
+[data-doc-ground="creator"] .ed-banner { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:10px 12px; margin:0 0 12px;
+  background:var(--doc-paper-raised); border-left:3px solid var(--doc-mark); box-shadow:var(--doc-lift); }
+[data-doc-ground="creator"] .ed-banner .ed-bt { flex:1; min-width:200px; font-size:15.5px; line-height:1.45; color:var(--doc-ink); }
+
+/* ── the armed row (the live two-tap, UXQP-23) and a menu ─────────────────────────────────────────── */
+[data-doc-ground="creator"] .ed-arm { display:flex; flex-direction:column; gap:10px; padding:12px; margin-top:10px; background:var(--doc-mat);
+  border-left:3px solid var(--doc-action); }
+[data-doc-ground="creator"] .ed-arm .ed-at { font-size:15.5px; line-height:1.45; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-menu { margin-top:10px; box-shadow:0 10px 28px rgba(23,22,27,.30); border:1px solid var(--doc-rule); background:var(--doc-paper-raised); }
+[data-doc-ground="creator"] .ed-menu .ed-op { display:flex; align-items:center; width:100%; min-height:44px; padding:6px 12px; border:0;
+  border-top:1px solid var(--doc-rule-fine); background:transparent; cursor:pointer; text-align:left; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-weight:600; font-size:16px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-menu .ed-op:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-menu .ed-op[aria-disabled="true"] { color:var(--doc-ink-muted); cursor:default; font-weight:400; }
+
+/* ── carried from sheet.css by value (see the header): the notice §16, the unfilled row §9, the confirm ── */
+[data-doc-ground="creator"] .ed-notice { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:11px; padding:9px 12px;
+  background:var(--doc-paper-raised); border-left:3px solid var(--doc-ink-structural); }
+[data-doc-ground="creator"] .ed-notice-t { flex:1; min-width:180px; font-family:var(--font-body,'Rajdhani',sans-serif); font-size:15px; line-height:1.45; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-wait { display:block; height:.75em; background:var(--doc-rule-fine); width:var(--ed-w,4em); }
+[data-doc-ground="creator"] .ed-confirm { min-height:44px; padding:0 14px; cursor:pointer; border:0; background:var(--doc-action); color:var(--doc-paper-raised);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; box-shadow:var(--doc-lift);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%); }
+[data-doc-ground="creator"] .ed-confirm:hover { background:var(--doc-action-lift); }
+[data-doc-ground="creator"] .ed-empty { padding:38px 20px; text-align:center; display:grid; justify-items:center; }
+[data-doc-ground="creator"] .ed-empty p { font-size:17px; margin:0 0 10px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-empty .ed-hint { margin:0 0 14px; max-width:46ch; }
+
+/* ── the Sources overlay's "Your homebrew" group (M3a/b, M5a/b; the creator's FCSourcesOverlay) ───── */
+[data-doc-ground="creator"] .ed-hb-row { display:grid; grid-template-columns:20px minmax(0,1fr) auto; column-gap:16px; align-items:center;
+  padding:8px 0; border-top:1px solid var(--doc-rule-fine); min-height:44px; }
+[data-doc-ground="creator"] .ed-hb-row .ed-hb-hit { grid-column:1 / span 2; grid-row:1; display:grid; grid-template-columns:20px minmax(0,1fr);
+  column-gap:16px; align-items:center; min-height:44px; padding:0; border:0; background:transparent; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+[data-doc-ground="creator"] .ed-hb-row .ed-hb-hit:disabled { cursor:default; }
+[data-doc-ground="creator"] .ed-hb-row .ed-hb-g { grid-column:2; grid-row:2; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px;
+  line-height:18px; color:var(--doc-ink-muted); margin-top:2px; }
+[data-doc-ground="creator"] .ed-hb-row .ed-hb-ord { grid-column:3; grid-row:1 / span 2; display:flex; gap:6px; }
+[data-doc-ground="creator"] .ed-hb-row .ed-hb-ord .hp-quiet { min-height:44px; padding:0 10px; font-size:11px; letter-spacing:.08em; }
+[data-doc-ground="creator"] .ed-hb-tie { grid-column:2 / span 2; grid-row:3; margin-top:6px; font-family:var(--font-body,'Rajdhani',sans-serif); font-size:14px;
+  line-height:1.4; color:var(--doc-ink); padding:6px 10px; background:var(--doc-mat); border-left:3px solid var(--doc-mark); }
+[data-doc-ground="creator"] .ed-hb-pin { font-family:var(--font-body,'Rajdhani',sans-serif); font-size:14px; line-height:1.4; color:var(--doc-ink-muted);
+  padding:8px 0 0; border-top:1px solid var(--doc-rule-fine); }
+
+/* ══ STEP D — the item shelves and forms (I-1 … I-13; F2/F5/F8/S1/S4's objects). Carried from the approved record's
+   own kit (`Docs/mockups/f100-editor.html` .fl/.inp/.tog/.tbl/.rail/.intent/.cmp …) under `ed-` names, numbers unchanged. ══ */
+[data-doc-ground="creator"] .ed-shelfgrid { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:100%; }
+[data-doc-ground="creator"] .ed-rail { background:var(--doc-mat); border-right:1px solid var(--doc-rule); padding:14px 0 20px; align-self:stretch; }
+[data-doc-ground="creator"] .ed-rail h4 { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--doc-ink-muted); font-weight:400; margin:14px 16px 6px; }
+[data-doc-ground="creator"] .ed-rail h4:first-child { margin-top:0; }
+[data-doc-ground="creator"] .ed-cat { display:flex; justify-content:space-between; gap:8px; align-items:center; width:100%; min-height:44px; padding:0 16px;
+  font:inherit; font-size:15px; color:var(--doc-ink); background:transparent; border:0; cursor:pointer; text-align:left; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-cat b { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; font-weight:400; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-cat[aria-pressed="true"], [data-doc-ground="creator"] .ed-cat[aria-current="page"] { background:var(--doc-paper-raised); box-shadow:inset 3px 0 0 var(--doc-action); font-weight:600; }
+[data-doc-ground="creator"] .ed-cat:disabled { cursor:default; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-search { display:flex; align-items:center; gap:10px; background:var(--doc-paper-raised); border:1px solid var(--doc-rule); border-radius:2px;
+  padding:0 12px; min-height:46px; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-search input { flex:1; min-width:0; min-height:44px; border:0; background:transparent; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:16px; color:var(--doc-ink); outline:none; }
+[data-doc-ground="creator"] .ed-search input::placeholder { color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-search:focus-within { border:2px solid var(--doc-action); }
+[data-doc-ground="creator"] .ed-search .ed-k { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.14em; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-stock { padding:4px 14px 8px !important; }
+[data-doc-ground="creator"] .ed-stock > .ed-fl:first-child, [data-doc-ground="creator"] .ed-stock > .ed-ml:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-tbl { width:100%; border-collapse:collapse; font-size:15px; }
+[data-doc-ground="creator"] .ed-tbl th { text-align:left; font-family:var(--font-mono,'Share Tech Mono',monospace); font-weight:400; font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--doc-ink-muted); padding:10px 10px 8px; border-bottom:1px solid var(--doc-rule); white-space:nowrap; }
+[data-doc-ground="creator"] .ed-tbl td { padding:10px; border-bottom:1px solid var(--doc-rule-fine); vertical-align:middle; }
+[data-doc-ground="creator"] .ed-tbl td.ed-nm { font-weight:700; font-size:16px; }
+[data-doc-ground="creator"] .ed-tbl td.ed-mono { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:13px; }
+[data-doc-ground="creator"] .ed-tbl td.ed-bk { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-tbl tr.ed-tr { cursor:pointer; }
+[data-doc-ground="creator"] .ed-tbl tr.ed-tr:hover td { background:var(--doc-mat); }
+[data-doc-ground="creator"] .ed-tbl tr.ed-grp td { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--doc-accent); background:var(--doc-mat); padding:0; }
+[data-doc-ground="creator"] .ed-grpbtn { display:flex; align-items:center; width:100%; min-height:32px; padding:7px 10px; border:0; background:transparent; font:inherit;
+  color:inherit; letter-spacing:inherit; text-transform:inherit; text-align:left; cursor:pointer; }
+[data-doc-ground="creator"] .ed-chips { display:inline-flex; gap:5px; flex-wrap:wrap; }
+[data-doc-ground="creator"] .ed-muted { color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-link { display:inline; padding:0; border:0; background:transparent; font:inherit; color:var(--doc-action); cursor:pointer;
+  text-decoration:underline; text-underline-offset:3px; }
+[data-doc-ground="creator"] .ed-irow { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; width:100%; padding:10px 0; border:0;
+  border-top:1px solid var(--doc-rule-fine); font:inherit; color:inherit; text-align:left; cursor:pointer; }
+/* R-SAP-5, R-SAP-11 (D-463): the rows' resting ground steps aside, so the stripe can land. These are buttons; the zero specificity keeps them off the UA's face */
+:where([data-doc-ground="creator"] .ed-irow, [data-doc-ground="creator"] .ed-qrow, [data-doc-ground="creator"] .ed-pick) { background:transparent; }
+[data-doc-ground="creator"] .ed-irow:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-grow { display:flex; justify-content:space-between; align-items:center; gap:10px; width:100%; min-height:44px; padding:0 4px; border:0;
+  border-top:1px solid var(--doc-rule-fine); background:transparent; font:inherit; font-size:15px; color:var(--doc-ink); cursor:pointer; text-align:left; }
+[data-doc-ground="creator"] .ed-grow:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-grow b { font-family:var(--font-mono,'Share Tech Mono',monospace); font-weight:400; font-size:11px; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-addline { display:flex; align-items:center; gap:8px; min-height:44px; margin-top:6px; padding:0; border:0; background:transparent;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em; color:var(--doc-action); text-transform:uppercase; cursor:pointer; }
+[data-doc-ground="creator"] .ed-wide-commit { width:100%; }
+
+/* ── the form ── */
+[data-doc-ground="creator"] .ed-fl { display:grid; grid-template-columns:78px minmax(0,1fr); gap:4px 10px; padding:11px 0; border-top:1px solid var(--doc-rule-fine); align-items:start; }
+[data-doc-ground="creator"] .ed-fl > .ed-chip { grid-column:1; grid-row:1 / span 2; justify-self:start; margin-top:1px; }
+[data-doc-ground="creator"] .ed-fl > .ed-fk { grid-column:2; grid-row:1; margin:3px 0 2px; }
+[data-doc-ground="creator"] .ed-fl > .ed-fv { grid-column:2; grid-row:2; min-width:0; }
+[data-doc-ground="creator"] .ed-fl:has(> .ed-chip[data-chip="SITUATIONAL"]) { grid-template-columns:112px minmax(0,1fr); }
+[data-band="narrow"] .ed-fl { grid-template-columns:auto minmax(0,1fr); column-gap:8px; }
+[data-band="narrow"] .ed-fl > .ed-chip { grid-row:1; }
+[data-band="narrow"] .ed-fl > .ed-fv { grid-column:1 / -1; }
+[data-doc-ground="creator"] .ed-fl[data-bad="1"] { box-shadow:inset 3px 0 0 var(--doc-action); padding-left:10px; }
+[data-doc-ground="creator"] .ed-fl[data-bad="1"] .ed-inp { border:2px solid var(--doc-action); }
+[data-doc-ground="creator"] .ed-fl[data-bad="1"] > .ed-fk { color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-inp { display:flex; align-items:center; gap:8px; width:100%; min-height:44px; padding:0 11px; background:var(--doc-paper-raised);
+  border:1px solid var(--doc-rule); box-shadow:0 1px 2px rgba(23,22,27,.13) inset; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:16px;
+  color:var(--doc-ink); min-width:0; box-sizing:border-box; border-radius:0; }
+[data-doc-ground="creator"] select.ed-inp { appearance:none; -webkit-appearance:none; padding-right:28px; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--doc-ink-muted) 50%),linear-gradient(135deg,var(--doc-ink-muted) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%; background-size:5px 5px; background-repeat:no-repeat; }
+[data-doc-ground="creator"] .ed-inp:focus { outline:none; border:2px solid var(--doc-action); }
+[data-doc-ground="creator"] .ed-inp.ed-num { justify-content:center; text-align:center; font-variant-numeric:tabular-nums; width:64px; flex:0 0 64px; padding:0 4px; }
+[data-doc-ground="creator"] textarea.ed-inp { display:block; padding:9px 11px; font-weight:400; line-height:1.5; min-height:88px; resize:none; overflow:hidden; }   /* R-FIEG-R4 (a): grows to its text (GrowArea) */
+[data-doc-ground="creator"] .ed-inp[readonly], [data-doc-ground="creator"] .ed-inp:disabled { background:var(--doc-mat); border-style:dashed; cursor:default; opacity:1; }
+[data-doc-ground="creator"] .ed-inrow { display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
+[data-doc-ground="creator"] .ed-inrow > .ed-inp { flex:1 1 120px; width:auto; }
+[data-doc-ground="creator"] .ed-inrow > .ed-inp.ed-num { flex:0 0 64px; }
+[data-doc-ground="creator"] .ed-inrow > .ed-hint { margin:0; }
+[data-doc-ground="creator"] .ed-tog { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 12px; border:1px solid var(--doc-rule); background:var(--doc-paper-raised);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--doc-ink-muted); white-space:nowrap; cursor:pointer; }
+[data-doc-ground="creator"] .ed-tog::before { content:""; width:28px; height:16px; border-radius:8px; flex:none;
+  background:radial-gradient(circle at 8px 8px,#F2F1EC 5px,transparent 5.6px),var(--doc-ink-structural); }
+[data-doc-ground="creator"] .ed-tog[aria-checked="true"] { color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-tog[aria-checked="true"]::before { background:radial-gradient(circle at 20px 8px,#F2F1EC 5px,transparent 5.6px),var(--doc-action); }
+[data-doc-ground="creator"] .ed-tog:disabled { cursor:default; }
+[data-doc-ground="creator"] .ed-qchip { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 14px; border:1px solid var(--doc-rule); background:transparent;
+  color:var(--doc-ink); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; white-space:nowrap; }
+[data-doc-ground="creator"] .ed-qchip[data-on="1"] { background:var(--doc-state); color:var(--doc-state-ink); border-color:var(--doc-state); }
+[data-doc-ground="creator"] .ed-qchip:disabled { cursor:default; }
+
+/* ── M12 F2 (a)–(c): the career form — the split, the chip box and its picker, the duplicate notice, the abilities list ── */
+[data-doc-ground="creator"] span.ed-qchip { cursor:default; }
+[data-doc-ground="creator"] .ed-csplit { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:30px; align-items:start; }
+[data-doc-ground="creator"] .ed-cbox { display:grid; gap:10px; padding:8px; border:1px solid var(--doc-rule); }
+[data-doc-ground="creator"] .ed-cbox > .ed-btnrow { flex-wrap:wrap; gap:8px; }
+[data-doc-ground="creator"] .ed-cadd { width:100%; min-height:44px; padding:0 12px; border:0; border-top:1px solid var(--doc-rule-fine); background:var(--doc-mat);
+  appearance:none; -webkit-appearance:none; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:16px; color:var(--doc-ink); cursor:pointer; }
+[data-doc-ground="creator"] .ed-addpick { display:block; min-height:44px; margin-top:6px; padding:0; border:0; background:transparent; appearance:none; -webkit-appearance:none;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em; color:var(--doc-action); text-transform:uppercase; cursor:pointer; }
+[data-doc-ground="creator"] .ed-dupe { margin-top:10px; padding:4px 0 4px 12px; border-left:3px solid var(--doc-ink-structural);
+  font-size:14.5px; line-height:1.5; color:var(--doc-ink-muted); }
+/* M12 F2 (d)/(f): the signature ability — the empty tree's "+ Add the base ability", the column picks, WHERE IT ATTACHES */
+[data-doc-ground="creator"] .ed-slotbase { display:flex; align-items:center; justify-content:center; width:100%; min-height:78px; border:1.5px dashed var(--doc-ink-muted);
+  background:transparent; color:var(--doc-ink); font-family:var(--font-body); font-size:15px; font-weight:600; cursor:pointer; }
+[data-doc-ground="creator"] .ed-colpick { display:inline-flex; align-items:center; justify-content:center; min-width:42px; min-height:44px; padding:0; }
+[data-doc-ground="creator"] .ed-sigbelow { margin-top:8px; gap:28px; align-items:start; }
+[data-doc-ground="creator"] .ed-dgrid.ed-sigbelow { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+[data-doc-ground="creator"] .ed-atree { margin:8px 0 2px; }
+[data-doc-ground="creator"] .ed-atree > .ed-fk { margin-bottom:4px; }
+[data-doc-ground="creator"] .ed-agrid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+[data-doc-ground="creator"] .ed-acell { min-width:0; padding:6px 5px 5px; border:1px solid var(--doc-rule-fine); font-size:12.5px; line-height:1.25; color:var(--doc-ink-muted); overflow-wrap:anywhere; }
+[data-doc-ground="creator"] .ed-acell[data-on="1"] { border-color:var(--doc-action); color:var(--doc-ink); font-weight:600; }
+[data-doc-ground="creator"] .ed-ajoin { margin-top:3px; font-size:12px; font-weight:400; color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-fmt { margin-top:8px; font-weight:600; font-size:16px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-pmrow { display:grid; gap:8px; }
+[data-doc-ground="creator"] .ed-ml { padding:10px 0 12px; border-top:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .ed-dl { margin:6px 0 0 18px; padding-left:12px; border-left:2px solid var(--doc-rule); }
+[data-band="narrow"] .ed-dl { margin-left:6px; padding-left:10px; }
+[data-doc-ground="creator"] .ed-ra { margin-top:6px; padding:8px 11px; background:var(--doc-mat); border-left:3px solid var(--doc-state); font-size:16px; line-height:1.4; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-ra .ed-rk { display:block; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--doc-ink-muted); margin-bottom:3px; }
+[data-doc-ground="creator"] .ed-was { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.08em; color:var(--doc-ink-muted); text-decoration:line-through; }
+[data-doc-ground="creator"] .ed-basemark { display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap; padding:6px 10px; border:1px solid var(--doc-rule); background:var(--doc-mat);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em; color:var(--doc-ink-muted); text-transform:uppercase; }
+[data-doc-ground="creator"] .ed-basemark b { color:var(--doc-ink); font-weight:400; }
+[data-doc-ground="creator"] .ed-basemark::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--doc-good); flex:none; }
+[data-doc-ground="creator"] .ed-basemark[data-state="moved"] { border:2px solid var(--doc-action); color:var(--doc-action); background:var(--doc-paper-raised); cursor:pointer; min-height:44px; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-basemark[data-state="moved"] b { color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-basemark[data-state="moved"]::before { background:var(--doc-action); }
+[data-doc-ground="creator"] .ed-basemark[data-state="missing"] { border:1px dashed var(--doc-ink-structural); background:var(--doc-paper-raised); color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-basemark[data-state="missing"]::before { background:transparent; border:1.5px solid var(--doc-ink-muted); width:7px; height:7px; }
+[data-doc-ground="creator"] .ed-intent { display:grid; gap:6px; margin-top:12px; max-width:620px; }
+[data-doc-ground="creator"] .ed-io { display:flex; align-items:center; gap:10px; min-height:44px; padding:8px 12px; border:1px solid var(--doc-rule); background:var(--doc-paper-raised);
+  font:inherit; font-size:16px; line-height:1.35; color:var(--doc-ink); text-align:left; cursor:pointer; width:100%; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-io .ed-rd { flex:none; width:18px; height:18px; border-radius:50%; border:2px solid var(--doc-ink-muted); background:var(--doc-paper-raised); box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-io[aria-checked="true"] { border:2px solid var(--doc-action); font-weight:600; }
+[data-doc-ground="creator"] .ed-io[aria-checked="true"] .ed-rd { border-color:var(--doc-action); background:radial-gradient(circle,var(--doc-action) 4px,transparent 4.6px); }
+[data-doc-ground="creator"] .ed-io[data-off="1"] { background:var(--doc-mat); color:var(--doc-ink-muted); flex-wrap:wrap; cursor:default; }
+[data-doc-ground="creator"] .ed-io[data-off="1"] .ed-rd { border-style:dashed; }
+[data-doc-ground="creator"] .ed-io .ed-why { flex:1 1 100%; padding-left:28px; font-size:15px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-fact { display:inline-flex; align-items:center; gap:8px; margin-top:10px; padding:6px 10px; border-left:3px solid var(--doc-state); background:var(--doc-mat);
+  font-size:15px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-rohead { margin-top:10px; padding:8px 11px; background:var(--doc-mat); border-left:3px solid var(--doc-ink-structural); font-size:15.5px; line-height:1.45; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-reasons { margin-top:12px; padding:10px 12px; background:var(--doc-mat); border-left:3px solid var(--doc-action); font-size:15.5px; line-height:1.45; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-reasons ul { margin:4px 0 0; padding-left:20px; }
+[data-doc-ground="creator"] .ed-conf { margin:10px 0 2px; padding:8px 11px; background:var(--doc-mat); border-left:3px solid var(--doc-action); font-size:15.5px; font-weight:600; line-height:1.4; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-cmp { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0; border:1px solid var(--doc-rule); background:var(--doc-paper-raised); }
+[data-doc-ground="creator"] .ed-cmp > div { padding:10px 12px; border-top:1px solid var(--doc-rule-fine); min-width:0; }
+[data-doc-ground="creator"] .ed-cmp > div:nth-child(odd) { border-right:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .ed-cmp .ed-ch { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--doc-ink-muted);
+  border-top:0; background:var(--doc-mat); }
+[data-doc-ground="creator"] .ed-cmp .ed-v { font-weight:700; font-size:17px; overflow-wrap:anywhere; }
+[data-doc-ground="creator"] .ed-cmp .ed-v.ed-new { color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-cmp .ed-n { font-size:14.5px; color:var(--doc-ink-muted); line-height:1.4; margin-top:3px; }
+[data-doc-ground="creator"] .hp-quiet.ed-red { border-color:var(--doc-action); color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-menu .ed-oh { padding:8px 12px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.14em; color:var(--doc-ink-muted);
+  text-transform:uppercase; border-bottom:1px solid var(--doc-rule-fine); }
+[data-doc-ground="creator"] .ed-menu .ed-op { justify-content:space-between; gap:2px 10px; flex-wrap:wrap; }
+/* the COUNT beside a menu row's chip — never the chip itself, which is a <span> too: unfenced, this (0,3,1) beat
+ * `.ed-chip[data-chip=…]` (0,3,0) and put muted ink on AUTOMATIC's state fill at 1.49:1 (B-1216). `:where()` keeps the
+ * fence at zero specificity, so every other span here resolves exactly as before. */
+[data-doc-ground="creator"] .ed-menu .ed-op span:where(:not(.ed-chip)) { font-family:var(--font-mono,'Share Tech Mono',monospace); font-weight:400; font-size:10.5px; letter-spacing:.04em; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-menu .ed-op[aria-checked="true"] { background:rgba(126,20,20,.08); box-shadow:inset 3px 0 0 var(--doc-action); color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-menu .ed-op[aria-disabled="true"] { background:var(--doc-mat); }
+[data-doc-ground="creator"] .ed-menu .ed-op .ed-ck { font-size:12px; color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-menu .ed-note { padding:8px 12px; border-top:1px solid var(--doc-rule-fine); font-size:14.5px; line-height:1.4; color:var(--doc-ink); background:var(--doc-mat); }
+[data-doc-ground="creator"] .ed-qrow { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:4px 10px; align-items:center; min-height:44px; padding:8px 12px;
+  border:0; border-top:1px solid var(--doc-rule-fine); width:100%; text-align:left; font:inherit; color:inherit; cursor:pointer; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-qrow[data-on="1"] { background:rgba(126,20,20,.06); box-shadow:inset 3px 0 0 var(--doc-action); cursor:default; }
+[data-doc-ground="creator"] .ed-qrow .ed-qn { font-weight:700; font-size:16px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-qrow .ed-ql { grid-column:2 / span 2; font-size:14.5px; line-height:1.4; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-qrow .ed-qr { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.08em; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-qadd { grid-column:2 / span 2; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+[data-doc-ground="creator"] .ed-peek { position:fixed; left:0; right:0; bottom:0; z-index:30; background:var(--doc-paper-raised); border-top:2px solid var(--doc-state);
+  box-shadow:0 -10px 24px rgba(23,22,27,.18); padding:6px 16px 14px; max-height:80vh; overflow-y:auto; box-sizing:border-box; }
+[data-doc-ground="creator"] .ed-peek .ed-grab { width:44px; height:4px; border-radius:2px; background:var(--doc-ink-structural); margin:4px auto 8px; }
+[data-doc-ground="creator"] .ed-peek .ed-ph { display:flex; justify-content:space-between; align-items:center; width:100%; min-height:44px; padding:0; border:0; background:transparent;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--doc-ink); cursor:pointer; }
+[data-doc-ground="creator"] .ed-peek .ed-ph .ed-chev { font-size:14px; }
+[data-doc-ground="creator"] .ed-formpad { padding-bottom:140px; }
+[data-doc-ground="creator"] .ed-plate-h { font-family:var(--font-display,'Orbitron',sans-serif); font-weight:900; font-size:17px; letter-spacing:.03em; text-transform:uppercase; margin:6px 0 0; color:var(--doc-ink); overflow-wrap:anywhere; }
+[data-doc-ground="creator"] .ed-plate-cr { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:19px; margin-top:7px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-rs { font-size:15px; line-height:1.4; color:var(--doc-ink-muted); margin-top:10px; }
+[data-doc-ground="creator"] .ed-desig-muted { color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-area { display:block; padding:9px 11px; font-weight:400; line-height:1.5; min-height:88px; cursor:text; }
+[data-doc-ground="creator"] .ed-area[data-ro="1"] { background:var(--doc-mat); border-style:dashed; cursor:default; }
+/* F-100 M8 step 3 (frame F2, approved D-26): an M8 row's controls wrap at 390, a select growing before it would clip its words;
+   the description's marked words (a TOLD span, a span condition) as the frame draws them */
+[data-doc-ground="creator"] .ed-fl.ed-m8 .ed-inrow { flex-wrap:wrap; }
+[data-doc-ground="creator"] .ed-fl.ed-m8 .ed-inrow > select.ed-inp { flex:1 1 220px; min-width:0; }
+[data-doc-ground="creator"] .ed-mark { background:color-mix(in srgb, var(--doc-action) 16%, transparent); border-bottom:2px solid var(--doc-action); color:inherit; }
+[data-doc-ground="creator"] .ed-diesel { position:relative; display:flex; flex:1 1 120px; min-width:0; }
+[data-doc-ground="creator"] .ed-diesel > select { padding-left:32px; flex:1; }
+[data-doc-ground="creator"] .ed-dieg { position:absolute; left:11px; top:50%; transform:translateY(-50%); pointer-events:none; z-index:1; }
+[data-doc-ground="creator"] .ed-lineacts { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+[data-doc-ground="creator"] .ed-rm-act { color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-stale { color:var(--doc-action); }   /* F-100 M8 R-M8EV-3 (F2 v3 Q3 (3)): the stale span's line, in the action ink */
+[data-doc-ground="creator"] .ed-tbl .ed-rowname { display:inline-flex; align-items:center; min-height:44px; min-width:44px; color:inherit; text-decoration:none; font-weight:700; text-align:left; }   /* B-1323: a short name ("Aar’aa") keeps the 44 px target */
+[data-doc-ground="creator"] .ed-tbl td.ed-nm { padding-top:0; padding-bottom:0; }
+[data-doc-ground="creator"] .ed-tbl button.ed-grpbtn { min-height:44px; }
+
+/* ── M5 · TALENTS AND SPECIALIZATIONS (ruling f100-m5-contracts; F2 · F3 · F4 · F7 and U1–U13, approved at e9e7aa49) ─────────
+   The objects the approved frames draw for the talent form and the tree editor that no shipped rule owns yet. Tokens only; the
+   tree's author mode is fenced to `.ed-page` (the board skin's shared `.hp-*` classes are the creator's; R-NFLL-5). */
+[data-doc-ground="creator"] .ed-opsel { display:flex; align-items:center; gap:10px; flex:1; min-width:0; text-align:left; cursor:pointer; }
+[data-doc-ground="creator"] .ed-opsel[data-on="1"] { border:2px solid var(--doc-action); }
+[data-doc-ground="creator"] .ed-opsel b { font-weight:600; }
+[data-doc-ground="creator"] .ed-opsel .ed-dd { margin-left:auto; font-size:10px; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-opid { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.04em; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-opmenu { margin:8px 0 10px; }
+[data-doc-ground="creator"] .ed-oph { padding:8px 12px; border-bottom:1px solid var(--doc-rule-fine); font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-opmenu .ed-op { justify-content:space-between; gap:12px; }
+[data-doc-ground="creator"] .ed-opmenu .ed-op[data-on="1"] { background:var(--doc-mat); box-shadow:inset 3px 0 0 var(--doc-action); color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-opn { font-weight:600; }
+[data-doc-ground="creator"] .ed-opx { font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-anchors { display:flex; align-items:center; gap:8px; flex-wrap:wrap; flex:1; min-width:0; padding:4px 8px; }
+[data-doc-ground="creator"] .ed-anchors select { border:0; background:transparent; min-height:44px; font:inherit; color:var(--doc-ink-muted); }   /* B-1323: the 44 px floor */
+[data-doc-ground="creator"] .ed-first { font-size:14px; line-height:1.45; color:var(--doc-ink-muted); }
+/* the preview plate (F3 / F4 / U1a) */
+[data-doc-ground="creator"] .ed-ranks { display:flex; align-items:center; gap:0; margin:8px 0 12px; border:1px solid var(--doc-rule); }
+[data-doc-ground="creator"] .ed-ranks > .ed-fk { padding:0 12px; }
+[data-doc-ground="creator"] .ed-rank { min-width:44px; min-height:44px; border:0; border-left:1px solid var(--doc-rule); background:transparent; cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-rank[aria-pressed="true"] { background:var(--doc-state); color:var(--doc-state-ink); }
+[data-doc-ground="creator"] .ed-tp { margin-top:10px; }
+[data-doc-ground="creator"] .ed-tp-h { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px; padding:6px 30px 6px 12px;
+  background:var(--doc-state); color:var(--doc-state-ink); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11.5px; letter-spacing:.18em; text-transform:uppercase;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%); }
+[data-doc-ground="creator"] .ed-tp-rank { border:1px solid currentColor; padding:1px 6px; font-size:10px; letter-spacing:.12em; }
+[data-doc-ground="creator"] .ed-tp-b { position:relative; margin-right:28px; padding:12px 14px 40px; border:1px solid var(--doc-rule); border-top:0; background:var(--doc-paper-raised); }
+[data-doc-ground="creator"] .ed-tp-box { margin-top:12px; padding:8px 12px; background:var(--doc-mat); border-left:3px solid var(--doc-state); }
+[data-doc-ground="creator"] .ed-tp-l { font-weight:600; font-size:15px; line-height:1.5; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-tp-act { position:absolute; right:0; bottom:0; padding:5px 12px; background:var(--doc-accent); color:var(--doc-state-ink);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+/* the tree editor (F7 · U1b · U10b · U11 · U13b) */
+[data-doc-ground="creator"] .ed-treegrid { display:grid; grid-template-columns:300px minmax(0,1fr); gap:24px; align-items:start; }
+/* F7 draws the three columns at 1440 (fields · the tree · the picker). Below that there is no room for all three: with a box picked the
+   tree keeps the width beside the picker and the fields move under it (undrawn arrangement, named in the gate). */
+[data-doc-ground="creator"] .ed-treegrid[data-side="1"] { grid-template-columns:minmax(0,1fr) 340px; }
+[data-doc-ground="creator"] .ed-treegrid[data-side="1"] > :first-child { grid-column:1 / -1; grid-row:2; }
+@media (min-width:1400px) {
+  [data-doc-ground="creator"] .ed-treegrid[data-side="1"] { grid-template-columns:300px minmax(0,1fr) 360px; }
+  [data-doc-ground="creator"] .ed-treegrid[data-side="1"] > :first-child { grid-column:auto; grid-row:auto; }
+}
+[data-doc-ground="creator"] .ed-modes { display:flex; gap:10px; flex-wrap:wrap; margin:0 0 10px; }
+[data-doc-ground="creator"] .ed-mode { min-height:44px; padding:0 16px; border:1px solid var(--doc-rule); background:var(--doc-paper-raised); color:var(--doc-ink-muted); cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+[data-doc-ground="creator"] .ed-mode[aria-selected="true"] { background:var(--doc-state); color:var(--doc-state-ink); border-color:var(--doc-state); }
+[data-doc-ground="creator"] .ed-links-key { margin:0 0 12px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-links-key .ed-lk-j { color:var(--doc-ink); font-weight:400; }
+[data-doc-ground="creator"] .ed-links-key .ed-lk-x { color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-treewrap { overflow-x:auto; padding-bottom:6px; padding-right:calc(var(--doc-point, 14px) + 2px); }   /* room for the last head's point */
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] { min-width:560px; }   /* the board scrolls rather than squeeze its names away */
+[data-band="narrow"] .ed-treewrap .hp-tree[data-author] { min-width:720px; }
+[data-doc-ground="creator"] .ed-skill { display:inline-flex; align-items:center; min-height:44px; padding:0 14px; border:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--doc-ink); }
+[data-doc-ground="creator"] .ed-picker .ed-pick-list { margin-top:10px; }
+/* R-M5T-6 (a): beside the tree the picker is ONE bounded box — never taller than the viewport, the list scrolling inside it and the
+   plate staying in view while the page scrolls; the phone's .ed-sheet already bounds and scrolls it, so there it flows as before.
+   The page's grow zoom (--page-grow) scales px lengths, so the viewport bound is divided by it. */
+[data-doc-ground="creator"] .ed-picker { display:flex; flex-direction:column; position:sticky; top:16px; max-height:calc(100vh / var(--page-grow, 1) - 32px); }
+[data-doc-ground="creator"] .ed-picker .ed-pick-list { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; }
+[data-doc-ground="creator"] .ed-sheet .ed-picker { display:block; position:static; max-height:none; }
+[data-doc-ground="creator"] .ed-sheet .ed-picker .ed-pick-list { overflow:visible; }
+[data-doc-ground="creator"] .ed-pick { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 12px; width:100%; min-height:44px; padding:10px 0; border:0;
+  border-top:1px solid var(--doc-rule-fine); text-align:left; cursor:pointer; color:var(--doc-ink); font:inherit; }
+[data-doc-ground="creator"] .ed-pick-n { font-weight:700; font-size:16px; }
+[data-doc-ground="creator"] .ed-pick[data-on="1"] .ed-pick-n { color:var(--doc-action); }
+[data-doc-ground="creator"] .ed-pick-m { grid-column:1; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-pick .ed-chips { grid-column:2; grid-row:1 / span 2; align-self:center; }
+[data-doc-ground="creator"] .ed-pick-l { grid-column:1 / -1; font-size:14px; line-height:1.45; color:var(--doc-ink-muted); }
+[data-doc-ground="creator"] .ed-sheet { position:fixed; left:0; right:0; bottom:0; z-index:40; max-height:72vh; overflow-y:auto; padding:10px 16px 20px;
+  background:var(--doc-paper-raised); box-shadow:0 -12px 32px rgba(23,22,27,.28); }
+/* the tree's author mode — the ONE DirectionalTree's board cells, fenced to the editor's page */
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] { grid-template-columns:28px repeat(4,minmax(0,1fr)); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-gutter { display:flex; align-items:center; justify-content:center; border-right:1px solid var(--doc-rule); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-gutter span { writing-mode:vertical-rl; transform:rotate(180deg); font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--doc-accent); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal-body { min-height:62px; padding:8px 10px 34px; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-chips { display:flex; gap:6px; flex-wrap:wrap; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-was { margin-top:6px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px;
+  letter-spacing:.08em; color:var(--doc-ink-muted); text-decoration:line-through; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tab[data-tab="author"] { background:var(--doc-state); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tab[data-tab="preview"] { background:var(--doc-action); font-weight:700; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal[data-selected="1"] > .hp-head { background:var(--doc-action); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal[data-selected="1"] > .hp-tal-body { outline:2px solid var(--doc-action); outline-offset:-2px; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author][data-author="preview"] .hp-tal[data-selected="1"] > .hp-head { background:var(--doc-state); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author][data-author="preview"] .hp-tal[data-selected="1"] > .hp-tal-body { outline-color:var(--doc-mark); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal[data-gone="1"] > .hp-head { background:var(--doc-paper-raised); color:var(--doc-action); border:1px solid var(--doc-action); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal[data-gone="1"] > .hp-tal-body { background:var(--doc-mat); border:2px dashed var(--doc-action); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge { position:absolute; z-index:2; width:44px; height:44px; padding:0; border:0; background:transparent; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge[data-edge="right"] { top:-3px; right:-32px; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge[data-edge="down"] { bottom:-39px; left:calc(50% - 22px); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge-mk { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:13px; line-height:1; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge[data-edge-state="open"] .hp-edge-mk { background:var(--doc-paper-raised); border:1px solid var(--doc-ink-muted); color:var(--doc-ink); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge[data-edge-state="armed"] .hp-edge-mk { background:var(--doc-action); color:var(--doc-state-ink); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-edge:focus-visible { outline:2px solid var(--doc-action); outline-offset:-4px; }
+/* M10 — the power author model (f100-m10-editor-card R-M10E-4; frames F3 · F4): an empty column is a dashed "add here" slot; a wide
+   box draws one down-link per covered column (frames-card RIDER, item 6) at that column's centre, the board's own link paint */
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-slot { display:flex; align-items:center; justify-content:center; min-height:78px; padding:8px; cursor:pointer;
+  border:1.5px dashed var(--doc-ink-muted); background:transparent; color:var(--doc-ink); font-family:var(--font-body); font-size:15px; font-weight:600; text-align:center; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-slot:focus-visible { outline:2px solid var(--doc-action); outline-offset:2px; }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-dlink { position:absolute; bottom:-34px; width:4px; height:34px; background:var(--doc-state); }
+.ed-page[data-doc-ground="creator"] .hp-tree[data-author] .hp-tal[data-span] > .hp-tal-body { width:calc(100% - var(--doc-point)); }
+/* F3's upgrade list: two columns at desk width, one on the phone */
+[data-doc-ground="creator"] .ed-up { border-top:2px solid var(--doc-rule-fine, rgba(0,0,0,.12)); padding-top:4px; }
+[data-doc-ground="creator"] .ed-upsw { margin-top:8px; }
+@media (min-width:1024px) { [data-doc-ground="creator"] .ed-ups { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 28px; } }
+/* M9 — the species form's Characteristics rows and the preview's species block (F3 @ 9edd6618; f100-m9-build-card step 9) */
+[data-doc-ground="creator"] .ed-sp-ch { display:flex; align-items:center; gap:8px; min-height:44px; border-top:1px solid var(--doc-rule-fine, rgba(0,0,0,.1)); }
+[data-doc-ground="creator"] .ed-sp-ch:first-child { border-top:0; }
+[data-doc-ground="creator"] .ed-sp-ch > .ed-fk { margin:0; width:90px; flex:none; }
+[data-doc-ground="creator"] .ed-sp-blk { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin:4px 0 12px; }
+[data-doc-ground="creator"] .ed-sp-blk > div { text-align:center; }
+[data-doc-ground="creator"] .ed-sp-blk b { display:block; font:700 22px/1 var(--font-display); }
+[data-doc-ground="creator"] .ed-sp-blk .ed-fk { margin:4px 0 0; }
+[data-doc-ground="creator"] .ed-sp-ab > .ed-fl:first-child { border-top:2px solid var(--doc-rule-fine, rgba(0,0,0,.12)); }

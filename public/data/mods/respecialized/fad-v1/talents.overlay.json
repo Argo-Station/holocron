@@ -1,0 +1,4359 @@
+{
+  "talents": {
+    "respec_actilist": {
+      "id": "respec_actilist",
+      "_source_key": "ACTILIST",
+      "name": "Active Listener",
+      "description": "When targeted by an opposed social check, may suffer 2 strain to oppose the check with Perception (Cunning) instead of Cool or Discipline.",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "active_listener",
+          "cost": {
+            "strain": 2
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ACTILIST"
+          },
+          "words": {
+            "start": 0,
+            "end": 138,
+            "hash": "72e93bfd3b53"
+          }
+        }
+      ]
+    },
+    "respec_adviceimproved": {
+      "id": "respec_adviceimproved",
+      "_source_key": "ADVICEIMPROVED",
+      "name": "Sage Advice (Improved)",
+      "description": "When taking the Sage Advice action, the character may spend [AD][AD] or [TR] to decrease the difficulty of the next check made by an additional ally once per [AD][AD] or [TR] spent.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_ancoimp": {
+      "id": "respec_ancoimp",
+      "_source_key": "ANCOIMP",
+      "name": "Animal Companion (Improved)",
+      "description": "Animal Companion may now be no larger than Silhouette 3. Attacks targeting an Animal Companion treat their critical rating as 1 higher.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "animal_companion_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANCOIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 135,
+            "hash": "05235257e994"
+          }
+        }
+      ]
+    },
+    "respec_animalhandleimp": {
+      "id": "respec_animalhandleimp",
+      "_source_key": "ANIMALHANDLEIMP",
+      "name": "Animal Handler (Improved)",
+      "description": "Once per round, the character may suffer 1 strain to perform the Animal Handler maneuver as an incidental. Additionally, the range of Animal Handler extends to medium.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "animal_handler_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANIMALHANDLEIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 167,
+            "hash": "db11bd94ed17"
+          }
+        }
+      ]
+    },
+    "respec_animalhandler": {
+      "id": "respec_animalhandler",
+      "_source_key": "ANIMALHANDLER",
+      "name": "Animal Handler",
+      "description": "Once per round as a maneuver, the character may suffer strain no more than their ranks in Animal Handler. Upgrade the ability of the next check made by a friendly creature within short range a number of times equal to strain suffered.",
+      "ranked": true,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "animal_handler",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANIMALHANDLER"
+          },
+          "words": {
+            "start": 0,
+            "end": 234,
+            "hash": "375456731657"
+          }
+        }
+      ]
+    },
+    "respec_animalhandlesup": {
+      "id": "respec_animalhandlesup",
+      "_source_key": "ANIMALHANDLESUP",
+      "name": "Animal Handler (Supreme)",
+      "description": "The first time the character activates Animal Handler each round, the targeted creature recovers 2 strain. Additionally, the range of Animal Handler extends to long range.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "animal_handler_supreme",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANIMALHANDLESUP"
+          },
+          "words": {
+            "start": 0,
+            "end": 171,
+            "hash": "daf120d9c609"
+          }
+        }
+      ]
+    },
+    "respec_animcomp": {
+      "id": "respec_animcomp",
+      "_source_key": "ANIMCOMP",
+      "name": "Animal Companion",
+      "description": "Choose an animal no larger than Silhouette 2 to be an Animal Companion. Upgrade all checks made to soothe or heal them once.\nIf the Animal Companion ever dies or becomes lost, the character may work with the Game Master to choose a new one and determine the bonding process to make them the character’s Animal Companion.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "animal_companion",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANIMCOMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 320,
+            "hash": "d8e66b9cfdb4"
+          }
+        }
+      ]
+    },
+    "respec_anythingkills": {
+      "id": "respec_anythingkills",
+      "_source_key": "ANYTHINGKILLS",
+      "name": "Anything Can Kill",
+      "description": "Once per round as a maneuver, make an Average ([DI][DI]) Survival check to discover or fashion an improvised weapon with a choice of Disorient 3, Ensnare 2, or Vicious 2. Spend [AD][AD][AD] to choose an additional quality, and spend [TR] to reduce the critical rating by 1.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "anything_can_kill",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANYTHINGKILLS"
+          },
+          "words": {
+            "start": 0,
+            "end": 273,
+            "hash": "9d2c2c26621b"
+          }
+        }
+      ]
+    },
+    "respec_anythingkillsimp": {
+      "id": "respec_anythingkillsimp",
+      "_source_key": "ANYTHINGKILLSIMP",
+      "name": "Anything Can Kill (Improved)",
+      "description": "When making a combat check with an improvised weapon, destroy that weapon to add [PR] to the pool.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "anything_can_kill_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ANYTHINGKILLSIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 98,
+            "hash": "f892fed6c030"
+          }
+        }
+      ]
+    },
+    "respec_astuobse": {
+      "id": "respec_astuobse",
+      "_source_key": "ASTUOBSE",
+      "name": "Astute Observation",
+      "description": "Once per encounter, may add [BO] equal to ranks in Astute Observation to an ally’s check.",
+      "ranked": true,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "astute_observation",
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ASTUOBSE"
+          },
+          "words": {
+            "start": 0,
+            "end": 89,
+            "hash": "55bea6c6d39e"
+          }
+        }
+      ]
+    },
+    "respec_badinflu": {
+      "id": "respec_badinflu",
+      "_source_key": "BADINFLU",
+      "name": "Bad Influence",
+      "description": "Spend [TH][TH][TH] or [DE] from a foe's social check to upgrade the ability of social checks the character makes against that character until the end of the encounter. This may only be used once per character per encounter.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "bad_influence",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BADINFLU"
+          },
+          "words": {
+            "start": 0,
+            "end": 223,
+            "hash": "cdf0332e364d"
+          }
+        }
+      ]
+    },
+    "respec_badinfo": {
+      "id": "respec_badinfo",
+      "_source_key": "BADINFO",
+      "name": "Bad Info",
+      "description": "Once per session, the character may make an opposed Knowledge check against a character in the scene. On success, the player establishes the target has acted on untrue or faulty information that the character is aware of. Until the end of session, the player made add [DE] to a single check made by the target based on that bad information. The nature of the information is up to Game Master discretion.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "bad_info",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BADINFO"
+          },
+          "words": {
+            "start": 0,
+            "end": 403,
+            "hash": "e35417f2d88a"
+          }
+        }
+      ]
+    },
+    "respec_badtrip": {
+      "id": "respec_badtrip",
+      "_source_key": "BADTRIP",
+      "name": "Bad Trip",
+      "description": "Once per session, spend a Destiny Point to add [DE] to a check made by a character who is under the influence of or has been exposed to drugs or similar substance.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "bad_trip",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BADTRIP"
+          },
+          "words": {
+            "start": 0,
+            "end": 163,
+            "hash": "603cab8949e6"
+          }
+        }
+      ]
+    },
+    "respec_benevolentpatr": {
+      "id": "respec_benevolentpatr",
+      "_source_key": "BENEVOLENTPATR",
+      "name": "Benevolent Patronage",
+      "description": "Once per session, make a Daunting ([DI][DI][DI][DI] Charm or Negotiation check to invoke the aid of a powerful patron to resolve a social, legal, or logistical problem. The patron may have conditions of this assistance, per GM discretion. The character may gain +1 obligation to the patron, or upgrade the difficulty of all social checks made against this patron once until this condition is met.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "benevolent_patronage",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BENEVOLENTPATR"
+          },
+          "words": {
+            "start": 0,
+            "end": 396,
+            "hash": "1d96c04e30c7"
+          }
+        }
+      ]
+    },
+    "respec_blather": {
+      "id": "respec_blather",
+      "_source_key": "BLATHER",
+      "name": "Blather",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "blather",
+          "cite": {
+            "book": "collapse_of_the_republic",
+            "page": 37
+          },
+          "words": {
+            "start": 0,
+            "end": 338,
+            "hash": "2df4fc4b646a"
+          }
+        }
+      ],
+      "same_as": "blather"
+    },
+    "respec_blo": {
+      "id": "respec_blo",
+      "_source_key": "BLO",
+      "name": "Blooded",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BLO"
+          },
+          "words": {
+            "start": 0,
+            "end": 181,
+            "hash": "1815c73ad431"
+          },
+          "condition": {
+            "start": 32,
+            "end": 95,
+            "hash": "291eca9ca1a3"
+          }
+        }
+      ]
+    },
+    "respec_block": {
+      "id": "respec_block",
+      "_source_key": "BLOCK",
+      "name": "Block",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "block",
+          "cost": {
+            "strain": 3
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BLOCK"
+          },
+          "words": {
+            "start": 0,
+            "end": 197,
+            "hash": "14d8c65599c6"
+          }
+        }
+      ]
+    },
+    "respec_bloimp": {
+      "id": "respec_bloimp",
+      "_source_key": "BLOIMP",
+      "name": "Blooded (Improved)",
+      "description": "As an action, make a Hard ([DI][DI][DI]) Resilience check to immediately recover from all poisons and side-effects of drugs. Reduce difficulty once per rank of Blooded.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "blooded_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BLOIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 168,
+            "hash": "4c2139ee96bb"
+          }
+        }
+      ]
+    },
+    "respec_breakthrough": {
+      "id": "respec_breakthrough",
+      "_source_key": "BREAKTHROUGH",
+      "name": "Breakthrough",
+      "description": "Once per session when making a check to solve a mystery, the character may spend a Destiny Point to add [BO] equal to the number of clues the character has discovered, to a maximum of [BO][BO][BO][BO][BO]. What constitutes a clue is up to GM discretion.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "breakthrough",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:BREAKTHROUGH"
+          },
+          "words": {
+            "start": 0,
+            "end": 253,
+            "hash": "cc5654cc755b"
+          }
+        }
+      ]
+    },
+    "respec_chaselead": {
+      "id": "respec_chaselead",
+      "_source_key": "CHASELEAD",
+      "name": "Chase the Lead",
+      "description": "Once per session when investigating a crime, case or mystery, the character may introduce a new source, witness, or clue that assists with the investigation as if a Destiny Point had been spent. The provenance of this new information is per GM discretion, but should meaningfully assist the character's aims.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "chase_the_lead",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CHASELEAD"
+          },
+          "words": {
+            "start": 0,
+            "end": 308,
+            "hash": "9e4276726e7d"
+          }
+        }
+      ]
+    },
+    "respec_comptech": {
+      "id": "respec_comptech",
+      "_source_key": "COMPTECH",
+      "name": "Comprehend Technology",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "comprehend_technology",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:COMPTECH"
+          },
+          "words": {
+            "start": 0,
+            "end": 150,
+            "hash": "48cb23d30b14"
+          }
+        }
+      ]
+    },
+    "respec_condemnation": {
+      "id": "respec_condemnation",
+      "_source_key": "CONDEMNATION",
+      "name": "Condemnation",
+      "description": "Once per encounter, the character may make an opposed Discipline vs Cool combined Force check against a target within short range, learning their true intent and character. On success, the target adds [TH] to all social checks they make this encounter, plus an additional [TH] for each [SU][SU] past the first. Spend [AD][AD] or [TR] to add [FA] to those checks. Spend [FP] to inflict one strain for each [FP] spent this way.",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_creativeimproved": {
+      "id": "respec_creativeimproved",
+      "_source_key": "CREATIVEIMPROVED",
+      "name": "Creative Killer (Improved)",
+      "description": "The character does not add [TH] to combat checks due to using an improvised weapon. Increase the damage of improvised weapons by 2.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "creative_killer_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CREATIVEIMPROVED"
+          },
+          "words": {
+            "start": 0,
+            "end": 131,
+            "hash": "9770c95bd5e3"
+          }
+        }
+      ]
+    },
+    "respec_creatkill": {
+      "id": "respec_creatkill",
+      "_source_key": "CREATKILL",
+      "name": "Creative Killer",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "item_effects": [
+        {
+          "id": "crit",
+          "op": "crit_delta",
+          "amount": -2,
+          "floor": 1,
+          "item": {
+            "all": "weapons",
+            "kind": {
+              "improvised": true
+            }
+          },
+          "in_use": true,
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CREATKILL"
+          },
+          "words": {
+            "start": 0,
+            "end": 70,
+            "hash": "0d9b85e517ea"
+          }
+        }
+      ]
+    },
+    "respec_crossexamine": {
+      "id": "respec_crossexamine",
+      "_source_key": "CROSSEXAMINE",
+      "name": "Cross-Examine",
+      "description": "When targeted by a social check, may spend [TH][TH][TH][TH] or [DE] to add [FA] to social checks the character makes until the end of the encounter.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "cross_examine",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CROSSEXAMINE"
+          },
+          "words": {
+            "start": 0,
+            "end": 148,
+            "hash": "8f2654a10e29"
+          }
+        }
+      ]
+    },
+    "respec_crucpoint": {
+      "id": "respec_crucpoint",
+      "_source_key": "CRUCPOINT",
+      "name": "Crucial Point",
+      "description": "",
+      "ranked": true,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "crucial_point",
+          "limit": "once_per_session",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 28
+          },
+          "words": {
+            "start": 0,
+            "end": 142,
+            "hash": "82f6c95a3587"
+          }
+        }
+      ]
+    },
+    "respec_cybercolossus": {
+      "id": "respec_cybercolossus",
+      "_source_key": "CYBERCOLOSSUS",
+      "name": "Cyber Colossus",
+      "description": "Once per session as a maneuver, make a Daunting ([DI][DI][DI][DI]) Resilience check to ignore the effects of damaged or missing cybernetics until the end of the encounter. This includes the effects of critical injuries that affect one or more cybernetics.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "cyber_colossus",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CYBERCOLOSSUS"
+          },
+          "words": {
+            "start": 0,
+            "end": 255,
+            "hash": "0c1c5f4888e7"
+          }
+        }
+      ]
+    },
+    "respec_cyberjunky": {
+      "id": "respec_cyberjunky",
+      "_source_key": "CYBERJUNKY",
+      "name": "Cyber Junky",
+      "description": "Decrease the difficulty of checks to install cybernetics on the character once per rank of Cyberjunky. Cybernetics cost 50% less to build, purchase, or repair. This discount does not increase with multiple ranks.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "cyber_junky",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:CYBERJUNKY"
+          },
+          "words": {
+            "start": 0,
+            "end": 212,
+            "hash": "563ef290569c"
+          }
+        }
+      ]
+    },
+    "respec_dedreasoning": {
+      "id": "respec_dedreasoning",
+      "_source_key": "DEDREASONING",
+      "name": "Deductive Reasoning",
+      "description": "Once per encounter, make an Average ([DI][DI]) Knowledge (Education) or Perception check to connect a target to a location or event. The character may ask the GM a general question about the target's background for each [SU], and about the target's emotional state for each [AD]. [TR] may be spent to ask specific questions relating to an event or investigation.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "deductive_reasoning",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DEDREASONING"
+          },
+          "words": {
+            "start": 0,
+            "end": 362,
+            "hash": "9d2a2baf66a5"
+          }
+        }
+      ]
+    },
+    "respec_deepunderstand": {
+      "id": "respec_deepunderstand",
+      "_source_key": "DEEPUNDERSTAND",
+      "name": "Deeper Understanding",
+      "description": "Add [BO] per rank of Deeper Understanding to Astrogation and Knowledge (Lore) checks.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_deflect": {
+      "id": "respec_deflect",
+      "_source_key": "DEFLECT",
+      "name": "Deflect",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_delayeddose": {
+      "id": "respec_delayeddose",
+      "_source_key": "DELAYEDDOSE",
+      "name": "Delayed Dose",
+      "description": "After a foe fails a check to resist the effects of poisons, the character may choose to delay the effects. Before the end of session as an incidental, the character may spend a Destiny Point to have the foe immediately suffer the effects of the poison, determined by the earlier check to resist. If the session ends before the character does so, the GM decides the ramifications of the poisoning.",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "delayed_dose",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DELAYEDDOSE"
+          },
+          "words": {
+            "start": 0,
+            "end": 396,
+            "hash": "b0e97c2455d0"
+          }
+        }
+      ]
+    },
+    "respec_dirttric": {
+      "id": "respec_dirttric",
+      "_source_key": "DIRTTRIC",
+      "name": "Dirty Tricks",
+      "description": "Once per session, make a Hard ([DI][DI][DI]) Skulduggery check to add [SE] equal to [SU] to the next check made by a number of enemies equal to the character’s ranks of Cunning.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "dirty_tricks",
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DIRTTRIC"
+          },
+          "words": {
+            "start": 0,
+            "end": 177,
+            "hash": "6c3d752528b1"
+          }
+        }
+      ]
+    },
+    "respec_dirtysecrets": {
+      "id": "respec_dirtysecrets",
+      "_source_key": "DIRTYSECRETS",
+      "name": "Dirty Secrets",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "dirty_secrets",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DIRTYSECRETS"
+          },
+          "words": {
+            "start": 0,
+            "end": 310,
+            "hash": "c26e55af87af"
+          }
+        }
+      ]
+    },
+    "respec_disarmingpersimp": {
+      "id": "respec_disarmingpersimp",
+      "_source_key": "DISARMINGPERSIMP",
+      "name": "Disarming Personality (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_disarmingpersonality": {
+      "id": "respec_disarmingpersonality",
+      "_source_key": "DISARMINGPERSONALITY",
+      "name": "Disarming Personality",
+      "description": "The character removes [SE][SE] from called shot attacks to destroy the weapon, checks to remove them physically or with the Force, or Social checks to checks to convince the target to disarm.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_disarmingperssup": {
+      "id": "respec_disarmingperssup",
+      "_source_key": "DISARMINGPERSSUP",
+      "name": "Disarming Personality (Supreme)",
+      "description": "Once per session after disarming or nonlethally incapacitating a foe, the character may spend a Destiny point to force a number of targets equal to twice the character's Force rating to cease actively attacking or pursuing hostile intent. A target of a higher tier may not be swayed by a lower-tier NPC being disarmed or dispatched, per GM discretion. This ceasefire or parley may require subsequent checks to maintain, or may return to active hostilities.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_discredit": {
+      "id": "respec_discredit",
+      "_source_key": "DISCREDIT",
+      "name": "Discredit",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "discredit",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DISCREDIT"
+          },
+          "words": {
+            "start": 0,
+            "end": 208,
+            "hash": "395e631a71b9"
+          }
+        }
+      ]
+    },
+    "respec_dynamicper": {
+      "id": "respec_dynamicper",
+      "_source_key": "DYNAMICPER",
+      "name": "Dynamic Personality",
+      "description": "Once per encounter after making a successful social check, suffer strain up to the character's Presence to increase or decrease an affected character's defense by that number until the end of the next round. This cannot increase a character's defenses above 4.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "dynamic_personality",
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:DYNAMICPER"
+          },
+          "words": {
+            "start": 0,
+            "end": 260,
+            "hash": "400ae4204a6a"
+          }
+        }
+      ]
+    },
+    "respec_emptyself": {
+      "id": "respec_emptyself",
+      "_source_key": "EMPTYSELF",
+      "name": "Empty The Self",
+      "description": "Once per round, suffer 2 strain and perform the Empty The Self maneuver to remove [SE][SE] from the next check they make this round.",
+      "ranked": false,
+      "activation": "maneuver",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_emptyselfimp": {
+      "id": "respec_emptyselfimp",
+      "_source_key": "EMPTYSELFIMP",
+      "name": "Empty The Self (Improved)",
+      "description": "Once per encounter, the character may decrease the difficulty of a check affected by Empty The Self once.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_emptyselfsup": {
+      "id": "respec_emptyselfsup",
+      "_source_key": "EMPTYSELFSUP",
+      "name": "Empty The Self (Supreme)",
+      "description": "Once per session, the character may add [FO] to a check affected by Empty The Self no greater than their Force Rating, and may spend [FP] to add [SU] and/ or [AD] to the result, but only one of each symbol. Additionally, [FP][FP] may be spent to add [SU][AD] to the check.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_emptysoul": {
+      "id": "respec_emptysoul",
+      "_source_key": "EMPTYSOUL",
+      "name": "Empty Soul",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "empty_soul",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 28
+          },
+          "words": {
+            "start": 0,
+            "end": 103,
+            "hash": "a82d4f8ecb08"
+          }
+        }
+      ]
+    },
+    "respec_encourageimp": {
+      "id": "respec_encourageimp",
+      "_source_key": "ENCOURAGEIMP",
+      "name": "Encouraging Words (Improved)",
+      "description": "Once per round when an ally benefiting from the character's assistance succeeds on a check, the character and that ally recover one strain. Additionally, the range of Encouraging Words is increased to medium.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_encouragesup": {
+      "id": "respec_encouragesup",
+      "_source_key": "ENCOURAGESUP",
+      "name": "Encouraging Words (Supreme)",
+      "description": "Once per session, when an ally within medium range would fail a check while benefiting from the character's assistance, that ally may reroll the check using the character's Charm or Leadership instead of the required skill.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_engredun": {
+      "id": "respec_engredun",
+      "_source_key": "ENGREDUN",
+      "name": "Engineered Redundancies",
+      "description": "Gain the ability to use emergency repair patches to heal. Additionally, can be healed with Mechanics checks.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "engineered_redundancies",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ENGREDUN"
+          },
+          "words": {
+            "start": 0,
+            "end": 108,
+            "hash": "3deba3d52a6e"
+          }
+        }
+      ]
+    },
+    "respec_exploitweakness": {
+      "id": "respec_exploitweakness",
+      "_source_key": "EXPLOITWEAKNESS",
+      "name": "Exploit Weakness",
+      "description": "Add [BO][BO] to attacks made against Disoriented, Immobilized, involuntarily prone, poisoned, Staggered, or incapacitated targets. Per GM discretion, other status effects may apply such as fires, acids, or particularly debilitating critical injuries.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "group",
+              "value": "combat"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:EXPLOITWEAKNESS"
+          },
+          "words": {
+            "start": 0,
+            "end": 130,
+            "hash": "548a6cc13fe8"
+          },
+          "condition": {
+            "start": 29,
+            "end": 129,
+            "hash": "007f4c54c169"
+          }
+        }
+      ],
+      "told": [
+        {
+          "id": "other_status_effects",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:EXPLOITWEAKNESS"
+          },
+          "words": {
+            "start": 131,
+            "end": 250,
+            "hash": "83a82d0dc1f6"
+          }
+        }
+      ]
+    },
+    "respec_exudecon": {
+      "id": "respec_exudecon",
+      "_source_key": "EXUDECON",
+      "name": "Exude Confidence",
+      "description": "When an incoming social check generates [TH][TH] or [DE], suffer strain up to ranks of Cool to add [FA] or [SU] to the next check by that many characters within medium range.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "exude_confidence",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:EXUDECON"
+          },
+          "words": {
+            "start": 0,
+            "end": 174,
+            "hash": "c4c01f5fda39"
+          }
+        }
+      ]
+    },
+    "respec_eyesandears": {
+      "id": "respec_eyesandears",
+      "_source_key": "EYESANDEARS",
+      "name": "Eyes and Ears Everywhere",
+      "description": "When in a well-populated or urban location, the character may substitute Streetwise for checks to determine initiative. The Game Master determines which locations qualify.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "eyes_and_ears_everywhere",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:EYESANDEARS"
+          },
+          "words": {
+            "start": 0,
+            "end": 171,
+            "hash": "8852ca9a8311"
+          }
+        }
+      ]
+    },
+    "respec_firstonefree": {
+      "id": "respec_firstonefree",
+      "_source_key": "FIRSTONEFREE",
+      "name": "First One is Free",
+      "description": "Once per session, make a Hard ([DI][DI][DI]) Streetwise check to identify a nearby desperate spice-user. On success, they will perform a favor in exchange for one or more doses of an illicit substance, with the amount depending on the danger or legal status of the favor, at GM's discretion.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "first_one_is_free",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:FIRSTONEFREE"
+          },
+          "words": {
+            "start": 0,
+            "end": 291,
+            "hash": "c7c150f6e8a4"
+          }
+        }
+      ]
+    },
+    "respec_forcewill": {
+      "id": "respec_forcewill",
+      "_source_key": "FORCEWILL",
+      "name": "Force of Will",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "skill_characteristic",
+          "op": "skill_characteristic",
+          "skills": "any",
+          "to": "willpower",
+          "limit": "once_per_session",
+          "applies": "reminder",
+          "cite": {
+            "book": "aor",
+            "page": 147
+          },
+          "words": {
+            "start": 0,
+            "end": 107,
+            "hash": "9f9437350cc0"
+          }
+        }
+      ]
+    },
+    "respec_friendlowimp": {
+      "id": "respec_friendlowimp",
+      "_source_key": "FRIENDLOWIMP",
+      "name": "Friends in Low Places (Improved)",
+      "description": "Once per encounter, suffer strain up to ranks in Friends in Low Places to decrease the difficulty of a check to interact with the criminal element that many times, to a minimum of Easy ([DI]).",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "friends_in_low_places_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:FRIENDLOWIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 192,
+            "hash": "0ce2e185f383"
+          }
+        }
+      ]
+    },
+    "respec_frlow": {
+      "id": "respec_frlow",
+      "_source_key": "FRLOW",
+      "name": "Friends in Low Places",
+      "description": "Add [AD] per rank of Friends In Low Places to check the character makes to find or interact with the criminal element.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "friends_in_low_places",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:FRLOW"
+          },
+          "words": {
+            "start": 0,
+            "end": 118,
+            "hash": "a44dd41f713c"
+          }
+        }
+      ]
+    },
+    "respec_gatherer": {
+      "id": "respec_gatherer",
+      "_source_key": "GATHERER",
+      "name": "Gatherer",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "gatherer",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:GATHERER"
+          },
+          "words": {
+            "start": 0,
+            "end": 131,
+            "hash": "185fd0e08259"
+          }
+        }
+      ]
+    },
+    "respec_goodrelations": {
+      "id": "respec_goodrelations",
+      "_source_key": "GOODRELATIONS",
+      "name": "Good Relations",
+      "description": "Once per encounter, the character may suffer 2 strain to remove [DE], or [TH] equal to their ranks of Knowledge (Xenology), from a social check made by a character within short range. The character should justify this with cultural knowledge of one of the present parties.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_gowithout": {
+      "id": "respec_gowithout",
+      "_source_key": "GOWITHOUT",
+      "name": "Go Without",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "go_without",
+          "limit": "once_per_session",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 28
+          },
+          "words": {
+            "start": 0,
+            "end": 103,
+            "hash": "aecdbea27f89"
+          }
+        }
+      ]
+    },
+    "respec_greatestteacher": {
+      "id": "respec_greatestteacher",
+      "_source_key": "GREATESTTEACHER",
+      "name": "The Greatest Teacher",
+      "description": "Once per encounter after failing a skill check, the character may suffer 4 strain to add [TR] to the next check the character or an ally within medium range makes using that skill.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_grit": {
+      "id": "respec_grit",
+      "_source_key": "GRIT",
+      "name": "Grit",
+      "description": "Gain +1 strain threshold.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "strain_threshold_delta",
+          "op": "strain_threshold_delta",
+          "amount": 1,
+          "per_rank": true,
+          "cite": {
+            "book": "eote",
+            "page": 136
+          },
+          "words": {
+            "start": 0,
+            "end": 24,
+            "hash": "a10dd243b2b9"
+          }
+        }
+      ]
+    },
+    "respec_handoff": {
+      "id": "respec_handoff",
+      "_source_key": "HANDOFF",
+      "name": "Hand Off*",
+      "description": "Once per round, as an out-of-turn incidental, suffer 2 strain to covertly pick up or hide an engaged item that is encumbrance 1 or smaller, or exchange up to two items that are encumbrance 1 or smaller with an ally within short range. If the character is being closely watched, an opposed Perception vs. Skulduggery check can be made to notice the exchange, adding [SE][SE] to the pool.",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "hand_off",
+          "limit": "once_per_round",
+          "cost": {
+            "strain": 2
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:HANDOFF"
+          },
+          "words": {
+            "start": 0,
+            "end": 386,
+            "hash": "39d1dfc96b04"
+          }
+        }
+      ]
+    },
+    "respec_harmonybeing": {
+      "id": "respec_harmonybeing",
+      "_source_key": "HARMONYBEING",
+      "name": "Harmonious Being",
+      "description": "Once per round, when targeting an ally with a Force power or Force Talent, may suffer 2 strain to add [DA] or [LI] to the pool.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_hiddenfangs": {
+      "id": "respec_hiddenfangs",
+      "_source_key": "HIDDENFANGS",
+      "name": "Hidden Fangs",
+      "description": "When making a combat check with a poisoned weapon, suffer 2 strain to substitute Skulduggery instead. The character's Skulduggery skill is combined with the required characteristic to form the dice pool.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "skill_substitute",
+          "op": "skill_substitute",
+          "skills": [
+            "brawl",
+            "gunnery",
+            "lightsaber",
+            "melee",
+            "ranged_heavy",
+            "ranged_light"
+          ],
+          "use": [
+            "skulduggery"
+          ],
+          "cost": {
+            "strain": 2
+          },
+          "condition": "a combat check with a poisoned weapon",
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:HIDDENFANGS"
+          },
+          "words": {
+            "start": 0,
+            "end": 203,
+            "hash": "c77b458529bd"
+          }
+        }
+      ]
+    },
+    "respec_historian": {
+      "id": "respec_historian",
+      "_source_key": "HISTORIAN",
+      "name": "Historian",
+      "description": "When recalling information about or interacting with ancient or abandoned places or things, add [BO] or remove [SE] per rank of Historian.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "historian",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:HISTORIAN"
+          },
+          "words": {
+            "start": 0,
+            "end": 138,
+            "hash": "a027d1520892"
+          }
+        }
+      ]
+    },
+    "respec_imposingleader": {
+      "id": "respec_imposingleader",
+      "_source_key": "IMPOSINGLEADER",
+      "name": "Imposing Leader",
+      "description": "Suffer 2 strain to make a Leadership check with Willpower instead of Presence.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "skill_characteristic",
+          "op": "skill_characteristic",
+          "skills": [
+            "leadership"
+          ],
+          "to": "willpower",
+          "cost": {
+            "strain": 2
+          },
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:IMPOSINGLEADER"
+          },
+          "words": {
+            "start": 0,
+            "end": 78,
+            "hash": "da83e095d0fb"
+          }
+        }
+      ]
+    },
+    "respec_impsurg": {
+      "id": "respec_impsurg",
+      "_source_key": "IMPSURG",
+      "name": "Surgeon (Improved)*",
+      "description": "When performing a Medicine check, may suffer strain up to ranks of Surgeon, then choose to either remove that many [SE] or add that many [BO].",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "surgeon_improved",
+          "moment": "check",
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "medicine"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:IMPSURG"
+          },
+          "words": {
+            "start": 0,
+            "end": 142,
+            "hash": "9dc81f0b9b15"
+          }
+        }
+      ]
+    },
+    "respec_indwill": {
+      "id": "respec_indwill",
+      "_source_key": "INDWILL",
+      "name": "Indomitable Will",
+      "description": "",
+      "ranked": false,
+      "activation": "maneuver",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "indomitable_will",
+          "limit": "once_per_encounter",
+          "cost": {
+            "strain": 3
+          },
+          "cite": {
+            "book": "knights_of_fate",
+            "page": 30
+          },
+          "words": {
+            "start": 0,
+            "end": 164,
+            "hash": "b471f872ac1e"
+          }
+        }
+      ]
+    },
+    "respec_inform": {
+      "id": "respec_inform",
+      "_source_key": "INFORM",
+      "name": "Informant",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "informant",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:INFORM"
+          },
+          "words": {
+            "start": 0,
+            "end": 78,
+            "hash": "76142eda3a0e"
+          }
+        }
+      ]
+    },
+    "respec_inqimp": {
+      "id": "respec_inqimp",
+      "_source_key": "INQIMP",
+      "name": "Inquiring (Improved)",
+      "description": "Before rolling a social check while investigating a crime, the character may remove [BO] up to their ranks in Inquiring from the pool, and add an equal number of [SU] or [AD] results (in any combination) to the results.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "inquiring_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:INQIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 219,
+            "hash": "30ecaaa3456e"
+          }
+        }
+      ]
+    },
+    "respec_inquire": {
+      "id": "respec_inquire",
+      "_source_key": "INQUIRE",
+      "name": "Inquiring",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:INQUIRE"
+          },
+          "words": {
+            "start": 0,
+            "end": 87,
+            "hash": "ad712ad2e58c"
+          },
+          "condition": {
+            "start": 0,
+            "end": 25,
+            "hash": "421699699151"
+          }
+        },
+        {
+          "id": "remove_setback",
+          "die": "setback",
+          "direction": "remove",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:INQUIRE"
+          },
+          "words": {
+            "start": 0,
+            "end": 87,
+            "hash": "ad712ad2e58c"
+          },
+          "condition": {
+            "start": 0,
+            "end": 25,
+            "hash": "421699699151"
+          }
+        }
+      ]
+    },
+    "respec_inspiringleadership": {
+      "id": "respec_inspiringleadership",
+      "_source_key": "INSPIRINGLEADERSHIP",
+      "name": "Inspiring Leadership",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "inspiring_leadership",
+          "cite": {
+            "book": "dawn_of_rebellion",
+            "page": 113
+          },
+          "words": {
+            "start": 0,
+            "end": 243,
+            "hash": "a2a5607dd568"
+          }
+        }
+      ]
+    },
+    "respec_ironsoul": {
+      "id": "respec_ironsoul",
+      "_source_key": "IRONSOUL",
+      "name": "Iron Soul",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "iron_soul",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 28
+          },
+          "words": {
+            "start": 0,
+            "end": 126,
+            "hash": "889fd4bad765"
+          }
+        }
+      ]
+    },
+    "respec_ironwilled": {
+      "id": "respec_ironwilled",
+      "_source_key": "IRONWILLED",
+      "name": "Iron-Willed",
+      "description": "Once per session, suffer 2 strain to treat the character as if their Willpower was one higher until the end of the encounter.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "iron_willed",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:IRONWILLED"
+          },
+          "words": {
+            "start": 0,
+            "end": 125,
+            "hash": "84dc59d5b330"
+          }
+        }
+      ]
+    },
+    "respec_keeptalking": {
+      "id": "respec_keeptalking",
+      "_source_key": "KEEPTALKING",
+      "name": "Keep Them Talking",
+      "description": "When opposing a social check, may substitute Cool instead of Discipline or Vigilance.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "effects": [
+        {
+          "id": "skill_substitute",
+          "op": "skill_substitute",
+          "skills": [
+            "discipline",
+            "vigilance"
+          ],
+          "use": [
+            "cool"
+          ],
+          "condition": "When opposing a social check",
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:KEEPTALKING"
+          },
+          "words": {
+            "start": 0,
+            "end": 85,
+            "hash": "6e2a34c63aa3"
+          }
+        }
+      ]
+    },
+    "respec_keeptalkingimp": {
+      "id": "respec_keeptalkingimp",
+      "_source_key": "KEEPTALKINGIMP",
+      "name": "Keep Them Talking (Improved)",
+      "description": "Once per encounter, may spend [TH][TH][TH] or [DE] from an opposed social check to add [SU][AD] to all checks targeting that character this encounter.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "keep_them_talking_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:KEEPTALKINGIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 150,
+            "hash": "900267e3295b"
+          }
+        }
+      ]
+    },
+    "respec_killerinstinct": {
+      "id": "respec_killerinstinct",
+      "_source_key": "KILLERINSTINCT",
+      "name": "Killer Instinct",
+      "description": "Unarmed and improvised weapons attacks the character makes gain a Pierce equal to their ranks in Survival.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "killer_instinct",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:KILLERINSTINCT"
+          },
+          "words": {
+            "start": 0,
+            "end": 106,
+            "hash": "6ffa947357c2"
+          }
+        }
+      ]
+    },
+    "respec_knowheal": {
+      "id": "respec_knowheal",
+      "_source_key": "KNOWHEAL",
+      "name": "Knowledgeable Healing",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "knowledgeable_healing",
+          "moment": "check",
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "medicine"
+            }
+          ],
+          "cost": {
+            "destiny": 1
+          },
+          "cite": {
+            "book": "fad",
+            "page": 146
+          },
+          "words": {
+            "start": 0,
+            "end": 109,
+            "hash": "b33afbc9eb99"
+          }
+        }
+      ],
+      "spend": [
+        {
+          "id": "heal_more",
+          "dark": "roll_options",
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "medicine"
+            }
+          ],
+          "when": "hit",
+          "cost": {
+            "destiny": 1
+          },
+          "cite": {
+            "book": "fad",
+            "page": 146
+          },
+          "words": {
+            "start": 0,
+            "end": 109,
+            "hash": "b33afbc9eb99"
+          }
+        }
+      ]
+    },
+    "respec_knowledgesum": {
+      "id": "respec_knowledgesum",
+      "_source_key": "KNOWLEDGESUM",
+      "name": "The Sum of All Knowledge",
+      "description": "Once per encounter after failing a Knowledge check, may reroll the check using a different Knowledge skill, increasing the difficulty of the check twice.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_landprov": {
+      "id": "respec_landprov",
+      "_source_key": "LANDPROV",
+      "name": "The Land Provides",
+      "description": "Once per session, make a Hard ([DI][DI][DI]) Survival check to fashion a low-tech solution to a current problem using nearby forageable materials. This solution or object must be approved by the GM, who may impose negative qualities like Inferior or Limited Ammo, and functions until the end of the encounter.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "the_land_provides",
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:LANDPROV"
+          },
+          "words": {
+            "start": 0,
+            "end": 309,
+            "hash": "a14ee2f6eefa"
+          }
+        }
+      ]
+    },
+    "respec_limitbreaker": {
+      "id": "respec_limitbreaker",
+      "_source_key": "LIMITBREAKER",
+      "name": "Limit Breaker",
+      "description": "Once per round after performing the Move maneuver, the character may suffer 2 wounds to perform an additional Move maneuver. This may allow the character to make more than 2 maneuvers per turn.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "limit_breaker",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:LIMITBREAKER"
+          },
+          "words": {
+            "start": 0,
+            "end": 193,
+            "hash": "ac420c680d3a"
+          }
+        }
+      ]
+    },
+    "respec_limitbreakerimp": {
+      "id": "respec_limitbreakerimp",
+      "_source_key": "LIMITBREAKERIMP",
+      "name": "Limit Breaker (Improved)",
+      "description": "Once per encounter after making a combat check, the character may spend a Destiny Point and suffer 4 wounds to make an additional attack using the same weapon(s).",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "limit_breaker_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:LIMITBREAKERIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 162,
+            "hash": "97cb73f23e42"
+          }
+        }
+      ]
+    },
+    "respec_livingholocron": {
+      "id": "respec_livingholocron",
+      "_source_key": "LIVINGHOLOCRON",
+      "name": "Living Holocron",
+      "description": "Once per session as an action, roll [FO] no greater than Force rating. Spend [FP] to decrease the difficulty of all knowledge checks made this encounter once, to a minimum of Easy ([DI]).",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_livingholoimp": {
+      "id": "respec_livingholoimp",
+      "_source_key": "LIVINGHOLOIMP",
+      "name": "Living Holocron (Improved)",
+      "description": "The character may suffer 2 strain to perform the Living Holocron action as a maneuver. Additionally, spend [FP][FP][FP] instead of [FP] to decrease the difficulty of all knowledge checks they make by 2 instead, to a minimum of Simple ().",
+      "ranked": false,
+      "activation": "maneuver",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_longstory": {
+      "id": "respec_longstory",
+      "_source_key": "LONGSTORY",
+      "name": "It's A Long Story",
+      "description": "Once per encounter, may suffer 2 strain to add [BO] equal to ranks of Knowledge (Lore) to a social check made to delay, distract, or confuse. Spend [AD][AD][AD][AD] or [TR] from that check to stagger the target.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_lowblowimp": {
+      "id": "respec_lowblowimp",
+      "_source_key": "LOWBLOWIMP",
+      "name": "Low Blow (Improved)",
+      "description": "Once per encounter, spend a Destiny Point to remove any number of [BO] from a combat check to add that many [AD] to the check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "low_blow_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:LOWBLOWIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 126,
+            "hash": "2dc53165678a"
+          }
+        }
+      ]
+    },
+    "respec_lowblowre": {
+      "id": "respec_lowblowre",
+      "_source_key": "LOWBLOWRE",
+      "name": "Low Blow",
+      "description": "Attacks benefiting from aiming inflict an additional amount of strain equal to 1 plus ranks of Low Blow (bypassing Soak).",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "low_blow",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:LOWBLOWRE"
+          },
+          "words": {
+            "start": 0,
+            "end": 121,
+            "hash": "d2ca643af1f5"
+          }
+        }
+      ]
+    },
+    "respec_macmanimp": {
+      "id": "respec_macmanimp",
+      "_source_key": "MACMANIMP",
+      "name": "More Machine Than Man (Improved)",
+      "description": "Before making a check, suffer strain up to half of the the number of character's installed cybernetics, rounded up, and add that many [BO] to the check. The player must specify how one or more of their cybernetics are aiding them for this check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "more_machine_than_man_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MACMANIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 245,
+            "hash": "e0d82354ae72"
+          }
+        }
+      ]
+    },
+    "respec_makeanoffer": {
+      "id": "respec_makeanoffer",
+      "_source_key": "MAKEANOFFER",
+      "name": "Make An Offer...",
+      "description": "Once per encounter before making a social check, spend a Destiny point to add [BO] equal to ranks of Knowledge (Underworld) to the check.\n\nA character should describe what information or leverage they have on the target of the check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1,
+          "count_of": {
+            "of": "skill_ranks",
+            "key": "underworld"
+          },
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cost": {
+            "destiny": 1
+          },
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MAKEANOFFER"
+          },
+          "words": {
+            "start": 0,
+            "end": 233,
+            "hash": "8b3c3ff0b5f8"
+          },
+          "condition": {
+            "start": 19,
+            "end": 47,
+            "hash": "6994c0b4eb3e"
+          }
+        }
+      ]
+    },
+    "respec_maodl": {
+      "id": "respec_maodl",
+      "_source_key": "MAODL",
+      "name": "Master of Dealing",
+      "description": "Once per round, suffer 2 strain to reduce the difficulty of next check to find, buy, or sell stolen, contraband or illegal goods once.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "master_of_dealing",
+          "limit": "once_per_round",
+          "cost": {
+            "strain": 2
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MAODL"
+          },
+          "words": {
+            "start": 0,
+            "end": 134,
+            "hash": "dfb105181183"
+          }
+        }
+      ]
+    },
+    "respec_masdoc": {
+      "id": "respec_masdoc",
+      "_source_key": "MASDOC",
+      "name": "Master Doctor",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "remove_difficulty",
+          "die": "difficulty",
+          "direction": "remove",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "medicine"
+            }
+          ],
+          "cost": {
+            "strain": 2
+          },
+          "limit": "once_per_round",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MASDOC"
+          },
+          "words": {
+            "start": 0,
+            "end": 84,
+            "hash": "71980497a394"
+          }
+        }
+      ]
+    },
+    "respec_masshad": {
+      "id": "respec_masshad",
+      "_source_key": "MASSHAD",
+      "name": "Master of Shadows",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "remove_difficulty",
+          "die": "difficulty",
+          "direction": "remove",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "stealth"
+            },
+            {
+              "scope": "skill",
+              "value": "skulduggery"
+            }
+          ],
+          "cost": {
+            "strain": 2
+          },
+          "limit": "once_per_round",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MASSHAD"
+          },
+          "words": {
+            "start": 0,
+            "end": 99,
+            "hash": "5b8303a0f719"
+          }
+        }
+      ]
+    },
+    "respec_mastercurator": {
+      "id": "respec_mastercurator",
+      "_source_key": "MASTERCURATOR",
+      "name": "Master Curator",
+      "description": "When making a Perception or Computers check to discover or recover information, suffer strain up to ranks of a Knowledge skill to add that many [BO] to the check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_masterhealer": {
+      "id": "respec_masterhealer",
+      "_source_key": "MASTERHEALER",
+      "name": "Master Healer",
+      "description": "Once per encounter while making a Heal Power check, may suffer 3 strain to apply the effects of the Physician and Surgeon talents.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_mindbleed": {
+      "id": "respec_mindbleed",
+      "_source_key": "MINDBLEED",
+      "name": "Mind Bleed",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "force_talent": true,
+      "conflict": 1,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "mind_bleed",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MINDBLEED"
+          },
+          "words": {
+            "start": 0,
+            "end": 226,
+            "hash": "fe5461cf9bdc"
+          }
+        }
+      ]
+    },
+    "respec_mindmat": {
+      "id": "respec_mindmat",
+      "_source_key": "MINDMAT",
+      "name": "Mind Over Matter",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "mind_over_matter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:MINDMAT"
+          },
+          "words": {
+            "start": 0,
+            "end": 93,
+            "hash": "4485e8a64729"
+          }
+        }
+      ]
+    },
+    "respec_mostimpressive": {
+      "id": "respec_mostimpressive",
+      "_source_key": "MOSTIMPRESSIVE",
+      "name": "Most Impressive",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "most_impressive",
+          "cite": {
+            "book": "dawn_of_rebellion",
+            "page": 114
+          },
+          "words": {
+            "start": 0,
+            "end": 182,
+            "hash": "cb270a37ac7c"
+          }
+        }
+      ]
+    },
+    "respec_natureme": {
+      "id": "respec_natureme",
+      "_source_key": "NATUREME",
+      "name": "Natural Remedy",
+      "description": "The character may use Survival instead of Medicine to heal wounds and critical injuries by increasing the difficulty of the check once.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "skill_substitute",
+          "op": "skill_substitute",
+          "skills": [
+            "medicine"
+          ],
+          "use": [
+            "survival"
+          ],
+          "condition": "to heal wounds and critical injuries",
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NATUREME"
+          },
+          "words": {
+            "start": 0,
+            "end": 135,
+            "hash": "c6af5fa0aef6"
+          }
+        }
+      ],
+      "pool_mods": [
+        {
+          "id": "add_difficulty",
+          "die": "difficulty",
+          "direction": "add",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "medicine"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NATUREME"
+          },
+          "words": {
+            "start": 88,
+            "end": 134,
+            "hash": "1a24abaf852a"
+          },
+          "condition": {
+            "start": 51,
+            "end": 87,
+            "hash": "40268b342785"
+          }
+        }
+      ]
+    },
+    "respec_negativereimp": {
+      "id": "respec_negativereimp",
+      "_source_key": "NEGATIVEREIMP",
+      "name": "Negative Reinforcement (Improved)",
+      "description": "The difficulty of Negative Reinforcement is reduced to Average ([DI][DI]). Spend [TR] to double the number of [AD] and [TH] added.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "negative_reinforcement_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NEGATIVEREIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 130,
+            "hash": "d352c4b394a9"
+          }
+        }
+      ]
+    },
+    "respec_negativereinforce": {
+      "id": "respec_negativereinforce",
+      "_source_key": "NEGATIVEREINFORCE",
+      "name": "Negative Reinforcement",
+      "description": "Make a Hard ([DI][DI][DI]) Coercion or Leadership check. On success, characters equal to Willpower suffer 1 strain and add [AD] to their next check if an ally, or [TH] if a foe.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "negative_reinforcement",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NEGATIVEREINFORCE"
+          },
+          "words": {
+            "start": 0,
+            "end": 177,
+            "hash": "6fd9c411cdf6"
+          }
+        }
+      ]
+    },
+    "respec_nerfwhisper": {
+      "id": "respec_nerfwhisper",
+      "_source_key": "NERFWHISPER",
+      "name": "Nerf Whisperer",
+      "description": "Once per session, the character may make a Hard ([DI][DI][DI]) Survival check. On Success, they treat all friendly non-sentient creatures within medium range as the character’s Animal Companion until the end of the encounter, extending the benefits of all Animal Companion and related talents. When directing these animals while this effect is active, the character treats them all as if they were a single entity, per GM discretion.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "nerf_whisperer",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NERFWHISPER"
+          },
+          "words": {
+            "start": 0,
+            "end": 433,
+            "hash": "3aa9a92498fc"
+          }
+        }
+      ]
+    },
+    "respec_neutralizer": {
+      "id": "respec_neutralizer",
+      "_source_key": "NEUTRALIZER",
+      "name": "Neutralizer",
+      "description": "Once per encounter, suffer 3 strain to add [TR] to a check they make targeting a poisoned character, including curing a poisoned ally or attacking a foe that the character themselves poisoned.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_triumph",
+          "symbol": "triumph",
+          "direction": "add",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cost": {
+            "strain": 3
+          },
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NEUTRALIZER"
+          },
+          "words": {
+            "start": 0,
+            "end": 192,
+            "hash": "dbbc61b6b8f7"
+          },
+          "condition": {
+            "start": 51,
+            "end": 99,
+            "hash": "0c1d465cfeae"
+          }
+        }
+      ]
+    },
+    "respec_nobfoolimp": {
+      "id": "respec_nobfoolimp",
+      "_source_key": "NOBFOOLIMP",
+      "name": "Nobody's Fool (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "nobody_s_fool_improved",
+          "cite": {
+            "book": "collapse_of_the_republic",
+            "page": 42
+          },
+          "words": {
+            "start": 0,
+            "end": 198,
+            "hash": "517abea4e12f"
+          }
+        }
+      ]
+    },
+    "respec_nodie": {
+      "id": "respec_nodie",
+      "_source_key": "NODIE",
+      "name": "No Time to Die",
+      "description": "Once per session, as a maneuver, spend a Destiny Point to recover strain and/or wounds in any combination up to ranks in Cool or Discipline.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "no_time_to_die",
+          "limit": "once_per_session",
+          "cost": {
+            "destiny": 1
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:NODIE"
+          },
+          "words": {
+            "start": 0,
+            "end": 140,
+            "hash": "b82749b94bdd"
+          }
+        }
+      ]
+    },
+    "respec_nowmast": {
+      "id": "respec_nowmast",
+      "_source_key": "NOWMAST",
+      "name": "Now the Master",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "now_the_master",
+          "limit": "once_per_session",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 29
+          },
+          "words": {
+            "start": 0,
+            "end": 169,
+            "hash": "b21e4c3cc93d"
+          }
+        }
+      ]
+    },
+    "respec_oncelearn": {
+      "id": "respec_oncelearn",
+      "_source_key": "ONCELEARN",
+      "name": "Once A Learner",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "once_a_learner",
+          "cost": {
+            "strain": 4
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:ONCELEARN"
+          },
+          "words": {
+            "start": 0,
+            "end": 177,
+            "hash": "d857842f306a"
+          }
+        }
+      ]
+    },
+    "respec_oneuni": {
+      "id": "respec_oneuni",
+      "_source_key": "ONEUNI",
+      "name": "One With The Universe",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "one_with_the_universe",
+          "limit": "once_per_session",
+          "cite": {
+            "book": "fad",
+            "page": 149
+          },
+          "words": {
+            "start": 0,
+            "end": 224,
+            "hash": "fc027af13d8e"
+          }
+        }
+      ]
+    },
+    "respec_onlyforce": {
+      "id": "respec_onlyforce",
+      "_source_key": "ONLYFORCE",
+      "name": "There Is Only The Force",
+      "description": "Once per session when the character would be incapacitated, the character may spend a Destiny point to make a Force power check as an out-of-turn incidental. If it is successful, add [TR] to the result.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_outdoor": {
+      "id": "respec_outdoor",
+      "_source_key": "OUTDOOR",
+      "name": "Outdoorsman",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "remove_setback",
+          "die": "setback",
+          "direction": "remove",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:OUTDOOR"
+          },
+          "words": {
+            "start": 0,
+            "end": 144,
+            "hash": "688ffe1b6c92"
+          },
+          "condition": {
+            "start": 41,
+            "end": 103,
+            "hash": "aba640b7784e"
+          }
+        }
+      ]
+    },
+    "respec_perfcrim": {
+      "id": "respec_perfcrim",
+      "_source_key": "PERFCRIM",
+      "name": "The Perfect Crime",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "the_perfect_crime",
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:PERFCRIM"
+          },
+          "words": {
+            "start": 0,
+            "end": 405,
+            "hash": "474cefab677c"
+          }
+        }
+      ]
+    },
+    "respec_physimp": {
+      "id": "respec_physimp",
+      "_source_key": "PHYSIMP",
+      "name": "Physician (Improved)",
+      "description": "Once per encounter, the character may spend [AD][AD], [TR], or [FP][FP] from a Medicine or Heal Power check to have the target add [AD] equal to ranks of Physician to their next check.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_pickyourpoi": {
+      "id": "respec_pickyourpoi",
+      "_source_key": "PICKYOURPOI",
+      "name": "Pick Your Poison",
+      "description": "Once per encounter, make a Knowledge (Xenology) or Survival check to create, extract, or source a single dose of poison from a natural environment. The difficulty is equal to a check made to buy it, based on rarity. Spend [TR] to find a concentrated version, which adds [FA] to any checks made to resist it this session.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "pick_your_poison",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:PICKYOURPOI"
+          },
+          "words": {
+            "start": 0,
+            "end": 320,
+            "hash": "d2d4410cd920"
+          }
+        }
+      ]
+    },
+    "respec_potenttinc": {
+      "id": "respec_potenttinc",
+      "_source_key": "POTENTTINC",
+      "name": "Potent Tinctures",
+      "description": "Foes upgrade the difficulty of checks made to resist the effects of poisons that were created or administered by the character once per rank of Potent Tinctures.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "potent_tinctures",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:POTENTTINC"
+          },
+          "words": {
+            "start": 0,
+            "end": 161,
+            "hash": "2ba72b8247f8"
+          }
+        }
+      ]
+    },
+    "respec_potenttincimp": {
+      "id": "respec_potenttincimp",
+      "_source_key": "POTENTTINCIMP",
+      "name": "Potent Tinctures (Improved)",
+      "description": "Spend [DE] from a check made to resist a poison the character created or administered to have the foe suffer a Critical Injury, adding +10 times the Character's Cunning to the result. Additional [DE] may be spent to add an additional +10 times the character's Cunning.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "potent_tinctures_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:POTENTTINCIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 268,
+            "hash": "c6f20680282f"
+          }
+        }
+      ]
+    },
+    "respec_potenttincsup": {
+      "id": "respec_potenttincsup",
+      "_source_key": "POTENTTINCSUP",
+      "name": "Potent Tinctures (Supreme)",
+      "description": "Once per session, spend a Destiny Point to force a foe to re-roll a check to resist a poison the character created or administered.",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "potent_tinctures_supreme",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:POTENTTINCSUP"
+          },
+          "words": {
+            "start": 0,
+            "end": 131,
+            "hash": "cf84d1405078"
+          }
+        }
+      ]
+    },
+    "respec_powerbrokeimp": {
+      "id": "respec_powerbrokeimp",
+      "_source_key": "POWERBROKEIMP",
+      "name": "Power Broker (Improved)",
+      "description": "Once per session when activating Power Broker, suffer 4 strain instead to add [TR] rather than [SU].",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_triumph",
+          "symbol": "triumph",
+          "direction": "add",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cost": {
+            "strain": 4
+          },
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:POWERBROKEIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 100,
+            "hash": "14003deb1026"
+          },
+          "condition": {
+            "start": 17,
+            "end": 45,
+            "hash": "625c1ec58d49"
+          }
+        }
+      ]
+    },
+    "respec_powerbroker": {
+      "id": "respec_powerbroker",
+      "_source_key": "POWERBROKER",
+      "name": "Power Broker",
+      "description": "Once per encounter, suffer 2 strain to add [SU] to a social check that invokes a patron or organization, or to interact with members of that organization.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_success",
+          "symbol": "success",
+          "direction": "add",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "cost": {
+            "strain": 2
+          },
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:POWERBROKER"
+          },
+          "words": {
+            "start": 0,
+            "end": 154,
+            "hash": "275786c2b70a"
+          },
+          "condition": {
+            "start": 51,
+            "end": 153,
+            "hash": "9d3e1521fa38"
+          }
+        }
+      ]
+    },
+    "respec_precstr": {
+      "id": "respec_precstr",
+      "_source_key": "PRECSTR",
+      "name": "Precision Strike",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "precision_strike",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:PRECSTR"
+          },
+          "words": {
+            "start": 0,
+            "end": 173,
+            "hash": "0708312504be"
+          }
+        }
+      ]
+    },
+    "respec_preemavoid": {
+      "id": "respec_preemavoid",
+      "_source_key": "PREEMAVOID",
+      "name": "Preemptive Avoidance",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "preemptive_avoidance",
+          "cost": {
+            "destiny": 1
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:PREEMAVOID"
+          },
+          "words": {
+            "start": 0,
+            "end": 87,
+            "hash": "78d22bb6c7ec"
+          }
+        }
+      ]
+    },
+    "respec_purification": {
+      "id": "respec_purification",
+      "_source_key": "PURIFICATION",
+      "name": "Purification",
+      "description": "The character may make an Average ([DI][DI]) Knowledge (Xenology) check, adding [FO] no greater than Force rating. On success, the character may spend [FP] to remove a status condition from an ally within short range for every [FP] spent this way. If the ally is poisoned, the difficulty to purify is the original difficulty to resist the poison. Alternatively, this action may be used to purify food or water, rendering it safe to consume.",
+      "ranked": false,
+      "activation": "action",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_quickdr": {
+      "id": "respec_quickdr",
+      "_source_key": "QUICKDR",
+      "name": "Quick Draw",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "quick_draw",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:QUICKDR"
+          },
+          "words": {
+            "start": 0,
+            "end": 77,
+            "hash": "9ea703800403"
+          }
+        }
+      ]
+    },
+    "respec_quickwitted": {
+      "id": "respec_quickwitted",
+      "_source_key": "QUICKWITTED",
+      "name": "Quick Witted",
+      "description": "Once per session after failing a Deception or Stealth check, the character may reroll the check using Cool. The difficulty of the Cool check is the same as the original check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "quick_witted",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:QUICKWITTED"
+          },
+          "words": {
+            "start": 0,
+            "end": 175,
+            "hash": "5ffdf8f82f87"
+          }
+        }
+      ]
+    },
+    "respec_recscene": {
+      "id": "respec_recscene",
+      "_source_key": "RECSCENE",
+      "name": "Reconstruct the Scene",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "reconstruct_the_scene",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:RECSCENE"
+          },
+          "words": {
+            "start": 0,
+            "end": 174,
+            "hash": "b6b7d15a46e0"
+          }
+        }
+      ]
+    },
+    "respec_relentless": {
+      "id": "respec_relentless",
+      "_source_key": "RELENTLESS",
+      "name": "Relentless",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "relentless",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:RELENTLESS"
+          },
+          "words": {
+            "start": 0,
+            "end": 177,
+            "hash": "0a05ad15fbbe"
+          }
+        }
+      ]
+    },
+    "respec_researchimp": {
+      "id": "respec_researchimp",
+      "_source_key": "RESEARCHIMP",
+      "name": "Researcher (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "act_on_facts",
+          "moment": "check",
+          "applies_to": [
+            {
+              "scope": "group",
+              "value": "knowledge"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:RESEARCHIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 160,
+            "hash": "1aca8113de14"
+          }
+        }
+      ]
+    },
+    "respec_researchsup": {
+      "id": "respec_researchsup",
+      "_source_key": "RESEARCHSUP",
+      "name": "Researcher (Supreme)",
+      "description": "Once per encounter, the character may spend a Destiny Point to make a Knowledge check as an incidental.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_sageadvice": {
+      "id": "respec_sageadvice",
+      "_source_key": "SAGEADVICE",
+      "name": "Sage Advice",
+      "description": "Once per encounter, the character may make an Average ([DI][DI]) Charm check. On success, reduce the difficulty of the next check made by an ally within medium range once.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_savvy": {
+      "id": "respec_savvy",
+      "_source_key": "SAVVY",
+      "name": "Savvy",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "charm"
+            },
+            {
+              "scope": "skill",
+              "value": "negotiation"
+            }
+          ],
+          "cite": {
+            "book": "collapse_of_the_republic",
+            "page": 43
+          },
+          "words": {
+            "start": 0,
+            "end": 84,
+            "hash": "e314dd8988ef"
+          }
+        }
+      ],
+      "same_as": "savvy"
+    },
+    "respec_scapegoat": {
+      "id": "respec_scapegoat",
+      "_source_key": "SCAPEGOAT",
+      "name": "Scapegoat",
+      "description": "Once per session after making a social check, spend a Destiny Point to remove [DE], or [TH] equal to the character's ranks of Deception from the results. If the character has implicated a present character, they add the removed symbols to their next check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "scapegoat",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SCAPEGOAT"
+          },
+          "words": {
+            "start": 0,
+            "end": 256,
+            "hash": "4e0484aaae25"
+          }
+        }
+      ]
+    },
+    "respec_scrappy": {
+      "id": "respec_scrappy",
+      "_source_key": "SCRAPPY",
+      "name": "Scrappy",
+      "description": "Remove [SE] per rank of Scrappy from Skullduggery and Survival checks.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "remove_setback",
+          "die": "setback",
+          "direction": "remove",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "skulduggery"
+            },
+            {
+              "scope": "skill",
+              "value": "survival"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SCRAPPY"
+          },
+          "words": {
+            "start": 0,
+            "end": 70,
+            "hash": "18c2f20b1c4c"
+          }
+        }
+      ]
+    },
+    "respec_scruffy": {
+      "id": "respec_scruffy",
+      "_source_key": "SCRUFFY",
+      "name": "Scruffy",
+      "description": "Add [BO] to Athletics and Resilience checks the character makes per ranks of Scruffy.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "pool_mods": [
+        {
+          "id": "add_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1,
+          "per_rank": true,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "athletics"
+            },
+            {
+              "scope": "skill",
+              "value": "resilience"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SCRUFFY"
+          },
+          "words": {
+            "start": 0,
+            "end": 85,
+            "hash": "16a71ff0110e"
+          }
+        }
+      ]
+    },
+    "respec_settone": {
+      "id": "respec_settone",
+      "_source_key": "SETTONE",
+      "name": "Set The Tone",
+      "description": "Once per encounter, make a Hard ([DI][DI][DI]) Negotiation check, and choose two social skills. Decrease the difficulty (minimum Easy ([DI])) of all checks made by others using the first and increase those using the second this encounter.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "set_the_tone",
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SETTONE"
+          },
+          "words": {
+            "start": 0,
+            "end": 238,
+            "hash": "87aa9636ce5c"
+          }
+        }
+      ]
+    },
+    "respec_silenttake": {
+      "id": "respec_silenttake",
+      "_source_key": "SILENTTAKE",
+      "name": "Silent Takedown",
+      "description": "When the character incapacitates a foe with an attack, they may suffer 2 strain to do so silently and immediately conceal the evidence of the attack, per GM discretion. A character must make an opposed Vigilance vs Stealth check to discover the attack.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "silent_takedown",
+          "cost": {
+            "strain": 2
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SILENTTAKE"
+          },
+          "words": {
+            "start": 0,
+            "end": 252,
+            "hash": "358c656a9f2a"
+          }
+        }
+      ]
+    },
+    "respec_skilledteach": {
+      "id": "respec_skilledteach",
+      "_source_key": "SKILLEDTEACH",
+      "name": "Skilled Teacher",
+      "description": "",
+      "ranked": true,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "skilled_teacher",
+          "cite": {
+            "book": "disciples_of_harmony",
+            "page": 30
+          },
+          "words": {
+            "start": 0,
+            "end": 253,
+            "hash": "0adab8ca4bc8"
+          }
+        }
+      ]
+    },
+    "respec_slytooka": {
+      "id": "respec_slytooka",
+      "_source_key": "SLYTOOKA",
+      "name": "Sly As A Tooka",
+      "description": "Once per encounter when making a Charm or Negotiation skill check, the character may use Cunning instead.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "effects": [
+        {
+          "id": "skill_characteristic",
+          "op": "skill_characteristic",
+          "skills": [
+            "charm",
+            "negotiation"
+          ],
+          "to": "cunning",
+          "limit": "once_per_encounter",
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SLYTOOKA"
+          },
+          "words": {
+            "start": 0,
+            "end": 105,
+            "hash": "3a2a6f5d5fd0"
+          }
+        }
+      ]
+    },
+    "respec_soothimp": {
+      "id": "respec_soothimp",
+      "_source_key": "SOOTHIMP",
+      "name": "Soothing Presence (Improved)",
+      "description": "The character may spend [FP] on strain recovery checks to have the character or the chosen ally recover one wound. [FP] generated from [DA] inflicts strain on all healed allies.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_soothingpresence": {
+      "id": "respec_soothingpresence",
+      "_source_key": "SOOTHINGPRESENCE",
+      "name": "Soothing Presence",
+      "description": "May add [FO] no greater than Force rating to checks to recover strain. Spend [LI] to heal or have target ally recover 1 strain.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_soothsup": {
+      "id": "respec_soothsup",
+      "_source_key": "SOOTHSUP",
+      "name": "Soothing Presence (Supreme)",
+      "description": "When the character spends [FP] to heal an ally’s wounds and/or strain during strain recovery checks effects, they heal a number of allies equal to their Willpower instead. Once per session, per GM discretion, the character may spend [FP][FP][FP] to reduce the current amount of conflict being suffered by all affected allies by 1.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_soothtone": {
+      "id": "respec_soothtone",
+      "_source_key": "SOOTHTONE",
+      "name": "Soothing Tone",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "soothing_tone",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SOOTHTONE"
+          },
+          "words": {
+            "start": 0,
+            "end": 132,
+            "hash": "6a0ea1b69003"
+          }
+        }
+      ]
+    },
+    "respec_spicelife": {
+      "id": "respec_spicelife",
+      "_source_key": "SPICELIFE",
+      "name": "Spice of Life",
+      "description": "Once per round per character, the character or an ally under the influence of drugs created or supplied by the character may suffer 2 strain as an incidental to add [SU] to their next check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "spice_of_life",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SPICELIFE"
+          },
+          "words": {
+            "start": 0,
+            "end": 190,
+            "hash": "2447d4568e96"
+          }
+        }
+      ]
+    },
+    "respec_spicelifeimp": {
+      "id": "respec_spicelifeimp",
+      "_source_key": "SPICELIFEIMP",
+      "name": "Spice of Life (Improved)",
+      "description": "Once per session, a character under the influence of the character's drugs may suffer 2 strain and upgrade the difficulty of the check once to add [TR] instead.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "spice_of_life_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SPICELIFEIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 160,
+            "hash": "c359eca3341b"
+          }
+        }
+      ]
+    },
+    "respec_spur": {
+      "id": "respec_spur",
+      "_source_key": "SPUR",
+      "name": "Spur",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "spur",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SPUR"
+          },
+          "words": {
+            "start": 0,
+            "end": 156,
+            "hash": "d5e8db413667"
+          }
+        }
+      ]
+    },
+    "respec_starsalign": {
+      "id": "respec_starsalign",
+      "_source_key": "STARSALIGN",
+      "name": "The Stars Align",
+      "description": "Once per encounter as a maneuver, the character may commit one or more [FO]. On a later turn, the character may uncommit one or more [FO] committed this way to add [SU], [AD][AD], [LI], or [DA] for each [FO] uncommitted to a check made by an ally within medium range.",
+      "ranked": false,
+      "activation": "maneuver",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_starsalignimp": {
+      "id": "respec_starsalignimp",
+      "_source_key": "STARSALIGNIMP",
+      "name": "The Stars Align (Improved)",
+      "description": "When uncommitting [FO] committed to The Stars Align, may uncommit [FO][FO][FO] to add [TR] to an allied check.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_stimap": {
+      "id": "respec_stimap",
+      "_source_key": "STIMAP",
+      "name": "Stim Application",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "stim_application",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STIMAP"
+          },
+          "words": {
+            "start": 0,
+            "end": 193,
+            "hash": "616ea6ca4506"
+          }
+        }
+      ]
+    },
+    "respec_stimspec": {
+      "id": "respec_stimspec",
+      "_source_key": "STIMSPEC",
+      "name": "Stimpack Specialization",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "stimpack_specialization",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STIMSPEC"
+          },
+          "words": {
+            "start": 0,
+            "end": 70,
+            "hash": "00577a7649e9"
+          }
+        }
+      ]
+    },
+    "respec_strfleimp": {
+      "id": "respec_strfleimp",
+      "_source_key": "STRFLEIMP",
+      "name": "Stronger Than Flesh (Improved)",
+      "description": "Stronger Than Flesh may also be used to avoid crits of [DI][DI][DI] or [DI][DI][DI][DI] severity.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "stronger_than_flesh_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STRFLEIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 97,
+            "hash": "6277a79abe0d"
+          }
+        }
+      ]
+    },
+    "respec_strflesup": {
+      "id": "respec_strflesup",
+      "_source_key": "STRFLESUP",
+      "name": "Stronger Than Flesh (Supreme)",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "stronger_than_flesh_supreme",
+          "cost": {
+            "destiny": 1
+          },
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STRFLESUP"
+          },
+          "words": {
+            "start": 0,
+            "end": 192,
+            "hash": "43e94acb35d1"
+          }
+        }
+      ]
+    },
+    "respec_strofles": {
+      "id": "respec_strofles",
+      "_source_key": "STROFLES",
+      "name": "Stronger Than Flesh",
+      "description": "Once per encounter, may avoid suffering a [DI] or [DI][DI]  severity critical injury by having an installed cybernetic immediately malfunction. It provides no benefit until the character spends several hours making an Average ([DI][DI]) Mechanics check to repair it.",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "stronger_than_flesh",
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STROFLES"
+          },
+          "words": {
+            "start": 0,
+            "end": 266,
+            "hash": "f1e86a0886ba"
+          }
+        }
+      ]
+    },
+    "respec_strsmartimp": {
+      "id": "respec_strsmartimp",
+      "_source_key": "STRSMARTIMP",
+      "name": "Street Smarts (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "street_smarts_improved",
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STRSMARTIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 235,
+            "hash": "73e22496aacf"
+          }
+        }
+      ]
+    },
+    "respec_stubbornbantha": {
+      "id": "respec_stubbornbantha",
+      "_source_key": "STUBBORNBANTHA",
+      "name": "Stubbon Like A Bantha",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "stubbon_like_a_bantha",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:STUBBORNBANTHA"
+          },
+          "words": {
+            "start": 0,
+            "end": 288,
+            "hash": "c2710956c277"
+          }
+        }
+      ]
+    },
+    "respec_suavesoph": {
+      "id": "respec_suavesoph",
+      "_source_key": "SUAVESOPH",
+      "name": "Suave And Sophisticated",
+      "description": "May suffer 2 strain to make a Deception check with Presence instead of Cunning.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "effects": [
+        {
+          "id": "skill_characteristic",
+          "op": "skill_characteristic",
+          "skills": [
+            "deception"
+          ],
+          "to": "presence",
+          "cost": {
+            "strain": 2
+          },
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SUAVESOPH"
+          },
+          "words": {
+            "start": 0,
+            "end": 79,
+            "hash": "98af651a3e56"
+          }
+        }
+      ]
+    },
+    "respec_synth": {
+      "id": "respec_synth",
+      "_source_key": "SYNTH",
+      "name": "Synthesis*",
+      "description": "Once per encounter, may make a Hard ([DI][DI][DI]) Medicine check to create a chemical equivalent to any medical supply or chemical compound with a rarity of Intellect + [SU] or lower. The character may spend [AD][AD] to create an additional unit per [AD][AD] spent.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "synthesis",
+          "limit": "once_per_encounter",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:SYNTH"
+          },
+          "words": {
+            "start": 0,
+            "end": 266,
+            "hash": "4fefb82c01fa"
+          }
+        }
+      ]
+    },
+    "respec_theycantrefuse": {
+      "id": "respec_theycantrefuse",
+      "_source_key": "THEYCANTREFUSE",
+      "name": "...They Can't Refuse",
+      "description": "Once per session, before making a social check, suffer 3 strain to substitute Coercion instead of the required skill. On success, add [DE] to a target’s next check.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "effects": [
+        {
+          "id": "skill_substitute",
+          "op": "skill_substitute",
+          "skills": [
+            "charm",
+            "deception",
+            "leadership",
+            "negotiation"
+          ],
+          "use": [
+            "coercion"
+          ],
+          "cost": {
+            "strain": 3
+          },
+          "limit": "once_per_session",
+          "applies": "reminder",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:THEYCANTREFUSE"
+          },
+          "words": {
+            "start": 0,
+            "end": 164,
+            "hash": "0e4ec877ef7a"
+          }
+        }
+      ]
+    },
+    "respec_tradeinsecrets": {
+      "id": "respec_tradeinsecrets",
+      "_source_key": "TRADEINSECRETS",
+      "name": "Trade In Secrets",
+      "description": "When purchasing goods or services, the character may offer information they possess to be traded in addition to glass, adding a number of [BO] to the check based on the nature and value of the information, per GM discretion. [AD][AD][AD][AD] or [TR] may be spent to establish information of equal value being given to the character at no cost.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "trade_in_secrets",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:TRADEINSECRETS"
+          },
+          "words": {
+            "start": 0,
+            "end": 343,
+            "hash": "0d7b0593d7b8"
+          }
+        }
+      ]
+    },
+    "respec_unarmedblock": {
+      "id": "respec_unarmedblock",
+      "_source_key": "UNARMEDBLOCK",
+      "name": "Unarmed Block",
+      "description": "May Block while unarmed. Reduce strain cost to Block while unarmed by 1 (to a minimum of 1).",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "unarmed_block",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:UNARMEDBLOCK"
+          },
+          "words": {
+            "start": 0,
+            "end": 92,
+            "hash": "f253f8755521"
+          }
+        }
+      ]
+    },
+    "respec_unarmedblockimp": {
+      "id": "respec_unarmedblockimp",
+      "_source_key": "UNARMEDBLOCKIMP",
+      "name": "Unarmed Block (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "unarmed_block_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:UNARMEDBLOCKIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 125,
+            "hash": "4276bb0adf61"
+          }
+        }
+      ]
+    },
+    "respec_unconventsol": {
+      "id": "respec_unconventsol",
+      "_source_key": "UNCONVENTSOL",
+      "name": "Unconventional Solution",
+      "description": "Once per session as a maneuver, choose a skill and make an Average ([DI][DI]) Knowledge (Education) check. The character may substitute a different characteristic when making checks using that skill this encounter.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_unconventsolimp": {
+      "id": "respec_unconventsolimp",
+      "_source_key": "UNCONVENTSOLIMP",
+      "name": "Unconventional Solution (Improved)",
+      "description": "When performing the Unconventional Solution maneuver, an ally within medium range may also substitute a characteristic for skill of their choosing, and may choose a different characteristic for that skill.",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_universeimp": {
+      "id": "respec_universeimp",
+      "_source_key": "UNIVERSEIMP",
+      "name": "One With The Universe (Improved)",
+      "description": "Spend [AD][AD][AD] or [TR] from One With The Universe to add [SU] to each combined Force check the character makes this encounter.",
+      "ranked": false,
+      "activation": "passive",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_universesup": {
+      "id": "respec_universesup",
+      "_source_key": "UNIVERSESUP",
+      "name": "One With The Universe (Supreme)",
+      "description": "Once per session, the character may suffer strain up to their ranks of Astrogation to treat that many [DA] as if they were [LI], or that many [LI] as if they were [DA].",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_unnaturalreflexes": {
+      "id": "respec_unnaturalreflexes",
+      "_source_key": "UNNATURALREFLEXES",
+      "name": "Unnatural Reflexes",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental_out_of_turn",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "unnatural_reflexes",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:UNNATURALREFLEXES"
+          },
+          "words": {
+            "start": 0,
+            "end": 201,
+            "hash": "65a47e2dba3d"
+          }
+        }
+      ]
+    },
+    "respec_unquauth": {
+      "id": "respec_unquauth",
+      "_source_key": "UNQUAUTH",
+      "name": "Unquestioned Authority",
+      "description": "Remove [SE] from Coercion and Leadership checks equal to ranks of Unquestioned Authority.",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "pool_mods": [
+        {
+          "id": "remove_setback",
+          "die": "setback",
+          "direction": "remove",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "coercion"
+            },
+            {
+              "scope": "skill",
+              "value": "leadership"
+            }
+          ],
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:UNQUAUTH"
+          },
+          "words": {
+            "start": 0,
+            "end": 89,
+            "hash": "4225e24f67c1"
+          }
+        }
+      ]
+    },
+    "respec_usertalent3": {
+      "id": "respec_usertalent3",
+      "_source_key": "USERTALENT3",
+      "name": "Tools of the Tradecraft",
+      "description": "The character may spend a Destiny Point, upon doing so they may declare that an item in their possession has a secret secondary use or feature. Players and GMs are encouraged to treat this like a Gear Attachment as per page 58 of Cyphers and Masks, but GM has final say on the device and its usage. The item doesn’t need to be an actual declared item but could be something they would have on them like a chronometer. If secondary use is as a weapon, it counts as an improvised weapon.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      },
+      "told": [
+        {
+          "id": "tools_of_the_tradecraft",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:USERTALENT3"
+          },
+          "words": {
+            "start": 0,
+            "end": 485,
+            "hash": "b6ecb2b271b8"
+          }
+        }
+      ]
+    },
+    "respec_valfact": {
+      "id": "respec_valfact",
+      "_source_key": "VALFACT",
+      "name": "Valuable Facts",
+      "description": "",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "valuable_facts",
+          "limit": "once_per_encounter",
+          "cite": {
+            "book": "desperate_allies",
+            "page": 34
+          },
+          "words": {
+            "start": 0,
+            "end": 269,
+            "hash": "ea5352857b8b"
+          }
+        }
+      ]
+    },
+    "respec_veiledthreats": {
+      "id": "respec_veiledthreats",
+      "_source_key": "VEILEDTHREATS",
+      "name": "Veiled Threats",
+      "description": "Make a Hard ([DI][DI][DI]) Coercion or Deception check to upgrade the difficulty of the next check made by foes equal to Cunning. Spend [TR] to upgrade one of those foe's checks once for the rest of the encounter instead.",
+      "ranked": false,
+      "activation": "action",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "veiled_threats",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:VEILEDTHREATS"
+          },
+          "words": {
+            "start": 0,
+            "end": 221,
+            "hash": "d5ab473fa865"
+          }
+        }
+      ]
+    },
+    "respec_vitalforce": {
+      "id": "respec_vitalforce",
+      "_source_key": "VITALFORCE",
+      "name": "Vital Force",
+      "description": "Once per session when an ally within medium range exceeds wound threshold, may make a Daunting ([DI][DI][DI][DI]) Medicine check. The target recovers wounds equal to [SU]. Spend [AD][AD] or [TR] to have them not suffer a critical injury.",
+      "ranked": false,
+      "activation": "incidental",
+      "force_talent": true,
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_wellconn": {
+      "id": "respec_wellconn",
+      "_source_key": "WELLCONN",
+      "name": "Well-Connected",
+      "description": "Once per Session, the character may reveal a contact who can provide access to a person, location, or resource. When the character does this, they must explain how they know this contact and what their connection is to the desired person, location, or resource. They should be open to helping the players, but the Game Master determines their potential cost, in credits, material, labor, informal promises of future favors, or formal Obligation.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "well_connected",
+          "limit": "once_per_session",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WELLCONN"
+          },
+          "words": {
+            "start": 0,
+            "end": 445,
+            "hash": "61b8fbc9fe85"
+          }
+        }
+      ]
+    },
+    "respec_wellroundimp": {
+      "id": "respec_wellroundimp",
+      "_source_key": "WELLROUNDIMP",
+      "name": "Well Rounded (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "_attribution": {
+        "dataset": "reSpecialized Project",
+        "source_field": "User Data",
+        "tree_required": true
+      }
+    },
+    "respec_whe_deaimp": {
+      "id": "respec_whe_deaimp",
+      "_source_key": "WHE&DEAIMP",
+      "name": "Wheel & Deal (Improved)",
+      "description": "",
+      "ranked": false,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "wheel_and_deal_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WHE&DEAIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 204,
+            "hash": "225ec639c09a"
+          }
+        }
+      ]
+    },
+    "respec_wheel": {
+      "id": "respec_wheel",
+      "_source_key": "WHEEL",
+      "name": "Wheel and Deal",
+      "description": "",
+      "ranked": true,
+      "activation": "passive",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "wheel_and_deal",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WHEEL"
+          },
+          "words": {
+            "start": 0,
+            "end": 76,
+            "hash": "7698b2c865bb"
+          }
+        }
+      ]
+    },
+    "respec_willbreaker": {
+      "id": "respec_willbreaker",
+      "_source_key": "WILLBREAKER",
+      "name": "Willbreaker",
+      "description": "Spend [AD][AD][AD] or [TR] from melee attacks or Coercion checks to reduce a target’s Willpower by 1 until the end of the encounter (to a minimum of 1). Spend an additional [TR] to reduce it by two instead.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "willbreaker",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WILLBREAKER"
+          },
+          "words": {
+            "start": 0,
+            "end": 206,
+            "hash": "6e92b2428fb1"
+          }
+        }
+      ]
+    },
+    "respec_willbreakerimp": {
+      "id": "respec_willbreakerimp",
+      "_source_key": "WILLBREAKERIMP",
+      "name": "Willbreaker (Improved)",
+      "description": "Once per encounter, if Willbreaker would affect a foe already at 1 Willpower, spend a Destiny point to incapacitate them.",
+      "ranked": false,
+      "activation": "incidental",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "willbreaker_improved",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WILLBREAKERIMP"
+          },
+          "words": {
+            "start": 0,
+            "end": 121,
+            "hash": "4cd25bbf8333"
+          }
+        }
+      ]
+    },
+    "respec_wrangle": {
+      "id": "respec_wrangle",
+      "_source_key": "WRANGLE",
+      "name": "Wrangle",
+      "description": "Once per round, the character may suffer strain up to ranks in Athletics and perform the Wrangle maneuver. An animal or foe within short range adds [SE] equal to strain suffered to their next action and treats their surroundings as difficult terrain until the character’s next turn. [TH][TH] from checks made by the wrangled foe while wrangled may be spent to knock the foe prone, and [TH][TH][TH] or [DE] may be spent to Immobilize them for rounds equal to the character's ranks of Athletics. The character must have rope or a similarly-functioning item or short-range melee weapon to perform the Wrangle maneuver.",
+      "ranked": false,
+      "activation": "maneuver",
+      "sources": [],
+      "_provenance": "respecialized",
+      "told": [
+        {
+          "id": "wrangle",
+          "limit": "once_per_round",
+          "cite": {
+            "unprinted": "pack",
+            "from": "respecialized@fad-v1:WRANGLE"
+          },
+          "words": {
+            "start": 0,
+            "end": 615,
+            "hash": "5cff5653468b"
+          }
+        }
+      ]
+    }
+  }
+}

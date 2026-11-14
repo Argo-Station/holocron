@@ -1,0 +1,192 @@
+{
+  "_meta": {
+    "description": "NPC library landing arrangement (drawers + curated shelves) — UI PRESENTATION config, extracted verbatim from npc-library/taxonomy.json landing_layout at world-links-3 (D-WL6: layout is not vocabulary). App-owned; edit by hand.",
+    "source": "npc-library/taxonomy.json (extraction 2026-06-10)"
+  },
+  "_note": "Single interleaved list of drawer + shelf entries for the NPC Library landing. Each entry has display_order, kind ('drawer'|'shelf'), and a flavor line in Reference Voice. Drawers point at a tree node; shelves carry a membership rule. No tier gate — all tiers combined; tier filtering happens on the NPC list screen via pill filters.",
+  "entries": [
+    {
+      "display_order": 1,
+      "kind": "drawer",
+      "tree_node_id": "galactic_empire",
+      "flavor": "Centralized galactic government operating through overlapping military, intelligence, and political branches. Regional governors maintain territorial control. Stormtrooper legions serve as primary enforcement."
+    },
+    {
+      "display_order": 2,
+      "kind": "drawer",
+      "tree_node_id": "rebel_alliance",
+      "flavor": "Military and political resistance organization. Alliance Civil Government and Alliance Military operate under joint command. Cell-structured for operational security. Resources drawn from sympathetic systems."
+    },
+    {
+      "display_order": 4,
+      "kind": "drawer",
+      "tree_node_id": "criminal_underworld",
+      "flavor": "Decentralized network of syndicates, guilds, and independent operators spanning the Outer and Mid Rim. Loyalties are contractual. Power structures shift with trade routes and enforcement pressure."
+    },
+    {
+      "display_order": 5,
+      "kind": "drawer",
+      "tree_node_id": "force_traditions",
+      "flavor": "Force-sensitive individuals and organizations operating outside both Jedi and Sith orthodoxy. Includes Imperial-era Jedi survivors, independent adepts, and pre-Republic mystic traditions."
+    },
+    {
+      "display_order": 7,
+      "kind": "drawer",
+      "tree_node_id": "galactic_republic",
+      "flavor": "Clone Wars-era central government and its military apparatus. Grand Army of the Republic composed of clone units under Jedi command. Senate maintained legislative authority throughout the conflict."
+    },
+    {
+      "display_order": 8,
+      "kind": "drawer",
+      "tree_node_id": "separatist_alliance",
+      "flavor": "Confederacy of Independent Systems. Corporate-backed military coalition fielding droid armies at industrial scale. Trade Federation, Techno Union, and Commerce Guild provided primary funding and manufacturing."
+    },
+    {
+      "display_order": 10,
+      "kind": "drawer",
+      "tree_node_id": "mandalorian_clans",
+      "flavor": "Warrior culture organized into independent clans. No central government since the fall of Sundari. Clan allegiances determine operational alignment. Combat training begins in childhood."
+    },
+    {
+      "display_order": 11,
+      "kind": "drawer",
+      "tree_node_id": "shadow_collective",
+      "flavor": "Criminal and military coalition assembled under Maul. Incorporated Death Watch, Black Sun, Pyke Syndicate, and Nightbrother forces. Centralized around a single command authority."
+    },
+    {
+      "display_order": 13,
+      "kind": "drawer",
+      "tree_node_id": "dathomir_witches",
+      "flavor": "Force-wielding matriarchal clans native to Dathomir. Nightsister covens practice magick distinct from both Jedi and Sith traditions. Territorial. Operate primarily on and around Dathomir."
+    },
+    {
+      "display_order": 14,
+      "kind": "drawer",
+      "tree_node_id": "local_powers",
+      "flavor": "Planetary governments, sector law enforcement, and corporate security forces. Jurisdiction is local. Authority structures vary by system. Includes CorSec, SoroSuub, Corporate Sector Authority, and independent movements."
+    },
+    {
+      "display_order": 16,
+      "kind": "drawer",
+      "tree_node_id": "high_republic",
+      "flavor": "Pre-Clone Wars era. Republic expansion period. Threats include Nihil raider fleets and emergent dark-side entities predating the Sith resurgence."
+    },
+    {
+      "display_order": 17,
+      "kind": "drawer",
+      "tree_node_id": "sequel_era",
+      "flavor": "Post-Endor period. The First Order rebuilt Imperial military capacity from the Unknown Regions. The Resistance operates as an unsanctioned paramilitary opposing First Order expansion."
+    },
+    {
+      "display_order": 19,
+      "kind": "drawer",
+      "tree_node_id": "civilians_unaligned",
+      "flavor": "Non-combatant galactic population. Includes senators, diplomats, bureaucrats, merchants, workers, entertainers, and independent professionals. No factional military allegiance."
+    },
+    {
+      "display_order": 20,
+      "kind": "drawer",
+      "tree_node_id": "sapient_natives",
+      "flavor": "Indigenous sentient species encountered on their home territories. Includes Tuskens, Jawas, Ewoks, Felucians, Talz, Geonosians, and others. Social structures and threat posture vary by species."
+    },
+    {
+      "display_order": 22,
+      "kind": "drawer",
+      "tree_node_id": "wildlife_creatures",
+      "flavor": "Non-sentient fauna across surveyed systems. Ranges from domesticated mounts to apex predators. Threat level determined by species, territory, and provocation."
+    },
+    {
+      "display_order": 23,
+      "kind": "drawer",
+      "tree_node_id": "droids_standalone",
+      "flavor": "Unaffiliated mechanical units. Protocol, astromech, labor, medical, combat, and specialty models. Capabilities determined by manufacturer series and modification history."
+    }
+  ],
+  "faction_features": {
+    "galactic_empire": [
+      "GRAND_ADMIRAL_THRAWN",
+      "GRAND_MOFF_TARKIN",
+      "COMMANDER_ORSON_KRENNIC",
+      "GENERAL_VEERS",
+      "GOVERNOR_PRYCE",
+      "AGENT_KALLUS",
+      "GRAND_INQUISITOR",
+      "DARTH_VADER",
+      "EMPEROR_PALPATINE",
+      "GALL_TRAYVIS",
+      "ADMIRAL_KONSTANTINE"
+    ],
+    "rebel_alliance": [
+      "LUKE_SKYWALKER",
+      "LEIA_ORGANA",
+      "HAN_SOLO",
+      "CHEWBACCA",
+      "CASSIAN_ANDOR",
+      "JYN_ERSO",
+      "ADMIRAL_ACKBAR",
+      "MON_MOTHMA",
+      "BAIL_ORGANA"
+    ],
+    "force_traditions": [
+      "OBIWAN_KENOBI",
+      "YODA",
+      "MACE_WINDU",
+      "ANAKIN_SKYWALKER",
+      "AHSOKA_TANO",
+      "AAYLA_SECURA",
+      "COUNT_DOOKU",
+      "ASAJJ_VENTRESS"
+    ],
+    "criminal_underworld": [
+      "BOBA_FETT",
+      "BOSSK",
+      "CAD_BANE",
+      "DENGAR",
+      "AURRA_SING",
+      "BLACK_KRRSANTAN",
+      "DOCTOR_APHRA",
+      "000",
+      "BT1"
+    ],
+    "separatist_alliance": [
+      "GENERAL_GRIEVOUS",
+      "COUNT_DOOKU",
+      "ADMIRAL_TRENCH",
+      "WAT_TAMBOR",
+      "POGGLE_THE_LESSER",
+      "IG100_MAGNAGUARD"
+    ],
+    "galactic_republic": [
+      "CAPTAIN_REX",
+      "COMMANDER_CODY",
+      "ADMIRAL_YULAREN",
+      "SERGEANT_HUNTER",
+      "TECH",
+      "CROSSHAIR"
+    ],
+    "shadow_collective": [
+      "MAUL",
+      "SAVAGE_OPRESS",
+      "PRE_VIZSLA",
+      "BOKATAN_KRYZE"
+    ],
+    "dathomir_witches": [
+      "MOTHER_TALZIN",
+      "OLD_DAKA"
+    ],
+    "mandalorian_clans": [
+      "FENN_RAU",
+      "CHIEFTAIN_VERA_BEROYA",
+      "NAM_BEROYA"
+    ],
+    "civilians_unaligned": [
+      "DUCHESS_SATINE_KRYZE"
+    ],
+    "inquisitorius": [
+      "GRAND_INQUISITOR",
+      "FIFTH_BROTHER",
+      "SEVENTH_SISTER"
+    ]
+  },
+  "_uxqp29": "themed shelves replaced by per-faction faction_features (Prominent Figures rows); keys override affiliation"
+}

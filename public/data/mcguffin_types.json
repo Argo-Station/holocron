@@ -1,0 +1,93 @@
+{
+  "types": [
+    {
+      "id": "data",
+      "name": "Data",
+      "description": "Information, intelligence, codes, manifests, navigation charts, communications.",
+      "standing_interest": [
+        {"faction_id": "imperial_military", "interest_level": "high", "reason": "The Empire treats unauthorized possession of Imperial data as a capital offense. Recovery and source identification are both priorities."},
+        {"faction_id": "black_sun", "interest_level": "high", "reason": "Information is Black Sun's core product. Any significant data cache has trade or leverage value."},
+        {"faction_id": "hutt_cartel", "interest_level": "moderate", "reason": "Data is leverage. The Hutts want anything that gives them an advantage over trading partners or rivals."}
+      ]
+    },
+    {
+      "id": "artifact",
+      "name": "Artifact",
+      "description": "Force-related objects, ancient items, relics of extinct civilizations, kyber crystals, holocrons.",
+      "standing_interest": [
+        {"faction_id": "imperial_military", "interest_level": "high", "reason": "Standing ISB orders to secure Force artifacts. Local garrison may not know why — orders come from above their clearance."},
+        {"faction_id": "knights_of_ren", "interest_level": "high", "reason": "Force artifacts are their primary mission objective. They will kill for them without hesitation."},
+        {"faction_id": "hutt_cartel", "interest_level": "low", "reason": "No intrinsic interest. Value only as a commodity — something to sell to the highest bidder."},
+        {"faction_id": "black_sun", "interest_level": "moderate", "reason": "Leverage and trade value. Black Sun doesn't understand Force artifacts but knows they're worth something to the right buyer."}
+      ]
+    },
+    {
+      "id": "weapon",
+      "name": "Weapon",
+      "description": "Conventional or exotic armament, prototype weapons, weapons of mass destruction, military hardware.",
+      "standing_interest": [
+        {"faction_id": "imperial_military", "interest_level": "high", "reason": "Unauthorized weapons — especially prototypes or military hardware — are an immediate security concern."},
+        {"faction_id": "hutt_cartel", "interest_level": "moderate", "reason": "Weapons are a commodity. The Hutts move arms as readily as spice."},
+        {"faction_id": "black_sun", "interest_level": "moderate", "reason": "Arms trade is a Black Sun revenue stream. A unique weapon has both use and sale value."}
+      ]
+    },
+    {
+      "id": "resource",
+      "name": "Resource",
+      "description": "Physical commodities — spice, fuel, rare materials, medical supplies, food in quantity.",
+      "standing_interest": [
+        {"faction_id": "hutt_cartel", "interest_level": "high", "reason": "The Hutts control resource flow through their space. Anything moving without their cut is a problem."},
+        {"faction_id": "black_sun", "interest_level": "moderate", "reason": "Commodities can be moved, taxed, or seized. Black Sun takes a percentage of significant resource flows."},
+        {"faction_id": "imperial_military", "interest_level": "low", "reason": "Only relevant if the resource is on a controlled list — spice, weapons-grade materials — or if it belongs to the Empire."}
+      ]
+    },
+    {
+      "id": "person",
+      "name": "Person",
+      "description": "Someone who needs moving, protecting, rescuing, or capturing. A defector, a witness, a fugitive, a specialist.",
+      "standing_interest": [
+        {"faction_id": "imperial_military", "interest_level": "high", "reason": "Defectors, wanted criminals, Force-sensitives — the Empire maintains active target lists. A person with a bounty or a file is a priority."},
+        {"faction_id": "hutt_cartel", "interest_level": "moderate", "reason": "People have bounty value. The Hutts will sell them to whoever pays the most."},
+        {"faction_id": "black_sun", "interest_level": "moderate", "reason": "Leverage, ransom, or sale. A person who knows something is worth more alive."},
+        {"faction_id": "knights_of_ren", "interest_level": "conditional", "reason": "Only relevant if the person is Force-sensitive. Force-sensitives are recruitment targets — the Knights collect, they don't rescue."}
+      ]
+    },
+    {
+      "id": "leverage",
+      "name": "Leverage",
+      "description": "Blackmail material, legal documents, proof of criminal activity, incriminating evidence, contracts.",
+      "standing_interest": [
+        {"faction_id": "black_sun", "interest_level": "high", "reason": "Leverage is Black Sun's native currency. Any blackmail material or incriminating evidence has immediate value."},
+        {"faction_id": "hutt_cartel", "interest_level": "high", "reason": "Hutts run on leverage. Documents that give power over rivals, clients, or the Empire are worth acquiring."},
+        {"faction_id": "imperial_military", "interest_level": "moderate", "reason": "ISB uses leverage routinely. Evidence against Imperial officers or Hutt leadership is a tool, not just a threat."}
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Prototype tech, stolen proprietary systems, advanced droids, experimental equipment.",
+      "standing_interest": [
+        {"faction_id": "imperial_military", "interest_level": "high", "reason": "Stolen Imperial technology is recovered. Non-Imperial prototype technology is acquired. Both are security priorities."},
+        {"faction_id": "black_sun", "interest_level": "moderate", "reason": "Technology has sale value to the right buyer. Black Sun brokers these transactions."},
+        {"faction_id": "hutt_cartel", "interest_level": "low", "reason": "Relevant only if the technology has direct commercial application — shipping, mining, weapons."}
+      ]
+    }
+  ],
+  "origins": [
+    {"id": "imperial", "name": "Imperial", "description": "Stolen from or belonging to the Empire.", "escalation": [{"faction_id": "imperial_military", "effect": "Escalates Imperial interest to HIGH regardless of type. This is their property. Recovery is a standing order."}]},
+    {"id": "criminal", "name": "Criminal", "description": "From criminal underworld — a syndicate, a cartel, an independent operation.", "escalation": [{"faction_id": "hutt_cartel", "effect": "If the criminal origin is Hutt-adjacent, escalates Hutt interest. Something taken from the Hutt network belongs to the Hutts."}, {"faction_id": "black_sun", "effect": "If the criminal origin is Black Sun-adjacent, escalates their interest immediately. They want their property back."}]},
+    {"id": "force", "name": "Force", "description": "Force tradition origin — Jedi, Sith, ancient order, or unknown Force tradition.", "escalation": [{"faction_id": "imperial_military", "effect": "Triggers Inquisitorius involvement if sensitivity reaches 'known'. ISB standing orders cover Force-origin objects."}, {"faction_id": "knights_of_ren", "effect": "Escalates Knights of Ren interest to HIGH regardless of type. Force origin is their primary filter."}]},
+    {"id": "civilian", "name": "Civilian", "description": "Civilian or corporate origin — a business, an individual, a non-faction entity.", "escalation": []},
+    {"id": "ancient", "name": "Ancient", "description": "Predates current factions — pre-Republic, extinct civilization, unknown manufacture.", "escalation": [{"faction_id": "knights_of_ren", "effect": "Ancient objects frequently have Force significance. Escalates Knights of Ren interest to HIGH."}, {"faction_id": "imperial_military", "effect": "Ancient artifacts of unknown origin trigger ISB standing orders for containment."}]}
+  ],
+  "sensitivities": [
+    {"id": "unknown", "name": "Unknown", "description": "Only the players know they have it. No faction is aware yet.", "galaxy_alert": []},
+    {"id": "rumored", "name": "Rumored", "description": "Word is starting to spread. Information brokers are hearing things.", "galaxy_alert": [{"faction_id": "black_sun", "effect": "Black Sun intelligence networks pick up rumors faster than anyone. They're aware something exists but not what."}]},
+    {"id": "known", "name": "Known", "description": "Multiple factions are aware. Active intelligence operations are underway.", "galaxy_alert": [{"faction_id": "black_sun", "effect": "Full awareness. Active operation to acquire or monitor."}, {"faction_id": "imperial_military", "effect": "If McGuffin is Imperial origin or Force origin, a response has been dispatched. Clock is running."}]},
+    {"id": "contested", "name": "Contested", "description": "Active competition underway. Multiple factions are moving simultaneously.", "galaxy_alert": [{"faction_id": "black_sun", "effect": "Full operation. Multiple assets deployed."}, {"faction_id": "imperial_military", "effect": "Active pursuit. Garrison on planet is on alert."}, {"faction_id": "hutt_cartel", "effect": "The Hutts have entered the bidding or the hunt, depending on the McGuffin type."}]}
+  ],
+  "galaxy_faction_interest": [
+    {"faction_id": "imperial_military", "dispatch_trigger": "If McGuffin is Imperial origin at 'known' sensitivity OR Force origin at 'known' sensitivity — an off-planet response has been dispatched.", "dispatch_clock": "1-3 sessions depending on Imperial intelligence reach in this region.", "dispatch_type": "Inquisitor (Force origin) or ISB investigation team (Imperial origin)"},
+    {"faction_id": "knights_of_ren", "dispatch_trigger": "If McGuffin is Force origin or Ancient origin at any sensitivity above 'unknown' — a Knight has been dispatched or is already present.", "dispatch_clock": "Unknown. They may already be here.", "dispatch_type": "Single Knight operative, rotating identity"}
+  ]
+}

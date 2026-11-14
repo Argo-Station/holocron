@@ -1,0 +1,476 @@
+{
+  "id": "moraband",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Moraband",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Esstran sector (Stygian Caldera)",
+    "system": "Horuset",
+    "grid": "R-5",
+    "era": "galactic_civil_war",
+    "essence": "Moraband is a world consecrated to death. The ancient homeworld of the Sith, known to them as Korriban, it served as both capital and necropolis for an empire that predates the Republic's earliest records. Fallen Jedi exiled from the Republic crash-landed here, subjugated the red-skinned Sith species, and bred a civilization of dark side sorcery that repeatedly brought the galaxy to the brink of annihilation. Repeated wars with the Jedi Order scoured the surface of all life, leaving behind an arid waste of canyons, crumbling monuments, and booby-trapped crypts. The planet is saturated in the dark side of the Force so completely that it constitutes a vergence of extraordinary power. Sith-spawned predators — tuk'ata hounds, terentatek, and shyracks — are the only inhabitants. The dead Sith Lords, sealed in their sarcophagi with their most prized possessions, are said to haunt their own catacombs. The Empire may have found and blockaded Moraband, but only the marooned and the insane remain on its surface.",
+    "atmosphere": "A dull, rust-colored sky above a barren landscape of eroded mountains, deep canyons, and wind-scoured rock. Dust devils twist through the Valley of the Dark Lords, where colossal stone effigies of long-dead Sith kings stare down from canyon walls. The air is dry and thin, carrying a faint metallic taste. Ancient stone structures — crypts, monuments, collapsed temples — break the monotony of bare rock in every direction. The ruins of Dreshdae cling to a cliff face near the old academy, windows dark, landing pads cracked and empty. Deep in the shyrack caves, the shriek of bat-like creatures echoes endlessly. The Force here is a physical weight on the chest, a persistent whisper at the edge of hearing, a chill that has nothing to do with temperature.",
+    "reputation": "Moraband is a name spoken in fearful whispers by those few who know it at all. To most of the galaxy, it is a myth — the Sith homeworld from ancient parables, a boogeyman planet used to frighten younglings. To scholars of the Force, it is the most dangerous place in the galaxy: a world where the dark side is so concentrated that even paragons of the light may be corrupted simply by walking its surface. The Empire's possible blockade of the Stygian Caldera has only deepened the mystery. Those who seek Moraband are either treasure hunters chasing priceless Sith artifacts, dark side acolytes on pilgrimage, or Inquisitors sent by the Emperor. None of them should expect to return unchanged."
+  },
+  "compendium": {
+    "background": "",
+    "government": "none",
+    "population": "",
+    "languages": "Basic, Sith",
+    "terrain": "mountains, canyons, ruins",
+    "major_cities": "Dreshdae ruins",
+    "areas_of_interest": "",
+    "exports": "Sith artifacts",
+    "imports": "Foodstuffs",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "old_republic",
+      "delta": "During the era of the Old Republic, Moraband (then called Korriban) served as an active capital and seat of power for successive Sith Empires. The Sith Academy was operational, training dark side adepts under the oversight of the Dark Council. Dreshdae was a functioning spaceport settlement supplying the academy. Darth Revan and Darth Malak seized Korriban as the traditional Sith homeworld when they established their Sith Empire. The Valley of the Dark Lords was actively maintained and expanded as new Sith Lords were entombed there."
+    },
+    {
+      "era": "clone_wars",
+      "delta": "By the Clone Wars, Moraband had long been abandoned by the living Sith. Jedi Master Yoda traveled to Moraband during the final days of the Clone Wars, guided by the Force, and confronted visions of the dark side within the planet's tombs. The world remained uninhabited except by Sith-spawned creatures."
+    }
+  ],
+  "geography": {
+    "structure_type": "barren_ruin",
+    "structure_notes": "An arid, lifeless world of eroded mountain ranges, deep winding canyons, and vast cavern systems. The surface was blasted of life through repeated orbital bombardment during ancient Sith-Jedi wars. No vegetation remains. All structures are ruins — tombs, monuments, temples, and the remnants of the Sith Academy and Dreshdae spaceport. The primary geological features are the canyon systems that house the burial valleys of the Sith Lords.",
+    "districts": []
+  },
+  "species": [],
+  "factions": [
+    {
+      "id": "inquisitorius_presence",
+      "name": "Imperial Inquisitorius (possible presence)",
+      "type": "imperial_agency",
+      "hq_district_id": null,
+      "leader": null,
+      "description": "",
+      "attitude_toward_players": "hostile",
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 367,
+          "detail": "Empire may have found, explored, and blockaded worlds within the Stygian Caldera including Moraband"
+        },
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 422,
+          "detail": "The Inquisitorius — general description and purpose"
+        },
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "page": 351,
+          "detail": "Citadel Inquisitorius on Prakith, training ground for Inquisitors"
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "valley_of_the_dark_lords",
+      "name": "Valley of the Dark Lords (Valley of the Sleeping Kings)",
+      "district_id": null,
+      "type": [
+        "force_vergence",
+        "tomb_complex",
+        "archaeological"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls this location. The valley is abandoned and guarded only by Sith-spawned creatures, ancient traps, and the dark side spirits said to haunt the crypts.",
+      "strategic_value": "",
+      "vergence_rules": null,
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "role": "Tuk'ata Hound pack",
+          "archetype_ref": "tuk_ata",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": "Sith-spawned predators that guard the tombs. No stat block published in FFG sourcebooks for the tuk'ata specifically.",
+          "source_ref": "FaD Core p.376"
+        },
+        {
+          "role": "Dark Side Phantasm",
+          "archetype_ref": "dark_side_phantasm",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "",
+          "source_ref": "Keeping the Peace (Guardian) p.95"
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Valley of the Sleeping Kings — full description of the Valley of the Dark Lords"
+        },
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 400,
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "sith_academy_ruins",
+      "name": "Sith Academy Ruins",
+      "district_id": null,
+      "type": [
+        "ruins",
+        "archaeological"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. The Sith's most prestigious academy, once also home to their Dark Council, was abandoned long ago.",
+      "strategic_value": "",
+      "vergence_rules": null,
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Sith academy described as the Sith's most prestigious, home to the Dark Council"
+        }
+      ]
+    },
+    {
+      "id": "dreshdae_ruins",
+      "name": "Dreshdae Ruins",
+      "district_id": null,
+      "type": [
+        "ruins",
+        "spaceport"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. Dreshdae was a small spaceport that supplied the Sith Academy. Both were abandoned long ago.",
+      "strategic_value": "The ruins of a small spaceport that once supplied the Sith Academy. Dreshdae was the only settlement on Moraband intended for the living. Its landing pads, supply warehouses, and habitation structures are now in ruin. Any functional landing infrastructure would be the most logical point of entry for visitors to the planet, though the condition of the facilities is unknown.",
+      "vergence_rules": null,
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Dreshdae described as small spaceport supplying the academy"
+        }
+      ]
+    },
+    {
+      "id": "shyrack_caves",
+      "name": "Shyrack Caves",
+      "district_id": null,
+      "type": [
+        "wilderness",
+        "environmental_hazard"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls this location. The caves are inhabited by shyracks — bat-like Sith-spawned creatures.",
+      "strategic_value": "Extensive cavern systems beneath Moraband's surface, home to colonies of shyracks — bat-like Sith-spawned predators. The caves are listed as an area of interest in the planet's compendium data. The sheer number of shyracks in the cave systems makes traversal extremely hazardous. The caves may also connect to deeper tomb complexes or hidden vaults.",
+      "vergence_rules": null,
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "role": "Shyrack swarm",
+          "archetype_ref": "shyrack",
+          "tier": "minion",
+          "count": "6-12",
+          "notes": "Bat-like Sith-spawned creatures that inhabit the cave systems of Moraband. No stat block published in FFG sourcebooks for shyracks specifically.",
+          "source_ref": "FaD Core p.376"
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Shyrack caves listed as area of interest; shyracks described as bat-like Sith-spawned predators"
+        }
+      ]
+    },
+    {
+      "id": "valley_of_golg",
+      "name": "Valley of Golg",
+      "district_id": null,
+      "type": [
+        "ruins",
+        "archaeological"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. No further details beyond its listing as an area of interest.",
+      "strategic_value": "Listed as an area of interest on Moraband. No additional details are provided in FFG sourcebooks beyond the name.",
+      "vergence_rules": null,
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Valley of Golg listed as area of interest"
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "dark_side_vergence",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "dominant",
+      "strength_FaD_preset": "dominant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": "The dark side saturates the entire planet. Force users feel it as a constant pressure — a whisper of temptation, a pull toward anger and fear. Light side users must actively resist the planet's influence. Dark side users feel invigorated, their power amplified. Even non-Force-sensitives sense something deeply wrong: a dread that settles in the chest and does not lift."
+        },
+        {
+          "faction_id": null,
+          "description": "Dark side phantasms — malevolent manifestations of the dark side filled with anger and hate — are stirred into being by Force sensitives visiting Moraband. These are not true entities but illusory constructs that appear as translucent ghosts, monstrous versions of fallen friends and foes, or twisted visions of those whose presence calls them forth."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "dominant",
+          "modifier": "The dark side vergence affects all Force use on Moraband. The GM should reference 'Using the Force on Moraband (Dark Vergence)' rules (FaD Core p.380). Dark side Force users may find their powers enhanced. Light side Force users face increased difficulty resisting the dark side's pull and may generate Conflict more easily. Fear checks may be required when entering tombs or areas of concentrated dark side energy."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Force and Destiny Core Rulebook",
+          "page": 376,
+          "detail": "Moraband described as a vergence of the dark side; dark side saturates the planet"
+        },
+        {
+          "book": "Keeping the Peace (Guardian Sourcebook)",
+          "page": 97,
+          "detail": "Dark side phantasms described as manifestations near powerful vergences, Moraband cited by name"
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "daragon_trail",
+        "destination": "Daragon Trail (legendary lost hyperspace route)",
+        "travel_time": null,
+        "route_quality": "legendary_lost",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 367,
+            "detail": "Daragon Trail described as legendary lost hyperspace route from Koros Major to Korriban"
+          },
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 376,
+            "detail": "Daragon Trail listed as trade route for Moraband"
+          }
+        ]
+      },
+      {
+        "id": "nache_bhelfia",
+        "destination": "Nache Bhelfia (hyperspace route within Sith Space)",
+        "travel_time": null,
+        "route_quality": "lost_or_unknown",
+        "notes": "Listed as a trade route for Moraband. No additional details provided in FFG sourcebooks beyond the name.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 376,
+            "detail": "Nache Bhelfia listed as trade route"
+          }
+        ]
+      },
+      {
+        "id": "kamat_krote",
+        "destination": "Kamat Krote (hyperspace route within Sith Space)",
+        "travel_time": null,
+        "route_quality": "lost_or_unknown",
+        "notes": "Listed as a trade route for Moraband. No additional details provided in FFG sourcebooks beyond the name.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 376,
+            "detail": "Kamat Krote listed as trade route"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "stygian_caldera",
+        "type": "nebula_barrier",
+        "description": "",
+        "mechanical_effect": "Astrogation checks to plot a course into the Stygian Caldera should be upgraded in difficulty significantly. Without pre-existing coordinates, reliable Sith star charts, or Force guidance, the attempt may be impossible. The Empire's possible blockade adds further complications.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 367,
+            "detail": "Stygian Caldera as recognized nebula surrounding Sith Space; Empire may have blockaded worlds within"
+          },
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 384,
+            "detail": "Hyperspace explorers accidentally found route into Stygian Caldera"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": null,
+      "faction_label": "Sith-Spawned Creatures",
+      "presence_levels": {
+        "surface_canyons": {
+          "description": "The barren canyons and ruins of Moraband's surface. Tuk'ata hounds roam in packs, guarding the approaches to tombs and monuments. Terentatek lurk in the deeper canyons and near tomb entrances, drawn to Force-sensitive visitors.",
+          "roles": [
+            {
+              "role": "Tuk'ata Hound pack",
+              "archetype_ref": "tuk_ata",
+              "tier": "rival",
+              "count": "2-6",
+              "notes": "Sith-spawned predators described as fierce hounds that populate Moraband. They often guard tombs. No FFG stat block published for tuk'ata.",
+              "source_ref": "FaD Core p.376"
+            },
+            {
+              "role": "Terentatek",
+              "archetype_ref": "terentatek",
+              "tier": "nemesis",
+              "count": "1",
+              "notes": "",
+              "source_ref": "FaD Core p.376; Collapse of the Republic p.115"
+            }
+          ]
+        },
+        "cave_systems": {
+          "description": "The extensive cavern systems beneath the surface, home to colonies of shyracks. The caves may connect to deeper tomb complexes.",
+          "roles": [
+            {
+              "role": "Shyrack swarm",
+              "archetype_ref": "shyrack",
+              "tier": "minion",
+              "count": "6-12",
+              "notes": "Bat-like Sith-spawned creatures that inhabit the cave systems of Moraband in large colonies. No FFG stat block published for shyracks.",
+              "source_ref": "FaD Core p.376"
+            }
+          ]
+        },
+        "tombs_and_crypts": {
+          "description": "The interior of Sith tombs and crypts, particularly in the Valley of the Dark Lords. Force-sensitive visitors may encounter dark side phantasms — manifestations of the dark side that take forms drawn from the visitor's own fears and history.",
+          "roles": [
+            {
+              "role": "Dark Side Phantasm",
+              "archetype_ref": "dark_side_phantasm",
+              "tier": "nemesis",
+              "count": "1-3",
+              "notes": "",
+              "source_ref": "FaD Core p.376; Keeping the Peace p.97"
+            },
+            {
+              "role": "Tomb Guardian (Sith-spawned creature)",
+              "archetype_ref": null,
+              "tier": null,
+              "count": "variable",
+              "notes": "The sourcebook states 'exotic Sith-spawned creatures often guard the tombs' but does not specify species or provide stat blocks for tomb-specific guardians beyond the general tuk'ata and terentatek descriptions.",
+              "source_ref": "FaD Core p.376"
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    },
+    {
+      "faction_id": "inquisitorius_presence",
+      "faction_label": "Imperial Inquisitorius (possible)",
+      "presence_levels": {
+        "orbital_or_surface": {
+          "description": "If the Empire has indeed blockaded or explored Moraband, Inquisitors or Imperial agents may be present conducting artifact recovery, dark side research, or simply guarding the world from unauthorized visitors. This is speculative based on sourcebook statements that the Empire may have found and blockaded worlds within the Stygian Caldera.",
+          "roles": [
+            {
+              "role": "Imperial Inquisitor",
+              "archetype_ref": "inquisitor",
+              "tier": "nemesis",
+              "count": "0-1",
+              "notes": "Possible presence only. The sourcebooks state the Empire 'may have found, explored, and perhaps even blockaded' Moraband. No confirmed Inquisitor garrison is described.",
+              "source_ref": "FaD Core p.367, p.422"
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "fad_dark_side_pilgrimage": {
+        "name": "Dark Side Pilgrimage / Artifact Hunt",
+        "description": "The PCs travel to Moraband seeking Sith artifacts, ancient knowledge, or a confrontation with the dark side. The journey itself is hazardous — the Stygian Caldera's hyperspace routes have been lost for millennia, and the Empire may have blockaded the region. Upon arrival, the planet's dark side vergence begins working on the PCs immediately, testing their resolve and tempting them with power. The Valley of the Dark Lords contains booby-trapped crypts holding priceless Sith artifacts (including potentially the Gauntlet of Crassus), but the tombs are guarded by Sith-spawned creatures and haunted by dark side phantasms. Each PC must contend with personalized visions, temptations, and manifestations of the dark side drawn from their own Morality, emotional strengths and weaknesses, and backstory. The campaign can serve as a crucible for FaD characters — those who resist the dark side emerge strengthened in their convictions, while those who give in may gain power at terrible cost.",
+        "initial_faction_states": {},
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A recovered Sith holocron contains a fragmentary star chart pointing to a tomb in the Valley of the Dark Lords. The holocron's gatekeeper claims the tomb holds an artifact of immense power — but warns that the planet itself will try to claim anyone who sets foot on it.",
+          "An Imperial Inquisitor has been tracking the PCs. Intelligence suggests the Inquisitor is bound for Moraband to retrieve a specific Sith artifact for the Emperor. The PCs must reach the artifact first — or follow the Inquisitor to discover what the Empire wants with it.",
+          "A dying scholar presses a datacard into the PC's hand containing partial coordinates through the Stygian Caldera, calculated from the legendary Daragon Trail. The scholar whispers that the Gauntlet of Crassus — a Force artifact of terrifying power — is still in Lord Crassus's tomb, and that the Empire must never find it.",
+          "One of the PCs experiences recurring Force visions of a barren canyon world, ancient stone tombs, and a voice calling them by name. The visions grow more insistent and begin bleeding into waking hours. A mentor or holocron identifies the world as Moraband — and warns the PC that answering the call may be exactly what the dark side wants.",
+          "A treasure hunter in a cantina claims to have coordinates to the Sith homeworld and is looking for Force-sensitive partners to help navigate the tombs. The price is a 50/50 split on artifacts. The treasure hunter does not understand what they are asking — the planet will test everyone who lands there."
+        ],
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": "376, 399-400",
+            "detail": "Moraband planet entry; Lost Artifacts of the Force including Gauntlet of Crassus in Valley of the Dark Lords"
+          },
+          {
+            "book": "Keeping the Peace (Guardian Sourcebook)",
+            "page": 97,
+            "detail": "Dark side phantasms near vergences such as Moraband"
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "367-368, 376-377, 383-384, 399-400",
+      "detail": "Primary Moraband planet entry (p.376), Sith Space overview and Stygian Caldera (p.367-368), Valley of the Dark Lords, Daragon Trail, historical Sith wars referencing Moraband (p.383-384), Gauntlet of Crassus artifact in Valley of the Dark Lords (p.400)"
+    },
+    {
+      "book": "Keeping the Peace (Guardian Sourcebook)",
+      "pages": "97",
+      "detail": "Dark side phantasms — malevolent Force manifestations near powerful vergences, Moraband cited by name"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "pages": "115",
+      "detail": "Terentatek stat block (nemesis-tier creature found on Moraband)"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "337",
+      "detail": "Korriban marked on galactic map"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "349, 351-352",
+      "detail": "Korriban on galactic map; Citadel Inquisitorius on Prakith described"
+    }
+  ]
+}

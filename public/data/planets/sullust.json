@@ -1,0 +1,1172 @@
+{
+  "id": "sullust",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Sullust",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Brema sector",
+    "system": "Sullust",
+    "grid": "M-17",
+    "era": "galactic_civil_war",
+    "essence": "Sullust is a world turned inside out. Its surface is a volcanic hellscape of noxious fumes, rivers of lava, and choking ash, but beneath the crust lies a civilization of staggering engineering ambition. The Sullustans carved cities from drained magma chambers and lit them with the very geothermal energy that once threatened to destroy them. SoroSuub Corporation owns everything here, from the mines to the factories to the spaceports to the government itself. After the Battle of Yavin, a corporate coup reversed SoroSuub's Imperial allegiance. Now the megacorporation plays a deadly double game: fulfilling Imperial contracts by day and stockpiling arms for the Rebellion by night. The Empire suspects but cannot prove Sullust's treachery. When it does, the reprisal will be devastating. Sullust's leadership knows this, and urges the Alliance toward a decisive confrontation before time runs out.",
+    "atmosphere": "Roiling clouds of sulfurous gas blotting out the sun. Volcanic cones piercing the toxic haze, trails of molten rock sliding down their flanks. Surface geothermal plants humming behind magnetic shields, their power cables plunging through blast-sealed tunnels into the world below. Underground, the air is clean and warm. Massive magma chambers hollowed into cathedral cities, support pillars three kilometers tall, lit from below by the amber glow of contained lava fountains. The clatter of mining droids echoing through shunt tunnels. SoroSuub cargo haulers queuing in circular holding patterns inside a support pillar, waiting for clearance to breach the surface. The smell of green mud and mineral springs in Piringiisi. Sullustans everywhere, working, talking, laughing, their large dark eyes catching every detail.",
+    "reputation": "The company planet. SoroSuub employs ninety percent of the workforce and manufactures everything from blaster rifles to bulk freighters. Sullustans are known across the galaxy as superb pilots and navigators with an innate sense of direction that borders on supernatural. They are gregarious, hardworking, and deeply loyal to family and warren-clan. Offworlders find the underground cities claustrophobic but impressive. The spaceport on Sulon sees more traffic than any facility on Sullust proper. Those who pay attention to galactic politics know that Sullust declared neutrality after the Battle of Yavin, but the steady flow of arms to Rebel forces is an open secret in certain circles. The Empire's grip is tightening."
+  },
+  "compendium": {
+    "background": "",
+    "government": "corporate",
+    "population": "",
+    "languages": "Sullustese, Basic",
+    "terrain": "mountains, volcanoes, caves",
+    "major_cities": "SoroSuub Central (formerly Byllurun), Fulluusub, Serres Sarrano",
+    "areas_of_interest": "",
+    "exports": "starships, computers, droids, hyperdrive and astrogation technology, weapons, quadanium steel",
+    "imports": "foodstuffs, water",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": ""
+    },
+    {
+      "era": "post_yavin",
+      "delta": ""
+    }
+  ],
+  "geography": {
+    "structure_type": "subterranean_volcanic",
+    "structure_notes": "All population centers are underground. Cities are built within drained magma chambers in active or dormant volcanoes. Specialized droids construct carbon-alloy support pillar molds, the lava is shunted away, and the resulting cavernous flat-bottomed chambers are settled. Older cities occupy natural cavern networks and lava tubes. The surface is uninhabitable volcanic terrain dotted with shielded geothermal power plants. Two moons: Umnub (barren, mined out) and Sulon (agricultural, with major spaceport and weapons testing facilities).",
+    "districts": [
+      {
+        "id": "sorosuub_central",
+        "name": "SoroSuub Central (formerly Byllurun)",
+        "character": "",
+        "authority": "SoroSuub Corporation (CEO Sian Tevv)",
+        "crime_index": "very_low",
+        "strategic_value": [
+          "political",
+          "economic",
+          "command"
+        ],
+        "notes": "Houses the SoroSuub Centroplex, a three-kilometer-high support pillar serving as corporate nerve center. Flagship store on bottom floors. Three museums dedicated to company history, city history, and old products. Imperial garrison present. Sullustan Council Building abandoned but patrolled by constables; the Sullustan Resistance occasionally paints protest messages on its walls."
+      },
+      {
+        "id": "serres_sarrano",
+        "name": "Serres Sarrano",
+        "character": "Key industrial city built within the dormant volcano Mount Sarrano. Home to millions. Mammoth facilities for manufacturing, shipbuilding, refineries, and power plants. Blue-collar workforce that seeks diversion during downtime; racing of almost any kind is popular.",
+        "authority": "SoroSuub Corporation",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Contains the SoroSuub Arms Factory (licensed BlasTech E-11 manufacture, Stormtrooper One rifle, secretly stockpiling Freedom One/Two/Three rifles for the Alliance), quadanium steel refinery (supplied Death Star construction unknowingly), and Sarrano Yard (shipbuilding facility for vessels under 77m, now producing Cutlass-9 patrolcraft for the Rebellion). Rebel operations here focus on sabotaging Imperial-bound production or liberating shipments."
+      },
+      {
+        "id": "fulluusub",
+        "name": "Fulluusub",
+        "character": "",
+        "authority": "Independent (SoroSuub employs ~1/3 of residents)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "informational",
+          "hidden"
+        ],
+        "notes": "Large artistic community, particularly musicians and poets. Significant Bith population of engineers and musicians. Need's Mead cantina (run by Need Nunb, third cousin of resistance leader Nien Nunb) is a Rebel hangout near the modest spaceport, in a rough area populated by smugglers and swoop gangs. A Rebel safe house is located a few blocks from Need's Mead. Bounty hunters watch the cantina for potential work."
+      },
+      {
+        "id": "pirin_city",
+        "name": "Pirin City",
+        "character": "",
+        "authority": "SoroSuub Corporation",
+        "crime_index": "very_low",
+        "strategic_value": [
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Two major mining operations: gemstone and heavy metal extraction from magma shunt lodes (aurodium, cubirian), and a lava skimming operation for rare elements. Pirin Station housed within a massive support pillar serves as the ore loading and transport hub. Corporate-subsidized housing and SoroSuub Outlet with deep discounts for workers. Pay is meager but needs are met."
+      },
+      {
+        "id": "piringiisi",
+        "name": "Piringiisi",
+        "character": "",
+        "authority": "SoroSuub Corporation (tourism division)",
+        "crime_index": "very_low",
+        "strategic_value": [
+          "economic",
+          "cultural"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "sulon",
+        "name": "Sulon (Moon)",
+        "character": "",
+        "authority": "SoroSuub Corporation, Imperial garrison",
+        "crime_index": "low",
+        "strategic_value": [
+          "infrastructure",
+          "military",
+          "economic"
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Sullustan",
+      "population_level": "dominant",
+      "social_role": "",
+      "districts": [
+        "sorosuub_central",
+        "serres_sarrano",
+        "fulluusub",
+        "pirin_city",
+        "piringiisi",
+        "sulon"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "small_minority",
+      "social_role": "Imperial garrison personnel, corporate liaisons, offworld business representatives. Human presence is largely tied to Imperial and corporate interests. Human-centric attitudes of the Empire irritate and anger the Sullustans.",
+      "districts": [
+        "sorosuub_central",
+        "sulon"
+      ]
+    },
+    {
+      "name": "Bith",
+      "population_level": "small_minority",
+      "social_role": "Engineers and musicians. A significant Bith population in Fulluusub considers it one of the great cities of the galaxy.",
+      "districts": [
+        "fulluusub"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "sorosuub_corporation",
+      "name": "SoroSuub Corporation",
+      "galaxy_faction_ref": null,
+      "type": "corporate",
+      "control_type": [
+        "political",
+        "economic",
+        "military"
+      ],
+      "control_strength": "dominant",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "very_low",
+        "financial": "moderate",
+        "note": "SoroSuub is one of the galaxy's preeminent interstellar corporations, employing ninety percent of the Sullustan workforce. It dissolved the Sullustan Council via Corporate Proclamation 137d and took direct governmental control. After the Battle of Yavin, CEO Sian Tevv reversed SoroSuub's pro-Imperial stance, secretly allying with the Rebellion while publicly declaring neutrality. SoroSuub still fulfills Imperial contracts to maintain the facade. The corporation produces starships, weapons (including the licensed BlasTech E-11 clone Stormtrooper One), droids, computers, hyperdrive technology, vehicles, tools, and consumer goods."
+      },
+      "motivation": "Ensure Sullustan survival and prosperity. Tevv believes this requires the defeat of the Empire but cannot risk open defiance until the Alliance is ready for a decisive battle. SoroSuub secretly stockpiles arms rebranded as Freedom One, Two, and Three rifles and sells them at cost to the Alliance. The corporation also allows Rebel agents to 'liberate' shipments from its spaceports and factory floors, ensuring its own employees are not endangered.",
+      "assets": [
+        "SoroSuub Centroplex — 3km-tall corporate headquarters in SoroSuub Central",
+        "Serres Sarrano industrial complex — arms factories, quadanium refinery, Sarrano Yard",
+        "SoroSuub orbital shipyards — large vessel construction including Bulwark-class battlecruisers",
+        "Pirin City mining operations — aurodium, cubirian, heavy metals, lava skimming",
+        "Sulon moon — agriculture, weapons testing, lavish offworlder retreat",
+        "SoroSuub Business Academy — 4+ million students across campuses",
+        "Lequana Hotel — luxury hotel in SoroSuub Central with lava fountain",
+        "Vertical monopoly over Sullustan economy — mining through retail"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison_sullust",
+          "type": "deceptive_compliance",
+          "notes": "SoroSuub fulfills Imperial contracts and production quotas while secretly diverting arms and equipment to the Rebellion. Imperial liaisons at embassies near both garrisons work with SoroSuub to ensure quotas and quality standards are met."
+        },
+        {
+          "faction_id": "sullustan_resistance",
+          "type": "allied",
+          "notes": "Tevv keeps the Sullustan Resistance independent from but allied with SoroSuub and the Rebel Alliance. SoroSuub cannot risk open collaboration; Rebel shipments must be 'liberated' at great risk."
+        },
+        {
+          "faction_id": "rebel_alliance_sullust",
+          "type": "covert_alliance",
+          "notes": ""
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Arms production for both Imperial contracts and covert Rebel supply. Quadanium steel, starship components, weapons. Control of these production lines is the planet's strategic value."
+        },
+        {
+          "type": "data",
+          "reason": "Imperial shipping manifests, production quotas, garrison intelligence. SoroSuub leverages its Imperial business relationship to gather intelligence for the Rebellion."
+        }
+      ]
+    },
+    {
+      "id": "imperial_garrison_sullust",
+      "name": "Imperial Military (Sullust Garrison)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "criminal": "very_low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Ensure uninterrupted production and delivery of arms, quadanium steel, and other war materiel from SoroSuub. Monitor Sullust for Rebel activity. Maintain Imperial authority despite growing Sullustan hostility toward human-centric Imperial policies. The Empire suspects Sullust's loyalty is wavering but has not yet proven direct Rebel collaboration.",
+      "assets": [
+        "Garrison in SoroSuub Central with embassy",
+        "Garrison on Sulon with embassy",
+        "Imperial Fleet presence in system (convoy escort and patrol)",
+        "Volcanic environment garrisons (capacitor garrisons) — hidden within active volcanoes, shielded, geothermally powered",
+        "Troops specially outfitted for mountainous, underground, and volcanic combat"
+      ],
+      "relationships": [
+        {
+          "faction_id": "sorosuub_corporation",
+          "type": "exploitative",
+          "notes": "The Empire views SoroSuub as a production asset. Imperial liaisons enforce quotas and quality standards. The Empire does not yet know Sullust has switched sides."
+        },
+        {
+          "faction_id": "rebel_alliance_sullust",
+          "type": "adversarial",
+          "notes": ""
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Evidence of SoroSuub's Rebel ties. Shipping manifests showing diverted arms. Rebel base locations. Intelligence that proves Sullust's treachery would justify full military intervention."
+        },
+        {
+          "type": "resource",
+          "reason": "Quadanium steel, arms, starship components. The Empire's industrial dependency on SoroSuub makes these production lines strategically vital."
+        }
+      ]
+    },
+    {
+      "id": "sullustan_resistance",
+      "name": "Sullustan Resistance",
+      "galaxy_faction_ref": null,
+      "type": "resistance",
+      "control_type": [
+        "covert",
+        "cultural"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "moderate",
+        "criminal": "very_low",
+        "financial": "low",
+        "note": "A grassroots Sullustan movement that predates the formal Rebel Alliance arrangement. Before the Battle of Yavin, Sian Tevv's resistance targeted SoroSuub shipments bound for the Empire, prompting the Sullustan Home Guard to hunt Rebels. After Tevv became CEO, the resistance was kept independent from SoroSuub and the Alliance, allowing deniability. Led by figures like Nien Nunb. Political protests at the abandoned Sullustan Council Building. Resistance leader Need Nunb (Nien's third cousin) operates a cantina that serves as an informal gathering point."
+      },
+      "motivation": "Restore Sullustan self-governance and oppose the Empire's human-centric policies. Support the Rebel Alliance. Protect Sullustan cultural identity against corporate and Imperial homogenization.",
+      "assets": [
+        "Network of sympathetic Sullustans across all cities",
+        "Need's Mead cantina in Fulluusub — informal resistance hub",
+        "Political protest capability (Sullustan Council Building graffiti campaigns)",
+        "Deep knowledge of subterranean tunnel networks"
+      ],
+      "relationships": [
+        {
+          "faction_id": "sorosuub_corporation",
+          "type": "uneasy_alliance",
+          "notes": "Tevv keeps the resistance independent but aligned with SoroSuub's covert pro-Rebel policy. Most Sullustans believe SoroSuub has Sullust's best interests at heart."
+        },
+        {
+          "faction_id": "rebel_alliance_sullust",
+          "type": "allied",
+          "notes": "Allied with but independent from the formal Alliance structure."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "Sullustan dissidents, potential recruits, Imperial informants within the warren-clans. The resistance needs to grow without being infiltrated."
+        }
+      ]
+    },
+    {
+      "id": "sullustan_home_guard",
+      "name": "Sullustan Home Guard",
+      "galaxy_faction_ref": null,
+      "type": "military",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "very_low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Defend Sullustan spacelanes and SoroSuub corporate assets. Current mission focus depends on the political situation: anti-piracy operations or hunting Rebel activity depending on Imperial pressure and Tevv's directives.",
+      "assets": [
+        "Fleet of corvettes and frigates",
+        "Brayl-class bulk freighter corvettes (converted)",
+        "Quasar Fire-class and Hornet-class carriers",
+        "Liberator-class antipiracy cruisers",
+        "Bulwark-class battlecruiser (on par with Imperial-class Star Destroyers)",
+        "Regular Imperial Navy reinforcements and training"
+      ],
+      "relationships": [
+        {
+          "faction_id": "sorosuub_corporation",
+          "type": "subordinate",
+          "notes": "Established and funded by SoroSuub. Commodore Deeb answers to SoroSuub corporate leadership."
+        },
+        {
+          "faction_id": "imperial_garrison_sullust",
+          "type": "cooperative",
+          "notes": "Receives Imperial Navy reinforcements and training. The degree of Home Guard loyalty to the Empire versus SoroSuub is a critical variable."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Warships, particularly the Bulwark-class battlecruiser Arrow of Sullust. Both the Empire and the Alliance want this vessel."
+        }
+      ]
+    },
+    {
+      "id": "sullustan_constable_brigade",
+      "name": "Sullustan Constable Brigade",
+      "galaxy_faction_ref": null,
+      "type": "law_enforcement",
+      "control_type": [
+        "political"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "criminal": "very_low",
+        "financial": "low",
+        "note": ""
+      },
+      "motivation": "Protect SoroSuub assets and maintain order on Sullust. The Constable Brigade enforces corporate law, which under Tevv's leadership increasingly aligns with Sullustan self-interest rather than Imperial demands.",
+      "assets": [
+        "Constables ranked across nine light-spectrum bands",
+        "Orange-rated patrol officers (teams of two, often relatives)",
+        "Blue-rated investigators (operate alone, galaxy-wide jurisdiction on SoroSuub property)",
+        "Standard issue: blaster pistol, armored clothing (+1 soak, +1 defense)",
+        "Speeder patrols"
+      ],
+      "relationships": [
+        {
+          "faction_id": "sorosuub_corporation",
+          "type": "subordinate",
+          "notes": "Enforces SoroSuub corporate law. Authority derives from SoroSuub."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "Suspects, criminals, and offworlders causing trouble on SoroSuub property. Blue-rated investigators can track suspects across the galaxy."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "sorosuub_centroplex",
+      "name": "SoroSuub Centroplex",
+      "district_id": "sorosuub_central",
+      "type": [
+        "political",
+        "economic",
+        "command"
+      ],
+      "controlling_faction_id": "sorosuub_corporation",
+      "controlling_faction_notes": "Corporate nerve center where policy is set, manufacturing and sales numbers compiled, and books balanced. CEO Tevv and key executives occupy the highest floors.",
+      "strategic_value": "Three-kilometer-high support pillar in central downtown SoroSuub Central. Visible from anywhere in the city. SoroSuub flagship store on bottom floors. Corporate bureaucracy managing a galaxy-spanning corporation occupies the rest. The Centroplex is both a tourist destination (three museums, art gallery) and the decision-making center for Sullust's covert Rebel alliance. Controlling or monitoring this building means controlling Sullust's economic and political output.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "corporate_executive",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "SoroSuub division heads and site managers. May be witting or unwitting participants in the Rebel supply chain."
+        },
+        {
+          "archetype_ref": "constable_orange",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Orange-rated constables patrolling in pairs, guarding checkpoints and the executive floors."
+        },
+        {
+          "archetype_ref": "imperial_liaison",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Imperial liaison monitoring SoroSuub production quotas from a nearby embassy."
+        }
+      ]
+    },
+    {
+      "id": "sarrano_arms_factory",
+      "name": "SoroSuub Arms Factory (Serres Sarrano)",
+      "district_id": "serres_sarrano",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "sorosuub_corporation",
+      "controlling_faction_notes": "Produces licensed BlasTech E-11 blaster rifles, SC-4 blaster pistols, and SoroSuub's own Stormtrooper One rifle for the Empire. Secretly stockpiles identical rifles rebranded as Freedom One, Two, and Three for the Rebel Alliance.",
+      "strategic_value": "Ships thousands of blaster rifles daily and creates thousands more. The dual-purpose production line is the linchpin of Sullust's double game. Destroying, sabotaging, or exposing this facility would cripple both Imperial supply and the covert Rebel pipeline. Imperial agents would find damning evidence of Rebel collaboration here.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "factory_worker",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "SoroSuub employees operating the production lines. Most are sympathetic to the Rebellion but fear reprisal."
+        },
+        {
+          "archetype_ref": "constable_orange",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Constables providing factory security."
+        },
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Periodic Imperial quality control inspections. Looking for production irregularities."
+        }
+      ]
+    },
+    {
+      "id": "quadanium_refinery",
+      "name": "Quadanium Steel Refinery (Serres Sarrano)",
+      "district_id": "serres_sarrano",
+      "type": [
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "sorosuub_corporation",
+      "controlling_faction_notes": "Refines vast quantities of quadanium steel using locally abundant ingredients. The Empire placed massive early orders. SoroSuub used quadanium in starship hulls and assumed the Empire required it for the same reason. It was not until after the Galactic Civil War that the Sullustans realized they had been helping construct the Death Star.",
+      "strategic_value": "Critical Imperial supply chain component. Sabotaging the refinery's computer formulas could compromise the structural integrity of Imperial vessels built with the resulting steel. A successful sabotage mission grants combat advantages against affected Imperial ships.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "factory_worker",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Refinery technicians and workers."
+        },
+        {
+          "archetype_ref": "constable_orange",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Security patrols."
+        }
+      ]
+    },
+    {
+      "id": "sarrano_yard",
+      "name": "Sarrano Yard (Serres Sarrano)",
+      "district_id": "serres_sarrano",
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "sorosuub_corporation",
+      "controlling_faction_notes": "Ground-based SoroSuub shipbuilding facility capable of constructing vessels under 77 meters. Adjacent factory and foundry manufacture most components on-site.",
+      "strategic_value": "",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "shipyard_engineer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Skilled Sullustan shipbuilders. Excellent pilots in their own right."
+        },
+        {
+          "archetype_ref": "factory_worker",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Assembly line workers and foundry operators."
+        }
+      ]
+    },
+    {
+      "id": "keff_base",
+      "name": "Keff Base",
+      "district_id": null,
+      "type": [
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": "rebel_alliance_sullust",
+      "controlling_faction_notes": "Hidden Rebel Alliance installation on Sullust. Commanded by Commander Jyn Freila, an experienced Chandrilan pilot whose combat record speaks for itself. Bothan spies operate from the base.",
+      "strategic_value": "Primary Alliance foothold on Sullust. Coordinates the covert arms pipeline from SoroSuub. Intelligence operations identify Imperial targets including capacitor garrisons. If discovered by the Empire, Sullust's double game collapses entirely.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "rebel_commander",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": ""
+        },
+        {
+          "archetype_ref": "rebel_soldier",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Alliance personnel. Mixed species."
+        },
+        {
+          "archetype_ref": "bothan_spy",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Bothan intelligence operatives providing targeting data for Rebel strikes."
+        }
+      ]
+    },
+    {
+      "id": "volcanic_garrison",
+      "name": "Imperial Capacitor Garrison",
+      "district_id": null,
+      "type": [
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": "imperial_garrison_sullust",
+      "controlling_faction_notes": "Secret Imperial facilities hidden within active volcanoes on Sullust's surface. Powered by a dozen geothermal capacitors that also power impenetrable shields. Troops within are specially outfitted for volcanic, mountainous, and underground combat.",
+      "strategic_value": "Allows the Empire to launch covert operations on Sullust even after being politically ousted following the Battle of Yavin. The shield is powered by distributed transmitters that must be individually destroyed or bypassed through infiltration before the garrison can be assaulted. A Rebel target identified by Bothan spies at Keff Base.",
+      "takeover_priority": 6,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper_volcanic",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Specially outfitted stormtroopers for volcanic and underground combat."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Garrison commander. Operating under secrecy directives."
+        }
+      ]
+    },
+    {
+      "id": "sorosuub_orbital_yards",
+      "name": "SoroSuub Orbital Shipyards",
+      "district_id": null,
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "sorosuub_corporation",
+      "controlling_faction_notes": "Orbital facilities for constructing larger vessels including yachts, cruisers, and carriers. Small compared to nearby Sluis Van and Fondor. Under the Empire, primarily repairs and maintains Imperial vessels. Also constructed the Bulwark-class battlecruiser Arrow of Sullust.",
+      "strategic_value": "",
+      "takeover_priority": 7,
+      "encounter_roles": [
+        {
+          "archetype_ref": "shipyard_engineer",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Sullustan shipbuilders and technicians."
+        },
+        {
+          "archetype_ref": "home_guard_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Home Guard vessel on patrol near the yards."
+        },
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Imperial oversight of yard operations and vessel traffic."
+        }
+      ]
+    },
+    {
+      "id": "needs_mead",
+      "name": "Need's Mead Cantina (Fulluusub)",
+      "district_id": "fulluusub",
+      "type": [
+        "informational",
+        "hidden"
+      ],
+      "controlling_faction_id": "sullustan_resistance",
+      "controlling_faction_notes": "Run by Need Nunb, third cousin of resistance leader Nien Nunb. Located in a rough part of Fulluusub near the spaceport, populated by smugglers and swoop gangs.",
+      "strategic_value": "De facto gathering point for Alliance agents on Sullust despite leadership's efforts to keep them away. A Rebel safe house is only a few blocks away. Bounty hunters watch the cantina for potential work. Corellian smuggler Elias Halbert and his crew frequent the establishment. Primary social intelligence hub outside corporate channels.",
+      "takeover_priority": 8,
+      "encounter_roles": [
+        {
+          "archetype_ref": "resistance_sympathizer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Need Nunb. Proprietor. Connected to the resistance leadership through family."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Corellian smuggler Elias Halbert and crew. Habit of drinking too much and picking fights."
+        },
+        {
+          "archetype_ref": "bounty_hunter",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Watching the cantina for potential marks among the smuggler and Rebel clientele."
+        },
+        {
+          "archetype_ref": "rebel_agent",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Alliance agents using the cantina as an unofficial hangout despite operational security concerns."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "corporate_paternalism",
+      "type": "cultural",
+      "source_faction_id": "sorosuub_corporation",
+      "source_description": "SoroSuub employs ninety percent of the workforce, provides subsidized housing, healthcare, education, entertainment, and consumer goods at discount. Most Sullustans believe SoroSuub has their best interests at heart. Being fired from SoroSuub and forced to leave the planet is considered worse than imprisonment. This creates a population that is productive, orderly, and loyal — but also one where dissent is controlled through economic dependency rather than overt force.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "sullustan_constable_brigade",
+          "description": "The Constable Brigade enforces corporate law. Constabulary Honor makes officers almost impossible to corrupt or turn against Sullust's interests."
+        },
+        {
+          "faction_id": "sullustan_resistance",
+          "description": "Even the resistance operates within the framework of Sullustan corporate culture. Tevv coordinates resistance and corporate policy. Dissent is channeled rather than suppressed."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "dominant",
+          "modifier": "Almost every Sullustan encountered is a SoroSuub employee or dependent. Social checks involving SoroSuub corporate interests gain automatic advantages with locals. Actions perceived as harming SoroSuub or Sullust face strong social resistance."
+        }
+      ]
+    },
+    {
+      "id": "anti_imperial_sentiment",
+      "type": "political",
+      "source_faction_id": null,
+      "source_description": "A significant percentage of Sullustans oppose the Empire. The human-centric attitudes and actions of the Empire irritate and anger Sullustans. This sentiment drove the corporate coup that replaced CEO Siin Suub with Sian Tevv and reversed SoroSuub's pro-Imperial stance. Anti-Imperial feeling is widespread but expressed cautiously due to the continued Imperial garrison presence.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "sorosuub_corporation",
+          "description": "SoroSuub's covert Rebel alliance is a direct expression of Sullustan anti-Imperial sentiment channeled through corporate power."
+        },
+        {
+          "faction_id": "sullustan_resistance",
+          "description": "Grassroots resistance movements and political protests at the abandoned Sullustan Council Building."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Sullustans are sympathetic to anti-Imperial visitors but cautious about open displays. Social checks appealing to anti-Imperial sentiment gain advantages in private settings but may attract unwanted attention in public areas near Imperial garrisons."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "rimma_trade_route",
+        "destination": "Rimma Trade Route (major hyperspace lane — Southern Core to Outer Rim)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 38,
+            "detail": "Sullustan Corridor linked to Hidakai Pool to create the Rimma Trade Route"
+          },
+          {
+            "book": "Age of Rebellion Core Rulebook",
+            "page": 348,
+            "detail": "Rimma Trade Route description, intersections at Yag'Dhul and Eriadu"
+          }
+        ]
+      },
+      {
+        "id": "silvestri_trace",
+        "destination": "Silvestri Trace / Sanctuary Pipeline",
+        "travel_time": null,
+        "route_quality": "established",
+        "notes": "Secondary hyperspace route connecting Sullust to classified Imperial facilities. The Imperial Fleet uses this route to transport SoroSuub products and raw materials. Listed alongside the Rimma Trade Route as a trade route serving Sullust.",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 37,
+            "detail": "Listed as trade route in Sullust planetary data"
+          },
+          {
+            "book": "Strongholds of Resistance",
+            "page": 39,
+            "detail": "Imperial Fleet transports SoroSuub products to classified facilities on the Silvestri Trace"
+          }
+        ]
+      },
+      {
+        "id": "sluis_van",
+        "destination": "Sluis Van",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Nearby major Imperial shipyard. SoroSuub orbital yards are small compared to Sluis Van. Connected via the Rimma Trade Route.",
+        "source_refs": [
+          {
+            "book": "Strongholds of Resistance",
+            "page": 43,
+            "detail": "SoroSuub orbital yards compared to nearby Sluis Van and Fondor"
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_garrison_sullust",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Imperial presence reduced to embassy liaisons and minimal garrison staff. No active patrols beyond the garrison perimeter. The Imperial Fleet passes through the system but does not station ships. SoroSuub operates with minimal oversight.",
+          "presence_reason": "Imperial attention directed elsewhere — fleet redeployment, crisis in another sector, or the Empire's confidence in SoroSuub's continued compliance.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Embassy staff in SoroSuub Central and on Sulon. Monitoring production reports but not conducting inspections."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial posture on Sullust. Garrisons on Sulon and in SoroSuub Central are fully staffed. Imperial liaisons actively monitor production quotas and quality standards. The Imperial Fleet maintains convoy escorts in system. Capacitor garrisons remain hidden and operational on the surface. The Empire suspects Sullustan loyalty is wavering but lacks proof.",
+          "presence_reason": "Default state. The Empire needs SoroSuub's industrial output and maintains enough presence to enforce compliance without provoking open resistance from an increasingly hostile population.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Liaisons embedded in embassies near both garrisons. Active production monitoring."
+            },
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Garrison troops in SoroSuub Central and on Sulon. Not conducting sweeps."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Inspecting SoroSuub shipments at orbital yards and Sulon spaceport."
+            },
+            {
+              "role": "Capacitor garrison troops",
+              "archetype_ref": "stormtrooper_volcanic",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Hidden in volcanic surface garrisons. Covert operations capability."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Empire has escalated. Additional warships in system. Stormtrooper presence increased at both garrisons. Imperial officers conducting unannounced inspections of SoroSuub factories. ISB agents investigating specific leads about Rebel collaboration. Capacitor garrisons activated for surface operations. The Sullustan population grows more hostile and secretive.",
+          "presence_reason": "Intelligence suggesting SoroSuub's Rebel ties, a failed Rebel operation that left evidence, an ISB investigation triggered by shipping discrepancies, or Rogue Squadron's strike on the Capacitor garrison drawing unwanted attention.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrols",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Active patrols in SoroSuub Central, Serres Sarrano industrial district, and Sulon."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Investigating specific leads about arms diversion or Rebel base locations."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Thorough inspections of all outbound SoroSuub shipments."
+            },
+            {
+              "role": "Capacitor garrison assault team",
+              "archetype_ref": "stormtrooper_volcanic",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Surface garrisons launching operations to locate Rebel installations."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial occupation. Multiple Star Destroyers in orbit. SoroSuub's Rebel collaboration exposed or strongly suspected. The Empire has declared military authority over Sullust. Stormtroopers in every city. SoroSuub facilities under direct Imperial control. The Home Guard is ordered to stand down or face destruction. Tevv faces arrest. The Sullustan population is either cowed or openly rebellious. This is the scenario Tevv has been desperately trying to prevent.",
+          "presence_reason": "The Empire has confirmed Sullust's treachery — discovery of Keff Base, interception of Freedom-series rifles, testimony from a captured Rebel, or Tevv's own exposure. Imperial retribution has arrived.",
+          "roles": [
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Comprehensive coverage of all underground cities, Sulon, and orbital facilities."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "ISB running the occupation. Hunting Rebel agents and resistance leaders."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority. Direct line to sector command."
+            },
+            {
+              "role": "Capacitor garrison forces",
+              "archetype_ref": "stormtrooper_volcanic",
+              "tier": "minion",
+              "count": 20,
+              "notes": "All volcanic garrisons activated and operating openly."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial liaisons ask more pointed questions about production numbers. Customs inspections increase in frequency. SoroSuub shipping manifests scrutinized more carefully.",
+        "targeted": "ISB investigating specific leads. Unannounced factory inspections. Imperial agents attempting to plant listening devices or tracking beacons at suspected Rebel locations.",
+        "manhunt": "Full lockdown of Sulon spaceport and orbital yards. No vessel departs without Imperial clearance. Stormtrooper sweeps of Fulluusub and the tunnels around SoroSuub Central. Capacitor garrisons launching surface operations to locate Keff Base."
+      }
+    },
+    {
+      "faction_id": "rebel_alliance_sullust",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal Alliance presence. Keff Base maintains a skeleton crew. Supply runs from SoroSuub are infrequent. Alliance agents have withdrawn from Fulluusub. The covert pipeline continues but at reduced volume.",
+          "presence_reason": "Alliance resources committed elsewhere. The decisive battle Tevv demands has not yet materialized.",
+          "roles": [
+            {
+              "role": "Rebel base crew",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Maintaining Keff Base operations at minimum capacity."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Rebel operations on Sullust. Keff Base fully operational under Commander Freila. Bothan spies gathering intelligence. Alliance agents operating from Fulluusub. Regular supply runs receiving SoroSuub arms shipments. Strike teams targeting identified Imperial facilities.",
+          "presence_reason": "Normal covert operations. The Alliance is building strength for the decisive battle while maintaining the arms pipeline.",
+          "roles": [
+            {
+              "role": "Commander Jyn Freila",
+              "archetype_ref": "rebel_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Base commander. Experienced pilot and tactician."
+            },
+            {
+              "role": "Rebel soldiers",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Keff Base garrison and strike team personnel."
+            },
+            {
+              "role": "Bothan spy",
+              "archetype_ref": "bothan_spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Intelligence operations identifying Imperial targets."
+            },
+            {
+              "role": "Alliance agent",
+              "archetype_ref": "rebel_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Coordinating supply runs and frequenting Need's Mead."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Alliance has committed significant resources to Sullust. Rogue Squadron or equivalent elite unit deployed. Multiple strike teams operating simultaneously against Imperial targets. The arms pipeline running at maximum capacity. Preparations for a major operation underway.",
+          "presence_reason": "The decisive battle is approaching. The Alliance is staging forces at Sullust for a major offensive. Or Imperial escalation has forced the Alliance to reinforce its Sullust presence.",
+          "roles": [
+            {
+              "role": "Commander Jyn Freila",
+              "archetype_ref": "rebel_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Coordinating multiple simultaneous operations."
+            },
+            {
+              "role": "Rebel strike teams",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Multiple teams conducting raids on Imperial facilities."
+            },
+            {
+              "role": "Starfighter squadron",
+              "archetype_ref": "rebel_pilot",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Elite pilots. Rogue Squadron conducted a strike on the Capacitor garrison a year after Yavin."
+            },
+            {
+              "role": "Bothan spy network",
+              "archetype_ref": "bothan_spy",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Expanded intelligence operations."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Alliance fleet has arrived at Sullust. The decisive battle is imminent. Sullust becomes a staging ground for a major offensive. SoroSuub drops the pretense of neutrality. The Home Guard may join the Alliance fleet. This is the endgame Tevv has been pushing for.",
+          "presence_reason": "The Alliance has committed to the decisive strike. Sullust is the rally point.",
+          "roles": [
+            {
+              "role": "Alliance fleet elements",
+              "archetype_ref": "rebel_officer",
+              "tier": "nemesis",
+              "count": 2,
+              "notes": "Senior Alliance command. Fleet staging operations."
+            },
+            {
+              "role": "Alliance ground forces",
+              "archetype_ref": "rebel_soldier",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Full military complement for ground security and offensive operations."
+            },
+            {
+              "role": "Starfighter wings",
+              "archetype_ref": "rebel_pilot",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Multiple squadrons staging for a major engagement."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Alliance agents more cautious at Need's Mead. Supply runs rerouted. Keff Base on heightened alert.",
+        "targeted": "Commander Freila ordering specific intelligence operations. Strike teams preparing for identified targets. SoroSuub pipeline adjusted to avoid detected Imperial monitoring.",
+        "manhunt": "Keff Base preparing for evacuation or defense. All Alliance agents recalled from Fulluusub. Emergency communications with Alliance high command."
+      }
+    },
+    {
+      "faction_id": "sullustan_constable_brigade",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Constables maintain precinct offices and respond to calls but active patrols are minimal. Orange-rated officers handle routine matters. Detectives working cold cases.",
+          "presence_reason": "Peacetime on Sullust. The corporate-subsidized population has very low crime rates. Constables have little to do.",
+          "roles": [
+            {
+              "role": "Orange-rated constable",
+              "archetype_ref": "constable_orange",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Patrol teams covering checkpoints. Skilled Jockey talent for speeder operations."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard constabulary operations. Orange-rated officers in paired patrols covering specific beats. Green-rated regional leaders coordinating. Blue-rated detectives investigating active cases. Speeder patrols maintaining order.",
+          "presence_reason": "Normal law enforcement. The constabulary protects SoroSuub assets and maintains civil order.",
+          "roles": [
+            {
+              "role": "Orange-rated constable patrol",
+              "archetype_ref": "constable_orange",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Paired patrols on specific beats. Often relatives partnered together. Blaster pistol, armored clothing."
+            },
+            {
+              "role": "Blue-rated investigator",
+              "archetype_ref": "constable_blue",
+              "tier": "rival",
+              "count": 1,
+              "notes": ""
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Constabulary mobilized in response to a specific threat. Additional officers deployed. Green-rated leaders directing operations. Indigo-rated investigators assigned to high-priority cases. Speeder checkpoints established.",
+          "presence_reason": "Major criminal activity, offworlder trouble, or Imperial pressure requiring constabulary response.",
+          "roles": [
+            {
+              "role": "Orange-rated constable patrols",
+              "archetype_ref": "constable_orange",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Enhanced coverage across multiple districts."
+            },
+            {
+              "role": "Blue-rated investigators",
+              "archetype_ref": "constable_blue",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Multiple detectives working the same case."
+            },
+            {
+              "role": "Green-rated regional leader",
+              "archetype_ref": "constable_green",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinating constabulary response across a region."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full constabulary mobilization supplemented by the Sullustan Regiments reserve military. Every constable on duty. Violet and ultraviolet leadership directing operations. This level of response is reserved for imminent invasion or planetary crisis.",
+          "presence_reason": "Existential threat to Sullust — Imperial invasion, planetary disaster, or collapse of civil order.",
+          "roles": [
+            {
+              "role": "Constable patrols",
+              "archetype_ref": "constable_orange",
+              "tier": "minion",
+              "count": 12,
+              "notes": "All precincts fully staffed and deployed."
+            },
+            {
+              "role": "Investigators",
+              "archetype_ref": "constable_blue",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full investigative capacity."
+            },
+            {
+              "role": "Ultraviolet constabulary commander",
+              "archetype_ref": "constable_uv",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Top constabulary leadership directing planetary security."
+            },
+            {
+              "role": "Sullustan Regiments reserve",
+              "archetype_ref": "sullustan_militia",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Reserve military activated in the event of imminent invasion."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Constable patrols more frequent. Orange-rated officers asking questions at checkpoints. Constabulary Honor makes them extremely difficult to bribe or mislead.",
+        "targeted": "Blue-rated investigators assigned to specific suspects. Their galaxy-wide jurisdiction on SoroSuub property means they can pursue offworld.",
+        "manhunt": "Full constabulary mobilization. Speeder checkpoints throughout underground cities. Tunnel exits monitored. The Sullustan Regiments may be called up."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "sorosuub_corporation",
+      "imperial_garrison_sullust"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Keff Base — hidden Rebel installation, commanded by Commander Jyn Freila",
+      "Rebel Alliance: Covert supply pipeline from SoroSuub — Freedom One/Two/Three rifles, Cutlass-9 patrolcraft, Bulwark-class battlecruiser Arrow of Sullust",
+      "Rebel Alliance: Alliance agents operating from Fulluusub (Need's Mead cantina area)",
+      "Rebel Alliance: Rebel safe house near Fulluusub spaceport",
+      "Rebel Alliance: Bothan spy network (Keff Base intelligence)",
+      "Rebel Alliance on this planet: Receive arms and equipment from SoroSuub. Locate and destroy Imperial facilities on Sullust. Prepare for the decisive battle that Tevv insists must come before the Empire discovers Sullust's true alle"
+    ],
+    "presets": {
+      "aor_corporate_rebellion": {
+        "name": "Corporate Rebellion",
+        "description": "The PCs are Alliance operatives assigned to Sullust, where SoroSuub Corporation secretly supports the Rebellion while maintaining Imperial contracts. Commander Freila runs covert operations from Keff Base. The mission: receive arms from SoroSuub's covert pipeline, locate and destroy Imperial capacitor garrisons hidden in active volcanoes, and prepare Sullust for the decisive battle that CEO Tevv insists must come before the Empire discovers the planet's treachery. The Sullustan underground cities are the operating theater — navigating corporate politics, dodging Imperial liaisons, coordinating with the Sullustan Resistance, and conducting strikes against Imperial targets. Every day the secret holds is another day of arms flowing to the Alliance. Every day it slips brings Imperial retribution closer.",
+        "initial_faction_states": {
+          "sorosuub_corporation": "patrol",
+          "imperial_garrison_sullust": "patrol",
+          "rebel_alliance_sullust": "patrol",
+          "sullustan_resistance": "patrol",
+          "sullustan_home_guard": "patrol",
+          "sullustan_constable_brigade": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "Commander Freila needs a strike team to assault a newly discovered capacitor garrison on the surface. Bothan intelligence has located the shield transmitters, but the volcanic terrain and specialized Imperial troops make this a dangerous mission.",
+          "SoroSuub has arranged for a shipment of Freedom One rifles to be 'unguarded' at Serres Sarrano. The PCs must liberate the crates, get past the Imperial blockade, and deliver them to Keff Base without exposing SoroSuub's involvement.",
+          "An ISB agent has arrived at the SoroSuub Central garrison and is asking questions about production discrepancies in the arms factory. Tevv needs someone to misdirect the investigation before it reaches the Freedom-series stockpile.",
+          "The Bulwark-class battlecruiser Arrow of Sullust is complete at the orbital yards. SoroSuub cannot openly hand it over. The PCs must steal the ship with a skeleton crew and jump to the rendezvous point while holding off Imperial and potentially Home Guard pursuit.",
+          "A Sullustan Resistance cell in Fulluusub has gone dark. The safe house near Need's Mead may be compromised. The PCs must investigate without drawing attention from the bounty hunters watching the cantina or the Imperial spies who may have infiltrated."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Strongholds of Resistance (Alliance Worlds Sourcebook)",
+      "pages": "37-44",
+      "detail": "Primary source. Full planetary profile, history, corporate rebranding, people and culture, defense (Home Guard, Constable Brigade, Regiments), points of interest (SoroSuub Central, Centroplex, Lequana Hotel, Business Academy, Council Building, Pirin City, Serres Sarrano, Fulluusub, Piringiisi, orbital yards), Rebel targets, creatures and challenges (miim, constable stats, Commander Freila stats), Home Guard ship designs"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "61, 348, 367, 381",
+      "detail": "Sullustan species overview (p.61), Rimma Trade Route (p.348), Sullust planetary summary (p.367), full Sullust entry with SoroSuub sidebar (pp.381)"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "339, 354, 405",
+      "detail": "Rimma Trade Route notable locations (p.339), Sullust summary (p.354), Sullustan Pilot-for-Hire adversary (p.405)"
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "260, 349, 364",
+      "detail": "Sullustan starship reputation (p.260), Rimma Trade Route (p.349), Sullust summary (p.364)"
+    },
+    {
+      "book": "Dangerous Covenants (Hired Guns Sourcebook)",
+      "pages": "42",
+      "detail": "SoroSuub Corporation description — weapons and defense equipment, employs over half the Sullustan population"
+    },
+    {
+      "book": "No Disintegrations (Bounty Hunter Sourcebook)",
+      "pages": "85",
+      "detail": "Adventure involving SoroSuub corporate intrigue — former freighter technician Dai Danu, hyperdrive motivator safety recall conspiracy"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "pages": "102",
+      "detail": "Sullustan Home Guard mentioned as organic private security force for the Commerce Guild"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+// holocron-room-server — HOLOTABLE's sync substrate. THE SECOND DEPLOYABLE.
+//
+// THIS IS A SEPARATE WORKERS PROJECT ON PURPOSE, and the reason is a platform fact rather than a
+// preference. Cloudflare's documentation: "You must create a Durable Object Worker and bind it to
+// your Pages project ... You cannot create and deploy a Durable Object within a Pages project."
+// The site is Cloudflare PAGES (root wrangler.toml, pages_build_output_dir = "."), so the room's
+// Durable Object cannot live there. Approved by Jason, ruling `holotable-room-state-contract`
+// ADDENDUM 1 R-RSC-5, verbatim: "Approve the second deployable and 30 day TTL".
+//
+// A `commercial` push does NOT deploy this. It ships on its own `wrangler deploy`, and per R-PBD1
+// that deploy is JASON'S WORD — never an agent reflex. PRAXIS §4's push==live line is amended by
+// its owner to say so, and the slice-1 gate owes a deploy check that can FAIL when this Worker is
+// stale (R-CNIG-R5: a check that cannot fail is not a check).
+{
+  "name": "holocron-room-server",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-24",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Observability on by default, as the Workers guidance requires.
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+
+  "durable_objects": {
+    "bindings": [{ "name": "ROOM", "class_name": "Room" }]
+  },
+
+  // THE CURRENT LIFECYCLE SHAPE, not the legacy `migrations` array — the two are MUTUALLY EXCLUSIVE
+  // and a config carrying both is rejected at validation, so starting on `exports` avoids a
+  // migration off the old one later (R-RSC-5 names the current shape explicitly).
+  // SQLite-backed because Cloudflare recommends it for all new namespaces and no longer provisions
+  // key-value backends for accounts without one. Storage backends are IMMUTABLE once provisioned:
+  // this choice cannot be changed in place later, only deleted and re-provisioned.
+  "exports": {
+    "Room": { "type": "durable-object", "storage": "sqlite" }
+  }
+}

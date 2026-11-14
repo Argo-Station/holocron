@@ -1,0 +1,1074 @@
+{
+  "id": "nal_hutta",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Nal Hutta",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Mid Rim",
+    "sector": "Hutt Space",
+    "system": "Y'Toub",
+    "grid": "S-12",
+    "era": "galactic_civil_war",
+    "essence": "",
+    "atmosphere": "",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": "",
+    "government": "Hutt Ruling Council (also called the Council of Elders)",
+    "population": "",
+    "languages": "Huttese",
+    "terrain": "Forests, swamps",
+    "major_cities": "Bilbousa (capital), Oedriga, Jiguuna",
+    "areas_of_interest": "",
+    "exports": "Tourism, contraband",
+    "imports": "Consumables, luxury goods, technology",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 1,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": ""
+    },
+    {
+      "era": "post_empire",
+      "delta": "Jabba's death destabilizes Desilijic's dominance. The Ruling Council membership shifts as rival kajidics sense opportunity. Imperial oversight from the Baxel sector collapses with the fall of the Empire, removing even the nominal external check on Hutt infighting. Besadii may attempt to reclaim influence lost during Durga's over-reliance on Black Sun. The smuggling economy restructures without Imperial patrols to evade."
+    }
+  ],
+  "geography": {
+    "structure_type": "swamp_planet",
+    "structure_notes": "Once a lush jungle world called Evocar with verdant rainforests, soaring mountain ranges, and deep blue oceans. The Hutts terraformed it into malodorous swampland over millennia. Much of the landscape has degenerated into toxic cesspools due to rampant industrial expansion. Strip mining has depleted most natural resources. Giant hive-like palace complexes emerge from the bogs. The swamplands are divided among the great kajidics, with territories changing hands frequently.",
+    "districts": [
+      {
+        "id": "bilbousa",
+        "name": "Bilbousa",
+        "character": "The capital city. Unlike typical galactic capitals, Bilbousa has no sprawling urban landscape. Giant hive-like complexes emerge from the bogs to house the city's residents. They appear organic in nature, though this is merely the Hutts' illusion. Towering over all other structures is the Bou'Halec, or 'Seat of Power' -- a massive dome housing the Hutt Ruling Council.",
+        "authority": "Hutt Ruling Council (direct)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "political",
+          "economic",
+          "command"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "oedriga",
+        "name": "Oedriga",
+        "character": "Secondary city. Details sparse in available sourcebooks.",
+        "authority": "Hutt kajidic (unspecified)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Listed as a major city but no detailed description is provided in the EotE Core or Lords of Nal Hutta sourcebooks."
+      },
+      {
+        "id": "jiguuna",
+        "name": "Jiguuna",
+        "character": "Smaller city. Likely a settlement under direct kajidic control.",
+        "authority": "Hutt kajidic (unspecified)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Listed as a major city in the astronavigation data but no detailed description is provided in the examined sourcebooks."
+      },
+      {
+        "id": "guarja_shipyards",
+        "name": "Guarja Shipyards",
+        "character": "Sprawling military-industrial complex south of Bilbousa. Twenty square kilometers of former swampland built over with duracrete and steel. Much of the area is unstable due to flooding and sinking.",
+        "authority": "Hutt Ruling Council / kajidic consortium",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "military",
+          "economic"
+        ],
+        "notes": "Primary source for Hutt spacecraft. Manufactures the rarely-seen Dor'bulla-class warship. Also produces knock-off Z-95 Headhunters to undercut competitors. The Hutts have been selling ships to the Rebellion under the Empire's nose -- purely for profit, not ideology."
+      },
+      {
+        "id": "swamplands",
+        "name": "Kajidic Swamplands",
+        "character": "Vast fetid bogs and toxic swamps divided among the great kajidic clans. Each powerful kajidic claims the 'choicest and foulest' territory. Hutt palaces rise from the muck as opulent fortresses surrounded by slave quarters and fungal forests.",
+        "authority": "Individual kajidics (territorial claims shift constantly)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "political",
+          "high_hidden"
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Hutt",
+      "population_level": "dominant",
+      "social_role": "Ruling class. Every Hutt on Nal Hutta holds a position of power relative to other species. All but the lowliest Hutts rely on servants and slaves for all menial tasks. Even adolescent Hutts earning their place hold authority over non-Hutts. The Hutts fully embrace the philosophy: 'Someone's got to have it; why not us?' Approximate 43% of the population.",
+      "districts": [
+        "bilbousa",
+        "oedriga",
+        "jiguuna",
+        "swamplands"
+      ]
+    },
+    {
+      "name": "Evocii",
+      "population_level": "minority",
+      "social_role": "Enslaved remnant of the original indigenous species. The Evocii were the native inhabitants of Evocar before the Hutts conquered their world. Those who remained on Nal Hutta were enslaved. Those who escaped hid in the wilds and were hunted to near-extinction. The Evocii relocated to Nar Shaddaa mutated into a sickly, pale shadow of their former selves. Many believe them extinct, but they persist in wretched conditions. Approximate 28% of the population.",
+      "districts": [
+        "bilbousa",
+        "swamplands"
+      ]
+    },
+    {
+      "name": "Vippit",
+      "population_level": "minority",
+      "social_role": "Significant minority population. Role not detailed in available sourcebooks. Approximately 15% of the population.",
+      "districts": [
+        "bilbousa"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "Slaves, servants, indentured workers, and transient offworlders conducting business with the Hutts. Humans, Rodians, Twi'leks, Weequay, Klatooinians, Niktos, and others serve as majordomos, enforcers, laborers, and entertainment. Most visitors endure conditions only as long as business requires. Approximately 14% of the population.",
+      "districts": [
+        "bilbousa",
+        "oedriga",
+        "jiguuna",
+        "guarja_shipyards"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "hutt_ruling_council",
+      "name": "Hutt Ruling Council (Hutt Cartel)",
+      "type": "criminal",
+      "control_type": [
+        "political",
+        "economic",
+        "military"
+      ],
+      "control_strength": "absolute",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Ruling Council is the supreme authority on Nal Hutta and across Hutt Space. Five seats controlled by the Clans of the Ancients: currently Desilijic (two seats), Qunaalac, Gorensla, and Vanderijar. The council meets in the Bou'Halec in Bilbousa, though members often attend via hologram from personal palaces. Hutts are resistant to Force manipulation and indifferent to ideology. Inter-kajidic rivalries are the primary vulnerability -- competing clans can be played against each other by those subtle enough to survive the attempt."
+      },
+      "motivation": "Total dominion over Hutt Space and its criminal economy. The Hutts reject war and military conquest as suitable only for lesser beings. They seize power through organizations, secrecy, economic manipulation, and the patience of beings who live for a thousand years. The kajidic philosophy -- 'the means by which we prosper' -- drives all decisions.",
+      "assets": [
+        "Bou'Halec council chamber in Bilbousa",
+        "Grand Council Hall for full 48-kajidic gatherings",
+        "Guarja Shipyards producing warships and starfighters",
+        "Hutt warfleet including Dor'bulla-class warships",
+        "Slave armies drawn from indentured species (Klatooinians, Niktos, Vodrans)",
+        "Control of all three major hyperspace routes through Hutt Space",
+        "Economic stranglehold on regional trade",
+        "Network of bribed Imperial Moffs and sector officials",
+        "Intelligence network spanning Hutt Space and beyond"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_baxel_sector",
+          "type": "transactional",
+          "notes": ""
+        },
+        {
+          "faction_id": "black_sun_presence",
+          "type": "rival",
+          "notes": "Black Sun respects the absolute hold of the Hutts over their claimed sectors. Durga Besadii became increasingly indebted to Black Sun, which eliminated several of his rivals and gained influence within the Besadii kajidic. This is viewed as dangerous by other Hutts. Black Sun operates at the margins of Hutt Space but does not openly challenge Hutt authority on Nal Hutta itself."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Hyperspace route data, rival kajidic intelligence, Imperial patrol schedules, proof of inter-clan treachery. Information is the primary currency of kajidic politics. The ancient Code of Kajidic tome -- rumored to record the first tenets established by Budhila Hestilic Amura -- is among the rarest and holiest books hidden by the Ruling Council."
+        },
+        {
+          "type": "resource",
+          "reason": "Spice, slaves, weapons, luxury goods. The Hutts control the flow of illegal goods through their space. A disruption to supply lines or discovery of new resources shifts kajidic power dynamics."
+        },
+        {
+          "type": "person",
+          "reason": "Leverage. A person who owes a Hutt is an asset. A person who wronged a Hutt is a target for elaborate, public revenge. Hutts make revenge a cultural pastime -- mere murder is insufficient; elaborate torture or extreme humiliation is required so all beings understand never to cross a Hutt."
+        },
+        {
+          "type": "artifact",
+          "reason": "No intrinsic cultural interest. Valuable only as commodity or leverage. A Force artifact would be auctioned to the highest bidder -- or used as a bargaining chip with the Empire."
+        }
+      ]
+    },
+    {
+      "id": "imperial_baxel_sector",
+      "name": "Imperial Military (Baxel Sector)",
+      "type": "imperial",
+      "control_type": [
+        "political"
+      ],
+      "control_strength": "minimal",
+      "susceptibility": {
+        "criminal": "high",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Imperial authority in Hutt Space is nominal. Moff Heedra governs the Baxel sector from Teth -- technically encompassing all of Hutt Space. In practice, the Empire has virtually no bases or military presence within the reduced borders of Hutt Space. Imperial officers assigned here are susceptible to Hutt bribes. The previous Moff, Sarn Shild, attempted a show of force against Nar Shaddaa and was destroyed by political manipulation -- he committed suicide rather than face consequences of the engineered failure."
+      },
+      "motivation": "",
+      "assets": [
+        "Nominal governance from Teth system",
+        "Imperial Fleet capability as a deterrent (not permanently stationed)",
+        "Intelligence gathering through ISB (sporadic)",
+        "Anti-slavery decrees as leverage (selectively enforced)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_ruling_council",
+          "type": "transactional",
+          "notes": "The Empire claims dominance. The Hutts allow the claim. Both sides understand the arrangement. The Hutts bribe whom they need to bribe. The Empire looks the other way on what it needs to look the other way on. The relationship endures because changing it would cost more than maintaining it."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on Rebel activity within Hutt Space. The Empire suspects the Hutts are selling ships and supplies to the Rebellion -- and they are correct, though proving it is another matter."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives, fugitives, and Force-sensitives -- all reportable to ISB. Whether local Imperial contacts act depends on whether it conflicts with their arrangements with the Hutts."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standing ISB orders to report Force-related artifacts. Compliance depends on whether the local Imperial official values the Hutt relationship more than ISB's approval."
+        }
+      ]
+    },
+    {
+      "id": "black_sun_presence",
+      "name": "Black Sun",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Black Sun does not openly operate on Nal Hutta. Its influence is indirect, channeled primarily through the Besadii kajidic's debts and dependencies. Durga Besadii's reliance on Black Sun to eliminate rivals gave the organization a foothold within one of the five Ruling Council clans. Other kajidics view this as a dangerous precedent. Black Sun respects the Hutts' absolute hold over their claimed sectors but probes for opportunity at the margins."
+      },
+      "motivation": "Expanding influence within Hutt Space through economic leverage and kajidic debt. Black Sun does not seek direct confrontation with the Hutts -- the cost would be prohibitive. Instead, it cultivates dependencies within vulnerable kajidics, gaining intelligence and influence that can be leveraged when advantageous.",
+      "assets": [
+        "Financial leverage over Besadii kajidic through Durga's debts",
+        "Intelligence network within Besadii operations",
+        "Indirect access to Ruling Council deliberations through Besadii",
+        "Shadow Collective precedent -- forced Hutt cooperation during Mandalore operation"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_ruling_council",
+          "type": "rival",
+          "notes": "Black Sun and the Hutts maintain a wary coexistence. Jabba's live-and-let-live philosophy has kept Black Sun out of his direct business, though concessions have been made. The broader Hutt establishment views Black Sun's infiltration of Besadii as a serious threat to kajidic independence."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Kajidic intelligence, Ruling Council deliberations, Hutt shipping routes. Any information that increases leverage over the Hutts is valuable to Black Sun."
+        },
+        {
+          "type": "resource",
+          "reason": "Access to Hutt smuggling infrastructure and spice distribution networks. Black Sun seeks to insert itself into supply chains rather than build competing ones."
+        },
+        {
+          "type": "person",
+          "reason": "Disgruntled Hutt underlings, indebted kajidic members, or anyone with inside knowledge of Hutt operations. Recruitment and blackmail are primary tools."
+        }
+      ]
+    },
+    {
+      "id": "desilijic_kajidic",
+      "name": "Desilijic Kajidic (Jabba's Clan)",
+      "type": "criminal",
+      "control_type": [
+        "political",
+        "economic"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The most powerful individual kajidic on the Ruling Council, holding two of five seats. Jabba Desilijic Tiure is the driving force, having convinced the Hutts that cooperation among themselves against 'lesser races' is more profitable than infighting. Jabba operates primarily from Tatooine but his influence on Nal Hutta politics is enormous."
+      },
+      "motivation": "Maintaining Desilijic's dominant position on the Ruling Council and expanding criminal operations across the Outer Rim. Jabba's coordination philosophy has made him the premier Hutt crime lord, but rival kajidics -- especially Besadii -- constantly probe for weakness.",
+      "assets": [
+        "Two seats on the Hutt Ruling Council",
+        "Extensive criminal network across the Outer Rim",
+        "Jabba's personal reputation and political influence",
+        "Revenue from smuggling, spice trade, and slave operations",
+        "Engineered the assassination of Besadii leader Aruk through a disgruntled underling",
+        "Supported the Rebel raid on Ylesia that devastated Besadii's spice factories"
+      ],
+      "relationships": [
+        {
+          "faction_id": "hutt_ruling_council",
+          "type": "dominant_member",
+          "notes": "Desilijic controls two of five Ruling Council seats. Jabba wields disproportionate influence even beyond these seats. He has become harder than ever to control."
+        },
+        {
+          "faction_id": "black_sun_presence",
+          "type": "cautious_rival",
+          "notes": "Jabba avoids costly conflicts with Black Sun, preferring live-and-let-live. He has made concessions to maintain the balance. However, he watches Black Sun's infiltration of Besadii with strategic interest -- a weakened rival is useful, but a rival controlled by an outside power is dangerous."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Proof of rival kajidic treachery, Imperial intelligence, Black Sun operations within Hutt Space. Information that strengthens Desilijic's Ruling Council position."
+        },
+        {
+          "type": "person",
+          "reason": "Anyone who failed or betrayed Jabba. Elaborate revenge is mandatory. Also: potential recruits for Desilijic's extensive criminal operations."
+        }
+      ]
+    },
+    {
+      "id": "besadii_kajidic",
+      "name": "Besadii Kajidic (Durga's Clan)",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Besadii is weakened but dangerous. Durga Besadii proved more capable than expected after Aruk's assassination, but his reliance on Black Sun has cost the clan independence and the trust of other kajidics. Besadii was fined by the Hutt Grand Council for selling slaves to the Empire. The Rebel raid on Ylesia devastated their primary spice factories."
+      },
+      "motivation": "Reclaiming power lost to Desilijic and escaping Black Sun's financial grip. Besadii is cornered and desperate, making them unpredictable and potentially useful to anyone willing to exploit their situation.",
+      "assets": [
+        "One seat on the Hutt Ruling Council (contested)",
+        "Remaining spice operations (diminished after Ylesia raid)",
+        "Connections to Black Sun (double-edged asset)",
+        "Durga's personal cunning and willingness to take risks"
+      ],
+      "relationships": [
+        {
+          "faction_id": "desilijic_kajidic",
+          "type": "hostile",
+          "notes": "Ancient blood feud. Desilijic engineered Aruk's assassination. Durga killed Jiliac in ritual combat under the Old Law. The clans still vie for power and control, with Desilijic holding the upper hand."
+        },
+        {
+          "faction_id": "black_sun_presence",
+          "type": "dependent",
+          "notes": ""
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Evidence of Desilijic's assassination of Aruk (already partially obtained). Intelligence that could shift Ruling Council politics in Besadii's favor."
+        },
+        {
+          "type": "resource",
+          "reason": "Desperately needs new revenue sources after Ylesia's destruction. Any significant spice or slave opportunity would draw Besadii interest."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "bouhalec_palace",
+      "name": "Bou'Halec (Seat of Power)",
+      "district_id": "bilbousa",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": "hutt_ruling_council",
+      "controlling_faction_notes": "The massive dome housing the Hutt Ruling Council. Once property of Gardulla Besadii the Elder; now formally controlled by the council. Members often attend meetings via hologram from personal palaces to avoid assassination risk. The full Ruling Council never assembles in person.",
+      "strategic_value": "The political nerve center of all Hutt Space. Decisions made here affect criminal operations across dozens of systems. Controlling or influencing the council shapes the power dynamics of the entire region.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "venerable_hutt",
+          "tier": "nemesis",
+          "count": "1-2",
+          "notes": "Ruling Council members present in person. Devious, experienced, and surrounded by guards. Stats: Lords of Nal Hutta p48."
+        },
+        {
+          "archetype_ref": "hutt_majordomo",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Majordomos managing council business, deciding who gets audiences, speaking on their masters' behalf. Stats: Lords of Nal Hutta p46."
+        },
+        {
+          "archetype_ref": "nikto_guard",
+          "tier": "minion",
+          "count": "8-12",
+          "notes": "Palace security. Multiple slave species serving as guards -- Niktos, Klatooinians, Weequay."
+        },
+        {
+          "archetype_ref": "protocol_droid",
+          "tier": "minion",
+          "count": "1-2",
+          "notes": "Translators and administrative assistants. The council conducts business in Huttese but visitors require interpretation."
+        }
+      ]
+    },
+    {
+      "id": "grand_council_hall",
+      "name": "Grand Council Hall",
+      "district_id": "bilbousa",
+      "type": [
+        "political"
+      ],
+      "controlling_faction_id": "hutt_ruling_council",
+      "controlling_faction_notes": "Enormous chamber capable of holding representatives from all 48 kajidics plus assistants and slaves. The Grand Council meets only when called by the Ruling Council -- years, decades, or even a century may pass between gatherings. It met at least twice in the years prior to the Battle of Yavin after a century of silence.",
+      "strategic_value": "When the Grand Council convenes, the power dynamics of all Hutt Space are in flux. A Grand Council meeting means a clan has accused another of acting against the Hutts as a whole. Being present -- or having influence over attendees -- during these rare gatherings can reshape the criminal landscape of the region.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mature_hutt",
+          "tier": "rival",
+          "count": "dozens",
+          "notes": "Representatives from 48 kajidics with full retinues. Only relevant during Grand Council sessions. Stats: Lords of Nal Hutta p47."
+        }
+      ]
+    },
+    {
+      "id": "guarja_shipyards",
+      "name": "Guarja Shipyards",
+      "district_id": "guarja_shipyards",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "hutt_ruling_council",
+      "controlling_faction_notes": "Primary military-industrial facility for all of Hutt Space. Twenty square kilometers of built-over swampland south of Bilbousa. Produces Dor'bulla-class warships and knock-off Z-95 Headhunters. The Hutts have been selling fighters to the Rebellion for profit.",
+      "strategic_value": "The only significant warship production facility in Hutt Space. Control of the Guarja Shipyards means control of the Hutt fleet. The facility's secret arms sales to the Rebellion make it a potential flashpoint if the Empire discovers the arrangement.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "hutt_majordomo",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Shipyard overseer managing production and sales. Answers to the Ruling Council."
+        },
+        {
+          "archetype_ref": "nikto_guard",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Yard security. Mixed slave-species guards patrolling the perimeter and production floors."
+        },
+        {
+          "archetype_ref": "technician",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Engineers and shipwrights. Mix of indentured and contracted workers."
+        }
+      ]
+    },
+    {
+      "id": "bilbousa_contraband_market",
+      "name": "Bilbousa Contraband Markets",
+      "district_id": "bilbousa",
+      "type": [
+        "economic"
+      ],
+      "controlling_faction_id": "hutt_ruling_council",
+      "controlling_faction_notes": "Open markets dealing in goods illegal throughout most of the galaxy. The Hutts' arrangement with the Empire allows these businesses to thrive even as the Imperials crack down on the same practices elsewhere. Slavery rings and spice dealers operate openly.",
+      "strategic_value": "The commercial heart of Nal Hutta's illicit economy. Rare goods, slaves, spice, and contraband technology flow through these markets. A key nexus for intelligence gathering and black market procurement.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Knows what's moving through the markets and who's buying. Sells to anyone who pays."
+        },
+        {
+          "archetype_ref": "slave_trader",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Operates openly under Hutt law. Deals in sentient beings as commodities."
+        },
+        {
+          "archetype_ref": "nikto_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Market security and enforcers ensuring tribute flows to the appropriate kajidic."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Looking for cargo, buyers, or employment. The markets are where deals begin."
+        }
+      ]
+    },
+    {
+      "id": "kajidic_swamp_palace",
+      "name": "Kajidic Swamp Palaces (generic)",
+      "district_id": "swamplands",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Individual Hutt palaces scattered across the swamplands. Each powerful Hutt maintains a personal fortress surrounded by servants, slaves, and opulence. The occupying kajidic varies -- territory changes hands constantly as clans scheme and fight.",
+      "strategic_value": "Each palace is a self-contained power base. A Hutt's palace is where they directly oversee criminal operations, surround themselves with soldiers and specialists, and display their wealth as evidence of supremacy. Raiding or infiltrating a palace is an act of war against the owning kajidic.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mature_hutt",
+          "tier": "rival",
+          "count": "1",
+          "notes": "The palace owner. An adult Hutt managing criminal operations from the safety of the swamp. Stats: Lords of Nal Hutta p47."
+        },
+        {
+          "archetype_ref": "hutt_majordomo",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Master of the house. Manages schedules, decides audiences, speaks on the Hutt's behalf. Stats: Lords of Nal Hutta p46."
+        },
+        {
+          "archetype_ref": "nikto_guard",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Palace security. Klatooinians, Niktos, Weequay, Gamorreans -- the species varies by the Hutt's preference."
+        },
+        {
+          "archetype_ref": "slave",
+          "tier": "minion",
+          "count": "10-20",
+          "notes": "Servants, laborers, entertainment. Many carry hidden explosives that detonate if they leave restricted areas."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "kajidic_criminal_influence",
+      "type": "criminal",
+      "source_faction_id": "hutt_ruling_council",
+      "source_description": "The kajidic system is the air Nal Hutta breathes. Every transaction, every relationship, every movement of goods and people is shaped by the competing criminal enterprises of the Hutt clans. There is no legitimate economy to speak of -- the planet produces nothing of inherent value outside of contraband. The distinction between 'government' and 'organized crime' does not exist here. The Ruling Council is both.",
+      "strength_default": "absolute",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_baxel_sector",
+          "description": "Imperial authority exists only as a diplomatic fiction. Moff Heedra governs from Teth, hundreds of systems away. Imperial officers in the region are bribed or intimidated into compliance. The Hutts appease the Empire when necessary and sacrifice expendable assets to satisfy Imperial anger."
+        },
+        {
+          "faction_id": "black_sun_presence",
+          "description": "Black Sun's influence is contained to Besadii's debt dependencies. The broader kajidic system treats Black Sun as an outside threat to be watched and contained. Any kajidic caught dealing with Black Sun against Hutt interests faces Grand Council sanctions."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "absolute",
+          "modifier": "On Nal Hutta, every social interaction operates within the kajidic framework. Non-Hutts are automatically assumed to be servants, slaves, or supplicants. Claiming independent status or authority requires extraordinary evidence. Offworlders who show insufficient deference to Hutt customs face hostility, exploitation, or worse. Add automatic threat to all social checks with Hutt-affiliated NPCs unless the character demonstrates proper subservience or has kajidic patronage."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "ootmian_pabol",
+        "destination": "Kwenn Space Station (Coreward edge of Hutt Space)",
+        "travel_time": "1.5 hours",
+        "route_quality": "well-established",
+        "notes": "Replacement for the original Ootmian route destroyed by a supernova that created the Thornhedge Nebula. Never reached the prominence of its predecessor. Primary gateway from Hutt Space to the greater galaxy. Kwenn Station is known for the Royal K Casino and is visited by travelers and Imperial military vessels alike.",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 33,
+            "detail": "Route description: Nal Hutta to Kwenn Space Station at Coreward edge of modern Hutt Space"
+          },
+          {
+            "book": "GM Holocron",
+            "page": 39,
+            "detail": "Travel time: 1.5 hours. Notable locations: Nal Hutta, Nar Bol Sholla, Keldooine"
+          }
+        ]
+      },
+      {
+        "id": "pabol_hutta",
+        "destination": "Sleheyron (via Varl and Bootana Hutta)",
+        "travel_time": "2 hours",
+        "route_quality": "restricted",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 33,
+            "detail": "Route description: restricted to Hutts, heavily guarded through Bootana Hutta"
+          },
+          {
+            "book": "GM Holocron",
+            "page": 39,
+            "detail": "Travel time: 2 hours. Notable locations: Nal Hutta, Sleheyron"
+          }
+        ]
+      },
+      {
+        "id": "shag_pabol",
+        "destination": "Triellus Trade Route and Teth (via Ylesia and Outland Transit)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Known as the Slave Road. Once hidden from the Old Republic as it connected Rimward Hutt slave holdings. Now widely known. Connects Nal Hutta to the Triellus Trade Route and to Teth, the Imperial capital of the Baxel sector and nominal capital of Hutt Space.",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 33,
+            "detail": "Route description: the Slave Road, connects to Triellus Trade Route via Ylesia"
+          }
+        ]
+      },
+      {
+        "id": "nar_shaddaa",
+        "destination": "Nar Shaddaa (moon)",
+        "travel_time": "local transit",
+        "route_quality": "constant",
+        "notes": "Nar Shaddaa is Nal Hutta's largest moon and the commercial hub of Hutt Space. All imports to Nal Hutta are ferried through Nar Shaddaa before reaching the planet's surface. The Hutts closely monitor all traffic to their world.",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 43,
+            "detail": "All shipments ferried through Nar Shaddaa; Hutt paranoia means close monitoring of all traffic"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "thornhedge_nebula",
+        "type": "navigational_hazard",
+        "description": "A supernova created the Thornhedge Nebula, severing the original Ootmian Pabol hyperspace route to Nal Hutta. The replacement route never achieved the speed or efficiency of the original, permanently reducing Nar Shaddaa's prominence as a trade hub and accelerating its transformation into a criminal haven.",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 15,
+            "detail": "Supernova severed the Ootmian Pabol; replacement route inferior"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "hutt_ruling_council",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A single kajidic representative maintains a skeleton staff at a palace complex. Most Hutts are elsewhere managing offworld operations. Slave guards patrol on autopilot. The political machinery is dormant.",
+          "presence_reason": "A Grand Council decision has drawn attention elsewhere, or a major inter-kajidic conflict has pulled resources to disputed territories. Nal Hutta itself is quiet -- which on this world means the scheming has moved behind closed doors.",
+          "roles": [
+            {
+              "role": "Hutt majordomo",
+              "archetype_ref": "hutt_majordomo",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Managing affairs in the Hutt master's absence. Has limited authority to make deals."
+            },
+            {
+              "role": "Slave guard patrol",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Klatooinian or Nikto guards on routine patrol. Professional but understaffed."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard operations. The Ruling Council is in session (or close to it). Kajidic palaces are staffed. Bilbousa's markets are busy. Slaves and guards move through the city. Visiting supplicants and offworld smugglers conduct business under watchful eyes. This is Nal Hutta functioning normally.",
+          "presence_reason": "Business as usual. The kajidics are conducting their affairs. Trade flows. Schemes advance. The galaxy's criminal economy hums along.",
+          "roles": [
+            {
+              "role": "Mature Hutt",
+              "archetype_ref": "mature_hutt",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Kajidic representatives conducting business. Each with personal retinue."
+            },
+            {
+              "role": "Hutt majordomo",
+              "archetype_ref": "hutt_majordomo",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Managing audiences, trade deals, and palace operations for their respective masters."
+            },
+            {
+              "role": "Slave guard contingent",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Mixed species guards across multiple locations. Niktos, Klatooinians, Weequay, Gamorreans."
+            },
+            {
+              "role": "Slave laborers",
+              "archetype_ref": "slave",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Workers, servants, entertainers. Many carry hidden explosive devices restricting their movement."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The kajidics are preparing for something. Additional guards deployed. Warships recalled from patrol. Council meetings increase in frequency. Visiting offworlders face increased scrutiny. Slave populations are locked down. Someone has threatened Hutt interests and the response is being coordinated.",
+          "presence_reason": "Imperial overreach detected -- Moff Heedra making aggressive moves, or an ISB operation targeting Hutt assets. Alternatively, inter-kajidic conflict escalating toward the threshold where the Grand Council must be convened. Or external threat: Black Sun expanding influence, Rebel activity drawing unwanted Imperial attention to the region.",
+          "roles": [
+            {
+              "role": "Venerable Hutt",
+              "archetype_ref": "venerable_hutt",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior Ruling Council member has taken personal charge. Devious and extremely dangerous politically."
+            },
+            {
+              "role": "Mature Hutts",
+              "archetype_ref": "mature_hutt",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Multiple kajidic representatives coordinating response. Temporary alliances forming."
+            },
+            {
+              "role": "Hutt majordomos",
+              "archetype_ref": "hutt_majordomo",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Running expanded operations. Increased security protocols."
+            },
+            {
+              "role": "Guard contingent",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 24,
+              "notes": "Doubled security across all kajidic holdings. Checkpoints at palace approaches."
+            },
+            {
+              "role": "Bounty hunters",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Hired specialists for specific tasks. The kajidics are spending money."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full mobilization. The Grand Council has been convened or a direct military threat faces Nal Hutta. Dor'bulla-class warships patrol the Y'Toub system. Every kajidic has deployed its full slave armies. The Bou'Halec is a fortress. No ship approaches Nal Hutta without being challenged. The Hutts have not been this unified since the Clone Wars -- and whatever caused it has made very powerful enemies.",
+          "presence_reason": "Existential threat -- Imperial invasion fleet, massive inter-kajidic civil war, or an external power directly threatening the Ruling Council. This level of mobilization is extraordinarily rare. The Hutts reject military solutions as beneath them, so whatever provoked this response has overridden millennia of kajidic philosophy.",
+          "roles": [
+            {
+              "role": "Venerable Hutts",
+              "archetype_ref": "venerable_hutt",
+              "tier": "nemesis",
+              "count": 2,
+              "notes": "Multiple Ruling Council members directing operations personally. Combined age exceeding two thousand years of cunning."
+            },
+            {
+              "role": "Mature Hutts",
+              "archetype_ref": "mature_hutt",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Representatives from all major kajidics. Grand Council possibly in session."
+            },
+            {
+              "role": "Hutt war fleet",
+              "archetype_ref": "hutt_warship",
+              "tier": "special",
+              "count": "3-5 capital ships",
+              "notes": "Dor'bulla-class warships and escorts from Guarja Shipyards. Rarely seen and terrifying when deployed."
+            },
+            {
+              "role": "Slave armies",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 50,
+              "notes": "Full kajidic slave armies deployed. Klatooinians, Niktos, Vodrans -- species enslaved since the Treaty of Vontor 25,000 years ago."
+            },
+            {
+              "role": "Bounty hunters",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 5,
+              "notes": "The highest-paid mercenaries and hunters in Hutt Space. Offworld specialists brought in."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Hutt majordomos ask more pointed questions of visitors. Palace guards scrutinize credentials. Informant networks activated in Bilbousa's markets. The Hutts know something is off but haven't identified the threat.",
+        "targeted": "A specific offworlder or group has drawn kajidic attention. Bounty hunters hired. Movement through Bilbousa monitored. Departure from the planet becomes difficult -- all traffic to Nar Shaddaa is scrutinized. The Hutts are patient and thorough.",
+        "manhunt": "Every asset the responsible kajidic can deploy is searching. Slave guards sweep the swamplands. Bounty contracts issued across Hutt Space. Other kajidics cooperate if the target is deemed a threat to all Hutts. Escape from Nal Hutta requires extraordinary cunning or extraordinary luck."
+      }
+    },
+    {
+      "faction_id": "imperial_baxel_sector",
+      "presence_levels": {
+        "skeleton": {
+          "description": "No permanent Imperial presence on Nal Hutta. Zero military assets stationed on-planet. The Empire's claim exists on star charts and in diplomatic communiques, nowhere else.",
+          "presence_reason": "Default state. The Empire has never established a meaningful presence on Nal Hutta because the Hutts would not tolerate it and the cost of forcing the issue exceeds any strategic benefit.",
+          "roles": []
+        },
+        "patrol": {
+          "description": "An Imperial diplomatic envoy or intelligence operative has arrived on Nal Hutta for specific business. Small escort. Clearly temporary. The Hutts watch them closely and ensure the visit is brief.",
+          "presence_reason": "Specific diplomatic or intelligence mission. Moff Heedra sending a representative, ISB investigating a lead, or an Imperial officer delivering terms. The Hutts tolerate this because refusing would invite escalation.",
+          "roles": [
+            {
+              "role": "Imperial diplomat or ISB agent",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "On specific business. Uncomfortable, out of element, and aware of how little authority they actually hold here."
+            },
+            {
+              "role": "Stormtrooper escort",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Diplomatic security detail. Professional but vastly outnumbered by Hutt forces. Their presence is symbolic."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "An Imperial task force has entered the Y'Toub system. Star Destroyers in orbit. The Hutts are alarmed but maintaining composure. Negotiations are urgent. The last time this happened -- Moff Shild's attack on Nar Shaddaa -- the Empire lost and the Moff died.",
+          "presence_reason": "Something extraordinary has provoked Imperial intervention. Rebel activity traced to Hutt arms sales, a direct affront to Imperial authority, or orders from someone powerful enough to override the usual policy of leaving the Hutts alone.",
+          "roles": [
+            {
+              "role": "Imperial fleet commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Commanding the task force from orbit. May or may not have been bribed by the Hutts already."
+            },
+            {
+              "role": "ISB investigation team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "On the ground conducting the actual investigation. Deeply uncomfortable operating in Hutt territory."
+            },
+            {
+              "role": "Stormtrooper company",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Ground security for Imperial personnel. Surrounded by hostile territory."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial blockade of the Y'Toub system. Multiple Star Destroyers. Ground forces deploying. This has happened once before -- Moff Shild's disastrous attempt to destroy Nar Shaddaa -- and it ended in Imperial humiliation. The Hutts are working every contact they have to undermine the operation from within.",
+          "presence_reason": "Direct orders from the highest levels of Imperial command. The political cost of this action is enormous. Someone has decided the Hutts need to be reminded who holds ultimate military power. The Hutts are simultaneously preparing to fight and to buy their way out.",
+          "roles": [
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command. Career is on the line. History suggests the Hutts will find a way to destroy him politically even if the military operation succeeds."
+            },
+            {
+              "role": "ISB senior agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Running intelligence and counter-intelligence. Aware the Hutts are attempting to buy the fleet commander."
+            },
+            {
+              "role": "Stormtrooper battalion",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Occupation force. Deep in hostile territory with supply lines running through Hutt-controlled space."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. Hutts are resistant to Force manipulation, making an Inquisitor's usual tools less effective."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial intelligence assets in the region increase monitoring of Hutt communications. Diplomatic messages to the Ruling Council become slightly more pointed. Nothing visible on the ground.",
+        "targeted": "ISB has identified specific Hutt operations to investigate. An agent may arrive under diplomatic cover. The Hutts will know within hours and begin countermeasures.",
+        "manhunt": "Imperial warships enter the Y'Toub system. The Hutts activate every bribed official and back-channel contact to determine what provoked the escalation and how to make it stop. On the ground, nothing changes -- the Empire has no forces on Nal Hutta to conduct a manhunt."
+      }
+    },
+    {
+      "faction_id": "black_sun_presence",
+      "presence_levels": {
+        "skeleton": {
+          "description": "No visible Black Sun presence. Influence is exercised entirely through Besadii kajidic intermediaries and financial dependencies. If Black Sun operatives are on Nal Hutta, they do not identify themselves as such.",
+          "presence_reason": "Default state. Black Sun does not maintain open operations on Nal Hutta because doing so would provoke a unified Hutt response. All influence is channeled through the Besadii debt relationship.",
+          "roles": [
+            {
+              "role": "Embedded agent",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Operating under cover within Besadii's organization. Reports to Black Sun handlers offworld. Discovery would mean death."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Black Sun representatives have arrived ostensibly as guests of Besadii. Their presence is known to other kajidics and causes immediate political tension. They conduct business quickly and leave.",
+          "presence_reason": "Besadii has called in Black Sun assistance for a specific operation -- debt collection, rival elimination, or intelligence gathering. Other kajidics are watching closely.",
+          "roles": [
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "black_sun_vigo_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Here on specific business. Professional, dangerous, and aware of how unwelcome they are."
+            },
+            {
+              "role": "Hired muscle",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Personal security for the operative. Non-descript species chosen to avoid attention."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Black Sun has established a semi-permanent operational presence through Besadii, with multiple agents embedded in kajidic operations. This represents a serious escalation that other Hutts would consider grounds for Grand Council intervention.",
+          "presence_reason": "Besadii's debts have reached a point where Black Sun is effectively directing portions of kajidic operations. Durga may no longer have the ability to refuse Black Sun demands. This is the scenario other Hutts fear most.",
+          "roles": [
+            {
+              "role": "Black Sun cell leader",
+              "archetype_ref": "black_sun_vigo_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Directing Black Sun operations through Besadii infrastructure. Has significant leverage."
+            },
+            {
+              "role": "Embedded operatives",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Placed within Besadii's organization at multiple levels. Gathering intelligence on all kajidics."
+            },
+            {
+              "role": "Hired enforcers",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Black Sun muscle disguised as Besadii employees. Available for wet work."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Black Sun has seized effective control of the Besadii kajidic and is using it as a front for open operations on Nal Hutta. This would trigger an immediate and violent response from every other kajidic. The scenario represents a catastrophic failure of Hutt independence.",
+          "presence_reason": "Durga's debts have consumed Besadii's autonomy entirely, or Black Sun has orchestrated a hostile takeover of the kajidic through assassination and replacement of key figures. This is an existential threat to the kajidic system and would unite even bitter rivals.",
+          "roles": [
+            {
+              "role": "Black Sun Vigo representative",
+              "archetype_ref": "black_sun_vigo_agent",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior Black Sun leader directing operations. Their presence on Nal Hutta is a declaration of war against the kajidic system."
+            },
+            {
+              "role": "Black Sun operatives",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 5,
+              "notes": "Full intelligence network across Bilbousa. Monitoring all kajidics."
+            },
+            {
+              "role": "Black Sun enforcers",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Armed and ready for the Hutt counterattack that is certainly coming."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Other kajidics detect unusual activity within Besadii operations. Off-species personnel in positions typically held by Hutts or their long-term servants. Financial flows that don't match known Besadii patterns.",
+        "targeted": "A specific Black Sun operative has been identified on Nal Hutta. Desilijic or the Ruling Council hires bounty hunters to track and capture them. Besadii is pressured to explain.",
+        "manhunt": "The Ruling Council has confirmed Black Sun infiltration and issued a unified response. Every kajidic contributes resources to the hunt. Besadii is placed under virtual house arrest pending investigation. Any confirmed Black Sun agent is killed on sight."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "EotE_hutt_intrigue": {
+        "label": "Edge of the Empire -- Kajidic Politics",
+        "description": "Players arrive on Nal Hutta to conduct business with a Hutt patron -- or are summoned involuntarily. The Desilijic-Besadii rivalry dominates the political landscape. Jabba's influence is felt everywhere. The players are small pieces on a very large dejarik board, useful only as long as they remain useful.",
+        "controlling_factions": [
+          {
+            "location_id": "bouhalec_palace",
+            "faction_id": "hutt_ruling_council",
+            "presence_level": "patrol",
+            "notes": "Standard council operations. The Bou'Halec is staffed. Audiences are available to those with the right connections or enough credits."
+          },
+          {
+            "location_id": "bilbousa_contraband_market",
+            "faction_id": "hutt_ruling_council",
+            "presence_level": "patrol",
+            "notes": "Markets operating normally. Contraband flows freely. Good place to gather intelligence or acquire restricted goods."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "A Desilijic majordomo has a job that requires offworlders -- someone expendable who cannot be traced back to the kajidic. The pay is generous. The consequences of failure are not discussed.",
+          "A Besadii representative approaches the players with a counter-offer. They want information about Desilijic operations. The reward is substantial, but Besadii's desperation is obvious and their Black Sun connections make them dangerous allies.",
+          "A shipment from the Guarja Shipyards was supposed to reach a Rebel contact but has gone missing. Someone is stealing from the Hutts -- or the Hutts are testing the players' loyalty.",
+          "An Evocii slave in Bilbousa's markets whispers that they know where the ancient Code of Kajidic tome is hidden. The information could shift the balance of power on the Ruling Council -- if it's real, and if the players survive long enough to use it."
+        ]
+      },
+      "EotE_smuggler_run": {
+        "label": "Edge of the Empire -- Smuggler's Transit",
+        "description": "Players pass through the Y'Toub system on a smuggling run along the Ootmian Pabol or Shag Pabol. Nal Hutta and Nar Shaddaa are unavoidable waypoints. The Hutts monitor all traffic closely. Getting in is easy; getting out with your cargo and your life requires navigating Hutt customs, kajidic shakedowns, and the ever-present risk of being drafted into someone else's scheme.",
+        "controlling_factions": [
+          {
+            "location_id": "bilbousa_contraband_market",
+            "faction_id": "hutt_ruling_council",
+            "presence_level": "patrol",
+            "notes": "Standard operations. The markets are where cargo changes hands and deals are struck."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "The players' cargo is legal in Hutt Space but illegal everywhere else. A Hutt middleman offers to take the difficult portion of the delivery off their hands -- for a steep percentage.",
+          "A rival smuggling crew claims the same delivery contract. The Hutt who issued both contracts is watching to see which crew proves more capable -- and more expendable.",
+          "Imperial diplomatic envoys are visiting Bilbousa. Increased scrutiny on all offworlder traffic. The players need to complete their business before the Imperials leave and the Hutts stop being careful."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    "EotE Core Rulebook p369-370 (Nal Hutta planetary entry)",
+    "EotE Core Rulebook p386-387 (The Hutts faction description)",
+    "EotE Core Rulebook p360 (Hutt Space gazetteer entry)",
+    "Lords of Nal Hutta pp41-47 (Nal Hutta chapter: history, people, planetary info, Bilbousa, Guarja Shipyards, creatures)",
+    "Lords of Nal Hutta pp15-18 (Criminal Empires: Hutt Council, Empire, recent events, Desilijic-Besadii conflict)",
+    "Lords of Nal Hutta pp32-33 (Hyperspace routes: Ootmian Pabol, Pabol Hutta, Shag Pabol, secret routes)",
+    "Lords of Nal Hutta p42 (Hutt Space overview, Moff Heedra, Baxel sector)",
+    "GM Holocron p39 (Hyperspace travel times: Ootmian Pabol 1.5hrs, Pabol Hutta 2hrs)"
+  ]
+}

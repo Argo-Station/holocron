@@ -1,0 +1,690 @@
+{
+  "id": "geonosis",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Geonosis",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim Territories",
+    "sector": "Arkanis Sector",
+    "system": "Geonosis System",
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Geonosis is a dead world twice over. First by nature — a radiation-blasted desert of rocky spires and volcanic fissures where nothing soft survives. Then by Imperial decree — the entire Geonosian population exterminated with a planetary deluge of toxic insecticide to bury the secret of the Death Star. What remains is a graveyard planet ringed by orbital debris and abandoned construction modules, its hollow hive-spires standing like the bones of a civilization that built the weapon that would destroy Alderaan and never lived to see it fired.",
+    "atmosphere": "Harsh radiation from the system's sun scours the surface. Massive sandstorms sweep between the rock spires. The air inside the abandoned hives is stale and chemically tainted — traces of the Imperial sterilization agent linger in enclosed spaces. The planet's fifteen moons pull at its volcanic interior, causing tremors and occasional eruptions. A ring system — formed from the destruction of a moon in geological antiquity — catches the sunlight and casts slow-moving shadows across the desert floor. In orbit, derelict construction scaffolding and debris fields mark where the Death Star once took shape.",
+    "reputation": "A military exclusion zone. The Empire declared Geonosis off-limits after the Death Star's departure and the sterilization of the population. Official Imperial records list it as a quarantined world due to a fabricated plague. Smugglers and scavengers know the truth is worse but not what it is. Saw Gerrera's intelligence network gathered evidence of the sterilization, information that may prove invaluable to ending the Empire's superweapon program. Among Clone Wars veterans, Geonosis is remembered as the place where the war began — where two hundred Jedi fell in the Petranaki Arena and the Grand Army of the Republic fought its first battle."
+  },
+  "compendium": {
+    "background": "",
+    "government": "None. Pre-sterilization: hive-based caste society ruled by queens and aristocratic castes, with Poggle the Lesser as public leader. Post-sterilization: no surviving governance structure.",
+    "population": "",
+    "languages": "Geonosian (clicks and low guttural notes, supplemented by pheromones, touches, and body motions). Some aristocratic caste members spoke Basic.",
+    "terrain": "Rocky desert with towering hive-spires, volcanic fissures, and massive sandstorms. Tunnel networks worm through the planet connecting hive colonies. Large hollowed-out spires served as hive colonies offering respite from surface radiation and heat.",
+    "major_cities": null,
+    "areas_of_interest": "",
+    "exports": "Pre-Clone Wars: battle droids, industrial goods, weapons systems. Post-sterilization: none.",
+    "imports": "Pre-Clone Wars: raw materials for droid production. Post-sterilization: none.",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": null,
+    "special_conditions": "",
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Geonosis is a contested warzone. After the First Battle of Geonosis, the planet falls under CIS control with massive droid foundries running at full production. Poggle the Lesser leads the Geonosian war effort. The hives are fully populated and industrially active — worker caste labor produces an incredible quantity of military hardware. A second Republic invasion destroys a new droid foundry, leads to Republic occupation, and results in Poggle the Lesser's capture. The Death Star's initial construction begins in orbit during this period. Republic forces focus on military occupation rather than governance."
+    },
+    {
+      "era": "post_empire",
+      "delta": "The exclusion zone has collapsed with the Empire. The planet remains dead — no Geonosian population to reclaim it. Scavengers and archaeologists may begin exploring the abandoned hives and orbital debris. The full truth of the sterilization could become public knowledge. The abandoned construction infrastructure in orbit represents a significant salvage opportunity. Deep catacomb systems remain unexplored and may hold survivors, relics, or dangers."
+    }
+  ],
+  "geography": {
+    "structure_type": "desert_hive_world",
+    "structure_notes": "A radiation-blasted desert surface dotted with towering rock spires that housed Geonosian hive colonies. Beneath the surface, an extensive tunnel network connected hives and provided space for industrial production, expansion, and inter-hive warfare. The surface is largely uninhabitable without protection from radiation and sandstorms.",
+    "districts": [
+      {
+        "id": "surface_wastes",
+        "name": "Surface Wastes",
+        "character": "Open desert between the hive spires. Radiation-blasted rock, volcanic fissures, and sandstorm corridors. Nothing lives here that doesn't have to. Pre-sterilization, warrior caste patrols ranged across the surface. Now it is empty.",
+        "authority": "none",
+        "crime_index": "none",
+        "strategic_value": [
+          "none_conventional"
+        ],
+        "notes": "The surface is a transit zone between hive locations. Volcanic vents and unstable terrain make overland travel hazardous. Imperial sensor installations may remain from the exclusion zone enforcement period."
+      },
+      {
+        "id": "hive_spires",
+        "name": "Hive Spires",
+        "character": "The towering rock formations that housed Geonosian civilization. Hollowed out over millennia into vast interior complexes — residential chambers, workshops, industrial facilities, audience halls. Now abandoned and contaminated with sterilization agent residue.",
+        "authority": "none — formerly Geonosian aristocratic caste",
+        "crime_index": "none",
+        "strategic_value": [
+          "industrial",
+          "hidden"
+        ],
+        "notes": "The hive interiors are enormous and largely intact. Industrial equipment, droid production lines, and weapons fabrication tools remain in place. The sterilization agent lingers in enclosed spaces — breathing protection is required. Structural integrity varies; some sections have collapsed from volcanic activity or neglect."
+      },
+      {
+        "id": "droid_foundries",
+        "name": "Droid Foundries",
+        "character": "Massive underground manufacturing complexes where the Geonosian worker caste produced battle droids, weapons, and industrial goods for the Confederacy of Independent Systems. Production lines stretch for kilometers. The scale of output was staggering — hives could change their production focus within days.",
+        "authority": "none — formerly CIS/Geonosian industrial alliance",
+        "crime_index": "none",
+        "strategic_value": [
+          "industrial",
+          "military"
+        ],
+        "notes": "The foundries represent one of the most significant industrial facilities in the Outer Rim, even in their abandoned state. Equipment, raw materials, and partially completed production runs remain. The Republic destroyed some foundries during the Second Battle of Geonosis but others survived intact. The Empire may have stripped some facilities before departure."
+      },
+      {
+        "id": "catacomb_network",
+        "name": "Catacomb Network",
+        "character": "Deep tunnel systems extending far beneath the hive spires. Older than the current hive structures, these tunnels were used for inter-hive warfare, expansion, and by the worker caste during revolts. The deepest sections are unmapped.",
+        "authority": "none — unknown",
+        "crime_index": "none",
+        "strategic_value": [
+          "hidden",
+          "exploration"
+        ],
+        "notes": "The catacombs extend deeper than any survey has mapped. The sterilization agent may not have penetrated to the deepest levels. Queen Karina the Great was known to operate in deep hive sections, using brain worms to reanimate dead Geonosians. Whether anything survives in the deepest reaches is unknown."
+      },
+      {
+        "id": "orbital_debris_field",
+        "name": "Orbital Debris Field",
+        "character": "The remnants of the Death Star construction infrastructure left behind when the battle station was moved to Scarif. Giant construction modules, scaffolding, support stations, and industrial debris orbit the planet alongside the natural ring system.",
+        "authority": "none — formerly Imperial military",
+        "crime_index": "none",
+        "strategic_value": [
+          "military",
+          "informational"
+        ],
+        "notes": "The debris field is the physical evidence of the Death Star's construction. Imperial efforts to erase signs of activity were not completely successful. Navigating the field is hazardous but the salvage value is significant. Any intact data systems could contain information about the Death Star project."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Geonosian",
+      "population_level": "extinct_assumed",
+      "social_role": "Former sole inhabitants. An insectoid species organized into hive-based caste systems — queens, aristocrats, warriors, and workers. The worker caste functioned as slave labor, producing industrial goods at enormous scale. The warrior caste served as military and police. The aristocratic caste ruled and traded with offworlders. The species was exterminated by Imperial sterilization. Possible deep-catacomb survivors are unconfirmed.",
+      "districts": [
+        "hive_spires",
+        "droid_foundries",
+        "catacomb_network"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military (Exclusion Zone Garrison)",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial garrison enforcing the exclusion zone operates under direct orders from Grand Moff Tarkin's command structure. Personnel are screened for reliability. The mission is secrecy, not governance — anyone who learns what happened here is a security threat."
+      },
+      "motivation": "Maintaining the military exclusion zone to conceal the Death Star's construction history and the sterilization of the Geonosian population. Preventing any unauthorized access to the planet or its orbital debris. Destroying or suppressing any evidence that could reveal the Death Star project's existence or current location.",
+      "assets": [
+        "Orbital patrol vessels enforcing the exclusion zone",
+        "Sensor network monitoring approach vectors",
+        "Ground-based garrison at a classified surface installation",
+        "Authority to destroy unauthorized vessels without warning"
+      ],
+      "relationships": [],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Any data from the construction period is an existential security threat. Recovery and destruction is the highest priority. If data has been copied or transmitted, identifying the recipient overrides all other operations."
+        },
+        {
+          "type": "person",
+          "reason": "Anyone who has been to the surface and returned is a potential security breach. Detain, interrogate, silence. No exceptions."
+        }
+      ]
+    },
+    {
+      "id": "geonosian_survivors",
+      "name": "Geonosian Survivors",
+      "type": "indigenous_remnant",
+      "control_type": [
+        "none"
+      ],
+      "control_strength": "unknown",
+      "susceptibility": {
+        "imperial": "none",
+        "dark_side": null,
+        "financial": "none",
+        "note": "If survivors exist in the deep catacombs, they would be operating on pure survival instinct. No external leverage applies to a population that has been subjected to genocide. Their response to any contact is unpredictable."
+      },
+      "motivation": "Survival. If any Geonosians survived the sterilization in the deepest catacomb levels, their sole drive would be continuing to exist. Whether they would be hostile, desperate, or willing to communicate with outsiders is unknown.",
+      "assets": [
+        "Knowledge of the deep catacomb network",
+        "Possible access to pre-sterilization industrial equipment",
+        "Brain worm bioweapons (if Queen Karina the Great or similar queens survived)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "enemy",
+          "notes": "The Empire exterminated their species. There is no negotiation possible."
+        }
+      ],
+      "mcguffin_interest": []
+    },
+    {
+      "id": "scavenger_networks",
+      "name": "Scavenger Networks",
+      "type": "criminal",
+      "control_type": [
+        "none"
+      ],
+      "control_strength": "token",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Scavengers operating in the exclusion zone are taking enormous risks for profit. They are vulnerable to any pressure — Imperial threats, financial offers, or simply being outgunned. They have no organizational loyalty beyond their immediate crew."
+      },
+      "motivation": "Profit from salvage. The orbital debris field and abandoned hive complexes contain enormous quantities of valuable industrial equipment, raw materials, and potentially classified Imperial technology. The risk of the exclusion zone is offset by the value of what can be recovered.",
+      "assets": [
+        "Small, fast ships capable of evading exclusion zone patrols",
+        "Knowledge of patrol patterns and sensor gaps",
+        "Connections to black market buyers in the Outer Rim",
+        "Surface caches of previously recovered salvage"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "hostile",
+          "notes": "The Empire will destroy scavenger vessels without warning. Scavengers know this and operate accordingly — speed and stealth over firepower."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Data systems from the construction infrastructure are valuable to multiple buyers — the Rebellion, intelligence brokers, competing Imperial factions. Scavengers would sell to whoever pays the most."
+        },
+        {
+          "type": "resource",
+          "reason": "Industrial equipment, raw materials, Geonosian weapons technology, droid components. Everything in the hives and the orbital field has a buyer somewhere."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "petranaki_arena",
+      "name": "Petranaki Arena",
+      "district_id": "hive_spires",
+      "type": [
+        "historical",
+        "exploration"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. The arena where the first battle of the Clone Wars began — where Jedi were captured and nearly executed, where nearly two hundred Jedi fell, and where the Grand Army of the Republic made its combat debut. Now empty, contaminated, and slowly deteriorating.",
+      "strategic_value": "Historical significance. The arena itself has no military value but it is a potent symbol — the place where the Clone Wars started. For Clone Wars historians, Jedi researchers, or anyone trying to understand how the Republic fell, this is primary-source territory. Physical evidence of both the Geonosian execution tradition and the Republic military intervention may remain.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "scavenger",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Salvagers picking through the arena for Geonosian artifacts or Clone Wars-era military equipment. Nervous and ready to flee."
+        },
+        {
+          "archetype_ref": "feral_creature",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Arena beasts or their descendants that survived the sterilization. Adapted to the contaminated environment. Territorial."
+        }
+      ]
+    },
+    {
+      "id": "primary_droid_foundry",
+      "name": "Primary Droid Foundry",
+      "district_id": "droid_foundries",
+      "type": [
+        "industrial",
+        "military"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. The largest of the Geonosian droid production facilities, this foundry produced battle droids at a rate that sustained the entire Separatist military effort. The Republic targeted it specifically during the Second Battle of Geonosis. Parts of the facility were destroyed; other sections remain intact.",
+      "strategic_value": "The foundry's intact production lines could theoretically be reactivated. The industrial equipment alone is worth a fortune in salvage. Any surviving technical data on droid army production would be of interest to multiple parties. The facility also demonstrates the scale of Geonosian industrial capability — evidence that challenges the official Imperial narrative that the Geonosians were a minor species.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "scavenger_crew_leader",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Leading a salvage operation in the foundry. Has mapped safe routes through the facility and knows which production lines are intact."
+        },
+        {
+          "archetype_ref": "battle_droid_remnant",
+          "tier": "minion",
+          "count": "3-6",
+          "notes": "Partially functional battle droids still running on degraded programming. Patrol their original routes. Not coordinated but still armed."
+        },
+        {
+          "archetype_ref": "imperial_patrol",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "If the exclusion zone is still active, Imperial patrols sweep the foundries periodically to ensure no one is salvaging classified technology."
+        }
+      ]
+    },
+    {
+      "id": "deep_catacombs",
+      "name": "Deep Catacombs",
+      "district_id": "catacomb_network",
+      "type": [
+        "hidden",
+        "exploration"
+      ],
+      "controlling_faction_id": "geonosian_survivors",
+      "controlling_faction_notes": "If survivors exist, this is where they are. The deepest tunnel systems predate the current hive structures and extend beyond any known survey. The sterilization agent may not have reached these depths. Queen Karina the Great operated from deep hive sections, using brain worms to control reanimated Geonosians.",
+      "strategic_value": "Unknown and potentially significant. The deep catacombs may contain surviving Geonosians, pre-sterilization technology, brain worm specimens, or information about the Death Star project that the Empire failed to destroy. The catacombs are also the most dangerous location on the planet — unmapped, structurally unstable, and possibly inhabited by things that have been trapped in darkness since the sterilization.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "reanimated_geonosian",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Brain worm-controlled Geonosian bodies. Motor functions intact, higher cognition absent. They do not communicate. They do not stop. They patrol in the dark."
+        },
+        {
+          "archetype_ref": "geonosian_survivor",
+          "tier": "rival",
+          "count": "0-2",
+          "notes": "If survivors exist. Desperate, traumatized, and potentially hostile to any outsider. May attempt communication or may attack on sight. Their knowledge of the catacombs is unmatched."
+        },
+        {
+          "archetype_ref": "feral_creature",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Subterranean fauna adapted to total darkness. Massiffs or similar predators that survived in the tunnels."
+        }
+      ]
+    },
+    {
+      "id": "imperial_surface_installation",
+      "name": "Imperial Surface Installation",
+      "district_id": "surface_wastes",
+      "type": [
+        "military",
+        "command"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "The garrison facility maintaining the exclusion zone. Classified location, minimal footprint, designed not to be found. Houses sensor equipment, communications relay, and a small complement of troops.",
+      "strategic_value": "The command node for the exclusion zone. Contains communications equipment linking to sector command, sensor data logs showing everything that has approached the planet, and personnel who know why Geonosis is quarantined. Capturing or infiltrating this facility would provide direct evidence of Imperial activity on Geonosis.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Garrison troops. Well-equipped but isolated and bored. Their primary threat response is to call for orbital support."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Installation commander. Knows the official cover story and enough of the truth to be dangerous. Has authority to call in orbital strikes."
+        },
+        {
+          "archetype_ref": "imperial_technician",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Sensor and communications operators. Know the patrol patterns and sensor gaps — valuable if captured and persuaded to talk."
+        }
+      ]
+    },
+    {
+      "id": "orbital_construction_remnants",
+      "name": "Orbital Construction Remnants",
+      "district_id": "orbital_debris_field",
+      "type": [
+        "military",
+        "informational"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Abandoned. The scaffolding, construction modules, and support infrastructure left behind when the Death Star was moved to Scarif. Imperial efforts to sanitize the site were incomplete. The debris field is hazardous to navigate but rich in salvage and potentially in classified data.",
+      "strategic_value": "Physical evidence of the Death Star's construction. Any intact data cores, construction logs, or engineering specifications recovered from the debris could reveal the battle station's existence, design specifications, or vulnerabilities. This is what Saw Gerrera's intelligence network was investigating. The debris field is also significant salvage — construction-grade materials and Imperial engineering equipment.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "scavenger_pilot",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Independent salvagers working the debris field. Know the safe navigation paths. Will trade information for protection or a cut of the profits."
+        },
+        {
+          "archetype_ref": "imperial_patrol_vessel",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Exclusion zone patrol. Sweeps the debris field on a regular schedule. Authorized to fire on unauthorized vessels."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "clone_wars_battle_echoes",
+      "type": "historical_trauma",
+      "source_faction_id": null,
+      "source_description": "The First and Second Battles of Geonosis left deep scars on the planet and on the galaxy's memory. Nearly two hundred Jedi died in the arena. The Grand Army of the Republic fought its first engagement here. The Second Battle was a brutal invasion to destroy droid foundries and resulted in Republic occupation. For Clone Wars veterans, Geonosis carries the weight of where everything started — and for many, where friends died. The echoes are not supernatural but they are real: battlefield debris, mass graves, and the ruins of fortifications mark the landscape.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": "Clone Wars battlefield debris is scattered across the surface near the major hive spires. Wrecked Republic gunships, droid army remnants, and blast craters remain largely undisturbed. The Empire did not clean up the battlefields — they were irrelevant to the Death Star project."
+        },
+        {
+          "faction_id": null,
+          "description": "The Petranaki Arena still bears the marks of the Jedi battle. Lightsaber scoring on the walls. Blaster impacts. The execution posts where prisoners were chained. For Force-sensitive characters, the arena may carry residual psychic impressions of the violence that occurred there."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Force-sensitive characters in battlefield locations or the Petranaki Arena may experience echoes of the Clone Wars battles — visions, emotional impressions, or momentary disorientation. Knowledge (Warfare) checks in these areas gain 1 automatic advantage from environmental clues."
+        }
+      ]
+    },
+    {
+      "id": "sterilization_darkness",
+      "type": "dark_side",
+      "source_faction_id": "imperial_military",
+      "source_description": "The genocide of an entire sentient species leaves a mark that transcends the physical. The Imperial sterilization of Geonosis was methodical, thorough, and conducted without moral hesitation. Billions died. The dark side does not create such events but it feeds on them. Geonosis carries the psychic weight of planetary-scale death.",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": null,
+          "description": "The abandoned hive interiors feel wrong in a way that goes beyond contamination and emptiness. The silence is not peaceful — it is the silence of a place where millions died simultaneously. Force-sensitive characters will feel this immediately. Non-Force-sensitives will experience it as unease, paranoia, and an irrational desire to leave."
+        },
+        {
+          "faction_id": null,
+          "description": "In the deepest catacomb levels, the dark side presence intensifies. If brain worm-reanimated Geonosians exist here, the intersection of mass death and undead animation creates a concentrated dark side nexus."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Force-sensitive characters on the surface suffer 1 strain per hour from the ambient dark side presence. In the hive interiors, this increases to 1 strain per encounter. In the deep catacombs, Force power checks add 1 automatic dark side pip. Discipline checks to resist Fear are upgraded once in all enclosed hive locations."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "tatooine",
+        "destination": "Tatooine",
+        "travel_time": "short — nearby systems",
+        "route_quality": "well-established",
+        "notes": "Geonosis is located extremely close to the Tatooine system. The proximity is well-known and the route is straightforward. However, arriving from Tatooine flags the exclusion zone patrols."
+      },
+      {
+        "id": "corellian_run_coreward",
+        "destination": "Corellian Run (Coreward)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "Geonosis sits on the Corellian Run, which extends from Core Worlds territory to the Outer Rim. The route passes through Coruscant, Corellia, Duro, Christophsis, and Rodia before reaching Geonosis."
+      },
+      {
+        "id": "corellian_run_rimward",
+        "destination": "Corellian Run (Rimward to Ryloth)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "The Corellian Run continues past Geonosis toward Ryloth and beyond into the deep Outer Rim."
+      },
+      {
+        "id": "triellus_trade_route",
+        "destination": "Triellus Trade Route",
+        "travel_time": "variable",
+        "route_quality": "moderate",
+        "notes": "The Triellus Trade Route passes near Geonosis, connecting to Tatooine and providing a side jump for traders on the Corellian Run. Used by smugglers to avoid Imperial patrols."
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "exclusion_zone_patrols",
+        "type": "hazard",
+        "name": "Imperial Exclusion Zone",
+        "description": "The Empire maintains a military exclusion zone around Geonosis. Sensor buoys monitor approach vectors. Patrol vessels have standing orders to intercept and destroy unauthorized ships. The cover story is a planetary quarantine due to a fabricated plague.",
+        "trigger": "Any approach to the Geonosis system. The sensor network detects ships dropping out of hyperspace within the system.",
+        "possible_destinations": [
+          "Intercepted by Imperial patrol — combat or capture",
+          "Detected but not intercepted — limited time before reinforcements arrive",
+          "Sensor gap exploited — undetected landing but extraction will be harder"
+        ]
+      },
+      {
+        "id": "orbital_debris_navigation",
+        "type": "hazard",
+        "name": "Construction Debris Field",
+        "description": "The orbital space around Geonosis is cluttered with abandoned construction infrastructure from the Death Star project, mixed with the planet's natural ring system. Navigation through the field requires careful piloting.",
+        "trigger": "Any attempt to orbit Geonosis or approach specific orbital locations.",
+        "possible_destinations": [
+          "Clean passage through — skilled piloting finds a safe corridor",
+          "Collision with debris — hull damage, possible system failure",
+          "Trapped in debris — ship immobilized, requires EVA repair"
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The exclusion zone is being maintained by automated systems only. No crewed patrols, just sensor buoys and a minimal ground installation running on a skeleton crew. The Empire's attention is elsewhere — the Death Star is nearing completion at Scarif and resources have been redirected.",
+          "presence_reason": "The Death Star project has moved past the need for active Geonosis security. Tarkin believes the sterilization and cover story are sufficient. Only automated monitoring remains.",
+          "roles": [
+            {
+              "role": "Sensor technician",
+              "archetype_ref": "imperial_technician",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Maintaining the sensor network. Not combat personnel. Will call for help before fighting."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard exclusion zone enforcement. Crewed patrol vessels in orbit, sensor network active, ground garrison at operational strength. The Empire is maintaining the quarantine as ordered. Routine but professional.",
+          "presence_reason": "Standing orders from Tarkin's command structure. The exclusion zone is maintained as a matter of operational security regardless of the Death Star's current location.",
+          "roles": [
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Ground garrison. Conduct periodic surface patrols near the installation and major hive entries."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Installation commander. Knows the cover story. May or may not know the full truth of the sterilization."
+            },
+            {
+              "role": "Sensor and comm technicians",
+              "archetype_ref": "imperial_technician",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Operating the sensor network and maintaining communications with sector command."
+            },
+            {
+              "role": "Orbital patrol",
+              "archetype_ref": "imperial_patrol_vessel",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A light patrol vessel making regular sweeps. Armed and authorized to use lethal force against unauthorized ships."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Something has triggered an escalation. A scavenger incursion detected, a rebel intelligence probe identified, or sector command has ordered increased security. Additional ships in orbit, expanded ground patrols, active sweeps of the hive complexes.",
+          "presence_reason": "A security breach has been detected or suspected. Someone got through, someone got close, or intelligence suggests someone is planning to. The exclusion zone is being reinforced.",
+          "roles": [
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Expanded ground presence. Active patrols into the hive spires and foundry entrances."
+            },
+            {
+              "role": "Imperial officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Reinforced command. One manages ground operations, one coordinates orbital assets."
+            },
+            {
+              "role": "ISB investigator",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Sent to determine the nature and extent of the security breach. Has authority that overrides the garrison commander."
+            },
+            {
+              "role": "Orbital patrol squadron",
+              "archetype_ref": "imperial_patrol_vessel",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Multiple patrol vessels providing continuous orbital coverage. No gaps in sensor monitoring."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military response. A Star Destroyer or equivalent capital ship in orbit. Ground forces sweeping every accessible hive complex. The Empire has determined that the security of the Death Star project has been compromised and is responding with overwhelming force. Anyone on the planet who is not Imperial is an enemy.",
+          "presence_reason": "Catastrophic security breach. Evidence has been recovered, a rebel cell has transmitted data, or the exclusion zone has been publicly compromised. Tarkin's direct orders — eliminate all witnesses, recover all evidence, ensure total containment.",
+          "roles": [
+            {
+              "role": "Stormtrooper assault force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Full platoon-strength deployment. Methodical hive-by-hive clearance operations."
+            },
+            {
+              "role": "Imperial officer corps",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Command staff running a multi-site ground operation coordinated with orbital assets."
+            },
+            {
+              "role": "ISB senior investigator",
+              "archetype_ref": "isb_agent",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior ISB officer with direct authority from Tarkin's office. Running the intelligence side of the operation. Authorized to do whatever is necessary."
+            },
+            {
+              "role": "Capital ship in orbit",
+              "archetype_ref": "imperial_capital_ship",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Star Destroyer-class vessel providing orbital supremacy. Nothing leaves the system without its authorization."
+            },
+            {
+              "role": "Death trooper squad",
+              "archetype_ref": "death_trooper",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Elite special forces. Deployed for high-value target neutralization or evidence recovery in hazardous environments. Their presence signals that Advanced Weapons Research has a direct interest in the operation."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Sensor network flags an anomalous reading. Patrol vessel adjusts course to investigate. Ground garrison moves to increased readiness. Communications traffic to sector command increases.",
+        "targeted": "A specific intrusion has been confirmed. Patrol vessels converge on the identified location. Ground teams deploy to likely landing sites. Sensor network switches to active tracking mode. Reinforcements are requested from sector command.",
+        "manhunt": "Full system lockdown. All orbital assets converge. Ground forces deploy in force. Any ship attempting to leave the system is fired upon without warning. Tarkin's office is notified directly."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "AoR_death_star_intelligence": {
+        "label": "Age of Rebellion — Death Star Intelligence Raid",
+        "description": "Rebel Alliance Intelligence has pieced together fragments of Saw Gerrera's intelligence regarding Geonosis. The sterilization of the Geonosian population is suspected but not confirmed. The orbital debris field may contain data linking the planet to a massive Imperial weapons project. A small rebel team has been dispatched to penetrate the exclusion zone, reach the surface or orbital debris, and recover any evidence of what the Empire built here and where it went.",
+        "controlling_factions": [
+          {
+            "location_id": "orbital_debris_field",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard exclusion zone enforcement. The Empire does not expect a deliberate rebel incursion — the quarantine cover story has held."
+          },
+          {
+            "location_id": "imperial_surface_installation",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Ground garrison at normal readiness. Not expecting trouble."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "unaware",
+            "reason": "The exclusion zone garrison does not know a rebel team is inbound. Alert level will escalate rapidly once detection occurs."
+          }
+        ],
+        "flags": [
+          "A data core in the orbital debris field contains partial construction logs for the Death Star's superstructure. The logs reference 'DS-1' and 'Stardust' — codenames that Alliance Intelligence can cross-reference with other fragments to identify the project.",
+          "The garrison commander knows the quarantine is fake but does not know the full scope of the Death Star project. He knows Geonosians were killed. He does not know why. He has been asking questions through unofficial channels and sector command has noticed.",
+          "Saw Gerrera's partisans visited Geonosis before the exclusion zone was fully established. They left a dead-drop cache in one of the hive spires — a data chip containing atmospheric analysis proving the sterilization agent was deployed from orbit. The cache has not been recovered.",
+          "The deep catacombs beneath the primary hive complex emit intermittent energy signatures that the garrison's sensors have flagged as geological. They are not geological. Something is active down there.",
+          "A scavenger crew that penetrated the exclusion zone six months ago has not been heard from since. Their ship was found drifting in the debris field, empty, with its escape pods still docked. The garrison logged it as an accident. It was not."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "353"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "366"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "pages": "13-14"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "pages": "31, 35, 42"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "pages": "13, 83-86"
+    },
+    {
+      "book": "Hutt Space Sourcebook",
+      "pages": "139"
+    }
+  ]
+}

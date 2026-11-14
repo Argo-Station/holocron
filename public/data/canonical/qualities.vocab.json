@@ -1,0 +1,782 @@
+{
+  "schema_version": 1,
+  "vocabulary": "qualities",
+  "_doc": "Canonical weapon-quality vocabulary. INGEST (forward): an OggDude quality Key (or display name) -> id; misspellings collapse (INACURATE + INACCURATE -> 'inaccurate'). RENDER (backward): id -> label, then append the rank for ranked qualities ('pierce' + 2 -> 'Pierce 2'). Seeded from SWItems.QUALITY_NAMES. NOTE: a quality's RANKED-ness is NOT encoded here — at ingest it's read per-weapon from the OggDude Quality Count; the authoritative per-quality ranked-ness + rules text live in OggDude `itemdescriptors` (items cluster), as does GEAR_CATEGORIES (item routing).",
+  "entries": [
+    {
+      "id": "accurate",
+      "label": "Accurate",
+      "aliases": [
+        "ACCURATE",
+        "Accurate"
+      ],
+      "description": "",
+      "pool_mods": [
+        {
+          "id": "accurate_boost",
+          "die": "boost",
+          "direction": "add",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "auto_fire",
+      "label": "Auto-fire",
+      "aliases": [
+        "AUTOFIRE",
+        "Auto-fire"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "extra_hit",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "repeat": true,
+          "when": "hit",
+          "mode": "auto_fire",
+          "effect": "One more hit: the weapon's base damage plus your uncanceled successes, on the target or another target you named before the check.",
+          "reads": [
+            "base_damage",
+            "uncanceled_successes"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ],
+      "mode": {
+        "id": "auto_fire",
+        "offered": true,
+        "pool_mods": [
+          {
+            "id": "auto_fire_difficulty",
+            "die": "difficulty",
+            "direction": "add",
+            "count": 1
+          }
+        ],
+        "cite": {
+          "book": "eote",
+          "page": 155
+        }
+      }
+    },
+    {
+      "id": "blast",
+      "label": "Blast",
+      "aliases": [
+        "BLAST",
+        "Blast"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "hit",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "Everyone engaged with the target takes wounds equal to the Blast rating, plus 1 per success.",
+          "reads": [
+            "rating",
+            "uncanceled_successes"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        },
+        {
+          "id": "miss",
+          "req": [
+            {
+              "ad": 3
+            }
+          ],
+          "when": "miss",
+          "effect": "The target and everyone engaged with it take damage equal to the Blast rating.",
+          "reads": [
+            "rating"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ]
+    },
+    {
+      "id": "breach",
+      "label": "Breach",
+      "aliases": [
+        "BREACH",
+        "Breach"
+      ],
+      "description": "",
+      "target": [
+        {
+          "id": "ignore_armor",
+          "op": "armor_ignore",
+          "per_rating": true,
+          "reads": [
+            "rating",
+            "target_armor"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ]
+    },
+    {
+      "id": "burn",
+      "label": "Burn",
+      "aliases": [
+        "BURN",
+        "Burn"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "burning",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "The target takes the weapon's base damage again at the start of each of its turns, for rounds equal to the Burn rating.",
+          "reads": [
+            "rating",
+            "base_damage"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ]
+    },
+    {
+      "id": "concussive",
+      "label": "Concussive",
+      "aliases": [
+        "CONCUSSIVE",
+        "Concussive"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "staggered",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "The target is staggered (no actions) for rounds equal to the Concussive rating.",
+          "reads": [
+            "rating"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ]
+    },
+    {
+      "id": "cortosis",
+      "label": "Cortosis",
+      "aliases": [
+        "CORTOSIS",
+        "Cortosis"
+      ],
+      "description": "",
+      "target": [
+        {
+          "id": "weapon",
+          "op": "immune_to",
+          "value": [
+            "sunder"
+          ],
+          "holder": "weapon",
+          "reads": [
+            "target_qualities"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        },
+        {
+          "id": "armor",
+          "op": "immune_to",
+          "value": [
+            "pierce",
+            "breach"
+          ],
+          "holder": "armor",
+          "reads": [
+            "target_qualities"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 155
+          }
+        }
+      ]
+    },
+    {
+      "id": "cumbersome",
+      "label": "Cumbersome",
+      "aliases": [
+        "CUMBERSOME",
+        "Cumbersome"
+      ],
+      "description": "",
+      "pool_mods": [
+        {
+          "id": "cumbersome_difficulty",
+          "die": "difficulty",
+          "direction": "add",
+          "count": 1,
+          "count_of": {
+            "of": "rating_deficit",
+            "key": "brawn"
+          }
+        }
+      ]
+    },
+    {
+      "id": "defensive",
+      "label": "Defensive",
+      "aliases": [
+        "DEFENSIVE",
+        "Defensive"
+      ],
+      "description": ""
+    },
+    {
+      "id": "deflection",
+      "label": "Deflection",
+      "aliases": [
+        "DEFLECTION",
+        "Deflection"
+      ],
+      "description": ""
+    },
+    {
+      "id": "disorient",
+      "label": "Disorient",
+      "aliases": [
+        "DISORIENT",
+        "Disorient"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "disoriented",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "The target is disoriented (adds a setback die to its checks) for rounds equal to the Disorient rating.",
+          "reads": [
+            "rating"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        }
+      ]
+    },
+    {
+      "id": "ensnare",
+      "label": "Ensnare",
+      "aliases": [
+        "ENSNARE",
+        "Ensnare"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "immobilized",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "The target is immobilized (no maneuvers) for rounds equal to the Ensnare rating; it may try a Hard Athletics check as its action to break free.",
+          "reads": [
+            "rating"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        }
+      ]
+    },
+    {
+      "id": "guided",
+      "label": "Guided",
+      "aliases": [
+        "GUIDED",
+        "Guided"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "track",
+          "req": [
+            {
+              "ad": 3
+            }
+          ],
+          "when": "miss",
+          "effect": "Make another attack check at the end of the round: Ability dice equal to the Guided rating, difficulty from silhouette 0 against the target's. It can trigger again on that check.",
+          "reads": [
+            "rating",
+            "target_silhouette"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        }
+      ]
+    },
+    {
+      "id": "inaccurate",
+      "label": "Inaccurate",
+      "aliases": [
+        "INACCURATE",
+        "INACURATE",
+        "Inaccurate"
+      ],
+      "description": "",
+      "pool_mods": [
+        {
+          "id": "inaccurate_setback",
+          "die": "setback",
+          "direction": "add",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "inferior",
+      "label": "Inferior",
+      "aliases": [
+        "INFERIOR",
+        "Inferior"
+      ],
+      "description": "",
+      "pool_mods": [
+        {
+          "id": "inferior_threat",
+          "symbol": "threat",
+          "direction": "add",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ion",
+      "label": "Ion",
+      "aliases": [
+        "ION",
+        "Ion"
+      ],
+      "description": "",
+      "target": [
+        {
+          "id": "vehicle",
+          "op": "damage_as",
+          "value": "system_strain",
+          "condition": {
+            "target_kind": "vehicle"
+          },
+          "reads": [
+            "target_kind"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        },
+        {
+          "id": "droid",
+          "op": "damage_as",
+          "value": "strain",
+          "condition": {
+            "target_kind": "droid"
+          },
+          "reads": [
+            "target_kind"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        }
+      ]
+    },
+    {
+      "id": "knockdown",
+      "label": "Knockdown",
+      "aliases": [
+        "KNOCKDOWN",
+        "Knockdown"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "prone",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "req_add": {
+            "ad": 1,
+            "per": "target_silhouette_above_1"
+          },
+          "when": "hit",
+          "effect": "The target is knocked prone. Costs 1 more Advantage per silhouette above 1.",
+          "reads": [
+            "target_silhouette"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 156
+          }
+        }
+      ]
+    },
+    {
+      "id": "limited_ammo",
+      "label": "Limited Ammo",
+      "aliases": [
+        "LIMITEDAMMO",
+        "Limited Ammo"
+      ],
+      "description": ""
+    },
+    {
+      "id": "linked",
+      "label": "Linked",
+      "aliases": [
+        "LINKED",
+        "Linked"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "extra_hit",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "repeat": "rating",
+          "when": "hit",
+          "effect": "One more hit on the original target: the weapon's base damage plus your total successes. Up to the Linked rating times.",
+          "reads": [
+            "rating",
+            "base_damage",
+            "total_successes"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ]
+    },
+    {
+      "id": "pierce",
+      "label": "Pierce",
+      "aliases": [
+        "PIERCE",
+        "Pierce"
+      ],
+      "description": "",
+      "target": [
+        {
+          "id": "ignore_soak",
+          "op": "soak_ignore",
+          "per_rating": true,
+          "reads": [
+            "rating",
+            "target_soak"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ]
+    },
+    {
+      "id": "prepare",
+      "label": "Prepare",
+      "aliases": [
+        "PREPARE",
+        "Prepare"
+      ],
+      "description": ""
+    },
+    {
+      "id": "slow_firing",
+      "label": "Slow-Firing",
+      "aliases": [
+        "SLOWFIRING",
+        "Slow-Firing"
+      ],
+      "description": ""
+    },
+    {
+      "id": "stun",
+      "label": "Stun",
+      "aliases": [
+        "STUN",
+        "Stun"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "strain",
+          "req": [
+            {
+              "ad": 2
+            }
+          ],
+          "when": "hit",
+          "effect": "The target suffers strain equal to the Stun rating.",
+          "reads": [
+            "rating"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ]
+    },
+    {
+      "id": "stun_damage",
+      "label": "Stun Damage",
+      "aliases": [
+        "STUNDAMAGE",
+        "Stun Damage"
+      ],
+      "description": "",
+      "target": [
+        {
+          "id": "as_strain",
+          "op": "damage_as",
+          "value": "strain",
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ]
+    },
+    {
+      "id": "stun_damage_droids",
+      "label": "Stun Damage (Droids)",
+      "aliases": [
+        "STUNDAMAGEDROID",
+        "Stun Damage (Droids)",
+        "Stun Damage - Droids",
+        "Stun Damage: Droids"
+      ],
+      "description": "",
+      "description_from": "stun_damage",
+      "target": [
+        {
+          "id": "as_strain",
+          "op": "damage_as",
+          "value": "strain",
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ],
+      "target_condition": {
+        "target_kind": "droid"
+      }
+    },
+    {
+      "id": "stun_setting",
+      "label": "Stun Setting",
+      "aliases": [
+        "STUNSETTING",
+        "Stun Setting"
+      ],
+      "description": "",
+      "mode": {
+        "id": "stun",
+        "offered": true,
+        "range_max": "short",
+        "damage_as": "strain",
+        "cite": {
+          "book": "eote",
+          "page": 157
+        }
+      }
+    },
+    {
+      "id": "sunder",
+      "label": "Sunder",
+      "aliases": [
+        "SUNDER",
+        "Sunder"
+      ],
+      "description": "",
+      "spend": [
+        {
+          "id": "damage_item",
+          "req": [
+            {
+              "ad": 1
+            }
+          ],
+          "repeat": true,
+          "when": "hit",
+          "effect": "Damage one item the target openly wields by {steps:step} (undamaged → Minor → Moderate → Major; past Major a weapon is destroyed).",
+          "values": {
+            "steps": 1
+          },
+          "reads": [
+            "target_item_state"
+          ],
+          "cite": {
+            "book": "eote",
+            "page": 157
+          }
+        }
+      ]
+    },
+    {
+      "id": "superior",
+      "label": "Superior",
+      "aliases": [
+        "SUPERIOR",
+        "Superior"
+      ],
+      "description": "",
+      "armor_effects": [
+        {
+          "type": "soak_delta",
+          "value": 1
+        },
+        {
+          "type": "encumbrance_delta",
+          "value": -1
+        }
+      ],
+      "pool_mods": [
+        {
+          "id": "superior_advantage",
+          "symbol": "advantage",
+          "direction": "add",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "tractor",
+      "label": "Tractor",
+      "aliases": [
+        "TRACTOR",
+        "Tractor"
+      ],
+      "description": ""
+    },
+    {
+      "id": "unwieldy",
+      "label": "Unwieldy",
+      "aliases": [
+        "UNWIELDY",
+        "Unwieldy"
+      ],
+      "description": "",
+      "pool_mods": [
+        {
+          "id": "unwieldy_difficulty",
+          "die": "difficulty",
+          "direction": "add",
+          "count": 1,
+          "count_of": {
+            "of": "rating_deficit",
+            "key": "agility"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vicious",
+      "label": "Vicious",
+      "aliases": [
+        "VICIOUS",
+        "Vicious"
+      ],
+      "description": "",
+      "roll_numbers": [
+        {
+          "id": "vicious_crit_roll",
+          "op": "crit_roll_delta",
+          "amount": 10,
+          "per_rank": true,
+          "moment": "critical_inflicted"
+        }
+      ]
+    },
+    {
+      "id": "vicious_droids",
+      "label": "Vicious (Droids)",
+      "aliases": [
+        "VICIOUSDROID",
+        "Vicious (Droids)",
+        "Vicious - Droids",
+        "Vicious: Droids"
+      ],
+      "description": "",
+      "description_from": "vicious",
+      "roll_numbers": [
+        {
+          "id": "vicious_crit_roll",
+          "op": "crit_roll_delta",
+          "amount": 10,
+          "per_rank": true,
+          "moment": "critical_inflicted"
+        }
+      ],
+      "target_condition": {
+        "target_kind": "droid"
+      }
+    }
+  ],
+  "_meta": {
+    "description": "Quality rules text (blob-retirement D-BR2): source itemdescriptor through the charbuild decode_markup (shared glyph-token convention). 30 source-true; the 2 droid variants carry their base quality's text with description_from recorded (adjudicated, never invented). Attachment-MOD descriptors deliberately not carried (no runtime consumer; own scope).",
+    "effect_tokens": "A spend row's `effect` is a template the ONE filler (lib/shared/qualityRows.js spendRows) reads: `{field}` prints that `values` field; `{field:noun}` prints the field and its noun, plural when the value is not 1 (`{steps:step}` -> \"1 step\" / \"2 steps\"). Ruled f100-surfacing-hub-concept ADDENDUM 7 (R2; D-215: one token, one filler)."
+  }
+}

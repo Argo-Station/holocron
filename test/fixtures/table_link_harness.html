@@ -1,0 +1,76 @@
+<!doctype html>
+<!--
+  table_link_harness.html — the browser instruments' page for lib/shared/tableLink.js (ruling `encounters-e6-plumbing`
+  ADDENDUM 1 P7.1; wire-online ADDENDUM 3 H6.1/H6.2, ADDENDUM 4 R-E6W-7). IN NO APP AND ON NO ROUTE: it is served only
+  by a local static server from the repo root, at /test/fixtures/table_link_harness.html.
+
+  One tab is one device:
+    ?role=gm&server=ws://127.0.0.1:8791            opens a table (label "Harness")
+    ?role=player&server=ws://127.0.0.1:8791&code=<code>   joins it
+  A driver (Playwright) reads window.H.events and calls the methods on window.H:
+    H.admitAll()     the GM lets in every knock          H.send(type, payload, to?)   one message
+    H.killLocal()    closes every data channel this tab made or received (H6.1's "kill the channel")
+    H.blockLocal(on) while on, no new RTCPeerConnection opens a channel (H6.1's "restore" is blockLocal(false) + a network change)
+    H.net()          the link's network-change path, as the `online` event would run it
+    H.sentLocal()    every text this tab sent on a data channel     H.rawLocal(text)  sends text as-is on each open channel
+                     (H6.1's late duplicate: an envelope captured before the switch, re-sent after it)
+  It draws nothing but a log: the link itself has no copy (R-E6W-6.5) and this page is not a screen.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table link harness</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg: #fff; --fg: #111; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #eee; } }
+  body { background: var(--bg); color: var(--fg); font: 13px/1.4 ui-monospace, Menlo, monospace; margin: 16px; }
+  pre { white-space: pre-wrap; word-break: break-all; }
+</style>
+</head>
+<body>
+<pre id="log"></pre>
+<script>
+  // Keep every connection this tab makes, so H.killLocal can close its channels; H.blockLocal stops new ones opening.
+  (function () {
+    var Real = window.RTCPeerConnection, made = [], blocked = { on: false }, sent = [];
+    function tap(dc) { var s = dc.send.bind(dc); dc.send = function (t) { sent.push(String(t)); return s(t); }; return dc; }
+    if (!Real) return;
+    window.RTCPeerConnection = function (cfg) {
+      var pc = new Real(cfg), chans = [];
+      made.push({ pc: pc, chans: chans, cfg: cfg });
+      var mk = pc.createDataChannel.bind(pc);
+      pc.createDataChannel = function (l, o) { var dc = tap(mk(l, o)); chans.push(dc); if (blocked.on) setTimeout(function () { try { dc.close(); } catch (e) {} }, 0); return dc; };
+      pc.addEventListener('datachannel', function (e) { tap(e.channel); chans.push(e.channel); if (blocked.on) try { e.channel.close(); } catch (x) {} });
+      return pc;
+    };
+    window.RTCPeerConnection.prototype = Real.prototype;
+    window.__rtc = { made: made, blocked: blocked, sent: sent };
+  })();
+</script>
+<script src="../../lib/shared/tableLink.js"></script>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search), role = q.get('role') || 'player', server = q.get('server') || 'ws://127.0.0.1:8791';
+    var log = document.getElementById('log'), events = [];
+    function line(s) { log.textContent += s + '\n'; }
+    var link = SWRPGTableLink.createLink({ role: role, server: server, onEvent: function (e) { e.at = Date.now(); events.push(e); line(JSON.stringify(e).slice(0, 300)); } });
+    window.H = {
+      role: role, events: events, link: link,
+      admitAll: function () { events.filter(function (e) { return e.kind === 'frame' && e.f.t === 'knock'; }).forEach(function (e) { link.admit(e.f.knockId); }); },
+      send: function (type, payload, to) { return link.send(type, payload, to); },
+      killLocal: function () { (window.__rtc ? window.__rtc.made : []).forEach(function (m) { m.chans.forEach(function (c) { try { c.close(); } catch (e) {} }); }); },
+      blockLocal: function (on) { if (window.__rtc) window.__rtc.blocked.on = !!on; },
+      net: function () { link.onNetworkChange(); },
+      sentLocal: function () { return window.__rtc ? window.__rtc.sent.slice() : []; },
+      rawLocal: function (text) { var n = 0; (window.__rtc ? window.__rtc.made : []).forEach(function (m) { m.chans.forEach(function (c) { if (c.readyState === 'open') { c.send(text); n++; } }); }); return n; },
+      configs: function () { return (window.__rtc ? window.__rtc.made : []).map(function (m) { return m.cfg; }); },
+    };
+    line('table link harness · ' + role + ' · ' + server);
+    if (role === 'gm') link.open('Harness', false);
+    else if (q.get('code')) link.join({ code: q.get('code') }, q.get('label') || 'Harness player');
+  })();
+</script>
+</body>
+</html>

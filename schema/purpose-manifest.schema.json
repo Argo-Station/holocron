@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/purpose-manifest.schema.json",
+  "title": "Purpose Manifest",
+  "description": "The machine-readable map of what every PART of Project Holocron is FOR. One record per part (a shared core, a feature module, an app surface, a backend, a data registry, a pipeline, a verification family, an infra file, a document family). Consumed by agents at boot to answer 'what is X for, who loads it, what verifies it' without reading the code. Kept honest by test/purpose_manifest.cjs, which fails when a covered tree gains a file no part claims or a part names a path that no longer exists. Human narrative lives in Docs/PURPOSE_AUDIT.md; this file carries facts only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "measured_at", "generated", "coverage_roots", "layers", "parts"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "const": 1 },
+    "measured_at": { "type": "string", "pattern": "^[0-9a-f]{7,40}$", "description": "The commit every path, count and claim was read at (instrument norm 1: a citation carries the commit it was read at)." },
+    "generated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "coverage_roots": {
+      "type": "array",
+      "description": "Directory prefixes (and exact files) in which EVERY tracked file must be claimed by some part's `paths`. The guard enumerates these; anything unclaimed is a red. Trees outside these roots (Docs/gates, Docs/rulings, scripts/smoke_*, …) are covered by a FAMILY part instead and are not enumerated file-by-file.",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "layers": {
+      "type": "array",
+      "description": "The architectural layers, top to bottom, each with a one-sentence purpose. A part belongs to exactly one.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "purpose"],
+        "properties": {
+          "id": { "$ref": "#/$defs/slug" },
+          "name": { "type": "string" },
+          "purpose": { "type": "string", "minLength": 20 }
+        }
+      }
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/part" }
+    }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+([.-][A-Za-z0-9]+)*$", "description": "Dotted id; segments may be camelCase to mirror a file name (shared.charResolve)." },
+    "path": { "type": "string", "pattern": "^[^/].*$", "description": "Repo-relative. A trailing slash claims a whole directory; a trailing `*` claims every tracked file with that prefix (a family, e.g. scripts/smoke_*); otherwise an exact file." },
+    "part": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "layer", "paths", "purpose", "purpose_source", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug", "description": "Stable identifier, e.g. `shared.charResolve`, `app.player`, `data.registry.species`. Rename only when the concept changes." },
+        "layer": { "$ref": "#/$defs/slug" },
+        "paths": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/path" } },
+        "purpose": { "type": "string", "minLength": 30, "description": "Plain language, one to three sentences: what the part is FOR (the job it does for the product), not what it contains." },
+        "purpose_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "ref"],
+          "properties": {
+            "kind": { "type": "string", "enum": ["file-header", "doc", "ruling", "adr", "shell-comment", "inferred"], "description": "Where the purpose is DEFINED. `inferred` means no file or doc states it and this manifest is the first place it is written down — a finding, not a fact." },
+            "ref": { "type": "string", "description": "path[:line] or path#section of the defining text." }
+          }
+        },
+        "publishes": { "type": "array", "items": { "type": "string" }, "description": "Globals (window.SWRPG*), routes (/api/v1/sync), or files the part produces." },
+        "loaded_by": { "type": "array", "items": { "type": "string", "enum": ["landing", "player", "gm", "dice", "account", "worker", "room-server", "build", "node", "python", "none"] }, "description": "Which runtime hosts execute it. `none` is a finding (dead or build-input only)." },
+        "depends_on": { "type": "array", "items": { "$ref": "#/$defs/slug" }, "description": "Other part ids this part reads at runtime or build time." },
+        "verified_by": { "type": "array", "items": { "type": "string" }, "description": "Guards (test/*.cjs), smokes (scripts/smoke_*.py), validators, or `none`." },
+        "map": { "type": "string", "description": "The living document that maps this part's internals in more detail (NAVIGATION.md, CREATOR_MAP.md, SHEET_PLUMBING.md, …)." },
+        "status": {
+          "type": "string",
+          "enum": ["sound", "sound-with-findings", "stale-doc", "undefined", "dead", "duplicated", "dark"],
+          "description": "sound = purpose defined and the code does that job. stale-doc = the defining text contradicts the code. undefined = no defining text existed before this manifest. dead = loaded by nothing. duplicated = a second implementation of the same job exists. dark = built and shipped but behind an OFF switch."
+        },
+        "findings": { "type": "array", "items": { "type": "string" }, "description": "Audit findings, one sentence each, each pointing at a path or symbol. Empty when status is `sound`." },
+        "sections": {
+          "type": "array",
+          "description": "For monoliths: named line ranges so an agent can navigate without reading the file. Lines rot; every section carries the commit it was measured at via the manifest's `measured_at`.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "start", "end", "purpose"],
+            "properties": {
+              "name": { "type": "string" },
+              "start": { "type": "integer", "minimum": 1 },
+              "end": { "type": "integer", "minimum": 1 },
+              "purpose": { "type": "string" },
+              "symbols": { "type": "array", "items": { "type": "string" } },
+              "screens": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

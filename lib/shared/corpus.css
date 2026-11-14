@@ -1,0 +1,162 @@
+/* lib/shared/corpus.css — the CORPUS & INSTRUMENT visual language (Docs/DESIGN_IDENTITY.md), as amended
+ * by the design-review ruling's WARMTH PACKAGE (variant B, Jason 2026-07-11). Every reference surface is
+ * an entry in a published in-universe document on the instrument — but the accent OWNS the document's
+ * FURNITURE at dim strength (it reads as "the amber book," not monochrome), images sit on a uniform mat
+ * with honest depth, and it renders on the APP's ground (same instrument, different document). Flat still
+ * governs GRADIENTS and GLOWS — not honest shadow. Shared by the Ship Yard + the store refit (R-DI2).
+ * ONE home for these classes (R-DI5).
+ */
+.ci{
+  --ci-ground:#02010a;        /* the APP's near-black ground (§4.4) — retired the separate #08090d stock */
+  --ci-mat:#0c0f15;           /* the uniform image mat every plate/cell sits art on */
+  --ci-ink:#ECE7DB;           /* warm document ink — the prose register */
+  --ci-ledger:#C4C6BE;        /* cooler ledger value */
+  --ci-label:#7d7f79;         /* neutral grey (content labels that are NOT furniture) */
+  --ci-faint:#54564f;
+  --ci-hair:rgba(236,231,219,0.14);        /* neutral hairline — stays neutral (§4) */
+  --ci-accent:#F4A460;                     /* per-surface; full strength = interaction / marked events only */
+  --ci-accent-furn:rgba(244,164,96,0.60);  /* the accent that OWNS the furniture layer, dim + constant */
+  --ci-accent-rule:rgba(244,164,96,0.35);  /* strong rules + registration ticks */
+  --ci-accent-sec:rgba(244,164,96,0.30);   /* section rules */
+  color:var(--ci-ink);
+  font-family:var(--font-body,'Rajdhani',sans-serif);
+}
+
+/* ── document furniture (accent-dim, constant — the "amber book" §4.1) ── */
+.ci-runhead{ display:flex; justify-content:space-between; align-items:baseline;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.24em;
+  color:var(--ci-accent-furn); text-transform:uppercase; }
+.ci-runhead .ci-folio{ font-variant-numeric:tabular-nums; }
+.ci-rule{ border:0; border-top:1px solid var(--ci-hair); margin:9px 0; }
+.ci-rule.ci-heavy{ border-top-color:var(--ci-accent-rule); }
+.ci-backbar{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:10px; letter-spacing:.18em; color:var(--ci-accent-furn); }
+.ci-backbar .ci-chev{ color:var(--ci-accent); }
+.ci-furn{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:9.5px; letter-spacing:.14em;
+  color:var(--ci-accent-furn); text-transform:uppercase; text-align:center; }
+
+/* ── designation block — the one big type spend; display font is UPPERCASE (the app's Orbitron voice, §4.5) ── */
+.ci-maker{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.22em;
+  color:var(--ci-accent-furn); text-transform:uppercase; margin-bottom:4px; }
+.ci-designation{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:900;
+  font-size:clamp(34px,10vw,58px); line-height:.96; letter-spacing:.01em; color:var(--ci-ink);
+  margin:0; text-transform:uppercase; text-wrap:balance; }
+.ci-classline{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:15px;
+  letter-spacing:.02em; color:var(--ci-ledger); margin-top:10px; }
+.ci-classline .ci-r{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px;
+  letter-spacing:.1em; color:var(--ci-accent); border:1px solid var(--ci-accent-rule); padding:1px 5px;
+  margin-left:8px; }
+
+/* ── plates — the image sits on a uniform MAT with honest depth (§4.2/4.3); NO ruled-paper texture, NO glow ── */
+.ci-plate{ margin:18px 0 8px; }
+.ci-plate-frame{ position:relative; border:1px solid var(--ci-accent-rule); background:var(--ci-mat);
+  box-shadow:var(--depth-card); padding:16px; display:flex; align-items:center; justify-content:center; }
+.ci-plate-label{ position:absolute; top:0; left:0; background:var(--ci-mat);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:9px; letter-spacing:.2em;
+  color:var(--ci-accent-furn); padding:4px 8px; }
+.ci-tick{ position:absolute; width:9px; height:9px; border:1px solid var(--ci-accent-rule); }
+.ci-tick.tl{ top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.ci-tick.tr{ top:-1px; right:-1px; border-left:0; border-bottom:0; }
+.ci-tick.bl{ bottom:-1px; left:-1px; border-right:0; border-top:0; }
+.ci-tick.br{ bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.ci-plate figcaption, .ci-cap{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:9.5px;
+  letter-spacing:.12em; color:var(--ci-accent-furn); margin-top:7px; text-transform:uppercase; }
+
+/* ── prose — warm, ~60ch ── */
+.ci-lore{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:400; font-size:16.5px;
+  line-height:1.62; color:var(--ci-ink); max-width:60ch; margin:16px 0 4px; }
+.ci-lore + .ci-lore{ margin-top:12px; }
+
+/* ── section rule head (accent-dim label + accent-.30 rule, §4.1) ── */
+.ci-sechead{ display:flex; align-items:center; gap:12px; margin:30px 0 12px; }
+.ci-sechead::after{ content:""; flex:1; border-top:1px solid var(--ci-accent-sec); }
+.ci-sechead h2{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-weight:400; font-size:12px;
+  letter-spacing:.28em; color:var(--ci-accent-furn); text-transform:uppercase; margin:0; }
+
+/* ── the ruled ledger — accent-dim keys (furniture), ink values, tabular figures ── */
+.ci-ledger{ width:100%; border-collapse:collapse; }
+.ci-ledger td{ padding:7px 0; vertical-align:baseline; }
+.ci-ledger tr{ border-top:1px solid var(--ci-hair); }
+.ci-ledger tr:first-child{ border-top:0; }
+.ci-lkey{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em;
+  color:var(--ci-accent-furn); text-transform:uppercase; white-space:nowrap; width:1%; padding-right:14px; }
+.ci-lval{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:15.5px;
+  color:var(--ci-ledger); font-variant-numeric:tabular-nums; text-align:right; }
+.ci-lval .ci-cr{ color:var(--ci-ink); }
+
+/* ── the find-difficulty callout — a marked mechanical event on the price line ── */
+.ci-find{ display:inline-flex; align-items:center; gap:7px; margin-left:10px; padding:2px 8px;
+  border:1px solid var(--ci-accent-rule); font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:9.5px; letter-spacing:.12em; color:var(--ci-accent); }
+
+/* the recognition-index cells (browse grid §5.2) are retired with YardBrowse's YARD mode (card `shipyard-schematic-build-card` R-SSB-5) */
+
+/* ── the index apparatus (browse §3.2): search / SORT control / SHOWING state line / REFINE ── */
+.ci-index-ctrl{ background:var(--ci-mat); border:1px solid var(--ci-hair); color:var(--ci-ink);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.1em;
+  padding:0 14px; min-height:40px; cursor:pointer; text-transform:uppercase; white-space:nowrap; }
+.ci-index-ctrl:hover{ border-color:var(--ci-accent-rule); }
+.ci-sort-menu{ position:absolute; top:calc(100% + 4px); right:0; z-index:20; min-width:160px;
+  background:var(--ci-mat); border:1px solid var(--ci-accent-rule); box-shadow:var(--depth-card);
+  display:flex; flex-direction:column; }
+.ci-sort-item{ background:transparent; border:0; border-top:1px solid var(--ci-hair); text-align:left;
+  color:var(--ci-ledger); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px;
+  letter-spacing:.1em; padding:10px 14px; cursor:pointer; text-transform:uppercase; }
+.ci-sort-item:first-child{ border-top:0; }
+.ci-sort-item:hover{ color:var(--ci-ink); }
+.ci-sort-item[data-active="1"]{ color:var(--ci-accent); }
+
+.ci-showing{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.1em;
+  line-height:1.9; color:var(--ci-ledger); text-transform:uppercase; }
+.ci-showing-key{ color:var(--ci-accent-furn); margin-right:4px; }
+.ci-showing-all{ color:var(--ci-ledger); }
+.ci-showing-count{ color:var(--ci-label); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.ci-showing-term{ background:transparent; border:1px solid var(--ci-accent-rule); color:var(--ci-accent);
+  font-family:inherit; font-size:10px; letter-spacing:.1em; padding:2px 7px; margin:0 4px 4px 0;
+  cursor:pointer; text-transform:uppercase; }
+.ci-showing-term:hover{ background:rgba(244,164,96,0.10); }
+.ci-showing-term .ci-x{ color:var(--ci-accent-furn); margin-left:3px; }
+
+.ci-refine{ display:inline-block; margin-top:10px; background:transparent; border:1px solid var(--ci-accent-rule);
+  color:var(--ci-accent); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px;
+  letter-spacing:.14em; padding:9px 16px; min-height:40px; cursor:pointer; text-transform:uppercase; }
+.ci-refine:hover{ background:rgba(244,164,96,0.10); }
+.ci input[type="range"]{ accent-color:var(--ci-accent); }
+.ci input[type="checkbox"]{ accent-color:var(--ci-accent); }
+
+/* ── FILTERS sheet facet rows (R-Y1-1): ruled ledger rows, not pill chips ── */
+.ci-facet-row{ display:flex; align-items:center; justify-content:space-between; width:100%;
+  background:transparent; border:0; border-top:1px solid var(--ci-hair); text-align:left;
+  color:var(--ci-ledger); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px;
+  letter-spacing:.08em; text-transform:uppercase; padding:11px 2px; min-height:42px; cursor:pointer; }
+.ci-facet-row:hover{ color:var(--ci-ink); }
+.ci-facet-row[data-active="1"]{ color:var(--ci-accent); }
+.ci-facet-mark{ color:var(--ci-accent); font-size:12px; width:1em; text-align:center; }
+/* footer buttons */
+.ci-facet-btn{ background:transparent; border:1px solid var(--ci-hair); color:var(--ci-ledger);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; padding:11px 14px; min-height:42px; cursor:pointer; }
+.ci-facet-btn:hover{ border-color:var(--ci-accent-rule); color:var(--ci-ink); }
+.ci-facet-btn[data-disabled="1"]{ color:var(--ci-faint); cursor:not-allowed; border-color:var(--ci-hair); }
+.ci-facet-btn-go{ border-color:var(--ci-accent-rule); color:var(--ci-accent); }
+.ci-facet-btn-go:hover{ background:rgba(244,164,96,0.10); color:var(--ci-accent); }
+
+/* ── SHIPYARD Y2: the living vessel sheet + vessels list (window.SWRPGVesselView) ── */
+.ci-vessel-statrow{ display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid var(--ci-hair); padding:9px 2px; }
+.ci-vessel-statrow:first-of-type{ border-top:0; }
+.ci-vessel-statrow .ci-lkey{ padding-right:0; }
+.ci-vessel-prov{ margin-top:8px; }
+.ci-vessel-linkbtn{ background:transparent; border:0; color:var(--ci-accent); cursor:pointer;
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-size:15px; padding:0; }
+.ci-vessel-log{ display:flex; flex-direction:column; }
+.ci-vessel-logrow{ display:flex; align-items:baseline; gap:10px; border-top:1px solid var(--ci-hair); padding:8px 2px; }
+.ci-vessel-logrow:first-child{ border-top:0; }
+.ci-vessel-when{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.08em;
+  color:var(--ci-accent-furn); white-space:nowrap; min-width:5.5em; }
+.ci-vessel-note{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:14.5px; color:var(--ci-ink); flex:1; }
+.ci-vessel-x{ background:transparent; border:0; color:var(--ci-faint); cursor:pointer; font-size:12px; padding:0 4px; }
+.ci-vessel-x:hover{ color:var(--ci-accent); }
+.ci-vessel-cell{ border-top:1px solid var(--ci-hair); }
+.ci-vessel-warn{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:10px; letter-spacing:.06em;
+  color:#E8B04B; padding:2px 2px 8px; }   /* warn-never-block soft note (C-Y2b) */

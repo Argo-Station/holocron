@@ -1,0 +1,494 @@
+{
+  "_doc": "C-OCS-2 (ruling `csg-v7-option-characteristics-schema`) and C-INERT-2 (ruling `csg-option-contract-inert`) — the NAMED, PUBLISHED fixture for the option-choice variant asserts. Unlike user-pack.example.json this file is mostly NEGATIVE: `must_fail` holds one record per assert ARM, each a plausible mistake a v7 import could make, and L1cb.oc requires each to be caught by its own check and by no other. That makes the assert self-testing: a check later weakened or deleted turns this fixture red instead of going quietly green on a registry that happens to contain no violations. `must_pass` is the well-formed variant group, so the checks are also shown not to reject legal data. C-INERT-2 added the WOUND and STRAIN cases after the architect's mutation showed the completeness loop could be narrowed to (\"characteristics\",) with EXIT 0 and L1cb.oc PASS: three fields shared one tag and only one arm was ever exercised. Not shipped, not loaded at runtime; this file exists only for the validator.",
+  "_binds": "L1cb.oc in scripts/canonical/validate_registries.py",
+  "must_fail": {
+    "half_specified_characteristics": {
+      "_why": "Ruling §4(A) group completeness. The FEMALE option sets characteristics and the MALE option does not, so a player picking MALE gets four of the base record's numbers and two of nobody's — and no reader can tell by looking which number came from where. The brief named this failure correctly; this is it, made permanent.",
+      "_expect": "caught by COMPLETENESS-CHARACTERISTICS, and by nothing else",
+      "id": "fixture_half_specified",
+      "name": "Fixture Half-Specified",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Sex",
+          "display_name": "Sex",
+          "preselect": true,
+          "options": [
+            {
+              "id": "female",
+              "name": "Female",
+              "characteristics": {
+                "brawn": 2,
+                "agility": 1,
+                "intellect": 2,
+                "cunning": 3,
+                "willpower": 2,
+                "presence": 2
+              }
+            },
+            {
+              "id": "male",
+              "name": "Male"
+            }
+          ]
+        }
+      ]
+    },
+    "both_xp_forms": {
+      "_why": "Ruling Q2. An option may carry the ABSOLUTE form or the DELTA form, never both — otherwise `effectiveXp = (starting_xp ?? species.starting_xp) + (xp_adjustment ?? 0)` silently applies the delta on top of the absolute and prints a number no book contains. The schema also forbids it via `not: {required: [...]}`; the assert exists so the failure is NAMED rather than surfacing as a generic schema error.",
+      "_expect": "caught by XP-FORM-EXCLUSIVITY, and by nothing else",
+      "id": "fixture_both_xp",
+      "name": "Fixture Both XP Forms",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Sex",
+          "display_name": "Sex",
+          "preselect": true,
+          "options": [
+            {
+              "id": "female",
+              "name": "Female",
+              "starting_xp": 95,
+              "xp_adjustment": 10
+            },
+            {
+              "id": "male",
+              "name": "Male",
+              "starting_xp": 90
+            }
+          ]
+        }
+      ]
+    },
+    "half_specified_wound_threshold": {
+      "_why": "C-INERT-2. Ruling §4(A) applies per field, independently: if any option in a group carries wound_threshold_base, every option must. This case exists because the three arms of that loop shared one tag and only the characteristics arm was fixtured, so deleting the other two left the validator green. Both options here carry complete characteristics, so ONLY the wound arm can catch it.",
+      "_expect": "caught by COMPLETENESS-WOUND, and by nothing else",
+      "id": "fixture_half_wound",
+      "name": "Fixture Half Wound",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Sex",
+          "display_name": "Sex",
+          "preselect": true,
+          "options": [
+            {
+              "id": "female",
+              "name": "Female",
+              "characteristics": {
+                "brawn": 2,
+                "agility": 1,
+                "intellect": 2,
+                "cunning": 3,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 12,
+              "strain_threshold_base": 10
+            },
+            {
+              "id": "male",
+              "name": "Male",
+              "characteristics": {
+                "brawn": 3,
+                "agility": 2,
+                "intellect": 1,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "strain_threshold_base": 10
+            }
+          ]
+        }
+      ]
+    },
+    "half_specified_strain_threshold": {
+      "_why": "C-INERT-2. Ruling §4(A) applies per field, independently: if any option in a group carries strain_threshold_base, every option must. This case exists because the three arms of that loop shared one tag and only the characteristics arm was fixtured, so deleting the other two left the validator green. Both options here carry complete characteristics, so ONLY the strain arm can catch it.",
+      "_expect": "caught by COMPLETENESS-STRAIN, and by nothing else",
+      "id": "fixture_half_strain",
+      "name": "Fixture Half Strain",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Sex",
+          "display_name": "Sex",
+          "preselect": true,
+          "options": [
+            {
+              "id": "female",
+              "name": "Female",
+              "characteristics": {
+                "brawn": 2,
+                "agility": 1,
+                "intellect": 2,
+                "cunning": 3,
+                "willpower": 2,
+                "presence": 2
+              },
+              "strain_threshold_base": 12,
+              "wound_threshold_base": 10
+            },
+            {
+              "id": "male",
+              "name": "Male",
+              "characteristics": {
+                "brawn": 3,
+                "agility": 2,
+                "intellect": 1,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 10
+            }
+          ]
+        }
+      ]
+    },
+    "preselect_on_choice_group": {
+      "_why": "Jason's 2026-08-10 answer, NARROWED by his 2026-09-06 ruling (`b417-preselect-rule-narrowed`): a bare CHOICE group — one whose options replace no part of the profile — is never pre-ticked. The record is unchanged and still a violation; only the rule's REASON moved, from 'its options grant skills' to 'its options replace nothing'. The old wording also caught variant groups that happen to grant a skill, which is what cost Vaathkree and Xi'Dec their resolved numbers.",
+      "_expect": "caught by PRESELECT-ON-CHOICE-GROUP, and by nothing else",
+      "id": "fixture_preselect_skill",
+      "name": "Fixture Preselect Skill",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Brawl or Survival",
+          "display_name": "Skills",
+          "preselect": true,
+          "options": [
+            {
+              "id": "brawl",
+              "name": "Brawl",
+              "skill_grants": [
+                {
+                  "skill": "brawl",
+                  "rank_start": 1
+                }
+              ]
+            },
+            {
+              "id": "survival",
+              "name": "Survival",
+              "skill_grants": [
+                {
+                  "skill": "survival",
+                  "rank_start": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "preselect_multi_pick": {
+      "_why": "A pre-tick on a pick-two has no meaning: `speciesEffective`'s fallback resolves exactly ONE option. `csg_droid`'s 'Modifications' (0-3) is the shipped shape this protects.",
+      "_expect": "caught by PRESELECT-MULTI-PICK, and by nothing else",
+      "id": "fixture_preselect_multi",
+      "name": "Fixture Preselect Multi",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Brawl or Survival",
+          "display_name": "Skills",
+          "preselect": true,
+          "options": [
+            {
+              "id": "brawl",
+              "name": "Brawl",
+              "skill_grants": [
+                {
+                  "skill": "brawl",
+                  "rank_start": 1
+                }
+              ],
+              "characteristics": {
+                "brawn": 3,
+                "agility": 2,
+                "intellect": 2,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 11,
+              "strain_threshold_base": 10,
+              "starting_xp": 95
+            },
+            {
+              "id": "survival",
+              "name": "Survival",
+              "skill_grants": [
+                {
+                  "skill": "survival",
+                  "rank_start": 1
+                }
+              ],
+              "characteristics": {
+                "brawn": 2,
+                "agility": 3,
+                "intellect": 2,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 10,
+              "strain_threshold_base": 11,
+              "starting_xp": 100
+            }
+          ],
+          "min_picks": 0,
+          "max_picks": 3
+        }
+      ]
+    }
+  },
+  "must_pass": {
+    "well_formed_variant_species": {
+      "_why": "The shape the ruling accepted, so the three checks are shown not to reject legal data: a pre-selecting variant group whose options are numerically COMPLETE and carry the ABSOLUTE XP form, beside a skill group that does NOT pre-select and is therefore free to gate. Two pick-one groups on one record, one component, two behaviours (§7).",
+      "id": "fixture_well_formed",
+      "name": "Fixture Well Formed",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 2,
+        "intellect": 1,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 14,
+      "strain_threshold_base": 10,
+      "starting_xp": 90,
+      "option_choices": [
+        {
+          "name": "Sex",
+          "display_name": "Sex",
+          "preselect": true,
+          "options": [
+            {
+              "id": "female",
+              "name": "Female",
+              "characteristics": {
+                "brawn": 2,
+                "agility": 1,
+                "intellect": 2,
+                "cunning": 3,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 12,
+              "strain_threshold_base": 10,
+              "starting_xp": 95
+            },
+            {
+              "id": "male",
+              "name": "Male",
+              "characteristics": {
+                "brawn": 3,
+                "agility": 2,
+                "intellect": 1,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 14,
+              "strain_threshold_base": 10,
+              "starting_xp": 90
+            }
+          ]
+        },
+        {
+          "name": "Brawl or Survival",
+          "display_name": "Skills",
+          "options": [
+            {
+              "id": "brawl",
+              "name": "Brawl",
+              "skill_grants": [
+                {
+                  "skill": "brawl",
+                  "rank_start": 1
+                }
+              ]
+            },
+            {
+              "id": "survival",
+              "name": "Survival",
+              "skill_grants": [
+                {
+                  "skill": "survival",
+                  "rank_start": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "partial_override_varies": {
+      "_why": "R-SOP-6 (species-option-payload-contract §9.4) — characteristic_overrides is the PARTIAL family. A group with an override on one option and NOTHING on another is legal and readable (unlike a half-specified ABSOLUTE `characteristics` block, which the sibling half_specified_characteristics case must_fails). L1cb.oc must NOT flag this — the completeness loop is the absolute family only. Proves the R-SOP-6 scoping: partial override alone -> GREEN.",
+      "id": "fixture_partial_override",
+      "name": "Fixture Partial Override",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Form",
+          "display_name": "Form",
+          "options": [
+            {
+              "id": "tall",
+              "name": "Tall",
+              "characteristic_overrides": {
+                "presence": 3
+              }
+            },
+            {
+              "id": "plain",
+              "name": "Plain"
+            }
+          ]
+        }
+      ]
+    },
+    "preselect_variant_that_also_grants_a_skill": {
+      "_why": "THE SHAPE JASON'S NARROWING LEGALISED, and the reason this fixture set exists at all now: a variant group that replaces the profile AND grants a skill — Vaathkree's 'Variable Forms', Xi'Dec's 'Genders'. The old arm rejected it and their resolved numbers never reached a sheet. It is safe because `preselect` moves NUMBERS only: `_chosenOptions` is the sole path to a skill grant and never reads the flag.",
+      "id": "fixture_preselect_variant_with_skill",
+      "name": "Fixture Preselect Variant With Skill",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "wound_threshold_base": 10,
+      "strain_threshold_base": 10,
+      "starting_xp": 100,
+      "option_choices": [
+        {
+          "name": "Brawl or Survival",
+          "display_name": "Skills",
+          "preselect": true,
+          "options": [
+            {
+              "id": "brawl",
+              "name": "Brawl",
+              "skill_grants": [
+                {
+                  "skill": "brawl",
+                  "rank_start": 1
+                }
+              ],
+              "characteristics": {
+                "brawn": 3,
+                "agility": 2,
+                "intellect": 2,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 11,
+              "strain_threshold_base": 10,
+              "starting_xp": 95
+            },
+            {
+              "id": "survival",
+              "name": "Survival",
+              "skill_grants": [
+                {
+                  "skill": "survival",
+                  "rank_start": 1
+                }
+              ],
+              "characteristics": {
+                "brawn": 2,
+                "agility": 3,
+                "intellect": 2,
+                "cunning": 2,
+                "willpower": 2,
+                "presence": 2
+              },
+              "wound_threshold_base": 10,
+              "strain_threshold_base": 11,
+              "starting_xp": 100
+            }
+          ],
+          "min_picks": 1,
+          "max_picks": 1
+        }
+      ]
+    }
+  }
+}

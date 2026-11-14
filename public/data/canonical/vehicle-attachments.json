@@ -1,0 +1,7423 @@
+{
+  "schema": "vehicle-attachment.schema.json",
+  "schema_version": 1,
+  "generated_from": "oggdude_merged.json",
+  "generated_by": "scripts/canonical/vehicle_attachments.py (Y3d)",
+  "count": 124,
+  "vehicle_attachments": {
+    "ad_1s_cargo_pod": {
+      "id": "ad_1s_cargo_pod",
+      "_source_key": "AD1SCARGOPOD",
+      "name": "(AD-1S) Cargo Pod",
+      "description": "",
+      "hp": 2,
+      "price": 1400,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Encumbrance Capacity by 50",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Passenger Capacity by 2",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "encumbrance_delta",
+          "amount": 50
+        }
+      ],
+      "added_options": [
+        {
+          "id": "PASSADD2",
+          "max": 4,
+          "effects": [
+            {
+              "op": "passengers_delta",
+              "amount": 2
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "cite": "special_modifications p.62",
+      "_provenance": "oggdude"
+    },
+    "ad_1s_fine_tuned_microthrusters": {
+      "id": "ad_1s_fine_tuned_microthrusters",
+      "_source_key": "AD1SMICROTHRUST",
+      "name": "(AD-1S) Fine-Tuned Microthrusters",
+      "description": "",
+      "hp": 2,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": 1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HANDLINGADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "handling_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "ad_1s_hyperdrive_class_4_module": {
+      "id": "ad_1s_hyperdrive_class_4_module",
+      "_source_key": "AD1SHYPER4",
+      "name": "(AD-1S) Hyperdrive Class 4 Module",
+      "description": "",
+      "hp": 4,
+      "price": 5000,
+      "rarity": 9,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Add Class 4 Hyperdrive",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add astromech droid socket.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of .5",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hyperdrive_class_set",
+          "amount": 4,
+          "target": "primary"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HYPERDRIVESUB5",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "primary",
+              "floor": 0.5
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "cite": "special_modifications p.63",
+      "_provenance": "oggdude"
+    },
+    "ad_1s_hyperdrive_class_8_module": {
+      "id": "ad_1s_hyperdrive_class_8_module",
+      "_source_key": "AD1SHYPER8",
+      "name": "(AD-1S) Hyperdrive Class 8 Module",
+      "description": "",
+      "hp": 4,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Add Class 8 Hyperdrive",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add astromech droid socket.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of .5",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hyperdrive_class_set",
+          "amount": 8,
+          "target": "primary"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HYPERDRIVESUB5",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "primary",
+              "floor": 0.5
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "cite": "special_modifications p.63",
+      "_provenance": "oggdude"
+    },
+    "ad_1s_shield_generator_module": {
+      "id": "ad_1s_shield_generator_module",
+      "_source_key": "AD1SSHIELD",
+      "name": "(AD-1S) Shield Generator Module",
+      "description": "",
+      "hp": 3,
+      "price": 8000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "DEFZONEADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "chosen"
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "ad_1s_sublight_boost_thrusters": {
+      "id": "ad_1s_sublight_boost_thrusters",
+      "_source_key": "AD1SBOOSTTHRUST",
+      "name": "(AD-1S) Sublight Boost Thrusters",
+      "description": "",
+      "hp": 2,
+      "price": 9000,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_delta",
+          "amount": 1
+        },
+        {
+          "op": "handling_delta",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "AD1SMOD"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "advanced_subspace_encryption_array": {
+      "id": "advanced_subspace_encryption_array",
+      "_source_key": "ASEA",
+      "name": "Advanced Subspace Encryption Array",
+      "description": "",
+      "hp": 1,
+      "price": 6000,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Only the intended recipient can detect a transmission  sent with this attachment without a Hard ([DI][DI][DI]) Computers check.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [SE] to enemy detection check",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Add [SE] to enemy interception or deciphering check",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_enemy_detection_check",
+          "max": 2,
+          "effects": []
+        },
+        {
+          "id": "add_se_to_enemy_interception_or_deciphering_chec",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "advanced_targeting_array": {
+      "id": "advanced_targeting_array",
+      "_source_key": "ATA",
+      "name": "Advanced Targeting Array",
+      "description": "",
+      "hp": 1,
+      "price": 4000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrade ability of Gunnery checks 1",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Upgrade ability of Gunnery checks 1",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Grants the Sniper Shot talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        },
+        {
+          "description": "Grants the True Aim talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        }
+      ],
+      "pool_mods": [
+        {
+          "die": "ability",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "gunnery"
+            }
+          ],
+          "condition": null,
+          "direction": "upgrade"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "UPGUNN",
+          "max": 1,
+          "effects": [],
+          "pool_mods": [
+            {
+              "die": "ability",
+              "count": 1,
+              "applies_to": [
+                {
+                  "scope": "skill",
+                  "value": "gunnery"
+                }
+              ],
+              "condition": null,
+              "direction": "upgrade"
+            }
+          ]
+        },
+        {
+          "id": "SNIPSHOT",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "sniper_shot"
+        },
+        {
+          "id": "TRUEAIM",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "true_aim"
+        }
+      ],
+      "cite": "eote p.269",
+      "_provenance": "oggdude"
+    },
+    "all_terrain_legs": {
+      "id": "all_terrain_legs",
+      "_source_key": "ALLTERLEGS",
+      "name": "All-Terrain Legs",
+      "description": "",
+      "hp": 2,
+      "price": 3000,
+      "price_per_silhouette": true,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "As a maneuver, pilot may shift in or out of walker mode.  In walker mode, pilot uses Piloting (Planetary) and speed is reduced to 2.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Remove [SE] from Piloting (Planetary) checks due to difficult terrain",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Remove [SE] from Gunnery checks due to cover or terrain",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "remove_se_from_piloting_planetary_checks_due_to",
+          "max": 2,
+          "effects": []
+        },
+        {
+          "id": "remove_se_from_gunnery_checks_due_to_cover_or_te",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 6,
+        "category_limit": [
+          "Air Vehicle",
+          "Starship"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "amphibious_modification": {
+      "id": "amphibious_modification",
+      "_source_key": "AMPHIBMOD",
+      "name": "Amphibious Modification",
+      "description": "",
+      "hp": 1,
+      "price": 1000,
+      "price_per_silhouette": true,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Vehicle can operate underwater without penalty.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 6,
+        "category_limit": [
+          "Air Vehicle",
+          "Starship"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "anq_3_6_tracking_computer": {
+      "id": "anq_3_6_tracking_computer",
+      "_source_key": "ANQ36",
+      "name": "ANQ 3.6 Tracking Computer",
+      "description": "",
+      "hp": 1,
+      "price": 7500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "base_mods": [
+        {
+          "description": "Choose one target and make Average ([DI][DI]) Computers check.  If successful, combat checks against target are upgraded once. [SU][SU][SU] or [TR] allows additional target.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "A36PTHFNDR"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "arakyd_mini_missile_pack": {
+      "description": "",
+      "hp": 1,
+      "restricted": true,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "cite": "hired p.60; hired p.62",
+      "added_mods": [
+        {
+          "description": "Change the Fire Arc to \"All\"",
+          "never_modelled": "see_source"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "change_the_fire_arc_to_all",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "becomes a weapon with the LOADED round's profile (Table 2-8); the round is chosen at load and no part field names it, so the printed sentence is told (card release-r5-attachments ADDENDUM 1)",
+      "_provenance": "book",
+      "id": "arakyd_mini_missile_pack",
+      "_source_key": "MISSILEPACKMINI",
+      "name": "Arakyd Mini-Missile Pack",
+      "price": 7000,
+      "rarity": 5,
+      "hp_note": "",
+      "constraints": {
+        "min_size": 2,
+        "max_size": 2
+      },
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        }
+      ]
+    },
+    "arakyd_missile_pack": {
+      "description": "",
+      "hp": 1,
+      "restricted": true,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "cite": "hired p.60; hired p.62",
+      "added_mods": [
+        {
+          "description": "Change the Fire Arc to \"All\"",
+          "never_modelled": "see_source"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "change_the_fire_arc_to_all",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "becomes a weapon with the LOADED round's profile (Table 2-8); the round is chosen at load and no part field names it, so the printed sentence is told (card release-r5-attachments ADDENDUM 1)",
+      "_provenance": "book",
+      "id": "arakyd_missile_pack",
+      "_source_key": "MISSILEPACK",
+      "name": "Arakyd Missile Pack",
+      "price": 10000,
+      "rarity": 5,
+      "hp_note": "",
+      "constraints": {
+        "min_size": 2
+      },
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        }
+      ]
+    },
+    "armored_computer_core": {
+      "id": "armored_computer_core",
+      "_source_key": "ARMCOMCORE",
+      "name": "Armored Computer Core",
+      "description": "",
+      "hp": null,
+      "price": 1100,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "astrogation_droid_brain": {
+      "id": "astrogation_droid_brain",
+      "_source_key": "ASTROBRAIN",
+      "name": "Astrogation Droid Brain",
+      "description": "",
+      "hp": null,
+      "price": 7500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds a Droid Brain with Astrogation Skill 2 and Intellect 0",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Droid Brain's Astrogation Skill by 1",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_droid_brain_s_astrogation_skill_by_1",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "category_limit": [
+          "Starship"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "astromech_droid_socket": {
+      "id": "astromech_droid_socket",
+      "_source_key": "ASTROMECH",
+      "name": "Astromech Droid Socket",
+      "description": "",
+      "hp": 2,
+      "price": 3000,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Allows starship to link to an astromech droid via SCOMP",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Automated droid ejection system",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "automated_droid_ejection_system",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "augmented_buffer": {
+      "id": "augmented_buffer",
+      "_source_key": "AUGBUFF",
+      "name": "Augmented Buffer",
+      "description": "",
+      "hp": null,
+      "price": 750,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "jewel_of_yavin"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases System Strain by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "strain_threshold_delta",
+          "amount": 1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SSTRAINADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "max_size": 2
+      },
+      "_provenance": "oggdude"
+    },
+    "autopilot_droid_brain": {
+      "id": "autopilot_droid_brain",
+      "_source_key": "PILOTBRAIN",
+      "name": "Autopilot Droid Brain",
+      "description": "",
+      "hp": null,
+      "price": 6000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "fly_casual",
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds a Droid Brain with Piloting Skills 2 and Agility 0",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "May summon vehicle via a beckon call.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Droid Brain's Piloting Skills by 1",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_droid_brain_s_piloting_skills_by_1",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "ax_108_ground_buzzer_surface_defense_blaster_cannon": {
+      "id": "ax_108_ground_buzzer_surface_defense_blaster_cannon",
+      "_source_key": "AX108BUZZER",
+      "name": "AX-108 \"Ground Buzzer\" Surface-Defense Blaster Cannon",
+      "description": "",
+      "hp": 1,
+      "price": 2000,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds one AX-108 Surface Defense Blaster Cannon weapon",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase the weapon's automated Ranged (Heavy) skill by one",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_the_weapon_s_automated_ranged_heavy_ski",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "min_size": 3,
+        "max_size": 10,
+        "must_be_starship": true
+      },
+      "_provenance": "oggdude"
+    },
+    "briefing_auditorium": {
+      "id": "briefing_auditorium",
+      "_source_key": "BRAUD",
+      "name": "Briefing Auditorium",
+      "description": "",
+      "hp": 1,
+      "price": 2500,
+      "restricted": false,
+      "sources": [
+        "lead_by_example"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [AD] to Leadership checks made by characters within the briefing auditorium",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_ad_to_leadership_checks_made_by_characters_w",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "min_size": 5
+      },
+      "_provenance": "oggdude"
+    },
+    "cloaked_smuggling_compartments": {
+      "id": "cloaked_smuggling_compartments",
+      "_source_key": "CLOAKSMUGG",
+      "name": "Cloaked Smuggling Compartments",
+      "description": "",
+      "hp": 1,
+      "price": 2200,
+      "rarity": 4,
+      "restricted": true,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Convert 25 encumbrance capacity to smuggling compartment",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Convert 25 encumbrance capacity to smuggling compartment",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hidden_capacity_delta",
+          "amount": 25
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SMUGENC",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hidden_capacity_delta",
+              "amount": 25
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "cloaking_device": {
+      "id": "cloaking_device",
+      "_source_key": "CLOAKDEVICE",
+      "name": "Cloaking Device",
+      "description": "",
+      "hp": 4,
+      "price": 29000,
+      "rarity": 9,
+      "restricted": true,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "min_size": 3,
+        "must_be_starship": true
+      },
+      "_provenance": "oggdude"
+    },
+    "collision_avoidance_system": {
+      "id": "collision_avoidance_system",
+      "_source_key": "COLLAVOID",
+      "name": "Collision Avoidance System",
+      "description": "",
+      "hp": 1,
+      "price": 2200,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Reduce silhouette by 1 for purposes of determining difficulty of Piloting checks.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "combat_plating": {
+      "id": "combat_plating",
+      "_source_key": "CRAFTHULLCOMBATPLATE",
+      "name": "Combat Plating",
+      "description": "",
+      "hp": 5,
+      "price": 1500,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Changes armor to 3 and handling to -3",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Armor Value When Crafting to 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling When Crafting to -3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "rank": 3,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add 1 to Massive Setting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 1 x Silhouette",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 3
+        },
+        {
+          "op": "handling_set",
+          "amount": -3
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ARMORADD",
+          "max": 3,
+          "effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "MASSIVEADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "massive_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "HULLADDSIL",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hull_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.84",
+      "kind": "hull",
+      "_provenance": "oggdude"
+    },
+    "containment_field": {
+      "id": "containment_field",
+      "_source_key": "CONTFIELD",
+      "name": "Containment Field",
+      "description": "",
+      "hp": 2,
+      "price": 7500,
+      "rarity": 9,
+      "restricted": true,
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "Can hold one Silhouette 1 creature.  Creature can see, hear, and speak, but cannot move.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "min_size": 4
+      },
+      "_provenance": "oggdude"
+    },
+    "decoy_buoy": {
+      "id": "decoy_buoy",
+      "_source_key": "DECOYBUOY",
+      "name": "Decoy Buoy",
+      "description": "",
+      "hp": null,
+      "price": 5000,
+      "rarity": 5,
+      "restricted": true,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Buoy may be jettisoned as an action.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Buoy can be programmed with a specific transponder code with a Hard ([DI][DI][DI]) Computers check.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [SE] to Computers checks to identify the buoy",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_computers_checks_to_identify_the_buoy",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "deflective_plating": {
+      "id": "deflective_plating",
+      "_source_key": "CRAFTHULLDEFPLATE",
+      "name": "Deflective Plating",
+      "description": "",
+      "hp": 4,
+      "price": 700,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Changes armor to 2 and handling to -2",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Armor Value When Crafting to 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling When Crafting to -2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Forward Defense by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 1 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 2
+        },
+        {
+          "op": "handling_set",
+          "amount": -2
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ARMORADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFFORE",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "fore"
+            }
+          ]
+        },
+        {
+          "id": "HULLADDSIL",
+          "max": 1,
+          "effects": [
+            {
+              "op": "hull_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.84",
+      "kind": "hull",
+      "_provenance": "oggdude"
+    },
+    "electron_baffled_engine": {
+      "id": "electron_baffled_engine",
+      "_source_key": "CRAFTENGINEELECBAFF",
+      "name": "Electron Baffled Engine",
+      "description": "",
+      "hp": 4,
+      "price": 1000,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 5 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting to 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 2",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases System Strain by 1 x Silhouette",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Aft Defense by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 5,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 2,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD2",
+          "max": 2,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 2,
+              "ceiling": 6
+            }
+          ]
+        },
+        {
+          "id": "SSTRAINADDSIL",
+          "max": 2,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFAFT",
+          "max": 2,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "aft"
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.81",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "electronic_counter_countermeasures_suite": {
+      "id": "electronic_counter_countermeasures_suite",
+      "_source_key": "ELCOUNTCOUNT",
+      "name": "Electronic Counter-Countermeasures Suite",
+      "description": "",
+      "hp": 1,
+      "price": 3500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "lead_by_example"
+      ],
+      "base_mods": [
+        {
+          "description": "Make a Hard ([DI][DI][DI]) Computers check to cancel all effects of an electronic countermeasures suite.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decrease difficulty of the Computers check by 1",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "decrease_difficulty_of_the_computers_check_by_1",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "electronic_countermeasures_suite": {
+      "id": "electronic_countermeasures_suite",
+      "_source_key": "ECMSUITE",
+      "name": "Electronic Countermeasures Suite",
+      "description": "",
+      "hp": 1,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Blocks sensors within range, counting the ship's silhouette as one smaller when being fired upon.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase difficulty by one with Guided quality",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_difficulty_by_one_with_guided_quality",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "electronic_countermeasures_suite_custom": {
+      "id": "electronic_countermeasures_suite_custom",
+      "_source_key": "ECMSUITETALLANX",
+      "name": "Electronic Countermeasures Suite (Custom)",
+      "description": "",
+      "hp": null,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "Blocks sensors within range, counting the ship's silhouette as one smaller when being fired upon.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "TALLANX",
+          "DARVROLTFR"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "encrypted_computer": {
+      "id": "encrypted_computer",
+      "_source_key": "ENCRYCOMP",
+      "name": "Encrypted Computer",
+      "description": "",
+      "hp": null,
+      "price": 1000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrade difficulty of all Computers checks made to slice the ship's computer system once.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_computers_checks_made_to_slice_the_shi",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "engine_boost_system": {
+      "id": "engine_boost_system",
+      "_source_key": "PODENGINEBOOST",
+      "name": "Engine Boost System",
+      "description": "",
+      "hp": 1,
+      "price": 1100,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_delta",
+          "amount": 1,
+          "ceiling": 6
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "cite": "endless_vigil p.58",
+      "_provenance": "oggdude"
+    },
+    "engine_ring_stabilizer": {
+      "id": "engine_ring_stabilizer",
+      "_source_key": "ENGINERING",
+      "name": "Engine Ring Stabilizer",
+      "hp": 1,
+      "price": 1200,
+      "price_per_silhouette": true,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "mask_of_the_pirate_queen"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Handling by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": 2
+        }
+      ],
+      "constraints": {
+        "min_size": 3,
+        "must_be_starship": true
+      },
+      "cite": "mask_of_the_pirate_queen corpus 83 (uncalibrated)",
+      "_provenance": "oggdude"
+    },
+    "engineering_access": {
+      "id": "engineering_access",
+      "_source_key": "ENGACCESS",
+      "name": "Engineering Access",
+      "description": "",
+      "hp": 2,
+      "price": 7500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "base_mods": [
+        {
+          "description": "Anyone working on internal systems, such as power systems, hyperdrive, computers, sensors, gain [BO] to Mechanics and Computer checks due to the ease of reaching such typically hidden systems.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "LORONARE9"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "enhanced_carbon_durasteel_armor": {
+      "id": "enhanced_carbon_durasteel_armor",
+      "_source_key": "ECDA",
+      "name": "Enhanced Carbon-Durasteel Armor",
+      "description": "",
+      "hp": 2,
+      "price": 2000,
+      "price_per_silhouette": true,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_delta",
+          "amount": 1
+        },
+        {
+          "op": "handling_delta",
+          "amount": -1
+        }
+      ],
+      "cite": "fad p.269–270",
+      "_provenance": "oggdude"
+    },
+    "enhanced_hyperspace_shields": {
+      "id": "enhanced_hyperspace_shields",
+      "_source_key": "ENHHYPSH",
+      "name": "Enhanced Hyperspace Shields",
+      "description": "",
+      "hp": 1,
+      "price": 4000,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Downgrade difficulty of Astrogation checks made to navigate the ship through hyperspace once.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Remove [SE] from Astrogation checks made to navigate the ship through hyperspace",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "remove_se_from_astrogation_checks_made_to_naviga",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "enhanced_prison_lockup": {
+      "id": "enhanced_prison_lockup",
+      "_source_key": "ENPRISONLOCK",
+      "name": "Enhanced Prison Lockup",
+      "description": "",
+      "hp": 3,
+      "price": 3500,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "Full incarceration and security suite for 2 prisoners.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Support for one additional prisoner.",
+          "rank": 4,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "support_for_one_additional_prisoner",
+          "max": 4,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "enhanced_repulsorlift": {
+      "id": "enhanced_repulsorlift",
+      "_source_key": "ENHREPULS",
+      "name": "Enhanced Repulsorlift",
+      "description": "",
+      "hp": 1,
+      "price": 1000,
+      "price_per_silhouette": true,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Grants the Defensive Driving talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_delta",
+          "amount": 1
+        },
+        {
+          "op": "handling_delta",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "DEFDRI",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "defensive_driving"
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Airspeeder",
+          "Landspeeder"
+        ]
+      },
+      "cite": "special_modifications p.66",
+      "_provenance": "oggdude"
+    },
+    "environmental_simulators": {
+      "id": "environmental_simulators",
+      "_source_key": "ENVSIM",
+      "name": "Environmental Simulators",
+      "description": "",
+      "hp": 2,
+      "price": 7500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Additional planetary environment",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "additional_planetary_environment",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "expanded_capacity_holds": {
+      "id": "expanded_capacity_holds",
+      "_source_key": "CRAFTHULLEXPCAP",
+      "name": "Expanded-Capacity Holds",
+      "description": "",
+      "hp": 4,
+      "price": 500,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Armor Value When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling When Crafting to -2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Encumbrance Capacity When Crafting by 25",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Increases Passenger Capacity When Crafting by 25",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Encumbrance Capacity by 1 x Silhouette",
+          "rank": 10,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Passenger Capacity by 1 x Silhouette",
+          "rank": 8,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 1
+        },
+        {
+          "op": "handling_set",
+          "amount": -2
+        },
+        {
+          "op": "encumbrance_delta",
+          "amount": 25
+        },
+        {
+          "op": "passengers_delta",
+          "amount": 25
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ARMORADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "ENCCADDSIL",
+          "max": 10,
+          "effects": [
+            {
+              "op": "encumbrance_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        },
+        {
+          "id": "PASSADDSIL",
+          "max": 8,
+          "effects": [
+            {
+              "op": "passengers_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.83",
+      "kind": "hull",
+      "_provenance": "oggdude"
+    },
+    "fogger_smoke_generator": {
+      "id": "fogger_smoke_generator",
+      "_source_key": "FOGGEN",
+      "name": "Fogger Smoke Generator",
+      "description": "",
+      "hp": 1,
+      "price": 2750,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Provides concealment that adds [SE][SE][SE].",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "category_limit": [
+          "Air Vehicle",
+          "Land Vehicle",
+          "Tracked Vehicle",
+          "Walker",
+          "Wheeled Vehicle"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "foreign_debris_ejector": {
+      "id": "foreign_debris_ejector",
+      "_source_key": "POSFORDEB",
+      "name": "Foreign Debris Ejector",
+      "description": "",
+      "hp": 1,
+      "price": 900,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Ejects debris into the air behind podracer.  Any racer within close range and behind must make a Hard ([DI][DI][DI]) Piloting (Planetary) check to avoid debris.  Failure reduces speed by 1 for 2 rounds, plus 1 round per [TH].  [TH][TH][TH] or [DE] can inflict Critical Hit on target vehicle.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "May only be used once per race.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "fusial_thrust_engine": {
+      "id": "fusial_thrust_engine",
+      "_source_key": "CRAFTENGINEFUSIALTHRUST",
+      "name": "Fusial Thrust Engine",
+      "description": "",
+      "hp": 3,
+      "price": 2500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 4 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Aft Defense by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 3
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 4,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1,
+              "ceiling": 6
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFAFT",
+          "max": 2,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "aft"
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.82",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "gimmellian_stealth_device": {
+      "id": "gimmellian_stealth_device",
+      "_source_key": "GIMMELSTEALTH",
+      "name": "Gimmellian Stealth Device",
+      "description": "",
+      "hp": null,
+      "rarity": 9,
+      "restricted": true,
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "All power for shields and weapons must be rerouted to device for it to work.  Rerouting takes one action.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "TALLANX",
+          "DARVROLTFR"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "gravity_mine_launcher": {
+      "id": "gravity_mine_launcher",
+      "_source_key": "GRAVMINE",
+      "name": "Gravity Mine Launcher",
+      "description": "",
+      "hp": 1,
+      "price": 3500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Allows vehicle to deploy gravity mines within close range",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase deployable range to short",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_deployable_range_to_short",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "gunnery_droid_brain": {
+      "id": "gunnery_droid_brain",
+      "_source_key": "GUNNBRAIN",
+      "name": "Gunnery Droid Brain",
+      "description": "",
+      "hp": null,
+      "price": 7000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Add a droid brain with Gunnery 2 and Agility 0.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase the droid brain's Gunnery skill by 1",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_the_droid_brain_s_gunnery_skill_by_1",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "handling_upgrades": {
+      "id": "handling_upgrades",
+      "_source_key": "PODHAND",
+      "name": "Handling Upgrades",
+      "description": "",
+      "hp": 1,
+      "price": 4000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": 1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HANDLINGADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "handling_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "hardened_circuits": {
+      "id": "hardened_circuits",
+      "_source_key": "HARDCIRC",
+      "name": "Hardened Circuits",
+      "description": "",
+      "hp": 2,
+      "price": 4500,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases System Strain by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases System Strain by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "strain_threshold_delta",
+          "amount": 2
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SSTRAINADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "high_output_ion_turbine": {
+      "id": "high_output_ion_turbine",
+      "_source_key": "IONTURBINE",
+      "name": "High-Output Ion Turbine",
+      "description": "",
+      "hp": 1,
+      "price": 5300,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_delta",
+          "amount": 1
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        }
+      ],
+      "_provenance": "oggdude"
+    },
+    "high_output_repulsor_coils": {
+      "id": "high_output_repulsor_coils",
+      "_source_key": "PODCOILS",
+      "name": "High-Output Repulsor Coils",
+      "description": "",
+      "hp": 2,
+      "price": 4500,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Altitude by 50",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Altitude by 50",
+          "rank": 3,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ADDALT50",
+          "max": 3,
+          "effects": []
+        }
+      ],
+      "prints": "a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "high_performance_repulsor_cluster": {
+      "id": "high_performance_repulsor_cluster",
+      "_source_key": "CRAFTENGINEREPCLUSTER",
+      "name": "High-Performance Repulsor Cluster",
+      "description": "",
+      "hp": 4,
+      "price": 3000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 4",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 5 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 4
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 5,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1,
+              "ceiling": 6
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "constraints": {
+        "must_not_be_starship": true
+      },
+      "cite": "fully_operational p.82",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "holo_tank": {
+      "id": "holo_tank",
+      "_source_key": "HOLOTANK",
+      "name": "Holo-Tank",
+      "description": "",
+      "hp": 1,
+      "price": 5000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "lead_by_example"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [AD] to Mass Combat checks when acting force commander is on board this ship",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Upgrade the ability of checks when determining Initiative once",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_ad_to_mass_combat_checks_when_acting_force_c",
+          "max": 2,
+          "effects": []
+        },
+        {
+          "id": "upgrade_the_ability_of_checks_when_determining_i",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "holographic_shell": {
+      "id": "holographic_shell",
+      "_source_key": "HOLOSHELL",
+      "name": "Holographic Shell",
+      "description": "",
+      "hp": 2,
+      "price": 5500,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add one additional disguise to the database",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_one_additional_disguise_to_the_database",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "holonet_pirate_array": {
+      "id": "holonet_pirate_array",
+      "_source_key": "HNPA",
+      "name": "Holonet Pirate Array",
+      "description": "",
+      "hp": 2,
+      "price": 25000,
+      "rarity": 8,
+      "restricted": true,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [SE] to enemy checks to intercept outgoing transmissions.",
+          "rank": 3,
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Add [BO] to intercept HoloNet traffic",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_enemy_checks_to_intercept_outgoing_tra",
+          "max": 3,
+          "effects": []
+        },
+        {
+          "id": "add_bo_to_intercept_holonet_traffic",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "hull_keel_reinforcement": {
+      "id": "hull_keel_reinforcement",
+      "_source_key": "HULLREINF",
+      "name": "Hull/Keel Reinforcement",
+      "description": "",
+      "hp": 2,
+      "price": 2500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Hull Trauma by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HULLADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hull_threshold_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "hush_kit": {
+      "id": "hush_kit",
+      "_source_key": "HUSHKIT",
+      "name": "Hush Kit",
+      "description": "",
+      "hp": 1,
+      "price": 450,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "hydraulic_control_circuits": {
+      "id": "hydraulic_control_circuits",
+      "_source_key": "HCC",
+      "name": "Hydraulic Control Circuits",
+      "description": "",
+      "hp": 2,
+      "price": 1000,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Half damage from weapons with Ion quality",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Defender chooses ship component affected",
+          "never_modelled": "gm_discretion"
+        },
+        {
+          "description": "Increases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "defender_chooses_ship_component_affected",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "SSTRAINADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "category_limit": [
+          "Non-Fighter Starship"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "hyperdrive_class_4_module": {
+      "id": "hyperdrive_class_4_module",
+      "_source_key": "FOHYPER4",
+      "name": "Hyperdrive Class 4 Module",
+      "description": "",
+      "hp": 1,
+      "price": 6000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Add Class 4 Hyperdrive",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add astromech droid socket (starfighters only).",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of .5",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add Class 14 Backup Hyperdrive Mod",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Reduce Backup Hyperdrive Rating by 1",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hyperdrive_class_set",
+          "amount": 4,
+          "target": "primary"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HYPERDRIVESUB5",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "primary",
+              "floor": 0.5
+            }
+          ]
+        },
+        {
+          "id": "add_class_14_backup_hyperdrive_mod",
+          "max": 1,
+          "effects": [
+            {
+              "op": "hyperdrive_class_set",
+              "amount": 14,
+              "target": "backup"
+            }
+          ]
+        },
+        {
+          "id": "reduce_backup_hyperdrive_rating_by_1",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "backup"
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true,
+        "category_limit": [
+          "Starship",
+          "Non-Fighter Starship"
+        ]
+      },
+      "cite": "fully_operational p.82",
+      "_provenance": "oggdude"
+    },
+    "hyperdrive_class_8_module": {
+      "id": "hyperdrive_class_8_module",
+      "_source_key": "FOHYPER8",
+      "name": "Hyperdrive Class 8 Module",
+      "description": "",
+      "hp": 1,
+      "price": 3000,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Add Class 8 Hyperdrive",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add astromech droid socket (starfighters only).",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of .5",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Add Class 14 Backup Hyperdrive Mod",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Reduce Backup Hyperdrive Rating by 1",
+          "rank": 4,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hyperdrive_class_set",
+          "amount": 8,
+          "target": "primary"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HYPERDRIVESUB5",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "primary",
+              "floor": 0.5
+            }
+          ]
+        },
+        {
+          "id": "add_class_14_backup_hyperdrive_mod",
+          "max": 1,
+          "effects": [
+            {
+              "op": "hyperdrive_class_set",
+              "amount": 14,
+              "target": "backup"
+            }
+          ]
+        },
+        {
+          "id": "reduce_backup_hyperdrive_rating_by_1",
+          "max": 4,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "backup"
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true,
+        "category_limit": [
+          "Starship",
+          "Non-Fighter Starship"
+        ]
+      },
+      "cite": "fully_operational p.82",
+      "_provenance": "oggdude"
+    },
+    "hyperdrive_generator": {
+      "id": "hyperdrive_generator",
+      "_source_key": "HYPERDRIVE",
+      "name": "Hyperdrive Generator",
+      "description": "",
+      "hp": 1,
+      "price": 6400,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decreases Hyperdrive Class by 1, to a minimum of .5",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hyperdrive_class_delta",
+          "amount": -1,
+          "target": "primary",
+          "floor": 1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HYPERDRIVESUB5",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hyperdrive_class_delta",
+              "amount": -1,
+              "target": "primary",
+              "floor": 0.5
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "must_have_hyperdrive": true
+      },
+      "_provenance": "oggdude"
+    },
+    "interior_broadcast_suite": {
+      "id": "interior_broadcast_suite",
+      "_source_key": "INTBROAD",
+      "name": "Interior Broadcast Suite",
+      "description": "",
+      "hp": 1,
+      "price": 800,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases the strain threshold of each crewmember by 1",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "ion_drive_array": {
+      "id": "ion_drive_array",
+      "_source_key": "CRAFTENGINEIONDRIVEARRAY",
+      "name": "Ion Drive Array",
+      "description": "",
+      "hp": 4,
+      "price": 5250,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 4",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 2 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases System Strain by 1 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Forward Defense by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Aft Defense by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 4
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 2,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1,
+              "ceiling": 6
+            }
+          ]
+        },
+        {
+          "id": "SSTRAINADDSIL",
+          "max": 1,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFFORE",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "fore"
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFAFT",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "aft"
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.82",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "ion_turbine_engine": {
+      "id": "ion_turbine_engine",
+      "_source_key": "CRAFTENGINEIONTURBINE",
+      "name": "Ion Turbine Engine",
+      "description": "",
+      "hp": 3,
+      "price": 2000,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 10 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases System Strain by 1 x Silhouette",
+          "rank": 5,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Forward Defense by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 1
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 10,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1,
+              "ceiling": 6
+            }
+          ]
+        },
+        {
+          "id": "SSTRAINADDSIL",
+          "max": 5,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFFORE",
+          "max": 2,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "fore"
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.82",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "laser_focusing_array": {
+      "id": "laser_focusing_array",
+      "_source_key": "LASFOCUS",
+      "name": "Laser Focusing Array",
+      "description": "",
+      "hp": 2,
+      "price": 3000,
+      "price_per_laser_weapon": true,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true
+      },
+      "cite": "special_modifications p.66 (3,000 per laser weapon enhanced; Table 2-11 p.67 prints 5,000 — DECISIONS D-45 picks p.66)",
+      "_provenance": "oggdude"
+    },
+    "light_armored_hull": {
+      "id": "light_armored_hull",
+      "_source_key": "CRAFTHULLLTARMOR",
+      "name": "Light Armored Hull",
+      "description": "",
+      "hp": 3,
+      "price": 500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Changes armor to 1 and handling to -1",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Armor Value When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling When Crafting to -1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Encumbrance Capacity by 1 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase passenger capacity by one",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 1
+        },
+        {
+          "op": "handling_set",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ARMORADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "ENCCADDSIL",
+          "max": 1,
+          "effects": [
+            {
+              "op": "encumbrance_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        },
+        {
+          "id": "PASSADDSIL",
+          "max": 2,
+          "effects": [
+            {
+              "op": "passengers_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "HANDLINGADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "handling_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.83",
+      "kind": "hull",
+      "_provenance": "oggdude"
+    },
+    "luxury_passenger_compartments": {
+      "id": "luxury_passenger_compartments",
+      "_source_key": "LUXPASSCOMP",
+      "name": "Luxury Passenger Compartments",
+      "description": "",
+      "hp": 1,
+      "price": 2000,
+      "price_per_passenger": true,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "cite": "desperate_allies p.65",
+      "_provenance": "oggdude"
+    },
+    "maneuvering_thrusters": {
+      "id": "maneuvering_thrusters",
+      "_source_key": "MANTHRUST",
+      "name": "Maneuvering Thrusters",
+      "description": "",
+      "hp": 1,
+      "price": 500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "jewel_of_yavin"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": 1
+        }
+      ],
+      "constraints": {
+        "max_size": 2
+      },
+      "_provenance": "oggdude"
+    },
+    "minelayer": {
+      "id": "minelayer",
+      "_source_key": "MINELAYER",
+      "name": "Minelayer",
+      "description": "",
+      "hp": 2,
+      "price": 4000,
+      "rarity": 6,
+      "restricted": true,
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "Allows vehicle to carry a number of space mines equal to its silhouette.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Pilot or gunner may make an Average ([DI][DI]) Mechanics check to deploy a mine anywhere within close range.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase deployable range to medium",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Increase mine capacity by 1",
+          "rank": 3,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_deployable_range_to_medium",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "increase_mine_capacity_by_1",
+          "max": 3,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true
+      },
+      "_provenance": "oggdude"
+    },
+    "mobile_listening_post": {
+      "id": "mobile_listening_post",
+      "_source_key": "MOBLISTPOST",
+      "name": "Mobile Listening Post",
+      "description": "",
+      "hp": 2,
+      "price": 5500,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases a vehicle's passive and active sensors by one band. Provides extra audio, video, and holographic capabilities.",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "sensor_range_step",
+          "amount": 1
+        }
+      ],
+      "constraints": {
+        "min_size": 3
+      },
+      "cite": "cyphers_and_masks p.63",
+      "_provenance": "oggdude"
+    },
+    "nightshadow_coating": {
+      "id": "nightshadow_coating",
+      "_source_key": "NIGHTCOAT",
+      "name": "Nightshadow Coating",
+      "description": "",
+      "hp": 1,
+      "price": 3500,
+      "rarity": 8,
+      "restricted": true,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Reduce the ship's silhouette by 1 in combat",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "reduce_the_ship_s_silhouette_by_1_in_combat",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "onboard_amenities_unit": {
+      "id": "onboard_amenities_unit",
+      "_source_key": "ONBOARDAMENUNIT",
+      "name": "Onboard Amenities Unit",
+      "description": "",
+      "hp": 1,
+      "price": 750,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrades ability of Charm, Deception, and Negotiation checks while aboard once.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "overcharged_ion_engines": {
+      "id": "overcharged_ion_engines",
+      "_source_key": "OVERCHIONENG",
+      "name": "Overcharged Ion Engines",
+      "description": "",
+      "hp": 3,
+      "price": 9500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Grants the Shortcut talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        },
+        {
+          "description": "Grants the Tricky Target talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_delta",
+          "amount": 1
+        },
+        {
+          "op": "handling_delta",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SHORTCUT",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "shortcut"
+        },
+        {
+          "id": "TRICK",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "tricky_target"
+        }
+      ],
+      "constraints": {
+        "max_size": 3,
+        "must_be_starship": true
+      },
+      "cite": "special_modifications p.66",
+      "_provenance": "oggdude"
+    },
+    "overcharged_shields": {
+      "id": "overcharged_shields",
+      "_source_key": "OVERCHSHIELD",
+      "name": "Overcharged Shields",
+      "description": "",
+      "hp": 1,
+      "price": 4000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Once per encounter, can make an Average([DI][DI]) Mechanics check to overcharge shields, adding 2 to all defense zones for 1 round + 1 round per [AD].  If [TH][TH] or [DE] is rolled, shields burn out and stop working until repaired.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "oversized_external_weapons_mount": {
+      "id": "oversized_external_weapons_mount",
+      "_source_key": "OEWM",
+      "name": "Oversized External Weapons Mount",
+      "description": "",
+      "hp": 2,
+      "price": 3000,
+      "price_per_silhouette": true,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Vehicle can carry a weapon for craft 1 silhouette larger",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 4",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -4
+        }
+      ],
+      "prints": "a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_airspeeder": {
+      "id": "paramilitary_airspeeder",
+      "_source_key": "PARAAIR",
+      "name": "Paramilitary Airspeeder",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds a forward light blaster cannon",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Airspeeder"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "armor_delta",
+          "amount": 2
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "BLASTCANLT",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_bulk_transport": {
+      "id": "paramilitary_bulk_transport",
+      "_source_key": "PARABULK",
+      "name": "Paramilitary Bulk Transport",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Defense by 1 in two arcs",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 5",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 5",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Adds two heavy laser cannon turrets",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "category_limit": [
+          "Bulk Transport"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        },
+        {
+          "op": "armor_delta",
+          "amount": 2
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 5
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -5
+        },
+        {
+          "op": "weapon_add",
+          "amount": 2,
+          "weapon": "LASERHVY",
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          },
+          "turret": true
+        }
+      ],
+      "defense_picks": 2,
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_cloud_car": {
+      "id": "paramilitary_cloud_car",
+      "_source_key": "PARACLOUD",
+      "name": "Paramilitary Cloud Car",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Decrease Hull Trauma by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Adds a forward light auto-blaster",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Cloud Car"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "armor_delta",
+          "amount": 1
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": -1
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "AUTOBLAST",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_landspeeder": {
+      "id": "paramilitary_landspeeder",
+      "_source_key": "PARALAND",
+      "name": "Paramilitary Landspeeder",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds a medium laser cannon turret",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Landspeeder"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "armor_delta",
+          "amount": 3
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "LASERMED",
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          },
+          "turret": true
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_light_freighter": {
+      "id": "paramilitary_light_freighter",
+      "_source_key": "PARALTFREIGHT",
+      "name": "Paramilitary Light Freighter",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Adds two quad laser cannon turrets",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Light Freighter"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        },
+        {
+          "op": "armor_delta",
+          "amount": 1
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -2
+        },
+        {
+          "op": "weapon_add",
+          "amount": 2,
+          "weapon": "LASERQUAD",
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          },
+          "turret": true
+        }
+      ],
+      "defense_picks": 1,
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_medium_transport": {
+      "id": "paramilitary_medium_transport",
+      "_source_key": "PARAMEDTRANS",
+      "name": "Paramilitary Medium Transport",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds two medium laser cannon turrets",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "category_limit": [
+          "Medium Transport"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        },
+        {
+          "op": "armor_delta",
+          "amount": 2
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 3
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -2
+        },
+        {
+          "op": "weapon_add",
+          "amount": 2,
+          "weapon": "LASERMED",
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          },
+          "turret": true
+        }
+      ],
+      "defense_picks": 1,
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_shuttle": {
+      "id": "paramilitary_shuttle",
+      "_source_key": "PARASHUTTLE",
+      "name": "Paramilitary Shuttle",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Defense by 1 in two arcs",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds two forward twin light laser cannons",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Shuttle"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -3
+        },
+        {
+          "op": "weapon_add",
+          "amount": 2,
+          "weapon": "LASERLT",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          },
+          "linked": 1
+        }
+      ],
+      "defense_picks": 2,
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_speeder_bike_swoop": {
+      "id": "paramilitary_speeder_bike_swoop",
+      "_source_key": "PARABIKE",
+      "name": "Paramilitary Speeder Bike/Swoop",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Adds a forward light repeating blaster",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Speeder Bike",
+          "Swoop"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 1
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "BLASTLTREP_VEH",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_walker": {
+      "id": "paramilitary_walker",
+      "_source_key": "PARAWALK",
+      "name": "Paramilitary Walker",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Adds a forward medium laser cannon",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Walker"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "armor_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -2
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "LASERMED",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_wheeled_tracked": {
+      "id": "paramilitary_wheeled_tracked",
+      "_source_key": "PARAWHEEL",
+      "name": "Paramilitary Wheeled/Tracked",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Armor value by 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds a medium laser cannon turret",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "category_limit": [
+          "Tracked Vehicle",
+          "Wheeled Vehicle"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -1
+        },
+        {
+          "op": "armor_delta",
+          "amount": 3
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -1
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "LASERMED",
+          "firing_arcs": {
+            "fore": true,
+            "aft": true,
+            "port": true,
+            "starboard": true,
+            "dorsal": false,
+            "ventral": false
+          },
+          "turret": true
+        }
+      ],
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "paramilitary_yacht": {
+      "id": "paramilitary_yacht",
+      "_source_key": "PARAYACHT",
+      "name": "Paramilitary Yacht",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Hull Trauma by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Decreases System Strain by 5",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Adds two forward light laser cannons",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Adds one aft light laser cannon",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Yacht"
+        ]
+      },
+      "kind": "conversion",
+      "base_effects": [
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        },
+        {
+          "op": "hull_threshold_delta",
+          "amount": 2
+        },
+        {
+          "op": "strain_threshold_delta",
+          "amount": -5
+        },
+        {
+          "op": "weapon_add",
+          "amount": 2,
+          "weapon": "LASERLT",
+          "firing_arcs": {
+            "fore": true,
+            "aft": false,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        },
+        {
+          "op": "weapon_add",
+          "amount": 1,
+          "weapon": "LASERLT",
+          "firing_arcs": {
+            "fore": false,
+            "aft": true,
+            "port": false,
+            "starboard": false,
+            "dorsal": false,
+            "ventral": false
+          }
+        }
+      ],
+      "defense_picks": 1,
+      "cite": "DC p.71",
+      "_provenance": "oggdude"
+    },
+    "physical_countermeasures": {
+      "id": "physical_countermeasures",
+      "_source_key": "PHYSCOUNT",
+      "name": "Physical Countermeasures",
+      "description": "",
+      "hp": 1,
+      "price": 2200,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Increase difficulty by 1 when making checks triggered by the Guided quality.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "adds_setback_to_all_gunnery_checks_made_using_mi",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "increase_difficulty_by_1_when_making_checks_trig",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "plasma_drill": {
+      "id": "plasma_drill",
+      "_source_key": "PLASMADRILL",
+      "name": "Plasma Drill",
+      "description": "",
+      "hp": 3,
+      "price": 4000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Decreases Handling by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Can tunnel through solid rock and most metals at speed 1.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "May be employed as a weapon.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_delta",
+          "amount": -2
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HANDLINGADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "handling_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "podracer_control_cables": {
+      "id": "podracer_control_cables",
+      "_source_key": "PODCONTCAB",
+      "name": "Podracer Control Cables",
+      "description": "",
+      "hp": 1,
+      "price": 1000,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Sets Handling to -1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "handling_set",
+          "amount": -1
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "PODCOCK"
+        ]
+      },
+      "cite": "endless_vigil p.60",
+      "_provenance": "oggdude"
+    },
+    "podracer_ejection_system": {
+      "id": "podracer_ejection_system",
+      "_source_key": "PODEJECT",
+      "name": "Podracer Ejection System",
+      "description": "",
+      "hp": 1,
+      "price": 400,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "To eject, make an Average ([DI][DI]) Piloting (Planetary) check as an out-of-turn incidental.  On success, pilot is ejected unharmed.  On failure, pilot suffers vehicle speed in strain, plus one Critical Injury.  GM can spend [TH][TH] or [DE] to cause wounds to be suffered instead.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "podracer_engine": {
+      "id": "podracer_engine",
+      "_source_key": "PODENGINE",
+      "name": "Podracer Engine",
+      "description": "",
+      "hp": 2,
+      "price": 4000,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Sets Speed to 4",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 4
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "PODCOCK"
+        ]
+      },
+      "cite": "endless_vigil p.60",
+      "_provenance": "oggdude"
+    },
+    "podracer_shield_generator": {
+      "id": "podracer_shield_generator",
+      "_source_key": "PODSHIELD",
+      "name": "Podracer Shield Generator",
+      "description": "",
+      "hp": 1,
+      "price": 4200,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Sets Forward Defense to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "fore"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "DEFZONEADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "chosen"
+            }
+          ]
+        }
+      ],
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "cite": "endless_vigil p.59",
+      "_provenance": "oggdude"
+    },
+    "predictive_targeting_array": {
+      "id": "predictive_targeting_array",
+      "_source_key": "PTA",
+      "name": "Predictive Targeting Array",
+      "description": "",
+      "hp": 1,
+      "price": 2000,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "base_mods": [
+        {
+          "description": "When making auto-fire attack, do not increase difficulty by 1.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "pseudo_cloaking_device": {
+      "id": "pseudo_cloaking_device",
+      "_source_key": "PSEUDCLOAK",
+      "name": "Pseudo-Cloaking Device",
+      "description": "",
+      "hp": 1,
+      "price": 12000,
+      "rarity": 8,
+      "restricted": true,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Upgrade the difficulty of all combat checks once against the ship at Short range or further.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_combat_checks_targeting_ship_at_short",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "ram_attachment": {
+      "id": "ram_attachment",
+      "_source_key": "RAM",
+      "name": "Ram Attachment",
+      "description": "",
+      "hp": 2,
+      "price": 6500,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add 1 more defense when instigating a collision.",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_1_more_defense_when_instigating_a_collision",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "rapid_cargo_evacuation_chute": {
+      "id": "rapid_cargo_evacuation_chute",
+      "_source_key": "RAPIDCARGOEVAC",
+      "name": "Rapid Cargo Evacuation Chute",
+      "description": "",
+      "hp": 1,
+      "price": 500,
+      "rarity": 3,
+      "restricted": true,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "may_instead_be_activated_as_an_action_without_ma",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "reinforced_armor_plating": {
+      "id": "reinforced_armor_plating",
+      "_source_key": "REINARMPLATE",
+      "name": "Reinforced Armor Plating",
+      "description": "",
+      "hp": 2,
+      "price": 4000,
+      "price_per_silhouette": true,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Armor value by 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Decreases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Hull Trauma by 3",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_delta",
+          "amount": 2
+        },
+        {
+          "op": "handling_delta",
+          "amount": -1
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HULLADD3",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hull_threshold_delta",
+              "amount": 3
+            }
+          ]
+        }
+      ],
+      "_provenance": "oggdude"
+    },
+    "reinforced_engine_cowlings": {
+      "id": "reinforced_engine_cowlings",
+      "_source_key": "PODREICOWL",
+      "name": "Reinforced Engine Cowlings",
+      "description": "",
+      "hp": null,
+      "price": 2500,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Reduce Critical Hit result from collision by 20",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Reduce Critical Hit result from collision by 20",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "reduce_critical_hit_result_from_collision_by_20",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "type_limit": [
+          "Podracer"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "reinforced_shield_generator": {
+      "id": "reinforced_shield_generator",
+      "_source_key": "RSG",
+      "name": "Reinforced Shield Generator",
+      "description": "",
+      "hp": 2,
+      "price": 3800,
+      "rarity": 5,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Defense Zone by 1",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "defense_delta",
+          "amount": 1,
+          "target": "chosen"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "DEFZONEADD",
+          "max": 2,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "chosen"
+            }
+          ]
+        }
+      ],
+      "_provenance": "oggdude"
+    },
+    "repulsorlift_boost": {
+      "id": "repulsorlift_boost",
+      "_source_key": "REPULSBOOST",
+      "name": "Repulsorlift Boost",
+      "description": "",
+      "hp": 1,
+      "price": 1000,
+      "price_per_silhouette": true,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Once per encounter as an incidental, vehicle may suffer 2 system strain to double maximum altitude (or gain 100 meters, whichever is lower) and increase max speed by 1 for 1 round.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase duration by 1 round",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "increase_duration_by_1_round",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 4
+      },
+      "_provenance": "oggdude"
+    },
+    "repulsorlift_enhancement": {
+      "id": "repulsorlift_enhancement",
+      "_source_key": "REPENH",
+      "name": "Repulsorlift Enhancement",
+      "description": "",
+      "hp": 1,
+      "price": 2500,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "jewel_of_yavin"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 2
+      },
+      "_provenance": "oggdude"
+    },
+    "retractable_weapon_system": {
+      "id": "retractable_weapon_system",
+      "_source_key": "RETWEAPSYS",
+      "name": "Retractable Weapon System",
+      "description": "",
+      "hp": 1,
+      "price": 1000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "retrofitted_hangar_bay": {
+      "id": "retrofitted_hangar_bay",
+      "_source_key": "HANGAR",
+      "name": "Retrofitted Hangar Bay",
+      "description": "",
+      "hp": 2,
+      "price": 5000,
+      "price_per_silhouette": true,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Retrofits Hangar Bay",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Silhouette Capacity of Hangar Bay by 1",
+          "rank": 5,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "HANGERSIZE",
+          "max": 5,
+          "effects": []
+        }
+      ],
+      "prints": "a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "constraints": {
+        "min_size": 5
+      },
+      "cite": "fad p.269–270",
+      "_provenance": "oggdude"
+    },
+    "secondary_transponder": {
+      "id": "secondary_transponder",
+      "_source_key": "SECTRANSP",
+      "name": "Secondary Transponder",
+      "description": "",
+      "hp": 1,
+      "price": 20000,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Crew can switch to the secondary transponder as an action, making an Average ([DI][DI]) Computers check.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Activate secondary transponder as a maneuver",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Add one additional ship identity",
+          "rank": 3,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "activate_secondary_transponder_as_a_maneuver",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "add_one_additional_ship_identity",
+          "max": 3,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true
+      },
+      "_provenance": "oggdude"
+    },
+    "security_measures": {
+      "id": "security_measures",
+      "_source_key": "SECMEAS",
+      "name": "Security Measures",
+      "description": "",
+      "hp": null,
+      "price": 500,
+      "price_per_silhouette": true,
+      "rarity": 4,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_to_computers_and_skulduggery_checks_made",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "sensor_baffler": {
+      "id": "sensor_baffler",
+      "_source_key": "SENSBAFF",
+      "name": "Sensor Baffler",
+      "description": "",
+      "hp": 1,
+      "price": 8000,
+      "rarity": 6,
+      "restricted": true,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "When active, upgrade difficulty of checks to determine vehicle's location using sensors twice.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Add [SE] on Gunnery checks targeting vessel",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "add_se_on_gunnery_checks_targeting_vessel",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "sensor_shunt": {
+      "id": "sensor_shunt",
+      "_source_key": "SENSORSHUNT",
+      "name": "Sensor Shunt",
+      "description": "",
+      "hp": 1,
+      "price": 3200,
+      "rarity": 8,
+      "restricted": true,
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "sienar_mm_xt_mini_missile_tube": {
+      "description": "",
+      "hp": 1,
+      "restricted": true,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "cite": "hired p.60; hired p.62",
+      "added_mods": [
+        {
+          "description": "Change the Fire Arc to \"All\"",
+          "never_modelled": "see_source"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "change_the_fire_arc_to_all",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "becomes a weapon with the LOADED round's profile (Table 2-8); the round is chosen at load and no part field names it, so the printed sentence is told (card release-r5-attachments ADDENDUM 1)",
+      "_provenance": "book",
+      "id": "sienar_mm_xt_mini_missile_tube",
+      "_source_key": "MINIMISSILETUBE",
+      "name": "Sienar MM-XT Mini-Missile Tube",
+      "price": 700,
+      "rarity": 4,
+      "hp_note": "",
+      "constraints": {
+        "min_size": 2,
+        "must_not_be_starship": true
+      },
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        }
+      ]
+    },
+    "single_ion_coil": {
+      "id": "single_ion_coil",
+      "_source_key": "CRAFTENGINESINGION",
+      "name": "Single Ion Coil",
+      "description": "",
+      "hp": 2,
+      "price": 500,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Speed When Crafting to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets System Strain When Crafting to 3 x Silhouette",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Forward Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 3
+            }
+          }
+        },
+        {
+          "description": "Sets Starboard Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 4
+            }
+          }
+        },
+        {
+          "description": "Sets Port Defense When Crafting",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 5
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "rank": 3,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases System Strain by 1 x Silhouette",
+          "rank": 3,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "speed_set",
+          "amount": 1
+        },
+        {
+          "op": "strain_threshold_set",
+          "amount": 3,
+          "per_silhouette": true
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "fore"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "aft"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "starboard"
+        },
+        {
+          "op": "defense_set",
+          "amount": 0,
+          "target": "port"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SPEEDADD",
+          "max": 3,
+          "effects": [
+            {
+              "op": "speed_delta",
+              "amount": 1,
+              "ceiling": 6
+            }
+          ]
+        },
+        {
+          "id": "SSTRAINADDSIL",
+          "max": 3,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1,
+              "per_silhouette": true
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.81",
+      "kind": "engine",
+      "_provenance": "oggdude"
+    },
+    "slave_circuit": {
+      "id": "slave_circuit",
+      "_source_key": "SLAVECIRC",
+      "name": "Slave Circuit",
+      "description": "",
+      "hp": 1,
+      "price": 10000,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Allows a ship or vehicle to be activated or deactivated by remote control.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Allows ship or vehicle to move to the owner's location using owner's Piloting skill.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Allows ship or vehicle to autonomously use its weapon systems using owner's appropriate skill.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "allows_ship_or_vehicle_to_move_to_the_owner_s_lo",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "allows_ship_or_vehicle_to_autonomously_use_its_w",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "max_size": 10
+      },
+      "_provenance": "oggdude"
+    },
+    "sleek_carapace": {
+      "id": "sleek_carapace",
+      "_source_key": "CRAFTHULLSLEEK",
+      "name": "Sleek Carapace",
+      "description": "",
+      "hp": 2,
+      "price": 450,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Changes armor to 0 and handling to +2",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Sets Armor Value",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling When Crafting to 2",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases Armor value by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increase Aft Defense by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Handling by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 0
+        },
+        {
+          "op": "handling_set",
+          "amount": 2
+        }
+      ],
+      "added_options": [
+        {
+          "id": "ARMORADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "armor_delta",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "ADDDEFAFT",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "aft"
+            }
+          ]
+        },
+        {
+          "id": "HANDLINGADD",
+          "max": 1,
+          "effects": [
+            {
+              "op": "handling_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "prints": "the page's Base Modifiers sentence, told whole; its numbers are the SET lines beside it",
+      "cite": "fully_operational p.82",
+      "kind": "hull",
+      "_provenance": "oggdude"
+    },
+    "slicing_computer": {
+      "id": "slicing_computer",
+      "_source_key": "SLICCOMP",
+      "name": "Slicing Computer",
+      "description": "",
+      "hp": 1,
+      "price": 5000,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Add automatic [AD] to Computers checks made to slice enemy ships' systems.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Grants the Codebreaker talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        },
+        {
+          "description": "Grants the Defensive Slicing talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        }
+      ],
+      "added_options": [
+        {
+          "id": "COD",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "codebreaker"
+        },
+        {
+          "id": "DEFSLI",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "defensive_slicing"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "must_be_starship": true
+      },
+      "cite": "special_modifications p.67",
+      "_provenance": "oggdude"
+    },
+    "smuggling_compartments": {
+      "id": "smuggling_compartments",
+      "_source_key": "SMUG",
+      "name": "Smuggling Compartments",
+      "description": "",
+      "hp": 1,
+      "price": 1200,
+      "rarity": 1,
+      "restricted": true,
+      "sources": [
+        "eote",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Convert 25 encumbrance capacity to smuggling compartment",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Convert 25 encumbrance capacity to smuggling compartment",
+          "rank": 2,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "hidden_capacity_delta",
+          "amount": 25
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SMUGENC",
+          "max": 2,
+          "effects": [
+            {
+              "op": "hidden_capacity_delta",
+              "amount": 25
+            }
+          ]
+        }
+      ],
+      "_provenance": "oggdude"
+    },
+    "space_slug_abilities": {
+      "id": "space_slug_abilities",
+      "_source_key": "SPACESLUGRULES",
+      "name": "Space Slug Abilities",
+      "description": "",
+      "hp": null,
+      "restricted": false,
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "gm_discretion"
+        },
+        {
+          "description": "",
+          "never_modelled": "gm_discretion"
+        },
+        {
+          "description": "The stomach of an space slug is also generally home to mynocks, which will waste no time attacking a swallowed starship.",
+          "never_modelled": "gm_discretion"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "constraints": {
+        "item_limit": [
+          "SPACESLUG"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "starhawk_sidecar": {
+      "id": "starhawk_sidecar",
+      "_source_key": "STARHWKSIDECAR",
+      "name": "Starhawk Sidecar",
+      "description": "",
+      "hp": 1,
+      "price": 500,
+      "rarity": 3,
+      "restricted": false,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Encumbrance Capacity by 10",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases Passenger Capacity by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "encumbrance_delta",
+          "amount": 10
+        },
+        {
+          "op": "passengers_delta",
+          "amount": 1
+        }
+      ],
+      "constraints": {
+        "item_limit": [
+          "STARHAWKSPEED"
+        ]
+      },
+      "cite": "fly_casual p.53",
+      "_provenance": "oggdude"
+    },
+    "swoop_speed_modification": {
+      "id": "swoop_speed_modification",
+      "_source_key": "SWOOPSPEED",
+      "name": "Swoop Speed Modification",
+      "description": "",
+      "hp": 2,
+      "price": 1200,
+      "rarity": 2,
+      "restricted": false,
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase Speed by 1",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Decrease Hull Trauma by 1",
+          "never_modelled": "see_source"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increases System Strain by 1",
+          "never_modelled": "see_source"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SSTRAINADD",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "the printed text was not located in the corpus, so the proposed encoding is unchecked (norm 2) and prints",
+      "constraints": {
+        "type_limit": [
+          "Swoop"
+        ]
+      },
+      "_provenance": "oggdude"
+    },
+    "t9_stinger_assault_boarding_tube": {
+      "id": "t9_stinger_assault_boarding_tube",
+      "_source_key": "BOARDTUBE",
+      "name": "T9 Stinger Assault Boarding Tube",
+      "description": "",
+      "hp": 3,
+      "price": 1000,
+      "price_per_silhouette": true,
+      "rarity": 4,
+      "restricted": true,
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Decrease time to cut through hull by 1 round(s)",
+          "rank": 4,
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "BOARDTUBETIME",
+          "max": 4,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number; a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "_provenance": "oggdude"
+    },
+    "tactical_command_control_and_communications_suite": {
+      "id": "tactical_command_control_and_communications_suite",
+      "_source_key": "TACCOMM",
+      "name": "Tactical Command, Control, and Communications Suite",
+      "description": "",
+      "hp": 1,
+      "price": 4200,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "lead_by_example"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Grants the Situational Awareness talent",
+          "effect": {
+            "type": "talent_grant"
+          }
+        },
+        {
+          "description": "Allies benefiting from Situational Awareness remove [SE] on Perception and Vigilance checks",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "SITAWARE",
+          "max": 1,
+          "effects": [],
+          "talent_grant": "situational_awareness"
+        },
+        {
+          "id": "allies_benefiting_from_situational_awareness_rem",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "cite": "lead_by_example p.59",
+      "_provenance": "oggdude"
+    },
+    "theater_command_and_control_system": {
+      "id": "theater_command_and_control_system",
+      "_source_key": "THEATCOMM",
+      "name": "Theater Command and Control System",
+      "description": "",
+      "hp": 2,
+      "price": 8500,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "lead_by_example"
+      ],
+      "base_mods": [
+        {
+          "description": "While active, force commander on the bridge upgrades the ability of all Mass Combat checks twice",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Gain an additional [AD] on Mass Combat checks",
+          "rank": 2,
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Remove [SE] from Mass Combat checks",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "gain_an_additional_ad_on_mass_combat_checks",
+          "max": 2,
+          "effects": []
+        },
+        {
+          "id": "remove_se_from_mass_combat_checks",
+          "max": 1,
+          "effects": []
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    },
+    "upgraded_comms_array": {
+      "id": "upgraded_comms_array",
+      "_source_key": "UCA",
+      "name": "Upgraded Comms Array",
+      "description": "",
+      "hp": 1,
+      "price": 4800,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase vehicle's communications range by 1 Range Band(s)",
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Increase vehicle's communications range by 1 Range Band(s)",
+          "rank": 2,
+          "never_modelled": "narrative"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "CRANGEADD",
+          "max": 2,
+          "effects": []
+        }
+      ],
+      "prints": "a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "cite": "fad p.271; aor p.287",
+      "_provenance": "oggdude"
+    },
+    "upgraded_firepower": {
+      "id": "upgraded_firepower",
+      "_source_key": "UPGFIRE",
+      "name": "Upgraded Firepower",
+      "description": "",
+      "hp": null,
+      "price": 1000,
+      "restricted": false,
+      "sources": [
+        "jewel_of_yavin"
+      ],
+      "base_mods": [
+        {
+          "description": "Increase damage of weapon system by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "weapon_damage_delta",
+          "amount": 1
+        }
+      ],
+      "constraints": {
+        "max_size": 2
+      },
+      "_provenance": "oggdude"
+    },
+    "upgraded_weapons": {
+      "id": "upgraded_weapons",
+      "name": "Upgraded Weapons",
+      "description": "",
+      "hp": 1,
+      "hp_note": "",
+      "restricted": false,
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "cite": "eote p.271",
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "see_source"
+        }
+      ],
+      "prints": "mounts a weapon from Table 7-17; the weapon is the vehicle-weapons registry's rung (S4), not a hull number",
+      "_provenance": "book"
+    },
+    "vaksai_modification_package": {
+      "id": "vaksai_modification_package",
+      "_source_key": "VAKSAI",
+      "name": "Vaksai Modification Package",
+      "description": "",
+      "hp": 2,
+      "price": 45000,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "Sets Armor value to 3",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Sets Handling to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 1
+            }
+          }
+        },
+        {
+          "description": "Sets Aft Defense to 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "base_effects",
+              "i": 2
+            }
+          }
+        }
+      ],
+      "added_mods": [
+        {
+          "description": "Replace Light Blaster Cannons with Light Laser Cannons",
+          "never_modelled": "see_source"
+        },
+        {
+          "description": "Increase Forward Defense by 1",
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        },
+        {
+          "description": "Increases System Strain by 1",
+          "rank": 3,
+          "effect": {
+            "type": "vehicle_effect",
+            "ref": {
+              "at": "effects",
+              "i": 0
+            }
+          }
+        }
+      ],
+      "base_effects": [
+        {
+          "op": "armor_set",
+          "amount": 3
+        },
+        {
+          "op": "handling_set",
+          "amount": 1
+        },
+        {
+          "op": "defense_set",
+          "amount": 1,
+          "target": "aft"
+        }
+      ],
+      "added_options": [
+        {
+          "id": "VAKSAI",
+          "max": 1,
+          "effects": []
+        },
+        {
+          "id": "ADDDEFFORE",
+          "max": 1,
+          "effects": [
+            {
+              "op": "defense_delta",
+              "amount": 1,
+              "target": "fore"
+            }
+          ]
+        },
+        {
+          "id": "SSTRAINADD",
+          "max": 3,
+          "effects": [
+            {
+              "op": "strain_threshold_delta",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "prints": "a keyed effect with no op in the vehicle grammar (range, altitude, hangar, weapon swap, price)",
+      "constraints": {
+        "item_limit": [
+          "KIHRAXZLTSTAR"
+        ]
+      },
+      "cite": "no_disintegrations p.60",
+      "_provenance": "oggdude"
+    },
+    "whisperthrust_engine": {
+      "id": "whisperthrust_engine",
+      "_source_key": "WHISPERTHRUST",
+      "name": "Whisperthrust Engine",
+      "description": "",
+      "hp": 1,
+      "price": 7500,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "prints": "a prose rule (checks, dice, conditions, crew or droid brains), not a standing hull number",
+      "_provenance": "oggdude"
+    }
+  }
+}

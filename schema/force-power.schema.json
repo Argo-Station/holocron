@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/force-power.schema.json",
+  "title": "ForcePower",
+  "description": "Canonical, app-owned Force-power record: the power, its ability (upgrade) definitions, and the purchase tree. Ingested ONCE from oggdude_merged.json `force_powers` (21) joined with `force_abilities.items` (186). Abilities NEST inside their power — they are never consumed outside a power-tree context (ForcePowerTreeView), and nesting kills the cross-blob join the sheet does at runtime today. Replaces the window.__SWForceData global.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "abilities", "tree"],
+  "$comment": "INGEST CONTRACT — MinForceRating (15/21) -> min_force_rating (fad p.285: printed FR prerequisite). Source (15) OR Sources (6) -> sources[]. AbilityRows: per row, Abilities.Key[4] + Costs.Cost[4] + AbilitySpan.Span[4] + Directions.Direction[4]; consecutive repeats of one ability key with Span>1 collapse to ONE cell at its col with span; Span '0' cells are continuations/fillers — dropped; remaining cells carry to_int cost >= 1. Cell ability keys join against force_abilities items; the join is by tree reference (the redundant force_abilities.Power name-string is an integrity CHECK, not the join — 2/186 lack it). Abilities unreferenced by any tree fail loud -> adjudication. Power-name prefix 'Force Power: X' stripped from descriptions (matches FCForcePowersStep). The legacy creator hardcoded BASIC_COST=10; real basic costs span 5-20 (e.g. Farsight 5, Conjure 20) — canonical data fixes this by construction.",
+  "properties": {
+    "id": { "$ref": "charbuild-common.schema.json#/$defs/id" },
+    "_source_key": { "type": "string", "description": "OggDude Key (e.g. 'ALTER'). Traceability only." },
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "$ref": "charbuild-common.schema.json#/$defs/description" },
+    "min_force_rating": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Printed Force Rating prerequisite to purchase (fad p.285; e.g. Battle Meditation 'Force Rating 2+', fad p.287). Absent = no printed prerequisite."
+    },
+    "abilities": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[a-z0-9_]+$" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "description"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "description": { "$ref": "charbuild-common.schema.json#/$defs/description" },
+          "family": { "enum": ["basic", "control", "mastery", "strength", "range", "magnitude", "duration", "speed", "other"],
+            "description": "F-100 M10 (ruling f100-m10-shapes-card R-M10S-1): the upgrade's family (FaD p.283's categories, plus `basic` and `other`). F-100 M11 (ruling f100-m11-census-card R-M11C-11): `speed` joins with its first users, reSpecialized's Speed upgrades. Optional; every canonical row carries it (the applier writes it). The editor's grouping and the census's key — no reader derives a family from a name." },
+          "pool_mods": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/power_pool_mod" } },
+          "effects": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/power_effect" } },
+          "roll_numbers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/power_roll_number" } },
+          "commit_dice": {"type": "integer", "minimum": 1, "description": "The Force dice this ability commits. R-AAC-27 (b), ruling argo-a1-export-fields D3: derived from the description by scripts/canonical/apply_text_encodings.py; the app reads it, else today's parse (D4)."},
+          "after_power": {"type": "string", "minLength": 1, "description": "The id of the power whose successful check this ability follows. R-AAC-27 (b), ruling argo-a1-export-fields D3: derived from the description by scripts/canonical/apply_text_encodings.py; the app reads it, else today's parse (D4)."},
+          "told": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/power_told" } }
+        }
+      },
+      "description": "The power's ability definitions (basic + upgrades), keyed by local ability id. F-100 M10 (ruling f100-m10-shapes-card R-M10S-1): each carries its `family` and may carry the talent record's working-row arrays ON the ability (`pool_mods`, `effects`, `roll_numbers`, `told`; `item_effects`/`vehicle_effects` not until a node needs one), their `words`/`condition` spans indexing the ABILITY's own description (no second copy of book text, R-M8R-1). Upgrade categories per RAW: Strength/Magnitude/Duration/Range/Control/Mastery (fad p.286). Per-ability pip spends ([FP] tokens in descriptions) are display data, not mechanics (fad p.283)."
+    },
+    "tree": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Purchase grid, top row first (row 0 = basic power). Eligibility: connected to the basic form or a previously purchased upgrade via links (fad p.286). Costs printed per cell (fad p.286).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cells"],
+        "properties": {
+          "cells": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["ability", "cost", "col", "span", "links"],
+              "properties": {
+                "ability": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_]+$",
+                  "description": "Key into this power's abilities map (ingest-enforced; jsonschema cannot cross-reference)."
+                },
+                "cost": { "$ref": "charbuild-common.schema.json#/$defs/xp_cost" },
+                "col": { "type": "integer", "minimum": 0, "maximum": 3 },
+                "span": { "type": "integer", "minimum": 1, "maximum": 4 },
+                "links": { "$ref": "charbuild-common.schema.json#/$defs/tree_links" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sources": { "$ref": "charbuild-common.schema.json#/$defs/sources" },
+    "_provenance": { "$ref": "charbuild-common.schema.json#/$defs/provenance" }
+  },
+  "$defs": {
+    "power_row_refusals": {
+      "not": { "anyOf": [{ "required": ["per_rank"] }, { "required": ["pick"] }] },
+      "description": "F-100 M10 (R-M10S-1/2): an upgrade's rows never carry `per_rank` (a scaled row reads V1's `count_of`; an upgrade row applies once while its count is ≥ 1) and never a pick (no Force-power node needs one)."
+    },
+    "power_pool_mod": {
+      "allOf": [
+        { "$ref": "item-common.schema.json#/$defs/pool_mod_entry" },
+        { "$ref": "#/$defs/power_row_refusals" },
+        { "properties": {
+            "applies_to": { "oneOf": [{ "type": "null" }, { "type": "array", "items": { "not": { "required": ["chosen"] } } }] },
+            "count_of": { "properties": { "of": { "enum": ["force_rating", "power_upgrades"] } } } } }
+      ],
+      "description": "F-100 M10 (R-M10S-1): an upgrade's dice row — item-common's pool_mod_entry as a talent's, `cost`/`limit`/`count_of` admitted; `count_of` reads the Force rating (a combined check, M1′) or V1's ranks bought."
+    },
+    "power_effect": {
+      "allOf": [
+        { "$ref": "charbuild-common.schema.json#/$defs/effect" },
+        { "$ref": "#/$defs/power_row_refusals" },
+        { "required": ["op", "cost"],
+          "properties": { "op": { "enum": ["characteristic_delta", "skill_rank_delta"] },
+            "cost": { "required": ["commit_force"], "propertyNames": { "const": "commit_force" } } } }
+      ],
+      "description": "F-100 M10 (R-M10S-5, V3): an upgrade's sheet-number row — ONLY behind a commit: `cost: {commit_force: n}` is the one cost member an effect admits here (a strain cost, or no cost, is refused). Ops admitted behind a commit: characteristic_delta (a fixed `characteristic`) and skill_rank_delta (V5); others enter with their first user. Applied only while the session's committed set holds the upgrade (CharResolve's one committed-effects reader); never saved."
+    },
+    "power_roll_number": {
+      "allOf": [
+        { "$ref": "charbuild-common.schema.json#/$defs/roll_number" },
+        { "$ref": "#/$defs/power_row_refusals" },
+        { "properties": { "op": { "const": "power_dial" } } }
+      ],
+      "description": "F-100 M10 (R-M10S-4, V2): an upgrade's number worked out at its power's check — power_dial only (anchored by V4); other roll ops enter with their first user."
+    },
+    "power_told": {
+      "allOf": [
+        { "$ref": "charbuild-common.schema.json#/$defs/told_entry" },
+        { "$ref": "#/$defs/power_row_refusals" }
+      ],
+      "description": "F-100 M10 (R-M10S-1): an upgrade's TOLD row — its own words (a span of the ability's description), shown and never computed."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "careers": {
+    "smuggler": {
+      "specializations_add": [
+        "blockade_runner"
+      ],
+      "specializations_remove": [
+        "pilot"
+      ]
+    },
+    "syndicate": {
+      "id": "syndicate",
+      "_source_key": "SYNDICATE",
+      "name": "Syndicate",
+      "description": "The Syndicate is the catch-all for anyone belonging to a criminal syndicate, whether that is a ruthless street brawler gang controlling turf, an empire of spicers and slavers, or even a clandestine order of assassins for hire.\n\nWhat are the 3 pillars of the Career?\n\nSocial Subterfuge & Dominance\n\nEnterprise\n\nUnderworld Mastery",
+      "career_skills": [
+        "coercion",
+        "cool",
+        "deception",
+        "perception",
+        "ranged_light",
+        "skulduggery",
+        "streetwise",
+        "underworld"
+      ],
+      "specializations": [
+        "cyber_soldier",
+        "majordomo",
+        "overseer",
+        "pit_fighter",
+        "poisoner",
+        "spice_dealer"
+      ],
+      "free_ranks": 4,
+      "sources": [],
+      "_provenance": "respecialized"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "vocabulary": "characteristics",
+  "_doc": "The six FFG characteristics (eote p.19). Forward (alias->id) at ingest — OggDude uses Key (BR/AG/INT/CUN/WIL/PR) and Abbrev (Br/Ag/Int/Cun/Wil/Pr); backward (id->label) at render. Authority: oggdude_merged.json characteristics.items (6/6 covered). The charbuild-common characteristic_ref enum mirrors these ids; change both together.",
+  "entries": [
+    { "id": "brawn", "label": "Brawn", "aliases": ["BR", "Br"] },
+    { "id": "agility", "label": "Agility", "aliases": ["AG", "Ag"] },
+    { "id": "intellect", "label": "Intellect", "aliases": ["INT", "Int"] },
+    { "id": "cunning", "label": "Cunning", "aliases": ["CUN", "Cun"] },
+    { "id": "willpower", "label": "Willpower", "aliases": ["WIL", "Wil"] },
+    { "id": "presence", "label": "Presence", "aliases": ["PR", "Pr"] }
+  ]
+}

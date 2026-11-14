@@ -1,0 +1,157 @@
+{
+  "id": "mining_guild",
+  "name": "Mining Guild",
+  "type": "corporate_conglomerate",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "overview": "The Mining Guild is a pan-galactic resource-extraction conglomerate operating under Imperial charter — nominally independent, functionally an arm of the Imperial war economy. Guild operations strip worlds, moons, and asteroid fields of ore, gas, and crystal with industrial indifference to what or who is displaced. Its facilities fly guild colors, its security wings fly guild-marked TIE fighters bought under Imperial license, and its labor practices range from exploitative contracts to outright indenture. Where the Empire wants resources without committing the Navy, the Guild appears; where the Guild wants protection without paying for it, the Empire appears.",
+  "short_descriptor": "Corporate extraction under Imperial charter. Quotas over lives. If they're drilling, someone upstream already sold the ground out from under you.",
+  "witness_statement": {
+    "text": "They came to our moon with survey droids and a permit nobody local ever signed. Eight months later the canyon my family farmed for three generations was a tailings pit, and the foreman told us we could apply for extraction work at guild rates. Guild rates. The TIEs on their landing pads weren't Imperial — same wings, different paint. That's all you need to know about the difference."
+  },
+  "history": [
+    {
+      "heading": "CHARTER",
+      "text": "Chartered long before the Clone Wars as a resource cartel among mining concerns, the Guild survived every governmental transition by being indispensable to all of them."
+    },
+    {
+      "heading": "IMPERIAL ZENITH",
+      "text": "Under the Empire it reached its zenith: Imperial requisition contracts guaranteed demand, Imperial law suppressed labor organization, and Imperial indifference let extraction proceed without oversight."
+    },
+    {
+      "heading": "REACH AND STRONGHOLDS",
+      "text": "Guild gas-mining and ore operations spread through the Mid and Outer Rim — including extraction concerns in the Yavin system's gas giants and moons — wherever surveys promised yield and local power could be bought or bypassed. In the Deep Core, the Guild's oldest stronghold is the Empress Teta system, where it ultimately controls the production of all carbonite from its regional headquarters in Cinnagar — power accumulated steadily until it marginalized the Tetan royal family itself (source: forceworlds p.61-63)."
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "DIRECTORATES",
+      "text": "The Guild operates through regional directorates that buy extraction rights — from the Empire, from sector governments, or from whoever can be made to sign."
+    },
+    {
+      "heading": "FRANCHISE MODEL",
+      "text": "Operations are franchise-like: a site director runs each facility against quota, hires guild-licensed security (including TIE wings flown by guild pilots), and answers only for output."
+    },
+    {
+      "heading": "LABOR AND DISPUTES",
+      "text": "Labor is contracted at terms that trend toward debt-bondage on remote sites. Disputes are settled by lawyers where there are courts and by security wings where there are not."
+    }
+  ],
+  "motivations": {
+    "primary": "Extraction yield and quota fulfillment",
+    "secondary": [
+      "Preserve the Imperial charter and requisition contracts that guarantee demand",
+      "Suppress labor organization and local resistance at operating sites",
+      "Acquire new survey rights ahead of competitors and prospectors"
+    ]
+  },
+  "goals": {
+    "strategic": [
+      "Remain the Empire's indispensable civilian resource supplier — too useful to nationalize, too compliant to discipline",
+      "Lock up extraction rights on resource-rich frontier worlds before sector authorities understand their value"
+    ],
+    "tactical": [
+      "Meet Imperial requisition quotas at any local cost",
+      "Keep guild security incidents out of Imperial channels — handled in-house, off the books",
+      "Undercut or absorb independent mining outfits"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "legal_pressure",
+      "economic_leverage",
+      "hired_muscle",
+      "displacement",
+      "quota_enforcement"
+    ],
+    "avoided": [
+      "open_warfare",
+      "direct_confrontation_with_imperial_forces",
+      "publicity"
+    ]
+  },
+  "strengths": [
+    "Imperial charter gives guild operations quasi-official cover — interfering with a guild site can be prosecuted as interfering with Imperial supply",
+    "Deep logistics: surveyors, haulers, refineries, and licensed security wings — including the TIE/MG Mining Guild starfighter, guild-flown TIE variants bought under the Guild's close working relationship with the Empire (source: dawn p.127)",
+    "Economically embedded — entire sector economies depend on guild wages and freight, making expulsion politically expensive"
+  ],
+  "weaknesses": [
+    "Quota culture rots everything: site directors falsify surveys, skimp on safety, and hide incidents, leaving exploitable gaps between paper and reality",
+    "Guild security is contract muscle, not a military — disciplined opposition or actual Imperial scrutiny collapses it quickly",
+    "Universally resented at the ground level; sabotage, defection, and informants are endemic at remote sites"
+  ],
+  "behavior_under_threat": {
+    "low": "Lawyers and liens. Cease-and-desist notices, contract blacklisting, freight embargo against the offending party.",
+    "medium": "Guild security escalation: checkpoint lockdowns at the site, TIE patrol sweeps, strike-breaking sweeps through worker housing.",
+    "high": "Petition the regional Moff for Imperial intervention, recharacterizing the threat as rebel activity against Imperial supply — then resume extraction behind Imperial guns."
+  },
+  "alert_escalation": {
+    "communication_method": "corporate_comm_net",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Site security shift supervisor",
+      "Facility director",
+      "Regional directorate security office",
+      "Imperial sector liaison (requisition contracts desk)"
+    ]
+  },
+  "ally_factions": [
+    "imperial_bureaucracy",
+    "imperial_military"
+  ],
+  "enemy_factions": [],
+  "relationship_notes": {
+    "imperial_bureaucracy": "The charter relationship: the Guild delivers quota, the bureaucracy delivers legal cover and looks away from labor conditions. Both sides find the arrangement distasteful and indispensable.",
+    "imperial_military": "Transactional protection. Guild sites near contested space request Navy presence; the Navy requisitions guild output and occasionally guild facilities. Guild TIE wings are licensed hardware, not Imperial units — a distinction both sides enforce when blame is being assigned.",
+    "crimson_dawn": "Unacknowledged accommodation in lawless reaches: syndicates tax guild convoys that guild directors quietly write off as 'shrinkage' rather than admit to the Empire they paid."
+  },
+  "tension_patterns": [
+    "Site directors hiding incidents from the regional directorate to protect quota bonuses — a lever for infiltrators and blackmailers",
+    "Guild claims of extraction rights colliding with local/indigenous claims the Empire never bothered to extinguish formally",
+    "Licensed guild TIE wings mistaken for Imperial patrols — and occasionally counting on it"
+  ],
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "low",
+    "weapon": "low",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "high",
+    "notes": "Survey data and extraction technology are the Guild's lifeblood — geological scans, claim filings, and refining processes are guarded harder than credits. People matter when they are surveyors, saboteurs, or labor organizers."
+  },
+  "presence_by_location_type": {
+    "infrastructure": "garrison",
+    "transit": "patrol",
+    "economic": "garrison",
+    "command": "skeleton",
+    "informational": "patrol",
+    "military": "minimal",
+    "hidden": "minimal"
+  },
+  "regional_presence": {
+    "deep_core": "significant",
+    "core_worlds": "minimal",
+    "colonies": "moderate",
+    "inner_rim": "moderate",
+    "expansion_region": "significant",
+    "mid_rim": "significant",
+    "outer_rim": "dominant",
+    "wild_space": "moderate",
+    "unknown_regions": "minimal"
+  },
+  "prominent_figures": [],
+  "field_sources": {
+    "overview": "FFG corpus: Worlds Strong in the Force pp.61-64 (THE MINING GUILD — Empress Teta system treatment: carbonite production control, Cinnagar regional HQ, corporate-ladder ambition, marginalized royal family); Dawn of Rebellion p.127 (TIE/MG Mining Guild Starfighter entry + Empire relationship); Technician Sourcebook p.29 (Mustafarian labor in Guild operations). Screen canon (Rebels-era guild TIEs and refineries) corroborates.",
+    "presence_by_location_type": "App-authored GM-toolkit calibration consistent with the planet records that reference the Guild (yavin_iv extraction concern).",
+    "regional_presence": "App-authored calibration corrected by corpus: deep_core 'significant' (Empress Teta is the Guild's stronghold — leading power in-system, forceworlds p.61-63); extraction economics otherwise concentrate guild presence rimward."
+  },
+  "source_material_notes": "RPG-GROUNDED (oracle pass 2026-06-11): substantive treatment in Worlds Strong in the Force pp.61-64 (Empress Teta), a vehicle entry in Dawn of Rebellion p.127 (TIE/MG), and a labor mention in Technician Sourcebook p.29. The wider extraction-conglomerate framing is screen-canon synthesis shaped to the GM-toolkit schema.",
+  "source_refs": [
+    "Worlds Strong in the Force",
+    "Dawn of Rebellion",
+    "Technician Sourcebook"
+  ]
+}

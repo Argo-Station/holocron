@@ -1,0 +1,1091 @@
+{
+  "id": "naboo",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Naboo",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Mid Rim",
+    "sector": "Chommell sector",
+    "system": "Naboo",
+    "grid": "O-17",
+    "era": "galactic_civil_war",
+    "essence": "Naboo is the galaxy's ironic masterpiece: an idyllic world of rolling green hills, baroque architecture, and underwater bubble cities that somehow birthed the Emperor himself. The surface is a postcard of classical civilization where pacifist scholars elect teenage queens and debates about civic duty pass for excitement. Beneath it, the planet is essentially hollow, a labyrinth of plasma-carved tunnels and vast underground oceans patrolled by leviathans that can swallow starships. Two cultures share this world in uneasy coexistence: the reserved, cultured human Naboo who built Theed on the edge of a thundering waterfall, and the passionate, gregarious Gungans who constructed glowing bubble cities deep beneath the lakes. The Empire treats Naboo with a velvet glove because it is Palpatine's homeworld, but Imperial advisors infest every level of government, the Gungans have been driven into deeper seclusion, and non-humans were evicted or imprisoned years ago. Somewhere in the hill country, behind high walls and a stormtrooper battalion, Palpatine's private retreat overlooks a quiet lake. The land speaks to him here.",
+    "atmosphere": "",
+    "reputation": "A beautiful, cultured, slightly boring Mid Rim world famous for art, wine, plasma exports, and producing an alarming number of galactically significant politicians. Visitors come for the scenery and cultural attractions. The locals are gracious, intellectual, and a little snobbish. Most beings in the galaxy know two things about Naboo: it is very pretty, and Emperor Palpatine came from there. The Gungans are dimly understood as some sort of amphibious native species. The underwater cave networks and their monstrous inhabitants are the stuff of spacer tall tales."
+  },
+  "compendium": {
+    "background": "",
+    "government": "monarchy",
+    "population": "",
+    "languages": "Basic, Gungan",
+    "terrain": "",
+    "major_cities": "Theed, Otoh Gunga, Spinnaker",
+    "areas_of_interest": "",
+    "exports": "art, cultural items, grain, plasma, wine",
+    "imports": "Technology, processed foods",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 1,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Naboo remains loyal to the Republic, its Senator Padme Amidala and Chancellor Palpatine both galactic figures of enormous influence. The Trade Federation crisis a decade earlier propelled Palpatine to the Chancellorship and united the Naboo and Gungans for the first time. During the Clone Wars, Separatist agents secretly stir support among disaffected Gungans, and a secret Separatist laboratory producing the Blue Shadow Virus was discovered in Naboo's swamps. The Gungans field organized military units with expertise in underwater combat. Naboo forces actively fight for the Republic, though most action is relatively local. The planet also serves as one of the few refuges where Amidala and Skywalker can spend time together without drawing suspicion."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With the Empire weakened, the Imperial advisors embedded at every level of Naboo's government lose their backing. The elected monarch may reassert genuine sovereignty. The Gungans, who retreated into deeper seclusion during Imperial rule, may re-emerge and re-engage with surface society. The Emperor's Retreat becomes an abandoned monument to a native son the planet would rather forget. Non-human populations expelled during Imperial rule may begin returning."
+    }
+  ],
+  "geography": {
+    "structure_type": "temperate_hollow",
+    "structure_notes": "A lush temperate world with a unique hollow interior. The surface features rolling green plains, gentle hills, forests, and shallow seas. Beneath the crust lies a planetwide network of plasma-carved tunnels, chambers, and underground oceans. The Gungans inhabit the subsurface waterways in hydrostatic bubble cities. The surface is dominated by human Naboo settlements featuring classical baroque architecture with green-domed sandstone towers.",
+    "districts": [
+      {
+        "id": "theed",
+        "name": "Theed",
+        "character": "",
+        "authority": "Elected monarch (with Imperial advisors at all levels)",
+        "crime_index": "low",
+        "strategic_value": [
+          "political",
+          "cultural",
+          "economic",
+          "military"
+        ],
+        "notes": "Seat of the elected monarchy and all planetary government. Theed Spaceport at the base of the Cliffs of Theed is the planet's primary port. The Plasma Refinery Complex extracts plasma from the planet's core for power generation and export. Theed University specializes in political science, civics, and law. Emperor Palpatine is its most famous alumnus."
+      },
+      {
+        "id": "otoh_gunga",
+        "name": "Otoh Gunga",
+        "character": "",
+        "authority": "Boss Nass and the Gungan High Council",
+        "crime_index": "low",
+        "strategic_value": [
+          "political",
+          "cultural",
+          "hidden"
+        ],
+        "notes": "Founded by the legendary warlord Boss Gallo. Contains the Ancient Quarter (historic preservation district), City Bigspace (entertainment district), Otoh Gunga Garden (sporting arena for bongo racing and events), the Zoological Research Facility, and the Otoh Villages residential bubbles. The Empire cannot reach it. Inaccessible to non-aquatic visitors without Gungan assistance or specialized equipment."
+      },
+      {
+        "id": "lake_country",
+        "name": "Lake Country",
+        "character": "",
+        "authority": "Local governance, nominal Imperial oversight",
+        "crime_index": "negligible",
+        "strategic_value": [
+          "hidden",
+          "cultural"
+        ],
+        "notes": "Home to Varykino Villa (the Naberrie family retreat) and Convergence (the ancestral Palpatine estate). Popular tourist spot accessible by transit lines and private speeder companies from Theed. On holidays the hovertrains are packed with picnickers and nature lovers."
+      },
+      {
+        "id": "emperors_retreat",
+        "name": "Emperor's Retreat",
+        "character": "",
+        "authority": "Imperial Security Bureau, stormtrooper battalion garrison",
+        "crime_index": "negligible",
+        "strategic_value": [
+          "political",
+          "military",
+          "command"
+        ],
+        "notes": "Emperor Palpatine's private retreat. Sophisticated ISB security system with extensive holocam, audio pickup, and scanner network run from a central security center. A full stormtrooper battalion garrisoned at all times, along with Imperial Army armor units. The Emperor's visits are infrequent and unpredictable, attended by courtiers, officers, and bureaucrats jockeying for position."
+      },
+      {
+        "id": "great_grass_plains",
+        "name": "Great Grass Plains",
+        "character": "Vast expanses of rolling grassland where shaak herds graze. Site of the famous battle between the Gungan Grand Army and Trade Federation droid forces during the Naboo Crisis. Open terrain stretching between the lakes and hill country.",
+        "authority": "None (open wilderness)",
+        "crime_index": "negligible",
+        "strategic_value": [
+          "exploration"
+        ],
+        "notes": "Wild fambaas, shaaks, and other herbivores roam the plains. Kaadu are found in the marshlands at the edges. The Gungans have historical and cultural ties to this land from their pre-underwater days as nomadic hunter-gatherers."
+      },
+      {
+        "id": "jan_gwa_city",
+        "name": "Jan-gwa City",
+        "character": "",
+        "authority": "Local Gungan boss",
+        "crime_index": "low",
+        "strategic_value": [
+          "hidden"
+        ],
+        "notes": "Gained local notoriety when Jedi Padawan Ahsoka Tano prevented the kidnapping of a Force-sensitive Gungan child by bounty hunter Cad Bane. The carved Elder faces are remnants of the ancient alien colonizers who predated human arrival."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human (Naboo)",
+      "population_level": "significant_minority",
+      "social_role": "",
+      "districts": [
+        "theed",
+        "lake_country"
+      ]
+    },
+    {
+      "name": "Gungan",
+      "population_level": "dominant",
+      "social_role": "",
+      "districts": [
+        "otoh_gunga",
+        "jan_gwa_city"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_authority_naboo",
+      "name": "Imperial Authority (Naboo)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Empire controls Naboo with a velvet glove rather than an iron fist, owing to the planet's status as Palpatine's homeworld. Imperial advisors are embedded at every level of government, but the elected monarchy is permitted to function. The human populace is well looked after. Non-humans were evicted or incarcerated. A full stormtrooper battalion is permanently garrisoned at the Emperor's Retreat, and ISB operates the retreat's sophisticated security grid. The Empire cannot reach the Gungan deepwater cities."
+      },
+      "motivation": "Maintaining Naboo as the Emperor's pristine homeworld. Ensuring political stability and positive public perception. Monitoring for Rebel activity, especially rumored insurgent cells operating in the subsurface labyrinths. Protecting the Emperor's Retreat. Suppressing non-human populations, particularly Gungan political activity on the surface.",
+      "assets": [
+        "Imperial advisors embedded at every government level",
+        "Stormtrooper battalion garrisoned at Emperor's Retreat",
+        "Imperial Army armor units at Emperor's Retreat",
+        "ISB security center with holocam, audio, and scanner network",
+        "Imperial customs presence at Theed Spaceport"
+      ],
+      "relationships": [
+        {
+          "faction_id": "naboo_royal_security",
+          "type": "subordinate_oversight",
+          "notes": "The Royal Naboo Security Forces continue to operate but with Imperial advisors monitoring and directing. The RNSF retains operational independence for routine matters but Imperial priorities override when invoked."
+        },
+        {
+          "faction_id": "gungan_clans",
+          "type": "adversarial",
+          "notes": "The Empire drove non-humans from the surface and views the Gungans as a subordinate population. The deepwater cities are beyond Imperial reach, which is a source of persistent frustration."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "Rebel operatives, Force-sensitives per standing ISB orders, Gungan agitators, anyone threatening the Emperor's private retreat or Naboo's carefully maintained stability."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence on insurgent cells rumored to operate in the subsurface labyrinths. Communications intercepts from Gungan cities. Any evidence of Rebel recruitment among the population."
+        }
+      ]
+    },
+    {
+      "id": "naboo_royal_security",
+      "name": "Royal Naboo Security Forces",
+      "galaxy_faction_ref": null,
+      "type": "law_enforcement",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "low",
+        "financial": "low",
+        "note": "The RNSF is Naboo's professional paramilitary security force, operating from headquarters in the Plasma Refinery Complex adjacent to Theed Hangar. The Royal Naboo Starfighter Corps operates N-1 starfighters from the adjacent hangar. The RNSF proved its capability during the Trade Federation invasion, allied with the Gungans and two Jedi to repel the droid armies. Now operates under Imperial advisory oversight."
+      },
+      "motivation": "Defending Naboo and its people. Maintaining public order in Theed and other human settlements. Patrolling the Chommell sector. Some officers privately sympathize with the more liberal-minded citizens who chafe under Imperial control, but open dissent is dangerous.",
+      "assets": [
+        "RNSF headquarters at the Plasma Refinery Complex",
+        "Royal Naboo Starfighter Corps (N-1 starfighters) at Theed Hangar",
+        "Planetary patrol and security force",
+        "Theed Spaceport security"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_authority_naboo",
+          "type": "subordinate",
+          "notes": "Imperial advisors oversee RNSF operations. The RNSF retains operational autonomy for routine security but must defer to Imperial priorities."
+        },
+        {
+          "faction_id": "naboo_rebel_cells",
+          "type": "complex",
+          "notes": "Some more liberal-minded RNSF personnel may quietly sympathize with the growing Rebel movement, but the force as an institution is loyal to the elected monarchy and compliant with Imperial oversight."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Criminal intelligence, unauthorized landings at remote locations, smuggling activity. Sector patrol reports on unusual traffic near Naboo's moons."
+        },
+        {
+          "type": "person",
+          "reason": "Criminals, smugglers, unauthorized visitors. The RNSF is responsible for keeping Naboo safe and orderly."
+        }
+      ]
+    },
+    {
+      "id": "gungan_clans",
+      "name": "Gungan Grand Council",
+      "galaxy_faction_ref": null,
+      "type": "indigenous_government",
+      "control_type": [
+        "political",
+        "territorial"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "low",
+        "financial": "low",
+        "note": "The Gungan Grand Council governs from Otoh Gunga, deep beneath Lake Paonga where the Empire cannot reach. Boss Nass and the council of bosses maintain authority over all Gungan cities and settlements. The Gungans control the planet's entire subsurface waterway network — an asset of immense strategic value. They are distrustful of humans and most other species, preferring isolation. However, some disaffected Gungans, particularly in outlying towns like Shoril, harbor Separatist or anti-Republic sympathies that could be exploited."
+      },
+      "motivation": "Preserving Gungan autonomy and culture. Protecting their cities from surface interference, especially Imperial. Maintaining control of the underwater passageways. Some Gungan leaders recognize the need for surface cooperation, but the prevailing sentiment is isolationist.",
+      "assets": [
+        "Otoh Gunga and all subsurface Gungan cities",
+        "Complete knowledge of the planetwide underwater tunnel network",
+        "Gungan Grand Army — organized military with fambaas, kaadu, booma catapults, and portable shield generators",
+        "Hydrostatic bubble technology",
+        "Bongo submersibles for underwater transit"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_authority_naboo",
+          "type": "adversarial",
+          "notes": "The Empire drove non-humans from the surface. The Gungans retreated into deeper seclusion. Imperial forces cannot reach the deepwater cities but would like to monitor and control Gungan activity."
+        },
+        {
+          "faction_id": "naboo_rebel_cells",
+          "type": "sympathetic",
+          "notes": "Some Gungan agitators have joined with liberal-minded Naboo humans to form Rebel cells operating in the subsurface labyrinths. This is not officially sanctioned by the Grand Council but is tacitly tolerated."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Technology and processed foods that the Gungans cannot easily produce themselves. Access to surface markets and offworld trade, which the Empire has restricted."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence on Imperial activity, particularly any plans to extend control into the underwater domain. Information about surface political developments affecting Gungan interests."
+        }
+      ]
+    },
+    {
+      "id": "trade_federation_legacy",
+      "name": "Trade Federation Legacy Interests",
+      "galaxy_faction_ref": null,
+      "type": "corporate",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "negligible",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "The Trade Federation was formally dissolved by the Empire after the Clone Wars, but its economic tendrils remain embedded in Naboo's plasma export infrastructure. The Plasma Refinery Complex was originally built as a joint venture between Naboo and Damask Holdings (a Trade Federation-linked entity). Former Trade Federation commercial agents and their successor corporations maintain quiet interests in Naboo's plasma trade and offworld shipping via the Old Trade Federation Route."
+      },
+      "motivation": "Maintaining profit streams from Naboo's plasma exports through successor corporations and commercial relationships established before and during the Trade Federation era. Avoiding Imperial scrutiny.",
+      "assets": [
+        "Commercial relationships in Naboo's plasma export supply chain",
+        "Knowledge of the Old Trade Federation Route",
+        "Successor corporation representatives on Naboo's moons"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_authority_naboo",
+          "type": "subordinate",
+          "notes": "Former Trade Federation interests operate only with Imperial sufferance. Any hint of Separatist sympathy or political activity would result in immediate suppression."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Plasma. Naboo's plasma exports are the primary economic interest. Control over refining and shipping contracts."
+        },
+        {
+          "type": "data",
+          "reason": "Trade contracts, shipping schedules, plasma production figures. Commercial intelligence that maintains profit margins."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "theed_royal_palace",
+      "name": "Theed Royal Palace",
+      "district_id": "theed",
+      "type": [
+        "political",
+        "command"
+      ],
+      "controlling_faction_id": "naboo_royal_security",
+      "controlling_faction_notes": "",
+      "strategic_value": "The seat of Naboo's elected monarchy and the symbolic center of its government. Controlling the palace means controlling the appearance of legitimate Naboo governance. The palace's many secret rooms and forgotten corridors from nearly a thousand years of expansion could conceal almost anything. Palace Plaza stretches from the main entrance to the Palace Courtyard, lined with shops, museums, monuments, and government buildings.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "politician",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Naboo royal court officials or ministers. May harbor private anti-Imperial sentiment beneath cooperation."
+        },
+        {
+          "archetype_ref": "imperial_bureaucrat",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Imperial advisors embedded in the palace administration. Monitoring political decisions and communications."
+        },
+        {
+          "archetype_ref": "palace_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "RNSF palace security detail. Professional, dedicated to the monarch."
+        }
+      ]
+    },
+    {
+      "id": "plasma_refinery_complex",
+      "name": "Plasma Refinery Complex",
+      "district_id": "theed",
+      "type": [
+        "economic",
+        "infrastructure",
+        "military"
+      ],
+      "controlling_faction_id": "naboo_royal_security",
+      "controlling_faction_notes": "",
+      "strategic_value": "The economic heart of Naboo. Extracts and refines plasma from the planet's core for power generation and export. Also houses the planet's primary military assets — RNSF headquarters and the starfighter corps. Whoever controls the PRC controls both Naboo's economy and its defense capability.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "security_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "RNSF officers overseeing the complex and hangar operations."
+        },
+        {
+          "archetype_ref": "starfighter_pilot",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Royal Naboo Starfighter Corps pilots. Skilled and dedicated."
+        },
+        {
+          "archetype_ref": "engineer",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Plasma refinery technicians and maintenance workers."
+        }
+      ]
+    },
+    {
+      "id": "lake_country_estates",
+      "name": "Lake Country Estates",
+      "district_id": "lake_country",
+      "type": [
+        "hidden",
+        "informational"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No single faction controls the Lake Country. Various estates are owned by Naboo's wealthiest families. Varykino Villa (Naberrie family) and Convergence (Palpatine family) are the most significant. The region is sparsely populated and relatively isolated.",
+      "strategic_value": "Isolated, beautiful, and largely unwatched. The estates provide private meeting locations far from Theed's Imperial surveillance. The region's many lakes and waterways connect to the subsurface tunnel network, providing access points for anyone with Gungan cooperation. Convergence and Varykino hold historical and political significance.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "noble",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Wealthy Naboo estate owner. May be sympathetic to various causes depending on political alignment."
+        },
+        {
+          "archetype_ref": "shaak_rancher",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Local agricultural workers. Knowledgeable about the terrain and waterways."
+        }
+      ]
+    },
+    {
+      "id": "otoh_gunga_capital",
+      "name": "Otoh Gunga",
+      "district_id": "otoh_gunga",
+      "type": [
+        "political",
+        "hidden",
+        "cultural"
+      ],
+      "controlling_faction_id": "gungan_clans",
+      "controlling_faction_notes": "The Gungan Grand Council governs from Otoh Gunga. The city is deep beneath Lake Paonga and inaccessible without Gungan cooperation or specialized underwater equipment. The hydrostatic bubble technology prevents unauthorized entry.",
+      "strategic_value": "The political and cultural capital of the Gungan people. Over one million inhabitants. Access to the planetwide underwater tunnel network makes it the nexus for all subsurface movement. The city's inaccessibility to surface forces — including the Empire — makes it the single most secure location on Naboo. Anyone who gains Gungan trust gains access to a network that connects every point on the planet's surface.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "gungan_boss",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Boss Nass or a senior council member. The ultimate authority in Gungan society."
+        },
+        {
+          "archetype_ref": "gungan_warrior",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Gungan guards armed with electropoles and boomas. Disciplined and capable underwater fighters."
+        },
+        {
+          "archetype_ref": "gungan_guide",
+          "tier": "rival",
+          "count": "1",
+          "notes": "A Gungan who knows the underwater tunnel network. Essential for subsurface navigation."
+        }
+      ]
+    },
+    {
+      "id": "emperor_retreat_complex",
+      "name": "Emperor's Retreat",
+      "district_id": "emperors_retreat",
+      "type": [
+        "political",
+        "military",
+        "command"
+      ],
+      "controlling_faction_id": "imperial_authority_naboo",
+      "controlling_faction_notes": "ISB-designed security grid with holocams, audio pickups, and scanners. Full stormtrooper battalion and Imperial Army armor permanently garrisoned. Remote and secret location behind high walls in the hill country.",
+      "strategic_value": "The Emperor's private sanctuary. The most heavily defended and politically sensitive location on Naboo. A successful operation against the retreat would be an enormous propaganda victory — or an act of suicide. The retreat's security center contains ISB intelligence on Naboo and potentially the broader Chommell sector. The garrison represents the largest concentration of Imperial military force on the planet.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "8-12",
+          "notes": "Battalion-strength garrison. Well-equipped and trained. Armor units available."
+        },
+        {
+          "archetype_ref": "isb_agent",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "ISB security technicians running the surveillance grid. Counterintelligence trained."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Garrison commander. Reports directly to ISB hierarchy, not the local Imperial advisory apparatus."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_velvet_glove",
+      "type": "political",
+      "source_faction_id": "imperial_authority_naboo",
+      "source_description": "The Empire controls Naboo through embedded advisors rather than overt military occupation. The elected monarchy is permitted to function. The human population is well cared for. This soft approach is uniquely Naboo — the Emperor's homeworld receives treatment no other world enjoys. However, the velvet glove conceals an iron fist: the Emperor's Retreat garrison, ISB surveillance, and the systemic expulsion of non-humans demonstrate that Imperial control is absolute when tested.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "naboo_royal_security",
+          "description": "RNSF operates under Imperial advisory oversight. The monarchy governs but Imperial priorities cannot be challenged."
+        },
+        {
+          "faction_id": "gungan_clans",
+          "description": "Non-humans expelled from the surface. The Gungans retreated to depths the Empire cannot reach."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Imperial authority is subtle but pervasive. Social checks involving Imperial cooperation gain automatic advantages. Anti-Imperial activity must be extremely discreet — Naboo is the Emperor's homeworld and ISB takes threats here personally."
+        }
+      ]
+    },
+    {
+      "id": "naboo_gungan_divide",
+      "type": "cultural",
+      "source_faction_id": null,
+      "source_description": "The fundamental tension on Naboo is not Imperial versus Rebel but human versus Gungan. Four thousand years of mistrust, despite occasional cooperation (the Trade Federation crisis united them briefly). The Naboo humans are snobbish and dismissive. The Gungans are proud and isolationist. The Empire deepened this divide by favoring humans and driving non-humans underground. Any political movement on Naboo must navigate this cultural fault line.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "gungan_clans",
+          "description": "Gungans distrust humans and prefer isolation. Gaining Gungan cooperation requires overcoming millennia of justified suspicion."
+        },
+        {
+          "faction_id": "naboo_rebel_cells",
+          "description": "The Rebel cells are notable precisely because they bridge the human-Gungan divide. This is their greatest asset and greatest vulnerability."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Social checks between Naboo humans and Gungans suffer automatic disadvantages unless the characters have established trust. Demonstrating respect for Gungan culture or knowledge of their history adds automatic advantages. Dismissive or patronizing behavior toward Gungans closes doors permanently."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "enarc_run",
+        "destination": "Enarc Run (Mid Rim hyperspace route)",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "A hyperspace trade route connecting Naboo to the broader Mid Rim and beyond. One of two primary routes serving the Chommell sector.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": 17,
+            "detail": "Listed as a trade route under Naboo's planetary data"
+          }
+        ]
+      },
+      {
+        "id": "old_trade_federation_route",
+        "destination": "Old Trade Federation Route",
+        "travel_time": null,
+        "route_quality": "established",
+        "notes": "A hyperspace route historically associated with Trade Federation commerce. Still used for Naboo's plasma exports and general trade despite the Federation's dissolution.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": 17,
+            "detail": "Listed as a trade route under Naboo's planetary data"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "subsurface_labyrinth",
+        "type": "environmental",
+        "description": "Naboo's hollow interior forms a planetwide network of plasma-carved tunnels and underground oceans. The Gungans have mapped extensive routes through this labyrinth, but unmapped areas remain infested with enormous predators — opee sea killers, colo claw fish, and sando aqua monsters. These waterways effectively function as an undetectable internal transit network for anyone with Gungan cooperation, bypassing all surface surveillance and security.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power (Worlds Strong in the Force)",
+            "page": 17,
+            "detail": "Naboo's honeycombed interior and Gungan tunnel network described in background text"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_authority_naboo",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Imperial advisors remain at key government positions but military presence is reduced to the Emperor's Retreat garrison only. No stormtrooper patrols in Theed or other cities. Customs at Theed Spaceport is handled by RNSF alone. The advisory apparatus operates bureaucratically without enforcement backup.",
+          "presence_reason": "Imperial attention is directed to a crisis elsewhere. The Emperor has not visited in a long time and the sector governor has deprioritized Naboo's garrison.",
+          "roles": [
+            {
+              "role": "Imperial advisor",
+              "archetype_ref": "imperial_bureaucrat",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Embedded in the royal court and RNSF headquarters. Monitoring and reporting only."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial posture on Naboo. Advisors embedded at all government levels. Occasional stormtrooper presence at Theed Spaceport and key government buildings. The Emperor's Retreat fully garrisoned. Customs inspections at the spaceport. RNSF handles day-to-day policing with Imperial oversight. The population is cooperative and compliant.",
+          "presence_reason": "Default state. The Emperor's homeworld maintains a baseline garrison to protect the retreat and monitor the population. The velvet glove approach keeps the populace docile.",
+          "roles": [
+            {
+              "role": "Imperial advisor",
+              "archetype_ref": "imperial_bureaucrat",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Advisors in the royal court, RNSF, Theed University, and the Plasma Refinery Complex."
+            },
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Light presence at Theed Spaceport and key government buildings. Not conducting sweeps."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Operating alongside RNSF at Theed Spaceport."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Something has triggered escalation. Additional stormtroopers deployed from the Emperor's Retreat garrison into Theed. ISB agents conducting active investigations. The Royal Palace receives an enhanced security detail. Lake Country estates may be searched. The population becomes uneasy — this level of Imperial visibility is unusual on Naboo and signals something is wrong.",
+          "presence_reason": "Rebel activity detected or suspected. An attempt on the Emperor's Retreat. Intelligence suggesting insurgent cells are planning an operation. A high-value Imperial target visiting Naboo. The Emperor himself may be en route.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrols",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Visible patrols in Theed, at the spaceport, and along major transit routes to the Lake Country."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Investigating specific threats. Operating independently of the RNSF. May interrogate civilians."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer coordinating the escalation from the Emperor's Retreat."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military alert. The Emperor's Retreat garrison has deployed across the planet. Star Destroyers in orbit. Theed under effective martial control. RNSF subordinated directly to Imperial command. Checkpoints on all roads and waterways. Subsurface lake access points watched by probe droids. The population is shocked — Naboo has never experienced this level of military presence. The Gungans seal their cities and prepare for the worst.",
+          "presence_reason": "The Emperor is visiting, an assassination plot against the Emperor has been uncovered, or a major Rebel operation has struck Naboo directly. This level of response on the Emperor's homeworld would be unprecedented and signals an existential threat.",
+          "roles": [
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 24,
+              "notes": "Battalion strength deployed across all population centers. Checkpoints, patrols, and rapid response teams."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "ISB running the security operation. RNSF sidelined or directly subordinated."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority. Direct line to Coruscant."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. Naboo's connection to the Force and the Gungan spiritual traditions make this a possibility."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial advisors ask pointed questions about specific people or events. RNSF receives directives to increase patrols. Customs inspections at the spaceport become more thorough.",
+        "targeted": "ISB is looking for specific individuals. RNSF ordered to cooperate with Imperial-provided identification data. Spaceport departures monitored. Lake Country estates may receive unannounced visits.",
+        "manhunt": "Full lockdown of Theed Spaceport. No vessel leaves without Imperial clearance. Stormtrooper sweeps of Theed neighborhoods. Probe droids deployed to Lake Country and known lake access points. The RNSF is ordered to assist or stand aside."
+      }
+    },
+    {
+      "faction_id": "naboo_royal_security",
+      "presence_levels": {
+        "skeleton": {
+          "description": "RNSF maintains the Royal Palace guard and Theed Hangar but active patrols are minimal. Starfighter Corps conducts routine orbital patrols only.",
+          "presence_reason": "Budget constraints, personnel diverted to support Imperial operations, or a period of unusual calm.",
+          "roles": [
+            {
+              "role": "RNSF palace guard",
+              "archetype_ref": "palace_guard",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Maintaining palace security. Not patrolling the city."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard RNSF operations. Officers patrolling Theed and other human settlements. Starfighter Corps running regular patrols of the Chommell sector. Spaceport security managing arrivals and departures. Investigations into routine criminal matters.",
+          "presence_reason": "Normal peacekeeping under Imperial advisory oversight.",
+          "roles": [
+            {
+              "role": "RNSF officer",
+              "archetype_ref": "security_officer",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Patrolling Theed streets and the spaceport. Professional and courteous."
+            },
+            {
+              "role": "RNSF investigator",
+              "archetype_ref": "investigator",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating criminal matters. Reports to RNSF headquarters at the PRC."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "RNSF mobilized in response to a specific threat. Enhanced patrols. Starfighter Corps on alert. Theed Spaceport security tightened. Coordination with Imperial advisors increases.",
+          "presence_reason": "Criminal activity surge, unauthorized landings, smuggling detected, or an external threat to the Chommell sector.",
+          "roles": [
+            {
+              "role": "RNSF officer patrol",
+              "archetype_ref": "security_officer",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Enhanced patrols across Theed and outlying settlements."
+            },
+            {
+              "role": "RNSF investigator team",
+              "archetype_ref": "investigator",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple investigators working priority cases."
+            },
+            {
+              "role": "N-1 starfighter patrol",
+              "archetype_ref": "starfighter_pilot",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Increased orbital and atmospheric patrols."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full RNSF mobilization. All personnel on duty. Starfighter Corps flying maximum sortie rates. The monarchy has declared a state of emergency.",
+          "presence_reason": "Existential threat to Naboo — invasion, major insurgent operation, or a crisis requiring the RNSF to act at full capacity.",
+          "roles": [
+            {
+              "role": "RNSF officer force",
+              "archetype_ref": "security_officer",
+              "tier": "minion",
+              "count": 12,
+              "notes": "All precincts fully staffed and deployed."
+            },
+            {
+              "role": "RNSF investigator team",
+              "archetype_ref": "investigator",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full investigative capacity."
+            },
+            {
+              "role": "Starfighter Corps",
+              "archetype_ref": "starfighter_pilot",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full deployment. N-1 starfighters covering orbital and atmospheric zones."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "RNSF officers ask more questions. Spaceport inspections increase. Patrol frequency rises in key areas.",
+        "targeted": "RNSF has specific suspects. Officers are watching particular locations or individuals.",
+        "manhunt": "Full RNSF mobilization on a specific target. Roadblocks on approaches to Theed. Starfighter Corps scanning for unauthorized vessels."
+      }
+    },
+    {
+      "faction_id": "gungan_clans",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Gungans are completely withdrawn beneath the surface. No presence at surface markets or meeting points. Lake access points are watched but sealed.",
+          "presence_reason": "Imperial escalation has driven the Gungans into deep isolation. Or the Grand Council has ordered complete withdrawal due to an internal crisis.",
+          "roles": [
+            {
+              "role": "Gungan sentry",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Watching lake access points from beneath the surface. Will not engage unless provoked."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Gungan posture. Sentries at lake access points. Bongo patrols through mapped tunnel routes. Occasional trade with sympathetic human merchants at remote lakeside locations. Otoh Gunga and other cities functioning normally beneath the surface.",
+          "presence_reason": "Normal Gungan life. Isolationist but not hostile. Trade needs require some surface contact.",
+          "roles": [
+            {
+              "role": "Gungan warrior patrol",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Bongo-mounted patrols through underwater tunnels. Monitoring for incursions."
+            },
+            {
+              "role": "Gungan merchant",
+              "archetype_ref": "trader",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Meeting human contacts at remote lakeside locations. Trading for technology and processed goods."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Gungans have detected a threat. Additional warriors deployed to tunnel junctions and lake access points. Fambaa-mounted shield generators activated at Otoh Gunga's perimeter. The Grand Council is in session.",
+          "presence_reason": "Imperial probe droids detected near Gungan cities. An underwater incursion attempted. Or the Rebel cells' activities have drawn unwanted attention to the tunnel network.",
+          "roles": [
+            {
+              "role": "Gungan warrior company",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Reinforced patrols at all tunnel junctions and access points. Armed with electropoles and boomas."
+            },
+            {
+              "role": "Fambaa shield unit",
+              "archetype_ref": "fambaa_rider",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Mobile shield generator deployed at a strategic choke point."
+            },
+            {
+              "role": "Gungan boss",
+              "archetype_ref": "gungan_boss",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior boss personally overseeing the defense. Authority to order the city sealed."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Gungan Grand Army is mobilized. Fambaa artillery deployed. Kaadu-mounted cavalry screening the approaches. All tunnel access sealed or trapped. Otoh Gunga in full defensive posture. The Gungans are prepared to fight for their cities.",
+          "presence_reason": "Full-scale military threat to the Gungan cities. An Imperial attempt to breach the underwater domain. Or a massive predator incursion threatening Otoh Gunga itself.",
+          "roles": [
+            {
+              "role": "Gungan Grand Army",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Full military deployment. Organized units with booma catapults and electropole infantry."
+            },
+            {
+              "role": "Fambaa artillery",
+              "archetype_ref": "fambaa_rider",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Shield generators and booma catapults mounted on fambaas."
+            },
+            {
+              "role": "Kaadu cavalry",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Kaadu-mounted scouts and skirmishers. Fast and amphibious."
+            },
+            {
+              "role": "Boss Nass",
+              "archetype_ref": "gungan_boss",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Supreme Gungan authority. Commands the Grand Army personally."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Gungan sentries more visible at lake access points. Bongo patrols increase. Trade contacts become more cautious.",
+        "targeted": "Specific individuals or vessels tracked through the tunnel network. Gungan intelligence shared only with trusted allies.",
+        "manhunt": "Tunnel network sealed. All non-Gungan access denied. Bongo hunter-killer teams deployed to locate and capture or destroy the threat."
+      }
+    },
+    {
+      "faction_id": "naboo_rebel_cells",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The Rebel cells are dormant. Safe houses in Gungan settlements maintained but no operations conducted. Agents lie low and avoid all contact.",
+          "presence_reason": "Imperial crackdown, loss of key personnel, or the Gungan Grand Council has ordered a halt to activities that draw attention to the tunnel network.",
+          "roles": [
+            {
+              "role": "Rebel sympathizer",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A single agent maintaining communication channels and safe house supplies."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Rebel cell activity. Agents gathering intelligence in Theed. Recruitment among sympathetic Naboo humans and Gungans. Occasional small-scale operations — sabotage of Imperial communications, supply theft, propaganda distribution.",
+          "presence_reason": "Normal insurgent activity. The cells operate cautiously, striking small targets and retreating underground.",
+          "roles": [
+            {
+              "role": "Rebel cell leader",
+              "archetype_ref": "rebel_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinating operations between Naboo human and Gungan cell members."
+            },
+            {
+              "role": "Rebel operative",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Gathering intelligence in Theed and at the spaceport. One human, one Gungan."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The cells have received external support — Rebel Alliance supplies, experienced operatives, or a specific mission objective. Planning a significant operation against an Imperial target on Naboo.",
+          "presence_reason": "The Rebel Alliance has identified Naboo as a high-value propaganda target. Striking the Emperor's homeworld would send a powerful message.",
+          "roles": [
+            {
+              "role": "Rebel cell leader",
+              "archetype_ref": "rebel_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Coordinating a major operation."
+            },
+            {
+              "role": "Rebel operatives",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Mixed human-Gungan team conducting reconnaissance and preparation."
+            },
+            {
+              "role": "Rebel Alliance advisor",
+              "archetype_ref": "rebel_commander",
+              "tier": "rival",
+              "count": 1,
+              "notes": "An offworld operative sent by the Alliance to support the local cells."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Open insurgency. The cells have launched a coordinated strike and are operating openly. The subsurface network is being used as a full military staging area. This state cannot last — Imperial retaliation will be swift and devastating.",
+          "presence_reason": "A galactic event has emboldened the cells — the Death Star's destruction, a major Imperial defeat, or direct Rebel Alliance intervention.",
+          "roles": [
+            {
+              "role": "Rebel strike team",
+              "archetype_ref": "rebel_operative",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Armed operatives conducting attacks on Imperial targets."
+            },
+            {
+              "role": "Gungan insurgent company",
+              "archetype_ref": "gungan_warrior",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Gungan fighters supporting Rebel operations with underwater mobility and military expertise."
+            },
+            {
+              "role": "Rebel Alliance commander",
+              "archetype_ref": "rebel_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Alliance officer directing the insurgency."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Cell members cut contact with non-essential associates. Safe houses relocated. Intelligence gathering paused.",
+        "targeted": "Specific cell members identified by ISB. The network begins evacuating compromised personnel through the tunnel system.",
+        "manhunt": "Full dispersal. Cell members scatter into the deepest Gungan settlements. Critical intelligence destroyed. Communication channels burned and replaced."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_authority_naboo",
+      "naboo_royal_security"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Access to the subsurface labyrinth network via Gungan allies",
+      "Rebel Alliance: Safe houses in outlying Gungan settlements",
+      "Rebel Alliance: Small arms and improvised equipment",
+      "Rebel Alliance: Knowledge of Naboo's geography and tunnel systems",
+      "Rebel Alliance on this planet: Striking at Imperial forces desecrating their planet. Liberating Naboo from Imperial control. Restoring genuine self-governance for both Naboo humans and Gungans. Some are motivated by the Empire's tr"
+    ],
+    "presets": {
+      "fad_vergence": {
+        "name": "Echoes Beneath the Surface",
+        "description": "The PCs are Force-sensitives drawn to Naboo by visions, rumors of Gungan Force traditions, or the pull of something deep beneath the planet's surface. Naboo's connection to the Force is subtle but real — the Gungans have spiritual practices tied to the Living Force, and the planet's hollow interior hums with energy that sensitive individuals can feel. The PCs must navigate Theed's polite Imperial surveillance, earn the trust of suspicious Gungans to gain access to the underwater cities and tunnel network, and investigate the source of the disturbance they sense — all while avoiding ISB agents who would love nothing more than to report Force-sensitive activity on the Emperor's homeworld to the Inquisitorius.",
+        "initial_faction_states": {
+          "imperial_authority_naboo": "patrol",
+          "naboo_royal_security": "patrol",
+          "gungan_clans": "patrol",
+          "naboo_rebel_cells": "patrol",
+          "trade_federation_legacy": "skeleton"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A Gungan merchant at a remote lakeside trading post claims to know of an ancient Elder ruin deep in the subsurface tunnels where the Force is strong enough to feel like a physical weight. She will guide the PCs — for a price, and only if they prove they are not working for the Empire.",
+          "An RNSF officer sympathetic to the Rebel cause passes word that ISB has detected unusual sensor readings from deep beneath Lake Paonga. The readings match signatures associated with Force vergences. The officer wants the PCs to investigate before ISB sends its own team.",
+          "A vision draws a PC to Convergence, the ancestral Palpatine estate in the Lake Country. Something is buried there — or someone is calling from beneath it. But the estate is watched by Imperial caretakers.",
+          "The Zoological Research Facility in Otoh Gunga has captured a creature exhibiting unprecedented Force sensitivity. The Gungans don't know what to do with it. Word has leaked to the surface and ISB is interested.",
+          "A former Jedi, now in hiding among the shaak ranchers of the Great Grass Plains, has been keeping a low profile for years. Imperial advisors have received a tip about a hermit with unusual abilities. The PCs must reach the Jedi before ISB does."
+        ]
+      },
+      "aor_insurgency": {
+        "name": "The Emperor's Backyard",
+        "description": "The PCs are Rebel Alliance operatives sent to support Naboo's homegrown Rebel cells. The mission is politically explosive — any operation on the Emperor's homeworld is a propaganda event, for better or worse. The cells are small, poorly equipped, and dependent on Gungan cooperation for their subsurface escape network. The PCs must build contacts, plan operations, and execute strikes against Imperial targets while maintaining the impossible balance between effectiveness and deniability. If they are caught, the Empire will make an example that echoes across the galaxy.",
+        "initial_faction_states": {
+          "imperial_authority_naboo": "patrol",
+          "naboo_royal_security": "patrol",
+          "gungan_clans": "patrol",
+          "naboo_rebel_cells": "patrol",
+          "trade_federation_legacy": "skeleton"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "Alliance Command has intercepted ISB communications suggesting the Emperor's Retreat security grid has a vulnerability during routine maintenance cycles. The window is narrow and the prize is enormous — ISB intelligence files on the entire Chommell sector.",
+          "A Gungan boss in the outlying settlement of Shoril has offered to open the tunnel network to the Rebel cells in exchange for help repairing the town's failing hydrostatic bubble infrastructure. Without the tunnels, the cells have no escape routes.",
+          "An Imperial advisor in the Royal Palace has secretly offered to defect. The cells need to extract the advisor from Theed and get them off-world before ISB discovers the betrayal. The spaceport is watched.",
+          "The Plasma Refinery Complex is Naboo's economic lifeline and a symbol of Imperial economic control. A Rebel operation to disrupt plasma exports would hurt the Empire financially and politically — but would also harm the Naboo people the cells claim to be fighting for.",
+          "A Trade Federation successor corporation is shipping restricted materials through Naboo's moons. The Rebel cells can intercept the shipment and acquire badly needed equipment, but the operation risks exposing the tunnel network to Imperial surveillance."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Nexus of Power (Worlds Strong in the Force)",
+      "pages": "17-24",
+      "detail": "Full planetary profile: background, history, people and culture, points of interest (Theed, Broadberry Meadow, Parnelli Museum, Plasma Refinery Complex, Theed Royal Palace, Theed Spaceport, Theed University, Otoh Gunga with Ancient Quarter, City Bigspace, Otoh Gunga Garden, Otoh Villages, Zoological Research Facility, Emperor's Retreat, Lake Country), creatures (colo claw fish, fambaa, gualaar, kaadu, sando aqua monster)"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "pages": "115-118",
+      "detail": "Clone Wars era Naboo profile: background, galactic inflection point, people and culture, points of interest (Theed, Otoh Gunga, Jan-gwa City, Lake Country), incidents (Naboo Crisis, Secret Separatist Lab, Mysterious Kidnapping), modular encounter (Agitators and Spies)"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "351",
+      "detail": "Brief Naboo entry in planet listing"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "363",
+      "detail": "Brief Naboo entry in planet listing"
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "362",
+      "detail": "Brief Naboo entry in planet listing. Mentions capital of Chommell sector, homeworld of Palpatine"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "pages": "various",
+      "detail": "References to Naboo in context of Anakin, Padme, Maul's defeat, and Nightsister connections"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "pages": "85, 88, 92, 95",
+      "detail": "Naboo Crisis as precursor to Clone Wars, Trade Federation trials, Naboo Royal Security Forces mentioned as example planetary defense force, Senator Amidala profile"
+    },
+    "Planet Compendium p.48"
+  ]
+}

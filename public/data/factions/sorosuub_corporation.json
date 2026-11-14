@@ -1,0 +1,259 @@
+{
+  "id": "sorosuub_corporation",
+  "name": "SoroSuub Corporation",
+  "type": "corporate_entity",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Strongholds of Resistance",
+    "Age of Rebellion Core Rulebook",
+    "Edge of the Empire Core Rulebook"
+  ],
+  "overview": "SoroSuub Corporation is the mammoth megacorporation that dominates Sullust, employing ninety percent of the planet's workforce and controlling virtually every aspect of Sullustan life from mining and manufacturing to consumer goods and shipping. After a corporate coup reversed its Imperial alignment, SoroSuub officially declared neutrality while secretly supplying the Rebel Alliance with asylum, arms, and equipment — a double game that grows more dangerous by the day.",
+  "short_descriptor": "Controls Sullust entirely — employer, government, law enforcement. Publicly Imperial-aligned. Privately complicated. If you need something on Sullust, you go through SoroSuub or you don't go at all.",
+  "how_they_operate": [
+    {
+      "heading": "VERTICAL MONOPOLY",
+      "text": "SoroSuub functions as a vertical monopoly employing ninety percent of Sullust's workforce, controlling every stage from raw material extraction in volcanic mining operations to retail distribution of finished goods."
+    },
+    {
+      "heading": "CORPORATE GOVERNMENT",
+      "text": "The corporation serves as Sullust's de facto government — CEO Sian Tevv also holds the Imperial Senate seat, and Corporate Proclamation 137d dissolved the elected Sullustan Council."
+    },
+    {
+      "heading": "SECURITY",
+      "text": "Law enforcement is handled by the Sullustan Constable Brigade, ranked on a light-spectrum system from infrared cadets through ultraviolet leadership. System defense falls to the Sullustan Home Guard under Commodore Deeb, which receives regular Imperial Navy reinforcements."
+    },
+    {
+      "heading": "CONTROLLING DISSENT",
+      "text": "Dissent is managed through employment pressure rather than incarceration — termination from SoroSuub means exile from the only employer on the planet."
+    },
+    {
+      "heading": "THE SECRET AGREEMENT",
+      "text": "Behind this public structure, SoroSuub runs a parallel operation: arms, equipment, and asylum funneled to the Rebel Alliance under a secret agreement signed by Tevv, while Imperial contracts continue uninterrupted as cover."
+    }
+  ],
+  "witness_statement": {
+    "text": "Worked a SoroSuub assembly line for six standard months. Good pay, good quarters, company canteen served decent food. Then I asked my shift supervisor why we were packing crates with two manifests — one for the Imperial depot and one with no destination listed. He smiled and said 'You're being promoted to a department that doesn't ask questions.' I took the promotion. Pays better.",
+    "source": "Former SoroSuub production line worker, transferred to undisclosed logistics division",
+    "verification": "PROVISIONAL — AWAITING CORROBORATION"
+  },
+  "motivations": {
+    "primary": "Corporate survival",
+    "secondary": [
+      "Sullustan independence from Imperial control",
+      "Maintaining the vertical monopoly on Sullust's economy",
+      "Secret support for the Rebel Alliance",
+      "Protecting the workforce and warren-clan structure"
+    ],
+    "notes": "SoroSuub's motivations are split between corporate self-preservation and genuine care for Sullustan well-being. Unlike many capitalist corporations, SoroSuub feels responsibility toward Sullustans, and most Sullustans believe the corporation has their best interests at heart. This paternalistic relationship creates both loyalty and dependency."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain the facade of Imperial neutrality while secretly supporting the Alliance until a decisive blow can be struck",
+      "Preserve SoroSuub's vertical monopoly on mining, manufacturing, transport, and retail across Sullust",
+      "Ensure Sullustan independence from direct Imperial governance",
+      "Urge the Alliance to force a decisive battle before the Empire discovers Sullust's true allegiances"
+    ],
+    "operational": [
+      "Keep Imperial contracts running to avoid suspicion while funneling arms and equipment to the Rebellion",
+      "Manage the Sullustan Home Guard and Constable Brigade to defend corporate assets from both pirates and Imperial discovery",
+      "Maintain food imports from Sulon to sustain the subterranean population",
+      "Suppress internal dissent through employment pressure rather than incarceration"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "negotiation",
+      "information_control",
+      "legal_pressure",
+      "bribery"
+    ],
+    "avoided": [
+      "Open military confrontation with the Empire — discovery would mean the destruction of Sullust",
+      "Assassination — SoroSuub operates through corporate and political channels, not violence"
+    ],
+    "notes": "SoroSuub's primary method of control is economic. On Sullust, being fired from SoroSuub means being fired from the only employer, which effectively means exile to the toxic surface or offworld. This economic leverage keeps dissent in check without prisons. The Sullustan Constable Brigade provides security enforcement ranked by a light-spectrum system from infrared cadets to ultraviolet leadership."
+  },
+  "strengths": [
+    "Vertical monopoly controls every stage of production from raw materials to retail, making SoroSuub nearly impossible to undercut or bypass",
+    "Employs ninety percent of Sullust's workforce, giving it total economic leverage over the population",
+    "Subterranean cities are engineering marvels built in active volcanic magma chambers, providing natural fortification against orbital bombardment",
+    "The Sullustan Home Guard and Constable Brigade provide credible system defense and planetary security",
+    "Sullustan employees are galaxy-wide as cargo haulers, creating an unmatched intelligence and logistics network"
+  ],
+  "weaknesses": [
+    "Sullust's subterranean population is entirely dependent on food imports from the agricultural moon Sulon, and an Imperial blockade would exhaust planetary food reserves within weeks.",
+    "Each Rebel Alliance operation conducted with SoroSuub-manufactured equipment increases the cumulative probability that Imperial intelligence traces the supply chain back to Sullust.",
+    "The Sullustan Home Guard receives regular Imperial Navy reinforcements, training rotations, and personnel exchanges, embedding Imperial-loyal officers within SoroSuub's own defensive military structure.",
+    "The corporate leadership is divided between holdovers from the pro-Imperial Siin Suub administration and Sullustan Resistance sympathizers aligned with CEO Tevv, creating persistent information security vulnerabilities.",
+    "SoroSuub's total control of Sullustan employment means any organized worker resistance or labor disruption threatens the entire planetary economic system, including the Imperial contracts that maintain the corporation's cover."
+  ],
+  "behavior_under_threat": {
+    "low": "Deploy Constable Brigade patrols. Increase surveillance through corporate security channels. Handle internally without Imperial involvement.",
+    "medium": "Activate higher-ranked constables (blue and indigo detectives). Restrict information flow. If the threat could expose Alliance ties, quietly eliminate evidence through corporate data controls.",
+    "high": "Mobilize the Sullustan Home Guard. Alert Sullustan Resistance leadership. Begin contingency planning for Imperial discovery. Move sensitive Alliance materials to Sulon weapons testing facilities.",
+    "critical": "Full mobilization of all defense forces including the reserve Sullustan Regiments. Signal the Alliance that discovery is imminent and a decisive strike must happen now or Sullust falls."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Constable Brigade patrol officer",
+      "Regional constable (green rank)",
+      "Constabulary leadership (violet/ultraviolet)",
+      "SoroSuub CEO and corporate board"
+    ],
+    "notes": "SoroSuub's escalation is deliberately slow by design — fast escalation risks drawing Imperial attention. The Constable Brigade handles most threats internally. Only existential threats reach the CEO level, where the decision to activate Alliance channels or the Sullustan Resistance must be made. The Imperial garrison on Sulon and in SoroSuub Central represents a parallel reporting chain that SoroSuub cannot control."
+  },
+  "tension_patterns": [
+    "SoroSuub maintains simultaneous public Imperial contracts and covert Alliance supply operations, a dual allegiance in which exposure of either relationship to the other party would trigger immediate existential consequences for the corporation and Sullust's population.",
+    "SoroSuub's position as the sole employer on Sullust means termination is functionally equivalent to exile, as dismissed workers have no alternative employment on a planet where the corporation controls all economic activity.",
+    "Individual SoroSuub executives periodically exploit the corporation's logistics infrastructure for personal smuggling operations, creating situations where internal investigation risks exposing the parallel Alliance supply chain embedded in the same distribution network.",
+    "Imperial production quotas for SoroSuub manufacturing facilities are regularly set at levels achievable only by reducing worker safety protocols, placing contract compliance in direct conflict with workforce protection obligations.",
+    "SoroSuub's internal security apparatus periodically discovers unauthorized Rebel Alliance activity within company facilities, forcing security leadership to choose between reporting to Imperial liaisons, suppressing the information, or coordinating with the covert Alliance relationship."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "dominant",
+    "transit": "fortified",
+    "economic": "dominant",
+    "command": "fortified",
+    "informational": "fortified",
+    "military": "patrol",
+    "hidden": "patrol",
+    "covert": "skeleton"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "medium",
+    "weapon": "medium",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "high",
+    "notes": "SoroSuub is intensely interested in data that could expose its Alliance ties or reveal Imperial plans for Sullust. Technology is a core business interest — SoroSuub manufactures everything from blasters to datapads to starships. Weapons are relevant to both Imperial contracts and secret Alliance supply. Persons of interest include Imperial spies and potential Alliance recruits."
+  },
+  "ally_factions": [
+    "rebel_alliance"
+  ],
+  "enemy_factions": [
+    "imperial_military",
+    "imperial_security_bureau"
+  ],
+  "relationship_notes": {
+    "rebel_alliance": "SoroSuub secretly supplies the Alliance with asylum, arms, and equipment. CEO Sian Tevv signed a secret agreement with the Rebellion before the Battle of Yavin. The Sullustan Resistance operates independently but in coordination with the Alliance.",
+    "imperial_military": "SoroSuub maintains Imperial contracts and accepts Imperial garrisons on Sullust and Sulon. The Imperial Fleet transports SoroSuub products to classified facilities on the Silvestri Trace. This relationship is the cover that keeps Sullust alive — and the noose that will hang it if the truth emerges.",
+    "imperial_security_bureau": "The ISB is the existential threat SoroSuub fears most. Any ISB investigation into Sullust's true allegiances would unravel the entire operation.",
+    "hutt_cartel": "SoroSuub's shipping routes occasionally intersect with Hutt-controlled space. The relationship is commercial and arm's-length."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "moderate",
+    "colonies": "moderate",
+    "inner_rim": "moderate",
+    "expansion_region": "moderate",
+    "mid_rim": "significant",
+    "outer_rim": "dominant",
+    "hutt_space": "minimal",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Sian Tevv",
+      "role": "CEO of SoroSuub Corporation and Imperial Senator for Sullust",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "",
+      "network_assessment": "Tevv is running the most dangerous double game in the galaxy — CEO of an Imperial contractor and secret Alliance benefactor. Every day the deception holds is borrowed time. He knows it and is pushing the Alliance to act before the clock runs out.",
+      "wants": "A decisive Alliance military victory that makes Imperial retribution against Sullust impossible, freeing SoroSuub to openly support the Rebellion.",
+      "secret": "Has prepared an evacuation plan for SoroSuub's senior leadership and critical personnel to Alliance-controlled space if the Imperial deception collapses, effectively abandoning Sullust's general population.",
+      "behavior": {
+        "under_pressure": "Maintains the corporate facade. Years of managing Imperial inspectors and Alliance contacts simultaneously have made him an exceptional actor under stress.",
+        "when_losing": "Activates the evacuation plan and signals the Alliance that Sullust's cover is blown. He will sacrifice the corporation to save the cause.",
+        "loyalty": "To Sullust's people first, the Alliance cause second, SoroSuub Corporation third. He will burn the company to protect the planet.",
+        "tells": "When he begins discussing Alliance timelines with urgency, he has received intelligence suggesting Imperial suspicion is growing."
+      },
+      "useful_to_players": [
+        "Controls an entire planet's industrial output — can provision almost any military or civilian need",
+        "His Imperial Senate seat provides access to political intelligence unavailable through military channels",
+        "SoroSuub's galaxy-wide shipping network can move people and materials with legitimate cover"
+      ],
+      "hooks": [
+        "Tevv needs a crew to run a shipment that cannot appear on any SoroSuub manifest — the cargo is Alliance military hardware and the destination is classified",
+        "An Imperial auditor is scheduled to inspect SoroSuub's Sulon facility next month. Tevv needs the weapons testing data relocated before then."
+      ]
+    },
+    {
+      "name": "Siin Suub",
+      "role": "Former CEO of SoroSuub Corporation",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "rival",
+      "notes": "",
+      "network_assessment": "Siin Suub was deposed but not eliminated. A former CEO with Imperial connections and a grudge is a live threat — especially one who dissolved an elected government to consolidate power. He knows where the bodies are buried because he buried some of them.",
+      "wants": "To regain control of SoroSuub Corporation and restore the profitable Imperial partnership that Tevv's faction disrupted.",
+      "secret": "Maintains private communication channels with Imperial Security Bureau contacts from his tenure as CEO, and has been providing information about SoroSuub's internal politics in exchange for a promise of reinstatement.",
+      "behavior": {
+        "under_pressure": "Leverages corporate connections and Imperial contacts. He built his power through institutional manipulation, not personal courage.",
+        "when_losing": "Goes to the Empire. Siin Suub's ultimate fallback is trading information about Tevv's Alliance ties for Imperial military intervention and his own restoration.",
+        "loyalty": "To himself and to the version of SoroSuub that made him rich. The Empire is a tool, not a cause.",
+        "tells": "Becomes visibly agitated when Tevv's reforms are praised publicly. His resentment at being deposed overrides his political caution."
+      },
+      "useful_to_players": [
+        "Knows SoroSuub's corporate structure, security protocols, and financial architecture from the inside",
+        "His Imperial contacts could be exploited for intelligence if he can be manipulated or deceived",
+        "Understanding his agenda helps predict when and how he might betray Tevv's operation"
+      ],
+      "hooks": [
+        "Siin Suub was spotted meeting an unidentified human at a cantina on the Silvestri Trace — not his usual social circle",
+        "A former SoroSuub executive loyal to Siin Suub was caught copying personnel files. She claims she was acting alone. Nobody believes her."
+      ]
+    },
+    {
+      "name": "Commodore Deeb",
+      "role": "Commander of the Sullustan Home Guard",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "",
+      "network_assessment": "Deeb commands Sullust's system defense fleet and has Imperial Navy officers embedded in his staff. He is either unaware of Tevv's Alliance ties — in which case he is a useful idiot — or aware and waiting for the right moment to act. Either way, he controls the guns.",
+      "wants": "To maintain the Sullustan Home Guard as a credible military force and advance his career through successful anti-piracy and anti-Rebel operations.",
+      "secret": "Has been offered a commission in the Imperial Navy if he delivers evidence of Alliance activity on Sullust. He has not accepted — but he has not refused.",
+      "behavior": {
+        "under_pressure": "Follows military protocol and defers to the chain of command. He is a competent officer, not a political operator.",
+        "when_losing": "Calls for Imperial Navy reinforcements — which he receives regularly as part of the Home Guard's training arrangement.",
+        "loyalty": "To the Sullustan Home Guard as an institution. His feelings about the Empire and the Alliance are secondary to his professional identity as a naval officer.",
+        "tells": "Becomes formal and protocol-heavy when Imperial officers are present — performing competence for an audience that could promote or destroy him."
+      },
+      "useful_to_players": [
+        "His patrol schedules and fleet dispositions are critical intelligence for any operation in the Sullust system",
+        "If turned or deceived, his authority could provide military cover for Alliance operations",
+        "His Imperial Navy contacts could be a source of fleet movement intelligence"
+      ],
+      "hooks": [
+        "Deeb reassigned two Home Guard corvettes to patrol the Sulon corridor without explanation — something has his attention there",
+        "An Imperial Navy captain on rotation with the Home Guard went missing during shore leave on Sullust. Deeb is handling the search personally and keeping it quiet."
+      ]
+    }
+  ],
+  "source_material_notes": "Strongholds of Resistance (Desperate Allies supplement) provides the most comprehensive treatment of SoroSuub and Sullust across pages 37-39, including corporate history, political structure, the Constable Brigade, and the secret Alliance relationship. Age of Rebellion Core Rulebook covers Sullust briefly on page 367 and references SoroSuub products throughout equipment sections. Edge of the Empire Core Rulebook references SoroSuub as a manufacturer across multiple equipment entries.",
+  "field_sources": {
+    "motivations": "Strongholds of Resistance pp.37-38, SoroSuub corporate culture and Alliance relationship",
+    "goals": "Strongholds of Resistance pp.37-38, Tevv's urgency for decisive strike and corporate survival",
+    "methods": "Strongholds of Resistance pp.37-38, Constable Brigade structure and employment-as-control system",
+    "strengths": "Strongholds of Resistance pp.36-38, vertical monopoly, subterranean cities, workforce dominance",
+    "weaknesses": "Strongholds of Resistance pp.36-38, food dependency on Sulon, Home Guard Imperial infiltration, dual allegiance risk",
+    "behavior_under_threat": "Inferred from Strongholds of Resistance defense structure and Alliance secret-keeping imperative",
+    "tension_patterns": "Inferred from SoroSuub's dual allegiance and total economic control described in Strongholds of Resistance",
+    "regional_presence": "Age of Rebellion Core Rulebook p.367; Strongholds of Resistance p.37 Sullust location on Rimma Trade Route",
+    "mcguffin_interest": "Inferred from SoroSuub's manufacturing breadth and intelligence vulnerability"
+  }
+}

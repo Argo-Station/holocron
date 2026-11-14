@@ -1,0 +1,61 @@
+{
+  "schema": "npc-archetypes",
+  "schema_version": 1,
+  "generated_from": "npcs.json",
+  "generated_by": "scripts/canonical/derive_npc_archetypes.py",
+  "derivation": "per-tier lower-median (sorted[(n-1)//2]) of each characteristic + derived stat over all canonical NPCs of that tier",
+  "archetypes": {
+    "minion": {
+      "count": 328,
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 1
+      },
+      "derived": {
+        "soak": 3,
+        "wounds": 5,
+        "melee_defense": 0,
+        "ranged_defense": 0
+      }
+    },
+    "rival": {
+      "count": 664,
+      "characteristics": {
+        "brawn": 2,
+        "agility": 3,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 4,
+        "wounds": 12,
+        "melee_defense": 0,
+        "ranged_defense": 0
+      }
+    },
+    "nemesis": {
+      "count": 438,
+      "characteristics": {
+        "brawn": 3,
+        "agility": 3,
+        "intellect": 3,
+        "cunning": 3,
+        "willpower": 3,
+        "presence": 3
+      },
+      "derived": {
+        "soak": 4,
+        "wounds": 16,
+        "strain": 15,
+        "melee_defense": 0,
+        "ranged_defense": 0
+      }
+    }
+  }
+}

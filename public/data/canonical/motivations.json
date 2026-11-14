@@ -1,0 +1,3392 @@
+{
+  "schema": "motivation.schema.json",
+  "schema_version": 1,
+  "generated_from": "oggdude_current/2026-07-14 (Motivations.xml + SpecificMotivations.xml)",
+  "generated_by": "scripts/canonical/build_motivations.py (ruling c15-motivation-ingestion-home)",
+  "scope": "character_creation_only",
+  "notes": "CATEGORY DESCRIPTIONS AUTHORED (R-C2C-1; card returned to 32 by `motivation-sourcing-pass-gate` A2). Prose is AUTHORED in mechanics voice, never transcribed — Jason's Motivations.xml is reference beside the corpus, not a source of shipped words. `description_cite` carries book + section + table; `printed_page` is deliberately null until a render-and-read, because corpus page != printed page. (B-335 has since calibrated 29 of 100 books and scripts/pdf_pages.py converts for those; holding the page here remains A1/A2(4)'s call, not a data limitation.) SPECIFICS still carry no descriptions — that is a separate lap. ",
+  "_provenance": {
+    "source": "data-sources/oggdude_current/2026-07-14/Data/",
+    "source_date": "2026-07-14",
+    "taken": "category names/keys/sources, specific names/keys/sources, the category->specific join",
+    "not_taken": "descriptions (placeholder stubs in the source), any reSpecialized content",
+    "forbidden_source": "data-sources/respecialized/** — plan + B-100; a path tripwire in the builder enforces it"
+  },
+  "counts": {
+    "categories": 32,
+    "specifics": 275,
+    "references": 275,
+    "categories_with_no_specifics": []
+  },
+  "categories": [
+    {
+      "id": "amb",
+      "_source_key": "AMB",
+      "name": "Ambition",
+      "sources": [
+        "eote",
+        "no_disintegrations",
+        "disciples_of_harmony",
+        "enter_the_unknown",
+        "fad",
+        "keeping_the_peace",
+        "dangerous_covenants",
+        "unlimited_power",
+        "savage_spirits",
+        "endless_vigil",
+        "fly_casual",
+        "knights_of_fate"
+      ],
+      "specific_ids": [
+        "ambfriend",
+        "amblove",
+        "ambfree",
+        "ambfame",
+        "ambgreed",
+        "ambstatus",
+        "ambexper",
+        "ambwand",
+        "ambpower",
+        "ambreligion",
+        "ambrevenge",
+        "ambwealth",
+        "ambjedi",
+        "ambsurvival",
+        "ambglory",
+        "ambsith",
+        "ambenlight",
+        "ambdisc"
+      ],
+      "description": "An internal goal the character has set for themselves — love, status, power, wealth, spiritual knowledge. Ambition is about what this character wants to become or to get, and it is often self-interested. Decide the ultimate goal and how far they will go to reach it.",
+      "description_cite": {
+        "source": "eote",
+        "section": "Step 8: Determine Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "cause",
+      "_source_key": "CAUSE",
+      "name": "Cause",
+      "sources": [
+        "eote",
+        "no_disintegrations",
+        "disciples_of_harmony",
+        "enter_the_unknown",
+        "fad",
+        "keeping_the_peace",
+        "dangerous_covenants",
+        "unlimited_power",
+        "savage_spirits",
+        "endless_vigil",
+        "knights_of_fate"
+      ],
+      "specific_ids": [
+        "caureligion",
+        "cauweak",
+        "caunonhum",
+        "caupolitics",
+        "cauover",
+        "caucrime",
+        "cauemanc",
+        "caudroid",
+        "caucapital",
+        "cauempire",
+        "caufreedom",
+        "caurestjedi",
+        "caupeace",
+        "caujustice",
+        "caustopreb",
+        "cauequal",
+        "cauhelpless",
+        "caufreeent",
+        "cauknow"
+      ],
+      "description": "An external group or idea the character has committed to. It matters enough that they will take risks and work outside their comfort zone for it. A Cause is about who or what the character serves rather than what they want for themselves.",
+      "description_cite": {
+        "source": "eote",
+        "section": "Step 8: Determine Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "rel",
+      "_source_key": "REL",
+      "name": "Relationship",
+      "sources": [
+        "eote",
+        "far_horizons",
+        "dangerous_covenants",
+        "forged_in_battle"
+      ],
+      "specific_ids": [
+        "relorigin",
+        "relpet",
+        "relfriend",
+        "relcomrades",
+        "relsib",
+        "relmentor",
+        "relparents",
+        "relfamily",
+        "reldroid",
+        "relnemesis",
+        "rellocalciv",
+        "rellover",
+        "relrival",
+        "reltech"
+      ],
+      "description": "A specific person, family, crew or people the character is bound to. What they do is driven by that bond — protecting it, honouring it, or getting back to it.",
+      "description_cite": {
+        "source": "eote",
+        "section": "Step 8: Determine Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "belief",
+      "_source_key": "BELIEF",
+      "name": "Belief",
+      "sources": [
+        "aor",
+        "fully_operational",
+        "forged_in_battle",
+        "desperate_allies"
+      ],
+      "specific_ids": [
+        "belrepublic",
+        "belhonor",
+        "belthejedi",
+        "beljustice",
+        "belsprights",
+        "belpeace",
+        "belrelphil",
+        "belfree",
+        "belprogress",
+        "belcrime"
+      ],
+      "description": "A principle the character holds about how the galaxy should work, and acts on. Belief is why they fight, as distinct from who they fight beside.",
+      "description_cite": {
+        "source": "aor",
+        "section": "Step 8: Determine Motivation",
+        "page": null
+      }
+    },
+    {
+      "id": "connect",
+      "_source_key": "CONNECT",
+      "name": "Connections",
+      "sources": [
+        "aor",
+        "disciples_of_harmony",
+        "desperate_allies",
+        "fully_operational",
+        "forged_in_battle",
+        "lead_by_example"
+      ],
+      "specific_ids": [
+        "conpolitical",
+        "confamily",
+        "conmilitary",
+        "conintel",
+        "confriends",
+        "conunderworld",
+        "conecon",
+        "connoone",
+        "conempire",
+        "conlove"
+      ],
+      "description": "A tie to a person or group that pulls the character into the fight. They may never have wanted the war; they are in it because someone they are connected to is.",
+      "description_cite": {
+        "source": "aor",
+        "section": "Step 8: Determine Motivation",
+        "page": null
+      }
+    },
+    {
+      "id": "quest",
+      "_source_key": "QUEST",
+      "name": "Quest",
+      "sources": [
+        "aor",
+        "lead_by_example",
+        "desperate_allies",
+        "fully_operational"
+      ],
+      "specific_ids": [
+        "queredem",
+        "queglory",
+        "queveng",
+        "queinflu",
+        "querescue",
+        "quejedi",
+        "quefreedom",
+        "quethrill",
+        "queriches",
+        "quesith"
+      ],
+      "description": "A goal the character is pursuing to its end — finding someone, recovering something, settling a score. The Quest is what gives the character somewhere to be going.",
+      "description_cite": {
+        "source": "aor",
+        "section": "Step 8: Determine Motivation",
+        "page": null
+      }
+    },
+    {
+      "id": "discovery",
+      "_source_key": "DISCOVERY",
+      "name": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "specific_ids": [
+        "discoverysm1",
+        "discoverysm2",
+        "discoverysm3",
+        "discoverysm4",
+        "discoverysm5",
+        "discoverysm6",
+        "discoverysm7",
+        "discoverysm8",
+        "discoverysm9",
+        "discoverysm10"
+      ],
+      "description": "Finding what has not been found — a world, a ruin, a species, the limits of a machine. For a character with this Motivation the journey to the discovery usually matters more than what anyone does with it afterward.",
+      "description_cite": {
+        "source": "enter_the_unknown",
+        "section": "Explorer Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "conflict",
+      "_source_key": "CONFLICT",
+      "name": "Conflict",
+      "sources": [
+        "dangerous_covenants",
+        "stay_on_target"
+      ],
+      "specific_ids": [
+        "conflict1",
+        "conflict2",
+        "conflict3",
+        "conflict4",
+        "conflict5",
+        "conflict6",
+        "conflict7",
+        "conflict8",
+        "conflict9",
+        "conflict10",
+        "conflict11",
+        "conflict12",
+        "conflict13",
+        "conflict14"
+      ],
+      "description": "The character is drawn to the fight itself rather than to what it achieves. Conflict covers the ones who seek it out — for mayhem, for conquest, for proving something.",
+      "description_cite": {
+        "source": "dangerous_covenants",
+        "section": "Hired Gun Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "creation",
+      "_source_key": "CREATION",
+      "name": "Creations",
+      "sources": [
+        "far_horizons"
+      ],
+      "specific_ids": [
+        "creationsm1",
+        "creationsm2",
+        "creationsm3",
+        "creationsm4",
+        "creationsm5",
+        "creationsm6",
+        "creationsm7",
+        "creationsm8"
+      ],
+      "description": "Making something new and leaving it behind — a business, a work, a body of research, a settlement. The character wants to have built something.",
+      "description_cite": {
+        "source": "far_horizons",
+        "section": "Colonist Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "faith",
+      "_source_key": "FAITH",
+      "name": "Faith",
+      "sources": [
+        "fad",
+        "disciples_of_harmony",
+        "keeping_the_peace",
+        "unlimited_power",
+        "savage_spirits",
+        "endless_vigil",
+        "knights_of_fate"
+      ],
+      "specific_ids": [
+        "fainat",
+        "faigoodpeop",
+        "faifriendfam",
+        "faicosmicfor",
+        "faiscience",
+        "faijedicode",
+        "faiimprule",
+        "fairebellion",
+        "fairelcode",
+        "fainothing"
+      ],
+      "description": "Trust in something larger than the character — the Force, an order, a teaching. Faith is about what they hold to when holding to it costs them.",
+      "description_cite": {
+        "source": "fad",
+        "section": "Step 8: Determine Motivation",
+        "page": null
+      }
+    },
+    {
+      "id": "reward",
+      "_source_key": "REWARD",
+      "name": "Reward",
+      "sources": [
+        "fly_casual"
+      ],
+      "specific_ids": [
+        "rewardsm1",
+        "rewardsm2",
+        "rewardsm3",
+        "rewardsm4",
+        "rewardsm5",
+        "rewardsm6",
+        "rewardsm7",
+        "rewardsm8",
+        "rewardsm9",
+        "rewardsm10"
+      ],
+      "description": "The character is in it to get paid. Reward covers the ones who take the risk for what it returns — credits, a ship, a debt cleared.",
+      "description_cite": {
+        "source": "fly_casual",
+        "section": "Smuggler Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "creed",
+      "_source_key": "CREED",
+      "name": "Creed",
+      "sources": [
+        "desperate_allies"
+      ],
+      "specific_ids": [
+        "creedsm1",
+        "creedsm2",
+        "creedsm3",
+        "creedsm4",
+        "creedsm5",
+        "creedsm6",
+        "creedsm7",
+        "creedsm8",
+        "creedsm9",
+        "creedsm10"
+      ],
+      "description": "A single stated principle the character lives by and can say out loud. Where other Motivations stay vague, a Creed is concrete enough to be spoken — and a character may proclaim it under pressure or deliberately keep it to themselves.",
+      "description_cite": {
+        "source": "desperate_allies",
+        "section": "Diplomat Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "oath",
+      "_source_key": "OATH",
+      "name": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "specific_ids": [
+        "oathjustice",
+        "oathlegacy",
+        "oathlife",
+        "oathrepub",
+        "oathbalance",
+        "oathlove",
+        "oathhome",
+        "oathdepart",
+        "oathspecies",
+        "oathward"
+      ],
+      "description": "A promise the character has made and holds themselves to. The Oath decides what they will and will not do, whatever the situation asks of them.",
+      "description_cite": {
+        "source": "keeping_the_peace",
+        "section": "Guardian Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "drive",
+      "_source_key": "DRIVE",
+      "name": "Drive",
+      "sources": [
+        "lead_by_example"
+      ],
+      "specific_ids": [
+        "driveguilt",
+        "drivemission",
+        "driveallcosts",
+        "drivecommand",
+        "drivesubord",
+        "driveredemp",
+        "drivegame",
+        "driveego",
+        "driveretire",
+        "drivespirit"
+      ],
+      "description": "What pushes a character to lead. Drives cover the reasons someone takes responsibility for other people rather than only for themselves.",
+      "description_cite": {
+        "source": "lead_by_example",
+        "section": "Commander Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "localeen",
+      "_source_key": "LOCALEEN",
+      "name": "Location: Aleen",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "localeenenam",
+        "localeenfoll"
+      ],
+      "description": "Motivations rooted in Aleen — fascination with the legends of the underground Kindalo, or a life changed by an encounter with the mystic Orphne. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locaura",
+      "_source_key": "LOCAURA",
+      "name": "Location: Auratera",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locauraiso",
+        "locaurastud"
+      ],
+      "description": "Motivations rooted in Auratera — keeping the world unnoticed by the wider galaxy, or studying the archaeology gathered around its vergence. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locbard",
+      "_source_key": "LOCBARD",
+      "name": "Location: Bardotta",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locbardpres",
+        "locbardmend",
+        "locbardfrang"
+      ],
+      "description": "Motivations rooted in Bardotta — preserving its history against those who would sell it offworld, wandering under a vow of poverty, or quiet sympathy for the old Frangawl ways. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locdev",
+      "_source_key": "LOCDEV",
+      "name": "Location: Devaron",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locdevmat"
+      ],
+      "description": "A Motivation rooted in Devaron and its matriarchal society, and the character's support for it. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locikto",
+      "_source_key": "LOCIKTO",
+      "name": "Location: Iktotch",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "lociktovis",
+        "lociktoexile",
+        "lociktocollab"
+      ],
+      "description": "Motivations rooted in Iktotch — a sense of the future the character insists on acting upon, exile from the blockaded moon, or having collaborated with its occupation. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locloth",
+      "_source_key": "LOCLOTH",
+      "name": "Location: Lothal",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "loclothuppov",
+        "loclothrev",
+        "loclothwarprof"
+      ],
+      "description": "Motivations rooted in Lothal — climbing out of its poverty by any status symbol that will do it, or joining the revolt against the Imperial presence. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locnaboo",
+      "_source_key": "LOCNABOO",
+      "name": "Location: Naboo",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locnabooenvoy",
+        "locnaboopoet",
+        "locnaboogung"
+      ],
+      "description": "Motivations rooted in Naboo — mending the divide between the Naboo and the Gungans, carrying the galaxy's beauty home in word or song, or Gungan rights. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locossus",
+      "_source_key": "LOCOSSUS",
+      "name": "Location: Ossus",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locossusarch",
+        "locossusplund"
+      ],
+      "description": "Motivations rooted in Ossus, for characters with ties to the world. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "locweik",
+      "_source_key": "LOCWEIK",
+      "name": "Location: Weik",
+      "sources": [
+        "nexus_of_power"
+      ],
+      "specific_ids": [
+        "locweikforrev",
+        "locweikcast",
+        "locweikwide"
+      ],
+      "description": "Motivations rooted in Weik — treating Force users as wizards to be revered, knowing one's place in its caste hierarchy, or seeing the wider galaxy as a sheltered wanderer does. Chosen rather than rolled: a character with ties to the world picks from the table instead of rolling a random Motivation.",
+      "description_cite": {
+        "source": "nexus_of_power",
+        "section": "Location-Specific Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "innov",
+      "_source_key": "INNOV",
+      "name": "Innovation",
+      "sources": [
+        "special_modifications"
+      ],
+      "specific_ids": [
+        "innovfab",
+        "innovinv",
+        "innovmod",
+        "innovimp",
+        "innovwaste",
+        "innovtechfasc",
+        "innovtechbus",
+        "innovtechhist",
+        "innovtechnecess",
+        "innovtechrival"
+      ],
+      "description": "Building, improving and modifying. Innovation covers a Technician's reasons — fabrication, invention, refusing to let anything go to waste, plain fascination with how a thing works. The category was written for Technicians, and characters of other careers may take it at the GM's discretion.",
+      "description_cite": {
+        "source": "special_modifications",
+        "section": "Technician Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "pursuit",
+      "_source_key": "PURSUIT",
+      "name": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ],
+      "specific_ids": [
+        "pursuit1",
+        "pursuit2",
+        "pursuit3",
+        "pursuit4",
+        "pursuit5",
+        "pursuit6",
+        "pursuit7",
+        "pursuit8",
+        "pursuit9",
+        "pursuit10"
+      ],
+      "description": "A goal the character chases — wealth, happiness, vengeance, exploration. A Pursuit can run for a whole campaign, and can be about improving themselves as much as reaching the thing itself.",
+      "description_cite": {
+        "source": "savage_spirits",
+        "section": "Seeker Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "injustice",
+      "_source_key": "INJUSTICE",
+      "name": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ],
+      "specific_ids": [
+        "injustice1",
+        "injustice2",
+        "injustice3",
+        "injustice4",
+        "injustice5",
+        "injustice6",
+        "injustice7",
+        "injustice8",
+        "injustice9",
+        "injustice10"
+      ],
+      "description": "A specific wrong done to a specific group. Narrower than a Cause: an Injustice always has identifiable people suffering it, and that is what the character acts against.",
+      "description_cite": {
+        "source": "endless_vigil",
+        "section": "Sentinel Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "code",
+      "_source_key": "CODE",
+      "name": "Code",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "specific_ids": [
+        "codepaid",
+        "codefinish",
+        "codelive",
+        "codenever",
+        "codecoll",
+        "codequiet",
+        "coderep",
+        "coderule",
+        "codesurv",
+        "codescore"
+      ],
+      "description": "Rules the character will not break, in a line of work that constantly invites breaking them. A Code covers the ones who work strictly to the law, or strictly to their own terms.",
+      "description_cite": {
+        "source": "no_disintegrations",
+        "section": "Bounty Hunter Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "growth",
+      "_source_key": "GROWTH",
+      "name": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "specific_ids": [
+        "growth1",
+        "growth2",
+        "growth3",
+        "growth4",
+        "growth5",
+        "growth6",
+        "growth7",
+        "growth8",
+        "growth9",
+        "growth10"
+      ],
+      "description": "Improving oneself and others. Growth covers the ideals a Consular wants to spread — sometimes by saying them, more often by example.",
+      "description_cite": {
+        "source": "disciples_of_harmony",
+        "section": "Consular Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "improve",
+      "_source_key": "IMPROVE",
+      "name": "Improvements",
+      "sources": [
+        "fully_operational"
+      ],
+      "specific_ids": [
+        "improve1",
+        "improve2",
+        "improve3",
+        "improve4",
+        "improve5",
+        "improve6",
+        "improve7",
+        "improve8",
+        "improve9",
+        "improve10"
+      ],
+      "description": "Making things work better. Improvements covers an Engineer's reasons — accuracy, efficiency, reliability — and the irritation of watching them done badly.",
+      "description_cite": {
+        "source": "fully_operational",
+        "section": "Engineer Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "mystery",
+      "_source_key": "MYSTERY",
+      "name": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ],
+      "specific_ids": [
+        "mystery1",
+        "mystery2",
+        "mystery3",
+        "mystery4",
+        "mystery5",
+        "mystery6",
+        "mystery7",
+        "mystery8",
+        "mystery9",
+        "mystery10"
+      ],
+      "description": "Questions the character needs answered — about the Force, about the past, about things the galaxy has forgotten. A Mystery keeps its hold for as long as it stays unsolved.",
+      "description_cite": {
+        "source": "unlimited_power",
+        "section": "Mystic Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "challenge",
+      "_source_key": "CHALLENGE",
+      "name": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ],
+      "specific_ids": [
+        "challenge1",
+        "challenge2",
+        "challenge3",
+        "challenge4",
+        "challenge5",
+        "challenge6",
+        "challenge7",
+        "challenge8",
+        "challenge9",
+        "challenge10"
+      ],
+      "description": "Something the character has set themselves to overcome — an oppressor, an opponent, or a limit of their own. Challenges covers a Warrior's reasons for putting themselves in the way of it.",
+      "description_cite": {
+        "source": "knights_of_fate",
+        "section": "Warrior Motivations",
+        "page": null
+      }
+    },
+    {
+      "id": "secret",
+      "_source_key": "SECRET",
+      "name": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "specific_ids": [
+        "secret1",
+        "secret2",
+        "secret3",
+        "secret4",
+        "secret5",
+        "secret6",
+        "secret7",
+        "secret8",
+        "secret9",
+        "secret10"
+      ],
+      "description": "What is hidden, and what the character does about it. Some are driven to uncover secrets, believing nothing should be kept from anyone; others work to keep them, believing the galaxy is sometimes better off not knowing.",
+      "description_cite": {
+        "source": "cyphers_and_masks",
+        "section": "Spy Motivations",
+        "page": null
+      }
+    }
+  ],
+  "specifics": [
+    {
+      "id": "ambdisc",
+      "_source_key": "AMBDISC",
+      "name": "Discovery",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambenlight",
+      "_source_key": "AMBENLIGHT",
+      "name": "Enlightenment",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambexper",
+      "_source_key": "AMBEXPER",
+      "name": "Expertise",
+      "category_source_key": "Ambition",
+      "sources": []
+    },
+    {
+      "id": "ambfame",
+      "_source_key": "AMBFAME",
+      "name": "Fame",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambfree",
+      "_source_key": "AMBFREE",
+      "name": "Freedom",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambfriend",
+      "_source_key": "AMBFRIEND",
+      "name": "Friendship",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambglory",
+      "_source_key": "AMBGLORY",
+      "name": "Glory",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambgreed",
+      "_source_key": "AMBGREED",
+      "name": "Greed",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambjedi",
+      "_source_key": "AMBJEDI",
+      "name": "Become a Jedi",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "amblove",
+      "_source_key": "AMBLOVE",
+      "name": "Love",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambpower",
+      "_source_key": "AMBPOWER",
+      "name": "Power",
+      "category_source_key": "Ambition",
+      "sources": []
+    },
+    {
+      "id": "ambreligion",
+      "_source_key": "AMBRELIGION",
+      "name": "Religion/Spirituality",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambrevenge",
+      "_source_key": "AMBREVENGE",
+      "name": "Revenge",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambsith",
+      "_source_key": "AMBSITH",
+      "name": "Destroy the Sith",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambstatus",
+      "_source_key": "AMBSTATUS",
+      "name": "Status",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambsurvival",
+      "_source_key": "AMBSURVIVAL",
+      "name": "Survival",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "ambwand",
+      "_source_key": "AMBWAND",
+      "name": "Wanderlust/Novelty",
+      "category_source_key": "Ambition",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "ambwealth",
+      "_source_key": "AMBWEALTH",
+      "name": "Wealth",
+      "category_source_key": "Ambition",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "belcrime",
+      "_source_key": "BELCRIME",
+      "name": "Crime",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belfree",
+      "_source_key": "BELFREE",
+      "name": "Freedom",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belhonor",
+      "_source_key": "BELHONOR",
+      "name": "Honor",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "beljustice",
+      "_source_key": "BELJUSTICE",
+      "name": "Justice",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belpeace",
+      "_source_key": "BELPEACE",
+      "name": "Peace",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belprogress",
+      "_source_key": "BELPROGRESS",
+      "name": "Progress",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belrelphil",
+      "_source_key": "BELRELPHIL",
+      "name": "Religion/Philosophy",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belrepublic",
+      "_source_key": "BELREPUBLIC",
+      "name": "The Republic",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belsprights",
+      "_source_key": "BELSPRIGHTS",
+      "name": "Species Rights",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "belthejedi",
+      "_source_key": "BELTHEJEDI",
+      "name": "The Jedi",
+      "category_source_key": "Belief",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "caucapital",
+      "_source_key": "CAUCAPITAL",
+      "name": "Capitalism",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "caucrime",
+      "_source_key": "CAUCRIME",
+      "name": "Crime",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "caudroid",
+      "_source_key": "CAUDROID",
+      "name": "Droid Rights",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "cauemanc",
+      "_source_key": "CAUEMANC",
+      "name": "Emancipation",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "cauempire",
+      "_source_key": "CAUEMPIRE",
+      "name": "Support the Empire",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "cauequal",
+      "_source_key": "CAUEQUAL",
+      "name": "Equality",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caufreedom",
+      "_source_key": "CAUFREEDOM",
+      "name": "Freedom",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caufreeent",
+      "_source_key": "CAUFREEENT",
+      "name": "Free Enterprise",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "cauhelpless",
+      "_source_key": "CAUHELPLESS",
+      "name": "Help the Helpless",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caujustice",
+      "_source_key": "CAUJUSTICE",
+      "name": "Justice",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "cauknow",
+      "_source_key": "CAUKNOW",
+      "name": "Knowledge",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caunonhum",
+      "_source_key": "CAUNONHUM",
+      "name": "Non-Human Rights",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "cauover",
+      "_source_key": "CAUOVER",
+      "name": "Overthrow the Empire",
+      "category_source_key": "Cause",
+      "sources": []
+    },
+    {
+      "id": "caupeace",
+      "_source_key": "CAUPEACE",
+      "name": "Galactic Peace",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caupolitics",
+      "_source_key": "CAUPOLITICS",
+      "name": "Local Politics",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "caureligion",
+      "_source_key": "CAURELIGION",
+      "name": "Religion/Spirituality",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "caurestjedi",
+      "_source_key": "CAURESTJEDI",
+      "name": "Restore the Jedi",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "caustopreb",
+      "_source_key": "CAUSTOPREB",
+      "name": "Stop the Rebellion",
+      "category_source_key": "Cause",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "cauweak",
+      "_source_key": "CAUWEAK",
+      "name": "The Weak/Charity",
+      "category_source_key": "Cause",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "challenge1",
+      "_source_key": "CHALLENGE1",
+      "name": "Liberation",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge10",
+      "_source_key": "CHALLENGE10",
+      "name": "Superiority",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge2",
+      "_source_key": "CHALLENGE2",
+      "name": "Birthright",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge3",
+      "_source_key": "CHALLENGE3",
+      "name": "Perfection",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge4",
+      "_source_key": "CHALLENGE4",
+      "name": "Meaning",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge5",
+      "_source_key": "CHALLENGE5",
+      "name": "Acceptance",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge6",
+      "_source_key": "CHALLENGE6",
+      "name": "Legacy",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge7",
+      "_source_key": "CHALLENGE7",
+      "name": "Recognition",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge8",
+      "_source_key": "CHALLENGE8",
+      "name": "Worthy Opponent",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "challenge9",
+      "_source_key": "CHALLENGE9",
+      "name": "Martial Mastery",
+      "category_source_key": "Challenges",
+      "sources": [
+        "knights_of_fate"
+      ]
+    },
+    {
+      "id": "codecoll",
+      "_source_key": "CODECOLL",
+      "name": "No Collateral Damage",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codefinish",
+      "_source_key": "CODEFINISH",
+      "name": "Finish the Job",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codelive",
+      "_source_key": "CODELIVE",
+      "name": "Live Capture",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codenever",
+      "_source_key": "CODENEVER",
+      "name": "Never Again",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codepaid",
+      "_source_key": "CODEPAID",
+      "name": "Always Get Paid",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codequiet",
+      "_source_key": "CODEQUIET",
+      "name": "Quiet Professionalism",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "coderep",
+      "_source_key": "CODEREP",
+      "name": "Reputation is Everything",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "coderule",
+      "_source_key": "CODERULE",
+      "name": "Rule of Law",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codescore",
+      "_source_key": "CODESCORE",
+      "name": "The Only Score that Matters",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "codesurv",
+      "_source_key": "CODESURV",
+      "name": "Survival",
+      "category_source_key": "Code",
+      "sources": [
+        "no_disintegrations"
+      ]
+    },
+    {
+      "id": "conecon",
+      "_source_key": "CONECON",
+      "name": "Economic",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conempire",
+      "_source_key": "CONEMPIRE",
+      "name": "The Empire",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "confamily",
+      "_source_key": "CONFAMILY",
+      "name": "Family",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conflict1",
+      "_source_key": "CONFLICT1",
+      "name": "Mayhem",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "conflict10",
+      "_source_key": "CONFLICT10",
+      "name": "Life Debt",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "conflict11",
+      "_source_key": "CONFLICT11",
+      "name": "Squadron",
+      "category_source_key": "Conflict",
+      "sources": [
+        "stay_on_target"
+      ]
+    },
+    {
+      "id": "conflict12",
+      "_source_key": "CONFLICT12",
+      "name": "Professional",
+      "category_source_key": "Conflict",
+      "sources": [
+        "stay_on_target"
+      ]
+    },
+    {
+      "id": "conflict13",
+      "_source_key": "CONFLICT13",
+      "name": "Best of the Best",
+      "category_source_key": "Conflict",
+      "sources": [
+        "stay_on_target"
+      ]
+    },
+    {
+      "id": "conflict14",
+      "_source_key": "CONFLICT14",
+      "name": "Retirement",
+      "category_source_key": "Conflict",
+      "sources": [
+        "stay_on_target"
+      ]
+    },
+    {
+      "id": "conflict2",
+      "_source_key": "CONFLICT2",
+      "name": "Violent Conquest",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "conflict3",
+      "_source_key": "CONFLICT3",
+      "name": "Squadmates",
+      "category_source_key": "Conflict",
+      "sources": [
+        "dangerous_covenants"
+      ]
+    },
+    {
+      "id": "conflict4",
+      "_source_key": "CONFLICT4",
+      "name": "Blood Money",
+      "category_source_key": "Conflict",
+      "sources": [
+        "dangerous_covenants"
+      ]
+    },
+    {
+      "id": "conflict5",
+      "_source_key": "CONFLICT5",
+      "name": "Honor in Battle",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "conflict6",
+      "_source_key": "CONFLICT6",
+      "name": "Best in the Field",
+      "category_source_key": "Conflict",
+      "sources": [
+        "dangerous_covenants"
+      ]
+    },
+    {
+      "id": "conflict7",
+      "_source_key": "CONFLICT7",
+      "name": "Revenge",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "conflict8",
+      "_source_key": "CONFLICT8",
+      "name": "Out of the Game",
+      "category_source_key": "Conflict",
+      "sources": [
+        "dangerous_covenants"
+      ]
+    },
+    {
+      "id": "conflict9",
+      "_source_key": "CONFLICT9",
+      "name": "Adrenaline Junky",
+      "category_source_key": "Conflict",
+      "sources": []
+    },
+    {
+      "id": "confriends",
+      "_source_key": "CONFRIENDS",
+      "name": "Friends",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conintel",
+      "_source_key": "CONINTEL",
+      "name": "Intelligence",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conlove",
+      "_source_key": "CONLOVE",
+      "name": "Love Interest",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conmilitary",
+      "_source_key": "CONMILITARY",
+      "name": "Military",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "connoone",
+      "_source_key": "CONNOONE",
+      "name": "No One",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conpolitical",
+      "_source_key": "CONPOLITICAL",
+      "name": "Political",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "conunderworld",
+      "_source_key": "CONUNDERWORLD",
+      "name": "The Underworld",
+      "category_source_key": "Connections",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "creationsm1",
+      "_source_key": "CREATIONSM1",
+      "name": "Society",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm2",
+      "_source_key": "CREATIONSM2",
+      "name": "Homestead",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm3",
+      "_source_key": "CREATIONSM3",
+      "name": "Legacy",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm4",
+      "_source_key": "CREATIONSM4",
+      "name": "Family",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm5",
+      "_source_key": "CREATIONSM5",
+      "name": "Art",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm6",
+      "_source_key": "CREATIONSM6",
+      "name": "Cure",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm7",
+      "_source_key": "CREATIONSM7",
+      "name": "Understanding",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creationsm8",
+      "_source_key": "CREATIONSM8",
+      "name": "Business",
+      "category_source_key": "Creations",
+      "sources": [
+        "far_horizons"
+      ]
+    },
+    {
+      "id": "creedsm1",
+      "_source_key": "CREEDSM1",
+      "name": "Power Corrupts",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm10",
+      "_source_key": "CREEDSM10",
+      "name": "Living Memory",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm2",
+      "_source_key": "CREEDSM2",
+      "name": "Strive for Excellence",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm3",
+      "_source_key": "CREEDSM3",
+      "name": "The Body Needs a Head",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm4",
+      "_source_key": "CREEDSM4",
+      "name": "Order from Chaos",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm5",
+      "_source_key": "CREEDSM5",
+      "name": "Never Alone",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm6",
+      "_source_key": "CREEDSM6",
+      "name": "Return the Favor",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm7",
+      "_source_key": "CREEDSM7",
+      "name": "Be Unique",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm8",
+      "_source_key": "CREEDSM8",
+      "name": "People Are Counting on Me",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "creedsm9",
+      "_source_key": "CREEDSM9",
+      "name": "Balance Must Be Restored",
+      "category_source_key": "Creed",
+      "sources": [
+        "desperate_allies"
+      ]
+    },
+    {
+      "id": "discoverysm1",
+      "_source_key": "DISCOVERYSM1",
+      "name": "Self",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm10",
+      "_source_key": "DISCOVERYSM10",
+      "name": "\"Anywhere But Here!\"",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm2",
+      "_source_key": "DISCOVERYSM2",
+      "name": "Civilization",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm3",
+      "_source_key": "DISCOVERYSM3",
+      "name": "Planets",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm4",
+      "_source_key": "DISCOVERYSM4",
+      "name": "Treasures",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm5",
+      "_source_key": "DISCOVERYSM5",
+      "name": "Secrets",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm6",
+      "_source_key": "DISCOVERYSM6",
+      "name": "Knowledge",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm7",
+      "_source_key": "DISCOVERYSM7",
+      "name": "Resources",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm8",
+      "_source_key": "DISCOVERYSM8",
+      "name": "Technology",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "discoverysm9",
+      "_source_key": "DISCOVERYSM9",
+      "name": "The Lost",
+      "category_source_key": "Discovery",
+      "sources": [
+        "enter_the_unknown"
+      ]
+    },
+    {
+      "id": "driveallcosts",
+      "_source_key": "DRIVEALLCOSTS",
+      "name": "At All Costs",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "drivecommand",
+      "_source_key": "DRIVECOMMAND",
+      "name": "Command",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "driveego",
+      "_source_key": "DRIVEEGO",
+      "name": "Ego",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "drivegame",
+      "_source_key": "DRIVEGAME",
+      "name": "The Game",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "driveguilt",
+      "_source_key": "DRIVEGUILT",
+      "name": "Guilt",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "drivemission",
+      "_source_key": "DRIVEMISSION",
+      "name": "The Mission",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "driveredemp",
+      "_source_key": "DRIVEREDEMP",
+      "name": "Redemption",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "driveretire",
+      "_source_key": "DRIVERETIRE",
+      "name": "Retirement",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "drivespirit",
+      "_source_key": "DRIVESPIRIT",
+      "name": "Spirit",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "drivesubord",
+      "_source_key": "DRIVESUBORD",
+      "name": "Subordinates",
+      "category_source_key": "Drive",
+      "sources": [
+        "lead_by_example"
+      ]
+    },
+    {
+      "id": "faicosmicfor",
+      "_source_key": "FAICOSMICFOR",
+      "name": "The Cosmic Force",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "faifriendfam",
+      "_source_key": "FAIFRIENDFAM",
+      "name": "Friends and Family",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "faigoodpeop",
+      "_source_key": "FAIGOODPEOP",
+      "name": "Goodness of People",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "faiimprule",
+      "_source_key": "FAIIMPRULE",
+      "name": "Imperial Rule",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "faijedicode",
+      "_source_key": "FAIJEDICODE",
+      "name": "The Jedi Code",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "fainat",
+      "_source_key": "FAINAT",
+      "name": "Natural World",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "fainothing",
+      "_source_key": "FAINOTHING",
+      "name": "Nothing",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "fairebellion",
+      "_source_key": "FAIREBELLION",
+      "name": "The Rebellion",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "fairelcode",
+      "_source_key": "FAIRELCODE",
+      "name": "Religious Code",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "faiscience",
+      "_source_key": "FAISCIENCE",
+      "name": "Science and Reason",
+      "category_source_key": "Faith",
+      "sources": [
+        "fad"
+      ]
+    },
+    {
+      "id": "growth1",
+      "_source_key": "GROWTH1",
+      "name": "Force Connection",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth10",
+      "_source_key": "GROWTH10",
+      "name": "Apprentice",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth2",
+      "_source_key": "GROWTH2",
+      "name": "Friendship",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth3",
+      "_source_key": "GROWTH3",
+      "name": "Hope",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth4",
+      "_source_key": "GROWTH4",
+      "name": "The Jedi Order",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth5",
+      "_source_key": "GROWTH5",
+      "name": "Life",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth6",
+      "_source_key": "GROWTH6",
+      "name": "Allies",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth7",
+      "_source_key": "GROWTH7",
+      "name": "Community",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth8",
+      "_source_key": "GROWTH8",
+      "name": "Knowledge",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "growth9",
+      "_source_key": "GROWTH9",
+      "name": "Wisdom/Experience",
+      "category_source_key": "Growth",
+      "sources": [
+        "disciples_of_harmony"
+      ]
+    },
+    {
+      "id": "improve1",
+      "_source_key": "IMPROVE1",
+      "name": "Accuracy",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve10",
+      "_source_key": "IMPROVE10",
+      "name": "Efficiency",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve2",
+      "_source_key": "IMPROVE2",
+      "name": "Challenge",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve3",
+      "_source_key": "IMPROVE3",
+      "name": "Lethality",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve4",
+      "_source_key": "IMPROVE4",
+      "name": "Aesthetics",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve5",
+      "_source_key": "IMPROVE5",
+      "name": "Reliability",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve6",
+      "_source_key": "IMPROVE6",
+      "name": "Flexibility",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve7",
+      "_source_key": "IMPROVE7",
+      "name": "Durability",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve8",
+      "_source_key": "IMPROVE8",
+      "name": "Makeshift",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "improve9",
+      "_source_key": "IMPROVE9",
+      "name": "Simplicity",
+      "category_source_key": "Improvements",
+      "sources": [
+        "fully_operational"
+      ]
+    },
+    {
+      "id": "injustice1",
+      "_source_key": "INJUSTICE1",
+      "name": "Disenfranchisement",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice10",
+      "_source_key": "INJUSTICE10",
+      "name": "Violence",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice2",
+      "_source_key": "INJUSTICE2",
+      "name": "Displacement",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice3",
+      "_source_key": "INJUSTICE3",
+      "name": "Hunger",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice4",
+      "_source_key": "INJUSTICE4",
+      "name": "Illness",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice5",
+      "_source_key": "INJUSTICE5",
+      "name": "Imprisonment",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice6",
+      "_source_key": "INJUSTICE6",
+      "name": "Oppression",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice7",
+      "_source_key": "INJUSTICE7",
+      "name": "Poverty",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice8",
+      "_source_key": "INJUSTICE8",
+      "name": "Prejudice",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "injustice9",
+      "_source_key": "INJUSTICE9",
+      "name": "Slavery",
+      "category_source_key": "Injustice",
+      "sources": [
+        "endless_vigil"
+      ]
+    },
+    {
+      "id": "innovfab",
+      "_source_key": "INNOVFAB",
+      "name": "Fabrication",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovimp",
+      "_source_key": "INNOVIMP",
+      "name": "Personal Improvement",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovinv",
+      "_source_key": "INNOVINV",
+      "name": "Invention",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovmod",
+      "_source_key": "INNOVMOD",
+      "name": "Modification",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovtechbus",
+      "_source_key": "INNOVTECHBUS",
+      "name": "Technical Business Interests",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovtechfasc",
+      "_source_key": "INNOVTECHFASC",
+      "name": "Technological Fascination",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovtechhist",
+      "_source_key": "INNOVTECHHIST",
+      "name": "Technological Historian",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovtechnecess",
+      "_source_key": "INNOVTECHNECESS",
+      "name": "Technological Necessity",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovtechrival",
+      "_source_key": "INNOVTECHRIVAL",
+      "name": "Technical Rival",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "innovwaste",
+      "_source_key": "INNOVWASTE",
+      "name": "Waste Not, Want Not",
+      "category_source_key": "Innovation",
+      "sources": [
+        "special_modifications"
+      ]
+    },
+    {
+      "id": "localeenenam",
+      "_source_key": "LOCALEENENAM",
+      "name": "Enamored of the Kindalo",
+      "category_source_key": "Location: Aleen",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "localeenfoll",
+      "_source_key": "LOCALEENFOLL",
+      "name": "Follower of Orphne",
+      "category_source_key": "Location: Aleen",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locauraiso",
+      "_source_key": "LOCAURAISO",
+      "name": "Isolationist",
+      "category_source_key": "Location: Auratera",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locaurastud",
+      "_source_key": "LOCAURASTUD",
+      "name": "Study of the Past",
+      "category_source_key": "Location: Auratera",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locbardfrang",
+      "_source_key": "LOCBARDFRANG",
+      "name": "Frangawl Sympathizer",
+      "category_source_key": "Location: Bardotta",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locbardmend",
+      "_source_key": "LOCBARDMEND",
+      "name": "Mendicant",
+      "category_source_key": "Location: Bardotta",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locbardpres",
+      "_source_key": "LOCBARDPRES",
+      "name": "Preservationist",
+      "category_source_key": "Location: Bardotta",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locdevmat",
+      "_source_key": "LOCDEVMAT",
+      "name": "Matriarch",
+      "category_source_key": "Location: Devaron",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "lociktocollab",
+      "_source_key": "LOCIKTOCOLLAB",
+      "name": "Collaborator",
+      "category_source_key": "Location: Iktotch",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "lociktoexile",
+      "_source_key": "LOCIKTOEXILE",
+      "name": "Exile",
+      "category_source_key": "Location: Iktotch",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "lociktovis",
+      "_source_key": "LOCIKTOVIS",
+      "name": "Visions of the Future",
+      "category_source_key": "Location: Iktotch",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "loclothrev",
+      "_source_key": "LOCLOTHREV",
+      "name": "Revolutionary",
+      "category_source_key": "Location: Lothal",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "loclothuppov",
+      "_source_key": "LOCLOTHUPPOV",
+      "name": "Up from Poverty",
+      "category_source_key": "Location: Lothal",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "loclothwarprof",
+      "_source_key": "LOCLOTHWARPROF",
+      "name": "War Profiteer",
+      "category_source_key": "Location: Lothal",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locnabooenvoy",
+      "_source_key": "LOCNABOOENVOY",
+      "name": "Envoy",
+      "category_source_key": "Location: Naboo",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locnaboogung",
+      "_source_key": "LOCNABOOGUNG",
+      "name": "Gungan Rights",
+      "category_source_key": "Location: Naboo",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locnaboopoet",
+      "_source_key": "LOCNABOOPOET",
+      "name": "Poet",
+      "category_source_key": "Location: Naboo",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locossusarch",
+      "_source_key": "LOCOSSUSARCH",
+      "name": "Archaeologist",
+      "category_source_key": "Location: Ossus",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locossusplund",
+      "_source_key": "LOCOSSUSPLUND",
+      "name": "Plunderer",
+      "category_source_key": "Location: Ossus",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locweikcast",
+      "_source_key": "LOCWEIKCAST",
+      "name": "Caste Member",
+      "category_source_key": "Location: Weik",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locweikforrev",
+      "_source_key": "LOCWEIKFORREV",
+      "name": "Force-Reverent",
+      "category_source_key": "Location: Weik",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "locweikwide",
+      "_source_key": "LOCWEIKWIDE",
+      "name": "Wide-Eyed Wanderer",
+      "category_source_key": "Location: Weik",
+      "sources": [
+        "nexus_of_power"
+      ]
+    },
+    {
+      "id": "mystery1",
+      "_source_key": "MYSTERY1",
+      "name": "Death",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery10",
+      "_source_key": "MYSTERY10",
+      "name": "Life",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery2",
+      "_source_key": "MYSTERY2",
+      "name": "The Force",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery3",
+      "_source_key": "MYSTERY3",
+      "name": "Destiny and Fate",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery4",
+      "_source_key": "MYSTERY4",
+      "name": "Happiness",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery5",
+      "_source_key": "MYSTERY5",
+      "name": "Balance",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery6",
+      "_source_key": "MYSTERY6",
+      "name": "Suffering",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery7",
+      "_source_key": "MYSTERY7",
+      "name": "The Jedi",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery8",
+      "_source_key": "MYSTERY8",
+      "name": "Other Force Traditions",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "mystery9",
+      "_source_key": "MYSTERY9",
+      "name": "The Dark Side of the Force",
+      "category_source_key": "Mysteries",
+      "sources": [
+        "unlimited_power"
+      ]
+    },
+    {
+      "id": "oathbalance",
+      "_source_key": "OATHBALANCE",
+      "name": "Balance of the Force",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathdepart",
+      "_source_key": "OATHDEPART",
+      "name": "Departed",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathhome",
+      "_source_key": "OATHHOME",
+      "name": "Homeland",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathjustice",
+      "_source_key": "OATHJUSTICE",
+      "name": "Justice",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathlegacy",
+      "_source_key": "OATHLEGACY",
+      "name": "Artistic Legacy",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathlife",
+      "_source_key": "OATHLIFE",
+      "name": "Life Itself",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathlove",
+      "_source_key": "OATHLOVE",
+      "name": "Love",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathrepub",
+      "_source_key": "OATHREPUB",
+      "name": "The Republic",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathspecies",
+      "_source_key": "OATHSPECIES",
+      "name": "Species",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "oathward",
+      "_source_key": "OATHWARD",
+      "name": "Ward",
+      "category_source_key": "Oath",
+      "sources": [
+        "keeping_the_peace"
+      ]
+    },
+    {
+      "id": "pursuit1",
+      "_source_key": "PURSUIT1",
+      "name": "Justice",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit10",
+      "_source_key": "PURSUIT10",
+      "name": "Vengeance",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit2",
+      "_source_key": "PURSUIT2",
+      "name": "Wealth",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit3",
+      "_source_key": "PURSUIT3",
+      "name": "Knowledge",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit4",
+      "_source_key": "PURSUIT4",
+      "name": "Deadliness",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit5",
+      "_source_key": "PURSUIT5",
+      "name": "Happiness",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit6",
+      "_source_key": "PURSUIT6",
+      "name": "Exploration",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit7",
+      "_source_key": "PURSUIT7",
+      "name": "The Force",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit8",
+      "_source_key": "PURSUIT8",
+      "name": "Self-Reliance",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "pursuit9",
+      "_source_key": "PURSUIT9",
+      "name": "Efficiency",
+      "category_source_key": "Pursuit",
+      "sources": [
+        "savage_spirits"
+      ]
+    },
+    {
+      "id": "quefreedom",
+      "_source_key": "QUEFREEDOM",
+      "name": "Freedom",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "queglory",
+      "_source_key": "QUEGLORY",
+      "name": "Glory",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "queinflu",
+      "_source_key": "QUEINFLU",
+      "name": "Influence",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "quejedi",
+      "_source_key": "QUEJEDI",
+      "name": "The Jedi",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "queredem",
+      "_source_key": "QUEREDEM",
+      "name": "Redemption",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "querescue",
+      "_source_key": "QUERESCUE",
+      "name": "Rescue",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "queriches",
+      "_source_key": "QUERICHES",
+      "name": "Riches",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "quesith",
+      "_source_key": "QUESITH",
+      "name": "The Sith",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "quethrill",
+      "_source_key": "QUETHRILL",
+      "name": "Thrill",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "queveng",
+      "_source_key": "QUEVENG",
+      "name": "Vengeance",
+      "category_source_key": "Quest",
+      "sources": [
+        "aor"
+      ]
+    },
+    {
+      "id": "relcomrades",
+      "_source_key": "RELCOMRADES",
+      "name": "Comrades",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "reldroid",
+      "_source_key": "RELDROID",
+      "name": "Droid Companion",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relfamily",
+      "_source_key": "RELFAMILY",
+      "name": "Extended Family/Clan",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relfriend",
+      "_source_key": "RELFRIEND",
+      "name": "Childhood Friend",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "rellocalciv",
+      "_source_key": "RELLOCALCIV",
+      "name": "Local Civilian",
+      "category_source_key": "Relationship",
+      "sources": [
+        "forged_in_battle"
+      ]
+    },
+    {
+      "id": "rellover",
+      "_source_key": "RELLOVER",
+      "name": "Lover",
+      "category_source_key": "Relationship",
+      "sources": [
+        "forged_in_battle"
+      ]
+    },
+    {
+      "id": "relmentor",
+      "_source_key": "RELMENTOR",
+      "name": "Mentor",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relnemesis",
+      "_source_key": "RELNEMESIS",
+      "name": "Former Nemesis",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relorigin",
+      "_source_key": "RELORIGIN",
+      "name": "Place of Origin",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relparents",
+      "_source_key": "RELPARENTS",
+      "name": "Parents",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relpet",
+      "_source_key": "RELPET",
+      "name": "Pet",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "relrival",
+      "_source_key": "RELRIVAL",
+      "name": "Rival",
+      "category_source_key": "Relationship",
+      "sources": [
+        "forged_in_battle"
+      ]
+    },
+    {
+      "id": "relsib",
+      "_source_key": "RELSIB",
+      "name": "Sibling/Siblings",
+      "category_source_key": "Relationship",
+      "sources": [
+        "eote"
+      ]
+    },
+    {
+      "id": "reltech",
+      "_source_key": "RELTECH",
+      "name": "Tech",
+      "category_source_key": "Relationship",
+      "sources": [
+        "forged_in_battle"
+      ]
+    },
+    {
+      "id": "rewardsm1",
+      "_source_key": "REWARDSM1",
+      "name": "Credits",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm10",
+      "_source_key": "REWARDSM10",
+      "name": "Independence",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm2",
+      "_source_key": "REWARDSM2",
+      "name": "Power",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm3",
+      "_source_key": "REWARDSM3",
+      "name": "Victory",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm4",
+      "_source_key": "REWARDSM4",
+      "name": "Beating the Odds",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm5",
+      "_source_key": "REWARDSM5",
+      "name": "Fame",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm6",
+      "_source_key": "REWARDSM6",
+      "name": "Esteem",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm7",
+      "_source_key": "REWARDSM7",
+      "name": "Experience",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm8",
+      "_source_key": "REWARDSM8",
+      "name": "Moral",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "rewardsm9",
+      "_source_key": "REWARDSM9",
+      "name": "Excitement",
+      "category_source_key": "Reward",
+      "sources": [
+        "fly_casual"
+      ]
+    },
+    {
+      "id": "secret1",
+      "_source_key": "SECRET1",
+      "name": "Falsification",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret10",
+      "_source_key": "SECRET10",
+      "name": "Retrieval",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret2",
+      "_source_key": "SECRET2",
+      "name": "Detection",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret3",
+      "_source_key": "SECRET3",
+      "name": "Extraction",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret4",
+      "_source_key": "SECRET4",
+      "name": "Classification",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret5",
+      "_source_key": "SECRET5",
+      "name": "Analysis",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret6",
+      "_source_key": "SECRET6",
+      "name": "Security",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret7",
+      "_source_key": "SECRET7",
+      "name": "Revelation",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret8",
+      "_source_key": "SECRET8",
+      "name": "Tracking",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    },
+    {
+      "id": "secret9",
+      "_source_key": "SECRET9",
+      "name": "Preservation",
+      "category_source_key": "Secrets",
+      "sources": [
+        "cyphers_and_masks"
+      ]
+    }
+  ],
+  "category_rolls": {
+    "die": "d10",
+    "ten": "roll once on each of any two categories",
+    "lines": {
+      "eote": {
+        "cite": {
+          "source": "eote",
+          "section": "Step 8: Determine Motivations",
+          "table": "Table 2-5",
+          "page": 94
+        },
+        "bands": [
+          {
+            "category": "amb",
+            "min": 1,
+            "max": 3
+          },
+          {
+            "category": "cause",
+            "min": 4,
+            "max": 6
+          },
+          {
+            "category": "rel",
+            "min": 7,
+            "max": 9
+          }
+        ]
+      },
+      "aor": {
+        "cite": {
+          "source": "aor",
+          "section": "Step 8: Determine Motivation",
+          "table": "Table 2-5",
+          "page": 104
+        },
+        "bands": [
+          {
+            "category": "belief",
+            "min": 1,
+            "max": 3
+          },
+          {
+            "category": "connect",
+            "min": 4,
+            "max": 6
+          },
+          {
+            "category": "quest",
+            "min": 7,
+            "max": 9
+          }
+        ]
+      },
+      "fad": {
+        "cite": {
+          "source": "fad",
+          "section": "Step 8: Determine Motivation",
+          "table": "Table 2-3",
+          "page": 104
+        },
+        "bands": [
+          {
+            "category": "amb",
+            "min": 1,
+            "max": 3
+          },
+          {
+            "category": "cause",
+            "min": 4,
+            "max": 6
+          },
+          {
+            "category": "faith",
+            "min": 7,
+            "max": 9
+          }
+        ]
+      }
+    }
+  }
+}

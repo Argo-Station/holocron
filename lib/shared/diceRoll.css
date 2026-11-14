@@ -1,0 +1,220 @@
+/* lib/shared/diceRoll.css
+ *
+ * Lane B shared flat roll-presentation CSS. The classes + keyframes that
+ * the components in lib/shared/diceRoll.jsx render (StepperRow,
+ * ResultSymbolRow, BasicResultPanel). Extracted verbatim from
+ * dice/index.html's inline <style> so any page that mounts those
+ * components (dice + player sheet modal, later) gets the same visuals.
+ *
+ * NOTE: dice/index.html keeps its own inline copies of these rules for
+ * now (harmless duplication) — this file is additive. Link it in the
+ * <head> of every page that renders the diceRoll components.
+ *
+ * Only the rules the moved 5 components reference live here — the
+ * cinematic/shell rules (CinematicDie, roll-overlay, destiny, trailer,
+ * fadeIn, …) stay in dice/index.html with the components that use them.
+ */
+
+/* ── StepperRow: roll-focus chrome dim (.dice-chrome) ──────────────── */
+/* Build-UI elements with .dice-chrome fade to ~10% during a roll cycle.
+   Body class toggled by useRollChoreography() during the roll phases.
+   R-PP2: `body.dice-rolling` is set ONLY by the HoloDice app's choreography (which stayed local in
+   diceSurface.jsx) — the sheet modal never sets it, so these dim rules are inert in the player app.
+   There is deliberately NO reduced-motion override here; add one (the dice shell's
+   `prefers-reduced-motion: body.dice-rolling .dice-chrome { opacity:1 }` pattern) ONLY if the modal
+   ever adopts roll choreography. */
+.dice-chrome {
+  transition: opacity 250ms ease;
+}
+body.dice-rolling .dice-chrome {
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+/* ── BasicResultPanel: triumph / despair extended landing pulse ────── */
+/* Applies to the result panel directly. Triumph pulses operator gold;
+   despair pulses ISB red. Both loop ~3x in 1000ms total. */
+@keyframes triumph-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 200, 66, 0.4); }
+  50%      { box-shadow: 0 0 24px 4px rgba(245, 200, 66, 0.7); }
+}
+@keyframes despair-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 85, 85, 0.4); }
+  50%      { box-shadow: 0 0 24px 4px rgba(255, 85, 85, 0.7); }
+}
+.result-panel.has-triumph { animation: triumph-pulse 333ms ease-in-out 3; }
+.result-panel.has-despair { animation: despair-pulse 333ms ease-in-out 3; }
+
+/* ── BasicResultPanel: slideUpFade entrance ────────────────────────── */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(8px); }
+  /* `to` deliberately omits `transform` so the element returns to
+     transform: none AFTER the animation ends. With `both` fill-
+     mode, retaining `transform: translateY(0)` makes the element a
+     containing block for position:fixed descendants — broke the
+     INVOKE DESTINY token positioning (which expected viewport-
+     relative coords but got section-relative ones, offset by
+     <main>'s 60px padding-top). Visually identical end state. */
+  to   { opacity: 1; }
+}
+
+/* ── BasicResultPanel: collision flash ─────────────────────────────── */
+/* Gold horizontal line that expands at the meeting point right when the
+   last die settles + the result panel mounts. */
+@keyframes collision-flash {
+  0%   { transform: translate(-50%, 0) scaleX(0); opacity: 1; }
+  40%  { transform: translate(-50%, 0) scaleX(1); opacity: 1; }
+  100% { transform: translate(-50%, 0) scaleX(1); opacity: 0; }
+}
+.collision-flash {
+  animation: collision-flash 500ms ease-out forwards;
+}
+
+/* ── ResultSymbolRow: result symbols fly in ────────────────────────── */
+/* From above (player-side glyphs) and below (GM-side glyphs) like the
+   colliding dice spawned them. Per-symbol stagger via inline animation-delay. */
+@keyframes symbol-fly-in-top {
+  from { transform: translateY(-120px); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+@keyframes symbol-fly-in-bottom {
+  from { transform: translateY(120px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+.collision-sym-top {
+  animation: symbol-fly-in-top 420ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.collision-sym-bottom {
+  animation: symbol-fly-in-bottom 420ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── BasicResultPanel: headline / detail / interpretation reveal ───── */
+/* Headline crystallizes from blur into clarity after the symbols
+   arrive. Scale settles from 1.04 to 1 for a "lock-in" feel. */
+@keyframes headline-resolve {
+  from { filter: blur(8px); opacity: 0; transform: scale(1.04); }
+  to   { filter: blur(0);   opacity: 1; transform: scale(1); }
+}
+.collision-headline {
+  animation: headline-resolve 400ms ease-out 180ms both;
+}
+.collision-detail {
+  animation: slideUpFade 240ms ease-out 580ms both;
+}
+.collision-interpretation {
+  animation: slideUpFade 240ms ease-out 580ms both;
+}
+
+/* ── Universal triumph / despair celebration ───────────────────────
+   A SCREEN-WIDE overlay (full-viewport gradient) rendered by
+   BasicResultPanel AND a symbol-local animation on the triumph/despair
+   glyph rendered by ResultSymbolRow. Both reset after the animation so
+   the symbol returns to default state. If both land in the same roll
+   (Beat 4), they play sequentially: triumph first, despair second. */
+
+/* TRIUMPH — screen-wide gold burst. mix-blend-mode: screen so it
+   lightens content beneath without obscuring it. */
+@keyframes triumph-screen-pulse {
+  0%   { opacity: 0; }
+  18%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.triumph-screen-burst {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  /* Gradient origin (--source-x, --source-y) is measured from the
+     actual triumph symbol's viewport position via JS in
+     BasicResultPanel's useEffect. Falls back to viewport center
+     if the JS measurement fails. */
+  background: radial-gradient(
+    circle at var(--source-x, 50%) var(--source-y, 38%),
+    rgba(245, 200, 66, 0.78) 0%,
+    rgba(245, 200, 66, 0.45) 25%,
+    rgba(245, 200, 66, 0.18) 55%,
+    rgba(245, 200, 66, 0)    85%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: triumph-screen-pulse 1100ms ease-out 600ms 1 both;
+}
+
+/* TRIUMPH symbol — gold halo bloom that fades back to nothing. */
+@keyframes triumph-symbol-halo {
+  0%   { filter: drop-shadow(0 0 0 rgba(245, 200, 66, 0))
+                 brightness(1); }
+  18%  { filter: drop-shadow(0 0 18px rgba(245, 200, 66, 0.95))
+                 brightness(1.6); }
+  60%  { filter: drop-shadow(0 0 12px rgba(245, 200, 66, 0.55))
+                 brightness(1.2); }
+  100% { filter: drop-shadow(0 0 0 rgba(245, 200, 66, 0))
+                 brightness(1); }
+}
+.triumph-burst {
+  animation: triumph-symbol-halo 1100ms ease-out 600ms 1 both;
+}
+
+/* DESPAIR — screen-wide ominous suck. No mix-blend-mode — we want the
+   dark to fully dim the underlying content. Delay: SOLO 600ms; PAIRED
+   with triumph 2200ms (see body:has override below). */
+@keyframes despair-screen-pulse {
+  0%   { opacity: 0; }
+  29%  { opacity: 1; }
+  75%  { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+.despair-screen-suck {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  /* Gradient origin (--source-x, --source-y) is measured from the
+     actual despair symbol's viewport position via JS in
+     BasicResultPanel's useEffect. Falls back to viewport center
+     if the JS measurement fails. The center is "transparent"
+     (only 30% darkness) so the symbol still reads — the void's
+     eye stays visible while the surrounding dim intensifies. */
+  background: radial-gradient(
+    circle at var(--source-x, 50%) var(--source-y, 38%),
+    rgba(20, 0, 0, 0.30) 0%,
+    rgba(15, 0, 0, 0.75) 50%,
+    rgba(8, 0, 0, 0.92)  100%
+  );
+  opacity: 0;
+  /* Solo despair: fires at 600ms (post-collision timing). */
+  animation: despair-screen-pulse 1800ms ease-in-out 600ms 1 both;
+}
+/* When triumph also lands (Beat 4 of demo, rare in practice):
+   despair waits for triumph + 0.5s breath. */
+body:has(.triumph-burst) .despair-screen-suck {
+  animation-delay: 2200ms;
+}
+
+/* DESPAIR symbol — becomes a black hole (brightness drops) while
+   gaining an intensifying red drop-shadow (the foreboding glow).
+   Lifted above the screen overlay via z-index so it stays visible
+   as the void center. Returns to default brightness + no shadow
+   after the animation completes. Cleanup completes at 90% (vs the
+   vignette's 100%) so no residual red glow shows on bare black. */
+@keyframes despair-symbol-void {
+  0%   { filter: brightness(1)
+                 drop-shadow(0 0 0 rgba(255, 85, 85, 0)); }
+  29%  { filter: brightness(0.35)
+                 drop-shadow(0 0 22px rgba(255, 85, 85, 0.95)); }
+  75%  { filter: brightness(0.45)
+                 drop-shadow(0 0 16px rgba(255, 85, 85, 0.75)); }
+  90%  { filter: brightness(1)
+                 drop-shadow(0 0 0 rgba(255, 85, 85, 0)); }
+  100% { filter: brightness(1)
+                 drop-shadow(0 0 0 rgba(255, 85, 85, 0)); }
+}
+.despair-suck {
+  position: relative;
+  z-index: 56;  /* above the .despair-screen-suck overlay */
+  /* Solo despair: 600ms (post-collision). */
+  animation: despair-symbol-void 1800ms ease-in-out 600ms 1 both;
+}
+body:has(.triumph-burst) .despair-suck {
+  animation-delay: 2200ms;
+}

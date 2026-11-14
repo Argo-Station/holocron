@@ -1,0 +1,638 @@
+{
+  "id": "ilum",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Ilum",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Unknown Regions",
+    "sector": "7G sector",
+    "system": "Ilum",
+    "grid": "G-7",
+    "era": "galactic_civil_war",
+    "essence": "",
+    "atmosphere": "Perpetual ice age. Towering mountain ranges buried under glaciers dozens of meters thick. Shallow frozen seas choked with drift ice. An atmosphere in near-constant churning vortex — high winds, sleet, thick snow, freezing rain. Two small moons and a wide ring of ice crystals catching the weak blue-white light of Asar. The only habitable zone is a narrow equatorial belt where temperatures remain in the double digits below freezing. Deep beneath the surface, countless kilometers of interlocking cave systems honeycombed through the crust, their walls studded with kyber crystals that glow faintly in the dark. The Jedi Temple facade — a baroque cathedral carved from native stone, etched with bas-reliefs of Jedi history, pierced by tall arched windows of multicolored glass — stands at the base of a sheer cliff, often sealed behind walls of ice and drifting snow. Inside, a bell-shaped chamber soars hundreds of meters to a domed ceiling, with two hooded Jedi statues flanking ornately carved obelisks. A frozen waterfall seals the crystal caves from the temple proper.",
+    "reputation": "To the vanishingly few who know it exists, Ilum is either the holiest place in the galaxy or a frozen backwater garrison post. Among surviving Jedi and Force traditions, it is the place where younglings became Jedi — where the Force itself tested you and either granted you a crystal or swallowed you whole. Among Imperial officers, assignment to Ilum is a punishment posting. The garrison troops are malcontents, the ships are poorly run, and the Army and Navy despise each other. Spacer rumors occasionally surface about Jedi treasure hidden inside mountainside citadels in the Unknown Regions, but the Empire cracks down hard and fast on anyone who mentions the planet by name."
+  },
+  "compendium": {
+    "background": "",
+    "government": "none",
+    "population": "",
+    "languages": "none",
+    "terrain": "frozen lakes, mountains, ice steppes",
+    "major_cities": "none",
+    "areas_of_interest": "",
+    "exports": "Ilum crystals (formerly)",
+    "imports": "none",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 4,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "old_republic",
+      "delta": ""
+    },
+    {
+      "era": "clone_wars",
+      "delta": "No permanent residents remain on Ilum. The Jedi Council recalled all inhabitants long ago, and glaciers consumed the settlements. Only the main temple stands, used by occasional Jedi pilgrims seeking crystals. Groups of six to eight younglings still undergo the Gathering. The temple is otherwise silent and empty."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With the Empire weakened, the blockade and garrison may collapse or be withdrawn. The crystal caves remain intact beneath the ice. Force-sensitives who learn of Ilum's existence may attempt the pilgrimage. The decrepit garrison infrastructure and abandoned Imperial excavation sites litter the landscape. The predators that thrived during the Imperial era remain a lethal hazard."
+    }
+  ],
+  "geography": {
+    "structure_type": "frozen_wilderness",
+    "structure_notes": "A perpetually frozen terrestrial world with no cities or permanent civilian settlements. Broad continents buried under glaciers and ice sheets dozens of meters thick. Towering mountain ranges and shallow frozen seas. The planet's crust is honeycombed by countless kilometers of interlocking cave systems containing immense kyber crystal deposits. The only structures are the ancient Jedi Temple at the crystal cave entrance, scattered Jedi ruins in various states of burial, and the Imperial garrison complex near the temple.",
+    "districts": [
+      {
+        "id": "jedi_temple_complex",
+        "name": "Jedi Temple and Crystal Caves",
+        "character": "The Jedi built a massive, baroque, cathedral-like facade at the base of a sheer cliff hundreds of meters high, marking the largest natural entrance to the crystal cave complex. The facade is carved from native stone, etched with bas-reliefs of Jedi history, pierced with tall arched windows of multicolored glass. Two enormous doors hewn from black, light-absorbing cave stone seal the entrance. The interior is a single massive bell-shaped chamber soaring hundreds of meters to a domed ceiling, with two hooded Jedi statues brandishing lightsabers among ornately carved obelisks. A frozen waterfall seals the cave entrance, thawed only every seventeen days when sunlight is focused through a huge kyber crystal suspended in a mechanical cradle from the ceiling dome. The crystal caves wind for countless kilometers through the mountain range, containing staggering deposits of mephite and pontite kyber crystals growing from walls and ceilings.",
+        "authority": "Imperial garrison (enforced), Galactic Empire (claimed)",
+        "crime_index": "none",
+        "strategic_value": [
+          "force_vergence",
+          "military",
+          "exploration"
+        ],
+        "notes": "Imperial Army Engineers built a massive reinforced plasteel containment vessel over the temple entrance — five meters thick and armored like a Star Destroyer's flanks. Guarded around the clock. The Force within the caves causes vivid hallucinations in even the most guarded mind. Countless Jedi have wandered into uncharted portions and never returned. Most of the cave system remains unexplored."
+      },
+      {
+        "id": "imperial_garrison_zone",
+        "name": "Imperial Garrison",
+        "character": "A full military garrison established not far from the Jedi Temple. Grew from an initial beachhead into a permanent installation with barracks, motor pool, communications, and landing pads. Small observation outposts scattered around the planet. The garrison is in a state of turmoil — the Army and Navy forces are openly hostile to one another, communicating only through official channels with no real cooperation beyond what is absolutely necessary.",
+        "authority": "Imperial Army garrison commander",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "command"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "holenesh_canyon",
+        "name": "Holenesh Canyon",
+        "character": "",
+        "authority": "none (abandoned)",
+        "crime_index": "none",
+        "strategic_value": [
+          "exploration",
+          "hidden"
+        ],
+        "notes": "Parts of the settlement have been exposed through erosion and seismic activity. Contents were surprisingly well preserved. Due to remoteness, precious little has been removed. Anyone with skills and courage to excavate might unearth ancient Jedi relics. The Force anomaly's nature and cycle remain unstudied."
+      },
+      {
+        "id": "excavation_sites",
+        "name": "Imperial Excavation Sites",
+        "character": "",
+        "authority": "Imperial Army (nominal)",
+        "crime_index": "none",
+        "strategic_value": [
+          "exploration",
+          "informational"
+        ],
+        "notes": "Staffed by temporary researchers comprising 30% of the planet's population. The quality and dedication of research personnel varies given the garrison's reputation as a dumping ground."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human (Imperial personnel)",
+      "population_level": "sole_sentient",
+      "social_role": "Military garrison, researchers, support crew. No native sentient species. No evidence of sentient life ever having evolved on Ilum. All current inhabitants are Imperial personnel assigned to the garrison and research mission.",
+      "districts": [
+        "imperial_garrison_zone",
+        "excavation_sites"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_garrison_ilum",
+      "name": "Imperial Garrison (Ilum)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "none",
+        "dark_side": "moderate",
+        "financial": "none",
+        "note": ""
+      },
+      "motivation": "Secure the Jedi Temple and crystal caves. Prevent any surviving Jedi from accessing kyber crystals. Maintain planetary blockade. Support archaeological research into Jedi relics and secrets. The Emperor is personally invested in Ilum's denial to Force users, even if the garrison personnel do not understand or care about the strategic reasoning.",
+      "assets": [
+        "Approximately 150 Army soldiers (infantry, light armor, engineering units)",
+        "AT-ST walkers, light armor, patrol and utility speeders",
+        "Reinforced plasteel containment vessel over temple entrance (5m thick, Star Destroyer-grade armor)",
+        "Observation outposts scattered around the planet",
+        "Gladiator-class Star Destroyer Hoplite (Captain Malthegn), escort frigates and gunboats (naval blockade)"
+      ],
+      "relationships": [],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "Jedi relics, kyber crystals, lightsaber components, ancient Jedi texts and records. The research mission's entire purpose is recovering and cataloguing Force-related artifacts."
+        },
+        {
+          "type": "person",
+          "reason": "Any surviving Jedi or Force-sensitive attempting to reach Ilum. Standing orders from the Emperor to detain or eliminate."
+        }
+      ]
+    },
+    {
+      "id": "force_tradition_remnant",
+      "name": "Force Tradition Remnant",
+      "galaxy_faction_ref": null,
+      "type": "force_tradition",
+      "control_type": [],
+      "control_strength": "none",
+      "susceptibility": {
+        "imperial": "extreme",
+        "criminal": "none",
+        "financial": "none",
+        "note": ""
+      },
+      "motivation": "Pilgrimage to the crystal caves to obtain kyber crystals for lightsaber construction. Reconnection with Jedi tradition. Personal trial and growth through the Gathering. Some may seek ancient Jedi relics or knowledge preserved in the ruins.",
+      "assets": [],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison_ilum",
+          "type": "adversarial",
+          "notes": "The garrison exists specifically to prevent Force users from reaching the caves. Any Force-sensitive discovered on Ilum would trigger immediate escalation and likely an Inquisitor dispatch."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "Kyber crystals — mephite, pontite, and other varieties. The heart of every Jedi's lightsaber. The Gathering ritual within the caves is the traditional path to obtaining one."
+        },
+        {
+          "type": "knowledge",
+          "reason": "Jedi training methods, lightsaber construction techniques, Force traditions preserved in the temple and ruins. The crystal caves themselves are a site of profound Force connection."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "crystal_caves",
+      "name": "Crystal Caves",
+      "district_id": "jedi_temple_complex",
+      "type": [
+        "force_vergence",
+        "exploration"
+      ],
+      "controlling_faction_id": "imperial_garrison_ilum",
+      "controlling_faction_notes": "Imperial Army Engineers sealed the temple entrance with a reinforced plasteel containment vessel. Guarded around the clock. However, the cave system extends for thousands of kilometers beneath the mountains with countless uncharted entrances. The Empire cannot control the entire subterranean network.",
+      "strategic_value": "Home to perhaps the largest deposit of kyber crystals anywhere in the galaxy — mainly mephite and pontite. A Force vergence of staggering power that adds automatic Light Side pips to Force checks. The caves were the Jedi Order's most sacred place and the site of the Gathering, their Padawan coming-of-age ceremony. The stone is smooth, black, basalt-like volcanic rock. Crystals grow from walls and ceilings and can often be removed by hand. The sheer size is staggering — ancient surveys suggest thousands or tens of thousands of kilometers of tunnels. The Force causes vivid hallucinations that have led countless explorers astray, never to return.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "gorgodon",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Gorgodons haunt the cave systems. Massive reptilian creatures with simian bodies, shaggy grey fur, almost blaster-proof hides. Sharp claws, three rows of teeth. Vulnerable spot at back of neck."
+        },
+        {
+          "archetype_ref": "guid",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Transplanted to Ilum long ago. Stalk the caves."
+        },
+        {
+          "archetype_ref": "blismal",
+          "tier": "minion",
+          "count": "4+",
+          "notes": "Small furry rodents living deep beneath the surface. When frightened, groups of four or more create a shriek loud enough to shatter crystals and cause cave-ins. Force-connected."
+        },
+        {
+          "archetype_ref": "razhak",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Armored, segmented, worm-like predators averaging eight meters long. Can generate intense heat to tunnel through ice. Deceptively fast. Extremely dangerous — recommended for Knight-level PCs."
+        }
+      ]
+    },
+    {
+      "id": "temple_entrance",
+      "name": "Jedi Temple Entrance",
+      "district_id": "jedi_temple_complex",
+      "type": [
+        "military",
+        "force_vergence"
+      ],
+      "controlling_faction_id": "imperial_garrison_ilum",
+      "controlling_faction_notes": "The reinforced plasteel containment vessel over the entrance is five meters thick and armored like a Star Destroyer's flanks. Guarded around the clock. The temple interior beyond is largely undamaged.",
+      "strategic_value": "The primary entrance to the crystal caves and the only known charted route to the richest kyber deposits. The baroque cathedral facade, the bell-shaped interior chamber, the frozen waterfall mechanism — all intact. The seventeen-day cycle of the sun aligning to melt the waterfall via the suspended kyber crystal is the traditional means of entering the caves. A Jedi's first test was clearing the ice and snow from the sealed entrance.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_army_trooper",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Guards posted at the containment vessel entrance. Soldiers from the garrison's infantry units. Quality varies widely given the posting's reputation."
+        },
+        {
+          "archetype_ref": "imperial_army_engineer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Engineering officer responsible for maintaining the containment vessel and temple security infrastructure."
+        }
+      ]
+    },
+    {
+      "id": "imperial_excavation_primary",
+      "name": "Primary Imperial Excavation Site",
+      "district_id": "excavation_sites",
+      "type": [
+        "exploration",
+        "informational"
+      ],
+      "controlling_faction_id": "imperial_garrison_ilum",
+      "controlling_faction_notes": "Staffed by temporary researchers under light military supervision. The excavation sites are scattered across the planet's ice sheets and mountains.",
+      "strategic_value": "Imperial research outposts searching for Jedi relics, artifacts, and secrets. Researchers catalog findings and transmit reports off-world. Any kyber crystals or Force artifacts recovered are shipped to Imperial facilities. The quality of research varies — some personnel are genuinely competent archaeologists, others are exiles marking time until reassignment.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_researcher",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Temporary researchers. Some may be sympathetic to Jedi history or willing to trade information. Others are loyal Imperial agents."
+        },
+        {
+          "archetype_ref": "imperial_army_trooper",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Light security detail. Bored and often resentful of the posting."
+        }
+      ]
+    },
+    {
+      "id": "holenesh_ruins",
+      "name": "Holenesh Canyon Jedi Ruins",
+      "district_id": "holenesh_canyon",
+      "type": [
+        "exploration",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Uncontrolled. Five hundred kilometers from the garrison. The Empire is aware of the ruins but the remoteness and harsh conditions make regular patrols impractical.",
+      "strategic_value": "Ancient Jedi settlement ruins partially exposed through millennia of erosion and seismic activity. Contents surprisingly well preserved. Due to remoteness, precious little has been removed. Potential source of ancient Jedi relics, texts, and artifacts. The Force anomaly that the settlement was built to study — occurring once every few hundred years — remains uninvestigated.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "asharl_panther",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": "Large aggressive territorial felines, two to three meters long. Dense fur in white, gray, and blue. Tentacle-like sensory organs on shoulders. Hunt in pairs or groups of four. When assisting, grant double bonus dice."
+        }
+      ]
+    }
+  ],
+  "encounter_population": [
+    {
+      "faction_id": "imperial_garrison_ilum",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The garrison is at its most depleted. Only a skeleton crew remains at the temple containment vessel. Observation outposts around the planet are unmanned. The naval blockade is reduced to a single frigate or gunboat making irregular patrols. The Army-Navy rivalry has escalated to the point where coordination has effectively ceased. Excavation sites operate with no military supervision.",
+          "presence_reason": "Ships and troops recalled for operations elsewhere. The garrison's reputation as a dumping ground means its personnel are the first to be reassigned when needed. Alternatively, a severe breakdown in Army-Navy relations has rendered the garrison non-functional.",
+          "roles": [
+            {
+              "role": "Garrison trooper",
+              "archetype_ref": "imperial_army_trooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "A handful of soldiers maintaining the containment vessel guard rotation. Demoralized and poorly supplied."
+            },
+            {
+              "role": "Garrison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A single officer nominally in command. Likely an incompetent or malcontent assigned here as punishment."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard garrison operations as established after Order 66. Approximately 150 soldiers at the temple garrison with AT-ST walkers and light armor. Observation outposts manned. The Gladiator-class Star Destroyer Hoplite maintains blockade with escort frigates and gunboats. The Army and Navy communicate through official channels but cooperation is minimal. Excavation sites have light security details. The containment vessel is guarded around the clock.",
+          "presence_reason": "Default state. The Emperor insists on the garrison's importance, so it is maintained even though the posting is used to dispose of problem personnel. Captain Malthegn commands the naval component from the Hoplite.",
+          "roles": [
+            {
+              "role": "Garrison trooper",
+              "archetype_ref": "imperial_army_trooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Infantry soldiers on guard rotation and patrol. AT-ST walkers available for surface operations."
+            },
+            {
+              "role": "Garrison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Army officers managing the garrison. Hostile to Navy counterparts."
+            },
+            {
+              "role": "Naval blockade patrol",
+              "archetype_ref": "imperial_navy_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Captain Malthegn aboard the Hoplite. Frigate and gunboat escorts patrol the system. Hostile to Army personnel on the surface."
+            },
+            {
+              "role": "Imperial researcher",
+              "archetype_ref": "imperial_researcher",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Temporary researchers at excavation sites cataloguing Jedi artifacts."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The garrison has been reinforced. Additional troops deployed to the surface. The naval blockade strengthened with additional warships. The containment vessel entrance is double-guarded. Patrols extend beyond the garrison perimeter to cover excavation sites and known Jedi ruins. The Army-Navy rivalry is temporarily suppressed by the presence of a senior officer sent to restore order.",
+          "presence_reason": "Intelligence suggests a Force-sensitive or surviving Jedi is attempting to reach Ilum. Alternatively, an Inquisitor has arrived with orders and the authority to override local command. Or a significant Jedi artifact has been discovered at an excavation site, drawing Imperial attention.",
+          "roles": [
+            {
+              "role": "Garrison trooper",
+              "archetype_ref": "imperial_army_trooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Reinforced infantry with AT-ST patrols covering wider territory."
+            },
+            {
+              "role": "Senior garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Sent from off-world to take direct command and resolve the Army-Navy dysfunction."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating reports of Force-sensitive activity or security breaches. Has authority to interrogate garrison personnel."
+            },
+            {
+              "role": "Naval blockade (reinforced)",
+              "archetype_ref": "imperial_navy_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Additional warships joining the Hoplite. Tighter orbital patrol patterns. All approaching vessels intercepted and boarded."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial lockdown. A Star Destroyer task force in orbit. Surface crawling with stormtroopers and heavy armor. The crystal caves are being actively explored by Imperial forces with Force-suppression equipment. An Inquisitor is present, personally directing operations within the temple. The containment vessel entrance is opened under heavy guard for authorized Imperial expeditions into the caves.",
+          "presence_reason": "Confirmed Jedi presence on Ilum, discovery of a major Force artifact, or a direct order from the Emperor or Darth Vader. This level of commitment to Ilum would be extraordinary and temporary — the Empire has higher priorities, but the Emperor's personal interest in denying kyber crystals to Force users could trigger it.",
+          "roles": [
+            {
+              "role": "Stormtrooper assault force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 24,
+              "notes": "Snowtrooper-equipped assault teams. Patrols covering all known sites. Search teams in the crystal caves."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Dispatched to hunt confirmed Force-sensitives and exploit the vergence. Has supreme authority over all garrison operations."
+            },
+            {
+              "role": "Task force commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior naval officer commanding the Star Destroyer task force. Direct communication with Imperial High Command."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Intelligence operatives supporting the Inquisitor. Screening all personnel for compromised loyalties."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "The naval blockade tightens patrol frequency. Garrison observation outposts report any anomalous readings. Excavation site researchers are questioned about unusual Force-related discoveries. The Army-Navy rivalry may actually help infiltrators — each branch assumes the other is responsible for any gaps.",
+        "targeted": "ISB alerted. The Hoplite begins active scanning of the system. All excavation sites locked down. Garrison troops deploy to temple perimeter in force. Captain Malthegn and the garrison commander are forced to coordinate, which they do poorly.",
+        "manhunt": "Inquisitor dispatched from off-world. Snowtrooper teams deployed across the surface. The crystal caves are entered by Imperial search parties despite the danger. Naval blockade reinforced. Any vessel in the system is stopped and boarded. The garrison's dysfunction becomes a serious liability as the Empire attempts to coordinate a planet-wide search in extreme environmental conditions."
+      }
+    },
+    {
+      "faction_id": "environmental_hazards",
+      "presence_levels": {
+        "surface_predators": {
+          "description": "The frozen surface is stalked by lethal predators adapted to Ilum's extreme conditions. Asharl panthers hunt in pairs or groups of four across the steppelands and high latitudes. Gorgodons — massive, almost blaster-proof reptilian brutes covered in shaggy grey fur — attack without provocation and are among the most dangerous creatures on the planet. Lisks are pack hunters that lie in wait beneath fresh snowfall to ambush unsuspecting creatures.",
+          "presence_reason": "Native and transplanted fauna. These creatures predate the Jedi presence and have thrived in the absence of organized Jedi management.",
+          "roles": [
+            {
+              "role": "Asharl panther",
+              "archetype_ref": "asharl_panther",
+              "tier": "rival",
+              "count": "2-4",
+              "notes": "Large territorial felines, 2-3m long. Dense white/gray/blue fur. Tentacle-like sensory organs on shoulders. Pack Instincts grant double assist dice. Adversary 1."
+            },
+            {
+              "role": "Gorgodon",
+              "archetype_ref": "gorgodon",
+              "tier": "rival",
+              "count": "1-2",
+              "notes": "Massive reptilian brutes. Silhouette 2. Almost blaster-proof hides. Constrictor ability causes suffocation. Damage 8 claws with Ensnare 3, Pierce 2, Vicious 1. Vulnerable spot at back of neck. Adversary 1."
+            },
+            {
+              "role": "Lisk pack",
+              "archetype_ref": "lisk",
+              "tier": "minion",
+              "count": "3-6",
+              "notes": "Pack hunters concealed beneath fresh snowfall. Ambush predators."
+            }
+          ]
+        },
+        "cave_predators": {
+          "description": "The cave systems beneath Ilum's surface harbor their own ecosystem of dangerous creatures. Guids stalk the tunnels. Razhak — armored, segmented, worm-like predators averaging eight meters long — are among the most fearsome. They generate intense heat to tunnel through ice and can swallow prey whole. Blismal, while small and inoffensive individually, can produce a combined shriek loud enough to shatter crystals and cause cave-ins.",
+          "presence_reason": "Cave-dwelling fauna, some transplanted to Ilum in the distant past. The cave ecosystem is largely independent of surface conditions.",
+          "roles": [
+            {
+              "role": "Razhak",
+              "archetype_ref": "razhak",
+              "tier": "nemesis",
+              "count": "1",
+              "notes": "Silhouette 2. Eight meters long. Armored, segmented, worm-like. Searing Touch deals 2 wounds and 2 strain to engaged opponents at end of turn. Mandibles: Damage 10, Knockdown, Pierce 4, Sunder. Fearsome 3. Adversary 1. Knight-level threat."
+            },
+            {
+              "role": "Guid",
+              "archetype_ref": "guid",
+              "tier": "minion",
+              "count": "2-4",
+              "notes": "Transplanted cave stalkers. Hunt in the tunnels and caverns."
+            },
+            {
+              "role": "Blismal colony",
+              "archetype_ref": "blismal",
+              "tier": "minion",
+              "count": "4+",
+              "notes": "Small furry rodents. Individually harmless. Groups of 4+ can shriek to cause Hard Resilience check — failure inflicts 4 strain and disorientation. Can shatter crystals and cause cave-ins. Force-connected. Domesticable by Force users."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_garrison_ilum"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "fad_kyber_pilgrimage": {
+        "name": "Kyber Crystal Pilgrimage",
+        "system": "fad",
+        "description": "The PCs are Force-sensitives seeking kyber crystals for lightsaber construction. They must locate Ilum in the Unknown Regions using Force-assisted navigation, bypass the Imperial naval blockade, survive the frozen surface and its predators, penetrate the sealed Jedi Temple, and undergo the Gathering in the crystal caves. The vergence tests each character with hallucinations exploiting their emotional weaknesses tied to their Morality. Success grants an Ilum kyber crystal. The Army-Navy dysfunction within the garrison provides potential openings for infiltration.",
+        "starting_heat": "patrol",
+        "flags_set": [
+          "jedi_pilgrimage_active"
+        ],
+        "encounter_seeds": [
+          "Navigate to Ilum via Force-assisted hyperspace jump from Metellos (requires Force sensitivity)",
+          "Evade or deceive the Gladiator-class Star Destroyer Hoplite and its escort flotilla",
+          "Survive landing on the frozen surface — cold-weather gear mandatory, predator encounters likely",
+          "Exploit the Army-Navy rivalry to approach the temple undetected",
+          "Breach or bypass the reinforced plasteel containment vessel over the temple entrance",
+          "Clear ice and snow from the sealed temple doors — the traditional first test",
+          "Align the kyber crystal cradle with sunlight to thaw the frozen waterfall (17-day cycle)",
+          "Undergo the Gathering: Hard fear check vs. emotional weakness (Morality), failure generates 5 Conflict",
+          "Escape with kyber crystals before the garrison responds"
+        ],
+        "vergence_rules": ""
+      }
+    }
+  },
+  "influences": [
+    {
+      "id": "force_vergence_crystal_caves",
+      "type": "force",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "overwhelming",
+      "strength_FaD_preset": "overwhelming",
+      "known_to_players_default": false,
+      "expressions": [
+        {
+          "faction_id": "force_tradition_remnant",
+          "description": "The vergence draws Force-sensitives across the galaxy. Surviving Jedi or new Force adepts may feel compelled to seek Ilum without fully understanding why. The crystal caves test all who enter, regardless of training or allegiance."
+        },
+        {
+          "faction_id": "imperial_garrison_ilum",
+          "description": "The garrison is largely unaware of the vergence's true nature. Non-Force-sensitive personnel may experience unease, strange dreams, or disorientation near the temple and caves without understanding the cause. The Emperor's interest in Ilum is driven by his understanding of the vergence, but this knowledge is not shared with garrison personnel."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "overwhelming",
+          "modifier": "Force power checks and Force talent checks within the crystal caves gain automatic 2 Light Side pips. The caves produce vivid hallucinations that can disorient, terrify, or enlighten visitors. Navigation without Force guidance is effectively impossible in uncharted sections. The vergence cannot be suppressed or diminished — it is a fundamental property of Ilum itself."
+        }
+      ]
+    },
+    {
+      "id": "imperial_corruption_of_sacred_site",
+      "type": "political",
+      "source_faction_id": "imperial_garrison_ilum",
+      "source_description": "The Empire's occupation of Ilum represents the deliberate corruption of the Jedi Order's most sacred site. The reinforced plasteel containment vessel over the temple entrance is a brutal imposition on a structure that stood for tens of thousands of years. Imperial excavation teams strip Jedi artifacts for analysis and military application. The garrison's function is denial — preventing Force users from accessing the crystals that are central to Jedi tradition. The Emperor personally ordered the occupation, understanding the symbolic and practical importance of controlling the Jedi's source of lightsaber crystals.",
+      "strength_default": "significant",
+      "strength_FaD_preset": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_garrison_ilum",
+          "description": "Garrison personnel carry out their mission without understanding its full significance. Most view the posting as punishment. The Army-Navy rivalry distracts from the mission's purpose. Researchers may develop reverence for the artifacts they catalog, creating potential sympathies."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "The juxtaposition of Imperial military infrastructure against ancient Jedi sacred architecture creates a powerful emotional resonance for Force-sensitive PCs. The temple interior is largely undamaged — the Empire sealed it rather than destroying it, suggesting even the Emperor recognized the value of preservation. This tension between desecration and preservation can inform roleplay and Morality checks."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "metellos_ilum_route",
+        "destination": "Metellos (Core Worlds — jumping-off point)",
+        "travel_time": null,
+        "route_quality": "secret_jedi_route",
+        "notes": "A dedicated hyperspace lane mapped by ancient Jedi surveyors from Metellos directly to Ilum's orbit. Navigation is so complex that a ship's pilot needs to be at least Force-sensitive, if not a fully trained Jedi Master, to attempt it. All references to this route were quashed by the Jedi Council. The Empire likely discovered the route's existence in captured Jedi archives but may not be able to navigate it without Force-sensitive pilots. Jedi accounts describe Force-assisted hyperspace jumps using Metellos as the jumping-off point.",
+        "source_refs": [
+          {
+            "book": "Nexus of Power",
+            "page": 12,
+            "detail": ""
+          },
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 375,
+            "detail": ""
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "unknown_regions_barrier",
+        "type": "hyperspace_distortion",
+        "description": "Ilum lies deep within the Unknown Regions, behind a near-impenetrable barrier of hyperspatial anomalies, gravitational eddies, and tangled hyperspace routes that fade and vanish over time. Most ships that jump into hyperspace through this barrier simply vanish. Even with the Jedi-mapped route from Metellos, Force-assisted navigation is required. The Empire discovered Ilum's location in conquered Jedi archives, but the difficulty of reaching the system limits the scale of forces they can deploy and rotate.",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 365,
+            "detail": ""
+          }
+        ]
+      },
+      {
+        "id": "force_resonance_beacon",
+        "type": "force_phenomenon",
+        "description": "",
+        "source_refs": [
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 375,
+            "detail": ""
+          },
+          {
+            "book": "Nexus of Power",
+            "page": 12,
+            "detail": ""
+          }
+        ]
+      }
+    ]
+  },
+  "source_refs": [
+    "Force and Destiny Core Rulebook pp.200, 365-366, 375, 434, 436",
+    "Nexus of Power (Worlds Strong in the Force) pp.11-16, 75-76",
+    "Edge of the Empire Core Rulebook p.357",
+    "Age of Rebellion Core Rulebook p.369",
+    "GM Holocron 5.1.2 p.47",
+    "Collapse of the Republic p.64",
+    "Rise of the Separatists p.64",
+    "Warrior Sourcebook pp.46, 87",
+    "Gadgets and Gear p.53"
+  ]
+}

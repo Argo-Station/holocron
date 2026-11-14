@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/crafting-template.schema.json",
+  "title": "Crafting Template",
+  "description": "A crafting template — the thing a player picks at Step 1 of the RAW crafting procedure. Shape fixed on paper by ruling `crafting-module-concept` §4.4 as an R-SY4 durable contract; changing it after v1 ships is a fresh R-SY4 halt, not a lap tweak. RAW is ONE engine, N tables (Special Modifications p.74): every category repeats the same three steps against this same shape, so categories 2..N (ranged weapons, armor, gadgets, cybernetics, droids LAST) are DATA laps, never engine changes (R-CRAFT-1). PROVENANCE IS UNUSUAL AND LOAD-BEARING: no value in the v1 registry came from the corpus. The OCR of these tables was unusable, so every number was read from the printed book by Jason via Docs/worksheets/crafting-melee-spend-tables.md, and R-CRAFT-4 makes that worksheet the ONLY legal entry path — an unfilled blank ships as ABSENT, never guessed. Page cites are PRINTED numbering; this book's corpus runs +3.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "material_price",
+    "material_rarity",
+    "check",
+    "time",
+    "result_profile",
+    "sources", "ogg_keys"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app-owned template id, slugged from Name (e.g. 'vibro_weapon'). Unique within the registry. This is what a crafting session references."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name exactly as printed in the template table, e.g. 'Powered Melee Weapon'."
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Crafting category id; MUST match an entry in the registry's `categories` list. v1 ships 'brawl_melee' only. The category is the unit a future data lap adds (R-CRAFT-1)."
+    },
+    "material_price": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Cost in credits of the materials for one attempt (Step 2). RAW treats materials as a single item with this price and rarity. Inform-never-gate at the surface: a credit shortfall informs loudly and never blocks (concept §4.1)."
+    },
+    "material_rarity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Rarity of the materials, on the standard 0-10 scale used across the item registries."
+    },
+    "restricted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the materials are Restricted — printed as (R) beside the price. All six v1 melee templates are unrestricted (confirmed at inspection); the flag exists because later categories print (R) rows."
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["difficulty", "skills"],
+      "description": "The Step 3 construction check.",
+      "properties": {
+        "difficulty": {
+          "enum": ["simple", "easy", "average", "hard", "daunting", "formidable"],
+          "description": "Difficulty by NAME, not by die count. The name-to-dice mapping is core-rules fixed and derived at render — storing dice here would duplicate derivable data and drift. The full ladder is admitted (not just the four v1 uses) because the Schematic improvement can reduce a template's difficulty to a minimum of Simple, and later categories print Formidable rows."
+        },
+        "skills": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "description": "Canonical skill ids the check may be made with; each MUST resolve in the skill vocab. MORE THAN ONE MEANS EITHER/OR, NOT BOTH — the book prints 'Mechanics or Survival' for the four low-tech melee templates, and the crafter picks. Any surface offering this must present a choice, never a joint requirement."
+        }
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hours"],
+      "description": "Base build time before successes are applied. Stored in hours because hours are the unit the construction rule operates in (it subtracts 2 per extra success, floor 1); the book prints some rows as days, converted once here rather than at every consumer.",
+      "properties": {
+        "hours": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "examples": {
+      "type": "string",
+      "description": "The book's own example items for this template (e.g. 'Vibro-ax, vibroknife, vibrosword'). Display aid only — a template deliberately describes a CLASS of item, not one model, and the crafter names their own result. Never treat this as an item reference."
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Full book names, matching the convention in weapons.json. Feeds the ⚙ ACTIVE SOURCES filter, so a template from a book the player has switched off must not be offered."
+    },
+    "cite": {
+      "type": "string",
+      "pattern": "^.+ p\\.[0-9]+$",
+      "description": "Page cite for the template row, PRINTED numbering (e.g. 'Special Modifications p.76')."
+    },
+    "corrections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "from", "to", "cite", "why"],
+        "properties": {
+          "field": { "type": "string", "minLength": 1, "description": "The dotted path of the corrected value on this record (e.g. `flags.once_only`)." },
+          "from": { "description": "OggDude's value." },
+          "to": { "description": "The book's value, EQUAL to the record's value at `field`." },
+          "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$", "description": "The printed page that reads it." },
+          "why": { "type": "string", "minLength": 1, "description": "What the page reads, naming the DECISIONS id that read it." }
+        }
+      },
+      "description": "Card `release-r5-board-answers` K2 (R-Y2-1, on paper there): vehicle-weapons' `corrections` item shape, adopted for a crafting row: a value the book prints otherwise than OggDude, held at the book's value. Jason's read of a book board turns an `inferred` entry into one (DECISIONS D-321: Faulty and Ion-Shielded are not once only). No field sits in both `corrections` and `inferred`. Absent = the row holds OggDude's values wherever the page agrees."
+    },
+    "inferred": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "value", "from", "cite", "why"],
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The dotted path of the inferred value on this record (e.g. `req`, `result_profile.crit`)."
+          },
+          "value": { "description": "The value held, EQUAL to the record's value at `field` (a guard proves it)." },
+          "from": { "const": "oggdude" },
+          "cite": {
+            "type": "string",
+            "pattern": "^.+ p\\.[0-9]+$",
+            "description": "The printed page whose text lost the value."
+          },
+          "why": { "type": "string", "minLength": 1, "description": "What the page lost." }
+        }
+      },
+      "description": "`release-r5-crafting-sm-card` ADDENDUM 2 (R-Y2-1), exactly `release-r5-data-card` ADDENDUM 6's shape — one shape, two registries: a value the printed page lost (a cost glyph, a damaged cell), held at OggDude's value until Jason reads the book's board. His read turns an entry into a page correction or removes it. Absent = every value on this record is read off the page."
+    },
+    "ogg_keys": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+      "description": "`release-r5-crafting-sm-card` ADDENDUM 4 (R-Y2-1): the OggDude CraftTemplate keys this template stands for — the plural of the starship rows' `ogg_key`, because one printed template may be several OggDude keys (powered_melee_weapon three, cybernetic_appendage two). Required; each key unique registry-wide (validate_registries L1.craft). Import maps any listed key here; export writes the FIRST, unless `by_choice` picks it. Not `_source_key`, which keeps its ingest meaning."
+    },
+    "by_choice": {
+      "type": "object", "minProperties": 2,
+      "additionalProperties": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+      "description": "Card ADDENDUM 4: where the template's `choice` picks its OggDude key (the Appendage: brawn → CYBERAPPBR, agility → CYBERAPPAG), an explicit map from the chosen value to one of `ogg_keys`; export writes that key. Only with `choice`."
+    },
+    "choice": {
+      "description": "`release-r5-crafting-contract` ADDENDUM 4 (R-Y2-1): what the crafter CHOOSES at craft time — a skill of a skills.vocab group, or one characteristic among a printed few. Saved on the project as `sheet.crafts[].choice` and on the finished item as `_inline.chosen` ({skill} | {characteristic}, ids only); construction is not reachable without it.",
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["kind", "group"],
+          "properties": { "kind": { "const": "skill" }, "group": { "type": "string", "pattern": "^[a-z_]+$", "description": "a skills.vocab.json `group` (\"general\")" } } },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "among"],
+          "properties": { "kind": { "const": "characteristic" },
+            "among": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "enum": ["brawn", "agility", "intellect", "cunning", "willpower", "presence"] } } } }
+      ]
+    },
+    "effects": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "required": ["type"] },
+      "description": "Contract ADDENDUM 4: what the finished item does that its profile cannot hold until the crafter's choice is known — `pool_mod` and `item_character_effect` lines in the SHARED option-effect grammar (item-common base_mods.effect), where `{ \"choice\": \"skill\" }` or `{ \"choice\": \"characteristic\" }` stands in an id's place (a pool_mod's applies_to value; an item_character_effect's key). Resolved at build with the project's choice and applied first, through the same applier as a spend row; a slot is NEVER persisted (test/release_r5_crafting_choice.cjs). validate_registries L1.craft validates each line, slots resolved, against the shared grammar."
+    },
+    "result_profile": {
+      "type": "object",
+      "description": "What the finished item IS — the canonical item record shape, so a crafted result persists through the `_inline` seam (lib/shared/itemResolve.js) and resolves identically to a catalog item. Deliberately mirrors weapon.schema.json's required core (name/skill/damage/crit/range/qualities) rather than inventing a crafted-item shape: concept §4.2 requires the crafted weapon render through the SAME card/roll/quality pipeline, with a guard asserting no surface branches on crafted-ness.",
+      "additionalProperties": true,
+      "required": ["name"],
+      "anyOf": [
+        { "required": ["skill", "damage", "crit", "range", "qualities"] },
+        { "required": ["type", "encumbrance"], "not": { "anyOf": [{ "required": ["damage"] }, { "required": ["crit"] }] } },
+        { "required": ["encumbrance"], "anyOf": [{ "required": ["soak"] }, { "required": ["defense"], "properties": { "defense": { "minimum": 1 } } }],
+          "not": { "anyOf": [{ "required": ["damage"] }, { "required": ["crit"] }, { "required": ["skill"] }] } },
+        { "required": ["passengers"],
+          "not": { "anyOf": [{ "required": ["damage"] }, { "required": ["crit"] }, { "required": ["skill"] }, { "required": ["soak"] }, { "required": ["encumbrance"] }] } },
+        { "required": ["tier", "characteristics", "derived"],
+          "not": { "anyOf": [{ "required": ["damage"] }, { "required": ["crit"] }, { "required": ["skill"] }, { "required": ["encumbrance"] }, { "required": ["passengers"] }] } },
+        { "required": ["skills", "skill_picks", "talents"],
+          "not": { "anyOf": [{ "required": ["characteristics"] }, { "required": ["damage"] }, { "required": ["skill"] }, { "required": ["encumbrance"] }, { "required": ["passengers"] }] } }
+      ],
+      "$comment": "release-r5-crafting-sm (R-R5CC-2): a WEAPON profile (the weapon core, as v1) or a GEAR profile (a gadget, a cybernetic: type and encumbrance, no damage or crit). Ruling release-r5-crafting-kp-c0 Q1 (a): or an ARMOUR profile, armour by armor.schema.json's own anyOf (soak, or a defense of 1 or more), with no weapon core; it lands as a SPARE suit in equipment.gear (R-ASS-1). craftStore.outputOf reads which from the profile (ItemResolve.isArmorRecord); nothing stores it. Ruling release-r5-crafting-fib-c0 Q1 (outputOf (a)): or a FORTIFICATION profile, any profile carrying `passengers` (asked FIRST; no item schema admits it), with no weapon core, soak or encumbrance; it lands in sheet.fortifications[] as an entry whose numbers resolve at render (R-R5CC-2). Each fortification number is present ONLY where Forged in Battle prints it: a blank is ABSENT, never 0. Ruling release-r6-companions-c0 Q1 (R-R6CC-1): or a DROID PROFILE (a chassis: tier, characteristics, derived in npcs.json's field names, abilities with \"Silhouette N\"; the printed totals), or a DIRECTIVE (skills, skill_picks, talents, becomes_nemesis?); outputOf routes them 'droid' / 'directive' by shape and droidOf resolves both at render.",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "description": "Item type label as used in weapons.json ('Brawling' for brawl-skill, 'Melee' for melee-skill)."
+        },
+        "skill": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Canonical skill id used to attack with the finished weapon; MUST resolve in the skill vocab. Note this is the COMBAT skill and is unrelated to check.skills, which is the CRAFTING skill."
+        },
+        "damage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "base"],
+          "description": "Same two-field damage model as weapon.schema.json. Every v1 melee template is base 'brawn' (the book prints +N); 'flat' is admitted because later categories craft ranged weapons.",
+          "properties": {
+            "value": { "type": "integer", "minimum": 0 },
+            "base": { "enum": ["flat", "brawn"] }
+          }
+        },
+        "hands": {
+          "enum": ["one_handed", "two_handed"],
+          "description": "Hands required to wield the finished item, from the template table's 'Hands Required' column. All six v1 melee templates are one_handed (confirmed at source, Jason 2026-07-29). LOAD-BEARING, not decorative: the Two-Handed improvement flips this to two_handed alongside its +1 damage / +2 encumbrance, so the engine needs a starting value to change from. NOTE the asymmetry with catalog items — 0 of 397 records in weapons.json carry a hands field, so this rides only on crafted records for now. Its status as a persisted field is Q3 of brief `crafting-spend-cost-shape`; nothing has been written to any save yet (the `_inline` producer does not exist until the journey lap), so the question is still free to answer either way.",
+          "$comment": "If the ruling declines the field, delete it here and in the registry — no migration is owed while the producer is unbuilt."
+        },
+        "crit": { "type": "integer", "minimum": 0, "description": "Critical rating. The Lethal improvement reduces this by 1 to a minimum of 1. 0 is NO rating, as weapon.schema.json holds it (R-B11FU-1: a printed '—'): a lightsaber HILT is crafted at crit 0 and its crystal SETS the rating when installed (ruling release-r5-crafting-ev-c0 Q1 (b)); crit_delta leaves a 0 alone." },
+        "range": { "type": "string", "pattern": "^[a-z_]+$", "description": "Canonical range band id; 'engaged' for every v1 melee template." },
+        "encumbrance": { "type": "integer", "minimum": 0 },
+        "soak": { "type": "integer", "minimum": 0, "description": "ARMOUR profile only (ruling release-r5-crafting-kp-c0): the suit's soak, as armor.schema.json holds it (Keeping the Peace Table 3-1, printed 90)." },
+        "defense": { "type": "integer", "minimum": 0, "description": "ARMOUR profile only: the suit's defence, both sides, as armor.schema.json holds it. A row that raises one side writes defense_melee / defense_ranged through ItemResolve (the attachment path's per-side keys)." },
+        "hardpoints": { "type": "integer", "minimum": 0, "description": "Hard points on the finished item. The Customizable and Integral Attachment improvements each add one." },
+        "passengers": { "type": "integer", "minimum": 1, "description": "FORTIFICATION profile only (ruling release-r5-crafting-fib-c0 Q1): its occupancy, \"the number of people it can accommodate\" (Forged in Battle printed 84), under vehicle-frame.schema.json's name; OggDude's Passengers. Its presence makes the profile a fortification (craftStore.outputOf)." },
+        "defense_ranged": { "type": "integer", "minimum": 0, "description": "FORTIFICATION profile only: the ranged defence it gives each occupant as cover (a trench's 3, Forged in Battle printed 85; cover is \"a ranged defense\", AoR printed 226), under armour's per-side name (ItemResolve). Present only where printed." },
+        "armor": { "type": "integer", "minimum": 0, "description": "FORTIFICATION profile only: a bunker's vehicle armour (\"an immobile vehicle with an armor of 2\", Forged in Battle printed 86), under vehicle-frame.schema.json's name. Present only where printed." },
+        "hull_trauma": { "type": "integer", "minimum": 1, "description": "FORTIFICATION profile only: a bunker's hull trauma threshold (8, Forged in Battle printed 86), under vehicle-frame.schema.json's name." },
+        "silhouette": { "type": "integer", "minimum": 0, "description": "FORTIFICATION profile only: a bunker's silhouette (3, Forged in Battle printed 86), under vehicle-frame.schema.json's name. A trench's and a blind's are not printed and are absent (ruling release-r5-crafting-fib-c0 FLAG 1 (i))." },
+        "speed": { "type": "integer", "minimum": 0, "description": "FORTIFICATION profile only: a bunker's speed (0, \"that cannot be increased in any way\", Forged in Battle printed 86; told on its base_mods line, and no row moves it), under vehicle-frame.schema.json's name." },
+        "concealment": { "type": "integer", "minimum": 1, "maximum": 3, "description": "FORTIFICATION profile only, NEW (ruling release-r5-crafting-fib-c0 Q1, R-Y2-1): the concealment it gives each character within, as Table 6-7's \"dice added\" (AoR printed 226): that many Setback on Ranged (Light), Ranged (Heavy), Gunnery and Perception checks against them, or that many Boost on their Stealth. A blind's 3, \"dense underbrush (+3)\" (Forged in Battle printed 86)." },
+        "qualities": {
+          "type": "array",
+          "description": "Weapon qualities on the finished item, in the same {id,name,ranked,rank} shape weapons.json uses so the shared quality renderer consumes it unchanged. MAY BE EMPTY, and an empty array is MEANINGFUL: it records a quality cell that came back blank at inspection, which under R-CRAFT-4 ships as absent rather than guessed. Do not treat empty as a data defect without re-inspecting.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "name", "ranked"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "MUST resolve in qualities.vocab.json." },
+              "name": { "type": "string", "minLength": 1 },
+              "ranked": { "type": "boolean" },
+              "rank": { "type": "integer", "minimum": 1, "description": "Present iff ranked is true." }
+            }
+          }
+        },
+        "_qualities_note": { "type": "string", "description": "Free-text provenance note for a deliberately-empty qualities array." },
+        "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$" }
+      }
+    }
+  }
+}

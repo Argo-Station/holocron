@@ -1,0 +1,960 @@
+{
+  "id": "coruscant",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Coruscant (Imperial Center)",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Core Worlds",
+    "sector": "Corusca Sector",
+    "system": null,
+    "grid": "L-9",
+    "era": "galactic_civil_war",
+    "essence": "Coruscant is the center of everything. The traditional capital of the Old Republic for thousands of years, renamed Imperial Center by Palpatine as a symbol that the old order is dead. The entire planet is city — layers upon layers built over tens of thousands of years. Every galactic government must control Coruscant to be considered legitimate. The wealthy and powerful literally rose to the top as the city grew skyward, leaving the poor to the ancient lower levels. One trillion people live here, most of them convinced the Empire is the best thing that ever happened to them.",
+    "atmosphere": "The upper levels gleam. Transparisteel towers catch artificial light from a sun that most residents never see unfiltered. Air traffic is constant — a river of speeders and transports flowing between spires that stretch kilometers into the sky. The mid-levels hum with bureaucratic activity, Imperial wages, and the machinery of galactic governance. Below that, the light fades. The lower levels are ancient, dangerous, and operate under Imperial rule much like they did under the Republic — which is to say, barely at all. The smell changes as you descend: recycled air gives way to stale moisture, industrial runoff, and the accumulated residue of civilizations stacked on top of each other for millennia.",
+    "reputation": ""
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Capital of the Galactic Republic. The Jedi Temple stands as a center of Jedi power. The Republic Senate is still functioning, though increasingly manipulated by Chancellor Palpatine. Clone Wars have shattered the Core Worlds' sense of invulnerability and brought warfare to the cradle of the Republic for the first time in living memory."
+    },
+    {
+      "era": "post_empire",
+      "delta": "Imperial Center reverts to Coruscant. The Imperial government apparatus is collapsing or has collapsed. The massive bureaucracy is in flux. Orbital defenses may be contested or destroyed. The underworld is emboldened. Former Imperial loyalists among the upper-level citizenry are recalculating their allegiances. The Jedi Temple — the Imperial Palace — becomes a symbol everyone wants to claim."
+    }
+  ],
+  "geography": {
+    "structure_type": "planetwide_ecumenopolis",
+    "structure_notes": "The entire planet is covered in dense, multi-level urban cityscape. No natural surface is visible. The city stretches kilometers into the sky and extends deep underground through ancient layers built over tens of thousands of years. Population stratified vertically — wealth and power at the top, poverty and lawlessness at the bottom.",
+    "districts": [
+      {
+        "id": "imperial_city",
+        "name": "Imperial City (Governing District)",
+        "character": "The seat of Imperial power. The Imperial Palace (formerly the Jedi Temple), the Imperial Senate, and the core of the galactic bureaucracy. Monumental architecture designed to project authority. Every major Imperial institution has its headquarters here.",
+        "authority": "Galactic Empire (direct)",
+        "crime_index": "minimal",
+        "strategic_value": [
+          "political",
+          "military",
+          "command"
+        ],
+        "notes": "The most heavily secured district on the planet. Imperial Guard, ISB, stormtroopers, and COMPNOR operatives maintain overlapping security. This is the heart of the Empire — any threat here is treated as existential."
+      },
+      {
+        "id": "upper_levels",
+        "name": "Upper Levels",
+        "character": "Wealthy residential towers, corporate headquarters, high-end commerce, elite entertainment. The part of Coruscant that appears in Imperial propaganda. Citizens here benefit directly from Imperial economic activity and are the Empire's most reliable supporters.",
+        "authority": "Galactic Empire (administered through Coruscant Police and ISB)",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "From the largest suppliers to maintenance workers, most residents here live on Imperial wages or Imperial contracts. Rebel sympathy is rare and deeply hidden. COMPNOR is active and popular. Security is tight and effective."
+      },
+      {
+        "id": "mid_levels",
+        "name": "Mid-Levels",
+        "character": "Dense residential and commercial zones. The working population of the Imperial bureaucracy. Less glamorous than the upper levels but still firmly within Imperial control. Markets, cantinas, transit hubs, and the daily machinery of a trillion-person planet.",
+        "authority": "Galactic Empire (Coruscant Police, ISB monitoring)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "The transition zone. Imperial control is real but spread thinner than above. This is where smugglers do business with clients who need restricted goods delivered past Imperial customs. Opportunities exist but detection means Imperial detention."
+      },
+      {
+        "id": "the_works",
+        "name": "The Works",
+        "character": "Once a thriving industrial district, now largely abandoned. Massive derelict factories and infrastructure. Dark, dangerous, and mostly empty. A no-man's-land between the functioning city and the deep underworld.",
+        "authority": "nominal Imperial — effectively ungoverned",
+        "crime_index": "high",
+        "strategic_value": [
+          "hidden",
+          "infrastructure"
+        ],
+        "notes": "Listed as an area of interest in official records. The Works is a gap in the Imperial security net — too large to patrol, too empty to justify the resources. Criminal organizations and anyone needing to avoid detection gravitate here."
+      },
+      {
+        "id": "underworld",
+        "name": "Coruscant Underworld",
+        "character": "",
+        "authority": "ISB Federal Zones (islands of Imperial control), criminal organizations (everywhere else)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "hidden",
+          "covert"
+        ],
+        "notes": "The Imperial government has not abandoned the lower levels. ISB, Underworld Police, and other agents monitor the area using informants. Any problems associated with Rebel activity receive first priority. But the underworld is vast, ancient, and has hidden people for longer than the Empire has existed."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "The default population. Humans make up 78% of Coruscant's trillion residents. They fill every role — Imperial officers, senators, bureaucrats, merchants, laborers, criminals. The Empire's human-centric policies mean humans occupy nearly all positions of power and authority.",
+      "districts": [
+        "imperial_city",
+        "upper_levels",
+        "mid_levels",
+        "the_works",
+        "underworld"
+      ]
+    },
+    {
+      "name": "Other (mixed alien species)",
+      "population_level": "minority",
+      "social_role": "22% of the population. Non-human species face systemic discrimination under Imperial human-centric policies. Alien populations are concentrated in the mid-levels and below. Wealthier or more politically connected aliens maintain positions in the upper levels but face constant pressure. The underworld is more egalitarian by necessity.",
+      "districts": [
+        "mid_levels",
+        "the_works",
+        "underworld"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "galactic_empire",
+      "name": "Galactic Empire",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political",
+        "economic",
+        "informational"
+      ],
+      "control_strength": "total",
+      "susceptibility": {
+        "criminal": "very_low",
+        "dark_side": "irrelevant",
+        "financial": "very_low",
+        "note": "This is the seat of Imperial power. The Empire is not a faction on Coruscant — it is the government, the economy, the military, and the social order. Criminal infiltration exists in the underworld but cannot threaten the upper structures. Financial pressure is meaningless against the galactic treasury. The dark side is irrelevant as a vulnerability because the Emperor himself is the dark side's primary agent."
+      },
+      "motivation": "",
+      "assets": [
+        "Star Destroyer fleets in orbit",
+        "Orbital defense platforms",
+        "Planetary shields",
+        "Imperial Palace (formerly the Jedi Temple)",
+        "Imperial Senate (retained as advisory body)",
+        "ISB headquarters and extensive agent network",
+        "COMPNOR — Commission for the Preservation of the New Order",
+        "Coruscant Police Force and Underworld Police",
+        "Galactic bureaucracy — billions of administrators",
+        "Control of all major hyperspace route endpoints"
+      ],
+      "relationships": [
+        {
+          "faction_id": "black_sun",
+          "type": "hostile",
+          "notes": "Black Sun operates within Imperial territory as a criminal enterprise. The Empire hunts Black Sun Vigos when it finds them. However, the syndicate's reach extends from Coruscant to the backwater planets — it is entrenched in the underworld and mid-levels in ways the Empire has not fully eradicated."
+        },
+        {
+          "faction_id": "rebel_cells",
+          "type": "enemy",
+          "notes": ""
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Imperial data stolen from Coruscant would be a catastrophic intelligence breach. Recovery is absolute priority. The source of the leak matters more than the data itself."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standing orders from the Emperor's office: all Force-related artifacts are to be secured and reported. The Imperial Palace sits on the former Jedi Temple — there is institutional awareness that Force artifacts exist and matter."
+        },
+        {
+          "type": "person",
+          "reason": "Defectors, dissidents, Force-sensitives, Rebel operatives. ISB maintains extensive target lists. Force-sensitives are reported upward immediately. Escaped political prisoners from Coruscant are hunted across the galaxy."
+        }
+      ]
+    },
+    {
+      "id": "black_sun",
+      "name": "Black Sun",
+      "type": "criminal",
+      "control_type": [
+        "informational",
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "moderate",
+        "financial": "high",
+        "note": "Black Sun on Coruscant operates under constant Imperial pressure. Their strength is in the underworld and mid-levels where Imperial oversight is thinnest. They are vulnerable to Imperial crackdowns, dark side manipulation of their leadership structure, and financial disruption of their networks. Their advantage is entrenchment — they have operated here longer than the Empire has existed."
+      },
+      "motivation": "Maintaining underworld economic and informational dominance on the galactic capital. Black Sun reaches from Coruscant to the backwater planets. The capital is where the most valuable intelligence flows, the richest targets live, and the most powerful connections can be made. Losing Coruscant would be a devastating blow to the syndicate's galactic prestige.",
+      "assets": [
+        "Underworld and mid-level criminal networks",
+        "Vigo-level leadership with galactic reach",
+        "Information networks penetrating legitimate commerce",
+        "Smuggling infrastructure through Coruscant's lower levels",
+        "Connections to legitimate businesses as fronts"
+      ],
+      "relationships": [
+        {
+          "faction_id": "galactic_empire",
+          "type": "hostile",
+          "notes": "The Empire treats Black Sun as a criminal threat. Black Sun treats the Empire as an obstacle to be worked around. Individual Imperial officials can be corrupted but the institutional hostility is real. Black Sun's survival on Coruscant depends on staying below the threshold that triggers a dedicated crackdown."
+        },
+        {
+          "faction_id": "rebel_cells",
+          "type": "transactional",
+          "notes": "Black Sun and Rebel cells occasionally have aligned interests — both oppose the Empire, both operate covertly. But Black Sun sells to the highest bidder. A Rebel cell's location is a commodity Black Sun would sell to the Empire if the price was right."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Imperial intelligence data is the most valuable commodity in the underworld. Black Sun would acquire it to sell, to use as leverage, or to trade for favors at the highest levels of galactic crime."
+        },
+        {
+          "type": "artifact",
+          "reason": "Valuable as a commodity. Black Sun doesn't understand Force artifacts but knows powerful people pay fortunes for them."
+        },
+        {
+          "type": "person",
+          "reason": "Leverage, ransom, blackmail, or sale. A person of value on Coruscant — a senator's family member, an ISB defector, a Force-sensitive — is an asset to be exploited."
+        }
+      ]
+    },
+    {
+      "id": "compnor",
+      "name": "COMPNOR (Commission for the Preservation of the New Order)",
+      "type": "imperial_political",
+      "control_type": [
+        "political",
+        "cultural",
+        "informational"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "very_low",
+        "dark_side": "irrelevant",
+        "financial": "very_low",
+        "note": "COMPNOR is an ideological organization backed by the full weight of Imperial authority. Its members are true believers. Criminal infiltration is extremely difficult because the organization self-polices through zealotry. Financial pressure is irrelevant — they are state-funded. They are a tool of the Emperor's will."
+      },
+      "motivation": "Promoting Imperial ideals and suppressing anti-Imperial sentiment. COMPNOR simultaneously pushes the Emperor's social and governmental attitudes and goals while suppressing dissent. On Coruscant they are at their most powerful and visible — organizing public displays of Imperial support, monitoring citizens for disloyalty, and countering Rebel propaganda.",
+      "assets": [
+        "Mass public support infrastructure — rallies, media, propaganda",
+        "Citizen informant networks",
+        "Sub-Adult Group youth indoctrination programs",
+        "Direct coordination with ISB for reporting suspected dissidents",
+        "Political influence over Imperial policy"
+      ],
+      "relationships": [
+        {
+          "faction_id": "galactic_empire",
+          "type": "subordinate_ally",
+          "notes": "COMPNOR exists to serve the Empire's ideological goals. It is an arm of Imperial governance, not an independent faction. On Coruscant, COMPNOR and ISB have overlapping mandates — COMPNOR identifies dissent through social monitoring, ISB acts on it."
+        },
+        {
+          "faction_id": "rebel_cells",
+          "type": "enemy",
+          "notes": "COMPNOR considers Rebel sympathizers to be traitors to civilization itself. Their citizen informant networks are one of the greatest threats to Rebel cells on Coruscant — ordinary people trained to notice and report anything suspicious."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "COMPNOR would use stolen Imperial data as evidence of Rebel treachery to galvanize public support for increased security measures."
+        },
+        {
+          "type": "person",
+          "reason": "Captured Rebel operatives are propaganda assets. A public trial of a Rebel spy caught on Coruscant serves COMPNOR's narrative perfectly."
+        },
+        {
+          "type": "artifact",
+          "reason": "No direct interest. COMPNOR leaves Force matters to other Imperial agencies."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "imperial_palace",
+      "name": "Imperial Palace (formerly the Jedi Temple)",
+      "district_id": "imperial_city",
+      "type": [
+        "command",
+        "political",
+        "force_nexus"
+      ],
+      "controlling_faction_id": "galactic_empire",
+      "controlling_faction_notes": "The Emperor's seat of power. Converted from the Jedi Temple after Order 66. The most heavily guarded building in the galaxy.",
+      "strategic_value": "The symbolic and practical center of Imperial power. The building sits on a powerful Force vergence that may have helped conceal Palpatine's dark side nature from the Jedi Order. Its former identity as the Jedi Temple makes it a site of enormous significance to Force users.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_royal_guard",
+          "tier": "rival",
+          "count": "4-8",
+          "notes": "The Emperor's personal guard. Elite, fanatical, and equipped with the best gear in the Empire."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "20+",
+          "notes": "Exterior and perimeter security in depth. Multiple checkpoints."
+        },
+        {
+          "archetype_ref": "isb_agent",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": "Internal security monitoring. Background checks on everyone who enters."
+        }
+      ]
+    },
+    {
+      "id": "imperial_senate",
+      "name": "Imperial Senate",
+      "district_id": "imperial_city",
+      "type": [
+        "political",
+        "informational"
+      ],
+      "controlling_faction_id": "galactic_empire",
+      "controlling_faction_notes": "The Senate still functions as an advisory body under the Empire. Palpatine retains it because it provides a veneer of legitimacy and because it is useful for monitoring political opposition.",
+      "strategic_value": "Where the political theater of the Empire plays out. Sympathetic senators are the Rebel Alliance's most valuable covert assets on Coruscant. Political intelligence gathered here shapes the Rebellion's strategy.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_senator",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Senators with varying loyalties. Some are true Imperial believers, others secretly sympathize with the Rebellion."
+        },
+        {
+          "archetype_ref": "senate_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Formal security. Professional and disciplined."
+        },
+        {
+          "archetype_ref": "isb_agent",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Monitoring senators for disloyalty. Compiling dossiers."
+        }
+      ]
+    },
+    {
+      "id": "galactic_museum",
+      "name": "Galactic Museum",
+      "district_id": "imperial_city",
+      "type": [
+        "cultural",
+        "informational"
+      ],
+      "controlling_faction_id": "galactic_empire",
+      "controlling_faction_notes": "A massive repository of galactic history and culture. Under Imperial administration, certain exhibits have been modified or removed to support the New Order's narrative.",
+      "strategic_value": "Contains historical records and artifacts spanning millennia. May house items of interest to Force users or historians. The Museum's archives are a potential intelligence resource for anyone who can access restricted sections.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "museum_curator",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Knowledgeable about the collection, including what the Empire has removed from public display."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Security detail. Routine patrols."
+        }
+      ]
+    },
+    {
+      "id": "monument_plaza",
+      "name": "Monument Plaza",
+      "district_id": "imperial_city",
+      "type": [
+        "cultural",
+        "political"
+      ],
+      "controlling_faction_id": "galactic_empire",
+      "controlling_faction_notes": "A public plaza used for Imperial ceremonies and displays of power. One of the few places on Coruscant where natural rock from the planet's original surface is exposed.",
+      "strategic_value": "Public gathering space. COMPNOR stages rallies and displays of Imperial support here. A high-profile target for any group wanting to make a public statement — which is precisely why security is heavy.",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Visible security presence. Increased during public events."
+        },
+        {
+          "archetype_ref": "compnor_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Organizing public events, monitoring crowd sentiment."
+        }
+      ]
+    },
+    {
+      "id": "the_works_ruins",
+      "name": "The Works — Abandoned Industrial District",
+      "district_id": "the_works",
+      "type": [
+        "hidden",
+        "infrastructure"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the Works. The Empire nominally claims jurisdiction but does not patrol it. Criminal organizations use it as a transit corridor. Anyone needing to move between the upper city and the underworld without detection passes through here.",
+      "strategic_value": "The gap in Coruscant's security grid. A meeting place for anyone who cannot be seen meeting. Access to infrastructure systems that connect the upper and lower city. Potential hiding place for objects or people that need to disappear.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "scavenger",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "People living in the ruins. Not hostile by default but territorial and unpredictable."
+        },
+        {
+          "archetype_ref": "black_sun_operative",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "Black Sun uses the Works as a transit corridor. An operative here is moving between the underworld and legitimate-facing operations above."
+        }
+      ]
+    },
+    {
+      "id": "underworld_federal_zone",
+      "name": "Underworld Federal Zone",
+      "district_id": "underworld",
+      "type": [
+        "military",
+        "informational"
+      ],
+      "controlling_faction_id": "galactic_empire",
+      "controlling_faction_notes": "ISB and Underworld Police operate out of specially designated Federal Zones — islands of Imperial authority in the lower levels. They monitor the underworld and use informants to keep tabs on developments. Rebel activity receives first priority.",
+      "strategic_value": "The Empire's eyes and ears in the underworld. These zones are the Imperial security net's lowest reach. Beyond them, the Empire relies on informants and occasional raids rather than permanent presence.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "isb_agent",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Running informant networks. Focused on Rebel activity detection."
+        },
+        {
+          "archetype_ref": "underworld_police",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Law enforcement for the lower levels. Overworked, outgunned, and operating in hostile territory."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Military backup for the police. Only deployed for serious incidents."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_propaganda_machine",
+      "type": "political",
+      "source_faction_id": "galactic_empire",
+      "source_description": "The Empire's propaganda apparatus on Coruscant is the most sophisticated in the galaxy. COMPNOR, Imperial HoloNet, controlled media, public rallies, and citizen informant networks create an environment where Imperial loyalty is the social default and dissent is personally dangerous. Citizens genuinely believe the Empire protects them. The worst Imperial atrocities are dismissed as Rebel lies.",
+      "strength_default": "dominant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "citizenry",
+          "description": "The general population of the upper and mid-levels actively supports the Empire. Anti-Imperial sentiment is socially unacceptable. Neighbors report neighbors. The propaganda is so effective that most citizens don't perceive it as propaganda — they perceive it as truth."
+        },
+        {
+          "faction_id": "rebel_cells",
+          "description": "The propaganda environment makes Rebel recruitment on Coruscant extraordinarily difficult. Potential sympathizers self-censor out of fear. Even private conversations are guarded. The Rebellion's message cannot compete with the Empire's media saturation."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "default",
+          "modifier": "Social checks to express anti-Imperial sentiment or recruit sympathizers increase difficulty by 2. NPCs on the upper and mid-levels will report suspicious conversations to authorities. Cover identities must be airtight."
+        },
+        {
+          "threshold": "post_yavin",
+          "modifier": "After the destruction of the Death Star, COMPNOR has expanded activities with growing public displays of Imperial support. Suspected Rebel sympathizers are hunted ruthlessly. Security is noticeably increased throughout the Core Worlds. Difficulty for anti-Imperial social checks increases by 1 additional.",
+          "inferred": true
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "perlemian_trade_route",
+        "destination": "Perlemian Trade Route",
+        "travel_time": "variable by destination",
+        "route_quality": "major hyperspace lane",
+        "notes": "One of the oldest and most important hyperspace routes. Runs from Coruscant through Brentaal, Taanab, Roche, The Wheel, out to Ossus, Rhen Var, Felucia, and the Tion Cluster. Crosses the Hydian Way at Brentaal. Heavily trafficked and well-patrolled."
+      },
+      {
+        "id": "corellian_run",
+        "destination": "Corellian Run",
+        "travel_time": "variable by destination",
+        "route_quality": "major hyperspace lane",
+        "notes": "Founded at approximately the same time as the Perlemian Trade Route. Connects Coruscant to Corellia, Duro, and extends to the Outer Rim — Rodia, Tatooine, Geonosis, Ryloth, and beyond. The Perlemian crosses the Corellian Run at Coruscant."
+      },
+      {
+        "id": "corellian_trade_spine",
+        "destination": "Corellian Trade Spine",
+        "travel_time": "variable by destination",
+        "route_quality": "major hyperspace lane",
+        "notes": "Connects through the Core Worlds to Corellia and extends to the Outer Rim. One of the galaxy's primary trade arteries."
+      },
+      {
+        "id": "namadii_corridor",
+        "destination": "Namadii Corridor",
+        "travel_time": "variable by destination",
+        "route_quality": "important hyperspace route",
+        "notes": "Connects Coruscant to Bilbringi in the Inner Rim and extends to Namadii in the Mid Rim. An important secondary route."
+      },
+      {
+        "id": "nar_shaddaa",
+        "destination": "Nar Shaddaa",
+        "travel_time": "24-36 hours",
+        "route_quality": "well-established",
+        "notes": "Major hyperspace lane. Imperial traffic is heavy near Coruscant — arriving from Hutt Space flags customs attention."
+      }
+    ],
+    "anomalies": []
+  },
+  "encounter_population": [
+    {
+      "faction_id": "galactic_empire",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Impossible under normal circumstances. A skeleton Imperial presence on Coruscant would mean the Empire is collapsing. The minimum garrison here exceeds most worlds' full military occupation. This level exists only for extraordinary scenarios — post-Endor chaos, a catastrophic attack on the capital.",
+          "presence_reason": "The Empire has suffered a catastrophic blow. Resources have been pulled to defend other priorities. The governmental apparatus is fracturing. This is an endgame scenario.",
+          "roles": [
+            {
+              "role": "Stormtrooper garrison (remnant)",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Holding key positions. No longer patrolling — defending."
+            },
+            {
+              "role": "ISB agent (operational)",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Continuing intelligence operations out of habit and duty. Chain of command may be broken."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Coruscant security — which is by galactic standards already a heavy military presence. Stormtrooper patrols on every level that matters, ISB running continuous intelligence operations, Coruscant Police handling civil order, COMPNOR monitoring public sentiment. This is the Empire operating normally on its capital world.",
+          "presence_reason": "Routine operations. No specific threat — just the permanent security apparatus of the galactic capital.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Paired patrols on upper and mid-level routes. Professional, visible, deterrent."
+            },
+            {
+              "role": "Coruscant Police officer",
+              "archetype_ref": "coruscant_police",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Civil law enforcement. Handle routine matters. Report anything unusual to ISB."
+            },
+            {
+              "role": "ISB agent (plainclothes)",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Running informant networks, monitoring communications, maintaining target lists."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Starport checkpoints. Thorough and competent — this is Coruscant, not some Outer Rim backwater."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Heightened security. Something has triggered an escalation — a Rebel cell detected, an assassination attempt, a security breach. Checkpoints on all major routes, active surveillance operations, increased stormtrooper patrols. The citizens notice and most approve. ISB is running at full operational tempo.",
+          "presence_reason": "A credible threat has been identified. ISB has either detected Rebel activity, received intelligence about an imminent attack, or is responding to orders from the Emperor's office. Resources are being concentrated.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple squads with overlapping routes. Checkpoints on all major transit points."
+            },
+            {
+              "role": "Coruscant Police officer",
+              "archetype_ref": "coruscant_police",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Increased civil patrols. Stop-and-identify checks in mid-levels."
+            },
+            {
+              "role": "ISB agent (plainclothes)",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full intelligence operation. Interrogations, informant activation, communications monitoring."
+            },
+            {
+              "role": "ISB sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior ISB officer coordinating the security response. Has authority to lock down districts."
+            },
+            {
+              "role": "Underworld Police raid team",
+              "archetype_ref": "underworld_police",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Sweeping the lower levels for targets. Federal Zones expanded. Informants being squeezed."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Maximum security alert. The Empire is treating a threat to Coruscant as existential. Every available resource deployed. Orbital assets activated. Districts locked down. Citizens ordered to remain indoors. This is the full weight of the galactic military brought to bear on its own capital — something has gone catastrophically wrong or an attack is imminent.",
+          "presence_reason": "A direct threat to the Imperial government has been confirmed — an attack on the Palace, a major Rebel operation, or an event of galactic significance. The Emperor or Vader may have given direct orders.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Building-by-building coverage. Every transit point, every docking bay, every public space."
+            },
+            {
+              "role": "Imperial Royal Guard",
+              "archetype_ref": "imperial_royal_guard",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Deployed outside the Palace. Their visible presence signals the Emperor's personal concern."
+            },
+            {
+              "role": "ISB agent (plainclothes)",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 8,
+              "notes": "ISB is running this operation. Every informant activated. Every communication monitored."
+            },
+            {
+              "role": "ISB senior commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior ISB leadership directing operations. Reports directly to the Emperor's office."
+            },
+            {
+              "role": "Orbital fleet assets",
+              "archetype_ref": "star_destroyer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Star Destroyers in low orbit. Planetary shields activated. No unauthorized ships enter or leave."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. An Inquisitor on Coruscant operates with near-unlimited authority."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "ISB increases monitoring intensity. Stormtrooper patrols become more attentive. COMPNOR informant networks are primed. Citizens in affected areas notice the increased presence and most cooperate willingly.",
+        "targeted": "The Empire is looking for specific individuals. Checkpoints have holos of targets. Informant networks across all levels are activated. Departing ships are inspected. Cover identities are tested against Imperial databases.",
+        "manhunt": "Full lockdown of affected districts. No ships leave without Imperial authorization. Building-by-building searches. Underworld Federal Zones expanded. The Coruscant Police, ISB, and stormtroopers operate as a unified force. The target's world closes completely."
+      }
+    },
+    {
+      "faction_id": "black_sun",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Black Sun has been pushed to the absolute margins. One deep-cover asset remains in the underworld, preserving the last thread of the intelligence network. Invisible. Dormant. Waiting for conditions to change.",
+          "presence_reason": "A major Imperial crackdown has dismantled the visible network. A Vigo has been arrested or killed. Black Sun is preserving its ability to rebuild rather than risk total exposure.",
+          "roles": [
+            {
+              "role": "Black Sun deep cover informant",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining one essential intelligence node. Does not act. Does not contact anyone. Waits."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Black Sun operations on Coruscant. Invisible to anyone not specifically looking for organized crime patterns. A functional intelligence and smuggling network in the underworld and mid-levels. Legitimate business fronts in the upper levels. This is Black Sun doing normal business — moving contraband, gathering information, maintaining the infrastructure that makes the syndicate valuable.",
+          "presence_reason": "Routine operations. Black Sun has operated on Coruscant for centuries. Their presence is as permanent as the underworld itself.",
+          "roles": [
+            {
+              "role": "Black Sun informant",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 2,
+              "notes": "One in the mid-levels, one in the underworld. Eyes and ears on two critical layers of the city."
+            },
+            {
+              "role": "Black Sun smuggling contact",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the movement of goods through the lower levels. Knows the routes that avoid Underworld Police checkpoints."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Black Sun is running an active operation. Multiple operatives coordinating toward a specific objective — an acquisition, an extraction, an elimination. Enforcers visible in the underworld. Mid-level contacts activated. The syndicate is investing resources, which means the objective is worth the risk of increased Imperial attention.",
+          "presence_reason": "A high-value target, asset, or opportunity has appeared. Black Sun leadership has authorized an operation that exceeds normal risk tolerance.",
+          "roles": [
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Active operatives running coordinated tasks across multiple levels."
+            },
+            {
+              "role": "Black Sun lieutenant",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior Black Sun figure directing the operation. Their presence signals Vigo-level authorization."
+            },
+            {
+              "role": "Hired muscle",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Local underworld enforcers hired for the operation. Don't know who they're really working for."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Black Sun asserting maximum presence on Coruscant. Every underworld contact, every mid-level informant, every legitimate business front activated simultaneously. A Vigo-level figure is directly involved. This level of activity risks drawing Imperial attention and Black Sun knows it — whatever they're after is worth the exposure.",
+          "presence_reason": "A Vigo has taken personal interest in something on Coruscant. The stakes are high enough to risk the syndicate's carefully maintained invisibility.",
+          "roles": [
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "black_sun_operative",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Full intelligence blanket across underworld and mid-levels."
+            },
+            {
+              "role": "Black Sun enforcer",
+              "archetype_ref": "black_sun_vigo",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Armed enforcement capability. Handle what operatives cannot talk through."
+            },
+            {
+              "role": "Black Sun Vigo representative",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Direct Vigo authority. Coruscant is Black Sun's crown jewel — a Vigo's personal attention means this is a syndicate-level priority."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Black Sun operatives increase surveillance. Mid-level informants are activated for specific intelligence gathering. Background checks run through criminal contacts. The target does not know they are being watched.",
+        "targeted": "Active intelligence operation against the target. Movements tracked through underworld and mid-level networks. Black Sun is building a complete picture before deciding whether to act, sell the information, or use it as leverage.",
+        "manhunt": "Black Sun wants the target found. No checkpoints, no public bounties — this is invisible. Every informant, every contact, every bought loyalty activated. The target's world quietly closes. On Coruscant, Black Sun can make someone vanish into the underworld permanently."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Deep-cover operatives with established identities",
+      "Rebel Alliance: Sympathetic senators and political dissidents (remnants of the Delegation of 2000)",
+      "Rebel Alliance: Safe houses in the underworld and mid-levels",
+      "Rebel Alliance: Emergency communication links to Alliance Intelligence",
+      "Rebel Alliance: Access to the underworld's smuggling infrastructure for extraction",
+      "Rebel Alliance on this planet: Intelligence gathering at the heart of the Empire. Coruscant is where Imperial policy is made, where military orders originate, and where the bureaucracy's records live. A functioning cell on Coruscan"
+    ],
+    "presets": {
+      "AoR_rebel_intelligence_operation": {
+        "label": "Age of Rebellion — Rebel Intelligence Operation",
+        "description": "Players are Alliance Intelligence operatives on Coruscant, the most dangerous posting in the galaxy. Their mission is to maintain contact with sympathetic senators, gather intelligence on Imperial military operations, and extract a defecting ISB analyst who has information about a new Imperial weapons project. The cell is small, exposed, and one informant away from discovery.",
+        "controlling_factions": [
+          {
+            "location_id": "all",
+            "faction_id": "galactic_empire",
+            "presence_level": "patrol",
+            "notes": "Standard Coruscant security. The Empire is not specifically hunting the cell — yet. Normal ISB monitoring is dangerous enough."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [
+          {
+            "faction_id": "galactic_empire",
+            "level": "baseline",
+            "reason": "Standard ISB monitoring. Not targeted but always dangerous."
+          }
+        ],
+        "flags": [
+          "The ISB analyst who wants to defect works in the data processing center three levels below the Imperial Palace. She has a dead drop in a tapcaf in the mid-levels. She has been leaving encoded messages for six weeks. Alliance Intelligence believes she is genuine. ISB does not yet know she is compromised.",
+          "Senator Valis Kreen maintains a public persona of loyal Imperial service while privately funding Rebel logistics through a chain of shell companies. He will meet the cell exactly once, in person, in a private room at the Galactic Museum. If he is exposed, the entire Coruscant intelligence network collapses.",
+          "The cell's safe house is in the underworld, two levels below a Federal Zone. The Underworld Police informant who lives on the same level has not yet reported the cell's unusual activity patterns. He will within the next two sessions unless the players find a way to neutralize the risk.",
+          "Black Sun knows the cell exists. A Black Sun informant in the mid-levels identified one operative's cover identity as inconsistent three weeks ago. Black Sun has not sold this information to ISB — yet. They are holding it as a future asset. The price has not been determined."
+        ]
+      },
+      "EotE_underworld_smuggling_run": {
+        "label": "Edge of the Empire — Underworld Smuggling Run",
+        "description": "Players are smugglers delivering restricted goods to a wealthy client on Coruscant. The job seems straightforward — land, deliver, get paid, leave. But Imperial customs on Coruscant is not Tatooine customs, and the client's enemies have been watching the delivery route. The underworld is the only safe transit corridor, and the underworld has its own rules.",
+        "controlling_factions": [
+          {
+            "location_id": "upper_levels",
+            "faction_id": "galactic_empire",
+            "presence_level": "patrol",
+            "notes": "Standard security. Customs inspections at all starports are thorough and competent."
+          },
+          {
+            "location_id": "underworld",
+            "faction_id": "black_sun",
+            "presence_level": "patrol",
+            "notes": "Black Sun controls the smuggling infrastructure in the underworld. Using their routes without permission draws attention."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "The client is a mid-level Imperial bureaucrat who collects restricted alien art. His taste is illegal under the Empire's cultural purity laws but his position protects him — for now. He pays well because the risk is real and he cannot be seen acquiring the goods himself.",
+          "Imperial customs at the Coruscant starport is running a new cargo scanning protocol this week. Standard smuggling compartments have a 50% chance of detection. The players need either a better hiding method or a customs inspector willing to look the other way — and on Coruscant, that costs considerably more than usual.",
+          "Black Sun has noticed the delivery. They don't know what it is, but they know an unaffiliated ship is using underworld transit corridors that Black Sun considers proprietary. A Black Sun operative will make contact and demand a percentage or information. How the players respond determines whether Black Sun becomes an ally, an obstacle, or an enemy.",
+          "The client's political rival has hired a bounty hunter to document the delivery as evidence of the bureaucrat's illegal activities. The bounty hunter is already in the underworld, watching the transit corridor. She is not hostile to the players — she just needs proof."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "field": "identity",
+      "source": "AoR Core p.380",
+      "notes": "Primary planet entry. Astronavigation data, government, population, terrain, major cities, areas of interest, exports/imports, trade routes, background text."
+    },
+    {
+      "field": "identity",
+      "source": "EotE Core p.342",
+      "notes": "Core Worlds section. Coruscant described as traditional capital of Old Republic, heart of galactic culture. Entire planet covered in dense urban cityscape. Center of Imperial power and bureaucracy."
+    },
+    {
+      "field": "identity.population",
+      "source": "AoR Core p.380",
+      "notes": "1 trillion (human 78%, other 22%)"
+    },
+    {
+      "field": "geography.underworld",
+      "source": "AoR Core p.380 (sidebar)",
+      "notes": "Coruscant Underworld sidebar: operates under Imperial rule like it did under Republic. ISB, Underworld Police in Federal Zones, informants. Rebel activity receives first priority."
+    },
+    {
+      "field": "identity.name_imperial_center",
+      "source": "EotE Core p.335, p.342; AoR Core p.347, p.353, p.380",
+      "notes": "Multiple references confirm the Empire renamed Coruscant to Imperial Center."
+    },
+    {
+      "field": "geography.areas_of_interest",
+      "source": "AoR Core p.380",
+      "notes": ""
+    },
+    {
+      "field": "navigation.trade_routes",
+      "source": "AoR Core p.380; EotE Core p.335-336",
+      "notes": "Corellian Trade Spine, Perlemian Trade Route, Namadii Corridor. Corellian Run also intersects at Coruscant per EotE p.335."
+    },
+    {
+      "field": "factions.galactic_empire.orbital_defenses",
+      "source": "AoR Core p.380",
+      "notes": ""
+    },
+    {
+      "field": "factions.galactic_empire.citizen_support",
+      "source": "AoR Core p.380; EotE Core p.342",
+      "notes": "Citizens of mid and upper levels are staunchest Imperial supporters. Most benefit from Imperial economic activity. Rebel activity feared. COMPNOR finds popular support."
+    },
+    {
+      "field": "factions.compnor",
+      "source": "EotE Core p.342; AoR Core p.353-354",
+      "notes": "COMPNOR promotes Imperial ideals, suppresses anti-Imperial sentiment, expanded activities post-Yavin."
+    },
+    {
+      "field": "factions.black_sun",
+      "source": "EotE Core p.9",
+      "notes": "Black Sun reaches from Coruscant to backwater planets. Secret interstellar crime syndicate operating at every level of galactic society."
+    },
+    {
+      "field": "factions.rebel_cells.senators",
+      "source": "AoR Core p.385-386",
+      "notes": "Senators including Bail Organa organized opposition during the dark times, using their positions to counter Imperial plans politically and through opposition groups."
+    },
+    {
+      "field": "strategic_locations.imperial_palace.force_vergence",
+      "source": "GM Holocron p.78",
+      "notes": ""
+    },
+    {
+      "field": "navigation.rarity_modifier",
+      "source": "EotE Core p.159; AoR Core p.166; GM Holocron p.82",
+      "notes": "Primary Core world such as Coruscant: rarity modifier -2"
+    },
+    {
+      "field": "factions.isb_underworld_police",
+      "source": "AoR Core p.380 (sidebar)",
+      "notes": ""
+    },
+    {
+      "field": "factions.coruscant_police",
+      "source": "AoR Core p.177",
+      "notes": "Coruscant Police Force mentioned as users of ion weapons for non-lethal control."
+    },
+    {
+      "field": "identity.human_homeworld_claim",
+      "source": "EotE Core p.57; AoR Core p.58",
+      "notes": "Humans thought to have arisen in Core Worlds, perhaps on Coruscant itself. Debated by scholars."
+    },
+    {
+      "field": "identity.navigational_origin",
+      "source": "EotE Core p.342",
+      "notes": ""
+    }
+  ]
+}

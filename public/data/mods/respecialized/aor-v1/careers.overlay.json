@@ -1,0 +1,40 @@
+{
+  "careers": {
+    "ace": {
+      "specializations_add": [
+        "ground_support",
+        "wingmate"
+      ],
+      "specializations_remove": [
+        "driver",
+        "pilot"
+      ]
+    },
+    "engineer": {
+      "specializations_add": [
+        "maintainer"
+      ],
+      "specializations_remove": [
+        "mechanic"
+      ]
+    },
+    "soldier": {
+      "specializations_add": [
+        "assault_specialist"
+      ],
+      "specializations_remove": [
+        "heavy"
+      ]
+    },
+    "spy": {
+      "specializations_add": [
+        "cypher",
+        "mastermind"
+      ],
+      "specializations_remove": [
+        "scout",
+        "slicer"
+      ]
+    }
+  }
+}

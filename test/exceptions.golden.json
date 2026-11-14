@@ -1,0 +1,1848 @@
+{
+ "measured_at": "080974e56",
+ "species": 537,
+ "golden": {
+  "skill_grants": {
+   "species": "caamasi",
+   "group": "skills",
+   "option": "one_rank_in_charm",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 2,
+    "cunning": 1,
+    "willpower": 3,
+    "presence": 2
+   },
+   "wound_threshold_base": 10,
+   "strain_threshold_base": 11,
+   "starting_xp": 100,
+   "abilities": [
+    "Memnii"
+   ],
+   "skills": {
+    "charm": 1
+   },
+   "talents": [],
+   "deferred": false,
+   "choice": [],
+   "shelf": "default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 2,
+     "cunning": 1,
+     "willpower": 3,
+     "presence": 2
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 11,
+    "starting_xp": 100
+   }
+  },
+  "special_abilities": {
+   "species": "dowutin",
+   "group": "size",
+   "option": "average_sized",
+   "characteristics": {
+    "brawn": 3,
+    "agility": 1,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 2
+   },
+   "wound_threshold_base": 15,
+   "strain_threshold_base": 8,
+   "starting_xp": 85,
+   "abilities": [
+    "Immovable",
+    "Silhouette 1"
+   ],
+   "skills": {
+    "resilience": 1
+   },
+   "talents": [],
+   "deferred": false,
+   "choice": [],
+   "shelf": "default",
+   "base": {
+    "characteristics": {
+     "brawn": 3,
+     "agility": 1,
+     "intellect": 2,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 2
+    },
+    "wound_threshold_base": 15,
+    "strain_threshold_base": 8,
+    "starting_xp": 85
+   }
+  },
+  "xp_adjustment": {
+   "species": "gand",
+   "group": "breathing",
+   "option": "has_lungs",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 3,
+    "presence": 1
+   },
+   "wound_threshold_base": 10,
+   "strain_threshold_base": 10,
+   "starting_xp": 110,
+   "abilities": [
+    "Ammonia Respirator"
+   ],
+   "skills": {
+    "discipline": 1
+   },
+   "talents": [],
+   "deferred": false,
+   "choice": [],
+   "shelf": "default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 2,
+     "cunning": 2,
+     "willpower": 3,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 100
+   }
+  },
+  "skill_choice_grants": {
+   "species": "mandalorian_human",
+   "group": "skills",
+   "option": "combat_skill",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 2
+   },
+   "wound_threshold_base": 11,
+   "strain_threshold_base": 10,
+   "starting_xp": 105,
+   "abilities": [],
+   "skills": {},
+   "talents": [],
+   "deferred": true,
+   "choice": [
+    {
+     "count": 1,
+     "pool": "combat",
+     "rank_cap": 2,
+     "offers": [
+      "brawl",
+      "gunnery",
+      "lightsaber",
+      "melee",
+      "ranged_heavy",
+      "ranged_light"
+     ]
+    }
+   ],
+   "shelf": "default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 2,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 2
+    },
+    "wound_threshold_base": 11,
+    "strain_threshold_base": 10,
+    "starting_xp": 105
+   }
+  },
+  "starting_talents": {
+   "species": "sluissi",
+   "group": "talents",
+   "option": "gearhead",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 3,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 1
+   },
+   "wound_threshold_base": 10,
+   "strain_threshold_base": 10,
+   "starting_xp": 90,
+   "abilities": [
+    "Practiced Mechanic"
+   ],
+   "skills": {
+    "mechanics": 1
+   },
+   "talents": [
+    "gearhead"
+   ],
+   "deferred": false,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 3,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 90
+   }
+  },
+  "characteristics": {
+   "species": "csg_arkanian",
+   "group": "subspecies",
+   "option": "offshoot",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 3,
+    "cunning": 1,
+    "willpower": 2,
+    "presence": 2
+   },
+   "wound_threshold_base": 9,
+   "strain_threshold_base": 11,
+   "starting_xp": 100,
+   "abilities": [
+    "Night Vision"
+   ],
+   "skills": {
+    "medicine": 1
+   },
+   "talents": [],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 3,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 100
+   }
+  },
+  "wound_threshold_base": {
+   "species": "csg_arkanian",
+   "group": "subspecies",
+   "option": "offshoot",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 3,
+    "cunning": 1,
+    "willpower": 2,
+    "presence": 2
+   },
+   "wound_threshold_base": 9,
+   "strain_threshold_base": 11,
+   "starting_xp": 100,
+   "abilities": [
+    "Night Vision"
+   ],
+   "skills": {
+    "medicine": 1
+   },
+   "talents": [],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 3,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 100
+   }
+  },
+  "strain_threshold_base": {
+   "species": "csg_arkanian",
+   "group": "subspecies",
+   "option": "offshoot",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 2,
+    "intellect": 3,
+    "cunning": 1,
+    "willpower": 2,
+    "presence": 2
+   },
+   "wound_threshold_base": 9,
+   "strain_threshold_base": 11,
+   "starting_xp": 100,
+   "abilities": [
+    "Night Vision"
+   ],
+   "skills": {
+    "medicine": 1
+   },
+   "talents": [],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 2,
+     "intellect": 3,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 100
+   }
+  },
+  "starting_xp": {
+   "species": "csg_dathomirian",
+   "group": "subspecies",
+   "option": "male",
+   "characteristics": {
+    "brawn": 3,
+    "agility": 2,
+    "intellect": 1,
+    "cunning": 2,
+    "willpower": 3,
+    "presence": 1
+   },
+   "wound_threshold_base": 11,
+   "strain_threshold_base": 12,
+   "starting_xp": 80,
+   "abilities": [
+    "Fearsome Countenances"
+   ],
+   "skills": {},
+   "talents": [],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 3,
+     "intellect": 1,
+     "cunning": 3,
+     "willpower": 2,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 11,
+    "starting_xp": 90
+   }
+  },
+  "wound_threshold_adjustment": {
+   "species": "csg_droid",
+   "group": "modifications",
+   "option": "large",
+   "characteristics": {
+    "brawn": 1,
+    "agility": 1,
+    "intellect": 1,
+    "cunning": 1,
+    "willpower": 1,
+    "presence": 1
+   },
+   "wound_threshold_base": 12,
+   "strain_threshold_base": 10,
+   "starting_xp": 190,
+   "abilities": [
+    "Durasteel Plating",
+    "Mechanical Beings",
+    "Specialized",
+    "Silhouette 2"
+   ],
+   "skills": {},
+   "talents": [
+    "enduring"
+   ],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 1,
+     "agility": 1,
+     "intellect": 1,
+     "cunning": 1,
+     "willpower": 1,
+     "presence": 1
+    },
+    "wound_threshold_base": 10,
+    "strain_threshold_base": 10,
+    "starting_xp": 190
+   }
+  },
+  "characteristic_overrides": {
+   "species": "csg_vaathkree",
+   "group": "variable_forms",
+   "option": "humanoid",
+   "characteristics": {
+    "brawn": 2,
+    "agility": 1,
+    "intellect": 2,
+    "cunning": 2,
+    "willpower": 2,
+    "presence": 3
+   },
+   "wound_threshold_base": 11,
+   "strain_threshold_base": 10,
+   "starting_xp": 80,
+   "abilities": [
+    "Gifted Traders",
+    "Hardened Plates",
+    "Volcanic Home"
+   ],
+   "skills": {
+    "negotiation": 1
+   },
+   "talents": [
+    "wheel_and_deal",
+    "enduring"
+   ],
+   "deferred": true,
+   "choice": [],
+   "shelf": "off-by-default",
+   "base": {
+    "characteristics": {
+     "brawn": 2,
+     "agility": 1,
+     "intellect": 2,
+     "cunning": 2,
+     "willpower": 2,
+     "presence": 2
+    },
+    "wound_threshold_base": 13,
+    "strain_threshold_base": 10,
+    "starting_xp": 95
+   }
+  },
+  "__axes": {
+   "creationSkillAllowance_droid": {
+    "careerPicks": 6,
+    "specPicks": 3,
+    "speciesGrants": {},
+    "careerStatusKeys": {
+     "astrogation": true,
+     "cool": true,
+     "gunnery": true,
+     "mechanics": true,
+     "perception": true,
+     "piloting_planetary": true,
+     "piloting_space": true,
+     "ranged_light": true
+    },
+    "unmapped": true,
+    "careerEligible": [
+     "astrogation",
+     "cool",
+     "gunnery",
+     "mechanics",
+     "perception",
+     "piloting_planetary",
+     "piloting_space",
+     "ranged_light"
+    ],
+    "specEligible": []
+   },
+   "specChoiceSkillsFor_republic_representative": [],
+   "talentChoiceGrantsOf_well_read": [
+    {
+     "count": 3,
+     "pool": "knowledge"
+    }
+   ],
+   "derivedBonuses_force_rating_x2": {
+    "soakBonus": 0,
+    "woundThresholdBonus": 0,
+    "strainThresholdBonus": 0,
+    "meleeDefenseBonus": 0,
+    "rangedDefenseBonus": 0,
+    "forceRatingBonus": 2
+   },
+   "specGate": {
+    "knight_fr1": {
+     "met": false,
+     "forceOk": false,
+     "needForce": 2,
+     "speciesOk": true,
+     "needSpecies": null
+    },
+    "rct_human": {
+     "met": false,
+     "forceOk": true,
+     "needForce": 0,
+     "speciesOk": false,
+     "needSpecies": "clone"
+    }
+   },
+   "costForNewSpec": {
+    "first_in_career": 0,
+    "universal_owned1": 20,
+    "other_career_owned1": 30
+   },
+   "computeMechanic_obligation_10_plus5": {
+    "type": "obligation",
+    "descriptor": "debt",
+    "baseValue": 10,
+    "finalValue": 15,
+    "xpAdjustment": 5,
+    "creditAdjustment": 0,
+    "tradeIds": [
+     "eote_obl_plus5_for_xp5"
+    ],
+    "entries": [
+     {
+      "type": "debt",
+      "magnitude": 15
+     }
+    ]
+   },
+   "forceAccessAtCreation": {
+    "eote_none": false,
+    "fad": true,
+    "eote_consular": true,
+    "eote_exile": true
+   },
+   "speciesChoiceGrants_human": [
+    {
+     "count": 2,
+     "pool": "non_career",
+     "rank_cap": 2
+    }
+   ]
+  },
+  "__shelf": {
+   "bookIds": [
+    "allies_adversaries",
+    "aor",
+    "aor_beginner_game",
+    "beyond_the_rim",
+    "black_sun_rising",
+    "chronicles_of_the_gatekeeper",
+    "collapse_of_the_republic",
+    "crate_of_krayts",
+    "cyphers_and_masks",
+    "d20_radio",
+    "dangerous_covenants",
+    "dawn_of_defiance",
+    "dawn_of_rebellion",
+    "dead_in_the_water",
+    "debts_of_honor",
+    "debts_to_pay",
+    "desperate_allies",
+    "disciples_of_harmony",
+    "discovery_on_jakku",
+    "endless_vigil",
+    "enter_the_unknown",
+    "eote",
+    "eote_beginner_game",
+    "escape_from_mos_shuuta",
+    "fad",
+    "fad_gm_kit",
+    "far_horizons",
+    "fly_casual",
+    "force_awakens_beginner_game",
+    "forged_in_battle",
+    "friends_like_these",
+    "fully_operational",
+    "ghosts_of_dathomir",
+    "heroes_on_both_sides",
+    "hidden_depths",
+    "imperial_military_community",
+    "jedi_fallen_order",
+    "jewel_of_yavin",
+    "keeping_the_peace",
+    "knights_of_fate",
+    "lead_by_example",
+    "light_and_life",
+    "long_arm_of_the_hutt",
+    "lords_of_nal_hutta",
+    "lost_knowledge",
+    "mask_of_the_pirate_queen",
+    "mountain_top_rescue",
+    "never_tell_me_the_odds",
+    "nexus_of_power",
+    "no_disintegrations",
+    "onslaught_at_arda_i",
+    "operation_shadowpoint",
+    "rescue_at_glare_peak",
+    "rise_of_the_separatists",
+    "savage_spirits",
+    "special_modifications",
+    "stay_on_target",
+    "strongholds_of_resistance",
+    "suns_of_fortune",
+    "tatooine_manhunt",
+    "the_complete_species_guide",
+    "the_mine",
+    "the_old_republic_era_sourcebook",
+    "under_a_black_sun",
+    "unlimited_power",
+    "unofficial_species_menagerie",
+    "user_data"
+   ],
+   "books": 67,
+   "offByDefault": 16,
+   "hiddenByDefault": {
+    "species": 440,
+    "careers": 1,
+    "specializations": 8,
+    "talents": 17
+   },
+   "twins": {
+    "species:aleena": {
+     "members": [
+      "aleena",
+      "csg_aleena"
+     ],
+     "defaultWinner": "aleena",
+     "allOnWinner": "aleena",
+     "differ": true
+    },
+    "species:anx": {
+     "members": [
+      "anx",
+      "csg_anx"
+     ],
+     "defaultWinner": "anx",
+     "allOnWinner": "anx",
+     "differ": true
+    },
+    "species:aqualish": {
+     "members": [
+      "aqualish",
+      "csg_aqualish"
+     ],
+     "defaultWinner": "aqualish",
+     "allOnWinner": "aqualish",
+     "differ": true
+    },
+    "species:arcona": {
+     "members": [
+      "arcona",
+      "csg_arcona"
+     ],
+     "defaultWinner": "arcona",
+     "allOnWinner": "arcona",
+     "differ": false
+    },
+    "species:arkanian": {
+     "members": [
+      "arkanian",
+      "csg_arkanian"
+     ],
+     "defaultWinner": "arkanian",
+     "allOnWinner": "arkanian",
+     "differ": true
+    },
+    "species:balosar": {
+     "members": [
+      "balosar",
+      "csg_balosar"
+     ],
+     "defaultWinner": "balosar",
+     "allOnWinner": "balosar",
+     "differ": true
+    },
+    "species:barabel": {
+     "members": [
+      "barabel",
+      "csg_barabel"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "barabel",
+     "differ": true
+    },
+    "species:bardottan": {
+     "members": [
+      "bardottan",
+      "csg_bardottan"
+     ],
+     "defaultWinner": "bardottan",
+     "allOnWinner": "bardottan",
+     "differ": true
+    },
+    "species:besalisk": {
+     "members": [
+      "besalisk",
+      "csg_besalisk"
+     ],
+     "defaultWinner": "besalisk",
+     "allOnWinner": "besalisk",
+     "differ": false
+    },
+    "species:bith": {
+     "members": [
+      "bith",
+      "csg_bith"
+     ],
+     "defaultWinner": "bith",
+     "allOnWinner": "bith",
+     "differ": true
+    },
+    "species:bothan": {
+     "members": [
+      "bothan",
+      "csg_bothan"
+     ],
+     "defaultWinner": "bothan",
+     "allOnWinner": "bothan",
+     "differ": true
+    },
+    "species:caamasi": {
+     "members": [
+      "caamasi",
+      "csg_caamasi"
+     ],
+     "defaultWinner": "caamasi",
+     "allOnWinner": "caamasi",
+     "differ": true
+    },
+    "species:cathar": {
+     "members": [
+      "cathar",
+      "csg_cathar"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "cathar",
+     "differ": true
+    },
+    "species:cerean": {
+     "members": [
+      "cerean",
+      "csg_cerean"
+     ],
+     "defaultWinner": "cerean",
+     "allOnWinner": "cerean",
+     "differ": true
+    },
+    "species:chadra-fan": {
+     "members": [
+      "chadra_fan",
+      "csg_chadra_fan"
+     ],
+     "defaultWinner": "chadra_fan",
+     "allOnWinner": "chadra_fan",
+     "differ": true
+    },
+    "species:chagrian": {
+     "members": [
+      "chagrian",
+      "csg_chagrian"
+     ],
+     "defaultWinner": "chagrian",
+     "allOnWinner": "chagrian",
+     "differ": false
+    },
+    "species:chevin": {
+     "members": [
+      "chevin",
+      "csg_chevin"
+     ],
+     "defaultWinner": "chevin",
+     "allOnWinner": "chevin",
+     "differ": true
+    },
+    "species:chiss": {
+     "members": [
+      "chiss",
+      "csg_chiss"
+     ],
+     "defaultWinner": "chiss",
+     "allOnWinner": "chiss",
+     "differ": false
+    },
+    "species:clawdite": {
+     "members": [
+      "clawdite",
+      "csg_clawdite"
+     ],
+     "defaultWinner": "clawdite",
+     "allOnWinner": "clawdite",
+     "differ": true
+    },
+    "species:corellian human": {
+     "members": [
+      "corellian_human",
+      "csg_corellian_human"
+     ],
+     "defaultWinner": "corellian_human",
+     "allOnWinner": "corellian_human",
+     "differ": false
+    },
+    "species:cosian": {
+     "members": [
+      "cosian",
+      "csg_cosian"
+     ],
+     "defaultWinner": "cosian",
+     "allOnWinner": "cosian",
+     "differ": true
+    },
+    "species:dashade": {
+     "members": [
+      "csg_dashade",
+      "dashade",
+      "tor_dashade"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "dashade",
+     "differ": true
+    },
+    "species:dathomirian": {
+     "members": [
+      "csg_dathomirian",
+      "dathomirian"
+     ],
+     "defaultWinner": "dathomirian",
+     "allOnWinner": "dathomirian",
+     "differ": true
+    },
+    "species:defel": {
+     "members": [
+      "csg_defel",
+      "defel"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "defel",
+     "differ": true
+    },
+    "species:devaronian": {
+     "members": [
+      "csg_devaronian",
+      "devaronian"
+     ],
+     "defaultWinner": "devaronian",
+     "allOnWinner": "devaronian",
+     "differ": true
+    },
+    "species:dowutin": {
+     "members": [
+      "csg_dowutin",
+      "dowutin"
+     ],
+     "defaultWinner": "dowutin",
+     "allOnWinner": "dowutin",
+     "differ": true
+    },
+    "species:drabatan": {
+     "members": [
+      "csg_drabatan",
+      "drabatan"
+     ],
+     "defaultWinner": "drabatan",
+     "allOnWinner": "drabatan",
+     "differ": false
+    },
+    "species:drall": {
+     "members": [
+      "csg_drall",
+      "drall"
+     ],
+     "defaultWinner": "drall",
+     "allOnWinner": "drall",
+     "differ": true
+    },
+    "species:dressellian": {
+     "members": [
+      "csg_dressellian",
+      "dressellian"
+     ],
+     "defaultWinner": "dressellian",
+     "allOnWinner": "dressellian",
+     "differ": true
+    },
+    "species:droid": {
+     "members": [
+      "csg_droid",
+      "droid"
+     ],
+     "defaultWinner": "droid",
+     "allOnWinner": "droid",
+     "differ": true
+    },
+    "species:dug": {
+     "members": [
+      "csg_dug",
+      "dug"
+     ],
+     "defaultWinner": "dug",
+     "allOnWinner": "dug",
+     "differ": true
+    },
+    "species:duros": {
+     "members": [
+      "csg_duros",
+      "duros"
+     ],
+     "defaultWinner": "duros",
+     "allOnWinner": "duros",
+     "differ": true
+    },
+    "species:elom": {
+     "members": [
+      "csg_elom",
+      "elom"
+     ],
+     "defaultWinner": "elom",
+     "allOnWinner": "elom",
+     "differ": true
+    },
+    "species:elomin": {
+     "members": [
+      "csg_elomin",
+      "elomin"
+     ],
+     "defaultWinner": "elomin",
+     "allOnWinner": "elomin",
+     "differ": true
+    },
+    "species:ewok": {
+     "members": [
+      "csg_ewok",
+      "ewok",
+      "ewok_aaa"
+     ],
+     "defaultWinner": "ewok_aaa",
+     "allOnWinner": "ewok_aaa",
+     "differ": true
+    },
+    "species:falleen": {
+     "members": [
+      "csg_falleen",
+      "falleen"
+     ],
+     "defaultWinner": "falleen",
+     "allOnWinner": "falleen",
+     "differ": true
+    },
+    "species:farghul": {
+     "members": [
+      "csg_farghul",
+      "farghul"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "farghul",
+     "differ": true
+    },
+    "species:gamorrean": {
+     "members": [
+      "csg_gamorrean",
+      "gamorrean"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "gamorrean",
+     "differ": true
+    },
+    "species:gand": {
+     "members": [
+      "csg_gand",
+      "gand"
+     ],
+     "defaultWinner": "gand",
+     "allOnWinner": "gand",
+     "differ": true
+    },
+    "species:gank": {
+     "members": [
+      "csg_gank",
+      "gank"
+     ],
+     "defaultWinner": "gank",
+     "allOnWinner": "gank",
+     "differ": false
+    },
+    "species:geonosian": {
+     "members": [
+      "csg_geonosian",
+      "geonosian"
+     ],
+     "defaultWinner": "geonosian",
+     "allOnWinner": "geonosian",
+     "differ": true
+    },
+    "species:gigoran": {
+     "members": [
+      "csg_gigoran",
+      "gigoran"
+     ],
+     "defaultWinner": "gigoran",
+     "allOnWinner": "gigoran",
+     "differ": true
+    },
+    "species:givin": {
+     "members": [
+      "csg_givin",
+      "givin"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "givin",
+     "differ": true
+    },
+    "species:gossam": {
+     "members": [
+      "csg_gossam",
+      "gossam"
+     ],
+     "defaultWinner": "gossam",
+     "allOnWinner": "gossam",
+     "differ": false
+    },
+    "species:gotal": {
+     "members": [
+      "csg_gotal",
+      "gotal"
+     ],
+     "defaultWinner": "gotal",
+     "allOnWinner": "gotal",
+     "differ": true
+    },
+    "species:gran": {
+     "members": [
+      "csg_gran",
+      "gran"
+     ],
+     "defaultWinner": "gran",
+     "allOnWinner": "gran",
+     "differ": true
+    },
+    "species:gungan": {
+     "members": [
+      "csg_gungan",
+      "gungan"
+     ],
+     "defaultWinner": "gungan",
+     "allOnWinner": "gungan",
+     "differ": true
+    },
+    "species:harch": {
+     "members": [
+      "csg_harch",
+      "harch"
+     ],
+     "defaultWinner": "harch",
+     "allOnWinner": "harch",
+     "differ": true
+    },
+    "species:herglic": {
+     "members": [
+      "csg_herglic",
+      "herglic"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "herglic",
+     "differ": true
+    },
+    "species:human": {
+     "members": [
+      "csg_human",
+      "human"
+     ],
+     "defaultWinner": "human",
+     "allOnWinner": "human",
+     "differ": false
+    },
+    "species:hutt": {
+     "members": [
+      "csg_hutt",
+      "hutt"
+     ],
+     "defaultWinner": "hutt",
+     "allOnWinner": "hutt",
+     "differ": true
+    },
+    "species:iakaru": {
+     "members": [
+      "csg_iakaru",
+      "iakaru"
+     ],
+     "defaultWinner": "iakaru",
+     "allOnWinner": "iakaru",
+     "differ": false
+    },
+    "species:iktotchi": {
+     "members": [
+      "csg_iktotchi",
+      "iktotchi"
+     ],
+     "defaultWinner": "iktotchi",
+     "allOnWinner": "iktotchi",
+     "differ": true
+    },
+    "species:ishi tib": {
+     "members": [
+      "csg_ishi_tib",
+      "ishi_tib"
+     ],
+     "defaultWinner": "ishi_tib",
+     "allOnWinner": "ishi_tib",
+     "differ": true
+    },
+    "species:ithorian": {
+     "members": [
+      "csg_ithorian",
+      "ithorian"
+     ],
+     "defaultWinner": "ithorian",
+     "allOnWinner": "ithorian",
+     "differ": false
+    },
+    "species:jawa": {
+     "members": [
+      "csg_jawa",
+      "jawa",
+      "jawa_aaa"
+     ],
+     "defaultWinner": "jawa_aaa",
+     "allOnWinner": "jawa_aaa",
+     "differ": true
+    },
+    "species:kalleran": {
+     "members": [
+      "csg_kalleran",
+      "kalleran"
+     ],
+     "defaultWinner": "kalleran",
+     "allOnWinner": "kalleran",
+     "differ": true
+    },
+    "species:kaminoan": {
+     "members": [
+      "csg_kaminoan",
+      "kaminoan"
+     ],
+     "defaultWinner": "kaminoan",
+     "allOnWinner": "kaminoan",
+     "differ": true
+    },
+    "species:karkarodon": {
+     "members": [
+      "csg_karkarodon",
+      "karkarodon"
+     ],
+     "defaultWinner": "karkarodon",
+     "allOnWinner": "karkarodon",
+     "differ": true
+    },
+    "species:kel dor": {
+     "members": [
+      "csg_kel_dor",
+      "kel_dor"
+     ],
+     "defaultWinner": "kel_dor",
+     "allOnWinner": "kel_dor",
+     "differ": true
+    },
+    "species:klatooinian": {
+     "members": [
+      "csg_klatooinian",
+      "klatooinian"
+     ],
+     "defaultWinner": "klatooinian",
+     "allOnWinner": "klatooinian",
+     "differ": true
+    },
+    "species:kubaz": {
+     "members": [
+      "csg_kubaz",
+      "kubaz"
+     ],
+     "defaultWinner": "kubaz",
+     "allOnWinner": "kubaz",
+     "differ": true
+    },
+    "species:kyuzo": {
+     "members": [
+      "csg_kyuzo",
+      "kyuzo"
+     ],
+     "defaultWinner": "kyuzo",
+     "allOnWinner": "kyuzo",
+     "differ": true
+    },
+    "species:lannik": {
+     "members": [
+      "csg_lannik",
+      "lannik"
+     ],
+     "defaultWinner": "lannik",
+     "allOnWinner": "lannik",
+     "differ": true
+    },
+    "species:lepi": {
+     "members": [
+      "csg_lepi",
+      "lepi"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "lepi",
+     "differ": true
+    },
+    "species:melitto": {
+     "members": [
+      "csg_melitto",
+      "melitto"
+     ],
+     "defaultWinner": "melitto",
+     "allOnWinner": "melitto",
+     "differ": true
+    },
+    "species:mikkian": {
+     "members": [
+      "csg_mikkian",
+      "mikkian"
+     ],
+     "defaultWinner": "mikkian",
+     "allOnWinner": "mikkian",
+     "differ": true
+    },
+    "species:mirialan": {
+     "members": [
+      "csg_mirialan",
+      "mirialan"
+     ],
+     "defaultWinner": "mirialan",
+     "allOnWinner": "mirialan",
+     "differ": true
+    },
+    "species:mon calamari": {
+     "members": [
+      "csg_mon_calamari",
+      "mon_calamari"
+     ],
+     "defaultWinner": "mon_calamari",
+     "allOnWinner": "mon_calamari",
+     "differ": false
+    },
+    "species:mustafarian": {
+     "members": [
+      "csg_mustafarian",
+      "mustafarian"
+     ],
+     "defaultWinner": "mustafarian",
+     "allOnWinner": "mustafarian",
+     "differ": true
+    },
+    "species:muun": {
+     "members": [
+      "csg_muun",
+      "muun"
+     ],
+     "defaultWinner": "muun",
+     "allOnWinner": "muun",
+     "differ": true
+    },
+    "species:nagai": {
+     "members": [
+      "csg_nagai",
+      "nagai"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "nagai",
+     "differ": true
+    },
+    "species:nautolan": {
+     "members": [
+      "csg_nautolan",
+      "nautolan"
+     ],
+     "defaultWinner": "nautolan",
+     "allOnWinner": "nautolan",
+     "differ": true
+    },
+    "species:neimoidian": {
+     "members": [
+      "csg_neimoidian",
+      "neimoidian"
+     ],
+     "defaultWinner": "neimoidian",
+     "allOnWinner": "neimoidian",
+     "differ": true
+    },
+    "species:nikto": {
+     "members": [
+      "csg_nikto",
+      "nikto"
+     ],
+     "defaultWinner": "nikto",
+     "allOnWinner": "nikto",
+     "differ": true
+    },
+    "species:noghri": {
+     "members": [
+      "csg_noghri",
+      "noghri"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "noghri",
+     "differ": true
+    },
+    "species:ortolan": {
+     "members": [
+      "csg_ortolan",
+      "ortolan"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "ortolan",
+     "differ": false
+    },
+    "species:pantoran": {
+     "members": [
+      "csg_pantoran",
+      "pantoran"
+     ],
+     "defaultWinner": "pantoran",
+     "allOnWinner": "pantoran",
+     "differ": true
+    },
+    "species:pau'an": {
+     "members": [
+      "csg_pauan",
+      "pau_an"
+     ],
+     "defaultWinner": "pau_an",
+     "allOnWinner": "pau_an",
+     "differ": true
+    },
+    "species:phydolon": {
+     "members": [
+      "csg_phydolon",
+      "phydolon"
+     ],
+     "defaultWinner": "phydolon",
+     "allOnWinner": "phydolon",
+     "differ": true
+    },
+    "species:polis massan": {
+     "members": [
+      "csg_polis_massan",
+      "polis_massan"
+     ],
+     "defaultWinner": "polis_massan",
+     "allOnWinner": "polis_massan",
+     "differ": true
+    },
+    "species:quarren": {
+     "members": [
+      "csg_quarren",
+      "quarren"
+     ],
+     "defaultWinner": "quarren",
+     "allOnWinner": "quarren",
+     "differ": true
+    },
+    "species:quermian": {
+     "members": [
+      "csg_quermian",
+      "quermian"
+     ],
+     "defaultWinner": "quermian",
+     "allOnWinner": "quermian",
+     "differ": true
+    },
+    "species:rodian": {
+     "members": [
+      "csg_rodian",
+      "rodian"
+     ],
+     "defaultWinner": "rodian",
+     "allOnWinner": "rodian",
+     "differ": true
+    },
+    "species:ryn": {
+     "members": [
+      "csg_ryn",
+      "ryn"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "ryn",
+     "differ": true
+    },
+    "species:sakiyan": {
+     "members": [
+      "csg_sakiyan",
+      "sakiyan"
+     ],
+     "defaultWinner": "sakiyan",
+     "allOnWinner": "sakiyan",
+     "differ": true
+    },
+    "species:sathari": {
+     "members": [
+      "csg_sathari",
+      "sathari"
+     ],
+     "defaultWinner": "sathari",
+     "allOnWinner": "sathari",
+     "differ": true
+    },
+    "species:selkath": {
+     "members": [
+      "csg_selkath",
+      "selkath"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "selkath",
+     "differ": false
+    },
+    "species:selonian": {
+     "members": [
+      "csg_selonian",
+      "selonian"
+     ],
+     "defaultWinner": "selonian",
+     "allOnWinner": "selonian",
+     "differ": true
+    },
+    "species:shistavanen": {
+     "members": [
+      "csg_shistavanen",
+      "shistavanen"
+     ],
+     "defaultWinner": "shistavanen",
+     "allOnWinner": "shistavanen",
+     "differ": true
+    },
+    "species:skakoan": {
+     "members": [
+      "csg_skakoan",
+      "skakoan"
+     ],
+     "defaultWinner": "skakoan",
+     "allOnWinner": "skakoan",
+     "differ": false
+    },
+    "species:sluissi": {
+     "members": [
+      "csg_sluissi",
+      "sluissi"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "sluissi",
+     "differ": true
+    },
+    "species:snivvian": {
+     "members": [
+      "csg_snivvian",
+      "snivvian"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "snivvian",
+     "differ": true
+    },
+    "species:squib": {
+     "members": [
+      "csg_squib",
+      "squib"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "squib",
+     "differ": true
+    },
+    "species:sullustan": {
+     "members": [
+      "csg_sullustan",
+      "sullustan"
+     ],
+     "defaultWinner": "sullustan",
+     "allOnWinner": "sullustan",
+     "differ": true
+    },
+    "species:talz": {
+     "members": [
+      "csg_talz",
+      "talz"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "talz",
+     "differ": true
+    },
+    "species:thakwaash": {
+     "members": [
+      "csg_thakwaash",
+      "thakwaash"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "thakwaash",
+     "differ": true
+    },
+    "species:thisspiasian": {
+     "members": [
+      "csg_thisspiasian",
+      "thisspiasian"
+     ],
+     "defaultWinner": "thisspiasian",
+     "allOnWinner": "thisspiasian",
+     "differ": true
+    },
+    "species:tholothian": {
+     "members": [
+      "csg_tholothian",
+      "tholothian"
+     ],
+     "defaultWinner": "tholothian",
+     "allOnWinner": "tholothian",
+     "differ": true
+    },
+    "species:togorian": {
+     "members": [
+      "csg_togorian",
+      "togorian"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "togorian",
+     "differ": true
+    },
+    "species:togruta": {
+     "members": [
+      "csg_togruta",
+      "togruta"
+     ],
+     "defaultWinner": "togruta",
+     "allOnWinner": "togruta",
+     "differ": false
+    },
+    "species:trandoshan": {
+     "members": [
+      "csg_trandoshan",
+      "trandoshan"
+     ],
+     "defaultWinner": "trandoshan",
+     "allOnWinner": "trandoshan",
+     "differ": true
+    },
+    "species:twi'lek": {
+     "members": [
+      "csg_twilek",
+      "twi_lek"
+     ],
+     "defaultWinner": "twi_lek",
+     "allOnWinner": "twi_lek",
+     "differ": false
+    },
+    "species:ubese": {
+     "members": [
+      "csg_ubese",
+      "ubese"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "ubese",
+     "differ": true
+    },
+    "species:ugnaught": {
+     "members": [
+      "csg_ugnaught",
+      "ugnaught"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "ugnaught",
+     "differ": true
+    },
+    "species:umbaran": {
+     "members": [
+      "csg_umbaran",
+      "umbaran"
+     ],
+     "defaultWinner": "umbaran",
+     "allOnWinner": "umbaran",
+     "differ": true
+    },
+    "species:verpine": {
+     "members": [
+      "csg_verpine",
+      "verpine"
+     ],
+     "defaultWinner": "verpine",
+     "allOnWinner": "verpine",
+     "differ": true
+    },
+    "species:vurk": {
+     "members": [
+      "csg_vurk",
+      "vurk"
+     ],
+     "defaultWinner": "vurk",
+     "allOnWinner": "vurk",
+     "differ": true
+    },
+    "species:weequay": {
+     "members": [
+      "csg_weequay",
+      "weequay"
+     ],
+     "defaultWinner": "weequay",
+     "allOnWinner": "weequay",
+     "differ": true
+    },
+    "species:whiphid": {
+     "members": [
+      "csg_whiphid",
+      "whiphid"
+     ],
+     "defaultWinner": "whiphid",
+     "allOnWinner": "whiphid",
+     "differ": true
+    },
+    "species:wookiee": {
+     "members": [
+      "csg_wookiee",
+      "wookiee"
+     ],
+     "defaultWinner": "wookiee",
+     "allOnWinner": "wookiee",
+     "differ": true
+    },
+    "species:xexto": {
+     "members": [
+      "csg_xexto",
+      "xexto"
+     ],
+     "defaultWinner": "xexto",
+     "allOnWinner": "xexto",
+     "differ": true
+    },
+    "species:zabrak": {
+     "members": [
+      "csg_zabrak",
+      "zabrak"
+     ],
+     "defaultWinner": "zabrak",
+     "allOnWinner": "zabrak",
+     "differ": true
+    },
+    "species:zeltron": {
+     "members": [
+      "csg_zeltron",
+      "zeltron"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "zeltron",
+     "differ": true
+    },
+    "species:zygerrian": {
+     "members": [
+      "csg_zygerrian",
+      "zygerrian"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "zygerrian",
+     "differ": true
+    },
+    "species:lasat": {
+     "members": [
+      "csg_lasat",
+      "lasat"
+     ],
+     "defaultWinner": "lasat",
+     "allOnWinner": "lasat",
+     "differ": true
+    },
+    "species:tusken raider": {
+     "members": [
+      "csg_tusken_raider",
+      "tusken_raider"
+     ],
+     "defaultWinner": "tusken_raider",
+     "allOnWinner": "tusken_raider",
+     "differ": true
+    },
+    "species:echani": {
+     "members": [
+      "csg_echani",
+      "tor_echani"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "csg_echani",
+     "differ": true
+    },
+    "species:miraluka": {
+     "members": [
+      "csg_miraluka",
+      "tor_miraluka"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "csg_miraluka",
+     "differ": true
+    },
+    "species:rattataki": {
+     "members": [
+      "csg_rattataki",
+      "tor_rattataki"
+     ],
+     "defaultWinner": null,
+     "allOnWinner": "csg_rattataki",
+     "differ": true
+    },
+    "talents:temple training": {
+     "members": [
+      "temple_training",
+      "temple_training__temptrain"
+     ],
+     "defaultWinner": "temple_training",
+     "allOnWinner": "temple_training",
+     "differ": null
+    }
+   },
+   "packs": [
+    {
+     "stamp": "respecialized@aor-v1",
+     "specs": 41,
+     "talents": 240,
+     "careers": 4,
+     "scoundrel": {
+      "hasOpportunist": false,
+      "hasSideStep": true
+     }
+    },
+    {
+     "stamp": "respecialized@aor-v2",
+     "specs": 51,
+     "talents": 334,
+     "careers": 5,
+     "scoundrel": {
+      "hasOpportunist": false,
+      "hasSideStep": true
+     }
+    },
+    {
+     "stamp": "respecialized@eote-v1",
+     "specs": 36,
+     "talents": 202,
+     "careers": 1,
+     "scoundrel": {
+      "hasOpportunist": true,
+      "hasSideStep": false
+     }
+    },
+    {
+     "stamp": "respecialized@eote-v2",
+     "specs": 46,
+     "talents": 286,
+     "careers": 2,
+     "scoundrel": {
+      "hasOpportunist": true,
+      "hasSideStep": false
+     }
+    },
+    {
+     "stamp": "respecialized@fad-v1",
+     "specs": 51,
+     "talents": 171,
+     "careers": 8,
+     "scoundrel": {
+      "hasOpportunist": false,
+      "hasSideStep": true
+     }
+    }
+   ],
+   "derived": {
+    "grit": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 1,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "toughened": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 2,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "enduring": {
+     "soakBonus": 1,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "sixth_sense": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 1,
+     "forceRatingBonus": 0
+    },
+    "superior_reflexes": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 1,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "force_rating": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 1
+    },
+    "dedication": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "armor_master": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    },
+    "armor_master_improved": {
+     "soakBonus": 0,
+     "woundThresholdBonus": 0,
+     "strainThresholdBonus": 0,
+     "meleeDefenseBonus": 0,
+     "rangedDefenseBonus": 0,
+     "forceRatingBonus": 0
+    }
+   }
+  }
+ }
+}

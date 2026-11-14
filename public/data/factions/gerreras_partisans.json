@@ -1,0 +1,223 @@
+{
+  "id": "gerreras_partisans",
+  "name": "Gerrera's Partisans",
+  "type": "military_force",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Dawn of Rebellion"
+  ],
+  "overview": "Gerrera's Partisans are an extremist anti-Imperial militia led by Saw Gerrera, a veteran of the Clone Wars who has fought occupiers on multiple worlds. Operating from catacombs near Jedha City, the Partisans employ extreme measures against the Empire including targeting civilians, maintaining a notorious prison called 'the Gut,' and using creatures to torture captives for information. The Rebel Alliance keeps its distance from the Partisans due to their methods.",
+  "short_descriptor": "Saw Gerrera's people. No rules of engagement. The Alliance cut ties for a reason. If you're working near them, assume collateral damage is planned, not accidental. Effective. Costly.",
+  "witness_statement": {
+    "text": "They hit the convoy at the NiJedha market crossing. Middle of the day, stalls open, kids in the street. Afterwards one of them walked past me carrying a crate of thermal detonators like it was groceries. I asked a local if that was normal. He said 'That was a quiet one.'",
+    "source": "Civilian trader, Jedha City market district, displaced after incident",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "SAW GERRERA",
+      "text": "Saw Gerrera commands the Partisans with absolute personal authority from a catacomb stronghold near Jedha City, making all significant decisions himself."
+    },
+    {
+      "heading": "COMMAND",
+      "text": "The command structure is extremely flat: fighters report to cell leaders, who report directly to Saw. Cells operate with high tactical autonomy but default to maximum aggression when Saw is unavailable."
+    },
+    {
+      "heading": "INTERROGATION",
+      "text": "Intelligence is extracted from captured Imperial personnel through interrogation and torture, including the use of creatures in a catacomb prison called 'the Gut.' Weapons and supplies are acquired exclusively through raids on Imperial targets and black market purchases, with no formal logistics chain."
+    },
+    {
+      "heading": "METHODS",
+      "text": "The Partisans conduct ambushes, assassinations, and demolition operations in populated areas without regard for civilian casualties — methods that led the Rebel Alliance to sever all association with the group."
+    }
+  ],
+  "motivations": {
+    "primary": "Destroy the Empire by any means necessary",
+    "secondary": [
+      "Avenge occupied peoples",
+      "Punish collaborators",
+      "Liberate Jedha from Imperial control",
+      "Prove that violent resistance works"
+    ],
+    "notes": "Saw Gerrera's motivations are rooted in decades of warfare against successive occupiers — Separatists, then the Empire. His paranoia and willingness to use extreme measures have intensified over time. The Partisans attract fighters too radical for the Alliance or too traumatized to accept its restraint."
+  },
+  "goals": {
+    "strategic": [
+      "Inflict maximum damage on Imperial infrastructure and personnel regardless of collateral consequences",
+      "Demonstrate that the Empire cannot hold any world without paying an unbearable cost",
+      "Build a network of resistance cells willing to use methods the Alliance refuses to authorize"
+    ],
+    "operational": [
+      "Ambush Imperial patrols and supply convoys operating near Jedha City",
+      "Extract intelligence from captured Imperial personnel through interrogation — including torture",
+      "Recruit disillusioned fighters from occupied populations and former Alliance operatives",
+      "Stockpile weapons, explosives, and supplies through raids and black market acquisition"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "military_force",
+      "assassination",
+      "intimidation",
+      "infiltration"
+    ],
+    "avoided": [
+      "Diplomacy — Saw Gerrera does not negotiate with the Empire or accept its legitimacy in any form",
+      "Alliance coordination — the Partisans refuse oversight or operational restrictions from Alliance High Command",
+      "Restraint in civilian areas — collateral damage is considered an acceptable cost of war"
+    ],
+    "notes": "The Partisans use extreme measures that the Alliance expressly forbids: targeting civilians suspected of collaboration, torturing prisoners, and conducting attacks in populated areas without regard for bystanders. Their catacomb base includes a prison nicknamed 'the Gut' where horrid creatures are used in interrogations. Saw's growing paranoia means even allies are subjected to loyalty tests."
+  },
+  "strengths": [
+    "Total commitment — Partisan fighters accept death and have no institutional restraints on their methods",
+    "Deep knowledge of urban guerrilla warfare honed across decades and multiple occupied worlds",
+    "Fear factor — Imperial forces and local populations alike fear Partisan reprisals",
+    "Recruitment pool of the most desperate and radicalized fighters the galaxy produces",
+    "Catacomb stronghold provides defensible, concealed base of operations resistant to orbital bombardment"
+  ],
+  "weaknesses": [
+    "Saw Gerrera's escalating paranoia results in periodic purges of experienced operatives based on circumstantial or fabricated evidence of disloyalty.",
+    "The Partisans' willingness to accept civilian casualties alienates potential allies and drives local populations toward cooperation with Imperial forces for protection.",
+    "The absence of a formal logistics chain forces dependence on raids and black market acquisition, producing chronic shortages of ammunition, medical supplies, and replacement equipment.",
+    "The Rebel Alliance's policy of non-association with groups that target civilians cuts the Partisans off from the largest organized source of anti-Imperial materiel and intelligence.",
+    "The flat command structure and high cell autonomy mean individual Partisan units frequently conduct operations without inter-cell coordination, reducing cumulative strategic effect."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase patrols and ambush frequency. Test loyalty of all recently recruited members.",
+    "medium": "Saw personally interrogates suspects. Catacomb access routes are sealed and rotated. External contacts are cut.",
+    "high": "Full lockdown of catacomb base. Suspected collaborators are imprisoned or executed. Scorched earth operations against Imperial positions regardless of civilian presence.",
+    "critical": "Saw evacuates with core loyalists only. Non-essential personnel are abandoned. All intelligence is destroyed. The remaining fighters conduct suicide operations to cover the withdrawal."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Partisan fighter",
+      "Cell leader",
+      "Saw Gerrera personally"
+    ],
+    "notes": "The chain of command is extremely flat — Saw Gerrera makes all significant decisions personally. This provides decisive leadership but creates a single point of failure. When Saw is unavailable, cells default to maximum aggression. Trust flows only downward; Saw trusts almost no one."
+  },
+  "tension_patterns": [
+    "Partisan operational planning routinely incorporates civilian casualties as acceptable costs, a policy that places them in direct ideological conflict with the Rebel Alliance's rules of engagement.",
+    "Former Alliance operatives who defected to the Partisans after policy disagreements with High Command retain knowledge of Alliance safe house locations, communication protocols, and personnel identities.",
+    "Partisan attacks on Imperial targets in populated areas consistently trigger Imperial reprisal operations against local civilian populations, a consequence the Partisan command structure treats as an unavoidable cost of war.",
+    "Saw Gerrera's intensifying paranoia produces periodic loyalty purges in which operatives are accused on circumstantial evidence, regardless of their operational value or demonstrated commitment.",
+    "The Partisans and the Rebel Alliance frequently identify the same strategic assets as priorities, and Partisan doctrine defaults to seizure by force when negotiated access is not immediately granted."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "patrol",
+    "economic": "skeleton",
+    "command": "skeleton",
+    "informational": "skeleton",
+    "military": "patrol",
+    "hidden": "dominant",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "medium",
+    "weapon": "high",
+    "person": "medium",
+    "artifact": "medium",
+    "technology": "medium",
+    "notes": "The Partisans prioritize weapons and explosives above all else. Intelligence data is valued when it identifies Imperial targets. Kyber crystals and Jedha artifacts are of interest given their base of operations. Persons are valued primarily as potential recruits or interrogation subjects."
+  },
+  "ally_factions": [],
+  "enemy_factions": [
+    "imperial_military",
+    "imperial_security_bureau"
+  ],
+  "relationship_notes": {
+    "rebel_alliance": "The Alliance avoids association with extremist groups that target civilians. The Partisans view the Alliance as too cautious and politically compromised to win the war.",
+    "imperial_military": "The Empire considers the Partisans terrorists and prioritizes their destruction. The Partisans consider every Imperial soldier a legitimate target.",
+    "free_ryloth_movement": "Both groups fight the Empire without Alliance oversight, but the Free Ryloth Movement is more disciplined and geographically focused. Occasional operational cooperation on shared targets."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "none",
+    "colonies": "none",
+    "inner_rim": "minimal",
+    "expansion_region": "none",
+    "mid_rim": "minimal",
+    "outer_rim": "moderate",
+    "hutt_space": "none",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Saw Gerrera",
+      "role": "Founder and absolute commander",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "SAW_GERRERA",
+      "notes": "Clone Wars veteran who fought Separatist occupation before turning against the Empire. Operates from catacombs near Jedha City. Known for extreme interrogation methods and growing paranoia. Uses horrid creatures to torture captives in a prison called 'the Gut.'",
+      "network_assessment": "Saw is deteriorating — physically and mentally — but his operational instincts remain lethal. Every interaction is a loyalty test. He will use you, suspect you, and discard you in that order. Do not expect gratitude. Expect results.",
+      "wants": "To inflict maximum damage on the Empire regardless of cost, proving that violent resistance works where diplomacy and restraint have failed.",
+      "secret": "His paranoia has driven him to execute at least two loyal operatives on fabricated evidence. The surviving inner circle knows but will not confront him.",
+      "behavior": {
+        "under_pressure": "Becomes more paranoid, not less effective. Seals access routes, interrogates everyone nearby, and prepares scorched-earth contingencies.",
+        "when_losing": "Evacuates with core loyalists and abandons everyone else. Non-essential personnel are expendable. Intelligence is destroyed.",
+        "loyalty": "To the cause of violent resistance itself. Not to individuals, not to the Alliance, not even to specific worlds. The fight is the loyalty.",
+        "tells": "Asks the same question multiple ways across a conversation — he is testing for inconsistencies. Increased breathing apparatus use signals physical decline and heightened aggression."
+      },
+      "useful_to_players": [
+        "Commands a network of fighters willing to take on Imperial targets the Alliance will not touch",
+        "The catacomb base contains weapons caches, intelligence from tortured prisoners, and knowledge of Jedha's underground",
+        "His reputation alone can open doors — or clear rooms — across the Outer Rim"
+      ],
+      "hooks": [
+        "Saw lost a cell on Jedha's outskirts and is offering weapons to anyone who can confirm whether they were captured or turned",
+        "Someone escaped the Gut. They are hiding in Jedha City with information Saw wants buried. Both sides are paying."
+      ]
+    },
+    {
+      "name": "Numa",
+      "role": "Senior operative and explosives specialist",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "Twi'lek rescued as a child by Republic clone troopers during the Clone Wars. Deeply betrayed when those same soldiers became Imperial occupiers. Rescued by the Free Ryloth Movement before joining the Partisans. Distrusts all outsiders, possibly more than Saw himself. Publicly cold but deeply committed to the cause.",
+      "network_assessment": "Numa crossed over from the Free Ryloth Movement to Saw's operation — that means Cham's discipline was not enough for her. She is colder and more radicalized than her Ryloth file suggests. Handle with care.",
+      "wants": "To wage war against the Empire with no restrictions, having concluded that measured resistance achieves nothing against a regime willing to enslave entire species.",
+      "secret": "Still maintains a dormant contact channel back to the Free Ryloth Movement. Has not used it. Has not deleted it.",
+      "behavior": {
+        "under_pressure": "Coldly efficient. Her explosives training instilled absolute calm under threat — hesitation around detonators kills everyone.",
+        "when_losing": "Rigs withdrawal routes with explosives. Standard Partisan doctrine is maximum damage on retreat, and Numa wrote the playbook.",
+        "loyalty": "To the fight against the Empire. She chose the Partisans over Cham's movement because the Partisans do not hold back.",
+        "tells": "Complete silence before a decision is made. If she is talking, she has already decided. If she stops talking, she is deciding now."
+      },
+      "useful_to_players": [
+        "Demolitions expertise applicable to any operation involving Imperial hardened targets",
+        "Her Free Ryloth background gives her contacts and knowledge beyond the Partisan network",
+        "Earning her respect — not trust, respect — provides limited access to Partisan resources"
+      ],
+      "hooks": [
+        "Numa needs materials for a job Saw has not authorized yet — she is planning something independent and needs outside help",
+        "A Partisan supply cache that Numa rigged went off early and killed two civilians. Saw does not know yet. Numa needs the scene cleaned."
+      ]
+    }
+  ],
+  "source_material_notes": "Dawn of Rebellion (pp.42, 76, 86-87, 98) provides the primary treatment of Saw Gerrera's operations, the catacomb base near Jedha City, Numa's background, and the Alliance's deliberate distance from extremist groups. The AoR Core Rulebook does not mention Gerrera directly but establishes the Alliance's anti-terrorism policy that creates the ideological divide.",
+  "field_sources": {
+    "motivations": "Dawn of Rebellion pp.42 (extreme measures against occupiers), pp.76 (Alliance avoidance of extremist groups)",
+    "goals": "Dawn of Rebellion pp.42 (catacomb operations, targeting civilians); inferred from Partisan operational pattern",
+    "methods": "Dawn of Rebellion pp.40 (extreme measures, civilian targeting, 'the Gut' prison, creature torture)",
+    "strengths": "Inferred from Dawn of Rebellion pp.40 (catacomb stronghold, decades of experience) and pp.87 (Numa's dedication)",
+    "weaknesses": "Dawn of Rebellion pp.76 (Alliance refusal to associate with extremists); inferred from Saw's paranoia described in pp.42, 87",
+    "behavior_under_threat": "Inferred from Saw Gerrera's paranoia and extreme methods described in Dawn of Rebellion pp.42, 87",
+    "tension_patterns": "Inferred from Alliance-Partisan ideological divide (Dawn of Rebellion pp.76) and Saw's paranoia (pp.42, 87)",
+    "regional_presence": "Dawn of Rebellion pp.42 (Jedha City catacombs); inferred broader presence from guerrilla operational pattern",
+    "mcguffin_interest": "Inferred from Partisan weapons focus and Jedha location (Dawn of Rebellion pp.42)"
+  }
+}

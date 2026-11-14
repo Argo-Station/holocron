@@ -1,0 +1,853 @@
+/* lib/shared/yard.css — THE SHIP YARD'S OWN STYLESHEET (SHIP YARD S4; ruling `shipyard-s4-ground` §6 JOB 2, "m1":
+   the Yard declares the paper ground by name). Loaded by both hosts; every rule is fenced to `.yd`, the Yard's
+   room root, which mounts only inside the Yard (the only Yard since the S5 flip retired K9, R-S5R-18).
+
+   THE RULES ARE THE APPROVED FRAMES' OWN. Everything below the root block is the `y-*` object set of the
+   hangar mockup (`Docs/mockups/assets/shipyard/build.cjs` frameCss, and `frames_hangar.cjs`'s page css),
+   ported mechanically: each selector prefixed with `.yd`, the frame's width band classes (`y-wide`,
+   `y-mid`, `y-narrow`) moved onto the root, the retired left rail (`.y-rail*`, R-S2M-16.1) dropped. The
+   frame's `.ys` token block is NOT copied: the tokens and the wear are the creator ground's own
+   (`lib/shared/grounds/creator.css`, `lib/shared/paper.css` §2), which the root declares with
+   `data-doc-ground="creator"`, exactly as the frames say they copied them "byte for byte". The top and bottom
+   bars (`y-top`, `y-bar`) are the app's SuiteBar and BottomNav in their paper face (ADR 0010); their rules
+   ride along unused so the object set stays whole. */
+
+/* ── the root: the room scrolls; its page is the creator ground ── */
+.yd-host{position:absolute;inset:0;overflow:hidden}
+.yd-scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#DEDCD4}
+/* U18 B (`shipyard-s4-approvals` R-S4A-2.2/.3): above 1440 every S4 face grows as ONE piece by --page-grow (tokens.css:482);
+   the bars live outside the screen layer, unzoomed. At 1440 and below --page-grow is 1: nothing changes. */
+.yd-scroll>.yd{zoom:var(--page-grow)}
+.yd{min-height:100%;background:var(--doc-paper);color:var(--doc-ink);font-family:var(--font-body);font-size:16px;line-height:1.4;text-align:left;-webkit-font-smoothing:antialiased}
+.yd *,.yd *::before,.yd *::after{box-sizing:border-box}
+:where(.yd) :where(p,h1,h2,h3,ul,ol,li,table){margin:0;padding:0}
+:where(.yd) :where(ul,ol){list-style:none}
+:where(.yd) :where(button){font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+:where(.yd) :where(img){max-width:none}
+/* the phone's owner sheet stands over the room on the same ground — one wear, not two */
+.yd.yd-over{position:absolute;inset:0;min-height:0;background:transparent;z-index:5}
+.yd.yd-over::before,.yd.yd-over::after{display:none}
+/* the face box with no portrait to show: the initial, in ink (the dark Monogram is white-on-cream on paper) */
+.yd .y-face-init{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--doc-ink-muted)}
+/* H4: the owner the floor shows (the frame's inline marking, as a rule) */
+.yd .y-door[aria-selected="true"]{background:rgba(36,30,48,.08);padding-left:8px;border-left:3px solid var(--doc-state)}
+/* a control a frame draws whose flow no frame draws yet: present, inert, said so (listed at the gate) */
+.yd [aria-disabled="true"]{cursor:default}
+
+/* ── the frames' object set ── */
+.yd .y-app{display:flex;flex-direction:column;min-height:100%}
+.yd .y-top{display:flex;align-items:center;gap:10px;min-height:56px;padding:6px 14px;border-bottom:1px solid var(--doc-rule);background:rgba(242,241,236,.55)}
+.yd .y-back{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);min-height:44px;display:inline-flex;align-items:center;gap:6px;padding:0 6px}
+.yd .y-scope{margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:44px;min-width:180px;padding:3px 34px 3px 16px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);position:relative;text-align:center}
+.yd .y-scope[data-static="1"]{padding-right:16px}
+.yd .y-scope-k{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-scope-n{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--doc-ink)}
+.yd .y-scope-c{position:absolute;right:12px;top:50%;margin-top:-3px;border:5px solid transparent;border-top-color:var(--doc-ink-muted);border-bottom:0}
+.yd .y-ico{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;color:var(--doc-ink-muted)}
+.yd .y-ico svg{width:22px;height:22px}
+.yd .y-bar{display:flex;border-top:1px solid var(--doc-rule);background:var(--doc-paper-raised);min-height:62px}
+.yd .y-bar-i{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);border-top:3px solid transparent;margin-top:-1px}
+.yd .y-bar-i[data-on="1"]{color:var(--doc-action);border-top-color:var(--doc-action)}
+.yd .y-bar-i svg{width:24px;height:24px}
+.yd .y-body{display:flex;flex:1;min-height:0}
+.yd .y-main{flex:1;min-width:0;padding:20px 18px 28px}
+.yd.y-wide .y-main{padding:24px 36px 22px}
+/* ── the page head (the store's paper masthead: "WEAPONS 397 ON THE SHELF") */
+.yd .y-mast{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.yd .y-h1{font-family:var(--font-display);font-weight:900;font-size:30px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
+.yd.y-wide .y-h1{font-size:38px}
+.yd .y-h1c{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-lead{font-size:16px;color:var(--doc-ink-muted);margin-top:6px;max-width:62ch}
+.yd .y-runhead{display:flex;justify-content:space-between;gap:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--doc-accent);margin-bottom:8px}
+/* the view switch — INDIGO is a thing that IS (grounds/creator.css): the chosen view */
+.yd .y-seg{display:flex;margin-top:16px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);width:max-content;max-width:100%}
+.yd .y-seg-b{min-height:44px;padding:0 16px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);border-left:1px solid var(--doc-rule)}
+.yd .y-seg-b:first-child{border-left:0}
+.yd .y-seg-b[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised)}
+/* section head (paper.css .hp-sechead + h2, byte for byte) */
+.yd .y-sech{display:flex;align-items:center;gap:12px;margin:26px 0 11px}
+.yd .y-sech::after{content:"";flex:1;order:1;border-top:1px solid rgba(126,20,20,.34)}
+.yd .y-sech h2{font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:.28em;color:var(--doc-accent);text-transform:uppercase}
+.yd .y-sech .y-cite,.yd .y-sech .y-sech-x{order:2}
+.yd .y-sech-x{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-cite{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border:1px solid rgba(126,20,20,.42);font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;color:var(--doc-action);text-transform:uppercase;white-space:nowrap}
+/* the plate (paper.css .hp-plate: a hairline edge, the raised face, clipped corners, the lift) */
+.yd .y-plate{position:relative;background:var(--doc-rule);clip-path:polygon(var(--doc-cut) 0,100% 0,100% calc(100% - var(--doc-cut)),calc(100% - var(--doc-cut)) 100%,0 100%,0 var(--doc-cut))}
+.yd .y-plate::after{content:"";position:absolute;inset:1px;background:var(--doc-paper-raised);pointer-events:none;clip-path:inherit}
+.yd .y-plate>*{position:relative;z-index:1}
+.yd .y-lift{filter:drop-shadow(0 1px 1px rgba(23,22,27,.16)) drop-shadow(0 6px 10px rgba(23,22,27,.10))}
+/* art: the mat law — every image on ONE uniform mat (Warmth Package §2) */
+.yd .y-mat{background:var(--doc-mat);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.yd .y-plateimg{width:100%;height:100%;display:block;background-size:contain;background-position:center;background-repeat:no-repeat}
+.yd .y-yours{position:relative;width:100%;height:100%;background:var(--doc-mat)}
+.yd .y-yours svg{display:block;width:100%;height:100%}
+.yd .y-yours-lab{position:absolute;left:0;bottom:0;background:var(--doc-state);color:var(--doc-paper-raised);font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;padding:4px 9px 3px}
+.yd .y-caption{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted)}
+/* stamps — legal or standing status on a record, square and ruled (the store's .st-r restriction mark), never a pill */
+.yd .y-stamp{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:2px;padding:2px 6px 1px;white-space:nowrap;line-height:1.5}
+.yd .y-stamp[data-k="bond"]{color:var(--doc-action)}
+.yd .y-stamp[data-k="party"],.yd .y-stamp[data-k="unit"]{color:var(--doc-state)}
+.yd .y-stamp[data-k="flag"]{color:var(--doc-paper-raised);background:var(--doc-state);border-color:var(--doc-state)}
+.yd .y-stamp[data-k="lost"]{color:var(--doc-paper-raised);background:var(--doc-critical);border-color:var(--doc-critical)}
+.yd .y-stamp[data-k="retired"]{color:var(--doc-ink-muted)}
+.yd .y-stamp[data-k="state"]{color:var(--doc-paper-raised);background:var(--doc-critical);border-color:var(--doc-critical);font-size:11px;padding:3px 8px 2px}
+.yd .y-stamp[data-k="plan"]{color:var(--doc-accent)}
+/* the restriction mark's maroon is the frames' own literal (#501010, EotE p.52's capsule label): `--st-maroon` is defined only
+   inside the store's shell (store.css), and the grounds leave that ink unmodelled, so a var() here resolved to nothing and
+   every (R) on the Yard drew with no box in body ink since 454728dd. One use: the landing's precedent keeps the literal;
+   the naming question stays store.css's. */
+.yd .y-r{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:#501010;border:1px solid #501010;border-radius:2px;padding:1px 4px;margin-left:6px;white-space:nowrap}
+/* entries (sheet.css .sb-e … : ruled rows, not cards) */
+.yd .y-e{padding:11px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y-e:last-child{border-bottom:0}
+.yd .y-e-h{display:flex;align-items:baseline;gap:6px 10px;flex-wrap:wrap}
+.yd .y-e-n{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--doc-ink)}
+.yd .y-e-m{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--doc-ink-muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.yd .y-e-t{font-family:var(--font-body);font-size:16px;line-height:1.5;color:var(--doc-ink);max-width:60ch;margin-top:6px}
+.yd .y-e-l{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:6px}
+.yd .y-e-l>div{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-e-l b{font-family:var(--font-body);font-weight:600;font-size:15px;letter-spacing:0;text-transform:none;color:var(--doc-ink);font-variant-numeric:tabular-nums}
+/* the condition strip: the record's state in the mechanics voice */
+.yd .y-cond{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-cond b{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:0;color:var(--doc-ink);font-variant-numeric:tabular-nums}
+.yd .y-cond [data-hurt="1"] b:first-child{color:var(--doc-critical)}
+.yd .y-cond-ok{color:var(--doc-good)}
+.yd .y-seat{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-state)}
+.yd .y-seat b{font-weight:400;color:var(--doc-ink)}
+.yd .y-logline{font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted);border-left:2px solid var(--doc-rule);padding-left:9px}
+.yd .y-logline i{font-style:normal;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-accent)}
+/* the tracker (sheet.css .sb-vitrow + .sb-trk: 44px steppers, AS-6) */
+.yd .y-trk{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y-trk-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-trk-k small{display:block;font-size:10px;letter-spacing:.08em;color:var(--doc-ink-muted);opacity:.9;margin-top:2px;text-transform:none;font-family:var(--font-body);font-size:13px}
+.yd .y-trk-c{display:flex;align-items:center;gap:4px}
+.yd .y-trk-b{width:44px;height:44px;border:1px solid var(--doc-rule);color:var(--doc-ink-muted);font-family:var(--font-body);font-weight:600;font-size:19px;line-height:1;box-shadow:0 1px 0 rgba(255,255,255,.5);display:inline-flex;align-items:center;justify-content:center}
+.yd .y-trk-v{min-width:66px;text-align:right;padding-right:4px;font-family:var(--font-body);font-weight:600;font-size:21px;color:var(--doc-ink);font-variant-numeric:tabular-nums;line-height:1}
+.yd .y-trk-v .y-of{color:var(--doc-ink-muted);font-size:15px}
+.yd .y-trk[data-state="down"] .y-trk-v{background:var(--doc-critical);color:var(--doc-paper-raised);padding:6px 6px 5px}
+.yd .y-trk[data-state="down"] .y-trk-v .y-of{color:rgba(242,241,236,.74)}
+.yd .y-thr{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:8px}
+.yd .y-thr b{font-weight:400;color:var(--doc-critical)}
+/* buttons (paper.css .hp-quiet / .hp-commit, byte for byte in the numbers) */
+.yd .y-quiet{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--doc-rule);color:var(--doc-ink-muted);font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;clip-path:polygon(var(--doc-cut-sm) 0,100% 0,100% calc(100% - var(--doc-cut-sm)),calc(100% - var(--doc-cut-sm)) 100%,0 100%,0 var(--doc-cut-sm));background:rgba(242,241,236,.35)}
+.yd .y-commit{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 30px 0 22px;background:var(--doc-action);color:var(--doc-paper-raised);font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%)}
+.yd .y-verbs{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--doc-rule)}
+.yd .y-door{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:52px;padding:8px 0;border-top:1px solid var(--doc-rule-fine);text-align:left}
+.yd .y-door-n{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.yd .y-door-m{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-chev{font-family:var(--font-mono);font-size:16px;color:var(--doc-action)}
+/* pools (sheet.css .sb-pool: glyphs on raised stock) — the Genesys face, the paper inks */
+.yd .y-pool{display:inline-flex;gap:3px;align-items:center;padding:4px 9px;background:var(--doc-paper-raised);box-shadow:0 1px 0 rgba(255,255,255,.55),0 0 0 1px var(--doc-rule-fine);min-height:30px;white-space:nowrap}
+.yd .hp-sym{font-family:'Genesys';font-style:normal;font-weight:400;font-size:19px;line-height:1;display:inline-block;vertical-align:-.1em}
+.yd .hp-sym[data-die="ability"]{color:var(--doc-sym-ability)}
+.yd .hp-sym[data-die="proficiency"]{color:var(--doc-sym-proficiency)}
+.yd .hp-sym[data-die="difficulty"]{color:var(--doc-sym-difficulty)}
+.yd .hp-sym[data-die="setback"]{color:var(--doc-sym-setback)}
+.yd .y-dice{display:inline-flex;gap:2px;align-items:center}
+.yd .y-vs{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;color:var(--doc-ink-muted);margin:0 6px;text-transform:uppercase}
+/* the store's find mark (R-SPC-4) */
+.yd .y-find{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.yd .y-pips{letter-spacing:1px;color:var(--doc-ink);font-size:10px}
+.yd .y-find b{font-family:var(--font-mono);font-weight:400;font-size:10.5px;letter-spacing:.1em;color:var(--doc-ink-muted)}
+/* the ledger (paper.css .hp-ledger / .hp-lkey / .hp-lval) */
+.yd .y-led{width:100%;border-collapse:collapse}
+.yd .y-led td{padding:6px 0;vertical-align:baseline}
+.yd .y-led tr{border-top:1px solid var(--doc-rule-fine)}
+.yd .y-led tr:first-child{border-top:0}
+.yd .y-lk{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;color:var(--doc-accent);text-transform:uppercase;white-space:nowrap;width:1%;padding-right:14px}
+.yd .y-lv{font-family:var(--font-body);font-weight:600;font-size:16px;color:var(--doc-ink);font-variant-numeric:tabular-nums;text-align:right}
+.yd .y-attr{display:block;font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--doc-action);margin-top:2px;text-align:right}
+.yd .y-attr[data-k="note"]{color:var(--doc-ink-muted)}
+.yd .y-canon{font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted)}
+.yd .y-canon q{quotes:"\201C" "\201D";color:var(--doc-ink)}
+/* rows of people */
+.yd .y-face{width:40px;height:40px;background-size:cover;background-position:50% 22%;background-color:var(--doc-mat);border:1px solid var(--doc-rule);flex:none;display:block}
+.yd .y-npcmark{width:40px;height:40px;flex:none;display:inline-flex;align-items:center;justify-content:center;border:1px dashed var(--doc-rule);font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd .y-who{display:flex;align-items:center;gap:10px;min-width:0}
+.yd .y-who-n{font-family:var(--font-body);font-weight:600;font-size:16px;color:var(--doc-ink);line-height:1.15}
+.yd .y-who-m{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+/* the hangar: the ship plate and the ship row */
+.yd .y-ship{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--doc-rule-fine);align-items:start}
+.yd .y-ship-art{width:132px;height:88px}
+.yd .y-ship-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.yd .y-ship-n{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.05em;text-transform:uppercase;line-height:1.15}
+.yd .y-ship-t{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-ship-tags{display:flex;flex-wrap:wrap;gap:6px}
+.yd .y-hero{padding:0}
+.yd .y-hero-art{height:220px}
+.yd .y-hero-body{padding:16px 16px 14px;display:flex;flex-direction:column;gap:9px}
+.yd .y-hero .y-ship-n{font-size:22px}
+/* tables of craft (the fleet list) */
+.yd .y-tbl{width:100%;border-collapse:collapse}
+.yd .y-tbl th{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);text-align:left;padding:0 10px 8px 0;border-bottom:1px solid var(--doc-rule)}
+.yd .y-tbl td{padding:10px 10px 10px 0;border-bottom:1px solid var(--doc-rule-fine);vertical-align:middle}
+.yd .y-tbl tr[data-lost="1"] td{background:repeating-linear-gradient(-45deg,rgba(127,42,20,.05) 0 6px,transparent 6px 12px)}
+.yd .y-thumb{width:64px;height:42px}
+/* U20 · the ship with no picture of its owner's (`shipyard-s4-approvals` R-S4A-1, as D-196 amends it): the ship IDENTIFIER
+   (lib/shared/shipSchematic.js; card `shipyard-schematic-build-card`) on the mat, in the schematic's box, captioned as before.
+   SMALL draws at its own width (the class may sit BESIDE the glyph, widening it); FULL fits its box. Its inks are the
+   module's own (paper only, D-198): no ground re-inks it. */
+.yd .y-u20mat{flex-direction:column;gap:4px}
+.yd .y-u20svg{display:block;flex:0 0 auto}
+.yd .y-u20svg svg{display:block}
+.yd .y-u20svg[data-form="full"] svg{width:100%;height:100%}
+.yd .y-u20cap{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-vship-art .y-u20mat,.yd .y-vship-art.y-u20mat,.yd .y-thumb.y-u20mat{gap:2px}
+.yd .y-vship-art .y-u20cap,.yd .y-vship-art.y-u20mat .y-u20cap,.yd .y-thumb.y-u20mat .y-u20cap{font-size:7.5px;letter-spacing:.08em;line-height:1.1;text-align:center}
+/* the ship's head and the SHEET · WORKBENCH switch (the Moment Split: one record, two arrangements) */
+.yd .y-shiphead{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;align-items:center}
+.yd .y-shiphead-art{width:112px;height:75px}
+.yd.y-wide .y-shiphead{grid-template-columns:200px minmax(0,1fr) auto;gap:22px}
+.yd.y-wide .y-shiphead-art{width:200px;height:133px}
+.yd .y-mode{display:flex;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);width:max-content}
+.yd .y-mode-b{min-height:44px;padding:0 16px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);border-left:1px solid var(--doc-rule)}
+.yd .y-mode-b:first-child{border-left:0}
+.yd .y-mode-b[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised)}
+/* the workbench's six tabs — all live; the open one is the tab you are in */
+.yd .y-tabs{display:flex;border-bottom:1px solid var(--doc-rule);margin-top:16px;overflow:hidden}
+.yd .y-tab{flex:1;min-height:46px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);border-bottom:3px solid transparent;margin-bottom:-1px;padding:0 6px}
+.yd.y-wide .y-tab{flex:0 0 auto;padding:0 22px}
+.yd .y-tab[data-on="1"]{color:var(--doc-ink);border-bottom-color:var(--doc-action)}
+/* the FIT window (EVE's fitting window, §13.3) */
+.yd .y-fit{display:grid;grid-template-columns:330px minmax(0,1fr) 340px;gap:0;border-top:1px solid var(--doc-rule);min-height:0}
+.yd .y-fit>section{min-width:0;padding:16px 18px;border-left:1px solid var(--doc-rule-fine)}
+.yd .y-fit>section:first-child{border-left:0}
+.yd .y-fit-mid{display:flex;flex-direction:column;align-items:center}
+.yd.y-mid .y-fit{grid-template-columns:minmax(0,1fr) 340px}
+.yd .y-ring{position:relative;margin:0 auto}
+/* the schematic takes its box from the ring that places it (left/top/width/height inline); an !important width here once
+   widened it to 300px and pushed the drawing off the ring's centre */
+.yd .y-slot{position:absolute;width:150px;min-height:62px;transform:translate(-50%,-50%);padding:7px 10px 8px;text-align:left}
+.yd .y-slot[data-used="0"]{border:1px dashed var(--doc-ink-structural);background:rgba(242,241,236,.45)}
+.yd .y-slot-k{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-accent);display:block}
+.yd .y-slot[data-used="0"] .y-slot-k{color:var(--doc-ink-muted)}
+.yd .y-slot-n{font-family:var(--font-body);font-weight:600;font-size:14.5px;line-height:1.15;display:block;margin-top:2px}
+.yd .y-slot[data-used="0"] .y-slot-n{font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-slot[data-over="1"]{outline:2px solid var(--doc-caution);outline-offset:2px}
+.yd .y-slot[data-sel="1"]{outline:2px solid var(--doc-action);outline-offset:3px}
+.yd .y-mount{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-state);background:rgba(242,241,236,.7);padding:3px 8px;border:1px solid var(--doc-rule-fine)}
+/* K4 (shipyard-counter-parts.html, approved): a mount is the door to its weapon list — the chosen one in the action ink; at the
+   desk the hold stacks above the mount's list in the parts column (the frame's own rules) */
+.yd .y-mount[role="button"]{cursor:pointer}
+.yd .y-mount[data-sel="1"]{border-color:var(--doc-action);color:var(--doc-action);box-shadow:0 0 0 1px var(--doc-action)}
+.yd:where([data-yard-page="ship"]) .y-leftstack{display:flex;flex-direction:column;gap:12px;min-height:0}
+.yd:where([data-yard-page="ship"]) .y-leftstack>.y-sec+.y-sec{margin-top:0}
+.yd:where([data-yard-page="ship"]) .y-leftstack>.y-colwrap{flex:1}
+.yd .y-budget{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;border-top:1px solid var(--doc-rule);padding:12px 18px;background:rgba(242,241,236,.45)}
+.yd .y-meter{display:flex;align-items:center;gap:10px}
+.yd .y-meter-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-meter-v{font-family:var(--font-body);font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.yd .y-boxes{display:flex;gap:3px}
+.yd .y-box{width:16px;height:16px;border:1px solid var(--doc-ink-structural);display:inline-block}
+.yd .y-box[data-on="1"]{background:var(--doc-ink);border-color:var(--doc-ink)}
+.yd .y-box[data-over="1"]{background:var(--doc-caution);border-color:var(--doc-caution);margin-left:6px}
+.yd .y-warn{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-caution);border:1px solid var(--doc-caution);padding:4px 8px}
+.yd .y-info{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+/* the attachments browser (PARTS) */
+.yd .y-search{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);box-shadow:inset 0 1px 2px rgba(23,22,27,.08);font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted)}
+.yd .y-search b{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.16em;color:var(--doc-ink-muted)}
+.yd .y-br-g{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-accent);margin:16px 0 4px;padding-bottom:5px;border-bottom:1px solid rgba(126,20,20,.34)}
+.yd .y-br-g span{color:var(--doc-ink-muted)}
+.yd .y-br-r{display:block;padding:9px 0;border-bottom:1px solid var(--doc-rule-fine)}
+/* a DOES NOT FIT row is drawn at full strength: its refusal is the red y-verdict words below (D-223 — the S4 half
+   opacity read 2.2–2.6:1, under the 4.5:1 floor) */
+.yd .y-br-n{font-family:var(--font-body);font-weight:600;font-size:15px;line-height:1.2;color:var(--doc-ink)}
+.yd .y-br-m{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:4px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-br-m b{font-weight:400;color:var(--doc-ink)}
+.yd .y-verdict{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.yd .y-verdict[data-fit="fits"]{color:var(--doc-good)}
+.yd .y-verdict[data-fit="installed"]{color:var(--doc-state)}
+.yd .y-verdict[data-fit="nofit"]{color:var(--doc-critical)}
+/* sheets that rise over a surface (paper sheet: a scrim and a raised panel) */
+.yd .y-scrimwrap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:flex-end}
+.yd .y-scrim{position:absolute;inset:0;background:rgba(23,22,27,.34)}
+.yd .y-sheet{position:relative;background:var(--doc-paper-raised);border-top:3px solid var(--doc-action);box-shadow:0 -10px 30px rgba(23,22,27,.25);padding:18px 18px 22px;max-height:88%;overflow:hidden}
+.yd .y-sheet-side{position:absolute;right:0;top:0;bottom:0;width:460px;border-top:0;border-left:3px solid var(--doc-action);max-height:none}
+.yd .y-grab{width:44px;height:4px;background:var(--doc-rule);margin:-8px auto 12px}
+/* the stale hold (ui.jsx StaleTabBanner paper face + StaleHold: controls recede to .4, reading stays) */
+.yd .y-stale{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px}
+.yd .y-stale-t{flex:1 1 220px;min-width:0}
+.yd .y-stale-t b{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.08em}
+.yd .y-stale-t p{font-size:15px;color:var(--doc-ink-muted);margin-top:4px}
+.yd .y-held button,.yd .y-held input,.yd .y-held .y-in,.yd .y-held .y-trk-b,.yd .y-held .y-quiet,.yd .y-held .y-commit,.yd .y-held .y-link,.yd .y-held [data-control="1"]{opacity:.4;cursor:not-allowed}
+/* inputs on paper */
+.yd .y-in{display:flex;align-items:center;min-height:44px;padding:0 12px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);box-shadow:inset 0 1px 2px rgba(23,22,27,.08);font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted)}
+.yd .y-in b{font-weight:600;color:var(--doc-ink)}
+.yd .y-link{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-action);min-height:44px;display:inline-flex;align-items:center}
+/* B-1381 (D-404 item 10): a door muted for 1.0 — the paper's muted ink, not the live-link action ink; disabled, so no focus. */
+.yd .y-link[data-muted]{color:var(--doc-ink-muted);cursor:default}
+/* B-1635 (D-418 item 1, mockup 5V2sMCF57uLY1iwJyJNtYt v1): ＋ SEAT <NAME> stays on one line and a long name ellipsizes; a block
+   box, because a flex container's bare text never takes an ellipsis — the same 44px target, its text centred by line-height. */
+.yd .y-link.y-seat{display:inline-block;line-height:44px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;min-width:0}
+/* the deck: the player's plan and the app's pins over it */
+.yd .y-deck{position:relative;background:var(--doc-mat);border:1px solid var(--doc-rule)}
+.yd .y-deck svg{display:block;width:100%;height:auto}
+.yd .y-pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.yd .y-pin b{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.14em;background:var(--doc-state);color:var(--doc-paper-raised);padding:3px 6px 2px;white-space:nowrap}
+.yd .y-pin i{width:2px;height:10px;background:var(--doc-state)}
+.yd .y-pin[data-drop="1"] b{background:var(--doc-action)}
+.yd .y-pin[data-drop="1"] i{background:var(--doc-action)}
+.yd .y-zoom{position:absolute;right:8px;bottom:8px;display:flex;gap:4px}
+.yd .y-zoom span{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:rgba(242,241,236,.9);border:1px solid var(--doc-rule);font-family:var(--font-body);font-weight:600;font-size:18px}
+.yd .y-empty{padding:34px 18px;text-align:center;border:1px dashed var(--doc-ink-structural)}
+.yd .y-empty-h{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+.yd .y-empty p{font-size:15.5px;color:var(--doc-ink-muted);max-width:40ch;margin:8px auto 16px}
+/* the log */
+.yd .y-log{display:flex;flex-direction:column}
+.yd .y-log-r{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:9px 0;border-bottom:1px solid var(--doc-rule-fine);align-items:baseline}
+.yd .y-log-s{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted);white-space:nowrap}
+.yd .y-log-e{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-state);margin-right:8px}
+.yd .y-log-t{font-size:15.5px;line-height:1.4}
+.yd .y-log-r[data-by="player"] .y-log-t{font-style:italic}
+/* layout helpers */
+.yd .y-grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 36px}
+.yd .y-grid3{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,.95fr);gap:0 32px}
+.yd .y-stack{display:flex;flex-direction:column;gap:10px}
+.yd .y-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.yd .y-facts{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px}
+.yd .y-sp{margin-left:auto}
+.yd .y-mt{margin-top:12px}
+.yd .y-muted{color:var(--doc-ink-muted)}
+.yd .y-small{font-size:14px}
+.yd .y-mono{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-inkstate{color:var(--doc-state)}
+.yd .y-crit{color:var(--doc-critical)}
+/* ── R-S2M-15 (card ADDENDUM 4): a grouped section's content sits on the paper sheet's own plate — the shipped
+   unit body (lib/shared/sheet.css .sb-unit-body, byte for byte in the numbers: --doc-paper-raised, --doc-lift, 14/15/15,
+   the bottom-right --doc-cut chamfer). The section head stays on the page ground; rows inside keep their ledger rules.
+   Never a plate inside a plate: a slot, a seat card or a row that sits on one of these drops its own raised face. */
+.yd .y-sec{background:var(--doc-paper-raised);box-shadow:var(--doc-lift);padding:14px 15px 15px;clip-path:polygon(0 0,100% 0,100% calc(100% - var(--doc-cut)),calc(100% - var(--doc-cut)) 100%,0 100%)}
+.yd .y-sec+.y-sec{margin-top:10px}
+.yd .y-sec>:first-child{margin-top:0}
+.yd .y-sec>.y-e:first-child,.yd .y-sec>.y-act:first-child,.yd .y-sec>.y-role:first-child,.yd .y-sec>.y-critrow:first-child,.yd .y-sec>.y-trk:first-child{padding-top:0}
+.yd .y-sec>.y-e:last-child,.yd .y-sec>.y-critrow:last-child,.yd .y-sec>.y-role:last-child,.yd .y-sec>.y-seatrow:last-child,.yd .y-sec>.y-trk:last-of-type{border-bottom:0}
+.yd .y-ship.y-sec,.yd .y-door.y-sec{border-top:0}
+.yd .y-door.y-sec{min-height:56px;margin-top:0}
+.yd .y-empty.y-sec{border:0;padding:30px 18px}
+/* R-SAP-3 (D-463): a run's wrapper reads as the section's own rows did */
+.yd .y-sec>[data-run]:first-child>.y-e:first-child,.yd .y-sec>[data-run]:first-child>.y-critrow:first-child{padding-top:0}
+.yd .y-sec>[data-run]:first-child>.y-ship:first-child{border-top:0;padding-top:0}
+.yd .y-sec>[data-run]:last-child>.y-ship:last-child{padding-bottom:0}
+.yd .y-sec>[data-run]:last-child>.y-e:last-child,.yd .y-sec>[data-run]:last-child>.y-critrow:last-child,.yd .y-sec>[data-run]:last-child>.y-seatrow:last-child{border-bottom:0}
+.yd .y-sec>.y-ship:first-child{border-top:0;padding-top:0}
+.yd .y-sec>.y-ship:last-child{padding-bottom:0}
+
+/* R-S2M-16.3 — a floor section is one row of ship plates across the width that wraps: one ship fills it, a fleet shares it */
+.yd .y-shiprow{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.yd .y-shiprow>*{flex:1 1 520px;min-width:0;margin:0}
+.yd .y-shiprow>.y-hero{flex-basis:640px}
+.yd.y-wide .y-shiprow>.y-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.yd.y-wide .y-shiprow>.y-hero>.y-hero-body{padding:24px 26px 20px;justify-content:center}
+.yd .y-ship-body.y-shipcols{flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:6px 32px}
+.yd .y-shipcols>div{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:6px}
+
+/* ── the sheet VESSELS face (V1–V4), frames_vessels.cjs page css ported the same way; it sits inside the paper sheet's VESSELS unit, so its root declares no ground of its own (`.yd-in`) ── */
+.yd.yd-in{min-height:0;background:transparent;font-size:16px}
+/* R-S4SH-6 Q1 / R-S4CC-12: the unit grows ONCE, with its page — by the paper sheet's own factor, `--u-k` (lib/shared/sheet.css,
+   `--u`'s unitless twin: 1 · 1.3 at ≥2300 · 1.8 at ≥3000); outside a sheet the twin is unset and the unit stays 1 */
+.yd.yd-in{zoom:var(--u-k,1)}
+.yd .y-vbody{padding:12px 13px 14px}
+.yd .y-vgroup{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;color:var(--doc-accent);padding:4px 0 6px;border-bottom:1px solid rgba(126,20,20,.34)}
+.yd .y-vgroup+.y-vship{border-top:0}
+.yd .y-vgroup i{font-style:normal;color:var(--doc-ink-muted);letter-spacing:.12em}
+.yd .y-vship{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px 12px;padding:12px 0 14px;border-top:1px solid var(--doc-rule-fine)}
+.yd .y-vship+.y-vgroup{margin-top:8px}
+.yd .y-vship-art{width:96px;height:64px}
+.yd .y-vship-b{display:flex;flex-direction:column;gap:5px;min-width:0}
+.yd .y-vship .y-ship-n{font-size:15px}
+.yd .y-vship .y-cond{font-size:10px;gap:3px 10px}
+.yd .y-vship .y-cond b{font-size:14px}
+.yd .y-vship .y-logline{font-size:14px}
+.yd .y-vseat{grid-column:1 / -1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:52px;padding:6px 10px;border:1px solid var(--doc-rule);background:var(--doc-paper);text-align:left}
+.yd .y-vseat-p{display:flex;align-items:center;gap:8px;margin-left:auto}
+.yd .y-vseat[data-open="1"]{border-color:var(--doc-state);border-left:3px solid var(--doc-state)}
+.yd .y-seatopen{grid-column:1 / -1;padding:12px 12px 10px;border-left:3px solid var(--doc-state);background:rgba(36,30,48,.05)}
+.yd .y-bigpool{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.yd .y-bigpool .y-pool .hp-sym{font-size:26px}
+.yd .y-sub{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-state);margin:12px 0 4px}
+.yd .y-mnv{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--font-body);font-weight:600;font-size:14.5px}
+.yd .y-mnvl>div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y-mnvl span{font-family:var(--font-body);font-weight:600;font-size:14.5px}
+.yd .y-mnvl i{font-style:normal;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted);text-align:right}
+.yd .y-act{padding:10px 0;border-top:1px solid var(--doc-rule-fine)}
+.yd .y-vdoor{border-top:1px solid var(--doc-rule);margin-top:8px}
+.yd .y-vnone{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted);margin:4px 0 8px;line-height:1.6}
+.yd .y-vbond{grid-column:1 / -1;display:flex;flex-direction:column;gap:6px;padding:10px 0 2px;border-top:1px dashed var(--doc-rule)}
+.yd .y-vsig{grid-column:1 / -1;padding:10px 12px;border-left:3px solid var(--doc-action);background:rgba(126,20,20,.04)}
+.yd .y-vsig .y-act:first-of-type{border-top:0;padding-top:4px}
+
+/* ══ THE SHIP (S1–S6 · W4 W5 W6 W8 W9; JOB 3a, ruling `shipyard-s4-collection` §7) — frames_ship.cjs's page css,
+   ported mechanically and FENCED to the ship room's root (`.yd:where([data-yard-page="ship"])` — the gate adds NO
+   specificity, so the mockup's cascade holds: a shared `.y-wide` rule still beats the page's plain one): in the mockup each page
+   carried its own css, so a ship rule that overrides a shared frame rule (`.y-mid .y-main`, `.y-sheet`) must not
+   reach the hangar or the catalogue. The band classes sit on the root, as above. ══ */
+.yd:where([data-yard-page="ship"]) .y-shiphead{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;align-items:center}
+.yd:where([data-yard-page="ship"]) .y-zones{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px}
+.yd:where([data-yard-page="ship"]) .y-zone{display:flex;flex-direction:column;align-items:center;min-width:72px;padding:8px 10px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised)}
+.yd:where([data-yard-page="ship"]) .y-zone-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;color:var(--doc-ink-muted)}
+.yd:where([data-yard-page="ship"]) .y-zone-v{font-family:var(--font-body);font-weight:700;font-size:28px;line-height:1.05;color:var(--doc-state);font-variant-numeric:tabular-nums}
+.yd:where([data-yard-page="ship"]) .y-zones[data-off="1"] .y-zone-v{color:var(--doc-critical)}
+.yd:where([data-yard-page="ship"]) .y-zone-mid{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+.yd:where([data-yard-page="ship"]) .y-zone-mid .y-quiet{justify-content:center;padding:0 8px}
+.yd:where([data-yard-page="ship"]) .y-critrow{padding:10px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-sev{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink)}
+.yd:where([data-yard-page="ship"]) .y-seatrow{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:56px;padding:8px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-seatrow-p{display:flex;align-items:center;gap:8px}
+.yd:where([data-yard-page="ship"]) .y-seatcard{margin:8px 0}
+.yd:where([data-yard-page="ship"]) .y-seatcard-in{padding:12px 14px}
+.yd:where([data-yard-page="ship"]) .y-act{padding:10px 0;border-top:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-seatcard .y-act:first-of-type{margin-top:10px}
+.yd:where([data-yard-page="ship"]) .y-door-fold{margin-top:18px;border-top:1px solid var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-fold-h{list-style:none;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;min-height:44px;padding:12px 0 6px;cursor:pointer}
+.yd:where([data-yard-page="ship"]) .y-fold-h::-webkit-details-marker{display:none}
+.yd:where([data-yard-page="ship"]) .y-fold-b{padding-bottom:8px}
+.yd:where([data-yard-page="ship"]) .y-sub{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-state);margin:12px 0 4px}
+.yd:where([data-yard-page="ship"]) .y-mnv{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--font-body);font-weight:600;font-size:14.5px}
+.yd:where([data-yard-page="ship"]) .y-x{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--doc-rule-fine);color:var(--doc-ink-muted);font-size:12px}
+.yd:where([data-yard-page="ship"]) .y-statebox .y-e-t{font-size:15px}
+.yd:where([data-yard-page="ship"]) .y-fitwrap{margin-top:12px;border:0;background:none}
+.yd.y-wide:where([data-yard-page="ship"]) .y-fit{height:520px}
+.yd.y-mid:where([data-yard-page="ship"]) .y-fit{height:460px}
+.yd.y-mid:where([data-yard-page="ship"]) .y-main{padding:16px 28px 18px}
+.yd.y-wide:where([data-yard-page="ship"]) .y-fitwrap{margin-bottom:0}
+.yd:where([data-yard-page="ship"]) .y-sheet{max-height:95%}
+.yd:where([data-yard-page="ship"]) .y-crewrow .y-row{flex-wrap:nowrap}
+.yd:where([data-yard-page="ship"]) .y-col-scroll{overflow:hidden;-webkit-mask-image:linear-gradient(#000 88%,transparent);mask-image:linear-gradient(#000 88%,transparent)}
+/* R-S2M-15 — FIT on plates: three plates with the page between them, the budget bar a fourth; the hard points are
+   SOCKETS on the ring's plate (the page tone, sunk into the raised face) — a slot is not a plate on a plate */
+.yd:where([data-yard-page="ship"]) .y-fit{column-gap:12px;border-top:0}
+.yd:where([data-yard-page="ship"]) .y-fit>section.y-sec{border-left:0;padding:14px 15px 15px}
+.yd:where([data-yard-page="ship"]) .y-colwrap{display:flex;flex-direction:column;min-height:0}
+.yd:where([data-yard-page="ship"]) .y-colwrap>.y-col-scroll{flex:1;min-height:0}
+.yd:where([data-yard-page="ship"]) .y-slot[data-used="1"]{background:var(--doc-paper);border:1px solid var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-slot[data-used="0"]{background:var(--doc-paper-raised)}
+/* R-SAP-5 (D-463): both resting grounds of a hard point step aside, so the stripe can land; the plate's rule stays after the page's, as its higher specificity read */
+:where(.yd[data-yard-page="ship"] .y-hprow){background:var(--doc-paper-raised)}
+:where(.yd[data-yard-page="ship"] .y-sec .y-hprow){background:var(--doc-paper)}
+/* R-SAP-13: an empty hard point keeps its band in an even place, and reads as it did in an odd one */
+:where(.yd[data-yard-page="ship"] .y-hprow[data-used="0"]){background:transparent}
+.yd:where([data-yard-page="ship"]) .y-phring.y-sec{border:0;background:var(--doc-paper-raised);padding:12px 0 8px}
+.yd:where([data-yard-page="ship"]) .y-budget.y-sec{border-top:0;margin-top:12px}
+.yd.y-wide:where([data-yard-page="ship"]) .y-budget.y-sec{margin-top:10px}
+.yd:where([data-yard-page="ship"]) .y-dock.y-sec{padding:14px 15px 15px}
+.yd:where([data-yard-page="ship"]) .y-fold-b.y-sec{padding:14px 15px 15px}
+.yd:where([data-yard-page="ship"]) .y-seatcard[data-open="1"]{border-left:3px solid var(--doc-state);background:rgba(36,30,48,.05)}
+/* R-S5G-6 (D-54, frame B @ febfb6f3; B-1079): both open heads are 44px tall. The pilot's is the button that closes the
+   card (its inline block style moved here); the gunner's always-open head is a plain .y-who. The face stays 40, centred. */
+.yd:where([data-yard-page="ship"]) .y-seatcard-in>button[aria-expanded="true"]{display:flex;align-items:center;width:100%;text-align:left;min-height:44px}
+.yd:where([data-yard-page="ship"]) .y-seatcard-in>button[aria-expanded="true"]>.y-who{flex:1 1 auto}
+.yd:where([data-yard-page="ship"]) .y-seatcard-in>.y-who{min-height:44px}
+.yd:where([data-yard-page="ship"]) .y-panel{padding:6px 0 8px;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-panel-h{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;color:var(--doc-state);margin-bottom:2px}
+.yd:where([data-yard-page="ship"]) .y-hprow{display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 10px;margin-bottom:6px;border:1px solid var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-hprow[data-used="0"]{border-style:dashed}
+.yd:where([data-yard-page="ship"]) .y-hprow[data-over="1"]{border-color:var(--doc-caution)}
+.yd:where([data-yard-page="ship"]) .y-hprow[data-sel="1"]{outline:2px solid var(--doc-action);outline-offset:2px}
+.yd:where([data-yard-page="ship"]) .y-hprow .y-slot-k{flex:none;width:86px}
+.yd:where([data-yard-page="ship"]) .y-hprow-n{flex:1;font-family:var(--font-body);font-weight:600;font-size:15px;line-height:1.2}
+.yd:where([data-yard-page="ship"]) .y-hprow[data-used="0"] .y-hprow-n{font-family:var(--font-mono);font-weight:400;font-size:11px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd:where([data-yard-page="ship"]) .y-phring{margin-top:14px;padding:12px 0 4px;border:1px solid var(--doc-rule-fine);background:rgba(242,241,236,.35)}
+.yd.y-narrow:where([data-yard-page="ship"]) .y-budget{flex-direction:column;align-items:flex-start;gap:10px}
+.yd.y-narrow:where([data-yard-page="ship"]) .y-budget .y-meter{flex-wrap:wrap}
+.yd:where([data-yard-page="ship"]) .y-role{padding:12px 0 10px;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-crewrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0}
+.yd:where([data-yard-page="ship"]) .y-dock{padding:4px 0 12px}
+/* R-S2M-16.4 — the repair ledger: one plate, a row per item; three columns only where the width holds them */
+.yd:where([data-yard-page="ship"]) .y-rep{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:14px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd.y-wide:where([data-yard-page="ship"]) .y-rep{grid-template-columns:250px minmax(0,1fr) 200px;gap:10px 30px;align-items:start}
+.yd:where([data-yard-page="ship"]) .y-repl>.y-rep:first-child{padding-top:0}
+.yd:where([data-yard-page="ship"]) .y-repl>.y-rep:last-child{border-bottom:0;padding-bottom:0}
+.yd:where([data-yard-page="ship"]) .y-rep-h{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;color:var(--doc-ink-muted);padding-bottom:8px!important;border-bottom:1px solid var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-rep-i{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.yd:where([data-yard-page="ship"]) .y-rep-t{display:flex;flex-direction:column;gap:6px;min-width:0}
+.yd:where([data-yard-page="ship"]) .y-rep-k{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-accent)}
+.yd:where([data-yard-page="ship"]) .y-rep-c{display:flex;flex-wrap:wrap;gap:8px}
+.yd.y-wide:where([data-yard-page="ship"]) .y-rep-c{flex-direction:column;align-items:stretch}
+/* R-S2M-16.2 — the picked part open in place in the parts column; a hard point it would take, pending in the budget */
+.yd:where([data-yard-page="ship"]) .y-br-open{border-left:3px solid var(--doc-action);padding:10px 0 12px 11px;background:rgba(242,241,236,.6)}
+.yd:where([data-yard-page="ship"]) .y-br-x{margin-top:8px;padding-top:7px;border-top:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-br-x .y-e-n{font-size:13px}
+.yd:where([data-yard-page="ship"]) .y-br-open .y-x{width:32px;height:32px;flex:none}
+.yd:where([data-yard-page="ship"]) .y-br-open .y-verbs button{white-space:nowrap;flex:none}
+.yd:where([data-yard-page="ship"]) .y-br-open .y-commit{padding:0 26px 0 14px;letter-spacing:.1em}
+.yd:where([data-yard-page="ship"]) .y-br-open .y-quiet{padding:0 12px}
+.yd:where([data-yard-page="ship"]) .y-box[data-pend="1"]{background:repeating-linear-gradient(-45deg,var(--doc-ink) 0 2px,transparent 2px 5px)}
+.yd:where([data-yard-page="ship"]) .y-delta{background:rgba(242,241,236,.6);padding:8px 10px 10px;margin-bottom:6px;border-left:3px solid var(--doc-action);border-bottom:0}
+.yd:where([data-yard-page="ship"]) .y-big{font-family:var(--font-body);font-weight:700;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.yd:where([data-yard-page="ship"]) .y-ledger-big{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin:10px 0 6px}
+.yd:where([data-yard-page="ship"]) .y-ledger-big span{font-family:var(--font-body);font-weight:700;font-size:28px;font-variant-numeric:tabular-nums}
+.yd:where([data-yard-page="ship"]) .y-ledger-big small{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd:where([data-yard-page="ship"]) .y-ledger-big em{font-style:normal;font-family:var(--font-mono);font-size:16px;color:var(--doc-ink-muted);margin:0 2px}
+.yd:where([data-yard-page="ship"]) .y-cargo{width:100%;border-collapse:collapse}
+.yd:where([data-yard-page="ship"]) .y-cargo th{font-family:var(--font-mono);font-weight:400;font-size:10px;letter-spacing:.16em;color:var(--doc-ink-muted);text-align:right;padding:0 0 6px 8px;border-bottom:1px solid var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-cargo th:first-child{text-align:left;padding-left:0}
+.yd:where([data-yard-page="ship"]) .y-cargo td{padding:8px 0 8px 8px;border-bottom:1px solid var(--doc-rule-fine);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top}
+.yd:where([data-yard-page="ship"]) .y-cargo td.y-cg-n{text-align:left;padding-left:0;font-weight:600;font-size:15px;line-height:1.2}
+.yd:where([data-yard-page="ship"]) .y-cargo tr[data-free="1"] td.y-cg-n{font-weight:400;font-style:italic}
+.yd:where([data-yard-page="ship"]) .y-cargo td.y-cg-h{text-align:left;padding:12px 0 4px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--doc-accent);border-bottom:1px solid rgba(126,20,20,.34)}
+.yd:where([data-yard-page="ship"]) .y-cargo td.y-cg-t{font-weight:700}
+.yd:where([data-yard-page="ship"]) .y-aboard{display:flex;flex-direction:column;gap:2px;margin-top:4px;font-size:15px}
+.yd:where([data-yard-page="ship"]) .y-areaedit{padding:10px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-areaedit .y-in{width:100%}
+.yd:where([data-yard-page="ship"]) .y-mistake{margin-top:18px;padding-top:12px;border-top:1px dashed var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-del{min-height:44px;margin-top:4px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-del[data-armed="1"]{color:var(--doc-action)}
+/* R-S2M-17 — several decks: the switch (the shipped segmented idiom, one segment per deck), the aboard list by deck,
+   the decks list on the workbench */
+.yd:where([data-yard-page="ship"]) .y-decksw{margin-top:12px;flex-wrap:wrap}
+.yd:where([data-yard-page="ship"]) .y-decksw .y-seg-b{white-space:normal;line-height:1.25;text-align:center;padding:6px 14px}
+.yd.y-narrow:where([data-yard-page="ship"]) .y-decksw{display:flex;width:100%}
+.yd.y-narrow:where([data-yard-page="ship"]) .y-decksw .y-seg-b{flex:1;padding:6px 6px;letter-spacing:.1em}
+.yd:where([data-yard-page="ship"]) .y-deckgrp{padding:10px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-deckgrp:first-child{padding-top:0}
+.yd:where([data-yard-page="ship"]) .y-deckgrp:last-child{border-bottom:0;padding-bottom:0}
+.yd:where([data-yard-page="ship"]) .y-deckgrp-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--doc-state);margin-bottom:2px}
+.yd:where([data-yard-page="ship"]) .y-deckgrp .y-e{padding:6px 0;border-bottom:0}
+.yd:where([data-yard-page="ship"]) .y-deckrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 16px;padding:10px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd:where([data-yard-page="ship"]) .y-deckrow[data-sel="1"]{border-left:3px solid var(--doc-state);padding-left:10px;background:rgba(36,30,48,.05)}
+.yd:where([data-yard-page="ship"]) .y-deckrow-id{display:flex;flex-direction:column;gap:3px;min-width:0}
+.yd:where([data-yard-page="ship"]) .y-deckname{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.yd:where([data-yard-page="ship"]) .y-deckrow-c{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.yd:where([data-yard-page="ship"]) .y-deckrow-c .y-del{margin-top:0}
+
+/* ══ THE SHIP · the build's own additions (JOB 3a): U1's picture line (frames_undrawn.cjs), the plan as a picture from the
+   player's device with its pins and zoom, and the inputs the frames drew as boxes ══ */
+.yd .y-picline{display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;margin-top:8px;min-height:44px}
+.yd .y-picsep{font-family:var(--font-mono);color:var(--doc-ink-muted)}
+.yd .y-pic-q{font-family:var(--font-body);font-weight:600;font-size:15.5px;color:var(--doc-ink)}
+.yd .y-pic-no{flex:1 1 0;min-width:0;margin:0;font-family:var(--font-body);font-size:15.5px;line-height:1.35;color:var(--doc-critical);border-left:3px solid var(--doc-critical);padding:6px 10px;background:rgba(127,42,20,.06)}
+.yd.y-wide .y-picline{max-width:760px}
+.yd:where([data-yard-page="ship"]) .y-deck-in{position:relative}
+.yd:where([data-yard-page="ship"]) .y-deck img{display:block;width:100%;height:auto}
+.yd:where([data-yard-page="ship"]) .y-deck[data-zoom]{overflow:auto}
+.yd:where([data-yard-page="ship"]) .y-deck-in[data-pinning="1"]{cursor:crosshair}
+.yd:where([data-yard-page="ship"]) .y-zoom button{padding:0;border:0;background:none;cursor:pointer}
+.yd:where([data-yard-page="ship"]) input.y-in,.yd:where([data-yard-page="ship"]) textarea.y-in{color:var(--doc-ink);font-size:15px}
+.yd:where([data-yard-page="ship"]) textarea.y-in{display:block;padding:8px 12px;font-size:14px}
+/* U19 · MARK's refusals (frames_undrawn.cjs): the disabled MARK and its reason, the caution rule beside it */
+.yd .y-vbond .y-quiet[disabled]{opacity:.45;cursor:not-allowed}
+.yd .y-refuse{margin:0;color:var(--doc-ink);border-left:3px solid var(--doc-caution);padding:2px 0 2px 10px}
+/* JOB 3b · FIT (W1–W3): the columns scroll — the frames' fade marks a scroll list, and the padding lets the last row
+   clear it; U10's choose lines and U11's lost part (frames_undrawn.cjs, approved v4); K3's reason chips (doors_kit.cjs,
+   approved K3) */
+.yd:where([data-yard-page="ship"]) .y-fit .y-col-scroll{overflow-y:auto;padding-bottom:48px}
+.yd:where([data-yard-page="ship"]) .y-hprow-choose{flex-wrap:wrap}
+.yd:where([data-yard-page="ship"]) .y-choose{flex:1 1 100%;display:flex;flex-direction:column;gap:6px;padding:8px 0 2px;margin-top:8px;border-top:1px dashed var(--doc-rule)}
+.yd:where([data-yard-page="ship"]) .y-choose-l{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.yd:where([data-yard-page="ship"]) .y-choose-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-caution)}
+.yd:where([data-yard-page="ship"]) .y-choose-b{min-height:44px;padding:0 14px;border:1px solid var(--doc-caution);background:var(--doc-paper-raised);color:var(--doc-caution);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.yd:where([data-yard-page="ship"]) .y-choose-n{margin:0;font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted)}
+.yd:where([data-yard-page="ship"]) .y-swap{color:var(--doc-caution)}
+.yd:where([data-yard-page="ship"]) .y-orphan .y-hprow-n{font-size:15px}
+.yd:where([data-yard-page="ship"]) .y-orph-m{font-family:var(--font-mono);font-weight:400;font-size:10.5px;letter-spacing:.1em;color:var(--doc-ink-muted)}
+.yd:where([data-yard-page="ship"]) .y-fchips{display:flex;flex-wrap:wrap;gap:6px;padding:0}
+.yd:where([data-yard-page="ship"]) .y-chipb{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 10px;border:1px solid var(--doc-rule);background:var(--doc-paper);font-family:var(--font-body);font-size:13.5px;color:var(--doc-ink);clip-path:polygon(var(--doc-cut-sm) 0,100% 0,100% calc(100% - var(--doc-cut-sm)),calc(100% - var(--doc-cut-sm)) 100%,0 100%,0 var(--doc-cut-sm))}
+.yd:where([data-yard-page="ship"]) .y-chipb[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised);border-color:var(--doc-state)}
+.yd:where([data-yard-page="ship"]) .y-tab[data-choose]{white-space:nowrap}
+.yd:where([data-yard-page="ship"]) .y-sheet-side .y-grab{display:none}
+/* ── S4 · JOB 3b · the workbench's approved states (`Docs/mockups/shipyard-s4-workbench-undrawn.html` @ f948b022, R-S4A-4):
+   the page's own objects, in its numbers (frames_workbench.cjs) ── */
+/* WB3: REMOVE's ask inside an open row (the phone's sits in U10's .y-choose) */
+.yd:where([data-yard-page="ship"]) .y-br-x.y-wb-ask{padding-top:8px;border-top:1px dashed var(--doc-rule)}
+/* WB4: THE LOG WILL READ, one group per door */
+.yd:where([data-yard-page="ship"]) .y-wb-if{margin:8px 0 2px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;color:var(--doc-ink-muted)}
+/* WB5: the failure line (U13's) */
+.yd:where([data-yard-page="ship"]) .y-wb-fail{margin:0;font-family:var(--font-body);font-size:15.5px;color:var(--doc-critical)}
+.yd:where([data-yard-page="ship"]) .y-wb-line{font-family:var(--font-body);font-size:15.5px;color:var(--doc-ink-muted);margin-top:24px}
+/* WB6: TRADE's forms — the approved panel, its fields stacked; a cargo line open in place */
+.yd:where([data-yard-page="ship"]) .y-wb-form{margin-top:12px}
+.yd:where([data-yard-page="ship"]) .y-wb-fields{display:flex;flex-direction:column;gap:10px;padding:12px 14px}
+.yd:where([data-yard-page="ship"]) .y-wb-f{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.yd:where([data-yard-page="ship"]) .y-wb-f .y-in{flex:1 1 180px}
+.yd:where([data-yard-page="ship"]) .y-wb-k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;color:var(--doc-ink-muted);min-width:96px}
+.yd:where([data-yard-page="ship"]) .y-cargo tr.y-cg-open td{background:rgba(36,30,48,.05)}
+.yd:where([data-yard-page="ship"]) .y-cargo tr.y-cg-edit td{text-align:left;padding:10px 12px 12px;border-bottom:1px solid var(--doc-rule)}
+/* WB6: K2's stepper and a cargo line's door (its name, in the ink of the text) */
+.yd:where([data-yard-page="ship"]) .y-ctqty{display:flex;align-items:center;gap:2px}
+.yd:where([data-yard-page="ship"]) .y-ctqty b{min-width:26px;text-align:center;font-family:var(--font-body);font-weight:600;font-size:16px}
+.yd:where([data-yard-page="ship"]) .y-ctb{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);font-size:17px;color:var(--doc-ink);clip-path:polygon(var(--doc-cut-sm) 0,100% 0,100% calc(100% - var(--doc-cut-sm)),calc(100% - var(--doc-cut-sm)) 100%,0 100%,0 var(--doc-cut-sm))}
+.yd:where([data-yard-page="ship"]) .y-ctb:disabled{opacity:.4;cursor:not-allowed}
+.yd:where([data-yard-page="ship"]) .y-fh{margin-top:0}
+.yd:where([data-yard-page="ship"]) .y-fh .y-seg-b{padding:0 12px}
+.yd:where([data-yard-page="ship"]) .y-cg-door{display:block;width:100%;margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.yd:where([data-yard-page="ship"]) .y-cg-door:focus-visible{outline:2px solid var(--doc-action);outline-offset:2px}
+
+/* ── SHIP YARD S4 · JOB 4 (`shipyard-s4-catalogue`): THE CATALOGUE (C1–C5, E1–E3, P1). The approved page's own objects,
+   ported mechanically as above: doors_kit.cjs's catalogue block and frames_catalogue.cjs's page css (@ 23c3ce85), each selector
+   prefixed `.yd`, the band classes on the root; the kit's store token `--st-maroon` written as its value, #501010, as `.y-r`
+   above already is (the store declares the token on its own shell, which the Yard is not inside). ── */
+/* ── JOB 2 (shipyard-s2-doors): the catalogue's objects, off the paper store (lib/shared/store.css numbers) ───────── */
+.yd .y-cat-head{padding:0 0 12px;border-bottom:1px solid var(--doc-rule)}
+.yd .y-cat-ch{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.yd .y-cat-ch h1{font-family:var(--font-display);font-weight:900;font-size:26px;letter-spacing:.01em;line-height:.98;text-transform:uppercase;color:var(--doc-ink);margin:0}
+.yd .y-cat-ch em{font-family:var(--font-mono);font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--doc-ink-muted)}
+.yd .y-cat-sub{font-size:14px;line-height:1.5;color:var(--doc-ink-muted);margin:6px 0 0;max-width:64ch}
+.yd .y-cat-search{display:flex;align-items:center;gap:10px;margin:14px 0 0;background:var(--doc-paper-raised);border:1px solid var(--doc-rule);border-radius:2px;padding:0 12px;min-height:46px}
+.yd .y-cat-search .k,.yd .y-showing .k,.yd .y-sortb .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd .y-cat-ph{flex:1;min-width:0;font-size:16px;color:var(--doc-ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yd .y-cat-ph b{color:var(--doc-ink);font-weight:600}
+.yd .y-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:12px}
+.yd .y-toolbar .y-seg{margin-top:0}
+.yd .y-states .y-seg-b{padding:0 13px}
+.yd .y-sortb,.yd .y-summon{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 14px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink);clip-path:polygon(var(--doc-cut-sm) 0,100% 0,100% calc(100% - var(--doc-cut-sm)),calc(100% - var(--doc-cut-sm)) 100%,0 100%,0 var(--doc-cut-sm))}
+.yd .y-summon{justify-content:space-between}
+.yd .y-summon-n{color:var(--doc-ink-muted);letter-spacing:.12em;font-size:9.5px}
+.yd .y-showing{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-top:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-term{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 11px;border:1px solid var(--doc-state);background:var(--doc-paper-raised);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;color:var(--doc-state)}
+.yd .y-term i{font-style:normal;font-size:10px}
+.yd .y-allterm{color:var(--doc-ink)}
+.yd .y-showing-n{color:var(--doc-ink);font-variant-numeric:tabular-nums}
+.yd .y-cat-foot{display:flex;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;margin-top:14px;padding:12px 0 0;border-top:1px solid var(--doc-rule);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-catbody{display:flex;gap:22px;align-items:flex-start;margin-top:16px}
+.yd .y-catmain{flex:1;min-width:0}
+/* the facet rail (.st-rail: 212px, the rail heads 10px .18em; .st-cat rows 44px; the active row's maroon inset) — on its plate */
+.yd .y-frail{flex:0 0 232px;padding:12px 0 14px}
+.yd .y-frail h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted);font-weight:400;margin:16px 15px 6px}
+.yd .y-frail h4:first-child{margin-top:2px}
+.yd .y-fcat{display:flex;justify-content:space-between;gap:8px;align-items:center;min-height:40px;padding:0 15px;color:var(--doc-ink);font-size:14.5px;text-decoration:none}
+.yd .y-fcat b{font-family:var(--font-mono);font-size:10.5px;font-weight:400;color:var(--doc-ink-muted)}
+.yd .y-fcat[data-on="1"]{background:var(--doc-paper);box-shadow:inset 3px 0 0 #501010;font-weight:600}
+.yd .y-fchips{display:flex;flex-wrap:wrap;gap:6px;padding:0 15px}
+.yd .y-chipb{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 10px;border:1px solid var(--doc-rule);background:var(--doc-paper);font-family:var(--font-body);font-size:13.5px;color:var(--doc-ink);clip-path:polygon(var(--doc-cut-sm) 0,100% 0,100% calc(100% - var(--doc-cut-sm)),calc(100% - var(--doc-cut-sm)) 100%,0 100%,0 var(--doc-cut-sm))}
+.yd .y-chipb i{font-style:normal;font-family:var(--font-mono);font-size:10px;color:var(--doc-ink-muted)}
+.yd .y-chipb[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised);border-color:var(--doc-state)}
+.yd .y-chipb[data-on="1"] i{color:rgba(242,241,236,.74)}
+.yd .y-range{display:flex;align-items:center;gap:10px;padding:0 15px}
+.yd .y-rng{display:inline-flex;align-items:baseline;gap:6px;min-height:40px;padding:8px 10px;border:1px solid var(--doc-rule);background:var(--doc-paper)}
+.yd .y-rng b{font-family:var(--font-body);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.yd .y-rng .k{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd .y-rng-line{flex:1;height:2px;background:var(--doc-state)}
+.yd .y-tog{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 15px;width:100%;font-size:14.5px;color:var(--doc-ink)}
+.yd .y-tog i{font-style:normal;font-family:var(--font-mono);font-size:10.5px;color:var(--doc-ink-muted);margin-left:auto}
+.yd .y-tog-box{width:18px;height:18px;border:1px solid var(--doc-ink-structural);display:inline-flex;align-items:center;justify-content:center;font-size:12px;color:var(--doc-state);flex:none;background:var(--doc-paper)}
+.yd .y-tog[data-on="1"] .y-tog-box{border-color:var(--doc-state)}
+.yd .y-fsrc{display:flex;align-items:center;gap:8px;margin:14px 15px 0;padding-top:10px;border-top:1px solid var(--doc-rule-fine);font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;color:var(--doc-ink-muted)}
+.yd .y-fsrc .y-ico svg{width:18px;height:18px}
+/* the recognition index: plates over hairlines (R-S2M-15 keeps it off raised tiles — ban 4) */
+.yd .y-grid{display:grid;border-top:1px solid var(--doc-rule);border-left:1px solid var(--doc-rule-fine)}
+.yd .y-cell{display:flex;flex-direction:column;gap:5px;padding:12px 12px 13px;border-right:1px solid var(--doc-rule-fine);border-bottom:1px solid var(--doc-rule-fine);min-width:0}
+.yd .y-cellart{height:112px;border:1px solid var(--doc-rule-fine)}
+.yd .y-schemmat{flex-direction:column;gap:4px}
+.yd .y-schemcap{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.16em;color:var(--doc-ink-muted)}
+.yd .y-cell-n{font-family:var(--font-body);font-weight:600;font-size:15px;line-height:1.2;color:var(--doc-ink);margin-top:3px}
+.yd .y-cell-m{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-cell-p{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 10px;margin-top:auto;padding-top:4px}
+.yd .y-pr{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--doc-ink-muted);white-space:nowrap}
+.yd .y-pr b{font-family:var(--font-body);font-weight:600;font-size:15px;letter-spacing:0;color:var(--doc-ink);font-variant-numeric:tabular-nums}
+.yd .y-pnl{letter-spacing:.12em;color:var(--doc-ink-muted)}
+/* the dense list (.st-tab on its plate: heads 10px .15em; rows 10px padding; numbers mono tabular) */
+.yd .y-ltab{width:100%;border-collapse:collapse;font-size:14.5px}
+.yd .y-ltab th{text-align:left;font-family:var(--font-mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);padding:4px 8px 8px;border-bottom:1px solid var(--doc-rule);vertical-align:bottom;line-height:1.3}
+.yd .y-ltab th.num,.yd .y-ltab td.num{text-align:right;font-variant-numeric:tabular-nums}
+.yd .y-ltab td{padding:8px;border-bottom:1px solid var(--doc-rule-fine);vertical-align:middle}
+.yd .y-ltab tr:last-child td{border-bottom:0}
+.yd .y-ltab td.num{font-family:var(--font-mono);font-size:13px}
+.yd .y-ltab td.nm{font-weight:600;font-size:15px;line-height:1.25}
+.yd .y-lmat{width:58px;height:40px;flex:none}
+.yd .y-lmat .y-schem{width:40px!important;height:40px!important}
+.yd .y-lmat .y-schemcap{display:none}
+.yd .y-nmwrap{display:flex;align-items:center;gap:12px}
+.yd .y-lq{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--doc-ink-muted);margin-top:3px;font-weight:400;text-transform:uppercase}
+.yd .y-lrow{padding:11px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y-lrow:last-child{border-bottom:0}
+.yd .y-lrow1{display:flex;align-items:center;gap:11px}
+.yd .y-lrow1 .y-pr{margin-left:auto}
+.yd .y-lspecs{font-family:var(--font-mono);font-size:11px;color:var(--doc-ink-muted);margin:7px 0 0 69px;letter-spacing:.03em;display:flex;flex-wrap:wrap;gap:4px 10px}
+.yd .y-lspecs b{font-weight:400;color:var(--doc-ink)}
+.yd .y-lfind{margin:5px 0 0 69px}
+/* compare (ComparePanel's paper rows: the key in the accent, the values in the body face; nothing hued) */
+.yd .y-cmp{width:100%;border-collapse:collapse}
+.yd .y-cmp th,.yd .y-cmp td{padding:8px 10px;border-bottom:1px solid var(--doc-rule-fine);vertical-align:top;text-align:left}
+.yd .y-cmp tr:last-child td{border-bottom:0}
+.yd .y-cmp .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;color:var(--doc-accent);text-transform:uppercase;white-space:nowrap;width:1%}
+.yd .y-cmp td.v{font-family:var(--font-body);font-weight:600;font-size:16px;color:var(--doc-ink);font-variant-numeric:tabular-nums}
+.yd .y-cmp td.t{font-family:var(--font-body);font-weight:400;font-size:14px;line-height:1.35;color:var(--doc-ink)}
+.yd .y-cmp thead th{border-bottom:1px solid var(--doc-rule);font-weight:400}
+.yd .y-cmphd{display:flex;flex-direction:column;gap:6px}
+.yd .y-cmphd .y-cellart{height:74px}
+.yd .y-cmphd-n{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;line-height:1.2;color:var(--doc-ink)}
+.yd .y-cmphd-x{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd .y-wline{display:block;font-size:14px;line-height:1.35}
+.yd .y-wline small{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;color:var(--doc-ink-muted);text-transform:uppercase}
+/* shelves (BY SILHOUETTE): the head and its three rule lines on the page, the first row over hairlines */
+.yd .y-shelf{margin-top:22px}
+.yd .y-shelf-h{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px;padding-bottom:8px;border-bottom:1px solid rgba(126,20,20,.34)}
+.yd .y-shelf-t{font-family:var(--font-display);font-weight:900;font-size:19px;letter-spacing:.03em;text-transform:uppercase}
+.yd .y-shelf-c{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;color:var(--doc-action);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(126,20,20,.4)}
+.yd .y-shelf-r{display:flex;flex-wrap:wrap;gap:5px 18px;margin:7px 0 0;line-height:1.7;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted)}
+.yd .y-shelf-r>span{display:inline}
+.yd .y-shelf-r>span .y-cite{display:inline-block;margin-left:6px;vertical-align:1px}
+.yd .y-shelf-r .y-cite{font-size:9px;padding:1px 6px}
+.yd .y-sub2{display:flex;align-items:baseline;gap:10px;margin:12px 0 6px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;color:var(--doc-state)}
+.yd .y-sub2 b{font-weight:400;color:var(--doc-ink-muted)}
+.yd .y-strip{display:grid;grid-auto-flow:column;border-top:1px solid var(--doc-rule-fine);border-left:1px solid var(--doc-rule-fine)}
+.yd .y-strip-clip{overflow:hidden}
+/* the entry (the store's read, grown to a page: RSI's hero, the wiki's infobox and gallery, the paper entry's anatomy) */
+.yd .y-runhead2{display:flex;justify-content:space-between;gap:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--doc-accent);padding-bottom:7px;border-bottom:2px solid var(--doc-rule)}
+.yd .y-desig{font-family:var(--font-display);font-weight:900;font-size:40px;line-height:.98;letter-spacing:.01em;text-transform:uppercase;color:var(--doc-ink);text-wrap:balance;margin:0}
+.yd.y-narrow .y-desig{font-size:28px}
+.yd .y-desig-rule{height:0;border-top:2px solid var(--doc-action);border-bottom:1px solid var(--doc-action);padding-top:3px;width:120px;margin:11px 0 0}
+.yd .y-classline{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:10px}
+.yd .y-hero-plate{position:relative;background:var(--doc-mat);border:1px solid var(--doc-rule-fine);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.yd .y-hero-plate .y-plateimg{background-size:contain}
+.yd .y-platecap{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:6px}
+.yd .y-lore p{font-family:var(--font-body);font-size:16.5px;line-height:1.62;color:var(--doc-ink);max-width:62ch;margin:0}
+.yd .y-lore p+p{margin-top:12px}
+.yd .y-srcline{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:12px;padding-top:9px;border-top:1px solid var(--doc-rule-fine)}
+.yd .y-acq{display:flex;flex-direction:column;gap:10px}
+.yd .y-acq .y-commit{justify-content:center}
+.yd .y-legend{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:900;font-size:12px;letter-spacing:.2em;padding:5px 10px 4px;border:1px solid var(--doc-action);color:var(--doc-action);text-transform:uppercase}
+.yd .y-legend i{font-style:normal;font-family:var(--font-mono);font-weight:400;font-size:9.5px;letter-spacing:.14em;color:var(--doc-ink-muted)}
+.yd .y-famrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));border-top:1px solid var(--doc-rule-fine);border-left:1px solid var(--doc-rule-fine)}
+.yd .y-famrow .y-cellart{height:78px}
+.yd .y-fitlist{display:flex;flex-direction:column}
+.yd .y-fitline{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--doc-rule-fine);font-size:15px}
+.yd .y-fitline:last-child{border-bottom:0}
+.yd .y-fitcounts{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted);margin:2px 0 8px}
+.yd .y-fitcounts b{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:0;color:var(--doc-ink)}
+.yd.y-mid .y-main{padding:18px 28px 22px}
+.yd.y-narrow .y-states{display:grid;grid-template-columns:1fr 1fr;width:100%}
+.yd.y-narrow .y-states .y-seg-b:nth-child(3){border-left:0}
+.yd.y-narrow .y-states .y-seg-b:nth-child(n+3){border-top:1px solid var(--doc-rule)}
+.yd.y-narrow .y-toolbar .y-sortb,.yd.y-narrow .y-toolbar .y-summon{flex:1}
+.yd.y-narrow .y-cat-foot{flex-direction:column;gap:6px}
+.yd.y-narrow .y-lmat{width:48px;height:34px}
+.yd .y-cmpn-hd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding-bottom:8px;border-bottom:1px solid var(--doc-rule)}
+.yd .y-cmpn-hd .y-cmphd-n{font-size:9.5px;letter-spacing:.02em;overflow-wrap:anywhere;hyphens:auto}
+.yd .y-cmpn-r{padding:7px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y-cmpn-r:last-child{border-bottom:0}
+.yd .y-cmpn-k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.09em;color:var(--doc-accent);margin-bottom:3px}
+.yd .y-cmpn-v{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;font-family:var(--font-body);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.2}
+.yd .y-cmpn-t{font-weight:400;font-size:12.5px}
+.yd .y-cmpn-t .y-wline{font-size:12.5px}
+.yd .y-cmpn-v .y-find{flex-wrap:wrap;white-space:normal}
+.yd .y-cmpn-v .y-pr{white-space:normal}
+.yd .y-entry-hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:30px;margin-top:16px;align-items:start}
+.yd .y-entry-id .y-desig{font-size:42px}
+.yd .y-entry-cols{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0 30px;align-items:start}
+.yd .y-arcs{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}
+.yd.y-narrow .y-arcs{grid-template-columns:1fr}
+.yd .y-arcs-w .y-e:first-child{padding-top:0}
+.yd .y-spec td.y-lk{white-space:normal;width:44%}
+.yd .y-planhead{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:20px;align-items:center}
+.yd .y-planart{width:200px;height:120px;border:1px solid var(--doc-rule-fine)}
+.yd .y-planhead[data-n="1"]{grid-template-columns:112px minmax(0,1fr);gap:12px}
+.yd .y-planhead[data-n="1"] .y-planart{width:112px;height:75px}
+.yd .y-fsheet{max-height:none;padding:14px 0 18px}
+.yd .y-fsheet .y-grab{margin-bottom:10px}
+.yd .y-fsheet-h{display:flex;align-items:center;gap:12px;padding:0 15px 10px;border-bottom:1px solid var(--doc-rule)}
+.yd .y-frail-in{padding:6px 0 10px}
+.yd .y-fsheet .y-verbs{margin:10px 15px 0}
+/* U13 · the catalogue's own states (frames_undrawn.cjs @ 23c3ce85's U13 block, ported as above) */
+.yd .y-u13-line{font-family:var(--font-body);font-size:15.5px;color:var(--doc-ink-muted);margin-top:24px}
+.yd .y-u13-fail{margin:0;font-family:var(--font-body);font-size:15.5px;color:var(--doc-critical)}
+.yd .y-u13-body{font-family:var(--font-body);font-size:15px;color:var(--doc-ink-muted);margin-top:18px}
+.yd .y-u13-h{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--doc-critical);margin:0}
+/* the live controls inside the frames' objects: the FIND field is the placeholder line made typeable (.y-cat-ph's face);
+   the silhouette range's FROM/TO pick a number in place; the rail's rows and the sources line are buttons */
+.yd .y-cat-in{flex:1;min-width:0;min-height:44px;border:0;background:transparent;font:inherit;font-size:16px;color:var(--doc-ink);outline-offset:2px}
+.yd .y-cat-in::placeholder{color:var(--doc-ink-muted)}
+.yd .y-rng-sel{border:0;background:transparent;font-family:var(--font-body);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums;color:var(--doc-ink);min-height:24px;cursor:pointer}
+.yd .y-fcat{width:100%;text-align:left}
+.yd .y-fsrc{width:calc(100% - 30px);text-align:left}
+.yd .y-cell{text-align:left;cursor:pointer}
+.yd .y-lrow1{text-align:left}
+
+/* ── R-S4CC-13 (`shipyard-s4-catalogue-card` ADDENDUM 8): A HIT AREA IS BEHAVIOUR, NOT LOOKS. A control the approved frames
+   draw under 44px keeps every drawn pixel and gains an INVISIBLE hit area of at least 44×44 round its centre (AS-6). None may
+   overlap a neighbour's: the AS-9 suite measures the box the pointer hits (`scripts/smoke_yard_s4_as9.py`, HIT), so an
+   overlap reads short on one side and goes to Jason both ways. The mounts' inline `position:static` already holds them in
+   flow, so `relative` moves nothing. ── */
+.yd .y-mount[role="button"],.yd .y-x,.yd button:has(> .y-ship-n){position:relative !important}
+.yd .y-mount[role="button"]{left:0}   /* the base rule's ring offset (left:50%) applies once relative; static ignored it */
+.yd .y-mount[role="button"]::after,.yd .y-x::after,.yd button:has(> .y-ship-n)::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+/* a craft row drawn 42px tall (a unit's floor, an entry's family): 1px more box above and below, given back by the margin —
+   the row paints no border or ground of its own, so nothing moves (a positioned ::after resampled its thumbnail, ≤ 10/255) */
+.yd button.y-row{padding-block:1px;margin-block:-1px}
+/* the parts search: the input fills its drawn 44px field (it sat 21px tall inside it); transparent and borderless, so no pixel moves */
+.yd .y-search input{align-self:stretch;margin-block:-1px}
+
+/* ── R-S4CC-4 · Q3/Q4 (`shipyard-s4-catalogue-card`; the approved page @ 6aa1f830, frames_b1015.cjs): COMPARE's pick mark on
+   every C1 cell and C2 row, and the SORT control open. The mark is drawn 36px tall (`.y-cmpadd`, the page's own rule) inside a
+   transparent 44px button (`.y-cmphit`): `.y-quiet`'s clip-path clips hit-testing too, so a ::after could not reach past the
+   drawing (R-S4CC-13). The button's margins give back its 8px, so the drawn mark sits where the page draws it (6px under the
+   cell's last line, flush in a list cell). ── */
+.yd .y-cmphit{display:inline-flex;align-items:center;min-height:44px;margin:2px 0 -4px;align-self:flex-start}
+.yd .y-ltab .y-cmphit{margin:-4px 0}
+.yd .y-cmpadd{min-height:36px;padding:0 10px;font-size:10px;white-space:nowrap}
+.yd .y-cmpadd[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised);border-color:var(--doc-state)}
+.yd .y-sortb[data-on="1"]{border-color:var(--doc-state)}
+.yd .y-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* SHIP YARD S8 · MODS (card shipyard-s8-build R-S8B-8; frames v3 R-S8FR-1, APPROVED D-238): the page heading, the phone's
+   collapsing section head (its head is the door, 44px), a MODS row and the CONVERT THIS SHIP door row */
+.yd .y8-modsh{font-family:var(--font-display);font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase;line-height:1.1;margin:18px 0 0}
+.yd .y8-sechb{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;margin:16px 0 6px;padding:0;background:none;border:0;border-bottom:1px solid rgba(126,20,20,.34);text-align:left;cursor:pointer;color:inherit;font:inherit}
+.yd .y8-sechb-h{flex:1;font-family:var(--font-mono);font-size:12px;letter-spacing:.28em;color:var(--doc-accent);text-transform:uppercase}
+.yd .y8-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:start;padding:11px 0;border-bottom:1px solid var(--doc-rule-fine)}
+.yd .y8-doorrow{width:100%;min-height:52px;align-items:center;background:none;border:0;border-bottom:1px solid var(--doc-rule-fine);text-align:left;cursor:pointer;color:inherit;font:inherit}
+.yd .y8-doorrow .y-e-h{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+/* SHIP YARD S8 · THE CONVERT ROOM (R-S8FR-3; frames v3 C-elig / C-picked, APPROVED D-238): the arc picker — its line, the
+   picker marked while a pick is owed, a zone 44px, a picked zone in the action ink — and CONVERT waiting on the picks */
+.yd .y8-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:var(--doc-state);text-transform:uppercase;margin-bottom:3px}
+.yd .y8-k.y8-need{color:var(--doc-critical)}
+.yd .y8-arcs{margin-top:10px}
+.yd .y8-arcs[data-need="1"] .y8-pick{outline:2px solid var(--doc-critical);outline-offset:3px}
+.yd .y8-pick{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.yd .y8-zone{min-height:44px;min-width:64px;padding:0 14px;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink);cursor:pointer}
+.yd .y8-zone[aria-pressed="true"]{background:var(--doc-action);color:var(--doc-paper-raised);border-color:var(--doc-action)}
+.yd .y-commit[aria-disabled="true"]{background:var(--doc-rule);color:var(--doc-ink);cursor:not-allowed}
+/* SHIP YARD S8 · MODS' BUILD and the ONE piece picker (R-S8B-8/-9; frames v3 M-built · M-change, APPROVED D-238; the lab's
+   prototype.py stylesheet @ ui-lab 1fddaae94): a card grid, two columns past the phone; the saved piece in the action ink
+   with its square; a refused card on the plain paper, not pressable; a card's lines (refusal, station, before → after) */
+.yd .y8-grid{display:grid;gap:10px;margin-top:8px}
+.yd.y-mid .y8-cards1,.yd.y-wide .y8-cards1{grid-template-columns:repeat(2,minmax(0,1fr))}
+.yd .y8-card{position:relative;display:flex;gap:10px;align-items:flex-start;width:100%;min-height:44px;padding:10px 12px;text-align:left;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);color:var(--doc-ink);font:inherit;cursor:pointer}
+.yd .y8-card[data-on="1"]{border-color:var(--doc-action);box-shadow:inset 0 0 0 2px var(--doc-action)}
+.yd .y8-card[data-on="1"]::after{content:"";position:absolute;top:8px;right:8px;width:10px;height:10px;background:var(--doc-action)}
+.yd .y8-card[data-refused="1"]{cursor:not-allowed;background:var(--doc-paper)}
+.yd .y8-card-b{display:block;flex:1;min-width:0}
+.yd .y8-card .y-e-h{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;padding-right:14px}
+.yd .y8-card .y-e-l{display:flex}
+.yd .y8-lines{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+/* SHIP YARD S8 · BUILD A SHIP (R-S8B-9; frames v3 B-empty · B-s1 · B-s2 · B-station · H-build · B-door · B-catdoor, APPROVED
+   D-238; the lab's prototype.py stylesheet @ ui-lab 1fddaae94): the frame cards two to a row on the phone and three past it, each
+   with its identifier above its words; the desk's two columns with YOUR SHIP standing at the side; YOUR SHIP's plate, its TOLD
+   line and NAME; the phone's sticky bar; the Hangar's door at the header's end and the Catalogue's "or build one" */
+.yd .y8-frames{grid-template-columns:repeat(2,minmax(0,1fr))}
+.yd.y-mid .y8-frames,.yd.y-wide .y8-frames{grid-template-columns:repeat(3,minmax(0,1fr))}
+.yd .y8-art{flex:none;display:inline-flex;width:84px;height:84px;align-items:center;justify-content:center}
+.yd .y8-frames .y8-card{flex-direction:column}
+.yd .y8-two{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:28px;align-items:start;margin-top:8px}
+.yd .y8-side{position:sticky;top:12px;margin-top:26px}
+.yd .y8-yours{padding:12px 14px 14px;background:var(--doc-paper-raised);border:1px solid var(--doc-rule)}
+.yd .y8-told{color:var(--doc-ink-muted);margin-top:10px}
+.yd .y8-name{display:flex;align-items:center;gap:12px;margin-top:12px}
+.yd .y8-name .y8-k{margin:0}
+.yd .y8-name input{flex:1;min-width:0;min-height:44px;padding:0 12px;border:1px solid var(--doc-rule);background:var(--doc-paper);font-family:var(--font-body);font-size:16px;color:var(--doc-ink)}
+.yd .y8-bar{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;width:calc(100% + 36px);margin:18px -18px -28px;min-height:56px;padding:0 18px;border:0;background:var(--doc-ink);color:var(--doc-paper-raised);font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-align:left;cursor:pointer}
+.yd .y8-bar-k{flex:none;color:var(--doc-paper-raised)}
+.yd .y8-door{margin-left:auto;align-self:center}
+.yd .y8-orbuild{margin-left:8px}
+.yd .y8-sum{letter-spacing:.05em}
+/* R-S8B-11 (a) (card `shipyard-s8-build`; D-238 Q3, the 11px minimum; the lab's floor rules, prototype.py l.429–430 @ ui-lab
+   1fddaae94): every READ phrase on the Yard's own rooms at >= 11px with tracking <= .05em: the credit and stat lines, the
+   refusal sentences and BUILD PIECE, the mono sentences, the instructions, the info line, the mount lines, the built hull line,
+   THE SHIP's threshold, extra and section lines, the free hard-point row and the bar's numbers. FENCED to a room under
+   `.yd-host` (the Hangar, the Catalogue, the builder, THE SHIP and their sheets) — the sheet's Vessels tab and the NPC craft
+   panel (`.yd.yd-in`, no frame draws them) keep today's sizes. Every class is declared at <= 11px above, so this never shrinks
+   one; labels keep their style (Q2). Measured by scripts/smoke_yard_s8_read.py. */
+.yd-host .yd .y-attr,.yd-host .yd .y-verdict,.yd-host .yd .y-mono,.yd-host .yd .y-info,.yd-host .yd .y-caption,.yd-host .yd .y-mount,.yd-host .yd .y-ship-t,.yd-host .yd .y-thr,.yd-host .yd .y-e-m,.yd-host .yd .y-sech-x,.yd-host .yd .y8-k{font-size:11px;letter-spacing:.05em}
+.yd-host .yd:where([data-yard-page="ship"]) .y-hprow[data-used="0"] .y-hprow-n,.yd-host .yd .y8-sum{letter-spacing:.05em}
+/* ══ SHIP CARGO (card `shipyard-cargo-build` F-1, F-3; the approved frames v3 @ ui-lab 318935e2e, D-265): LOAD FROM's chips,
+   UNLOAD under an open line, the over line, the VESSELS card's hold line. The values are the frames' own. ══ */
+.yd .y-sc-chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 0}
+.yd:where([data-yard-page="ship"]) .y-chipb.y-sc-chip{min-height:44px}
+.yd .y-sc-un{margin-top:12px;padding-top:12px;border-top:1px solid var(--doc-rule-fine)}
+.yd .y-sc-un .y-verbs{margin-top:10px}
+.yd .y-cg-h .y-sc-warn,.yd .y-sc-overp .y-sc-warn{display:inline-block;margin-top:6px}
+.yd .y-sc-overp{margin:6px 0 0}
+.yd .y-vship .y-sc-hold{margin-top:4px}
+/* READ COPY at the floor, >= 11px with tracking <= .05em (UI_RULES "Legibility floor"): the preview lines, the over line, the
+   OF n beside a stepper */
+.yd .y-sc-read,.yd .y-sc-warn,.yd .y-sc-of{font-size:11px;letter-spacing:.05em}
+.yd .y-sc-read{font-size:14px}

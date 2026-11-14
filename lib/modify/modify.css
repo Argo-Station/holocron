@@ -1,0 +1,88 @@
+/* lib/modify/modify.css — "Modify this Character" (F-100 M13 Lap B). The page's own layer: the v7 mock's rules
+   (`scripts/f100_m13_frames_kit.js` @ b4bc72fd2, LAW, C-MU-4), on the creator ground's kit and tokens. Fenced to the page. */
+[data-m13-page]{position:absolute;inset:0;overflow-y:auto;z-index:20;background:var(--doc-paper);color:var(--doc-ink);font-family:var(--font-body,inherit)}
+[data-m13-page] *{box-sizing:border-box}
+.m13-wrap{max-width:var(--doc-unit-max,1180px);margin:0 auto;padding:16px 16px 120px}
+.m13-desk .m13-wrap{display:grid;grid-template-columns:minmax(0,1fr) var(--desk-rail-w,320px);gap:40px;padding:24px 40px 64px;max-width:1240px}
+.m13-main{min-width:0}
+.m13-run{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.m13-eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:14px}
+.m13-h1{font-family:var(--font-display);font-weight:900;font-size:26px;letter-spacing:.02em;text-transform:uppercase;margin:4px 0 0;line-height:1.1}
+.m13-desk .m13-h1{font-size:34px}
+.m13-xp{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}
+.m13-q{font-weight:600;font-size:15px;line-height:1.35;flex:1 1 200px}
+.m13-sw{display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;background:none;border:0;padding:0;color:var(--doc-ink);font:inherit}
+.m13-sw i{display:inline-block;width:46px;height:26px;border:1px solid var(--doc-ink-structural);position:relative;background:var(--doc-paper-sunk)}
+.m13-sw i::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--doc-ink-muted)}
+.m13-sw[aria-checked="true"] i{background:var(--doc-action)}
+.m13-sw[aria-checked="true"] i::after{left:23px;background:var(--doc-paper-raised)}
+.m13-sw b{font-family:var(--font-display);letter-spacing:.12em;font-size:12px;text-transform:uppercase}
+.m13-xpn{font-family:var(--font-display);font-size:16px;letter-spacing:.04em;margin-top:6px}
+.m13-xpn em{font-style:normal;color:var(--doc-action);font-weight:700}
+.m13-row{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:9px 0;border-top:1px solid var(--doc-rule-fine);min-height:52px;flex-wrap:wrap}
+.m13-row:first-child{border-top:0}
+.m13-k{font-weight:600}
+.m13-k small{display:block;font-weight:400;color:var(--doc-ink-muted);font-size:13px;margin-top:2px;line-height:1.35}
+.m13-v{font-family:var(--font-display);font-size:18px;min-width:2ch;text-align:center}
+.m13-step{display:inline-flex;align-items:center;gap:6px}
+.m13-step .hp-quiet{min-width:44px;justify-content:center;padding:0 12px}
+.m13-price{font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--doc-ink-muted);text-transform:uppercase;min-width:52px;text-align:right}
+.m13-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.m13-tick{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--doc-rule-fine);min-height:48px;width:100%;background:none;border-left:0;border-right:0;border-bottom:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.m13-box{width:22px;height:22px;margin:2px 0 0;flex:none;border:2px solid var(--doc-ink-structural);background:var(--doc-paper-raised);position:relative}
+.m13-box[data-on="1"]{background:var(--doc-action);border-color:var(--doc-action)}
+.m13-box[data-on="1"]::after{content:"";position:absolute;left:6px;top:1px;width:6px;height:12px;border:solid var(--doc-paper-raised);border-width:0 3px 3px 0;transform:rotate(45deg)}
+[data-m13-page] .sb-notice{display:flex;flex-wrap:wrap}
+[data-m13-page] .sb-notice-a{display:flex;flex-wrap:wrap;gap:8px;flex:1 1 100%;min-width:0;white-space:normal;margin-left:0}
+.m13-tick p{margin:3px 0 0;color:var(--doc-ink-muted);font-size:14px;line-height:1.4}
+.m13-flag{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--doc-action);color:var(--doc-action);margin-left:6px;vertical-align:2px}
+.m13-note{margin-top:8px;padding:8px 10px;border-left:3px solid var(--doc-action);background:var(--doc-paper-sunk);font-size:14px;line-height:1.4}
+.m13-log{list-style:none;margin:0;padding:0}
+.m13-log li{padding:10px 0;border-top:1px solid var(--doc-rule-fine)}
+.m13-log li:first-child{border-top:0}
+.m13-log .m13-lh{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-display);letter-spacing:.06em}
+.m13-log ul{margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.5}
+.m13-log q{display:block;margin-top:6px;font-style:italic;color:var(--doc-ink-muted);font-size:14px}
+.m13-rail{position:sticky;top:24px;align-self:start}
+.m13-bar{position:fixed;left:0;right:0;bottom:0;z-index:310}
+.m13-barin{display:flex;gap:10px}
+.m13-bar .hp-commit,.m13-bar .hp-quiet{flex:1;justify-content:center}
+.m13-field{display:block;margin-top:10px}
+.m13-field span{display:block;font-family:var(--font-display);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);margin-bottom:4px}
+.m13-field input,.m13-note-in{display:block;width:100%;min-height:44px;border:1px solid var(--doc-ink-structural);background:var(--doc-paper-raised);padding:11px 12px;color:var(--doc-ink);font:inherit}
+.m13-note-in{margin-bottom:10px}
+.m13-note-in::placeholder{color:var(--doc-ink-muted);opacity:1}
+.m13-treebox{overflow-x:auto;margin-top:8px}
+.m13-phone .m13-treebox>*{min-width:640px}
+.m13-grp{font-family:var(--font-display);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--doc-ink-muted);margin:14px 0 4px}
+.m13-saved{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.m13-saved b{font-family:var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink)}
+.m13-bands{margin:-17px -19px -19px}/* R-SKC-13 (D-455): the rows bled to the plate edges; the stripe itself is .hp-bands (R-M13B-3) */
+.m13-bands>.m13-row{padding:9px 16px}
+/* the host (R-M13F-19): full-screen at 390, a dialog at 1440; the lists and Preview (R-M13B-34) */
+/* the dim is an EMPTY layer and the sheet is the dialog (B-1210 R-B1210-1, as `treeView` does); its value is the kit's `.hp-scrim` (D-174), rendered inside this layer */
+.m13-scrim{position:fixed;inset:0;z-index:400;display:flex;justify-content:center;align-items:flex-start}
+.m13-dlg{position:relative;width:100%;height:100%;background:var(--doc-paper);overflow-y:auto;outline:none}
+.m13-desk .m13-scrim{padding-top:48px}
+.m13-desk .m13-dlg{width:min(1100px,92vw);height:calc(100vh - 96px);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.m13-lhost{padding:16px 16px 96px}
+.m13-desk .m13-lhost{padding:28px 40px}
+.m13-lhead{margin:14px 0 12px}
+.m13-search{width:100%;min-height:44px;border:0;background:transparent;outline:none;padding:10px 12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--doc-ink);text-transform:uppercase}
+.m13-lplate{padding:6px 12px;margin-top:10px}
+.m13-lrule{display:block;margin-top:4px;font-family:var(--font-body);font-weight:400;font-size:13px;line-height:1.4;color:var(--doc-ink-muted);text-transform:none;letter-spacing:0;white-space:normal;text-align:left}
+.m13-lprice{align-self:center;margin-left:12px;flex:none}
+.m13-lbox{align-self:center;margin:0 12px 0 0}
+.m13-lbar{position:fixed;left:0;right:0;bottom:0}
+.m13-pgrid{display:grid;gap:12px 24px;grid-template-columns:minmax(0,1fr)}
+.m13-desk .m13-pgrid{grid-template-columns:1fr 1fr}
+.m13-psmall{font-size:15px}
+.m13-priceline{text-align:left;margin-top:8px}
+.m13-charstep{justify-content:center;margin-top:6px}
+.m13-notefield{margin:0 0 10px}
+.m13-desk .m13-barin{display:flex;gap:10px}
+/* R-M13B-27 (4): the creator's picker on Modify: The Build, So Far, the wave, the step count and the FaD sentence off */
+[data-m13-picker] .hp-folio,[data-m13-picker] .hp-slash,[data-m13-picker] .hp-status,[data-m13-picker] .hp-maker:not([data-motiv-tier]),[data-m13-picker] [data-motiv-pair-edit],[data-m13-picker] [data-fc-phone-sofar],[data-m13-picker] [data-rail-section="experience"],[data-m13-picker] [data-rail-section="sofar"],[data-m13-picker] [data-rail-section="steps"],[data-m13-picker] .hp-sechead:has(+ [data-rail-section="experience"]),[data-m13-picker] .hp-sechead:has(+ [data-rail-section="sofar"]){display:none}
+.m13-free .m13-k,[data-m13-sec=line] .m13-k,[data-m13-sec=track] .m13-k,[data-m13-sec=effects] .m13-k{flex:1 1 150px;min-width:0}
+.m13-old{margin:0 0 6px;font-size:13px;line-height:1.35;color:var(--doc-ink-muted)}
+.m13-free + .m13-bands{margin-top:10px}

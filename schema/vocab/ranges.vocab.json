@@ -1,0 +1,59 @@
+{
+  "vocabulary": "ranges",
+  "_doc": "Canonical range bands. INGEST (forward): a RangeValue code (wr* personal / sr* sensor-ship) -> id. RENDER (backward): id -> label. 'engaged' is personal-scale only; 'close' is its vehicle/sensor-scale counterpart (rare on personal weapons \u2014 flag if it appears). Seeded from SWItems.RANGE_LABELS.",
+  "entries": [
+    {
+      "id": "engaged",
+      "label": "Engaged",
+      "aliases": [
+        "Engaged",
+        "wrEngaged"
+      ]
+    },
+    {
+      "id": "close",
+      "label": "Close",
+      "aliases": [
+        "Close",
+        "srClose",
+        "wrClose"
+      ]
+    },
+    {
+      "id": "short",
+      "label": "Short",
+      "aliases": [
+        "Short",
+        "srShort",
+        "wrShort"
+      ]
+    },
+    {
+      "id": "medium",
+      "label": "Medium",
+      "aliases": [
+        "Medium",
+        "srMedium",
+        "wrMedium"
+      ]
+    },
+    {
+      "id": "long",
+      "label": "Long",
+      "aliases": [
+        "Long",
+        "srLong",
+        "wrLong"
+      ]
+    },
+    {
+      "id": "extreme",
+      "label": "Extreme",
+      "aliases": [
+        "Extreme",
+        "srExtreme",
+        "wrExtreme"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "vehicle-library-1",
+  "generated_from": "oggdude_merged.json",
+  "generator_script": "scripts/build_vehicle_library.py",
+  "total_entries": 433,
+  "stats_complete_count": 432,
+  "desc_only_count": 1,
+  "shards": {
+    "starfighters": {
+      "file": "starfighters.json",
+      "count": 69
+    },
+    "freighters": {
+      "file": "freighters.json",
+      "count": 51
+    },
+    "capital_ships": {
+      "file": "capital_ships.json",
+      "count": 54
+    },
+    "transports": {
+      "file": "transports.json",
+      "count": 56
+    },
+    "patrol_gunships": {
+      "file": "patrol_gunships.json",
+      "count": 22
+    },
+    "airspeeders": {
+      "file": "airspeeders.json",
+      "count": 37
+    },
+    "landspeeders": {
+      "file": "landspeeders.json",
+      "count": 74
+    },
+    "walkers_tanks": {
+      "file": "walkers_tanks.json",
+      "count": 31
+    },
+    "support": {
+      "file": "support.json",
+      "count": 39
+    }
+  },
+  "affiliation_counts": {
+    "empire": 30,
+    "independent": 155,
+    "multi_faction": 154,
+    "rebellion": 38,
+    "cis": 9,
+    "republic": 28,
+    "hutt": 17,
+    "mandalorian": 2
+  },
+  "book_codes": {
+    "eote": "Edge of the Empire Core Rulebook",
+    "aor": "Age of Rebellion Core Rulebook",
+    "aorbeta": "Age of Rebellion Beta Rulebook",
+    "fad": "Force and Destiny Core Rulebook",
+    "sm": "Stay on Target",
+    "sor": "Strongholds of Resistance",
+    "fib": "Forged in Battle",
+    "lonh": "Lords of Nal Hutta",
+    "laoth": "Long Arm of the Hutt",
+    "sof": "Suns of Fortune",
+    "cotr": "Collapse of the Republic",
+    "rots": "Rise of the Separatists",
+    "dor": "Dawn of Rebellion",
+    "ss": "Special Modifications",
+    "fo": "Fully Operational",
+    "ev": "Endless Vigil",
+    "nd": "No Disintegrations",
+    "flt": "Friends Like These",
+    "btr": "Beyond the Rim",
+    "cotgk": "Chronicles of the Gatekeeper",
+    "cam": "Cyphers and Masks",
+    "dc": "Dangerous Covenants",
+    "da": "Desperate Allies",
+    "doh": "Disciples of Harmony",
+    "etu": "Enter the Unknown",
+    "fh": "Far Horizons",
+    "fc": "Fly Casual",
+    "joy": "Jewel of Yavin",
+    "ktp": "Keeping the Peace",
+    "kof": "Knights of Fate",
+    "lbe": "Lead by Example",
+    "motpq": "Mask of the Pirate Queen",
+    "nop": "Nexus of Power",
+    "oaa": "Onslaught at Arda I",
+    "sava": "Savage Spirits",
+    "up": "Unlimited Power"
+  },
+  "taxonomy_file": "taxonomy.json"
+}

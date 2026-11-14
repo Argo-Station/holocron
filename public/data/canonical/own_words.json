@@ -1,0 +1,5100 @@
+{
+ "version": 1,
+ "labels": {
+  "armor": {
+   "a_kt_mountaineer_armor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Athletics checks for climbing or rappelling",
+     "src": "bd28556543a7"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Climbing or rappelling",
+     "src": "237b95b406d3"
+    }
+   },
+   "a_kt_shockrider_crash_suit": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Fire and Burn quality damage reduced by 1",
+     "src": "706d13917e04"
+    }
+   },
+   "a_kt_wing_commander_armored_flight_suit": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Fire and Burn quality damage reduced by 1",
+     "src": "706d13917e04"
+    }
+   },
+   "adverse_environmental_gear": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from the environment",
+     "src": "fd11637df0ef"
+    }
+   },
+   "blast_vest": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "+2 soak against damage from slugthrowers or other physical projectiles",
+     "src": "555b8e8c9e8d"
+    }
+   },
+   "cf_9_naval_flight_suit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from physical stress",
+     "src": "4c88eaf6e0b2"
+    }
+   },
+   "clone_dive_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from being underwater",
+     "src": "e91fbda1c182"
+    }
+   },
+   "clone_reconnaissance_armor": {
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Sight-based checks",
+     "src": "fba2d26b24ec"
+    }
+   },
+   "concealing_robes": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Noticing or recognising the wearer",
+     "src": "8d972d76055d"
+    }
+   },
+   "crash_gear": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Ongoing Critical Injuries don't affect Intellect- or Cunning-related checks; the injuries remain",
+     "src": "79383355a85c"
+    }
+   },
+   "diplomat_s_robes": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Using diplomatic standing",
+     "src": "9626714b172b"
+    }
+   },
+   "fabricator_s_protective_gear": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Wearer immune to fire or acid of rating 1 or 2",
+     "src": "06c1cb638c67"
+    }
+   },
+   "gundark_scav_suit": {
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Resisting cold",
+     "src": "014920463635"
+    },
+    "pool_mods[2]": {
+     "slot": "condition",
+     "text": "Perception setback from cold weather",
+     "src": "5d17cb1e463a"
+    }
+   },
+   "ht_77_cold_assault_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting cold",
+     "src": "014920463635"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Perception setback from cold weather",
+     "src": "5d17cb1e463a"
+    }
+   },
+   "hunter_s_trophy_armor": {
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Its frightening look",
+     "src": "7b09a49013a2"
+    }
+   },
+   "hutt_shell_armor": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Wearer can hover up to five meters off the ground",
+     "src": "28212d233b62"
+    },
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "No extra maneuvers needed for difficult terrain",
+     "src": "ec0821543c20"
+    }
+   },
+   "imperial_hazard_trooper_armor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Wearer removes [SE][SE] from darkness, smoke, or similar obscured vision on Perception, Vigilance, and combat checks",
+     "src": "375b110bd814"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or haze",
+     "src": "533cab3d7ba9"
+    }
+   },
+   "imperial_storm_commando_armor": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Wearing storm commando armor: remove [SE] from obscured vision (darkness, smoke, similar) on Perception, Vigilance, and combat checks",
+     "src": "6b05265b8653"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Perception setback from darkness or smoke",
+     "src": "0d9ec41cf5d8"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Detecting the wearer",
+     "src": "e1f8875bff11"
+    }
+   },
+   "individual_field_disruptor": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Droid suffers 5 Stun damage when you move engaged with it",
+     "src": "e866891aa50e"
+    }
+   },
+   "jedi_battle_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Fitted for someone else",
+     "src": "362a2272daf7"
+    }
+   },
+   "karflo_thinsuit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from the surroundings",
+     "src": "8510e1a3dcbd"
+    }
+   },
+   "kav_dann_power_armor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Remove [SE] from darkness, smoke, or other vision-impairing conditions on Perception, Vigilance, and Combat checks",
+     "src": "3cdc4fe4009d"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or haze",
+     "src": "1377d5c6f26d"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Resisting radiation",
+     "src": "abd13163150c"
+    }
+   },
+   "lector_s_outfit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Addressing a large crowd",
+     "src": "4c31d646bff6"
+    }
+   },
+   "leviathan_power_armor": {
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "Resilience vs extreme cold: difficulty -1; remove up to [SE][SE] from extreme cold",
+     "src": "02b4cf2d3308"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Remove up to [SE][SE] from obscured vision (darkness, smoke, other environmental effects) on all Perception, Vigilance, and combat checks",
+     "src": "44de1635a4ac"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from extreme cold",
+     "src": "c95287eecdd5"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or haze",
+     "src": "c6d257b66bb6"
+    }
+   },
+   "mk_ii_hotspot_insulated_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting heat or toxic gas",
+     "src": "cb746ffa9001"
+    }
+   },
+   "nomad_greatcoat": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Resilience checks vs extreme cold: difficulty -1",
+     "src": "5d75b8b36a6d"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from extreme cold",
+     "src": "c95287eecdd5"
+    }
+   },
+   "p_14_hazardous_industry_suit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting a hostile environment",
+     "src": "c9b8f7d28570"
+    }
+   },
+   "performer_s_attire": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Performing or drawing attention",
+     "src": "c7952a388ecf"
+    }
+   },
+   "personal_deflector_shield": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "GM may spend [DE] to drain the shield for the rest of the encounter",
+     "src": "cc60b34ea08d"
+    }
+   },
+   "phase_i_clone_trooper_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until used to the armor",
+     "src": "4033293ba716"
+    }
+   },
+   "pit_crew_coveralls": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Fire and Burn quality damage reduced by 1",
+     "src": "706d13917e04"
+    }
+   },
+   "px_11_battlement_powered_armor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or haze",
+     "src": "f1bbcc84337f"
+    }
+   },
+   "reflect_body_glove": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Noticing the body glove",
+     "src": "62595ca6409a"
+    }
+   },
+   "reinforced_environment_gear": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "[BO] to Resilience checks against toxic air or airborne toxins",
+     "src": "c3043eb7bca7"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from the surroundings",
+     "src": "cd0bbc8c46a0"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Resisting toxic air",
+     "src": "f3f3e0b32742"
+    }
+   },
+   "resplendent_robes": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Wearer draws attention: nearby allies gain boost",
+     "src": "9a097b9f8214"
+    }
+   },
+   "second_skin_armor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE][SE] on Perception checks spotting worn second skin armor",
+     "src": "5c3d59b709d2"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Noticing the armor",
+     "src": "63e487ad695a"
+    }
+   }
+  },
+  "attachments": {
+   "accu_strike_integrated_targeting_computer": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Ranged attacks at long or extreme range",
+     "src": "2c76200ab853"
+    }
+   },
+   "amphibious_modification": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Physical checks underwater",
+     "src": "fcc2a2f62836"
+    }
+   },
+   "amplifying_chamber": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "[SE] when maintaining or repairing this weapon with Mechanics",
+     "src": "ba56527dfb45"
+    }
+   },
+   "armor_insert": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Average ([DI][DI]) Perception check spots armor inserts in clothing",
+     "src": "b67f0f2c8764"
+    }
+   },
+   "armor_spikes": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Hit by a Melee, Brawl, or Lightsaber check: [TH][TH][TH] or [DE] may be spent to deal the attacker one hit of 6 damage",
+     "src": "7fbe3b84c05c"
+    }
+   },
+   "ascension_gun": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Easy ([DI]) Coordination or Ranged Light check to hit an anchor point up to medium range; precise placement adds [SE]. Climb one range band per round",
+     "src": "de227ab723ea"
+    }
+   },
+   "augmented_spin_barrel": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "[SE] to Mechanics checks to maintain this weapon",
+     "src": "ea17fe0eafd4"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Maintaining this weapon",
+     "src": "f6d37f1a030d"
+    }
+   },
+   "bantha_s_eye_laser_sight": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "When the check succeeds",
+     "src": "b713ab2c7553"
+    }
+   },
+   "blade_drain": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Combat check vs a lightsaber-wielding opponent: spend [TR] to cut their lightsaber's base damage by one, rest of encounter",
+     "src": "658a5b343292"
+    }
+   },
+   "blaster_energy_dampener": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Checks to detect weapon's fire: difficulty +1",
+     "src": "d89e4a3f8ce9"
+    }
+   },
+   "blaster_suppressor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE][SE] on Vigilance or Perception checks to find a hidden shooter using a silenced blaster",
+     "src": "f1974273f6b3"
+    }
+   },
+   "boot_blade": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Critical rating -1 (minimum 1)",
+     "src": "1ddc9e580416"
+    }
+   },
+   "built_in_blaster_sight": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Ranged Light and Ranged Heavy: remove [SE] from Aim's Called Shot",
+     "src": "009d2e83b2a7"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from a Called Shot",
+     "src": "37dc08943f31"
+    }
+   },
+   "catastrophic_failure_modification": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "On activation it overloads, exploding end of next round: 20 damage, Breach 1, Vicious 4, to everything within short range. Hilt destroyed, crystal survives",
+     "src": "0b0d262bc431"
+    }
+   },
+   "clone_polarized_electrobinoculars": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Perception checks: remove [SE] from distance or low light",
+     "src": "b6fc1cd48ec6"
+    }
+   },
+   "comlink_bug": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Relays a comlink's incoming and outgoing traffic to a remote listener within medium range",
+     "src": "a08fd4fbac31"
+    }
+   },
+   "component_alteration_gear": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Dismantling: Mechanics check (Hard [DI][DI][DI]), hours equal to encumbrance (minimum one); success yields components equal to encumbrance +1",
+     "src": "3808bc1bbf54"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Component alteration can make parts resemble code cylinders, comlinks, fusion lanterns, or other mundane objects, without their function; upgrades the Mechanics check difficulty once or more (GM's call)",
+     "src": "2611e6d990ad"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Per [SU] or [TR] on the Mechanics check, the parts' carrier adds [BO] when observers try to see through the disguise (opposed Stealth vs. Perception); [BO][BO] if made to look mundane",
+     "src": "cc8a8854aad6"
+    },
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "Reassembly: two maneuvers or two minutes per component and a Mechanics check (Average [DI][DI]) with every component present; failure damages them, needing a major repair to work again",
+     "src": "1f1fe6826322"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Item with this alteration: on its user's skill checks, GM may convert [TH][TH][TH] into [DE]",
+     "src": "d628ca3fb05e"
+    },
+    "base_mods[5]": {
+     "slot": "mod",
+     "text": "One component alteration per item; permanently costs 1 hard point. Items without hard points can still be altered",
+     "src": "1d003eb688d3"
+    }
+   },
+   "component_alteration_weapon": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Dismantling: Mechanics check (Hard [DI][DI][DI]), hours equal to encumbrance (minimum one); success yields components equal to encumbrance +1",
+     "src": "3808bc1bbf54"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Component alteration can make parts resemble code cylinders, comlinks, fusion lanterns, or other mundane objects, without their function; upgrades the Mechanics check difficulty once or more (GM's call)",
+     "src": "2611e6d990ad"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Per [SU] or [TR] on the Mechanics check, the parts' carrier adds [BO] when observers try to see through the disguise (opposed Stealth vs. Perception); [BO][BO] if made to look mundane",
+     "src": "cc8a8854aad6"
+    },
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "Reassembly: two maneuvers or two minutes per component and a Mechanics check (Average [DI][DI]) with every component present; failure damages them, needing a major repair to work again",
+     "src": "1f1fe6826322"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Item with this alteration: on its user's skill checks, GM may convert [TH][TH][TH] into [DE]",
+     "src": "d628ca3fb05e"
+    },
+    "base_mods[5]": {
+     "slot": "mod",
+     "text": "One component alteration per item; permanently costs 1 hard point. Items without hard points can still be altered",
+     "src": "1d003eb688d3"
+    }
+   },
+   "componentization": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Weapon breaks down into parts disguised as other items; spotting them as weapon parts takes a Skulduggery or Mechanics check ([DI][DI][DI][DI][DI], Formidable)",
+     "src": "46c72060c868"
+    }
+   },
+   "concealed_climbing_cord": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Includes climbing cord with grappling hook: Right Tool for the Job when climbing or rappelling",
+     "src": "9f2bfb18f2eb"
+    }
+   },
+   "concealment_alteration_gear": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Average ([DI][DI]) Skulduggery check, one hour per encumbrance point (min one hour). Difficulty +1 per encumbrance above 2; encumbrance 6+ can't be altered",
+     "src": "b7df6e8cccce"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "On success: encumbrance -1 (minimum 1) and [SE] to Perception checks to spot or search for it; [TR] makes it [SE][SE]",
+     "src": "852b1cae661d"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "One concealment alteration per item; permanently costs 1 hard point. Items without hard points can still be altered",
+     "src": "c3e9e5dbf13c"
+    }
+   },
+   "concealment_alteration_weapon": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Average ([DI][DI]) Skulduggery check, one hour per encumbrance point (min one hour). Difficulty +1 per encumbrance above 2; encumbrance 6+ can't be altered",
+     "src": "b7df6e8cccce"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "On success: encumbrance -1 (minimum 1) and [SE] to Perception checks to spot or search for it; [TR] makes it [SE][SE]",
+     "src": "852b1cae661d"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "One concealment alteration per item; permanently costs 1 hard point. Items without hard points can still be altered",
+     "src": "c3e9e5dbf13c"
+    }
+   },
+   "curved_hilt": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Lightsaber hit against a lone opponent",
+     "src": "7a9c1b3e65cf"
+    }
+   },
+   "dantari_crystal": {
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Force power check within a combat check: [FP] may be spent for 2 strain recovered",
+     "src": "1dddfc0f61c5"
+    }
+   },
+   "dart_gun": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "One-shot dart: Damage 2, Critical 5, Ranged (Light), Range (Short), Pierce 1, Limited Ammo 1",
+     "src": "b32e721c554d"
+    }
+   },
+   "droid_brain_detonator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "A droid brain triggers the detonator under any preset condition",
+     "src": "0d8d1e666654"
+    }
+   },
+   "droid_targeting_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Ranged combat checks with this weapon: upgrade ability once",
+     "src": "dc68439dc1a1"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Ranged attacks",
+     "src": "a8c3e2d0182b"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "One ranged attack an encounter",
+     "src": "96b947f9d4b7"
+    }
+   },
+   "dual_phase_modification": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Once per encounter, incidental: change blade length; next attack this turn ignores melee defense",
+     "src": "9e42dc135f88"
+    }
+   },
+   "electronic_sighting_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Once per round, aim as an incidental at short range; reduce difficulty of Perception checks to find the shooter in low light by 1",
+     "src": "b994843756ff"
+    }
+   },
+   "enhanced_optics_suite": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Remove up to [SE][SE] from obscured vision (darkness, smoke, other environmental effects) on all Perception, Vigilance, and combat checks",
+     "src": "44de1635a4ac"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or haze",
+     "src": "c6d257b66bb6"
+    }
+   },
+   "environmental_adaption_kit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Weapon won't break down from one chosen environment type",
+     "src": "a4f39629374f"
+    }
+   },
+   "etaan_crystal": {
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Improved Reflect automatic hits deal +2 damage",
+     "src": "8306df243080"
+    }
+   },
+   "filed_front_sight": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Reduce difficulty of checks to hide the weapon by one",
+     "src": "3fca08ede34f"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Combat checks beyond Short range: difficulty +1",
+     "src": "4fc837bb8094"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Targets past short range",
+     "src": "583a24db3650"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Concealing this weapon",
+     "src": "61eeb777c155"
+    }
+   },
+   "flickerphase_blade": {
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Targets can't use the Parry incidental against this lightsaber's attacks",
+     "src": "295fcfbaf571"
+    }
+   },
+   "forearm_grip": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Ranged (Heavy) checks while engaged with this weapon add only [DI] (not [DI][DI])",
+     "src": "3b015d006322"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Ranged (Heavy) while engaged: one difficulty, not two",
+     "src": "b6b4d856531b"
+    }
+   },
+   "ghostfire_crystal": {
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Target can't use the Parry talent against this attack if [TR] or [AD][AD][AD][AD] is spent",
+     "src": "6b6c0b766ce0"
+    }
+   },
+   "h9_pistol_grip": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Firing one-handed",
+     "src": "ec379334d3f8"
+    }
+   },
+   "hardened": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Power armor can't be shut down by electromagnetic or ion weapons",
+     "src": "ad8c20685442"
+    }
+   },
+   "heating_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Resilience vs extreme cold: difficulty -1; remove up to [SE][SE] from extreme cold",
+     "src": "02b4cf2d3308"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting extreme cold",
+     "src": "5f5e593485df"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Setback from extreme cold",
+     "src": "ca12f7c8251d"
+    }
+   },
+   "hidden_compartment": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Hidden compartment in a personal item; finding it takes a careful search plus a Perception check (Hard [DI][DI][DI])",
+     "src": "385539330968"
+    }
+   },
+   "hidden_compartments_in_armor": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Spend hours equal to armor's encumbrance, then Mechanics, Hard ([DI][DI][DI]). Every [SU] or [TR] gives 1 encumbrance of hidden space, up to the armor's encumbrance; hidden items don't count toward encumbrance threshold. Perception to notice them gets [SE][SE]",
+     "src": "5c2fbcb6c5b7"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Armor can't conceal any single item above encumbrance 2, regardless of [SU] rolled",
+     "src": "f76589371b84"
+    },
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "Each encumbrance point of concealed space costs one hard point (minimum 0); armor with no hard points can still hide an encumbrance 1 item",
+     "src": "150071644936"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Every 2 encumbrance of concealed space costs 1 soak; each net [AD] on the Mechanics check cancels 1 soak lost",
+     "src": "99fed30b43b2"
+    }
+   },
+   "holo_converter": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Create disguises inside holographic recording/projecting systems",
+     "src": "8c32c79b7e99"
+    }
+   },
+   "in_helmet_scanner": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Helmet scanner: remove [SE] from darkness or environmental conditions like smoke or fog; detects heat and motion within medium range",
+     "src": "fec68a40d312"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, smoke or fog",
+     "src": "01f9f76b026e"
+    }
+   },
+   "integrated_illuminator": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Darkness, targets within short range",
+     "src": "2ec14d8271f5"
+    }
+   },
+   "integrated_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Initiative with the weapon drawn",
+     "src": "58f2be6ea0a3"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Initiative checks",
+     "src": "56030b22d384"
+    }
+   },
+   "ion_shielding": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Ranged and melee defense +1 vs Ion quality weapons",
+     "src": "94d042ccf61f"
+    }
+   },
+   "jump_boots": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Jumping up or over obstacles",
+     "src": "8ab9015c44e3"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Jumping up or over obstacles",
+     "src": "8ab9015c44e3"
+    }
+   },
+   "jury_rigged_weapon": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Choose one: +1 weapon damage; reduce its Critical's or one other effect's Advantage cost by one (minimum one); +1 armor ranged or melee defense; or -2 item encumbrance (minimum one)",
+     "src": "f067b0680c3e"
+    }
+   },
+   "kiirium_coating": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Reduce difficulty by 1 on Resilience checks against fire and extreme heat",
+     "src": "031c03e606c3"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting fire and extreme heat",
+     "src": "b58f0bfe8a86"
+    }
+   },
+   "low_friction_coating": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Modifying or maintaining this armor",
+     "src": "83c5df468274"
+    }
+   },
+   "mephite_crystal": {
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Force users sensing surroundings with a power automatically detect a mephite-crystal lightsaber within the power's range",
+     "src": "d4c6e7709925"
+    }
+   },
+   "motion_tracker": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from target movement or Guarded Stance",
+     "src": "03d94bbf826c"
+    }
+   },
+   "multi_optic_sight": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Using this weapon: remove up to [SE][SE] from smoke, darkness, or other vision-blocking conditions",
+     "src": "13ed4826dc88"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from smoke, darkness or haze",
+     "src": "a2786c863899"
+    }
+   },
+   "night_vision_scope": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Using this weapon: remove up to [SE][SE] from darkness",
+     "src": "0db89a3aa743"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "fc45be6fd252"
+    }
+   },
+   "nishalorite_stone": {
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Automatic [AD] on checks to fix location, navigate terrain, or locate power sources or active technology",
+     "src": "b4ee85db682a"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding your way, power or active tech",
+     "src": "e98ec028eac8"
+    }
+   },
+   "omniscan_3_integrated_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting movement or hidden enemies",
+     "src": "d2ab5104a5a9"
+    }
+   },
+   "optical_camouflage_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Wearing this armor: upgrade ability of Stealth checks twice",
+     "src": "90833b64784f"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Wearing this armor",
+     "src": "24490989e091"
+    }
+   },
+   "oxygen_unit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "+12 hours of oxygen when linked to a breath mask, rebreather, or sealed suit",
+     "src": "e3ddf5c9ff9a"
+    }
+   },
+   "power_unit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Recharge depleted equipment as an action; droids or larger machinery take two hours",
+     "src": "1f432b020e9b"
+    }
+   },
+   "radiation_shielding": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Soak +1 vs radiation damage",
+     "src": "41f98d1708e6"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting radiation",
+     "src": "ffcccfe3c173"
+    }
+   },
+   "reflec_adaptive_skin": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Wearing reflec-coated armor: upgrade ability of Stealth checks once",
+     "src": "0fb501af1962"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Wearing reflec-coated armor",
+     "src": "d9870e7c579d"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Wearing reflec-coated armor",
+     "src": "d9870e7c579d"
+    }
+   },
+   "removed_safety_features": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "First attack of an encounter",
+     "src": "8016b654ebc7"
+    }
+   },
+   "retractable_wrist_blades": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Built-in wrist blade, readied as an incidental",
+     "src": "860ad79067c2"
+    }
+   },
+   "scanner_proof_hardware": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Undetectable by standard weapon detectors; advanced scanners find it with Computers, Hard ([DI][DI][DI])",
+     "src": "9390b0a1005f"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "On a combat check, GM may spend [DE] or [TH][TH] to disable the weapon until a major repair",
+     "src": "aa9be26b4bde"
+    }
+   },
+   "scannerweave": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Opposed Stealth checks vs sensor and scanner operators: upgrade ability once",
+     "src": "080ee093ebb4"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Stealth against sensor operators",
+     "src": "84f35a0985cb"
+    }
+   },
+   "seeker_crystal": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Force-sensitive wielder seeking a hidden being nearby",
+     "src": "201aefbf8e1a"
+    }
+   },
+   "self_destruct_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Single-use self-destruct: 5 damage to every character within engaged range",
+     "src": "a2e4e6ada114"
+    }
+   },
+   "set_trigger": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "[SU] on this weapon's first combat check each encounter",
+     "src": "a65e5064c017"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SU][TH] added automatically to this weapon's first combat check each encounter",
+     "src": "518d14bdb1b6"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "First attack with it each encounter",
+     "src": "2ddbf4ba671a"
+    }
+   },
+   "shadowsheath": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Checks to detect sheath or its weapon: difficulty +2",
+     "src": "51dee98c5280"
+    }
+   },
+   "shortened_barrel": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Checks to conceal weapon: difficulty -1",
+     "src": "a85ee91d9f1b"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Concealing this weapon",
+     "src": "61eeb777c155"
+    }
+   },
+   "slugthrower_suppressor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE][SE] on Vigilance or Perception checks to find a hidden shooter using a silenced slugthrower",
+     "src": "faecbe437a34"
+    }
+   },
+   "sonic_scope": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Can see and target enemies fully hidden behind solid objects",
+     "src": "fe426d1f16fc"
+    }
+   },
+   "spoofing_scanners": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Mechanics check (Hard [DI][DI][DI]); adds [SE] to scanner Perception checks to detect the item; [TR] upgrades those checks' difficulty once",
+     "src": "2ca4fb8b039b"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Each net [SU] on the energy-reduction check also cuts damage by one (minimum 1); [TR] from the Mechanics check halves the cut, rounded up",
+     "src": "993c60515b3c"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Energy-based weapons or advanced devices only; not slugthrowers, traditional explosives, or high-power items like repeating blasters",
+     "src": "3984bbe9526f"
+    }
+   },
+   "squad_tactical_systems": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO] on Vigilance and Perception checks while an ally wearing armor with this attachment is within medium range",
+     "src": "da4eb1885145"
+    }
+   },
+   "stealth_field_generator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Spotting the wearer with opposed Perception: upgrade difficulty once",
+     "src": "747cfc617890"
+    }
+   },
+   "stun_blaster_attachment": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Shorter range; can't fire while the blade is active (shared power)",
+     "src": "90d2f6887651"
+    }
+   },
+   "subminiature_holocam": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Take stills and record holos discreetly",
+     "src": "6ebc73878688"
+    }
+   },
+   "telescopic_optical_sight": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Reduce combat check difficulty by 1 at long and extreme range",
+     "src": "cfff658f208a"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Long and extreme range",
+     "src": "aed41700c697"
+    }
+   },
+   "temperature_control_unit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting extreme heat or cold",
+     "src": "9f603fd65117"
+    }
+   },
+   "thermal_shielding_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Resilience vs fire and extreme heat: difficulty -1; remove up to [SE][SE] from heat or fire",
+     "src": "13f4ce1de097"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting fire and extreme heat",
+     "src": "b58f0bfe8a86"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Setback from heat or fire",
+     "src": "d43ae7378e88"
+    }
+   },
+   "threat_monitor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Initiative checks",
+     "src": "56030b22d384"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Initiative checks",
+     "src": "56030b22d384"
+    }
+   },
+   "tracking_system": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Tracking a designated target: upgrade ability once",
+     "src": "3049b8d166d1"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Tracking a chosen target",
+     "src": "93501fd58d9f"
+    }
+   },
+   "utility_arm": {
+    "added_mods[1]": {
+     "slot": "mod",
+     "text": "Spend 1 strain: gain an extra free maneuver per turn (max two maneuvers per turn)",
+     "src": "991fd1e675f0"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Adds a mechanical arm usable as a normal limb",
+     "src": "cb6d8e7f704d"
+    }
+   },
+   "vacuum_sealed": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Ignore vacuum or poisonous atmospheres for up to 10 minutes",
+     "src": "f026975f53d8"
+    }
+   },
+   "water_reclamation_suit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Resilience and Survival checks against water scarcity in dry or hot environments: upgrade ability twice",
+     "src": "778326903174"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Dry or hot places, scarce water",
+     "src": "66c24bb1bccb"
+    }
+   },
+   "weapon_signature_reduction": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Scanner checks to find weapon: difficulty +2. Add [SE] to Mechanics checks maintaining it",
+     "src": "cf44d8eb415c"
+    }
+   },
+   "xciter_overcharge": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Incidental: overcharge the XCiter; weapon gains Prepare 1 and +4 damage on the next attack, then is out of ammo until recharged",
+     "src": "6345a5e31022"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "GM may spend [DE] or [TH][TH][TH] on an overcharged shot's combat check to make the weapon explode, dealing full damage to the shooter",
+     "src": "6465bd3e8b81"
+    }
+   }
+  },
+  "force_powers": {
+   "alter": {
+    "altercontrol3/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Force pip: share nearby animals' senses",
+     "src": "cc121e62fc32"
+    }
+   },
+   "ebb_flow": {
+    "ebbflowbasic/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Ebb with this skill check",
+     "src": "4f828a4535cc"
+    },
+    "ebbflowcontrol2/pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Same-skill checks until end of next turn",
+     "src": "339acf9ee582"
+    },
+    "ebbflowcontrol3/pool_mods/add_success": {
+     "slot": "condition",
+     "text": "Same-skill checks until end of next turn",
+     "src": "339acf9ee582"
+    },
+    "ebbflowcontrol4/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Until the encounter ends",
+     "src": "f8682f142a1d"
+    },
+    "ebbflowstrength2/pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Force pip: one more threat or advantage",
+     "src": "78212a1874d6"
+    },
+    "ebbflowstrength3/pool_mods/add_success": {
+     "slot": "condition",
+     "text": "Force pip: one more failure or success",
+     "src": "a3eb2f69b4d0"
+    }
+   },
+   "endure": {
+    "empoweredresil/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Endure with a Resilience check",
+     "src": "23650aadd413"
+    }
+   },
+   "enhance": {
+    "enhanceathre/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with an Athletics check",
+     "src": "9b6bb86be3f6"
+    },
+    "enhancebasic/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with an Athletics check",
+     "src": "9b6bb86be3f6"
+    },
+    "enhancecont1/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with Coordination",
+     "src": "4026836d62e4"
+    },
+    "enhancecont2/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with Resilience",
+     "src": "d54f2897b33f"
+    },
+    "enhancecont4/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with Piloting (Planetary)",
+     "src": "7d06f8421e3d"
+    },
+    "enhancecont5/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with Brawl",
+     "src": "c5a2349acac9"
+    },
+    "enhancecont7/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Enhance with Piloting (Space)",
+     "src": "d2e30d482481"
+    }
+   },
+   "farsight": {
+    "absolutesight/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "While the power is active",
+     "src": "adf683254d55"
+    },
+    "discernsight/pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "Inspecting or investigating this object",
+     "src": "bedb28d59e07"
+    },
+    "empsight/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Farsight with Perception or Vigilance",
+     "src": "7f15840813fb"
+    },
+    "farsightcontrol3/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Farsight with Vigilance or Perception",
+     "src": "5f666cfafc66"
+    }
+   },
+   "foresee": {
+    "confforeseen/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Foresee with an Initiative check",
+     "src": "92ad190df5de"
+    },
+    "forseecontrol1/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Foresee with an Initiative check",
+     "src": "fb7c1e740341"
+    }
+   },
+   "heal_harm": {
+    "empmedi/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Heal with Medicine or other healing",
+     "src": "e0a5b8991e8f"
+    }
+   },
+   "influence": {
+    "beguilinfluencere/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Influence with a Deception check",
+     "src": "11132e9212db"
+    },
+    "influencecontrol2/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Influence with a social check",
+     "src": "c71f05382dc5"
+    }
+   },
+   "jerserra_s_influence": {
+    "empwill/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Horrify with a Coercion check",
+     "src": "aecdd871f295"
+    }
+   },
+   "manipulate": {
+    "empowtechno/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Manipulate with Computers or Mechanics",
+     "src": "9340b91a29a3"
+    },
+    "manipulatecontrol3/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Manipulate with a Mechanics check",
+     "src": "8b288fccae8c"
+    }
+   },
+   "misdirect": {
+    "empmis/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Misdirect with Deception or Skulduggery",
+     "src": "f7a74518105a"
+    }
+   },
+   "sense": {
+    "senseopeningre/pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Committed: upgrade one combat check a round",
+     "src": "bf83961d9973"
+    },
+    "sensestrength/pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Using Sense's ongoing effect",
+     "src": "6c32838f337f"
+    },
+    "strengthsensere/pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Using Sense's ongoing effect",
+     "src": "6c32838f337f"
+    }
+   },
+   "warde_s_foresight": {
+    "warforcontrol1/pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Roll Warde's Foresight with an Initiative check",
+     "src": "2fe6e987fb5f"
+    },
+    "warforcontrol1/pool_mods/add_success": {
+     "slot": "condition",
+     "text": "Your first check after Initiative",
+     "src": "91df94254a27"
+    },
+    "warforcontrol3/pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Your first check this encounter",
+     "src": "6072d27f7929"
+    },
+    "warforstrength/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Your next check against the target",
+     "src": "3c65b4b763a5"
+    }
+   }
+  },
+  "gear": {
+   "3_mal_secure_comlink": {
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Knowledge checks on current events or conditions (GM's call)",
+     "src": "0dece6d8e0ca"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Intercepting and unscrambling its signal",
+     "src": "4061df56dd24"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Current events, as the GM decides",
+     "src": "9af60bcd0213"
+    }
+   },
+   "acid": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Resilience, Hard ([DI][DI][DI]); on failure, 2 wounds at start of each turn for three rounds, +1 round per [TH]",
+     "src": "9971aa7af2c1"
+    }
+   },
+   "ag_l_mk_iii_targeting_goggles": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Gunnery checks vs. starships or vehicles treat target silhouette as 1 higher",
+     "src": "bafeaf893d26"
+    }
+   },
+   "al_dr8_grav_binders": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Escape takes an Athletics check ([DI][DI][DI][DI][DI], Formidable)",
+     "src": "2273cbc20820"
+    }
+   },
+   "amulet_of_power": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Single use: roll 1 extra [FO] for a Force power check, or for [FO] added to a skill check; then crumbles to dust",
+     "src": "c19d98983c7f"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Adding Force dice to a check",
+     "src": "5ce8a592c255"
+    }
+   },
+   "antidote_set": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Resisting poison: two easier, Easy at least",
+     "src": "c3578b991a6f"
+    }
+   },
+   "antishock_blanket": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Healing a Critical Injury",
+     "src": "f3bd8d7809c1"
+    }
+   },
+   "appraiser_s_eye": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Buying or selling: automatic [AD] on Streetwise and Negotiation checks",
+     "src": "eadf090b7ebd"
+    }
+   },
+   "ardos_disk": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Dealing with Hutts",
+     "src": "ec5e12979ff0"
+    }
+   },
+   "authentication_tools": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting falsified documents",
+     "src": "abc7243d824a"
+    }
+   },
+   "b310_micro_imager": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Checks that need fine magnification",
+     "src": "89130b4dec98"
+    }
+   },
+   "bc_7_environmental_cocoon": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from extreme heat or cold",
+     "src": "f70385d7be01"
+    }
+   },
+   "bearsloth_antivenom_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the encounter ends",
+     "src": "db20f5824d85"
+    }
+   },
+   "bearsloth_venom_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Each wound or strain taken: 2 more",
+     "src": "b0ff2c4048e9"
+    }
+   },
+   "binders": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Escape: Coordination or Athletics, Daunting ([DI][DI][DI][DI])",
+     "src": "8ad5d7ffad8d"
+    }
+   },
+   "bioscan": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Scanning for life signs",
+     "src": "c2686e503fe9"
+    }
+   },
+   "bioscan_medical": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "The user's own checks",
+     "src": "a92a71b0cda5"
+    }
+   },
+   "blackops_data_breaker": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Computers checks to slice",
+     "src": "f76c2a6cfed8"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Slicing computers",
+     "src": "5a40c50b48ac"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Tracing a data breaker in a system",
+     "src": "c3439f18444e"
+    }
+   },
+   "comm_scrambler": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Decoding a transmission",
+     "src": "5414ef19c6da"
+    }
+   },
+   "concealed_escape_kit": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Detecting a concealed escape kit: upgrade difficulty twice",
+     "src": "09fc2e0f022d"
+    }
+   },
+   "concealed_recorder": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE][SE] on Perception checks spotting a recorder hidden on someone's body",
+     "src": "7a8558af6d24"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "33c32b23c824"
+    }
+   },
+   "condenser_unit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Gathers a day's water for one person; six-month batteries",
+     "src": "ec27170871cb"
+    }
+   },
+   "cortex_bomb": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Explodes, killing the wearer, when they speak, hear, or see a preset code word or signal",
+     "src": "19d661b36cf8"
+    }
+   },
+   "cratala_s_arm_enhancement_implant": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Athletics checks using the enhanced arm; [DE] shorts it out briefly for 5 strain",
+     "src": "0e811cb31f33"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Checks using the enhanced arm",
+     "src": "4dec05bcb866"
+    }
+   },
+   "cratala_s_leg_enhancement_implant": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Athletics checks using the enhanced leg; [DE] shorts it out briefly for 5 strain",
+     "src": "7ad3d22ee19d"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Checks using the enhanced leg",
+     "src": "b868506473bd"
+    }
+   },
+   "cratala_s_vision_cycling_implant": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Triumph: boost later Perception this encounter",
+     "src": "7efbd13a65c7"
+    }
+   },
+   "custom_tool_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Maintaining or repairing: owner boost, others setback",
+     "src": "cc2cd5a30cd3"
+    }
+   },
+   "data_breaker": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Computers checks to slice",
+     "src": "f76c2a6cfed8"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Slicing computers",
+     "src": "5a40c50b48ac"
+    }
+   },
+   "dataspike": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Once per round, expend dataspike: disabling a security program takes a maneuver, not an action; Computers difficulty -2 (min Simple (—))",
+     "src": "02c947575fb8"
+    }
+   },
+   "demon_mask": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Discipline checks to resist fear from a Demon Mask wearer add [SE] equal to the wearer's Force rating",
+     "src": "9966dfe9ebb9"
+    }
+   },
+   "dendriton_toxin": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Daunting Resilience check to resist",
+     "src": "48c390344153"
+    }
+   },
+   "dh77_headcomm": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Intercepting and unscrambling its signal",
+     "src": "03b4769c19ad"
+    }
+   },
+   "dram_of_orphne": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Force-sensitive characters recover 1 extra strain when an encounter ends",
+     "src": "db27e9ee9f2d"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Healing another character",
+     "src": "fc7008711703"
+    }
+   },
+   "draught_of_fire": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Wreathed in harmless flames 1 round (30 minutes narrative): immune to fire/flame damage; unarmed attacks gain Burn 4, or +1 Burn if already had",
+     "src": "1514f6724e87"
+    }
+   },
+   "earbud_comlink": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Spotting a worn earbud comlink: Perception, Hard ([DI][DI][DI])",
+     "src": "249c4f2000cb"
+    }
+   },
+   "ecm_598_medical_backpack": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "While using the backpack",
+     "src": "4b60a9c4e683"
+    }
+   },
+   "electrobinoculars": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from distance or low light",
+     "src": "751158897b58"
+    }
+   },
+   "elixir_of_vigor": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Brawn +1, Willpower -1 until end of next round",
+     "src": "d891a933e1ae"
+    }
+   },
+   "engineer_s_hammer": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Building or demolishing structures",
+     "src": "d298bf346bc4"
+    }
+   },
+   "expensive_jewelry": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Others remembering the wearer",
+     "src": "dc4b40efdd17"
+    }
+   },
+   "eyes_of_laqasa": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from darkness, cover or camouflage",
+     "src": "5359f9281b2a"
+    }
+   },
+   "fabritech_7000_geoscanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Within medium range",
+     "src": "69c630223e8d"
+    }
+   },
+   "fetish_of_fear": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Enemy moving to engage user may be forced to pass a Fear check, Average ([DI][DI]), as an incidental, out of turn; on failure it can't make that maneuver but may take another",
+     "src": "ceb85f6a3b9e"
+    }
+   },
+   "field_kitchen": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Survival or Education checks for storing, identifying, cooking, or sterilizing food",
+     "src": "e527e39f7127"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Storing, identifying, cooking or cleaning food",
+     "src": "c4b7608d0485"
+    }
+   },
+   "foamcast": {
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Foamcast can serve as an improvised explosive",
+     "src": "5acc86980c87"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Repairing structures and vehicle hulls",
+     "src": "da701eee5d93"
+    }
+   },
+   "forensics_investigation_kit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Automatic [SU] on the user's Perception checks to find and collect evidence",
+     "src": "5f703ceecc19"
+    }
+   },
+   "gravity_locks": {
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "When attacked, [TH][TH] or [DE] can send half its damage to the ship it's attached to",
+     "src": "f30767b53b4e"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Opens with the unique key code set at install; otherwise dismantling takes eight hours and a Mechanics check ([CH][CH][DI][DI][DI], upgraded Formidable). Knowing gravity lock internals: no upgrade, half the time",
+     "src": "834aed06e4a5"
+    }
+   },
+   "grimoire_of_syclos_the_lame": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Creatures the Grimoire covers, this session",
+     "src": "ef4dbdb4670c"
+    }
+   },
+   "healing_accelerant": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "While active: each time the user recovers strain or wounds, recover 1 more",
+     "src": "af5b267f9a68"
+    }
+   },
+   "healing_potion": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Heals one Critical Injury of severity Hard ([DI][DI][DI]) or lower; Maimed heals but the limb doesn't regrow",
+     "src": "030d475b9312"
+    }
+   },
+   "holo_megacaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Addressing a crowd",
+     "src": "8537c4228dee"
+    }
+   },
+   "holo_v_audio_visual_translator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO] to Lore or Intellect checks reading or translating unfamiliar languages",
+     "src": "32f42bea8d5c"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Deciphering or translating an unknown language",
+     "src": "d88ed3982293"
+    }
+   },
+   "holographic_disguise_matrix": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Impersonating the target",
+     "src": "e6afc6132b32"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Spotting the impostor",
+     "src": "1836993fd5c7"
+    }
+   },
+   "holoscanner_100_encumbrance": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Perception or Vigilance checks finding concealed items: difficulty -2; can't scan items above encumbrance 100",
+     "src": "d5623802970a"
+    }
+   },
+   "holoscanner_10_encumbrance": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Perception or Vigilance checks finding concealed items: difficulty -2; can't scan items above encumbrance 10",
+     "src": "734392b968d5"
+    }
+   },
+   "hunting_goggles": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Ranged-Light and Ranged-Heavy: remove up to [SE][SE] from fog, mist, darkness, or concealment",
+     "src": "72bf39727ffe"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding prey",
+     "src": "03597f6c5894"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Ranged attacks: setback from cover, dark or fog",
+     "src": "4832863a78e2"
+    }
+   },
+   "impact_100_dose_cargo_container": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Upgrade ability of Agility-based checks until encounter ends; afterward [SE] on Intellect-, Cunning-, or Agility-based checks until session ends",
+     "src": "cb9c4966ad34"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "After the encounter: setback on Ag, Cu, Int checks",
+     "src": "d7f8e65302d9"
+    }
+   },
+   "impact_dose": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Upgrade ability of Agility-based checks until encounter ends; afterward [SE] on Intellect-, Cunning-, or Agility-based checks until session ends",
+     "src": "cb9c4966ad34"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "After the encounter: setback on Ag, Cu, Int checks",
+     "src": "d7f8e65302d9"
+    }
+   },
+   "imperial_intelligence_badge": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Within short range",
+     "src": "1c6729180e60"
+    }
+   },
+   "imperial_officer_s_cap": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Aimed at Imperial troops",
+     "src": "f1a563e97fd4"
+    }
+   },
+   "infrabinoculars": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "As the GM decides",
+     "src": "d8d3372d3c6a"
+    }
+   },
+   "infrabinoculars_long_range": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "As the GM decides",
+     "src": "d8d3372d3c6a"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Setback from distance or low light",
+     "src": "751158897b58"
+    }
+   },
+   "insider_s_guide": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Automatic [AD] on checks to find a given location or service in the guide's region",
+     "src": "fffb10cc2d11"
+    }
+   },
+   "instamist_generator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Action: fill short range with heavy fog for three rounds (Force and Destiny Core Rulebook p. 219)",
+     "src": "f59d22f014a6"
+    }
+   },
+   "jedi_multi_tool": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Right tool for the job on most Mechanics checks",
+     "src": "1b85d8e4a7a4"
+    }
+   },
+   "kamperdine_clothing_specialists_body_glove": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from uncomfortable temperatures",
+     "src": "9479aabc3314"
+    }
+   },
+   "karrak_spice_100_doses": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "For 24 hours",
+     "src": "3ac248fe17ac"
+    }
+   },
+   "karrak_spice_1_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "For 24 hours",
+     "src": "3ac248fe17ac"
+    }
+   },
+   "loaded_chance_cube": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Gambling",
+     "src": "052333f861b3"
+    }
+   },
+   "lockbreaker_hand": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Defeating locks",
+     "src": "6c799832492b"
+    }
+   },
+   "long_range_terrain_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Navigating by its map",
+     "src": "3620608df331"
+    }
+   },
+   "low_feedback_scanner": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "At silhouette 1, detects radiation at short, life forms at medium, power sources at long, comms at extreme range; +1 range band per silhouette above 1",
+     "src": "0f3c65456718"
+    }
+   },
+   "luma_flare": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Firing the flare for light",
+     "src": "a0819e96c20b"
+    }
+   },
+   "mark_10_demolitions_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Detecting explosives",
+     "src": "250de1d6c0a8"
+    }
+   },
+   "mark_6_combat_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Intercepting or decrypting its broadcasts",
+     "src": "f6fc181211f4"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "fc45be6fd252"
+    }
+   },
+   "marked_sabacc_deck": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Gambling",
+     "src": "052333f861b3"
+    }
+   },
+   "mechanical_dianoga": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Starship and vehicle system strain removal checks: remove [SE][SE]",
+     "src": "85ae69102641"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Removing system strain from vehicles",
+     "src": "054b5cafd836"
+    }
+   },
+   "military_trauma_pack": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Lets Medicine remove others' Critical Injuries without penalty; no other treatment allowed (Age of Rebellion Core Rulebook p. 232)",
+     "src": "9b6833254116"
+    }
+   },
+   "model_40_field_repulsor_hoist": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Moving or rotating: Athletics check, difficulty equals silhouette",
+     "src": "03dc154c40cc"
+    }
+   },
+   "model_58_concealment_holster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding the hidden weapon",
+     "src": "fb1ae8f40a9a"
+    }
+   },
+   "muon_gold_100_dose_cargo_container": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the encounter ends",
+     "src": "db20f5824d85"
+    }
+   },
+   "muon_gold_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the encounter ends",
+     "src": "db20f5824d85"
+    }
+   },
+   "nano_droids": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Noticing the nano-droids",
+     "src": "a82a6f2b27de"
+    }
+   },
+   "networked_slicing_uplink": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Droid slicing: harder to identify the slicer",
+     "src": "200e18f273aa"
+    }
+   },
+   "neural_charm": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Knowledge check: suffer strain up to Intellect; add [BO] per strain suffered",
+     "src": "71a849cd9003"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Boost per strain taken this way",
+     "src": "f5453d5aa380"
+    }
+   },
+   "or_series_tech_recycling_station": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] on Mechanics and Perception checks scavenging parts or raw materials; they take half the time (a quarter with Utinni!)",
+     "src": "a585bf6fb484"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Failed crafting check: recover supplies worth half the Material Price",
+     "src": "01de11c49381"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Scavenging parts or materials",
+     "src": "4f82a29d473a"
+    }
+   },
+   "ped_21_personal_distress_beacon": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Searchers add [BO][BO] to Perception, Computers, or Surveillance checks during the search",
+     "src": "529a45cd6af0"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Checks made during the search",
+     "src": "01babe08ac21"
+    }
+   },
+   "pioneer_squad_tool_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Field engineering work",
+     "src": "4421cf12e168"
+    }
+   },
+   "poison": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Average ([DI][DI]) Resilience check at once; on failure, suffer 5 wounds and 1 strain per [TH]",
+     "src": "928087a17ec7"
+    }
+   },
+   "portable_power_generator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Recharge depleted equipment as a maneuver; droids or larger machinery take an hour",
+     "src": "62a97e07efce"
+    }
+   },
+   "potion_of_wills": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Ingested only. Average ([DI][DI]) Discipline check; on failure Willpower counts as 0 for the encounter (one hour narrative) and, at GM discretion, target obeys any instructions. +1 hour per [TH]",
+     "src": "622cabd7a263"
+    }
+   },
+   "pretormin_plastent": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Sleeping in the tent",
+     "src": "0d2829cb7401"
+    }
+   },
+   "protective_amulet": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "While active: ignore environmental hazards like fire, acid, corrosive atmospheres; always standard gravity; breathe underwater and in vacuum. Burn quality doesn't apply to attacks against the user",
+     "src": "82a7811d5115"
+    }
+   },
+   "psf_mk_iii_power_fence": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Moving or rotating: Athletics check, difficulty equals silhouette",
+     "src": "03dc154c40cc"
+    }
+   },
+   "px_7_heat_sensor": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Perception checks locating heat sources within short range",
+     "src": "68120bdc8ec4"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Add [BO] to Mechanics checks repairing starship Critical Hits or droid Critical Injuries",
+     "src": "7081a4c82600"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Within short range",
+     "src": "1c6729180e60"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Fixing starship crits and droid injuries",
+     "src": "e06190e40635"
+    }
+   },
+   "questioner_9_100_doses": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "After five minutes, the victim upgrades difficulty once on all checks to resist manipulation or keep information secret (Force powers included) for 24 hours",
+     "src": "dc4f18f58c0f"
+    }
+   },
+   "questioner_9_1_dose": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "After five minutes, the victim upgrades difficulty once on all checks to resist manipulation or keep information secret (Force powers included) for 24 hours",
+     "src": "dc4f18f58c0f"
+    }
+   },
+   "republic_insignia": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Impressing others with past service",
+     "src": "90b50102b2c5"
+    }
+   },
+   "republic_insignia_replica": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Impressing others with past service",
+     "src": "90b50102b2c5"
+    }
+   },
+   "republic_seal_of_service": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SU] on checks for formal Republic proceedings, proving identity, or verifying past deeds",
+     "src": "bed2c1923e39"
+    }
+   },
+   "repulsor_clamp": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Holds one object of up to 10 encumbrance aloft",
+     "src": "aa0764bd71f4"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Starship and vehicle repairs of hull trauma or Critical Hits: remove [SE]",
+     "src": "861110798de3"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Repairing hull trauma and starship crits",
+     "src": "e70e35159c09"
+    }
+   },
+   "restraining_bolt": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "PC droids ignore restraining bolt on a Discipline check, Daunting ([DI][DI][DI][DI])",
+     "src": "ddaab223d67a"
+    }
+   },
+   "ryll_100_doses": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the session ends",
+     "src": "e431d6c66180"
+    }
+   },
+   "ryll_1_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the session ends",
+     "src": "e431d6c66180"
+    }
+   },
+   "saline_pump": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Passing as another person",
+     "src": "d8538d98f04c"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Others spotting the disguise",
+     "src": "e7c1092f3b5f"
+    }
+   },
+   "sanctuary_holocron": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Knowledge (Lore) checks about the Jedi: holocron assists, counting as three ranks in Knowledge (Lore)",
+     "src": "a1b1a70fd247"
+    }
+   },
+   "sds_632_surveillance_detector": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Within short range",
+     "src": "1c6729180e60"
+    }
+   },
+   "shield_amulet": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Once per session, halve (round up) damage from an attack made or boosted with a Force power",
+     "src": "56154155cfb3"
+    }
+   },
+   "shift_coffer": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "In its wall niche, finding the coffer takes a Perception check ([DI][DI][DI][DI][DI], Formidable)",
+     "src": "4c38d228c17a"
+    }
+   },
+   "shipboard_systems_scanner": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Removing system strain from a vehicle",
+     "src": "dc6ba6bf261c"
+    }
+   },
+   "signature_modulation_pad": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Reading the user's slicing signature",
+     "src": "f8ff80481f9f"
+    }
+   },
+   "signature_scent_synthesizer": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "First Negotiation, Charm, or Coercion check each encounter: remove [SE][SE]",
+     "src": "dc328763b94a"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "During an encounter",
+     "src": "ca67ca81cd8e"
+    }
+   },
+   "skifter": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Cheating at gambling",
+     "src": "5489514ef4c8"
+    }
+   },
+   "sleeppack_one_dose": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Victim suffers 10 strain unless it passes Resilience, Hard ([DI][DI][DI])",
+     "src": "415244ed46a2"
+    }
+   },
+   "sound_dampener": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Within short range of the dampener",
+     "src": "21b5179564c5"
+    }
+   },
+   "sporting_macrobinoculars": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from distance or poor light",
+     "src": "8e5128328d0d"
+    }
+   },
+   "starmapper_handheld_navicomputer": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Astrogation checks; GM may cut or remove the bonus after long periods outside HoloNet range",
+     "src": "d00e9a337c9c"
+    }
+   },
+   "stimstick": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Fatigue or sleep loss: remove [SE] from Vigilance, Perception, Discipline, or Resilience checks for staying alert or noticing things, until encounter ends; then suffer 1 strain",
+     "src": "2ecac9d8eb24"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from fatigue, this encounter",
+     "src": "0f595d091a7e"
+    }
+   },
+   "stimulant": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Strain threshold up by five for the encounter (one hour narrative)",
+     "src": "469507f945b5"
+    }
+   },
+   "stormtrooper_helmet_comlink": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Intercepting or faking Imperial comms",
+     "src": "2be470a8f466"
+    }
+   },
+   "stun_cuffs": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Escape: Coordination or Athletics check (Daunting [DI][DI][DI][DI]); [TH][TH] or [DE]: 4 strain, ignoring soak",
+     "src": "0ec879436327"
+    }
+   },
+   "sulfur_inhaler_10_doses": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Until the encounter ends",
+     "src": "c784b4095ce4"
+    }
+   },
+   "surge_override_switch": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Once per encounter, action: Average ([DI][DI]) Discipline check; on success, reactivate overloaded cybernetic implants (e.g. from Ion), 2 strain each",
+     "src": "c0742ee7396d"
+    }
+   },
+   "surveillance_scanner": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Range: close (planetary scale) or long (personal scale)",
+     "src": "eba026a10c4e"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Finding bugs, data streams, hidden cameras, or other counter-surveillance: upgrade ability once",
+     "src": "4772f4880e27"
+    }
+   },
+   "surveyer_s_tools": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO] to Perception checks for plotting precise planetary locations, measuring distances, or mapping in detail",
+     "src": "80cb0a07128d"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Mapping and measuring a planet's surface",
+     "src": "0c02da6072f4"
+    }
+   },
+   "surveyor_s_equipment": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to Perception checks to fix surface locations, measure distances, chart settlements or bases, and make maps",
+     "src": "0a636d53a52c"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Mapping and measuring a planet's surface",
+     "src": "d63711021ffb"
+    }
+   },
+   "symbol_of_command": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Dealing with other military personnel",
+     "src": "3aeb9d065bd9"
+    }
+   },
+   "talisman_of_fate": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Single use: when the GM flips 1 Destiny Point to upgrade a check involving the user, they may downgrade its difficulty once; the point stays flipped",
+     "src": "f6ce15e54c3b"
+    }
+   },
+   "taradon_s_helm": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Piloting or using a vehicle",
+     "src": "d20e64ccc36e"
+    }
+   },
+   "thermal_cloak": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Remove up to [SE][SE] when handling extreme heat or cold",
+     "src": "40cb7921d12b"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Coping with extreme heat or cold",
+     "src": "3bf2ec0bed1b"
+    }
+   },
+   "token_of_resistance": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Opposed social check against the user using or boosted by a Force power: opponent rolls 1 fewer [FO]; if that leaves too few [FO], the check fails",
+     "src": "83ab0c6bcdf7"
+    }
+   },
+   "tracing_console": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Slicing a system it protects",
+     "src": "b9d9c2d2d45d"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Defending its system or tracing intruders",
+     "src": "3eec5aa57f5c"
+    }
+   },
+   "tracker_s_goggles": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding a target by sight",
+     "src": "3f58242b4ad7"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Ranged attacks: setback from cover, dark or fog",
+     "src": "652d2dda0f3b"
+    }
+   },
+   "transliterator": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Charm, Coercion, or Negotiation: remove [SE][SE] caused by language barriers",
+     "src": "8ee6189901a3"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from language barriers",
+     "src": "607d47653f59"
+    }
+   },
+   "urban_compass": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback from city travel hazards",
+     "src": "ade2e5fdda18"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Learning about a city",
+     "src": "cc05501f63f0"
+    }
+   },
+   "veridicator_200": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO][BO] to checks to tell if someone is lying or withholding significant information",
+     "src": "fcf8208152af"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Telling whether someone is lying",
+     "src": "ae97db439724"
+    },
+    "pool_mods[1]": {
+     "slot": "condition",
+     "text": "Reading someone's state of mind",
+     "src": "0924d3416920"
+    }
+   },
+   "verpine_bond_gauntlets": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Handling volatile materials or delicate work",
+     "src": "0d03d1057a0e"
+    }
+   },
+   "vessel_implant": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Spotting a vessel implant takes a Perception check (Daunting [DI][DI][DI][DI])",
+     "src": "5170fee84eff"
+    }
+   },
+   "vibro_pickaxe": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "[BO] to checks for rock breaking, ground clearing, and similar work",
+     "src": "58382d5c8255"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Breaking rock or clearing ground",
+     "src": "40d95a047e0e"
+    }
+   },
+   "viscera_field_dressing_kit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO] to Survival checks harvesting meat, organs, or bone from prey",
+     "src": "e92cf072829a"
+    },
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Butchering a prey animal",
+     "src": "195d8c919adc"
+    }
+   },
+   "vutalamine": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Long-term use: a lasting penalty",
+     "src": "dadebb5ff7ee"
+    }
+   },
+   "water_of_life": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Heals all current wounds and strain. Given to a target dead this encounter: Resilience or Discipline, Daunting ([DI][DI][DI][DI]); success revives them and heals one chosen Critical Injury",
+     "src": "c733076968c3"
+    },
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Drink during a Force power check: suffer 1 Conflict, add automatic [LI][DA]; on a Conjure check, [LI][LI][DA][DA] replaces it",
+     "src": "8aebdbd09791"
+    }
+   },
+   "weakening_potion": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Average ([DI][DI]) Resilience check at once; on failure, wound and strain thresholds halved (round up) for the encounter (one hour narrative); +1 hour per [TH]",
+     "src": "0732ae537ba4"
+    }
+   },
+   "weapon_detection_goggles": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding hidden weapons",
+     "src": "115c7d2e2f1f"
+    }
+   },
+   "weapon_maintenance_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Chosen when the kit is bought",
+     "src": "1ed9e6f385cc"
+    }
+   },
+   "wj_880_blinding_helmet": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Checks that need sight",
+     "src": "f0bc1bf0d1bb"
+    }
+   },
+   "x5r_heavy_demolitions_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Preparing, setting or disarming explosives",
+     "src": "66907c5a0c4d"
+    }
+   },
+   "xv_20_portable_veterinary_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Diagnosing or treating animals",
+     "src": "092e9d6f8c88"
+    }
+   },
+   "xv_38_veterinary_kit": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Studying or treating large beasts",
+     "src": "8102b006a187"
+    }
+   },
+   "yaladai_spice_100_doses": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Using dark side pips: double strain and Conflict",
+     "src": "367ec0cdfc43"
+    }
+   },
+   "yaladai_spice_1_dose": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Using dark side pips: double strain and Conflict",
+     "src": "367ec0cdfc43"
+    }
+   }
+  },
+  "qualities": {
+   "accurate": {
+    "description": {
+     "slot": "quality",
+     "text": "+1 boost per rating to attacks",
+     "src": "6f1fa9f92069"
+    }
+   },
+   "auto_fire": {
+    "description": {
+     "slot": "quality",
+     "text": "+1 difficulty; spend 2 advantage per extra hit",
+     "src": "e3e5d7dbdc32"
+    }
+   },
+   "blast": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 2 advantage: hit everyone engaged with target",
+     "src": "051652acfc2a"
+    }
+   },
+   "breach": {
+    "description": {
+     "slot": "quality",
+     "text": "Ignores 1 armor (10 soak) per rating",
+     "src": "d1613d84cbe2"
+    }
+   },
+   "burn": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 2 advantage: base damage for rating rounds",
+     "src": "476110ecafe5"
+    }
+   },
+   "concussive": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 4 advantage: stagger for rating rounds",
+     "src": "2d8a946ac6ea"
+    }
+   },
+   "cortosis": {
+    "description": {
+     "slot": "quality",
+     "text": "Immune to Sunder; armor ignores Pierce and Breach",
+     "src": "a51fe5122aee"
+    }
+   },
+   "cumbersome": {
+    "description": {
+     "slot": "quality",
+     "text": "Needs Brawn equal to rating, else harder",
+     "src": "82ed31c7cdad"
+    }
+   },
+   "defensive": {
+    "description": {
+     "slot": "quality",
+     "text": "+rating to melee defense",
+     "src": "2f919bfc01d3"
+    }
+   },
+   "deflection": {
+    "description": {
+     "slot": "quality",
+     "text": "+rating to ranged defense",
+     "src": "e3257ee9a340"
+    }
+   },
+   "disorient": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 3 advantage: disorient for rating rounds",
+     "src": "e0500f6510fe"
+    }
+   },
+   "ensnare": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 3 advantage: immobilize for rating rounds",
+     "src": "ae10b6614cdb"
+    }
+   },
+   "guided": {
+    "description": {
+     "slot": "quality",
+     "text": "On a miss, spend 3 advantage: attack again",
+     "src": "dd500f627ef2"
+    }
+   },
+   "inaccurate": {
+    "description": {
+     "slot": "quality",
+     "text": "+1 setback per rating to attacks",
+     "src": "e515f55645e4"
+    }
+   },
+   "inferior": {
+    "description": {
+     "slot": "quality",
+     "text": "Auto threat; weapon −1 damage, armor worse",
+     "src": "c1f9fd6e0894"
+    }
+   },
+   "ion": {
+    "description": {
+     "slot": "quality",
+     "text": "Damage goes to system strain, not hull",
+     "src": "27983f42f258"
+    }
+   },
+   "knockdown": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 2 advantage, +1 per extra silhouette: prone",
+     "src": "d2ea2b1aa8b9"
+    }
+   },
+   "limited_ammo": {
+    "description": {
+     "slot": "quality",
+     "text": "Rating attacks, then reload with a maneuver",
+     "src": "6caa3f951f99"
+    }
+   },
+   "linked": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 2 advantage per extra hit, up to rating",
+     "src": "809996631cdf"
+    }
+   },
+   "pierce": {
+    "description": {
+     "slot": "quality",
+     "text": "Ignores 1 soak per rating",
+     "src": "d1fff0e22486"
+    }
+   },
+   "prepare": {
+    "description": {
+     "slot": "quality",
+     "text": "Rating preparation maneuvers before attacking",
+     "src": "bbb9e44f276d"
+    }
+   },
+   "slow_firing": {
+    "description": {
+     "slot": "quality",
+     "text": "Wait rating rounds between shots",
+     "src": "c9df4797385a"
+    }
+   },
+   "stun": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend 2 advantage: strain equal to rating",
+     "src": "fcd60d95d0e9"
+    }
+   },
+   "stun_damage": {
+    "description": {
+     "slot": "quality",
+     "text": "Deals damage as strain, still soaked",
+     "src": "51e7de0f6e52"
+    }
+   },
+   "stun_damage_droids": {
+    "description": {
+     "slot": "quality",
+     "text": "Deals damage as strain, still soaked",
+     "src": "51e7de0f6e52"
+    }
+   },
+   "stun_setting": {
+    "description": {
+     "slot": "quality",
+     "text": "Incidental: switch to stun, short range only",
+     "src": "51e7de0f6e52"
+    }
+   },
+   "sunder": {
+    "description": {
+     "slot": "quality",
+     "text": "Spend advantage: damage one item a step",
+     "src": "5f60a13a1efe"
+    }
+   },
+   "superior": {
+    "description": {
+     "slot": "quality",
+     "text": "Auto advantage; weapon +1 damage, armor better",
+     "src": "3a5de8cd39b2"
+    }
+   },
+   "tractor": {
+    "description": {
+     "slot": "quality",
+     "text": "A hit holds the ship; Piloting to break free",
+     "src": "ee2a57765b88"
+    }
+   },
+   "unwieldy": {
+    "description": {
+     "slot": "quality",
+     "text": "Needs Agility equal to rating, else harder",
+     "src": "5d09b3fe7bdf"
+    }
+   },
+   "vicious": {
+    "description": {
+     "slot": "quality",
+     "text": "+10 per rating to Critical rolls",
+     "src": "891a3634aaa4"
+    }
+   },
+   "vicious_droids": {
+    "description": {
+     "slot": "quality",
+     "text": "+10 per rating to Critical rolls",
+     "src": "891a3634aaa4"
+    }
+   }
+  },
+  "signature_abilities": {
+   "alwaysgetmymark": {
+    "alwaysgetmymarkincreaseeffect1/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Choose a rival instead: upgrade once",
+     "src": "dd44973e45d5"
+    },
+    "alwaysgetmymarkincreaseeffect2/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Choose a nemesis instead: upgrade twice",
+     "src": "91017112e1f2"
+    },
+    "alwaysgetmymarktakedown/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Upgrade once to start with the target subdued",
+     "src": "3d6721305638"
+    }
+   },
+   "mycity": {
+    "mycityboostskill1/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "My City active, in your chosen city",
+     "src": "a02e90b69acd"
+    },
+    "mycityboostskill2/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "My City active, in your chosen city",
+     "src": "a02e90b69acd"
+    },
+    "mycitydowngrade/pool_mods/downgrade_challenge": {
+     "slot": "condition",
+     "text": "My City active, in your chosen city",
+     "src": "a02e90b69acd"
+    }
+   },
+   "prophecy": {
+    "prophecyflowofuniverse/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Working to bring the foretold event about",
+     "src": "9f232febbf4a"
+    }
+   },
+   "unexpecteddemise": {
+    "unexpecteddemisesetback/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Combat checks while Unexpected Demise is active",
+     "src": "75691827622e"
+    }
+   },
+   "unins": {
+    "leverageui/pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Social checks against the chosen character, this encounter",
+     "src": "8dc43e5544cb"
+    }
+   },
+   "unmatcheddevastation": {
+    "unmatcheddevastationremovesetback/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Combat checks within Unmatched Devastation",
+     "src": "691b31b20a0c"
+    }
+   },
+   "unmatchednegotiations": {
+    "unmatchednegotiationaddtriumph/pool_mods/add_triumph": {
+     "slot": "condition",
+     "text": "When the check fails",
+     "src": "0482a0a260a3"
+    },
+    "unmatchednegotiationremovesetback/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Checks Unmatched Negotiation affects",
+     "src": "ccfabf50c3b8"
+    }
+   },
+   "unmatchexpert": {
+    "unmatchexpert/pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "For the rest of the encounter",
+     "src": "4dd75440e15b"
+    },
+    "unmatchexpertreddiff/pool_mods/remove_difficulty_2": {
+     "slot": "condition",
+     "text": "Later career skill checks: two easier, not one",
+     "src": "bfaa66040287"
+    },
+    "unmatchexpertredsetbk/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "While Unmatched Expertise is active",
+     "src": "27654ef41394"
+    }
+   }
+  },
+  "species": {
+   "anx": {
+    "Mood Indicator/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Head-crest left uncovered",
+     "src": "9d3992b3b646"
+    }
+   },
+   "arcona": {
+    "Environment/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from heat or arid conditions",
+     "src": "ec89646cfd4f"
+    }
+   },
+   "arkanian": {
+    "Dark Vision/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "d458e04642fa"
+    }
+   },
+   "bith": {
+    "Sensitive Hearing/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Perception checks by hearing",
+     "src": "9749a43288f3"
+    }
+   },
+   "chevin": {
+    "Advanced Olfaction/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Checks that use smell",
+     "src": "8cc1c621053a"
+    }
+   },
+   "chiss": {
+    "Infravision/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from poor lighting",
+     "src": "b66ccb85b224"
+    }
+   },
+   "csg_abyssin": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_akurian": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_amani": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_askajian": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_avogwi": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_coway": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_dantari": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_dressellian": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_ebranite": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_ewok": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_felucian": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_flakax": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_gigoran": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_gorax": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_hoojib": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_huhk_lahsbee": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_kentra": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_kitonak": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_kowakian": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_mantellian_savrip": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_myneyrsh": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_orgon": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_ossan": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_psadan": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_ridar": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_rishii": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_srrorstok": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_talz": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_tusken_raider": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_whiphid": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "csg_yuzzum": {
+    "Primitive/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "34f00c186832"
+    }
+   },
+   "ewok_aaa": {
+    "Low-Tech Users/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "0685b9360ac8"
+    }
+   },
+   "falleen": {
+    "Beguiling Pheromones/pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Living sentient target within short range",
+     "src": "0d7d718ac663"
+    }
+   },
+   "gigoran": {
+    "Adapted to the Cold/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from cold or snow",
+     "src": "67c8751376f1"
+    },
+    "Low-Tech/pool_mods/upgrade_difficulty": {
+     "slot": "condition",
+     "text": "Using advanced technology",
+     "src": "d5ae18c215fb"
+    }
+   },
+   "gran": {
+    "Enhanced Vision/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Ranged attacks and Perception checks",
+     "src": "37ab0ef43c11"
+    }
+   },
+   "iakaru": {
+    "Brachiation/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Climbing, swinging or keeping balance",
+     "src": "ca7e4d956984"
+    }
+   },
+   "kel_dor": {
+    "Dark Vision/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "58a9394bdaca"
+    }
+   },
+   "kubaz": {
+    "Enhanced Vision/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Ranged attacks and Perception checks",
+     "src": "37ab0ef43c11"
+    }
+   },
+   "lannik": {
+    "Indomitable/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from crits, disorientation or fear",
+     "src": "da652c2b469a"
+    }
+   },
+   "pantoran": {
+    "Tundra Dweller/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from cold conditions",
+     "src": "2bb1ca6f774e"
+    }
+   },
+   "pau_an": {
+    "Sensitive Hearing/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Wearing ear protection",
+     "src": "456443d8db73"
+    },
+    "Sensitive Hearing/pool_mods/add_threat": {
+     "slot": "condition",
+     "text": "No ear protection",
+     "src": "f7d4082a38d1"
+    }
+   },
+   "selonian": {
+    "Sees in Darkness/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "fc45be6fd252"
+    }
+   },
+   "tholothian": {
+    "Cultural Adopters/pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Social checks with non-Tholothians",
+     "src": "5e4a7e649ec2"
+    }
+   },
+   "tusken_raider": {
+    "Bantha Riders/pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Handling a bantha",
+     "src": "fd05ee9373f5"
+    },
+    "Water Reclamator/pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "Enduring heat or thirst",
+     "src": "5f9449c4d97a"
+    }
+   },
+   "twi_lek": {
+    "Arid/Hot Environments/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from heat or arid conditions",
+     "src": "2bb1ca6f774e"
+    }
+   },
+   "umbaran": {
+    "Shadow Dweller/pool_mods/add_setback": {
+     "slot": "condition",
+     "text": "Bright natural light",
+     "src": "11b05c87b2cb"
+    },
+    "Shadow Dweller/pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from darkness",
+     "src": "2bb1ca6f774e"
+    }
+   },
+   "verpine": {
+    "Microvision/pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Closely examining an object",
+     "src": "d46a5925fb1e"
+    }
+   },
+   "vurk": {
+    "Cold Blooded/pool_mods/add_setback": {
+     "slot": "condition",
+     "text": "Cold environments",
+     "src": "5a5995b203c3"
+    }
+   },
+   "wookiee": {
+    "Rages when Wounded/roll_numbers/damage_delta": {
+     "slot": "condition",
+     "text": "While wounded",
+     "src": "aff106e835d5"
+    },
+    "Rages when Wounded/roll_numbers/damage_delta_2": {
+     "slot": "condition",
+     "text": "While Critically Injured",
+     "src": "a36b838ee51a"
+    }
+   }
+  },
+  "spend_tables": {
+   "combat": {
+    "neg[0]": {
+     "slot": "spend",
+     "text": "Suffer 1 strain. Repeatable.",
+     "src": "85a947090b42"
+    },
+    "neg[1]": {
+     "slot": "spend",
+     "text": "Lose a prior maneuver's benefit until redone",
+     "src": "e40bf32515b9"
+    },
+    "neg[2]": {
+     "slot": "spend",
+     "text": "An opponent takes a free maneuver now",
+     "src": "249be9460961"
+    },
+    "neg[3]": {
+     "slot": "spend",
+     "text": "Target's next check gains a boost die",
+     "src": "3efa89a7e651"
+    },
+    "neg[4]": {
+     "slot": "spend",
+     "text": "You or an ally: setback on the next action",
+     "src": "32f341176df0"
+    },
+    "neg[5]": {
+     "slot": "spend",
+     "text": "You fall prone",
+     "src": "d6f2259faebf"
+    },
+    "neg[6]": {
+     "slot": "spend",
+     "text": "Give the enemy a big edge in the scene",
+     "src": "51161b2d3ef1"
+    },
+    "neg[7]": {
+     "slot": "spend",
+     "text": "Ranged weapon is out of ammo this encounter",
+     "src": "baac1da80f8c"
+    },
+    "neg[8]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of an ally's next check",
+     "src": "4267097dad12"
+    },
+    "neg[9]": {
+     "slot": "spend",
+     "text": "Your tool or melee weapon is damaged",
+     "src": "bec29fdd5921"
+    },
+    "pos[0]": {
+     "slot": "spend",
+     "text": "Recover 1 strain. Repeatable.",
+     "src": "9a2dc1965864"
+    },
+    "pos[10]": {
+     "slot": "spend",
+     "text": "Disable the target or gear, not damage",
+     "src": "a5b469c5c633"
+    },
+    "pos[11]": {
+     "slot": "spend",
+     "text": "+1 melee or ranged defense until next turn ends",
+     "src": "30cc573c2a19"
+    },
+    "pos[12]": {
+     "slot": "spend",
+     "text": "Target drops a held weapon",
+     "src": "12386e33e8e4"
+    },
+    "pos[13]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of the target's next check",
+     "src": "e3e14416cec2"
+    },
+    "pos[14]": {
+     "slot": "spend",
+     "text": "Upgrade any ally's next check",
+     "src": "73204cd13c87"
+    },
+    "pos[15]": {
+     "slot": "spend",
+     "text": "Do something vital to the scene",
+     "src": "8e0d501e5e15"
+    },
+    "pos[16]": {
+     "slot": "spend",
+     "text": "Destroy a piece of the target's gear",
+     "src": "4d492d226a25"
+    },
+    "pos[1]": {
+     "slot": "spend",
+     "text": "Next ally's check gains a boost die",
+     "src": "52ef2c72aa4e"
+    },
+    "pos[2]": {
+     "slot": "spend",
+     "text": "Spot one useful detail in the scene",
+     "src": "998b34bbf85e"
+    },
+    "pos[3]": {
+     "slot": "spend",
+     "text": "Inflict a Critical Injury on a hit",
+     "src": "0442fc17515e"
+    },
+    "pos[4]": {
+     "slot": "spend",
+     "text": "Trigger a weapon quality",
+     "src": "d1759a53a033"
+    },
+    "pos[5]": {
+     "slot": "spend",
+     "text": "Take a free maneuver (still two at most)",
+     "src": "3c04bff3cb63"
+    },
+    "pos[6]": {
+     "slot": "spend",
+     "text": "Target's next check gains a setback die",
+     "src": "cc9071c4e646"
+    },
+    "pos[7]": {
+     "slot": "spend",
+     "text": "Any ally's next check gains a boost die",
+     "src": "b2bdc828f301"
+    },
+    "pos[8]": {
+     "slot": "spend",
+     "text": "Strip the target's defenses until round end",
+     "src": "3abcc76ae6dc"
+    },
+    "pos[9]": {
+     "slot": "spend",
+     "text": "Ignore environmental penalties until next turn ends",
+     "src": "b7ba6f0cf2a4"
+    }
+   },
+   "general": {
+    "neg[0]": {
+     "slot": "spend",
+     "text": "Suffer 1 strain. Repeatable.",
+     "src": "85a947090b42"
+    },
+    "neg[1]": {
+     "slot": "spend",
+     "text": "Target's next check gains a boost die",
+     "src": "3efa89a7e651"
+    },
+    "neg[2]": {
+     "slot": "spend",
+     "text": "You or an ally: setback on the next action",
+     "src": "32f341176df0"
+    },
+    "neg[3]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of an ally's next check",
+     "src": "4267097dad12"
+    },
+    "pos[0]": {
+     "slot": "spend",
+     "text": "Recover 1 strain. Repeatable.",
+     "src": "9a2dc1965864"
+    },
+    "pos[1]": {
+     "slot": "spend",
+     "text": "Next ally's check gains a boost die",
+     "src": "52ef2c72aa4e"
+    },
+    "pos[2]": {
+     "slot": "spend",
+     "text": "Spot one useful detail in the scene",
+     "src": "998b34bbf85e"
+    },
+    "pos[3]": {
+     "slot": "spend",
+     "text": "Take a free maneuver (still two at most)",
+     "src": "3c04bff3cb63"
+    },
+    "pos[4]": {
+     "slot": "spend",
+     "text": "Target's next check gains a setback die",
+     "src": "cc9071c4e646"
+    },
+    "pos[5]": {
+     "slot": "spend",
+     "text": "Any ally's next check gains a boost die",
+     "src": "b2bdc828f301"
+    },
+    "pos[6]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of the target's next check",
+     "src": "e3e14416cec2"
+    },
+    "pos[7]": {
+     "slot": "spend",
+     "text": "Upgrade any ally's next check",
+     "src": "73204cd13c87"
+    },
+    "pos[8]": {
+     "slot": "spend",
+     "text": "Destroy a piece of the target's gear",
+     "src": "4d492d226a25"
+    }
+   },
+   "starship": {
+    "neg[0]": {
+     "slot": "spend",
+     "text": "Piloting: the ship slows by one speed",
+     "src": "ee6230d77e9e"
+    },
+    "neg[10]": {
+     "slot": "spend",
+     "text": "Minor collision with an opponent or terrain",
+     "src": "fe7a39c9e2b5"
+    },
+    "neg[11]": {
+     "slot": "spend",
+     "text": "Major collision with an opponent or terrain",
+     "src": "a413f788f9e7"
+    },
+    "neg[1]": {
+     "slot": "spend",
+     "text": "Lose a prior maneuver's benefit until redone",
+     "src": "f3bae8505e55"
+    },
+    "neg[2]": {
+     "slot": "spend",
+     "text": "Your vehicle suffers 1 system strain. Repeatable.",
+     "src": "da4173d6ac69"
+    },
+    "neg[3]": {
+     "slot": "spend",
+     "text": "An opponent takes a free maneuver now",
+     "src": "c5a3e934b171"
+    },
+    "neg[4]": {
+     "slot": "spend",
+     "text": "Target's next Piloting or Gunnery gains a boost",
+     "src": "8d18d45c06ea"
+    },
+    "neg[5]": {
+     "slot": "spend",
+     "text": "You or an ally: setback on the next action",
+     "src": "2eea921000cd"
+    },
+    "neg[6]": {
+     "slot": "spend",
+     "text": "Your initiative slot drops to last",
+     "src": "431044f9bcad"
+    },
+    "neg[7]": {
+     "slot": "spend",
+     "text": "Give the enemy a big edge in the fight",
+     "src": "01b56826e021"
+    },
+    "neg[8]": {
+     "slot": "spend",
+     "text": "Your weapon system takes a Component Hit",
+     "src": "04b8c92693c4"
+    },
+    "neg[9]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of an ally's next ship check",
+     "src": "c5992174e45c"
+    },
+    "pos[0]": {
+     "slot": "spend",
+     "text": "Next ally's ship check gains a boost die",
+     "src": "5537a0e84e8d"
+    },
+    "pos[10]": {
+     "slot": "spend",
+     "text": "Target veers off, losing Aim or Stay on Target",
+     "src": "1dd836786e3d"
+    },
+    "pos[11]": {
+     "slot": "spend",
+     "text": "Upgrade the difficulty of the target's next ship check",
+     "src": "6a3acf7e1060"
+    },
+    "pos[12]": {
+     "slot": "spend",
+     "text": "Upgrade any ally's next ship check",
+     "src": "6b8df9650a76"
+    },
+    "pos[13]": {
+     "slot": "spend",
+     "text": "Do something vital to turn the battle",
+     "src": "1fd9aeb6984f"
+    },
+    "pos[14]": {
+     "slot": "spend",
+     "text": "Destroy a component, not hull or strain",
+     "src": "52ff3ec1aaf6"
+    },
+    "pos[1]": {
+     "slot": "spend",
+     "text": "Spot one useful detail in the fight",
+     "src": "9516097dc495"
+    },
+    "pos[2]": {
+     "slot": "spend",
+     "text": "Inflict a Critical Hit past armor",
+     "src": "76eb89669b85"
+    },
+    "pos[3]": {
+     "slot": "spend",
+     "text": "Trigger a weapon quality",
+     "src": "d611aea36f91"
+    },
+    "pos[4]": {
+     "slot": "spend",
+     "text": "Take a free maneuver (still two at most)",
+     "src": "2b4bddb60318"
+    },
+    "pos[5]": {
+     "slot": "spend",
+     "text": "Target's next Piloting or Gunnery gains a setback",
+     "src": "ecfe3be6be24"
+    },
+    "pos[6]": {
+     "slot": "spend",
+     "text": "Any ally's next ship check gains a boost die",
+     "src": "76eb5b53a8c0"
+    },
+    "pos[7]": {
+     "slot": "spend",
+     "text": "Damage a component for a while, not hull",
+     "src": "b199feeb9b80"
+    },
+    "pos[8]": {
+     "slot": "spend",
+     "text": "Ignore terrain or space hazards until next turn ends",
+     "src": "be8120193b3b"
+    },
+    "pos[9]": {
+     "slot": "spend",
+     "text": "Pilot: take a free Pilot Only maneuver",
+     "src": "e7ba6bb2c925"
+    }
+   }
+  },
+  "talents": {
+   "bad_cop": {
+    "spend/upgrade_ally": {
+     "slot": "spend",
+     "text": "Upgrade one ally's next social check, same target",
+     "src": "3e4e7967a4e4"
+    }
+   },
+   "beast_wrangler": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Taming or handling creatures",
+     "src": "78fc62186c10"
+    }
+   },
+   "blooded": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Resisting or recovering from poison",
+     "src": "291eca9ca1a3"
+    }
+   },
+   "bypass_security": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Disabling security or opening locks",
+     "src": "04dd69a20f1b"
+    }
+   },
+   "call_em": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Setback from aiming",
+     "src": "b03d3f87e86e"
+    }
+   },
+   "codebreaker": {
+    "pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "Breaking codes or decrypting messages",
+     "src": "4cfa0139a213"
+    },
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Breaking codes or decrypting messages",
+     "src": "144a18bb0d3e"
+    }
+   },
+   "confidence": {
+    "pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "Fear checks",
+     "src": "c1712afcd711"
+    }
+   },
+   "construction_specialist": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Building bases, defenses and other combat works",
+     "src": "f0dc09fe6057"
+    }
+   },
+   "crippling_blow": {
+    "pool_mods/add_difficulty": {
+     "slot": "condition",
+     "text": "Choose to make the attack 1 harder",
+     "src": "f6f09e1baa68"
+    }
+   },
+   "cyberneticist": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Building, repairing or fitting cybernetics",
+     "src": "ea299e50a058"
+    }
+   },
+   "deathblow": {
+    "roll_numbers/damage_delta": {
+     "slot": "condition",
+     "text": "Personal-scale weapons only",
+     "src": "d6ad94204c31"
+    }
+   },
+   "deft_maker": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Repairing, modifying, building or programming droids",
+     "src": "62b26c81ce1c"
+    }
+   },
+   "design_flaw": {
+    "pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Personal-scale weapon attacks on droids",
+     "src": "477fed6e2769"
+    }
+   },
+   "disciplined_soul": {
+    "spend/threat_as_advantage": {
+     "slot": "spend",
+     "text": "Destiny Point: threat counts as advantage",
+     "src": "3805a77e8d39"
+    }
+   },
+   "disorient": {
+    "spend/disorient_target": {
+     "slot": "spend",
+     "text": "Disorient the target, rounds per rank",
+     "src": "cedb6f4d9400"
+    }
+   },
+   "duelist_s_training": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Engaged with a single opponent",
+     "src": "9acd09bf1338"
+    }
+   },
+   "dynamic_fire": {
+    "pool_mods/remove_difficulty": {
+     "slot": "condition",
+     "text": "Firing while engaged",
+     "src": "1be3d6d6a584"
+    }
+   },
+   "embrace_your_hate": {
+    "spend/add_damage": {
+     "slot": "spend",
+     "text": "Destiny Point and conflict: extra damage",
+     "src": "97e28c444d77"
+    }
+   },
+   "enhanced_leader": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "049a2de3b190"
+    }
+   },
+   "essential_kill": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "293fd380b1ec"
+    },
+    "spend/fp_advantage": {
+     "slot": "spend",
+     "text": "Force pip buys an advantage",
+     "src": "b71e50ee65df"
+    },
+    "spend/fp_triumph": {
+     "slot": "spend",
+     "text": "Three Force pips buy a triumph",
+     "src": "b71e50ee65df"
+    }
+   },
+   "expert_handler": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Riding beasts",
+     "src": "c35bc6d0dd69"
+    }
+   },
+   "expert_tracker": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Finding or following tracks",
+     "src": "d7888f0e269f"
+    }
+   },
+   "eye_for_detail": {
+    "spend/success_to_advantage": {
+     "slot": "spend",
+     "text": "Strain to turn successes into advantage",
+     "src": "10d6a9472e04"
+    }
+   },
+   "fancy_paint_job": {
+    "pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Near your signature vehicle",
+     "src": "e10b62e7a86f"
+    }
+   },
+   "forager": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Finding food, water or shelter",
+     "src": "80dfd2a9f331"
+    }
+   },
+   "force_connection": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "293fd380b1ec"
+    },
+    "spend/fp_success_advantage": {
+     "slot": "spend",
+     "text": "Force pip buys a success or advantage",
+     "src": "9e91ed5dc9de"
+    }
+   },
+   "good_cop": {
+    "spend/upgrade_ally": {
+     "slot": "spend",
+     "text": "Upgrade one ally's next social check, same target",
+     "src": "fa0d3a4f77dd"
+    }
+   },
+   "greased_palms": {
+    "pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Pay up to 50 credits per rank",
+     "src": "e07ae444d1d8"
+    }
+   },
+   "hindering_shot": {
+    "pool_mods/add_difficulty": {
+     "slot": "condition",
+     "text": "Choose a harder shot to hinder a vehicle",
+     "src": "d68c24f24e2a"
+    }
+   },
+   "holistic_navigation": {
+    "spend/remove_despair": {
+     "slot": "spend",
+     "text": "Remove a despair",
+     "src": "b0d38f187393"
+    },
+    "spend/remove_threat": {
+     "slot": "spend",
+     "text": "Remove threat, one per Perception rank",
+     "src": "dccea9e8a8da"
+    }
+   },
+   "hunter": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Dealing with wild animals, combat included",
+     "src": "0005d311f5d8"
+    }
+   },
+   "in_the_know": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Gathering or spreading news and rumours",
+     "src": "99f58f4fca4d"
+    }
+   },
+   "intuitive_navigation": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "293fd380b1ec"
+    }
+   },
+   "intuitive_shot": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "049a2de3b190"
+    },
+    "spend/fp_success_advantage": {
+     "slot": "spend",
+     "text": "Force pip buys a success or advantage",
+     "src": "6479414e9875"
+    }
+   },
+   "inventor": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Boost, or remove a setback instead",
+     "src": "7e859fcde5b4"
+    },
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Remove a setback, or add a boost instead",
+     "src": "7e859fcde5b4"
+    }
+   },
+   "jury_rigged": {
+    "pick/crit/crit": {
+     "slot": "option",
+     "text": "Critical costs 1 less advantage (min 1)",
+     "src": "28be22fe164c"
+    },
+    "pick/crit/damage": {
+     "slot": "option",
+     "text": "Damage +1",
+     "src": "95833f68d619"
+    },
+    "pick/crit/defense_melee": {
+     "slot": "option",
+     "text": "Melee defense +1",
+     "src": "fa6a482f373e"
+    },
+    "pick/crit/defense_ranged": {
+     "slot": "option",
+     "text": "Ranged defense +1",
+     "src": "fa6a482f373e"
+    },
+    "pick/crit/encumbrance": {
+     "slot": "option",
+     "text": "Encumbrance −2 (min 1)",
+     "src": "a4561a22281e"
+    },
+    "pick/crit/other_effect": {
+     "slot": "option",
+     "text": "One other effect costs 1 less advantage",
+     "src": "2da0418b27a4"
+    }
+   },
+   "knowledge_specialization": {
+    "spend/triumph_successes": {
+     "slot": "spend",
+     "text": "Triumph buys successes, one per rank",
+     "src": "8a7a14a24fb5"
+    }
+   },
+   "knowledgeable_healing": {
+    "spend/heal_more": {
+     "slot": "spend",
+     "text": "Destiny Point: heal more wounds",
+     "src": "7eab3d4c4aab"
+    }
+   },
+   "marked_for_death": {
+    "pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Against your mark while the die stays committed",
+     "src": "dc8c55e1423a"
+    }
+   },
+   "mission_critical": {
+    "spend/add_results": {
+     "slot": "spend",
+     "text": "Destiny Point: add successes or advantage",
+     "src": "59a40031318c"
+    }
+   },
+   "multiple_opponents": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Engaged with more than one opponent",
+     "src": "97f9630554ba"
+    }
+   },
+   "no_escape": {
+    "spend/deny_maneuver": {
+     "slot": "spend",
+     "text": "Enemy nearby loses their next free maneuver",
+     "src": "7590d79a201b"
+    }
+   },
+   "outdoorsman": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Crossing or coping with terrain and weather",
+     "src": "e97db532e0d0"
+    }
+   },
+   "overwhelm_defenses": {
+    "spend/lower_defense": {
+     "slot": "spend",
+     "text": "After a miss: lower the zone's defense",
+     "src": "9ea1ab5f611d"
+    }
+   },
+   "overwhelm_emotions": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Equal to your Force rating",
+     "src": "6ef996aa6251"
+    }
+   },
+   "persistent_targeting": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Target you have already hit",
+     "src": "d5e0a46431ab"
+    }
+   },
+   "planet_mapper": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Navigating on a planet",
+     "src": "adc9bea32b3b"
+    }
+   },
+   "prescient_shot": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Target not immune to Force powers",
+     "src": "cdbf98b3ba4c"
+    }
+   },
+   "pressure_point": {
+    "roll_numbers/strain_plus": {
+     "slot": "condition",
+     "text": "Extra strain, one per Medicine rank",
+     "src": "bf08992e88d2"
+    },
+    "target/damage_as_strain": {
+     "slot": "condition",
+     "text": "Deal the damage as strain",
+     "src": "bf08992e88d2"
+    }
+   },
+   "prey_on_the_weak": {
+    "roll_numbers/damage_delta": {
+     "slot": "condition",
+     "text": "Disoriented targets only",
+     "src": "eb1b3942e4c1"
+    }
+   },
+   "pride_and_joy": {
+    "pool_mods/upgrade_ability": {
+     "slot": "condition",
+     "text": "Within short range of your ship",
+     "src": "4a9d22d75e11"
+    }
+   },
+   "quick_strike": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Targets yet to act this encounter",
+     "src": "fca9108b2f65"
+    }
+   },
+   "rapid_reaction": {
+    "pool_mods/add_success": {
+     "slot": "condition",
+     "text": "Initiative checks",
+     "src": "29700e7a633c"
+    }
+   },
+   "ravage": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "5bfd7ef8538c"
+    },
+    "spend/fp_success_advantage": {
+     "slot": "spend",
+     "text": "Force pip buys a success or advantage",
+     "src": "4d6a3f299a24"
+    }
+   },
+   "ready_for_anything": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Initiative checks with Cool or Vigilance",
+     "src": "33892a0c8f64"
+    }
+   },
+   "ready_for_anything_improved": {
+    "spend/triumph_successes": {
+     "slot": "spend",
+     "text": "Initiative: triumph buys successes, one per rank",
+     "src": "11771112eecc"
+    }
+   },
+   "respec_blo": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Resisting or recovering from poison",
+     "src": "291eca9ca1a3"
+    }
+   },
+   "respec_escaclau": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Escaping social or legal trouble",
+     "src": "0b98f6dd78c9"
+    }
+   },
+   "respec_hindershot": {
+    "pool_mods/add_difficulty": {
+     "slot": "condition",
+     "text": "Make your next Gunnery check 1 harder",
+     "src": "0e19fff64a3d"
+    }
+   },
+   "respec_inknow": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Gathering or spreading news and rumours",
+     "src": "ba856d2e2f67"
+    }
+   },
+   "respec_inquire": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Investigating a case",
+     "src": "421699699151"
+    },
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Investigating a case",
+     "src": "421699699151"
+    }
+   },
+   "respec_knowheal": {
+    "spend/heal_more": {
+     "slot": "spend",
+     "text": "Destiny Point: heal more wounds",
+     "src": "b33afbc9eb99"
+    }
+   },
+   "respec_outdoor": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Crossing or coping with terrain and weather",
+     "src": "aba640b7784e"
+    }
+   },
+   "respec_persistarget": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Target you have already hit",
+     "src": "d5e0a46431ab"
+    }
+   },
+   "respec_silentimp": {
+    "pool_mods/add_advantage": {
+     "slot": "condition",
+     "text": "Stealthy attack on a target within short range",
+     "src": "a48dfdd55f20"
+    }
+   },
+   "respected_delegate": {
+    "pool_mods/downgrade_challenge": {
+     "slot": "condition",
+     "text": "Dealing with government bodies",
+     "src": "6739fd1c6015"
+    }
+   },
+   "sapith_sundering": {
+    "pool_mods/add_force": {
+     "slot": "condition",
+     "text": "Up to your Force rating",
+     "src": "c5bd25fee995"
+    },
+    "spend/sunder": {
+     "slot": "spend",
+     "text": "Attack gains Sunder; Force pips trigger it",
+     "src": "5d107a967412"
+    }
+   },
+   "seen_a_lot_of_things": {
+    "spend/roll_again": {
+     "slot": "spend",
+     "text": "Failed Knowledge check: reroll next turn",
+     "src": "d0e4bd51549f"
+    }
+   },
+   "sense_emotions": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Target not immune to Force powers",
+     "src": "cdbf98b3ba4c"
+    }
+   },
+   "shortcut": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Chases",
+     "src": "89922e551dee"
+    }
+   },
+   "sincerest_flattery": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "A skill someone used earlier this encounter",
+     "src": "3863e9090d56"
+    }
+   },
+   "skilled_slicer": {
+    "spend/control_system": {
+     "slot": "spend",
+     "text": "Later checks in this system are maneuvers",
+     "src": "898360cb1356"
+    }
+   },
+   "sleight_of_mind": {
+    "pool_mods/add_boost": {
+     "slot": "condition",
+     "text": "Opponent not immune to Force powers",
+     "src": "f8dbd563fc49"
+    }
+   },
+   "smooth_talker": {
+    "spend/spend_triumph": {
+     "slot": "spend",
+     "text": "Triumph buys successes, one per rank",
+     "src": "7797c0b4c760"
+    }
+   },
+   "soft_spot": {
+    "roll_numbers/damage_delta": {
+     "slot": "condition",
+     "text": "Personal-scale weapons only",
+     "src": "d6ad94204c31"
+    }
+   },
+   "stunning_blow": {
+    "target/damage_as_strain": {
+     "slot": "condition",
+     "text": "Deal the damage as strain",
+     "src": "026043d10c04"
+    }
+   },
+   "stunning_blow_improved": {
+    "spend/stagger": {
+     "slot": "spend",
+     "text": "Triumph staggers the target a round",
+     "src": "a368e314daac"
+    }
+   },
+   "sum_djem": {
+    "spend/disarm": {
+     "slot": "spend",
+     "text": "Disarm the opponent, GM permitting",
+     "src": "3b9ecb0f218a"
+    }
+   },
+   "superhuman_reflexes": {
+    "spend/cancel_despair": {
+     "slot": "spend",
+     "text": "Once a session: cancel a Piloting despair",
+     "src": "4bddc5975de8"
+    }
+   },
+   "suppressing_fire": {
+    "spend/strain_target": {
+     "slot": "spend",
+     "text": "Failed attack: advantage deals the target strain",
+     "src": "33d950a695bd"
+    }
+   },
+   "targeted_blow": {
+    "roll_numbers/damage_delta": {
+     "slot": "condition",
+     "text": "Personal-scale weapons only",
+     "src": "d6ad94204c31"
+    }
+   },
+   "translation_error": {
+    "spend/cancel_despair": {
+     "slot": "spend",
+     "text": "Once an encounter: drop a social despair",
+     "src": "5d3bbcd27239"
+    }
+   },
+   "utinni": {
+    "pool_mods/remove_setback": {
+     "slot": "condition",
+     "text": "Finding or scavenging gear",
+     "src": "82c2738bfc37"
+    }
+   }
+  },
+  "vehicle_attachments": {
+   "advanced_subspace_encryption_array": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Intercepting or deciphering its transmissions: upgrade difficulty once",
+     "src": "015c01a2a83d"
+    }
+   },
+   "arakyd_mini_missile_pack": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Installed: weapon uses loaded missiles' profile (concussion, Table 2-8, or GM-approved), fixed arc on one chosen facing. Limited Ammo 2; each half reloads with five missiles. Add [BO][BO] to combat checks; each [TR] adds 2 damage",
+     "src": "5113151d44de"
+    }
+   },
+   "arakyd_missile_pack": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Installed: weapon uses loaded missiles' profile (concussion, Table 2-8, or GM-approved), fixed arc on one chosen facing. Limited Ammo 2; each half reloads with five missiles. Add [BO][BO] to combat checks; each [TR] adds 2 damage",
+     "src": "5113151d44de"
+    }
+   },
+   "armored_computer_core": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Computer core logs flight and system data, backing up all ship computer logs and records",
+     "src": "1e8418d844ec"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Computer core survives a \"Vaporized\" Critical Hit on the ship",
+     "src": "fb05815c7edb"
+    }
+   },
+   "ax_108_ground_buzzer_surface_defense_blaster_cannon": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Fires on its own with Ranged (Heavy) 2 and Agility 0",
+     "src": "7a1b4fcb38fd"
+    }
+   },
+   "briefing_auditorium": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Briefed here before a mission: remove [SE] from known mission conditions on skill checks for that mission",
+     "src": "8cc027d63b2b"
+    }
+   },
+   "cloaked_smuggling_compartments": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Checks to find compartment: difficulty +3",
+     "src": "1437b1885634"
+    }
+   },
+   "cloaking_device": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Cloaking device, toggled with a maneuver. Spotting it: Vigilance or Perception, Daunting ([DI][DI][DI]). While cloaked: speed halved (round up), no active sensors, comms, or weapons",
+     "src": "93622f73f6e5"
+    }
+   },
+   "containment_field": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Operator attacks prisoner: prisoner rolls Resilience, Hard ([DI][DI][DI]); 1 damage per [FA], one [TH] may inflict 1 strain",
+     "src": "ea3b9ccbc4c2"
+    }
+   },
+   "decoy_buoy": {
+    "base_mods[2]": {
+     "slot": "mod",
+     "text": "Buoy can broadcast a distress call or other data",
+     "src": "782b02998fb7"
+    },
+    "base_mods[3]": {
+     "slot": "mod",
+     "text": "To tell the buoy from a real ship, sensor operators need a Computers check (Hard [DI][DI][DI])",
+     "src": "4d6951170175"
+    },
+    "base_mods[4]": {
+     "slot": "mod",
+     "text": "Once jettisoned, the buoy stops counting as attached until reattached",
+     "src": "679d4a062949"
+    }
+   },
+   "electron_baffled_engine": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 2, defense 0/0/0/2, system strain 5 x silhouette",
+     "src": "c22337711d74"
+    }
+   },
+   "electronic_countermeasures_suite": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Instantly alerts every ship in the star system (within 100 kilometers if planetside) that the ship or vehicle exists",
+     "src": "0ae2104486d5"
+    }
+   },
+   "electronic_countermeasures_suite_custom": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Instantly alerts every ship in the star system (within 100 kilometers if planetside) that the ship or vehicle exists",
+     "src": "0ae2104486d5"
+    }
+   },
+   "encrypted_computer": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "[SE] to Computers checks slicing the ship's systems",
+     "src": "0baf84f8d307"
+    }
+   },
+   "environmental_simulators": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Replicates up to three planetary environments, one active at a time; automatic [AD][AD] on Charm or Negotiation checks vs. species native to the active one",
+     "src": "f176552a3fce"
+    }
+   },
+   "expanded_capacity_holds": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Armor 1, handling -2; +25 encumbrance capacity and passenger capacity",
+     "src": "5aeec189a755"
+    }
+   },
+   "fusial_thrust_engine": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 3, defense 1/0/0/0, system strain 4 x silhouette",
+     "src": "bb41ce3935d6"
+    }
+   },
+   "gimmellian_stealth_device": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Enemy passive sensors detecting the Tallanx: range band -1 (minimum close range)",
+     "src": "1cbdca8cd53d"
+    }
+   },
+   "high_performance_repulsor_cluster": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 4, defense 1/1/1/1, system strain 5 x silhouette",
+     "src": "fda337306f8c"
+    }
+   },
+   "holo_tank": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Holo-tank users may always roll Initiative with Cool or Knowledge (Warfare)",
+     "src": "a6d06bb1bd6a"
+    }
+   },
+   "holographic_shell": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Holographic disguise for ship or vehicle; seeing through it at range takes Perception, Daunting ([DI][DI][DI][DI]); physical inspection reveals it",
+     "src": "49f26e488dd6"
+    }
+   },
+   "holonet_pirate_array": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Reaches any facility with interstellar comms. Intercepting takes Computers, Hard ([DI][DI][DI]), if someone knows of the transmission",
+     "src": "6add320391df"
+    }
+   },
+   "hush_kit": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE][SE] to checks to hear this ship while in atmosphere",
+     "src": "442dbe6bc8f1"
+    }
+   },
+   "ion_drive_array": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 4, defense 0/0/0/0, system strain 2 x silhouette",
+     "src": "b1ab6dd198cb"
+    }
+   },
+   "ion_turbine_engine": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 1, defense 1/0/0/0, system strain 10 x silhouette",
+     "src": "d263005c5552"
+    }
+   },
+   "laser_focusing_array": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Automatic [AD] on laser cannon and turbolaser combat checks",
+     "src": "ac015ff9b55f"
+    }
+   },
+   "luxury_passenger_compartments": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[BO] to Charm, Deception, and Negotiation checks against passengers aboard; vs. passengers used to luxury, remove up to [SE][SE] instead",
+     "src": "53ca7176bad5"
+    }
+   },
+   "nightshadow_coating": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Enemy passive sensors detecting a nightshadow-coated vessel: range -1 (minimum close range)",
+     "src": "60e88a0a85b2"
+    }
+   },
+   "physical_countermeasures": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "[SE] to Gunnery checks against the starship with missiles, rockets, or torpedoes",
+     "src": "6c5145aee24f"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "[SE] to Gunnery checks against the starship with missiles, rockets, or torpedoes",
+     "src": "6c5145aee24f"
+    }
+   },
+   "pseudo_cloaking_device": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "[SE] to combat checks against the ship from Short range or beyond",
+     "src": "4ce05aa78d1f"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Sensor checks to detect ship: difficulty +2",
+     "src": "5bb49909f45d"
+    }
+   },
+   "ram_attachment": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Instigating a collision: treat defense as 2 higher",
+     "src": "09b1a85ed655"
+    }
+   },
+   "rapid_cargo_evacuation_chute": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "Can be activated as an action instead, no check needed",
+     "src": "7ffe48330623"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Action, from cockpit or cargo bay: Average ([DI][DI]) Mechanics check jettisons entire cargo hold contents",
+     "src": "f5c04d13945f"
+    }
+   },
+   "repulsorlift_enhancement": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Maneuver: take 1 system strain for +1 max speed for one round",
+     "src": "ec39cb714cb2"
+    }
+   },
+   "retractable_weapon_system": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Hidden compartment with weapon deployer; deploy or retract as a maneuver. Finding it: thorough search plus Perception, Hard ([DI][DI][DI]). GM decides which weapons fit by ship or vehicle size",
+     "src": "7642edb1edf5"
+    }
+   },
+   "secondary_transponder": {
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Scanning the ship reveals a secondary transponder on a Computers check (Daunting [DI][DI][DI][DI])",
+     "src": "738d60359ae3"
+    }
+   },
+   "security_measures": {
+    "added_mods[0]": {
+     "slot": "mod",
+     "text": "[SE] on Skulduggery and Computers checks for unauthorized ship entry",
+     "src": "ab7e9d0e8186"
+    },
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Computers and Skulduggery checks for unauthorized ship access: upgrade difficulty twice",
+     "src": "b5959181216c"
+    }
+   },
+   "sensor_shunt": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "At speed 3 or lower: passive-sensor detection difficulty +2, active-sensor detection difficulty +1",
+     "src": "54cfc8794bac"
+    }
+   },
+   "sienar_mm_xt_mini_missile_tube": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Installed: fires one Table 2-8 concussion missile or warhead; always Limited Ammo 1",
+     "src": "76d97422abc8"
+    }
+   },
+   "single_ion_coil": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Speed 1, defense 0/0/0/0, system strain 3 x silhouette",
+     "src": "2f7e6ec70cb6"
+    }
+   },
+   "slicing_computer": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Slicer gear usable by one passenger",
+     "src": "eeda9ef02f8f"
+    }
+   },
+   "space_slug_abilities": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Initiative and Insatiable Maw attacks use Coordination: counts as Coordination 3, Agility 1 ([PR][AB][AB])",
+     "src": "4c1e0a4e0bcb"
+    },
+    "base_mods[1]": {
+     "slot": "mod",
+     "text": "Silhouette 5 or smaller ships attacked by a space slug, hit or miss: Piloting (Space) check (Hard [DI][DI][DI]) or be swallowed; swallowed ships take 10 hull trauma per day",
+     "src": "0d5ba1ae9f66"
+    }
+   },
+   "t9_stinger_assault_boarding_tube": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Can cut through a hull or airlock of a docked craft",
+     "src": "33ad481ba1f9"
+    }
+   },
+   "tactical_command_control_and_communications_suite": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "While active, a force commander aboard upgrades every Mass Combat check's ability once",
+     "src": "dd5b3e50a821"
+    }
+   },
+   "upgraded_weapons": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "Table 7-17: Upgrading Weapons lists which weapons mount on which ship",
+     "src": "1fd81770be66"
+    }
+   },
+   "whisperthrust_engine": {
+    "base_mods[0]": {
+     "slot": "mod",
+     "text": "At speed 3 or lower, checks to detect vessel: difficulty +2",
+     "src": "2dd7037ca571"
+    }
+   }
+  },
+  "weapons": {
+   "12_defender": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "fe52796ee519"
+    }
+   },
+   "a95_stingbeam": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "b9a08c910b8c"
+    }
+   },
+   "boonta_blaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "cb1db5645b05"
+    }
+   },
+   "brass_knuckles": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "b9232482b5af"
+    }
+   },
+   "ceremonial_blade": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Arguing to keep the blade",
+     "src": "543b1857027e"
+    }
+   },
+   "cr_8_takedown_rifle": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Broken down and hidden: searching for it",
+     "src": "e81e711230e1"
+    }
+   },
+   "cryoban_projector": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Putting out a fire",
+     "src": "bbea8b05ac78"
+    }
+   },
+   "cryoban_rifle": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Target's armor resists cold: Pierce is 0",
+     "src": "e8b3c96bcfdb"
+    }
+   },
+   "cs_12_stun_master": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "5314c017dcb4"
+    }
+   },
+   "double_bladed_inquisitorious_lightsaber": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Saber Throw: boost and +1 damage",
+     "src": "523ad9ed20fa"
+    }
+   },
+   "electromag_pulse_disruptor": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Sabotaging electronics or computers",
+     "src": "dfcbf6c47726"
+    }
+   },
+   "elg_3a_blaster_pistol": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "abb40204ca3a"
+    }
+   },
+   "fear_stick": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "6651df9dc1e7"
+    }
+   },
+   "garrote": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Setback for each round caught",
+     "src": "8b34fc9b0dcd"
+    }
+   },
+   "hob_heavy_repeating_blaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Repairing it",
+     "src": "283411886e8b"
+    }
+   },
+   "holdout_blaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "cea7b3998bd2"
+    }
+   },
+   "j_10_dual_blaster_cannon": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Overheats: 2 strain, weapon damaged a step",
+     "src": "1fec426d317d"
+    }
+   },
+   "l7_light_blaster_pistol": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Finding it hidden aboard a ship",
+     "src": "03705763617b"
+    }
+   },
+   "lj_40_concussion_carbine": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Using this carbine",
+     "src": "73dc8207a0e0"
+    }
+   },
+   "lucky_blaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "After one Aim maneuver with it",
+     "src": "fca8c38af790"
+    }
+   },
+   "military_holdout_blaster": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "14dc09f2860f"
+    }
+   },
+   "model_14_stalker_vibrospear": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "GM spends 2 threat from its attacks",
+     "src": "f421ffab6280"
+    }
+   },
+   "model_q4_quickfire": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "8b40104eeb68"
+    }
+   },
+   "molecular_stiletto": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "21ea9c34189e"
+    }
+   },
+   "needle_gloves": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting the gloves as a weapon",
+     "src": "d2222c47b84c"
+    }
+   },
+   "philaxian_phase_knife": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching for the weapon",
+     "src": "6ccb8964cd25"
+    }
+   },
+   "pocket_blaster_pistol": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "50b6325ca982"
+    }
+   },
+   "punch_dagger": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "0388ccfee9c9"
+    }
+   },
+   "riot_shield": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Fighting with both weapons",
+     "src": "37f81380029b"
+    }
+   },
+   "rps_6_rocket_launcher": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Aimed shot at silhouette 2 or larger",
+     "src": "9c98f797367f"
+    }
+   },
+   "sh_9_slugthrower_pistol": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "6a9e42cdaf8a"
+    }
+   },
+   "shistavanen_combat_utility_vibroblade": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Repairing devices or droids",
+     "src": "f2153a518446"
+    }
+   },
+   "shock_boots": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting the boots as a weapon",
+     "src": "b013a18952b2"
+    }
+   },
+   "sith_shield": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Conflict per committed die, then a power check",
+     "src": "99fa75b73017"
+    }
+   },
+   "staff_of_office": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Arguing to keep the staff",
+     "src": "38deaa85d567"
+    }
+   },
+   "stealth_2vx_palm_shooter": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "4c2f4cc514f0"
+    }
+   },
+   "stealth_vibroknife": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "3b8bf5769f80"
+    }
+   },
+   "sword_cane": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting the cane as a weapon",
+     "src": "0a57e6f5662d"
+    }
+   },
+   "training_stick": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Spotting what the weapon really is",
+     "src": "047caadc1a1e"
+    }
+   },
+   "vibroknucklers": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Searching someone for it",
+     "src": "6a1f0e6ba8ee"
+    }
+   },
+   "ww_41_cryoban_grenade": {
+    "pool_mods[0]": {
+     "slot": "condition",
+     "text": "Putting out a fire",
+     "src": "bbea8b05ac78"
+    }
+   }
+  }
+ }
+}

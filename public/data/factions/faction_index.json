@@ -1,0 +1,356 @@
+{
+  "schema_version": "1.0",
+  "factions": [
+    {
+      "id": "black_sun",
+      "name": "Black Sun",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "black_sun.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "bothan_spynet",
+      "name": "Bothan Spynet",
+      "type": "cultural_group",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "bothan_spynet.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "bounty_hunters_guild",
+      "name": "Bounty Hunters' Guild",
+      "type": "mercenary_org",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "bounty_hunters_guild.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "broken_horn_syndicate",
+      "name": "Broken Horn Syndicate",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "broken_horn_syndicate.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "church_of_the_force",
+      "name": "Church of the Force",
+      "type": "religious_movement",
+      "era_active": [
+        "imperial",
+        "rebellion",
+        "sequel"
+      ],
+      "file": "church_of_the_force.json",
+      "has_npc_presets": false,
+      "record_completeness": "full"
+    },
+    {
+      "id": "corellian_government",
+      "name": "Corellian Security Force (CorSec)",
+      "type": "military_force",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "corellian_government.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "corporate_sector_authority",
+      "name": "Corporate Sector Authority",
+      "type": "corporate_entity",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "corporate_sector_authority.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "crimson_dawn",
+      "name": "Crimson Dawn",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "imperial"
+      ],
+      "file": "crimson_dawn.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "free_ryloth_movement",
+      "name": "Free Ryloth Movement",
+      "type": "military_force",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "free_ryloth_movement.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "gerreras_partisans",
+      "name": "Gerrera's Partisans",
+      "type": "military_force",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "gerreras_partisans.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "guardians_of_the_whills",
+      "name": "Guardians of the Whills",
+      "type": "force_order",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "guardians_of_the_whills.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "hutt_cartel",
+      "name": "The Hutts",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion",
+        "new_republic"
+      ],
+      "file": "hutt_cartel.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "imperial_bureaucracy",
+      "name": "COMPNOR",
+      "type": "galactic_power",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "imperial_bureaucracy.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "galactic_empire",
+      "name": "Galactic Empire",
+      "type": "galactic_power",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "galactic_empire.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "galactic_power",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "imperial_military.json",
+      "has_npc_presets": true,
+      "record_completeness": "partial"
+    },
+    {
+      "id": "imperial_security_bureau",
+      "name": "Imperial Security Bureau",
+      "type": "military_force",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "imperial_security_bureau.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "inquisitorius",
+      "name": "Inquisitorius",
+      "type": "force_order",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "inquisitorius.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "knights_of_ren",
+      "name": "Knights of Ren",
+      "type": "force_order",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "knights_of_ren.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "mandalorian_clans",
+      "name": "Mandalorian Clans",
+      "type": "cultural_group",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "mandalorian_clans.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "mining_guild",
+      "name": "Mining Guild",
+      "type": "corporate_conglomerate",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "mining_guild.json",
+      "has_npc_presets": false,
+      "record_completeness": "full"
+    },
+    {
+      "id": "mon_calamari",
+      "name": "Mon Calamari Fleet",
+      "type": "military_force",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "mon_calamari.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "pyke_syndicate",
+      "name": "Pyke Syndicate",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "pyke_syndicate.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "rebel_alliance",
+      "name": "Rebel Alliance",
+      "type": "military_force",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "rebel_alliance.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "separatist_remnants",
+      "name": "Separatist Remnants",
+      "type": "military_force",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "separatist_remnants.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "sorosuub_corporation",
+      "name": "SoroSuub Corporation",
+      "type": "corporate_entity",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "sorosuub_corporation.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "trandoshan_slavers",
+      "name": "Trandoshan Hunters",
+      "type": "cultural_group",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "trandoshan_slavers.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "wookiee_clans",
+      "name": "Wookiee Clans",
+      "type": "cultural_group",
+      "era_active": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "file": "wookiee_clans.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    },
+    {
+      "id": "zann_consortium",
+      "name": "Zann Consortium",
+      "type": "criminal_syndicate",
+      "era_active": [
+        "imperial",
+        "rebellion"
+      ],
+      "file": "zann_consortium.json",
+      "has_npc_presets": true,
+      "record_completeness": "full"
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "id": "nar_shaddaa_main_docking_platform",
+  "planet_id": "nar_shaddaa",
+  "schema_version": "1.0",
+  "identity": {
+    "name": "Main Docking Platform",
+    "district_type": "transit_hub",
+    "controlling_factions": [
+      "hutt_cartel",
+      "imperial_military"
+    ],
+    "control_notes": "Hutt Cartel owns the property. Imperial Military holds checkpoint authority. Neither fully controls the space.",
+    "size": "large",
+    "essence": "The first and last place most visitors see on Nar Shaddaa. Dozens of ships at any given time — freighters, shuttles, private yachts, Imperial transports. The air smells like engine wash and street food. Everyone is moving with purpose or pretending to. The Imperial checkpoint at the main entrance is the most obvious thing here and not the most dangerous.",
+    "ambient_mood": "Loud, crowded, transactional. Nobody makes eye contact longer than necessary. The Hutt dock master's voice carries over everything on a crackling PA system, assigning berths and announcing delays. Somewhere above, a ship is warming its engines. Somewhere below, an argument is happening in three languages."
+  },
+  "district_map": {
+    "tiers": [
+      {
+        "id": "upper_tier",
+        "description": "Landing pads, Imperial checkpoint, dock master station, fuel depots. Open to the sky (such as it is on Nar Shaddaa). Most visible, most watched."
+      },
+      {
+        "id": "mid_tier",
+        "description": "The service level. Cantina, temporary lodging, supply depot, crew equipment vendors. Connected to upper tier by two main lifts and a maintenance stairwell most people don't know about."
+      },
+      {
+        "id": "lower_tier",
+        "description": "Loading docks, freight processing, long-term cargo storage. Duros labor territory. Imperial presence drops sharply here. Hutt dock master has an office on this level — the real one, not the public-facing station above."
+      }
+    ],
+    "connections": [
+      {
+        "id": "main_entrance",
+        "tier": "mid_tier",
+        "visibility": "watched",
+        "description": "Main entrance from Promenade"
+      },
+      {
+        "id": "service_corridor",
+        "tier": "lower_tier",
+        "visibility": "unwatched",
+        "description": "Service corridor to Industrial Loading Docks district"
+      },
+      {
+        "id": "emergency_exit",
+        "tier": "mid_tier",
+        "visibility": "hidden",
+        "description": "Emergency exit to exterior platform struts",
+        "notes": "Maintenance only. Not on any map the Empire has."
+      },
+      {
+        "id": "upper_city_lift",
+        "tier": "upper_tier",
+        "visibility": "watched",
+        "description": "Lift to Upper City",
+        "notes": "Imperial controlled. All use logged."
+      }
+    ],
+    "imperial_positions": [
+      {
+        "location": "Upper Tier entrance from landing pads",
+        "type": "main_checkpoint"
+      },
+      {
+        "location": "Upper Tier and Mid Tier main corridors",
+        "type": "roving_patrol"
+      },
+      {
+        "location": "Mid Tier cantina",
+        "type": "plainclothes",
+        "notes": "One agent, rotating"
+      },
+      {
+        "location": "Upper Tier overlooking landing pads",
+        "type": "observation_post",
+        "notes": "Not obvious — looks like a maintenance station"
+      }
+    ],
+    "hutt_positions": [
+      {
+        "location": "Upper Tier",
+        "type": "dock_master_station",
+        "notes": "Public facing"
+      },
+      {
+        "location": "Lower Tier",
+        "type": "dock_master_real_office",
+        "notes": "Private"
+      },
+      {
+        "location": "Mid Tier service entrances",
+        "type": "enforcer_pairs"
+      },
+      {
+        "location": "Mid Tier near cantina entrance",
+        "type": "nikto_spotter"
+      }
+    ]
+  },
+  "ambient_state": {
+    "default": "Busy but not tense. The Imperial checkpoint processes arrivals steadily. The dock master PA drones on. People move between tiers with purpose. The Nikto spotter near the cantina watches everyone and reacts to nothing. This is a normal day on Nar Shaddaa.",
+    "alert_shifts": {
+      "suspicious": "The roving Imperial patrol tightens its route — less wandering, more deliberate. The plainclothes agent in the cantina is on a comlink. The Nikto spotter has straightened up. Nobody has moved to intercept anything yet. The district feels like it's holding its breath.",
+      "targeted": "Checkpoint processing slows — everyone is getting a harder look. The patrol has doubled. Hutt enforcers have appeared at the service corridor entrance to the Lower Tier — the Empire didn't ask them to, they're just protecting Hutt interest in whatever is happening. The dock master PA has gone quiet.",
+      "manhunt": "The checkpoint is a wall, not a filter. No ships are cleared for departure. Stormtroopers are visible on every tier. The Hutt enforcers have pulled back — this is now an Imperial problem and the Hutts are not going to get in the way of it. Civilians are moving toward exits."
+    }
+  },
+  "ambient_events": [
+    {
+      "id": "ambient_rodian_dispute",
+      "description": "A Rodian freight captain is loudly disputing a docking fee at the upper tier dock master station. The dock master is unmoved. This has been going on for twenty minutes.",
+      "potential_connection": null
+    },
+    {
+      "id": "ambient_imperial_officer_eating",
+      "description": "An Imperial officer is eating alone at a table near the cantina entrance, reading a datapad. He looks bored. He is not bored.",
+      "potential_connection": "This is the cantina zone's plainclothes watcher. His presence here is ambient until players enter the cantina."
+    },
+    {
+      "id": "ambient_refugee_family",
+      "description": "A family — human, exhausted, too much luggage — is trying to figure out the lift system. They don't speak the local dialect. They look like they came from somewhere that no longer exists the way they remember it.",
+      "potential_connection": null
+    },
+    {
+      "id": "ambient_devaronian",
+      "description": "A Devaronian is leaning against the wall near the service corridor entrance, not doing anything. Has been there for a while.",
+      "potential_connection": "Black Sun informant or independent operator. GM decides."
+    },
+    {
+      "id": "ambient_nikto_escort",
+      "description": "Two Nikto enforcers are escorting someone through the Mid Tier quickly. The someone is not restrained but is not walking freely either.",
+      "potential_connection": "The Duros crew member flagged by the Knights of Ren observer. Or someone else entirely. GM decides."
+    },
+    {
+      "id": "ambient_pa_announcement",
+      "description": "The PA announces a berth reassignment for a ship called the Fortuitous Remark. Nobody moves to acknowledge it. The announcement repeats.",
+      "potential_connection": "A dead drop signal. Or a ship whose crew are already dead. GM decides."
+    },
+    {
+      "id": "ambient_mopping_droid",
+      "description": "A droid with mismatched parts is mopping near the maintenance stairwell. It has been mopping the same section for an hour.",
+      "potential_connection": "FaD preset: This droid has been here for six weeks. Nobody hired it. Knights of Ren surveillance asset."
+    }
+  ],
+  "encounter_zones": [
+    {
+      "id": "the_checkpoint",
+      "name": "The Checkpoint",
+      "type": "imperial_controlled_entry",
+      "tier": "upper_tier",
+      "map_notes": "Single file processing lanes, three active. Scanning equipment on both sides — weapons detection, ID verification, cargo manifest review. A glassed booth to one side where a senior inspector can observe without being in the flow. Two stormtroopers flanking the exit. No cover for players once they're in the lane. The booth has a locked door and a terminal inside.",
+      "cast": [
+        {
+          "role": "Imperial Customs Inspector",
+          "tier": "rival",
+          "wants": "to find something worth reporting to ISB, to get through his shift without incident"
+        },
+        {
+          "role": "Stormtrooper pair",
+          "tier": "minion",
+          "count": 2,
+          "wants": "to follow orders"
+        },
+        {
+          "role": "ISB Observer in booth",
+          "tier": "rival",
+          "wants": "to identify persons of interest without revealing ISB involvement"
+        },
+        {
+          "role": "Waiting travelers",
+          "tier": "minion",
+          "notes": "background",
+          "wants": "to get through, not to be noticed"
+        }
+      ],
+      "ambient_facts": [
+        "The scanning equipment flags weapons but the inspector has discretion on what he acts on. Discretion can be purchased but not cheaply and not obviously.",
+        "The ISB observer logs every arrival. The log goes somewhere the players won't know about until it matters.",
+        "There is a separate lane for Hutt-authorized personnel. It moves faster and is less scrutinized. Access requires a Hutt dock pass."
+      ],
+      "tensions": [
+        "The inspector and the ISB observer have different priorities and don't like each other. That friction is exploitable.",
+        "The inspector has been taking Hutt money for access to the fast lane. ISB suspects. Neither has moved on it yet."
+      ],
+      "affordances": [
+        "The maintenance stairwell bypasses the checkpoint entirely. Entrance is on the exterior of the building — requires knowing it exists.",
+        "A Hutt dock pass gets players into the fast lane. Where a dock pass comes from is a different question.",
+        "The cargo processing lane is separate from passenger processing — a player hidden in a legitimate cargo manifest could come through there."
+      ],
+      "alert_shifts": {
+        "suspicious": "Inspector is processing slower, asking more questions. The ISB observer has left the booth and is standing in the arrivals area.",
+        "targeted": "Player descriptions distributed. Inspector has been told to hold specific individuals. Stormtrooper pair has become a quartet.",
+        "manhunt": "Checkpoint is closed to outbound traffic. All inbound processed against a watchlist. The ISB observer is running the operation, not the inspector."
+      },
+      "alert_vectors": [
+        {
+          "id": "checkpoint_trooper_radio",
+          "faction_id": "imperial_military",
+          "trigger": "Stormtrooper at checkpoint identifies a threat — flagged weapon, wanted face, suspicious behavior that can’t be explained.",
+          "method": "radio",
+          "speed": "immediate",
+          "reaches": "Imperial checkpoint commander, ISB observer in booth, roving patrol.",
+          "result_state": "targeted",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Neutralize the trooper before he reaches his comlink",
+            "Create a distraction that pulls his attention before he identifies the threat",
+            "Bribe or bluff the customs inspector before the scan completes"
+          ]
+        },
+        {
+          "id": "checkpoint_isb_log",
+          "faction_id": "imperial_military",
+          "trigger": "ISB observer in the booth logs an arrival that matches a watchlist entry or behaves suspiciously during processing.",
+          "method": "informant",
+          "speed": "delayed",
+          "reaches": "ISB handler off-platform. Result arrives next scene or later.",
+          "result_state": "suspicious",
+          "can_be_blocked": false,
+          "block_window": "never",
+          "block_methods": []
+        },
+        {
+          "id": "checkpoint_inspector_hutt",
+          "faction_id": "hutt_cartel",
+          "trigger": "Customs inspector — on Hutt payroll — flags an arrival as unusual and passes word to the Nikto spotter near the cantina.",
+          "method": "informant",
+          "speed": "minutes",
+          "reaches": "Nikto spotter, Hutt dock master (delayed).",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Use the Hutt fast lane — inspector treats Hutt-authorized arrivals differently",
+            "Bribe the inspector before he makes the call",
+            "Ensure nothing about the arrival seems worth reporting"
+          ]
+        }
+      ],
+      "map_components": [
+        "Processing lanes",
+        "Scanning equipment",
+        "Observation booth",
+        "Stormtrooper post",
+        "Cargo processing lane",
+        "Fast lane",
+        "Exit to landing pads",
+        "Exit to Mid Tier"
+      ]
+    },
+    {
+      "id": "the_cantina",
+      "name": "The Cantina",
+      "type": "public_social_information_node",
+      "tier": "mid_tier",
+      "map_notes": "Long bar along the left wall. Bartender has sightline to the entire room. Booths along the right wall — high-backed, semi-private. Tables in the center — exposed. Kitchen entrance behind the bar, leads to a service corridor that connects to the loading dock stairwell. Back room door near the far end of the bar — locked, no sign. Two exits: main entrance from Mid Tier corridor, kitchen service exit.",
+      "cast": [
+        {
+          "role": "Twi'lek bartender",
+          "tier": "rival",
+          "wants": "no trouble in her cantina, to know everything that happens in it"
+        },
+        {
+          "role": "Imperial officer eating alone",
+          "tier": "rival",
+          "wants": "what he's been told to find, to not look like he's looking"
+        },
+        {
+          "role": "Duros freight operator",
+          "tier": "rival",
+          "notes": "conditional",
+          "wants": "to stay invisible, to do the right thing if she's sure it won't get her killed"
+        },
+        {
+          "role": "Nikto regular",
+          "tier": "minion",
+          "wants": "his drink, to report anything interesting to his employer"
+        },
+        {
+          "role": "Mixed crowd of travelers",
+          "tier": "minion",
+          "notes": "background"
+        }
+      ],
+      "ambient_facts": [
+        "The bartender knows who everyone is and has a financial arrangement with Black Sun. Not hostile — just aware, and reporting.",
+        "The back room is used for private meetings. The bartender controls access. Her price is information, not credits.",
+        "The Duros freight operator comes here between shifts. She sits at the end of the bar, alone, same stool. She doesn't talk to strangers first.",
+        "The booth in the far corner has a partial view of the checkpoint through a viewport. Whoever sits there can see arrivals."
+      ],
+      "tensions": [
+        "The Duros freight operator has seen something in the manifests she doesn't understand and it's been bothering her. She hasn't told anyone. She doesn't know who to trust. She is waiting for a reason.",
+        "The Imperial officer is watching someone in the cantina. Not the players — someone else. Whatever he's doing here is separate from whatever the players are doing. Those two things may collide.",
+        "The bartender is in an uncomfortable position between her Black Sun arrangement and a Hutt enforcer who's been pressuring her for the same information. She is managing both and running out of room."
+      ],
+      "affordances": [
+        "Kitchen service corridor connects to loading dock stairwell — a way in or out that bypasses the main Mid Tier corridor.",
+        "The back room is private enough for a meeting that can't happen in the open.",
+        "The bar itself — a player who sits there long enough hears things. The bartender decides what she lets slip and when.",
+        "The viewport booth — surveillance position on the checkpoint without being at the checkpoint."
+      ],
+      "alert_shifts": {
+        "suspicious": "Bartender is quieter than usual. The Nikto regular has left. The Imperial officer has closed his datapad.",
+        "targeted": "Cantina population has thinned — word travels fast on Nar Shaddaa. The Duros freight operator is gone. The bartender is helpful in the way people are helpful when they are frightened.",
+        "manhunt": "Cantina is nearly empty. The Imperial officer is gone — or isn't, and is the only one left besides the players."
+      },
+      "alert_vectors": [
+        {
+          "id": "cantina_nikto_report",
+          "faction_id": "hutt_cartel",
+          "trigger": "Nikto regular at the bar sees or hears something worth reporting — unusual questions, weapons, recognized faces, suspicious behavior.",
+          "method": "informant",
+          "speed": "minutes",
+          "reaches": "Hutt enforcer pair at Mid Tier entrance, Nikto spotter. Dock master notified if significant.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "during",
+          "block_methods": [
+            "Neutralize or distract the Nikto before he leaves the cantina",
+            "Conduct conversation in the back room — out of his sightline",
+            "Ensure nothing said or done at the bar is worth reporting"
+          ]
+        },
+        {
+          "id": "cantina_bartender_black_sun",
+          "faction_id": "black_sun",
+          "trigger": "Bartender observes something significant — unusual players, overheard intel, a face she recognizes — and contacts her Black Sun handler.",
+          "method": "informant",
+          "speed": "delayed",
+          "reaches": "Black Sun informant network. Handler notified next scene.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Use the back room for sensitive conversation — bartender controls access but can’t hear what’s said inside",
+            "Give her something more interesting to report — misdirection",
+            "Establish trust before the significant conversation happens"
+          ]
+        },
+        {
+          "id": "cantina_imperial_officer_comlink",
+          "faction_id": "imperial_military",
+          "trigger": "Imperial officer eating alone identifies a threat or recognizes a wanted individual and uses his comlink.",
+          "method": "radio",
+          "speed": "immediate",
+          "reaches": "Imperial checkpoint, roving patrol, ISB observer.",
+          "result_state": "targeted",
+          "can_be_blocked": true,
+          "block_window": "during",
+          "block_methods": [
+            "Neutralize the officer before he completes the call",
+            "Jam comlink frequencies in the cantina — requires Mechanics or Computers",
+            "Remove the threat he’s responding to before he acts"
+          ]
+        },
+        {
+          "id": "cantina_witness_crowd",
+          "faction_id": "imperial_military",
+          "trigger": "A civilian witness in the cantina crowd observes something alarming — violence, weapons, a chase — and reports it at the checkpoint when they leave.",
+          "method": "witness",
+          "speed": "delayed",
+          "reaches": "Imperial checkpoint. Fires when witness feels safe enough to report.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "after",
+          "block_methods": [
+            "Contain the situation before it becomes alarming enough to report",
+            "Ensure the witness doesn’t make it to the checkpoint — not necessarily violently",
+            "Create an alternative explanation for what they saw"
+          ]
+        }
+      ],
+      "map_components": [
+        "Bar",
+        "Booths",
+        "Center tables",
+        "Kitchen",
+        "Back room",
+        "Front entrance",
+        "Viewport"
+      ]
+    },
+    {
+      "id": "the_supply_depot",
+      "name": "The Supply Depot",
+      "type": "commercial_operational",
+      "tier": "mid_tier",
+      "map_notes": "Front counter with a human clerk — bored, overworked. Shelves behind the counter, customer-accessible aisles in front. Stock room in the back, door behind the counter. Loading entrance on the far wall — roll-up door, connects to an alley that runs along the Mid Tier exterior. The stock room has a terminal. The terminal is connected to the freight manifest system.",
+      "cast": [
+        {
+          "role": "Human clerk",
+          "tier": "minion",
+          "wants": "to finish his shift"
+        },
+        {
+          "role": "Depot manager",
+          "tier": "rival",
+          "notes": "in stock room — not always visible",
+          "wants": "to keep her operation running, to stay out of whatever the Empire and the Hutts are doing"
+        },
+        {
+          "role": "Occasional Hutt supply runner",
+          "tier": "minion",
+          "wants": "to collect the order and leave"
+        }
+      ],
+      "ambient_facts": [
+        "The depot supplies ships docked on the platform — fuel additives, rations, spare parts, medical supplies. It also moves things that aren't on the official inventory.",
+        "The terminal in the stock room has read access to docking bay assignments and freight manifests for the platform. The manager uses it to coordinate supply runs. It is not a secure terminal.",
+        "Imperial armament transports use a specific supply code on their manifests. Anyone who knows the code can identify which ships are carrying what.",
+        "The loading alley is unmonitored. Things move through it that don't appear on any manifest."
+      ],
+      "tensions": [
+        "The depot manager is being squeezed by a Hutt supply contract that requires her to prioritize Hutt ships, an Imperial requisition order she can't refuse, and her actual paying customers. She is three days from a crisis and knows it.",
+        "There is a discrepancy in the manifest records — a shipment that was logged as delivered but the depot has no record of receiving. Someone moved something through here that wasn't supposed to move through here. The manager noticed. She hasn't reported it because she doesn't know who to report it to."
+      ],
+      "affordances": [
+        "The stock room terminal — manifest access, not requiring credentials if the clerk is away from the counter or distracted.",
+        "The loading alley — exit and entry point that bypasses the main Mid Tier corridor and the Hutt enforcer positions.",
+        "The depot's Hutt supply contract paperwork is in the stock room. It has names on it.",
+        "The depot stocks medical supplies including items that aren't typically sold over the counter without documentation."
+      ],
+      "alert_shifts": {
+        "suspicious": "The clerk has been told to note anyone asking unusual questions. He doesn't know why. He's doing it anyway.",
+        "targeted": "The depot manager has locked the stock room and is not coming out. The loading alley has a Hutt enforcer at the far end who wasn't there before.",
+        "manhunt": "Depot is closed. Roll-up door is down. Nobody answers."
+      },
+      "alert_vectors": [
+        {
+          "id": "depot_clerk_note",
+          "faction_id": "imperial_military",
+          "trigger": "Clerk has been told to note anyone asking unusual questions. He does — reports at end of shift to a contact he doesn’t know is ISB.",
+          "method": "witness",
+          "speed": "delayed",
+          "reaches": "ISB observer. Fires end of scene or later.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Ask only normal supply questions — nothing unusual to report",
+            "Distract or misdirect the clerk before or during suspicious activity",
+            "Ensure the clerk is incapacitated or otherwise occupied before shift ends"
+          ]
+        },
+        {
+          "id": "depot_manager_hutt",
+          "faction_id": "hutt_cartel",
+          "trigger": "Depot manager notices something wrong — missing inventory, unauthorized terminal access, strangers in the stock room — and contacts the dock master.",
+          "method": "informant",
+          "speed": "minutes",
+          "reaches": "Hutt dock master. Dock master decides whether to escalate.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "during",
+          "block_methods": [
+            "Keep the manager out of the stock room while accessing the terminal",
+            "Give her a plausible reason for the activity before she draws conclusions",
+            "Use her existing crisis — the contract squeeze — as leverage to keep her quiet"
+          ]
+        },
+        {
+          "id": "depot_hutt_runner_report",
+          "faction_id": "hutt_cartel",
+          "trigger": "Hutt supply runner arrives during player activity and witnesses something he shouldn’t. Reports immediately to his handler.",
+          "method": "informant",
+          "speed": "immediate",
+          "reaches": "Hutt enforcer pair, Nikto spotter.",
+          "result_state": "targeted",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Complete activity and clear the depot before the runner arrives",
+            "Neutralize the runner before he exits",
+            "Ensure nothing visible when the runner enters"
+          ]
+        }
+      ],
+      "map_components": [
+        "Front counter",
+        "Customer aisles",
+        "Stock room",
+        "Terminal",
+        "Loading entrance",
+        "Loading alley"
+      ]
+    },
+    {
+      "id": "the_loading_docks",
+      "name": "The Loading Docks",
+      "type": "industrial_labor_territory",
+      "tier": "lower_tier",
+      "map_notes": "Large open floor — cargo containers stacked in rows creating natural corridors and hiding positions. Three active loading bays with mag-lev freight lifts. Dock master's real office in the far corner — reinforced door, viewport overlooking the floor. Maintenance tunnels run beneath the floor — access hatches between container rows. Upper Tier landing pads are directly above. Service corridor to Industrial Loading Docks district at the far end — unwatched.",
+      "cast": [
+        {
+          "role": "Duros labor crew",
+          "tier": "minion",
+          "count": "4-6",
+          "wants": "to do their work, to not be involved in whatever this is"
+        },
+        {
+          "role": "Duros labor boss",
+          "tier": "rival",
+          "wants": "fair treatment for his crew, to know what's moving through his docks"
+        },
+        {
+          "role": "Hutt dock master",
+          "tier": "rival",
+          "notes": "nemesis-adjacent",
+          "wants": "his cut of everything, to know everything that happens on his platform, to never be directly implicated in anything"
+        },
+        {
+          "role": "Nikto dock enforcer",
+          "tier": "minion",
+          "count": 2,
+          "wants": "to keep the Duros in line, to report anything unusual to the dock master"
+        }
+      ],
+      "ambient_facts": [
+        "The Duros labor boss knows every manifest, every ship, every route. He has been moving freight on Nar Shaddaa for twenty years. He knows which Imperial transports carry what and when they move.",
+        "The dock master's office has a secondary terminal with full platform access — docking assignments, departure clearances, manifest overrides. It is more capable than the depot terminal and better protected.",
+        "The maintenance tunnels connect to external platform struts. An exit route that doesn't appear on Imperial maps.",
+        "Three of the active bays have ships currently loading or unloading. One of them is on an Imperial supply manifest."
+      ],
+      "tensions": [
+        "The Duros labor boss is three days from calling a work stoppage over Hutt contract terms. He hasn't moved yet because he doesn't know what happens to his crew if he does. He is looking for leverage — something that changes his position.",
+        "The dock master knows about the manifest discrepancy the depot manager noticed. He created it. He is not concerned about it being found because he controls who finds things on this platform. That control is not absolute.",
+        "One of the Duros crew has been approached by the Rebel cell. He hasn't answered yet. He is watched by the Nikto enforcer more than the others, though the enforcer doesn't know why — just instinct."
+      ],
+      "affordances": [
+        "Container rows — cover and concealment for movement across the dock floor without being seen from the office.",
+        "Maintenance tunnel access — movement below the floor, exits to struts.",
+        "The service corridor to the Industrial Loading Docks — out of the platform entirely without going through the checkpoint or the Mid Tier.",
+        "The dock master's office terminal — highest platform access available, if someone can get in there.",
+        "The Duros labor boss — the most valuable non-hostile NPC on the platform if the players can give him a reason to talk."
+      ],
+      "alert_shifts": {
+        "suspicious": "The Nikto enforcers have stopped moving and are watching the floor. The Duros crew is working with their heads down — they know something has changed. The dock master's office viewport is occupied.",
+        "targeted": "Dock master has locked his office. One loading bay has been suspended mid-operation — a ship is being held. Two additional Nikto have appeared at the service corridor entrance.",
+        "manhunt": "The Duros crew has been told to leave. Most have. The Nikto enforcers are now working with the Imperial patrol. The dock master is on a comlink with someone who isn't Imperial and isn't Hutt."
+      },
+      "alert_vectors": [
+        {
+          "id": "docks_nikto_enforcer_report",
+          "faction_id": "hutt_cartel",
+          "trigger": "Nikto dock enforcer observes unauthorized personnel, suspicious behavior, or interference with cargo — reports directly to dock master.",
+          "method": "direct",
+          "speed": "immediate",
+          "reaches": "Hutt dock master in his office. Dock master decides next action.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Neutralize the enforcer before he can report",
+            "Use cargo container rows for concealment — move without being observed",
+            "Establish a plausible reason for presence before the enforcer questions it"
+          ]
+        },
+        {
+          "id": "docks_dock_master_lockdown",
+          "faction_id": "hutt_cartel",
+          "trigger": "Dock master observes a significant threat from his office viewport and activates the loading dock security protocol — all bays locked, enforcers mobilized.",
+          "method": "direct",
+          "speed": "immediate",
+          "reaches": "All Hutt enforcer assets on the platform. Locks the service corridor exit.",
+          "result_state": "targeted",
+          "can_be_blocked": true,
+          "block_window": "before",
+          "block_methods": [
+            "Keep the dock master’s viewport blocked — use container rows for movement",
+            "Access the dock master’s terminal and disable the security protocol before he activates it",
+            "Neutralize the dock master before he reaches the console"
+          ]
+        },
+        {
+          "id": "docks_duros_witness",
+          "faction_id": "hutt_cartel",
+          "trigger": "A Duros crew member witnesses something significant and reports it to the labor boss, who tells the dock master.",
+          "method": "witness",
+          "speed": "delayed",
+          "reaches": "Hutt dock master via labor boss. Fires when crew member feels safe.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "after",
+          "block_methods": [
+            "Establish trust with the Duros labor boss before the incident — he may sit on the report",
+            "Give the crew member a reason not to report — the labor dispute is leverage",
+            "Contain the situation quickly enough that nothing significant was witnessed"
+          ]
+        },
+        {
+          "id": "docks_imperial_manifest_flag",
+          "faction_id": "imperial_military",
+          "trigger": "Interference with the Imperial supply manifest on one of the active bays triggers an automated flag to the checkpoint terminal.",
+          "method": "radio",
+          "speed": "immediate",
+          "reaches": "Imperial checkpoint commander. Automated — does not require a person.",
+          "result_state": "suspicious",
+          "can_be_blocked": true,
+          "block_window": "during",
+          "block_methods": [
+            "Access the dock master’s terminal to suppress the flag before it transmits",
+            "Slice the manifest system to mask the interference — Computers check",
+            "Ensure interference with the manifest is clean enough not to trigger the flag"
+          ]
+        }
+      ],
+      "map_components": [
+        "Loading bays",
+        "Cargo container rows",
+        "Mag-lev freight lifts",
+        "Dock master office",
+        "Maintenance tunnels",
+        "Access hatches",
+        "Service corridor"
+      ]
+    }
+  ],
+  "campaign_state_overlay": {
+    "AoR_hutt_empire_alliance": {
+      "label": "Age of Rebellion — Hutt/Empire Alliance",
+      "district_notes": "The Imperial checkpoint is running a secondary watchlist — rebel-affiliated names and ship registrations flagged by Hutt intelligence. The Duros freight operator in the cantina has the supply route data in her head, not on any terminal. The dock master is getting a cut of the Imperial escort contract and is aggressively protecting it."
+    },
+    "EotE_rival_organization_recon": {
+      "label": "Edge of the Empire — Rival Organization Recon",
+      "district_notes": "The Duros labor boss’s work stoppage threat is the most exploitable pressure point on the platform. The manifest discrepancy is a thread that leads to the dock master’s side operation — itself a Hutt vulnerability. The maintenance tunnels are the kind of infrastructure a rival organization would want to know about and control."
+    },
+    "FaD_knights_of_ren_force_weapon": {
+      "label": "Force and Destiny — Knights of Ren / Force Weapon",
+      "district_notes": "The droid mopping near the maintenance stairwell has been there for six weeks. Nobody hired it. The Duros crew member who was approached by the Rebel cell is Force-sensitive and doesn’t know it. The Knights of Ren observer has flagged him. Something is going to happen to him soon unless someone intervenes."
+    }
+  }
+}

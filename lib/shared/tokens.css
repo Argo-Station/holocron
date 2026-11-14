@@ -1,0 +1,433 @@
+/* lib/shared/tokens.css — shared design tokens (Phase 1a, reference-layer step 1).
+ * Loaded by a plain <link> in all three app shells; served statically from /lib/
+ * (no _redirects wildcard touches it). CSS custom properties resolve live in both
+ * stylesheet rules and JS inline styles, so a deleted/renamed token degrades to the
+ * browser default rather than white-screening the app (unlike a deleted JS const).
+ *
+ * Fonts only for now. Radii (4/6/8 head), touch floors (44px), and the semantic
+ * accent palette are deliberately NOT defined yet — they get added in 1b when the
+ * shared primitives actually consume them. Defining unused vars now is dead CSS.
+ * The fallbacks match the shells' own @font-face / Google-Fonts declarations.
+ */
+:root {
+  --font-display: 'Orbitron', sans-serif;        /* headings, display, numerics-as-label */
+  --font-body:    'Rajdhani', sans-serif;         /* body / UI text */
+  --font-mono:    'Share Tech Mono', monospace;   /* data, stats, monospaced numerics */
+}
+
+/* F-52 fluid type scale (ruling responsive-type-scale-concept). Each step is a clamp()
+ * anchored MIN@375px -> MAX@1920px; the PREFERRED term mixes rem + vw so every size keeps a
+ * rem component — it responds to browser zoom / OS font-size (WCAG 1.4.4 Resize Text, R-F52-1).
+ * The 16px (1rem) floor lives on --fs-body and up: READING text + inputs use --fs-body (kills
+ * iOS <16px input auto-zoom, R-F52-2). Dense UI labels/stats/chips use the sub-body steps
+ * (they scale up with the screen but stay compact — the cockpit's no-scroll law, R-F52-3).
+ * Migrate inline `fontSize: N` -> `fontSize: 'var(--fs-*)'` mechanically (R-F52-4). */
+:root {
+  --fs-2xs:  clamp(0.6250rem, 0.5947rem + 0.129vw, 0.7500rem);  /* micro labels / badges (~10->12) */
+  --fs-xs:   clamp(0.7188rem, 0.6808rem + 0.162vw, 0.8750rem);  /* small mono labels, pills (~11.5->14) */
+  --fs-sm:   clamp(0.8125rem, 0.7670rem + 0.194vw, 1.0000rem);  /* dense item names, chips (~13->16) */
+  --fs-body: clamp(1.0000rem, 0.9545rem + 0.194vw, 1.1875rem);  /* READING text + inputs — 16px FLOOR (~16->19) */
+  --fs-lg:   clamp(1.0938rem, 1.0255rem + 0.291vw, 1.3750rem);  /* subheads / stat values (~17.5->22) */
+  --fs-xl:   clamp(1.2500rem, 1.1590rem + 0.388vw, 1.6250rem);  /* big stat numerals (~20->26) */
+  --fs-2xl:  clamp(1.5625rem, 1.4260rem + 0.583vw, 2.1250rem);  /* display (~25->34) */
+  --fs-3xl:  clamp(1.9375rem, 1.7100rem + 0.971vw, 2.8750rem);  /* hero display (~31->46) */
+}
+
+/* R-F52-2: form controls never below 16px (kills iOS <16px auto-zoom). Base floor for any input
+ * without an inline size; inline-styled inputs are additionally floored to var(--fs-body) at their
+ * call sites. */
+input, textarea, select { font-size: var(--fs-body); }
+
+/* Text-colour tokens (NPC gold-standard Lap A, A1 — WCAG AA against the near-black bg #02010a).
+ * Discharges the Phase-1 R-UI-A2 rider: colour tokens land here in the CSS layer, consumed via
+ * var(), never hardcoded in JS. Contrast verified (scripts/check_text_contrast.py):
+ *   primary 18.6:1, muted 7.4:1 (AA-normal 4.5:1), faint 4.2:1 (AA-large 3:1, decorative/large only). */
+:root {
+  --text-primary: #f2f2f2;   /* body / headings */
+  --text-muted:   #9a9a9a;   /* secondary labels — AA-normal (>=4.5:1) */
+  --text-faint:   #707070;   /* large/decorative only — AA-large (>=3:1) */
+}
+
+/* F-52 Amendment 2 (R-F52-5): semantic TEXT colours, each contrast-verified as SMALL text
+ * (>=4.5:1, WCAG 1.4.3) against the near-black base #02010a AND the app's white-tinted panels
+ * (checked to #222228, the lightest small-text panel) via scripts/check_text_contrast.py.
+ * Colour-temperature rule: these are the HIGH-LUMINANCE tints used for TEXT; saturated mid-tones
+ * (e.g. raw #ff3b3b) stay on FILLS/BORDERS/LARGE numerals only, never small body text. Migrate
+ * inline hex -> these tokens (same mechanic as the type tokens, R-F52-4). */
+:root {
+  --text-success: #4ecb71;   /* success / positive (green)   ~7.6:1 min */
+  --text-danger:  #ff6b6b;   /* danger / critical (red)      ~5.0:1 min */
+  --text-warning: #ff8a3d;   /* warning (orange)             ~6.7:1 min */
+  --text-caution: #ffc857;   /* caution / attention (gold)   ~10:1 min */
+  --text-info:    #7ec4ff;   /* info / neutral-accent (sky)  ~8.9:1 min */
+}
+
+/* F-56 CRAFTING GRADE RAMPS (ruling `crafting-journey-shape-and-save-shapes` §5, C-Q2-1).
+ * Two hue FAMILIES x five luminance steps — the tier of an item's best improvement (good) and worst
+ * flaw (bad), derived from RAW's own cost ladder. Named tokens, never scattered hex, so the palette
+ * can be re-pointed in one place (Jason floated retiring the store's rarity colours; that becomes a
+ * token edit, not a hunt for literals).
+ *
+ * GREEN vs ORANGE, deliberately NOT green vs red: red/green is the pair that fails for the commonest
+ * colour-vision deficiency. Blue is left free because it is the player app's own accent.
+ *
+ * THE HUE IS NEVER THE ONLY SIGNAL (WCAG 1.4.1): every chip also carries its tier as a NUMERAL and a
+ * direction glyph. The numeral is the compliance mechanism, not decoration — the ramp exists to make
+ * a grade scannable at a glance, not to encode it. `-fg` is the text/glyph colour ON the chip, checked
+ * against the chip's own tinted ground, not against the page. */
+:root {
+  --craft-good-1:#1E5F3A; --craft-good-2:#2C8450; --craft-good-3:#3AA967;
+  --craft-good-4:#45C47C; --craft-good-5:#5CE094;
+  --craft-bad-1:#6B3A14;  --craft-bad-2:#94501C;  --craft-bad-3:#BD6524;
+  --craft-bad-4:#E07C34;  --craft-bad-5:#FF9A52;
+  --craft-good-fg:#7DE8AC;  /* chip text/glyph on the good tint */
+  --craft-bad-fg:#FFB07A;   /* chip text/glyph on the bad tint  */
+}
+
+/* Premium chrome depth — the launchpad card's layered shadow (one light source, top).
+ * Consumed by the shared HubCard (lib/shared/ui.jsx); reusable by any premium surface. */
+:root {
+  --depth-card: 0 1px 0 rgba(255,255,255,.07) inset, 0 10px 24px rgba(0,0,0,.40);
+}
+
+/* Desktop-curation layout tokens (F-46, contract G10; ruling desktop-curation-program §3 + A1).
+ * Consumed by the desktop layout primitives (lib/shared/desktopLayout.jsx) and each D-lap's
+ * adopted surfaces. Inert on mobile — nothing references them below the 1024px desktop threshold. */
+:root {
+  --desk-rail-w:      336px;   /* master-detail rail width */
+  --desk-read-max:    720px;   /* reading / wizard column — STRUCTURED content (cards, forms, trees) */
+  /* Free-flowing paragraph cap — a TRUE ~66 characters per line (A1's ideal), in a real-measure
+   * unit. B-87: this was `66ch`, and `ch` is the advance width of "0", not of average prose. It
+   * delivered 84 cpl in the body face — and the error is per-FACE, so no ch value can fix it:
+   * measured at head, 66ch renders 84 cpl in Rajdhani, 103 in Orbitron, and exactly 66 in Share
+   * Tech Mono (monospace, where ch IS the character width). A token whose comment promises 66 and
+   * delivers 84 is a lying instrument in the design system — the same class as a guard that cannot
+   * fail.
+   * CALIBRATION: 373px = 66 x 5.649px, the mean character advance of Rajdhani at 14px measured by
+   * canvas over 724,066 characters of SHIPPED prose (1,353 talent/species/career/gear descriptions
+   * from the canonical registries) — not a hand-picked sample. Every consumer renders
+   * `--font-body`, so one value serves them all; across the 13-15px sizes in play it yields 71/66/62
+   * cpl, entirely inside the 45-75 comfort band (254-424px at 14px).
+   * Guarded by scripts/smoke_prose_token.py — the comment and the render are asserted to agree. */
+  --desk-prose-max:   373px;
+  --desk-content-max: 1280px;  /* widest any desktop content region may grow */
+  --desk-gutter:      24px;    /* grid / pane gutter */
+}
+
+/* HubCard entrance — cards cascade in (compositor: opacity + transform). Per-card stagger via inline
+ * animation-delay. fill=backwards: holds the hidden state through the delay, then reverts to the
+ * element's own style (so HubCard's inline press-transform still works after). Static for reduced-motion. */
+@keyframes hubcard-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.hubcard-enter { animation: hubcard-rise .45s cubic-bezier(.2,.7,.3,1) backwards; }
+@media (prefers-reduced-motion: reduce) { .hubcard-enter { animation: none; } }
+
+/* BREATHING TEXT — B-437 (ruling `idle-prompt-motion-floor` R-IPM-4). Text that pulses while
+   something is pending: the two "LOADING GALACTIC DATA…" screens and the hub card's tap cue. All
+   three carried the SAME inline declaration — `animation: 'breathe 1.5s ease-in-out infinite'` —
+   and an inline animation is unreachable by any `@media` rule, so no reduced-motion guard could
+   ever apply to them however many were written. That is the whole reason this is a CLASS: the
+   guard needs something to select.
+
+   FLOOR-SAFE RATHER THAN FINITE, because a loader that stops breathing while it is still loading
+   reads as stalled. The shell's `breathe` dips to .55; this dips to .85, so the pulse can never
+   cost more than 15% of an element's resting opacity and every site stays a bounded, small
+   distance from its own resting contrast. Measured on the served page at all three:
+       hub tap cue          8.52:1 rest -> 6.25:1 trough
+       full creator loader  6.82:1      -> 5.21:1
+       quick build loader   7.37:1      -> 5.47:1     (2.46:1 before, see below)
+   THE RANGE IS THE ONLY THING THIS CLASS CAN GUARANTEE. A site whose ink is ALREADY under the floor
+   standing still is that site's own defect and is fixed there — the quick build's was, at
+   `rgba(255,255,255,0.3)` on black. And each site's ground is its own: the full creator's loader
+   renders before the creator ground is on the tree, so its tokens are the SHELL's and its figures
+   are nothing like the parchment arithmetic that first stood in this comment.
+
+   THE RHYTHM STAYS EACH SITE'S. The loaders beat at 1.5s and the hub cue at 2.2s; one class with
+   one hardcoded duration would have silently re-timed the hub. `--breathe-dur` carries it, so the
+   shared thing is the SHAPE and the GUARD, which is what needed sharing. */
+@keyframes breathe-soft { 0%, 100% { opacity: .85; } 50% { opacity: 1; } }
+.breathing-text { animation: breathe-soft var(--breathe-dur, 1.5s) ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .breathing-text { animation: none; } }
+
+/* THE PANEL MOTION LAW (ruling panel-premium-presentation-concept §3): panels + menus enter with ONE
+   fast fade (0.2–0.25s), optional +4–6px rise — NO slides, NO springs, NO stagger. Premium is the
+   composed still FRAME, not the transition. Reduced-motion → instant. */
+@keyframes panel-fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.panel-enter { animation: panel-fade .22s ease forwards; }
+@media (prefers-reduced-motion: reduce) { .panel-enter { animation: none; } }
+
+/* SuiteBar skip-to-content (navigation Phase 1, WCAG 2.4.1) — off-screen until keyboard-focused.
+ * The dice cinematic hide reuses the shared .autohide-chrome convention (defined below). */
+.suite-skip { position: absolute; left: 8px; top: -56px; z-index: 1000; background: #0b0f17; color: #fff;
+  padding: 9px 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em;
+  text-decoration: none; transition: top .15s ease; }
+.suite-skip:focus { top: 8px; outline: 2px solid #4EAAFF; outline-offset: 2px; }
+
+/* Immersive-hide (navigation Phase 2b) — on the immersive modules an app sets body.holo-immersive and
+ * BOTH bars (suite + bottom) hide for full focus. The Player/GM bars are flex children, so they must FREE
+ * their layout space (display:none) — a transform alone leaves the bar's space and crops the module's
+ * bottom content (e.g. the wizard's NEXT/talent tree). The dice cinematic reuses the shared .autohide-chrome
+ * (those bars are fixed/out-of-flow, so they fade via opacity without cropping). */
+body.holo-immersive .suite-bar,
+body.holo-immersive .bottom-nav { display: none !important; }   /* !important — beats the components' inline display:flex */
+body.holo-immersive .creator-store-overlay .bottom-nav { display: flex !important; }   /* the store's OWN tab bar is not the app chrome holo-immersive hides */
+
+/* Edge-summoned chrome (B-629, Jason 2026-09-16 — the sheet's default state is the table: no bars, no rail).
+ * body.sheet-table takes BOTH bars out of the flow (fixed, off-screen), so the surface has the screen; the
+ * app adds body.chrome-summoned when the pointer reaches the top/bottom edge or the surface's contextual
+ * button pins them (SWRPGUI.useEdgeChrome), and the bars slide in over the surface. The store's own bar is
+ * not app chrome and is untouched. `!important` beats the components' inline `position:sticky`. */
+body.sheet-table .suite-bar { position: fixed !important; top: 0; left: 0; right: 0; z-index: 140 !important;
+  transform: translateY(-100%); transition: transform 180ms ease; }
+body.sheet-table .bottom-nav { position: fixed !important; bottom: 0; left: 0; right: 0; z-index: 140 !important;   /* no :not() here — its argument's specificity made the hide rule beat the show rule below */
+  transform: translateY(100%); transition: transform 180ms ease; }
+body.sheet-table.chrome-summoned .suite-bar,
+body.sheet-table.chrome-summoned .bottom-nav { transform: none; box-shadow: 0 0 24px rgba(0,0,0,.5); }
+@media (prefers-reduced-motion: reduce) { body.sheet-table .suite-bar, body.sheet-table .bottom-nav { transition: none; } }
+
+/* Auto-hide chrome (SHARED — extracted from dice/index.html for the IA lap, ONE home). Elements with
+ * class `.autohide-chrome` fade out when the app sets body.chrome-hidden (via SWRPGUI.useAutoHideChrome
+ * on idle). Fade-out 250ms (ambient), fade-in 175ms (faster on interaction). Reduced-motion / a pin key
+ * disable the toggle upstream (chrome stays at opacity 1). Used by the dice cinematic AND the bars-resident
+ * NPC library. `.dice-autohide` is retired — renamed app-neutral. */
+.autohide-chrome { transition: opacity 175ms ease-in; }
+body.chrome-hidden .autohide-chrome { opacity: 0; pointer-events: none; transition: opacity 250ms ease-out; }
+
+/* slideUpBounce — bottom-sheet entrance (ITM-V1 store overlay/pickers; also referenced by the
+ * player saved-toast since UXQP — the keyframe never existed until now, so that animation was a
+ * silent no-op). Slight overshoot, settles fast. */
+@keyframes slideUpBounce {
+  0%   { transform: translateY(26px); opacity: 0; }
+  70%  { transform: translateY(-3px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+ * D4 — SCROLLBARS, APP-WIDE (ruling `creator-desktop-wide-and-fit-concept` §4 D4)
+ *
+ * The eighth and last defect of Jason's 1080p report. The ruled shape is THE FLOOR AND ONLY THE
+ * FLOOR: one shared treatment in this file — the single stylesheet all four shells load (root
+ * launchpad, player, gm, dice) — thin and recessive at rest, legible on interaction. Zero JS, one
+ * file, every surface at once. The scroll-driven reveal is explicitly "only if the floor
+ * disappoints", and its mechanism must be MEASURED before it is built, not assumed.
+ *
+ * WHY THIS IS THE SUBTRACTION-FIRST ANSWER: ~80 scrolling panes exist across three apps. A JS
+ * reveal would touch all of them; a stylesheet touches none of them and changes all of them.
+ *
+ * COLOURS ARE RGBA-ON-DARK rather than token references, deliberately: this must apply inside every
+ * surface including the ones that re-declare their own palette, and a scrollbar that inherits a
+ * surface accent would be a different colour on every screen — the opposite of recessive.
+ * ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* Firefox / spec: `thin` is the whole mechanism there. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+
+/* WebKit/Blink: the track stays invisible so the bar reads as an edge cue, not as chrome. */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-corner { background: transparent; }
+
+/* The thumb is inset by a transparent border + background-clip, so it reads as a 6px pill in a 10px
+ * gutter — narrow enough to recede, wide enough to hit. `background-clip: padding-box` is what makes
+ * the border transparent rather than filled. */
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 6px;
+}
+
+/* LEGIBLE ON INTERACTION — the ruling's other half. Hovering the PANE lifts its bar, so the cue
+ * appears where the pointer already is rather than requiring the user to find a 6px target first. */
+*:hover::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.30); background-clip: padding-box; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.46); background-clip: padding-box; }
+*::-webkit-scrollbar-thumb:active { background: rgba(255, 255, 255, 0.58); background-clip: padding-box; }
+
+/* HARD A11Y FLOOR (the ruling's never-lazy-about set): a VERTICAL scrolling pane keeps a visible cue
+ * that it scrolls. The horizontal chip strips that set `scrollbar-width:none` inline keep their
+ * exemption — they carry their own edge cues and that precedent is explicitly theirs alone — but it
+ * does NOT transfer to a reading pane, and three vertical panes had taken it anyway (see the gate).
+ * Stated here as well as fixed at the sites, because the next person to hide a vertical scrollbar
+ * will read this file before they read that gate. */
+
+/* ══════════════════════════════════════════════════════════════════════════════════════════
+   THE SURFACE-GROUND SET — F-101's mechanism (ruling `visual-revision-concept` R-VR-1/R-VR-4a)
+   ══════════════════════════════════════════════════════════════════════════════════════════
+
+   DESIGN_IDENTITY's two layers, made addressable: a DOCUMENT rendered on an INSTRUMENT. The
+   instrument is the app's own chrome; the document is the paper a surface paints on it.
+
+   THE RULE THIS ENCODES (R-VR-1): a surface may declare its OWN document ground, one at a time,
+   each by name, each citing its authorizing ruling — and NO SURFACE INHERITS ANOTHER'S. That is
+   why the paper ground is declared on a CONTAINER, never on `:root`. A `:root` paper would BE
+   the global that clause exists to prevent: one surface's choice silently becoming every
+   surface's.
+
+   NO VALUES ARE CHOSEN HERE, AND THAT IS DELIBERATE. This file defines the CONTRACT — the names
+   a ground must supply — not any ground's palette. A ground's actual colours arrive with the
+   surface that declares it, after Jason approves its mockup (R-MU1). A mechanism that shipped a
+   palette would have decided surface one's design on day zero, which is not the mechanism's to
+   decide.
+
+   HOW A SURFACE DECLARES ONE
+       <div data-doc-ground="creator-entry">      // the NAME is the citation's anchor
+         ...                                       // every --doc-* below re-declared inline
+       </div>                                      // or in that surface's own stylesheet block
+
+   Shared components consume `var(--doc-…)` ONLY. Outside any declared ground they fall back to
+   the INSTRUMENT values below — which is honest, because the chrome is itself a ground, and a
+   component rendered outside a document should look like the instrument rather than like
+   whichever paper happened to be defined last. */
+
+:root {
+  /* THE INSTRUMENT — the app's own chrome. This is the fallback ground, not "the" ground. */
+  --doc-paper:        #0b0f17;   /* the surface a document sits on when no document is declared */
+  --doc-row-band: color-mix(in srgb, var(--doc-paper) 50%, var(--doc-paper-raised));   /* R-SST-1: list stripes; same expression in grounds/creator.css */
+  --doc-paper-raised: #121722;   /* one step toward the viewer (cards, panels) */
+  --doc-paper-sunk:   #070a10;   /* one step away (wells, insets) */
+  --doc-ink:          var(--text-primary, #E8EAED);
+  --doc-ink-muted:    var(--text-muted, #9AA3AF);
+  /* STRUCTURAL ONLY — rules, ticks, disabled edges. NEVER a mark a reader must make out.
+     Named `-structural` and not `-faint` on purpose: the lab published that its equivalent token
+     was ignored five times and cost 461 failing glyphs "from one token used against its own
+     docstring". A slot called `faint ink` invites exactly that. The rule travels with the name:
+     IF A MARK MUST BE READ, IT IS NOT STRUCTURAL, whatever it looks like. */
+  --doc-ink-structural: var(--text-faint, #6B7280);
+  --doc-rule:         rgba(255,255,255,0.10);   /* hairlines, dividers, document furniture */
+  --doc-accent:       #F5A623;                  /* the single accent DESIGN_IDENTITY Law 3 owns */
+  --doc-mat:          #0c0f15;                  /* the mat law's uniform plate ground for art */
+
+  /* ── THE SEMANTIC FILLS (R-CGG-2's door, used) ────────────────────────────────────────
+     A fill is not an ink and cannot be derived from one: the ground decides both the fill AND
+     what reads on it, and the two invert between grounds. On the INSTRUMENT the action fill is
+     light (the accent) and takes dark type; on paper it is a dark printed red and takes
+     parchment. That inversion is exactly why each fill carries its own ink name rather than
+     letting a consumer guess — guessing at what reads on a fill IS the placement-law failure
+     class (`palette-adoption-terms` R-PAT-4a).
+
+     THE TWO PRINTED FILLS ARE SEMANTIC, NEVER DECORATIVE — the lab's publication states the
+     distinction and it is the whole vocabulary:
+         ACTION = a thing the character DOES — commit, spend, choose.
+         STATE  = a thing that simply IS      — standing state, label, heading.
+     A surface that reaches for `--doc-action` because it wants "the strong one" has made the
+     colour decorative again, which is the habit the split exists to break. */
+  --doc-action:       var(--doc-accent);        /* the fill for a thing the character DOES */
+  --doc-action-lift:  var(--doc-action);        /* its hover; the instrument does not lift */
+  --doc-action-ink:   #000;                     /* what reads ON the action fill */
+  --doc-state:        var(--doc-paper-raised);  /* the fill for a thing that simply IS */
+  --doc-state-ink:    var(--doc-ink);           /* what reads ON the state fill */
+  /* FILL ONLY. The MARK is a raised characteristic, a live tick — a thing pointed AT, never a
+     thing read. It measured 1.7:1 on paper: as type it is invisible, as a fill it is the
+     loudest object on the page. `-ink` is what reads on it; the mark itself never carries type. */
+  --doc-mark:         var(--doc-accent);
+  --doc-mark-ink:     #000;
+  --doc-plate:        var(--doc-paper-raised);  /* the capsule's own plate, inside a document */
+
+  /* ── THE PLATE'S GEOMETRY AND MATERIAL ────────────────────────────────────────────────
+     `paper.css` consumes these, and although every one of its selectors is scoped under a
+     declared ground, they are given INSTRUMENT values here anyway. The reason is the guard
+     that caught their absence: a bare `var()` whose property is undefined renders UNSET, and
+     "it can only be reached inside a ground" is an argument, not a mechanism. A ground that
+     forgets one now gets the instrument's answer instead of no answer.
+
+     The CHAMFER is 0 on the instrument on purpose: a cut corner is a PRINTED device — it says
+     the object is a card off a page. The chrome has no such claim to make, so it does not
+     make it, and the same class renders as an ordinary panel there. */
+  --doc-cut:          0px;
+  /* The SMALL chamfer, for objects too small to carry the full cut — the rail's capsules and the
+     ledger's buttons. Same reasoning as `--doc-cut`, same instrument answer: zero, because the
+     chrome makes no claim to be a printed card. It is a SEPARATE name rather than a calc() off
+     `--doc-cut` because the board sets the two independently (12px and 6px), and a derived value
+     would silently follow a surface that raised its own cut for a hero plate. */
+  --doc-cut-sm:       0px;
+  /* GEOMETRY the transplanted objects need. The chevron head's point depth and the phone unit's
+     measure. Instrument defaults are the no-claim ones: a square head (the chrome is not pretending
+     to be printed) and no cap. They live in the CONTRACT because `paper.css` writes them bare and a
+     bare ground-only name renders UNSET everywhere the ground is not declared — which is every
+     surface F-101 has not reached yet, and is exactly what `doc_token_spelling` leg 3 caught here. */
+  --doc-point:        0px;
+  --doc-unit-max:     none;
+  /* The document LEAD's measure. Distinct from `--desk-prose-max`: the board's lead runs wider
+     than a reading column because it is a standfirst, not body copy. Aliasing the two halved the
+     description plate and cost two of the six defects Jason returned. */
+  --doc-lead-max:     none;
+  --doc-lift:         0 1px 2px rgba(0,0,0,.34), 0 6px 16px rgba(0,0,0,.28);
+  --doc-rule-fine:    rgba(255,255,255,0.06);
+
+  /* The WIDTH LADDER's scale factor. 1 on the instrument and everywhere off-ladder: a surface
+     only grows in the ROOM band, where the reader is far enough away to need it. Defined here
+     rather than only inside the @container block for the same reason the chamfer is — a name
+     that exists solely inside a conditional is undefined everywhere the condition is false, and
+     `var()` answers that with nothing rather than with an error. */
+  --doc-band-scale:   1;
+}
+
+/* A declared document ground scopes the whole set to its subtree and nothing outside it.
+   The attribute selector carries no values on purpose: it exists so the CONTRACT is greppable
+   and so `test/ground_token_contract.cjs` can prove a declaring surface supplies the full set
+   rather than a convenient subset — a partial ground is the "wrong on the other ground" bug
+   waiting to happen. */
+[data-doc-ground] { color: var(--doc-ink); background: var(--doc-paper); }
+
+
+/* ── THE FILL FAMILY'S BASE RULE (ruling `tree-cell-force-pip-fill` R-FPF-2 (ii)/(iii)) ─────────
+   `glyphText` emits the two-`<i>` fill markup for the Force family in PROSE on every surface, so
+   there is ONE renderer and no second implementation. Off the paper ground that markup must draw
+   exactly what a plain `.hp-sym` drew before it existed — one solid glyph in the token's own ink —
+   because the dice app, the holotable, the store, the yard and the vessel sheet have their own
+   approved records and R-MU1 does not let this change their pixels. B-498 carries the question of
+   whether they should adopt the family; until it is ruled and Jason approves a mockup, this rule
+   is what keeps them still.
+
+   WHY A BASE RULE AND NOT AN OPTION AT THE CALL SITE: `glyphs()` in `player/app.jsx` has 20 call
+   sites spanning the creator AND the sheet, so "pass it from the creator's wrapper" does not
+   separate the grounds — the GROUND does, and a ground is a CSS fact. This file is the one
+   stylesheet all three surfaces load (player · gm · dice), which is what makes it the base.
+
+   `[data-doc-ground]` scoping is deliberately NOT used here: this is the default, and the paper
+   ground overrides it in `paper.css`. A surface that declares no ground gets the plain mark. */
+.hp-sym-fill { display: inline-block; color: var(--sym-ink); }
+.hp-sym-fill > i { font-style: normal; }
+.hp-sym-fill > i + i { display: none; }
+
+/* THE FILL FAMILY ON A DARK GROUND (B-498; DECISIONS D-447; ruling `release-r7-bug-burndown` ADDENDA 440–443). A surface that
+   chose the family DECLARES it on its own root, `data-sym-fill="dark"` — the dice app on its `<body>` (dice/index.html),
+   the holotable's feed card on the card (lib/shared/holotableView.jsx) — and only there do the registers below draw.
+   Everywhere else the base rule above still collapses the markup to one solid glyph, so an unchosen surface does not
+   move a pixel (ADDENDUM 440 item 5: never the base selector). The paper ground draws its own registers in `paper.css`.
+   The registers are the paper's (paper.css, the hollow/half rules) re-inked for a dark ground: the stroke is the mark's
+   OWN token ink (`--sym-ink`), so a light pip keeps its light and the Force die its cream.
+     hollow — the ground shows inside           (the roll's light side and Force dice)
+     white  — a white interior, the same stroke (D-447's riders: the pool's Force die, the Dice Key, the feed card)
+     half   — hollow, its right half solid       (a Force pip)
+   The dark side is never in the family: it stays the solid mark the base rule draws. */
+[data-sym-fill="dark"] .hp-sym-fill { position: relative; }
+[data-sym-fill="dark"] .hp-sym-fill > i { display: block; }
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="hollow"],
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="hollow"] > i { color: transparent; -webkit-text-stroke: 0.08em var(--sym-ink); }
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="white"],
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="white"] > i { color: #FFFFFF; -webkit-text-stroke: 0.08em var(--sym-ink); }
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="hollow"] > i + i,
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="white"] > i + i { display: none; }
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="half"] > i { color: transparent; -webkit-text-stroke: 0.08em var(--sym-ink); }
+[data-sym-fill="dark"] .hp-sym-fill[data-fill="half"] > i + i { display: block; position: absolute; left: 0; top: 0;
+  color: var(--sym-ink); -webkit-text-stroke: 0; clip-path: inset(0 0 0 50%); }
+
+/* ── THE SHARED INLINE NOTICE's colours (SheetNotice / ModsLoadNotice, player/app.jsx; B-1022, D-400) ──
+   decisions/0049's split: the DEFAULT is the dark-chrome skin, today's values moved here from inline styles
+   unchanged; the paper ground overrides it in paper.css. Layout stays inline at the component. */
+.sheet-notice { background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.35); }
+.sheet-notice-text { color: rgba(255,255,255,0.82); }
+.sheet-notice-act { border: 1px solid rgba(245,166,35,0.55); background: rgba(245,166,35,0.14); color: #F5A623; }
+
+/* ── THE PAGE GROWS AS ONE PIECE ABOVE THE DRAWN DESK — the ONE definition (B-954 · B-951; lap paper-hotfix) ──
+   The landing's rule (B-837), lifted out of landing.css so every page that grows reads the SAME number: a page's
+   content zooms by the smaller of the viewport's width and height ratios to the drawn 1440×900 desk, never below 1.
+   `min(2560/1440, 1440/900)` = 1.6 at 2560×1440, 1.2 at 1920×1080, 2.4 at 3840×2160; 1 at 1440×900 and below, so
+   no page moves there. Jason picked it for the store, the NPC library and Homebrew (lab/paper/wide_screens_pick.html
+   @ lab e2b54654). A page opts in by zooming its CONTENT block with `zoom:var(--page-grow)`; the chrome bars are
+   never inside that block and stay at their 1440 size. Typed arithmetic (length ÷ length) resolves where it is
+   used, so it reads the viewport on every element alike. */
+:root { --page-grow: max(1, min(100vw / 1440px, 100vh / 900px)); }

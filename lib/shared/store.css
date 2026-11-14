@@ -1,0 +1,663 @@
+/* store.css — THE STORE'S OWN LAYER (the paper catalog). Ruling `store-paper-concept` R-SPC-1..7;
+   mockup `lab/holocron/store.html` @ lab `cf33463e` (Jason 2026-09-18: "Approved."). B-665 lands it.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/store_build.py`'s `BOARD_CSS` at that pin — 380 lines, every rule and
+   every comment, in the board's own order. The comments ARE the design record: they say why each
+   rule exists and what it cost to find out (six defects, two of which reuse would have prevented).
+   The board's page chrome (`CSS`, `PAGE_CSS`, the frame furniture) is NOT ported.
+
+   ── THE TWO MECHANICAL CHANGES ────────────────────────────────────────────────────────────────
+   1. THE TOKEN NAMES. `--pp-*` is the lab's vocabulary; the app's contract is `--doc-*`
+      (`lib/shared/grounds/creator.css`) — the sheet's map, applied:
+      `--pp-ink-2 → --doc-ink-muted` (34)
+      `--pp-ink → --doc-ink` (24)
+      `--pp-hair → --doc-rule` (19)
+      `--pp-maroon → --st-maroon` (18)
+      `--pp-plate → --doc-paper-raised` (15)
+      `--pp-mat → --doc-mat` (7)
+      `--pp-indigo → --doc-state` (6)
+      `--pp-hair-2 → --doc-rule-fine` (5)
+      `--pp-page → --doc-paper` (5)
+      `--pp-ink-3 → --doc-ink-structural` (2)
+      `--pp-ochre → --doc-accent` (1)
+      `--pp-taupe` / `--pp-lift` / `--pp-lead-max` appear nowhere in this stylesheet (0 each), so
+      `--doc-plate` is unused here. **B-679 AMENDS THIS LINE**: `--pp-red` and `--pp-gold` were also 0
+      until the bars arrived, and the bar block at the foot of the chip section now maps
+      `--pp-red → --doc-action` (2 — the live section's ink and its inset rule) and
+      `--pp-gold → --doc-mark` (1 — the two count badges' fill). Both are the board's own uses of
+      those tokens, carried over by the same map; no new name and no new value.
+
+      `--pp-maroon` (#501010 — EotE p.52's capsule label) IS THE ONE NAME THE APP HAS NOT MODELLED,
+      and `grounds/creator.css` says so in words at `--doc-plate`: "the maroon stays deliberately
+      unmodeled, exactly as the MARK gold was until this increment needed it." This increment needs
+      it — 18 uses: the rail's active inset, the restriction mark, the hand-written price tag, the
+      warn, REMOVE, the read's top rule, the GM stamp and shift mark. The landing's precedent for the
+      same situation (`--pp-chrome`, one use) kept the frame's own literal and reported it as an open
+      naming question; eighteen literals would be eighteen places to fix, so the VALUE lands once
+      here as `--st-maroon` and the naming question is the gate's. A `--doc-*` name for it is the
+      publication's call, not this layer's — and when it gets one, this is a one-line change.
+   2. EVERY RULE GAINS `[data-store-shell] ` AS AN ANCESTOR — 155 rules, 160 selectors, the
+      whole file. (B-679 adds ONE second scope — `data-store-chrome` as it built it, renamed to
+      `[data-paper-chrome]` by B-689 when the chrome stopped being the store's alone — for the two BARS: they
+      are the SIBLINGS of the store's root in `.app-shell`'s column, not its descendants, and a second
+      `[data-store-shell]` in the document would re-point `querySelector('[data-store-shell]')` — the
+      first line of 40-odd smoke legs that then read `data-band` and `data-store-face` off it — from
+      the kernel's root to a bar. Same fence, one more gate: `.pb-*` is the bars' vocabulary and
+      nothing else wears it. B-881 MOVED that scope's rules to `lib/shared/chrome.css`.) NOT the sheet's and the landing's choice, and the reason is the namespace: `.st-*`
+      is not this surface's alone. `.st-mat`, `.st-find`, `.st-q`, `.st-cr`, `.st-r` are catalog
+      primitives a later row will want on the SHEET's pack panel, and `.ct-*` is generic enough to
+      collide on sight. The concept's own words are "prefixed `[data-store-shell]`, so the store's
+      layer reaches nothing else" (the brief's §0 token-map paragraph), and the prefix pays a second
+      time: `[data-store-shell] .st-narrow .hp-buy-btn` is (0,3,0) against paper.css's
+      `[data-doc-ground="creator"] .hp-buy-btn` (0,2,0), so the eleven-selector specificity floor the
+      landing's port had to discover by measurement cannot arise here at all.
+
+   ── WHAT IS NOT THE BOARD'S, AND SAYS SO IN PLACE ─────────────────────────────────────────────
+   One block at the end: `.st-surface` (the board's frame was a fixed-size iframe cell; the app's
+   store is a flex child of an absolutely-positioned screen, so the shell needs the one rule the frame
+   gave it for free). A second block, `.st-legacy`, carried the interim islands through rows 1–4 and
+   B-669 deleted it — its tombstone is at the foot of this file.
+
+   ── THE BANDS ARE A CLASS, not a media query ──────────────────────────────────────────────────
+   The board draws the handheld shape with `.st-hh` and there is not one `@media` or `@container` in
+   the whole of `BOARD_CSS` — so the band arrives from JS (`useStoreBand` in `lib/store/view.jsx`,
+   composed from `lib/shared/bands.js`'s seams exactly as `useCreatorBand` is) and lands as
+   `data-band` on the shell plus `.st-hh` on the board. Left as the board wrote it. */
+
+/* ── THE STORE BOARD — a DELTA over holocron.css, not a second paper system. ──────────────────
+ * Ruled by the architect: reuse the hp- primitives for every concept the paper already owns; grow
+ * a store class ONLY where the store has a concept the vocabulary lacks. Adopted: hp-desig (the
+ * chapter designation) · hp-plate (the item mat) · hp-ledger (the spec table) · hp-index + hp-jump
+ * (the category rail) · hp-buy-btn / hp-buy-step / hp-buy-cost (the counter's controls) · hp-teach
+ * (the teaching block) · hp-why (the honest-degradation line).
+ *
+ * TWO OF THIS BOARD'S SIX DEFECTS COULD NOT HAVE HAPPENED UNDER REUSE: hp-jump is already
+ * min-height:44px (my rail links were 34) and hp-buy-btn is already min 44x44 (my REMOVE was 43).
+ * The shared vocabulary carries the floors with it. That is the ruling paying for itself.
+ *
+ * NOT ADOPTED, on purpose: hp-row is a CLICKABLE INDEX ROW and a counter line is not clickable as
+ * a whole. Wearing a class to make an instrument measure something would be gaming it. */
+
+[data-store-shell] .st{background:var(--doc-paper);color:var(--doc-ink);height:100%;display:flex;flex-direction:column;
+  font-family:var(--font-body,'Rajdhani',sans-serif);overflow:hidden}
+[data-store-shell] .st-head{padding:16px 22px 12px;border-bottom:1px solid var(--doc-rule)}
+/* hp-desig is sized for a sheet's name (clamp to 46px); a catalog head is furniture above a table,
+ * so the store caps it and adds the count. Size only — the face, weight and ink are the paper's. */
+[data-store-shell] .st-ch{font-size:26px!important;margin:0!important;display:flex;align-items:baseline;gap:12px;
+  color:var(--doc-ink)!important}
+[data-store-shell] .st-ch em{font-family:var(--font-mono,'Share Tech Mono',monospace);font-style:normal;font-size:11px;
+  letter-spacing:.16em;color:var(--doc-ink-muted);font-weight:400}
+[data-store-shell] .st-sub{font-size:14px;line-height:1.5;color:var(--doc-ink-muted);margin:6px 0 0;max-width:64ch}
+[data-store-shell] .st-sub b{color:var(--doc-ink)}
+
+/* NEW CONCEPT — SEARCH PRIMACY. The sheet has no search; §1 makes the box a first-class door. */
+[data-store-shell] .st-search{display:flex;align-items:center;gap:10px;margin:14px 0 0;background:var(--doc-paper-raised);
+  border:1px solid var(--doc-rule);border-radius:2px;padding:0 12px;min-height:46px}
+[data-store-shell] .st-search input{flex:1;border:0;background:none;outline:none;min-height:44px;
+  font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;color:var(--doc-ink)}
+[data-store-shell] .st-search input::placeholder{color:var(--doc-ink-muted);opacity:1}
+[data-store-shell] .st-search .k{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.14em;color:var(--doc-ink-muted)}
+
+[data-store-shell] .st-body{flex:1;min-height:0;display:flex;overflow:hidden}
+/* The rail IS hp-index; what the store adds is that it stands beside the content as a RAIL. */
+[data-store-shell] .st-rail{width:212px;flex:none;border-right:1px solid var(--doc-rule);overflow-y:auto;
+  padding:14px 0 20px;background:var(--doc-mat)}
+[data-store-shell] .st-rail h4,[data-store-shell] .st-strip h4{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted);font-weight:400}
+[data-store-shell] .st-rail h4{margin:16px 16px 6px}
+[data-store-shell] .st-rail h4:first-child{margin-top:0}
+/* NOT hp-jump. hp-jump is the SHEET's jump list, which the wave replaced — TWO-RAILS exists to stop
+ * it returning, and it fired the moment this rail wore the class. A catalog category rail is a
+ * different object. The 44px floor hp-jump would have carried is restated here explicitly, because
+ * that floor is the part worth keeping. */
+[data-store-shell] .st-cat{display:flex;justify-content:space-between;gap:8px;align-items:center;min-height:44px;
+  padding:0 16px;color:var(--doc-ink);font-size:14.5px;text-decoration:none}
+[data-store-shell] .st-cat b{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;font-weight:400;
+  color:var(--doc-ink-muted)}
+[data-store-shell] .st-cat[data-on="1"]{background:var(--doc-paper-raised);box-shadow:inset 3px 0 0 var(--st-maroon);font-weight:600}
+
+/* NEW CONCEPT — ATTRIBUTE NARROWING. Buttons are hp-buy-btn; the SET is the store's. */
+[data-store-shell] .st-narrow{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px}
+[data-store-shell] .st-narrow .hp-buy-btn{padding:0 11px;font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:13.5px;letter-spacing:0;text-transform:none;color:var(--doc-ink);background:var(--doc-paper-raised)}
+[data-store-shell] .st-narrow .hp-buy-btn[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised);
+  border-color:var(--doc-state)}
+[data-store-shell] .st-strip{border-bottom:1px solid var(--doc-rule);padding:10px 0;background:var(--doc-mat)}
+[data-store-shell] .st-strip .st-narrow{padding:0 22px}
+[data-store-shell] .st-strip h4{margin:0 22px 6px}
+
+[data-store-shell] .st-main{flex:1;min-width:0;overflow:auto}
+/* hp-ledger is the table; the store adds COLUMN behaviour and a sticky head a sheet never needs. */
+/* NOT hp-ledger. A ledger is key/value LINES and carries a 72px ROW BUDGET; a catalog row carries
+ * a plate, nine spec columns and a find mark. Adopting the class adopted a budget written for a
+ * different object, and the audit said so — 111px over — the moment the class went on. Reuse is
+ * right where the CONCEPT matches: a class brings its rules with it. */
+[data-store-shell] .st-tab{width:100%;border-collapse:collapse;font-size:14.5px}
+[data-store-shell] .st-tab tbody tr{border-bottom:1px solid var(--doc-rule-fine)}
+[data-store-shell] .st-tab thead th{position:sticky;top:0;background:var(--doc-paper);text-align:left;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:10px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--doc-ink-muted);
+  padding:12px 10px 8px;border-bottom:1px solid var(--doc-rule);white-space:nowrap}
+[data-store-shell] .st-tab thead th.num,[data-store-shell] .st-tab td.num{text-align:right;font-variant-numeric:tabular-nums}
+[data-store-shell] .st-tab td{padding:10px;vertical-align:middle}
+[data-store-shell] .st-tab td.nm{font-weight:600;font-size:15.5px;line-height:1.25}
+[data-store-shell] .st-tab td.num,[data-store-shell] .st-tab td.mono{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:13px}
+[data-store-shell] .st-cr{white-space:nowrap;font-variant-numeric:tabular-nums}
+/* hp-plate at item scale — §6's image lane replaces the glyph, not the plate. */
+[data-store-shell] .st-mat{width:46px;height:46px;flex:none;background:var(--doc-mat);border:1px solid var(--doc-rule);
+  display:flex;align-items:center;justify-content:center;box-shadow:none}
+[data-store-shell] .st-mat svg{width:26px;height:26px;stroke:var(--doc-ink-muted);fill:none;stroke-width:1.5}
+[data-store-shell] .st-nmwrap{display:flex;align-items:center;gap:12px}
+/* B-1710 — the row's open button (`rowOpen`) wears the cell: no box, the cell's type and ink, and the full width of the
+ * block it replaces. `:where` keeps the reset BELOW `.st-nmwrap`/`.st-row1`, so their display, gap and alignment still
+ * draw it (it sits after them in this file, and at equal weight the reset would win). The ROW draws the ring when the
+ * button has keyboard focus: the hosts' WCAG 2.4.7 rule (`[tabindex]:focus-visible` in player/ and gm/index.html, its three
+ * values restated) painted the focusable `tr` before, so the frame a keyboard user sees does not move. The button's own
+ * copy of that rule (`button:focus-visible`, !important) is switched off here, on higher specificity. */
+[data-store-shell] :where(.st-open){all:unset;box-sizing:border-box;width:100%}
+/* ADDENDUM 590 Rider 2 — both focus rules only where `:has` is: without it the row cannot draw the ring, so the button
+ * keeps the hosts' own ring (a different frame, but a visible one, WCAG 2.4.7). */
+@supports selector(:has(a)){
+[data-store-shell] .st-open:focus-visible{outline:none !important;box-shadow:none}
+[data-store-shell] .st-tab tr:has(.st-open:focus-visible){outline:2px solid currentColor;outline-offset:2px;
+  box-shadow:0 0 0 4px rgba(78,170,255,0.28)}
+}
+
+/* NEW CONCEPT — FIND DIFFICULTY AS A MARK (LAB_PRACTICE §21). Six neon bands tuned for a black
+ * ground carry no meaning on paper; the RAW dice count does, and it survives a photocopy. */
+[data-store-shell] .st-find{display:flex;align-items:center;gap:7px;white-space:nowrap}
+[data-store-shell] .st-pips{letter-spacing:1px;color:var(--doc-ink);font-size:11px}
+[data-store-shell] .st-find b{font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:11px;
+  letter-spacing:.1em;color:var(--doc-ink-muted)}
+/* NEW CONCEPT — the restriction mark. hp-cite is a SOURCE chip; this is a legal status. */
+[data-store-shell] .st-r{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.1em;
+  color:var(--st-maroon);border:1px solid var(--st-maroon);border-radius:2px;padding:2px 4px;
+  margin-left:6px;white-space:nowrap}
+[data-store-shell] .st-q{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;color:var(--doc-ink-muted);
+  margin-top:3px;letter-spacing:.04em}
+[data-store-shell] .st-foot{padding:12px 22px 18px;border-top:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.1em;
+  color:var(--doc-ink-muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* HANDHELD — nine columns do not fit 390px, so the row stacks and the specs stay one scannable line. */
+[data-store-shell] .st-hh .st-tab thead{display:none}
+[data-store-shell] .st-hh .st-tab td{display:block;padding:0}
+[data-store-shell] .st-hh .st-tab tbody tr{display:block;padding:11px 16px}
+[data-store-shell] .st-hh .st-row1{display:flex;align-items:center;gap:11px}
+[data-store-shell] .st-hh .st-row1 .st-cr{margin-left:auto;font-size:14px}
+/* B-666: the board wrote the phone row's NAME as an inline style (`row_hh`:
+ * `style="font-weight:600;font-size:15.5px"`). Hoisted into the layer verbatim — the two numbers
+ * are the board's; a built face carries its type in the stylesheet, not on the element. */
+[data-store-shell] .st-hh .st-hh-nm{font-weight:600;font-size:15.5px}
+[data-store-shell] .st-hh .st-specs{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11.5px;
+  color:var(--doc-ink-muted);margin:7px 0 0 58px;letter-spacing:.03em;display:flex;flex-wrap:wrap;gap:9px}
+[data-store-shell] .st-hh .st-find{margin:6px 0 0 58px}
+
+/* ── THE COUNTER ─────────────────────────────────────────────────────────────────────────────
+ * A GRID THAT STACKS. The first draft was one flex row and at 390px "A/KT Shockrider Crash Suit"
+ * was CLIPPED MID-WORD by its own stepper. Every audit passed — a squeezed name is valid layout,
+ * and a scrollWidth probe finds nothing because the text was not overflowing its box, it was
+ * losing a width fight. Only looking caught it. */
+[data-store-shell] .ct-body{flex:1;min-height:0;overflow:auto;padding:14px 18px 22px}
+[data-store-shell] .ct-line{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:12px;row-gap:9px;
+  padding:14px 0;border-bottom:1px solid var(--doc-rule-fine);align-items:start}
+[data-store-shell] .ct-line .st-mat{grid-column:1;grid-row:1}
+[data-store-shell] .ct-nm{grid-column:2;font-weight:600;font-size:15.5px;line-height:1.28}
+[data-store-shell] .ct-tagrow{grid-column:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+[data-store-shell] .st-why{grid-column:2;text-transform:none!important;letter-spacing:0!important;
+  font-family:var(--font-body,'Rajdhani',sans-serif)!important;font-size:13px!important;
+  line-height:1.45;color:var(--doc-ink-muted)!important;max-width:44ch}
+[data-store-shell] .ct-foot{grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* B-1403 (frames A-counter / A-host) — GOES ON: an attachment line's hosts, one bordered row each; the chosen row's rule
+   doubles, a refused row reads attachmentFit's reason in the caution ink and takes no press. */
+[data-store-shell] .ct-goes{grid-column:2;display:flex;flex-direction:column;gap:6px;margin:6px 0 2px;min-width:0}
+[data-store-shell] .ct-goeshd{margin:0;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;
+  letter-spacing:.1em;color:var(--doc-ink-muted)}
+[data-store-shell] .ct-goesb{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;box-sizing:border-box;
+  width:100%;min-width:0;border:1px solid var(--doc-ink-structural);background:var(--doc-paper-raised);color:var(--doc-ink);
+  text-align:left;font:inherit;cursor:pointer}
+[data-store-shell] .ct-goesb[data-on="1"]{border:2px solid var(--doc-ink);padding:5px 11px}
+[data-store-shell] .ct-goesb[disabled]{cursor:default;background:none}
+[data-store-shell] .ct-goesmk{flex:none;width:14px;text-align:center;font-size:13px;color:var(--doc-ink)}
+[data-store-shell] .ct-goesn{flex:1 1 auto;min-width:0;font-family:var(--font-body,inherit);font-weight:600;font-size:14px;
+  color:var(--doc-ink);overflow-wrap:anywhere}
+[data-store-shell] .ct-goesb[disabled] .ct-goesn{color:var(--doc-ink-muted)}
+[data-store-shell] .ct-goesm{flex:0 1 auto;min-width:0;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;
+  letter-spacing:.04em;color:var(--doc-ink-muted);text-align:right}
+[data-store-shell] .ct-goesno{color:var(--doc-caution,var(--doc-ink-muted))}
+[data-store-shell] .ct-goesnone{margin:0;font-family:var(--font-body,inherit);font-size:13px;line-height:1.45;color:var(--doc-ink-muted)}
+
+/* NEW CONCEPT — THE HAND-WRITTEN PRICE. Nothing on the sheet is a number the player writes over
+ * the book's own. Dashed while it still shows the list price; solid and maroon once a hand has
+ * been on it, with LIST kept beside it so the shelf price is never lost. */
+[data-store-shell] .ct-tag{display:inline-flex;align-items:center;min-height:44px;min-width:76px;padding:0 10px;
+  border:1px dashed var(--doc-ink-structural);border-radius:2px;background:var(--doc-paper-raised);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:14px;color:var(--doc-ink);
+  font-variant-numeric:tabular-nums}
+[data-store-shell] .ct-tag[data-edited="1"]{border-color:var(--st-maroon);border-style:solid;color:var(--st-maroon);
+  font-weight:600}
+[data-store-shell] .ct-list{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;
+  letter-spacing:.1em;color:var(--doc-ink-muted);white-space:nowrap}
+[data-store-shell] .ct-qty{display:flex;align-items:center;gap:2px;flex:none}
+[data-store-shell] .ct-qty .hp-buy-btn{padding:0;font-size:17px;color:var(--doc-ink);background:var(--doc-paper-raised)}
+[data-store-shell] .ct-qty .hp-buy-step{min-width:26px;text-align:center}
+[data-store-shell] .ct-tot{display:flex;align-items:center;gap:12px;white-space:nowrap}
+[data-store-shell] .ct-rm{padding:0!important;border:0!important;background:none!important;color:var(--st-maroon)!important}
+[data-store-shell] .ct-line[data-unresolved="1"] .st-mat{background:repeating-linear-gradient(45deg,
+  var(--doc-mat) 0 5px,var(--doc-paper) 5px 10px)}
+[data-store-shell] .ct-sum{margin-top:16px;border-top:1px solid var(--doc-rule);padding-top:14px;
+  display:flex;flex-direction:column;gap:9px}
+[data-store-shell] .ct-srow{display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:12px;letter-spacing:.06em;
+  font-variant-numeric:tabular-nums}
+[data-store-shell] .ct-srow b{font-size:16px}
+/* --doc-ink-muted, NOT ink-3. The frames pass found "ADDS n ENCUMBRANCE" at the floor of the shipped
+ * counter's legibility while carrying a number a player might act on, and ink-3's own docstring
+ * says STRUCTURAL ONLY — if a mark must be READ it is not structural. */
+[data-store-shell] .ct-dim{color:var(--doc-ink-muted)}
+/* NEW CONCEPT — a warn that is PROSE. hp-warn is a mono uppercase label; law 1's warning is a
+ * sentence that states arithmetic and ends "your table's call". A label cannot say that. */
+[data-store-shell] .ct-warn,[data-artwork-paper] .ct-warn{border:1px solid var(--st-maroon);border-left-width:3px;border-radius:2px;padding:11px 13px;
+  font-size:14px;line-height:1.5;color:var(--doc-ink);margin:4px 0 0;background:var(--doc-paper-raised)}
+[data-store-shell] .ct-fin{min-height:52px;border:1px solid var(--doc-state);border-radius:2px;background:var(--doc-state);
+  color:var(--doc-paper-raised);font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:13px;
+  letter-spacing:.16em;cursor:pointer;margin-top:4px}
+[data-store-shell] .ct-fin[data-warn="1"]{background:var(--st-maroon);border-color:var(--st-maroon)}
+[data-store-shell] .ct-empty{padding:38px 20px;text-align:center;justify-items:center}
+[data-store-shell] .ct-empty p{font-size:17px;margin:0 0 10px;color:var(--doc-ink)}
+[data-store-shell] .ct-teach{font-size:15px!important;line-height:1.6;color:var(--doc-ink-muted)!important;max-width:36ch;
+  margin:0 auto!important}
+[data-store-shell] .ct-teach b{color:var(--doc-ink)}
+[data-store-shell] .ct-done{padding:34px 8px;text-align:center}
+[data-store-shell] .ct-donehd{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:19px;
+  letter-spacing:.14em;margin:0 0 10px}
+[data-store-shell] .ct-done p{font-size:15px;line-height:1.6;margin:0 0 12px}
+[data-store-shell] .ct-owned{max-width:40ch;margin:0 auto 18px!important;color:var(--doc-ink-muted)}
+[data-store-shell] .ct-owned b{color:var(--doc-ink)}
+[data-store-shell] .ct-acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── THE SUMMONED RAIL (Jason 2026-09-01: "the rail, and we can have the rail on handheld by
+ * using a contextual button to bring it out"). It is not a duplicate of the bottom bar: the bar
+ * carries SECTIONS, the rail carries CATEGORY + attribute narrowing — which the railless handheld
+ * shape had NO room for at all. The phone gains filtering it did not have. */
+[data-store-shell] .st-summon{width:100%;margin:10px 0 0;display:flex;align-items:center;justify-content:space-between;
+  padding:0 13px;background:var(--doc-paper-raised);color:var(--doc-ink);letter-spacing:.1em;font-size:11px}
+[data-store-shell] .st-summon-n{color:var(--doc-ink-muted);letter-spacing:.12em;font-size:9.5px}
+[data-store-shell] .st-scrim{position:absolute;inset:0;background:rgba(23,22,27,.42);z-index:1}
+[data-store-shell] .st-drawer{position:absolute;top:0;bottom:0;left:0;width:300px;z-index:2;
+  border-right:1px solid var(--doc-rule);box-shadow:6px 0 26px rgba(23,22,27,.30);
+  background:var(--doc-mat);overflow-y:auto;padding-bottom:24px}
+[data-store-shell] .st-drawerhd{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:11px 12px 11px 16px;background:var(--doc-mat);
+  border-bottom:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-store-shell] .st-close{padding:0 12px;font-size:10px;letter-spacing:.14em;background:var(--doc-paper-raised);
+  color:var(--doc-ink)}
+[data-store-shell] .st{position:relative}
+/* ── §4 · THE DOORS ──────────────────────────────────────────────────────────────────────────
+ * The GM face is the only one that can change what an item's rarity READS AS, so the stamp is
+ * the loudest thing on its page after the designation. */
+[data-store-shell] .gm-stamp{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin:0;padding:13px 22px;background:var(--doc-paper-raised);border-bottom:1px solid var(--doc-rule);
+  box-shadow:inset 3px 0 0 var(--st-maroon)}
+[data-store-shell] .gm-stamp[data-unset="1"]{box-shadow:inset 3px 0 0 var(--doc-ink-structural);background:var(--doc-mat)}
+/* R-DI1: the display face renders UPPERCASE. Caught by BAN-CASE — the unset state read
+ * "Set a location" in Orbitron with no transform, and a world name would have too. */
+[data-store-shell] .gm-world{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:19px;
+  letter-spacing:.04em;color:var(--doc-ink);text-transform:uppercase}
+[data-store-shell] .gm-circ{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted);margin-top:4px}
+[data-store-shell] .gm-mod{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:30px;
+  line-height:1;color:var(--st-maroon);text-align:right;font-variant-numeric:tabular-nums}
+[data-store-shell] .gm-mod em{display:block;font-family:var(--font-mono,'Share Tech Mono',monospace);font-style:normal;
+  font-size:9px;letter-spacing:.16em;color:var(--doc-ink-muted);margin-top:4px;font-weight:400}
+[data-store-shell] .gm-shelfhd{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted);margin:2px 0 10px;
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+[data-store-shell] .gm-shelfhd em{font-style:normal}
+[data-store-shell] .gm-stockrow{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:12px;row-gap:7px;
+  padding:12px 0;border-bottom:1px solid var(--doc-rule-fine);align-items:start}
+[data-store-shell] .gm-stockrow .st-mat{grid-column:1;grid-row:1}
+[data-store-shell] .gm-nm{grid-column:2;font-weight:600;font-size:15px;line-height:1.28}
+[data-store-shell] .gm-stockrow .st-find{grid-column:2;flex-wrap:wrap}
+[data-store-shell] .gm-cr{grid-column:2;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:12.5px;
+  color:var(--doc-ink-muted);font-variant-numeric:tabular-nums}
+/* The shift mark: what this world DID to the printed rarity. A mark, not a colour — same law as
+ * the pips. It only renders when the band actually moved. */
+[data-store-shell] .gm-shift{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--st-maroon);
+  border:1px solid var(--st-maroon);border-radius:2px;padding:2px 5px}
+
+/* THE CREATOR'S PURSE — a strip ABOVE the bar, never in it: BottomNav is navigation-only by
+ * contract, and the purse is a reading, not a destination. Red and honest when negative. */
+[data-store-shell] .cr-purse{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 18px;background:var(--doc-paper-raised);border-top:1px solid var(--doc-rule)}
+[data-store-shell] .cr-lab{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.18em;
+  color:var(--doc-ink-muted)}
+[data-store-shell] .cr-val{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:14px;font-weight:600;
+  letter-spacing:.04em;color:var(--doc-ink);font-variant-numeric:tabular-nums}
+[data-store-shell] .cr-purse[data-over="1"] .cr-val{color:var(--st-maroon)}
+[data-store-shell] .ct-acts button{min-height:46px;padding:0 18px;border:1px solid var(--doc-rule);border-radius:2px;
+  background:var(--doc-paper-raised);font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;
+  letter-spacing:.14em;color:var(--doc-ink);cursor:pointer}
+
+/* ── THE ITEM, READ — the overlay, which this board had never drawn ──────────────────────────
+ * THE SHELF STAYS VISIBLE BEHIND IT. That is the kernel's own design law (`lib/store/view.jsx`
+ * ItemOverlay: "the shelf stays visible behind"), and on paper it is the difference between
+ * PICKING SOMETHING UP and BEING TAKEN SOMEWHERE — you are still at the shelf, holding one thing.
+ * So the frame draws the whole shelf and lays the read over it, rather than drawing a page.
+ *
+ * `.st-stack` exists because the overlay must be absolute to the FRAME and `.st` is the shelf: one
+ * positioned parent holding shelf + scrim + read. It is not a second `.st`. */
+[data-store-shell] .st-stack{position:relative;height:100%;overflow:hidden}
+[data-store-shell] .st-read{position:absolute;left:0;right:0;bottom:0;z-index:2;max-height:88%;overflow-y:auto;
+  background:var(--doc-paper);border-top:2px solid var(--st-maroon);
+  padding:15px 16px 0;box-shadow:0 -8px 30px rgba(23,22,27,.34)}
+/* At the desk the read is a held CARD, not a drawer across the whole width: a 1366px-wide sheet of
+ * prose is four measures across and unreadable, which is what `deskCap` guards in the kernel.
+ *
+ * AND AT THE DESK IT IS TWO COLUMNS, which is the gear book's own page: the stat block beside the
+ * prose rather than above it. Measured reason, not taste — one column put 752px of content into a
+ * 680px card, so the item's own actions sat below the fold in the ONE frame that has the room to
+ * photograph the whole anatomy. Two columns bring it to ~470px and the reading measure with it
+ * (368px, about 46 characters). This is §1's tabular density arriving at the item rather than at
+ * the shelf. */
+/* B-137 (D-399, "Two columns"): the card is 1,080 wide (capped to the stage), so the desk uses its width: the left column
+ * holds "What it does" and the numbers, the right the description at a 75-character measure. Was 680. */
+[data-store-shell] .st-read[data-desk="1"]{left:auto;right:26px;bottom:26px;width:min(1080px,calc(100% - 52px));max-height:90%;
+  border:1px solid var(--doc-rule);border-top:2px solid var(--st-maroon)}
+/* THE TWO COLUMNS ARE TWO ELEMENTS, not one grid over a linear list. The first cut assigned
+ * `grid-column` to each child and let auto-placement do the rest, which gives every child its own
+ * ROW — so the stat block's four rows sat opposite the prose's four rows with the taller one
+ * stretching each, and the find line broke in half across a gap. A two-column reading is two
+ * columns of content, and saying so in the markup is what makes it one. */
+[data-store-shell] .st-read[data-desk="1"] .st-cols{display:grid;grid-template-columns:300px minmax(0,1fr);
+  column-gap:32px;align-items:start}
+[data-store-shell] .st-read[data-desk="1"] .st-colR > :first-child{margin-top:0}
+[data-store-shell] .st-read[data-desk="1"] .st-colL > :first-child{margin-top:0}
+[data-store-shell] .st-read[data-desk="1"] .hp-prose{max-width:75ch}
+[data-store-shell] .st-read[data-desk="1"] [data-testid="store-base-mods"]{border-bottom:1px solid var(--doc-rule);padding-bottom:8px;margin-bottom:4px}
+[data-store-shell] .st-readhd{display:flex;gap:14px;align-items:flex-start}
+[data-store-shell] .st-read .st-mat{width:92px;height:92px}
+[data-store-shell] .st-read .st-mat svg{width:48px;height:48px}
+[data-store-shell] .st-readid{flex:1;min-width:0}
+/* The item's name takes the display face, so it takes R-DI1's uppercase with it (BAN-CASE). */
+[data-store-shell] .st-readnm{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:17px;
+  line-height:1.15;letter-spacing:.03em;text-transform:uppercase;color:var(--doc-ink);margin:0}
+[data-store-shell] .st-readsub{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--doc-ink-muted);margin:5px 0 0}
+[data-store-shell] .st-readcr{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:19px;
+  color:var(--doc-ink);font-variant-numeric:tabular-nums;margin-top:7px;display:block}
+/* THE SPEC LEDGER IS `hp-ledger`, AND THE CLASS IS RIGHT HERE FOR THE REASON IT WAS WRONG ON THE
+ * CATALOG ROW. A ledger is key/value LINES and carries a 72px row budget; a nine-column catalog row
+ * blew that budget by 111px the moment it wore the class (the audit said so instantly), so the row
+ * declined it. The overlay's spec plate IS key/value lines — six of them, ~30px each — so it takes
+ * the class, the budget, the 16px value floor and the rules with it. Reuse where the CONCEPT
+ * matches; refuse where it doesn't. */
+[data-store-shell] .st-read .hp-ledger{margin-top:12px}
+[data-store-shell] .st-read .hp-ledger td{padding:5px 0}
+[data-store-shell] .st-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+/* NEW CONCEPT — the QUALITY chip. `hp-cite` is a SOURCE chip and reads in red; a quality is not a
+ * citation and must not borrow a citation's ink. Same geometry, the paper's own hairline. */
+[data-store-shell] .st-chip{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc-ink-muted);
+  border:1px solid var(--doc-rule);padding:3px 8px;white-space:nowrap}
+[data-store-shell] .st-findrow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:13px;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-store-shell] .st-findrow .st-pips{font-size:12px}
+[data-store-shell] .st-findrow b{color:var(--doc-ink);font-weight:400}
+[data-store-shell] .st-read .hp-prose{max-width:62ch;white-space:pre-line}
+/* `.st-modhd` (B-137's "What it does" label) shares the cite's type and is NOT a cite: the read's one `.st-src` is its source. */
+[data-store-shell] .st-src,[data-store-shell] .st-modhd{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--doc-ink-muted);margin:12px 0 0}
+/* THE ACT ROW IS STICKY, AND IT IS A PROPOSAL RATHER THAN A DRAWING OF THE KERNEL — disclosed
+ * here and in the frame's own caption. The shipped overlay is a scrolling sheet with its actions at
+ * the BOTTOM, past the description: measured on this board, the Vibro-ax's read is 1,032px of
+ * content in a 730px sheet, so ADD TO COUNTER sits 302px below the fold on arrival and the state a
+ * player is actually in cannot photograph its own primary act. Pinning the row to the foot of the
+ * sheet costs 60px of reading and makes the act reachable at every scroll position and at every
+ * band. The paper rule it obeys: a hairline, never a shadow — the row is part of the page, not a
+ * bar floating over it. */
+[data-store-shell] .st-acts{position:sticky;bottom:0;display:flex;gap:9px;flex-wrap:wrap;align-items:center;
+  margin-top:15px;padding:11px 0 14px;background:var(--doc-paper);border-top:1px solid var(--doc-rule)}
+/* THE SIDE DOORS STAY IN THE FLOW. Only the two acts that touch the counter are pinned; MOVE TO
+ * INVENTORY, COMPARE WITH YOURS and USE YOUR OWN IMAGE are places to go, not the decision this
+ * sheet is asking for, and pinning five buttons costs 150px of a 730px sheet — a fifth of the
+ * reading, to keep three things always under a thumb that is not reaching for them. */
+[data-store-shell] .st-acts2{display:flex;gap:9px;flex-wrap:wrap;align-items:center;padding:0 0 16px}
+[data-store-shell] .st-acts .hp-commit{flex:1;min-width:200px;justify-content:center}
+[data-store-shell] .st-hold{min-width:52px;justify-content:center}
+[data-store-shell] .st-hold[data-on="1"]{border-color:var(--st-maroon);color:var(--st-maroon)}
+
+/* ── COMPARE — carried vs shelf, and ONLY WHAT MOVES ─────────────────────────────────────────
+ * The idiom is the pack's MODIFY stage (`sheet_core.modify_stage`): a row whose value does not
+ * change prints ONE number, and a row that moves prints `was -> now`. A column of arrows next to
+ * four unchanged values is a diff pretending to be a finding. */
+[data-store-shell] .st-cmp{margin-top:14px;border-top:1px solid var(--doc-rule);padding-top:12px}
+[data-store-shell] .st-cmp-hd{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-store-shell] .st-cmp-pick{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 2px}
+[data-store-shell] .st-cmp-pick .hp-buy-btn{padding:0 11px;font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:13.5px;letter-spacing:0;text-transform:none;color:var(--doc-ink)}
+[data-store-shell] .st-cmp-pick .hp-buy-btn[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised);
+  border-color:var(--doc-state)}
+[data-store-shell] .st-cmp-row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:4px 12px;align-items:baseline;
+  border-top:1px solid var(--doc-rule-fine);padding:7px 0}
+[data-store-shell] .st-cmp-k{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.09em;
+  color:var(--doc-accent);text-transform:uppercase}
+[data-store-shell] .st-cmp-v{font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:600;font-size:16px;
+  color:var(--doc-ink);font-variant-numeric:tabular-nums}
+[data-store-shell] .st-cmp-v i{font-style:normal;color:var(--doc-ink-muted);margin:0 7px}
+/* D-406 item 23 (B-683): the picked item's story under the pick chips — nickname, then its latest note */
+[data-store-shell] .st-cmp-story{margin-top:8px;font-family:var(--font-body,'Rajdhani',sans-serif);font-size:15px;line-height:1.45;color:var(--doc-ink-muted)}
+[data-store-shell] .st-cmp-story b{font-weight:600;color:var(--doc-ink)}
+[data-store-shell] .st-cmp-note{grid-column:2;font-family:var(--font-body,'Rajdhani',sans-serif);font-size:13.5px;
+  line-height:1.45;color:var(--doc-ink-muted);margin:3px 0 0;max-width:44ch}
+
+/* ── HOLDS — ids only, never filtered, kept between sessions ─────────────────────────────────── */
+[data-store-shell] .st-hold-line{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:12px;row-gap:6px;
+  padding:12px 0;border-bottom:1px solid var(--doc-rule-fine);align-items:start}
+[data-store-shell] .st-hold-line .st-mat{grid-column:1;grid-row:1}
+[data-store-shell] .st-hold-nm{grid-column:2;font-weight:600;font-size:15.5px;line-height:1.28;
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+[data-store-shell] .st-hold-line .st-find,[data-store-shell] .st-hold-line .st-why,[data-store-shell] .st-hold-line .st-holdfoot{grid-column:2}
+[data-store-shell] .st-holdfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[data-store-shell] .st-mk{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--doc-ink-muted);border:1px solid var(--doc-rule);padding:2px 6px;
+  white-space:nowrap}
+
+/* ── THE SHOPPING-FOR CHIP — B-514, fixed in the frame ───────────────────────────────────────
+ * MEASURED IN THE APP AT 390: `SHOPPING FOR · MAXED OUT` is 194px of text in a 181px box, 13px
+ * cut (PHONE_CENSUS, BROKEN 3). The cause is a one-line chip whose LABEL and NAME share a single
+ * inline run, so the two grow into each other and the name — the only part that is not already
+ * known to the reader — is what gets cut.
+ *
+ * The cure is a SHAPE, not a width: the label is furniture and goes above, the name takes the whole
+ * column and WRAPS. `overflow-wrap:anywhere` is the part that makes it a fix rather than a bet — a
+ * name with no space in it cannot break a line otherwise, and the census's own specimen is two
+ * words only by luck. `store_fit.py` measures both boxes at 390 and is the proof.
+ *
+ * B-679 — THE FIRST CONSUMER OF THESE RULES IS THE APP'S OWN TOP BAR, and it stands OUTSIDE the
+ * store's paper root, so each selector gains its `[data-paper-chrome]` twin. Row 1 ported this block
+ * verbatim and nothing in the app wore it — `.st-ctx` and `.st-shopfor*` matched zero elements until
+ * now — because the board grew `.st-ctx` for exactly this strip (a back door and the SHOPPING-FOR
+ * chip) before it knew the strip WAS the app's SuiteBar in its store context. So the bar takes the
+ * class rather than growing a second one, and `store_fit.py`'s fourth claim keeps its subject.
+ * `.st-ctx`'s twin is a COMPOUND (the bar IS the scope element); the chip's three are DESCENDANTS
+ * (the chip is inside the bar). `.st-back` needs no twin — the bar's own back door is `.pb-back`.
+ * B-881: the four `[data-paper-chrome]` halves now live in `lib/shared/chrome.css`. */
+[data-store-shell] .st-ctx{display:flex;align-items:center;gap:12px;padding:9px 14px;background:var(--doc-paper-raised);
+  border-bottom:1px solid var(--doc-rule)}
+[data-store-shell] .st-back{flex:none}
+[data-store-shell] .st-shopfor{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+[data-store-shell] .st-shopfor-l{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--doc-ink-muted)}
+[data-store-shell] .st-shopfor-n{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:13px;
+  line-height:1.2;letter-spacing:.04em;text-transform:uppercase;color:var(--doc-ink);
+  overflow-wrap:anywhere}
+
+/* ── THE BARS, ON PAPER — MOVED to `lib/shared/chrome.css` (B-881, ruling `npc-paper-rows-1-2` R-NPR-2) ──
+ * The `[data-paper-chrome]` block (B-679 · B-689 · B-793 · B-838) and the four `[data-paper-chrome]` twins of
+ * the SHOPPING-FOR chip above now live in the bars' own layer, linked by BOTH shells. This file keeps only
+ * `[data-store-shell]` rules. The rules and their comments moved verbatim. */
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+ * NOT THE BOARD'S — the two blocks the app needs and the frame did not.
+ * ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* ── THE SHELL, AND THE ONE THING THE FRAME GAVE THE BOARD FOR FREE ──────────────────────────────
+ * `.st` is `height:100%` — correct, and in the lab it resolved against a frame cell with a declared
+ * pixel height. In the app the store is a flex child of `position:absolute; inset:0` (the player's
+ * store screen) or of the creator's gear overlay, so the shell is the box that turns "the screen"
+ * into a definite height for the board to be 100% of. It is also where the paper ground and the
+ * band live, because those are the HOST's facts about the document, not the catalog's arrangement.
+ *
+ * `--st-maroon` is declared here for the reason the header states: the one lab colour the `--doc-*`
+ * publication has not named. Declared on the shell, not on `:root`, so it cannot become a fourth
+ * vocabulary for anything else to reach. */
+/* B-1598: the ITEM ARTWORK window (lib/store/view.jsx ArtworkPaper) is portalled to <body>, outside the shell, and draws
+ * the store's warning line — so the one declaration also reaches that window, still not `:root`. */
+[data-store-shell],[data-artwork-paper]{ --st-maroon:#501010; }
+[data-store-shell]{ flex:1; min-height:0; display:flex; flex-direction:column; }
+
+/* ── THE INTERIM ISLANDS — GONE (B-669) ──────────────────────────────────────────────────────────
+ * This block was sheet.css's own device (`.sb-legacy`, its §"the interim bodies"): the legacy
+ * component mounted inside the paper zone it had not been transplanted into yet, on a DARK island so
+ * no one could mistake un-transplanted work for finished paper, with `data-store-interim` on every one
+ * so "what is left" was a query and not a memory. Row 1 stood four — `catalog` · `read` · `holds` ·
+ * `counter` — and they came out in that order: B-666 the catalog, B-667 the read (its rule had made
+ * the island the legacy overlay's own box; `.st-scrim` and `.st-read` are absolute to `.st`
+ * themselves), B-668 `compare` and `holds` (the panel is `.st-cmp` and the holds rows ARE `.ct-body`),
+ * B-669 the counter (its rule made the island the scroller inside `.ct-body`, which was always the
+ * board's own scroller). Every rule is deleted rather than left unreachable, and the query now returns
+ * nothing — the only form of "finished" this device can report. */
+
+/* ── THE READ'S CLOSE CONTROL — NOT THE BOARD'S, and it says so here as well as in the JSX ───────
+ * The board's frames are drawings of a state and draw no dismiss on the read. A `role="dialog"` with
+ * no visible close fails the a11y floor, the standards outrank the mockup (C-MU-4), and the shipped
+ * smokes reach this overlay by `aria-label="Close"`. So the control is built and REPORTED, wearing the
+ * board's own `.st-close` (the drawer's DONE button) — the only thing added is its place in the head
+ * row, which `.st-readid{flex:1}` already decides. */
+[data-store-shell] .st-readx{ flex:none; align-self:flex-start; }
+
+/* ── THE UNRESOLVABLE HOLD'S MAT — NOT THE BOARD'S, and it is the COUNTER'S rule re-aimed ─────────
+ * `holds_board` drew five rows and every one of them resolved, so the board has no drawing for a hold
+ * whose id matches no record — the state row 2 MEASURED (the head counted 5 kept, the list drew 4).
+ * `slip_rows(unresolvable=True)` is the board's own answer to exactly this case one surface over, and
+ * `.ct-line[data-unresolved="1"] .st-mat` is the hatched plate it uses. The selector is copied to the
+ * hold line so the two unresolvable rows in this store look like one idea; nothing about the hatch,
+ * its angle or its colours moves. */
+[data-store-shell] .st-hold-line[data-unresolved="1"] .st-mat{ background:repeating-linear-gradient(45deg,
+  var(--doc-mat) 0 5px,var(--doc-paper) 5px 10px); }
+
+/* B-954 — FROM THE PAPER KIT'S ROOM WIDTH THE STORE GROWS AS ONE PIECE (Jason, "Store 1440 B, 1080 A"; ruling
+   paper-hotfix-grow-occupancy R-PHGO-1): at 2560 and wider the catalog zooms by the app's ONE grow rule (`--page-grow`,
+   lib/shared/tokens.css), uncapped, as in the render he picked (lab/paper/bothways_wide_e0609cba.md). Below ROOM it is
+   exactly as it was. ROOM is paper.css's `@container surface (min-width:2560px)`; the store's surface is not a size
+   container and spans the viewport, so the same threshold is written on the viewport. The bars stay outside `.st`. */
+@media (min-width: 2560px) {
+  [data-store-shell] > .st { zoom: var(--page-grow); }
+}
+
+/* SHIP YARD S4 · G-7 · K2 — A SHIP LINE ON THE COUNTER (`Docs/mockups/shipyard-counter-parts.html` K2; its kept state WB2,
+ * `Docs/mockups/shipyard-s4-workbench-undrawn.html` @ f948b022). The line is the slip's own grid; it adds one row — whose
+ * ship it is for (the Yard's owner stamp) and FIT | HOLD — a mod's own words in the state ink, the book's cite after the
+ * caption, and the button's note. The stepper holds on a mod or a weapon line (A6: it is one). */
+[data-store-shell] .ct-tags{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+[data-store-shell] .ct-stamp{display:inline-flex;align-items:center;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:2px;padding:2px 6px 1px;white-space:nowrap;
+  color:var(--doc-state)}
+[data-store-shell] .ct-stamp[data-k="bond"]{color:var(--doc-action)}
+[data-store-shell] .ct-seg{display:flex;border:1px solid var(--doc-rule);background:var(--doc-paper-raised);width:max-content;max-width:100%}
+[data-store-shell] .ct-segb{min-height:44px;padding:0 12px;border:0;border-left:1px solid var(--doc-rule);background:none;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.16em;color:var(--doc-ink-muted);cursor:pointer}
+[data-store-shell] .ct-segb:first-child{border-left:0}
+[data-store-shell] .ct-segb[data-on="1"]{background:var(--doc-state);color:var(--doc-paper-raised)}
+[data-store-shell] .ct-vmod{font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:12px;letter-spacing:.08em;color:var(--doc-state)}
+[data-store-shell] .ct-cite{margin-left:6px;color:var(--doc-ink-muted)}
+[data-store-shell] .ct-qty .hp-buy-btn:disabled{opacity:.4;cursor:not-allowed}
+[data-store-shell] .ct-vfin{margin:2px 0 0;font-size:13px;line-height:1.45;color:var(--doc-ink-muted)}
+
+/* ══ PAPER N5 WAVE A2 · THE GM STORE ON PAPER (B-1124…B-1126; ruling `gm-own-screens-concept` ADDENDUM 7, D-76) ══
+ * A PORT of the board's A2 delta (`lab/holocron/store.html` @ lab `4b5b7663`, its `PAPER N5 WAVE A2` style block),
+ * rule for rule and comment for comment, with this file's two mechanical changes: the token map in the head of the
+ * file (`--pp-*` → `--doc-*` / `--st-maroon`) and every selector fenced under `[data-store-shell]`. The §4 doors'
+ * stamp and stock-row rules above (`.gm-stamp` … `.gm-shift`) were ported with the board at `cf33463e`; this block
+ * adds only what A2 drew. ONE board rule is NOT ported: its `.st-readx` re-declaration, which the board needed for
+ * its own kit — the app's read already places the ✕ (B-667's `.st-readx` above), and porting it would move the
+ * PLAYER's read too. The board's "TODAY'S DARK BARS" block (frame G27, the dark specimen) is not built. */
+/* ── PAPER N5 WAVE A2 · THE GM STORE ON PAPER (B-1117) — a DELTA over the store board's kit ────────────────
+ * Nothing here re-declares a part the board already has; the GM's additions are its stamp-as-a-button, the row's
+ * + SHELF toggle, the shelves' chips / head / rows, the drawn name and delete lines, the picker's rows, and today's
+ * dark bars for the one frame that shows them. State is a MARK (✓ and a maroon rule), never a hue. */
+[data-store-shell] .gm-loc{width:100%;border:0;border-bottom:1px solid var(--doc-rule);text-align:left;font:inherit;color:inherit;
+  cursor:pointer;min-height:44px}
+[data-store-shell] .gm-tap{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:9.5px;letter-spacing:.16em;
+  color:var(--doc-ink-muted);margin-top:5px}
+[data-store-shell] .gm-mod[data-unset="1"]{color:var(--doc-ink-muted)}
+[data-store-shell] .gm-g svg{color:var(--doc-ink-muted)}
+[data-store-shell] .gm-findrow{display:flex;align-items:flex-start;gap:8px;margin:4px 0 0 58px}
+[data-store-shell] .gm-findrow .st-find{margin:0;flex:1;min-width:0;flex-wrap:wrap;white-space:normal;row-gap:4px;padding-top:6px}
+[data-store-shell] .gm-pill{padding:0 12px;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.12em;
+  color:var(--doc-ink);background:var(--doc-paper-raised);margin-left:auto;white-space:nowrap}
+[data-store-shell] .gm-pill[data-on="1"],[data-store-shell] .gm-shelfact[data-on="1"]{border-color:var(--st-maroon);color:var(--st-maroon);
+  background:var(--doc-paper-raised)}
+[data-store-shell] .gm-pcell{width:1%;white-space:nowrap;text-align:right}
+/* R-GOS-39 (ADDENDUM 10): the phone's shelf switcher is a sideways STRIP, never an `.hp-zone` — its height is its
+   content; it scrolls sideways under its own clipped edge, as the catalog's category row does. Its box is the frames'
+   as RENDERED (G10–G15 at lab 4b5b7663): 12px over the chips, none under them, no rule — the stock body's own top
+   padding is the gap. */
+[data-store-shell] .gm-shelves{display:flex;flex:none;gap:6px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;padding:12px 18px 0;background:var(--doc-mat)}
+[data-store-shell] .gm-chip{flex:none;padding:0 12px;font-family:var(--font-body,'Rajdhani',sans-serif);font-size:14px;letter-spacing:0;
+  text-transform:none;color:var(--doc-ink);background:var(--doc-paper-raised);white-space:nowrap}
+[data-store-shell] .gm-chip[data-on="1"]{box-shadow:inset 0 -3px 0 var(--st-maroon);font-weight:600}
+[data-store-shell] .gm-new{border-style:dashed;font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.12em}
+[data-store-shell] .gm-rail{display:flex;flex-direction:column}
+[data-store-shell] .gm-rail .gm-new{margin:14px 16px 0;align-self:flex-start}
+[data-store-shell] .gm-acthd{display:flex;align-items:center;gap:4px 6px;flex-wrap:wrap;margin:0 0 4px}
+[data-store-shell] .gm-actnm{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:17px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--doc-ink);margin:0;flex:1 1 100%;min-width:0;overflow-wrap:anywhere}
+[data-store-shell] .st:not(.gm-hh) .gm-actnm{flex:0 1 auto;margin-right:auto}
+[data-store-shell] .gm-act{min-height:44px;padding:0 10px;font-size:10px;letter-spacing:.14em}
+[data-store-shell] .gm-actdel{color:var(--st-maroon)}
+[data-store-shell] .gm-rmrow{grid-template-columns:46px minmax(0,1fr) 44px}
+[data-store-shell] .gm-rmrow .gm-x{grid-column:3;grid-row:1 / span 3;align-self:center}
+[data-store-shell] .gm-x{padding:0;font-size:18px;color:var(--st-maroon);background:var(--doc-paper-raised)}
+[data-store-shell] .gm-empty{font-size:16px;line-height:1.6;color:var(--doc-ink-muted);text-align:center;max-width:36ch;margin:30px auto}
+[data-store-shell] .gm-bookbody{flex:1;min-height:0;overflow:auto}
+[data-store-shell] .gm-stocktab td{vertical-align:middle}
+[data-store-shell] .gm-nameline,[data-store-shell] .gm-delline{display:flex;flex-direction:column;gap:10px;margin:0 0 10px}
+[data-store-shell] .gm-nameinput{margin:0}
+[data-store-shell] .gm-nameinput .k{white-space:nowrap}
+[data-store-shell] .gm-nameacts{display:flex;gap:8px;align-items:center}
+[data-store-shell] .gm-nameacts .hp-commit{flex:1;justify-content:center;max-width:320px}
+[data-store-shell] .gm-delline{border:1px solid var(--st-maroon);border-left-width:3px;padding:12px 13px;background:var(--doc-paper-raised)}
+[data-store-shell] .gm-delline p{margin:0;font-size:15px;line-height:1.5;color:var(--doc-ink)}
+[data-store-shell] .gm-del{background:var(--st-maroon)!important;border-color:var(--st-maroon)!important}
+[data-store-shell] .gm-pick{display:flex;flex-direction:column;gap:10px;padding-bottom:16px}
+[data-store-shell] .gm-pickhd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+[data-store-shell] .gm-pickhd .st-close{font-size:18px}
+[data-store-shell] .gm-psearch{margin:0}
+[data-store-shell] .gm-plist{display:flex;flex-direction:column;gap:5px}
+/* R-SAP-5 (D-463): the resting ground steps aside, so the stripe can land */
+:where([data-store-shell] .gm-prow){background:var(--doc-paper-raised)}
+[data-store-shell] .gm-prow{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:7px 12px;text-align:left;
+  border:1px solid var(--doc-rule);border-radius:2px;cursor:pointer;color:var(--doc-ink);
+  font:inherit}
+[data-store-shell] .gm-prow[data-on="1"]{box-shadow:inset 3px 0 0 var(--st-maroon);font-weight:600}
+[data-store-shell] .gm-pnm{flex:1;min-width:0;font-size:15px;font-weight:600;display:flex;flex-direction:column;gap:2px}
+[data-store-shell] .gm-pnm small{font-family:var(--font-mono,'Share Tech Mono',monospace);font-weight:400;font-size:10px;letter-spacing:.1em;
+  color:var(--doc-ink-muted)}
+[data-store-shell] .gm-pmod{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:15px;color:var(--doc-ink);
+  font-variant-numeric:tabular-nums}
+[data-store-shell] .gm-box{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:16px;color:var(--doc-ink)}
+[data-store-shell] .gm-pk{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.16em;font-weight:400;
+  color:var(--doc-ink-muted);margin:6px 0 0}
+[data-store-shell] .gm-pcite{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.12em;
+  color:var(--doc-ink-muted);text-align:center;margin:4px 0 0}

@@ -1,0 +1,555 @@
+{
+  "id": "hoth",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Hoth",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Javin (Anoat) sector",
+    "system": "Hoth",
+    "grid": "K-18",
+    "era": "galactic_civil_war",
+    "essence": "",
+    "atmosphere": "Blinding white ice plains stretching to every horizon under a pale sky. Wind-driven snow stinging exposed skin within seconds of stepping outside. Temperature so severe that even cold-adapted tauntauns cannot survive Hoth's nighttime. The distant rumble of meteor strikes on the surface. Translucent blue-white canyon walls refracting what little sunlight penetrates the cloud cover. Inside the glacier caves, breath crystallizing in front of your face. The faint hum of Rebel generators echoing through laser-cut ice corridors. The muffled, unsettling silence of the ice plains broken only by wind — until a wampa's roar splits the air.",
+    "reputation": "Hoth does not appear on many star charts. To the handful of pirates and smugglers who know of it, the planet is a last-resort hideout — a place so miserable that even fugitives leave quickly. There are no permanent settlements, no economic value, and no reason to stay. Tauntauns are occasionally captured for export but cannot sustain a business. To the Rebel Alliance, Hoth was invaluable precisely because of these qualities: remote, ignored, essentially uninhabited, and far from Imperial patrols. To the Empire, Hoth became the site of a decisive victory — the rout of Echo Base that scattered the Rebellion across the galaxy."
+  },
+  "compendium": {
+    "background": "",
+    "government": "none",
+    "population": "",
+    "languages": "none",
+    "terrain": "frozen plains, mountains, snow",
+    "major_cities": "none",
+    "areas_of_interest": "",
+    "exports": "none",
+    "imports": "none",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": 2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "No known significance during the Clone Wars. The planet was as remote and uninhabited as ever. No Republic or Separatist interest recorded."
+    }
+  ],
+  "geography": {
+    "structure_type": "wilderness_frozen",
+    "structure_notes": "",
+    "districts": []
+  },
+  "species": [],
+  "factions": [
+    {
+      "id": "imperial_military_blizzard_force",
+      "name": "Imperial Military (Blizzard Force)",
+      "type": "military",
+      "alignment": "galactic_empire",
+      "description": "The Imperial assault on Echo Base was led by Darth Vader personally. Imperial Blizzard Force — specialized snowtroopers — comprised the ground assault element. The attack employed AT-AT walkers advancing across the ice plains toward the shield generator, supported by AT-ST walkers and snowtrooper infantry. The Imperial Navy deployed Star Destroyers in orbit to prevent Rebel escape, though the ion cannon and fighter escorts enabled some transports to break through. The battle resulted in the destruction of the shield generator, the overrunning of Echo Base, and the scattering of the Rebellion across the galaxy.",
+      "notable_npcs": [],
+      "source_refs": [
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "pages": "75-76",
+          "detail": "The Empire Strikes — Battle of Hoth encounter framework"
+        },
+        {
+          "book": "Commander Sourcebook (Lead by Example)",
+          "page": 71,
+          "detail": "Battle of Hoth as defining large-scale battle of the Galactic Civil War"
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "echo_base",
+      "name": "Echo Base",
+      "district_id": null,
+      "type": [
+        "military_base",
+        "command_headquarters",
+        "hidden"
+      ],
+      "controlling_faction_id": "rebel_alliance_echo_base",
+      "controlling_faction_notes": "Alliance High Command headquarters. Built within the solid ice of a massive glacier using enormous laser ice cutters. Technically incomplete but in partial operation. The extreme cold causes constant problems with equipment designed for more temperate climates.",
+      "strategic_value": "The most important Rebel base in the galaxy. Houses Alliance High Command, providing planning and coordination for resistance groups and efforts throughout the galaxy. Features: barracks and living quarters on multiple levels; briefing rooms including an auditorium-sized facility with holodisplay; a utilitarian command center in a natural cavern; Hangar Bay 7 (north entrance) housing snowspeeders, X-wings, and a tauntaun pen; Main Hangar Bay (south entrance) capable of holding up to 30 medium transports plus Y-wing and other starfighter squadrons; a KDY Planet Defender Ion Cannon able to temporarily disable a Star Destroyer; a medical center equal to any hospital in the galaxy with 350 staff and 120 droids; a deflector shield generator on the surface capable of repelling orbital bombardment; a starfighter maintenance level below Hangar Bay 7; defensive emplacements including trenches, tunnels, outposts, anti-vehicle and anti-personnel turrets, and portable artillery; and tauntaun pens near the hangars for surface patrols. Massive blast and shield doors on both entrances close each night against the extreme cold.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "role": "Alliance SpecForce troops",
+          "tier": "elite defenders",
+          "notes": "Elite Special Forces units comprise the core defenders. Standard Alliance forces make up the bulk."
+        },
+        {
+          "role": "Rogue Squadron",
+          "tier": "elite starfighter/airspeeder defense",
+          "notes": "Provides starfighter and snowspeeder defense."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "pages": "71-76",
+          "detail": "Complete Echo Base layout, assets summary, personnel, defenses, consequences of discovery, plot hooks, Battle of Hoth encounter"
+        }
+      ]
+    },
+    {
+      "id": "ice_caves",
+      "name": "Ice Caves and Cavern Networks",
+      "district_id": null,
+      "type": [
+        "wilderness",
+        "environmental_hazard"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the natural cave networks. The Rebels expanded some caverns for Echo Base, but the majority remain unexplored and wampa-infested.",
+      "strategic_value": "Vast natural ice caverns formed by underground hot springs and geological pressures, connected by fissures, tunnels, and chasms. Some areas contain limited plant life — lichens and algae — sustained by geothermal warmth, providing food sources for tauntauns. Wampas dwell in ice caverns formed by underground hot springs, using them as lairs where they dangle captured prey from the ceiling until ready to feed. Deep fissures may contain the rumored fire-breathing dragon creatures. The Rebels used enormous laser ice cutters to expand natural caverns into Echo Base, giving the walls a distinctive horizontal texture, but wampas continue to find ways inside, attracted by high-pitched sounds from technology. Treacherous icy terrain with seemingly bottomless chasms makes exploration dangerous.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "role": "Wampa lair",
+          "tier": "rival",
+          "notes": "Single wampas or small packs. PCs clearing caverns may encounter alternating attack and flee behavior, with isolated individuals grabbed and hauled away."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "pages": "64, 73, 75",
+          "detail": "Ice cavern descriptions, wampa lairs, Wampa Wipeout plot hook"
+        },
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "page": 379,
+          "detail": "Hot spring caverns, tauntaun sheltering, wampa lairs"
+        }
+      ]
+    },
+    {
+      "id": "wampa_territory",
+      "name": "Wampa Hunting Grounds (Open Ice Plains)",
+      "district_id": null,
+      "type": [
+        "wilderness",
+        "environmental_hazard"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Wampas are the undisputed apex predators of the open ice plains. No sentient faction controls this territory.",
+      "strategic_value": "The vast frozen plains, snow-covered mountains, and tundra between cave networks. Wampas hunt across these areas, using their white fur for perfect camouflage in the snow. They display surprising intelligence when stalking prey and prefer to capture victims alive. Tauntaun herds traverse these plains seeking food, relying on communal warmth. Small groups or individuals wandering alone eventually attract wampa attention. Blizzard conditions are common and can arise with little warning. Nighttime temperatures are lethal even to cold-adapted creatures. Rebel patrols on tauntauns use these grounds for perimeter security, as tauntauns are stealthier than speeders.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "role": "Wampa ambush",
+          "tier": "rival",
+          "notes": "Wampas attack individually or in small packs. Camouflaged in snow."
+        },
+        {
+          "role": "Tauntaun herd",
+          "tier": "rival (mounts)",
+          "notes": "Herds of domesticable mounts. Can be frightened into stampede by wampa attacks."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "page": 64,
+          "detail": "Wampa hunting behavior, tauntaun herd dynamics"
+        },
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "page": 379,
+          "detail": "Wampa and tauntaun ecology on the plains"
+        }
+      ]
+    },
+    {
+      "id": "meteorite_field_approach",
+      "name": "Hoth Asteroid Field (Orbital Approach)",
+      "district_id": null,
+      "type": [
+        "orbital_hazard",
+        "navigation"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the asteroid field. It is a natural hazard in the Hoth system.",
+      "strategic_value": "A nearby asteroid field whose debris regularly strikes Hoth's surface, posing a hazard to starships and potential settlements. Ships approaching or departing Hoth may need to traverse a section of the asteroid field, requiring piloting skill. The field provides an additional layer of natural defense for Echo Base, discouraging casual visitors and complicating Imperial approach vectors. Supply runs to Echo Base sometimes go off course and require navigating through asteroid sections before landing.",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "source_refs": [
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "page": 379,
+          "detail": "Nearby asteroid field, meteors striking surface"
+        },
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "page": 75,
+          "detail": "Supply Run plot hook — PCs off course must traverse asteroid field"
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "harsh_environment",
+      "type": "environmental",
+      "source_faction_id": null,
+      "source_description": "Hoth's extreme cold is the single greatest threat to all operations on the planet. The harsh environment inhibits everything, including activities normally regarded as routine. Nighttime temperatures are lethal even to cold-adapted tauntauns. Blizzard and winter storm conditions are common. Equipment designed for temperate climates malfunctions constantly. Personal safety requires adverse weather gear and subzero survival training for all personnel. Marching across Hoth in a vicious blizzard should be a Formidable Resilience check. The environment also imposes psychological strain: isolation on a remote world with no local cities or population to visit, and personnel must provide their own recreational supplies and entertainment.",
+      "strength_default": "overwhelming",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "rebel_alliance_echo_base",
+          "description": "The Rebels issue all staff adverse environment gear and mandate subzero survival training. Snowspeeders were grounded until technicians could adapt them for the extreme cold. Hangar bay doors must be closed every night against lethal nighttime temperatures. Equipment failures from the cold are a constant problem requiring resourceful improvisation."
+        },
+        {
+          "faction_id": null,
+          "description": "Pirates, smugglers, and fugitives who use Hoth as a temporary hideout find the conditions so taxing that stays are always short-lived. Those who shelter in ice caves eventually attract wampa attention."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "overwhelming",
+          "modifier": "All characters operating on Hoth's surface require adverse environment gear. Without it, exposure can be lethal within hours (or minutes during nighttime/blizzards). Resilience checks are required for extended surface operations: going without shelter for extended periods should be Hard difficulty at minimum, with blizzard conditions increasing to Daunting or Formidable. Add setback dice to all Perception checks during blizzard conditions. Vehicle operations add setback dice from cold until equipment is specifically adapted."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "pages": "129, 185, 227, 379",
+          "detail": "Resilience check difficulty for Hoth blizzard (Formidable example), adverse environment gear, environmental effects, Hoth planet entry"
+        },
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "pages": "73-74",
+          "detail": "Cold as biggest daily threat, equipment failures, mandatory safety training, morale effects of isolation"
+        },
+        {
+          "book": "Soldier Sourcebook (Forged in Battle)",
+          "page": 96,
+          "detail": "Sub-zero temperatures as environmental hazard for ground troops"
+        }
+      ]
+    },
+    {
+      "id": "wampa_predation",
+      "type": "environmental",
+      "source_faction_id": null,
+      "source_description": "",
+      "strength_default": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "rebel_alliance_echo_base",
+          "description": "Rebel troops must regularly clear wampas from caves being expanded for base construction. When wampas breach the base interior, troops quickly isolate the area and destroy the creature. Wampas are a distraction to sensors, triggering automatic alerts. Patrols outside the base always risk wampa encounter."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Any character traveling alone or in a small group on the surface or in unexplored caves risks wampa encounter. Add boost dice to wampa Stealth checks in snowy environments (Camouflaged ability). Characters captured by wampas are taken to ice cave lairs and suspended from the ceiling. Wampa stat block: Brawl 3, Resilience 3, Stealth 3, Survival 3. Claws: Damage 8 Crit 3 Pierce 3 Vicious 2. Stunning Blow talent. Immune to freezing and cold environments."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Alliance Worlds (Strongholds of Resistance)",
+          "pages": "64, 73-75",
+          "detail": "Wampa stat block, hunting behavior, base infiltration, Wampa Wipeout plot hook"
+        },
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "page": 379,
+          "detail": "Wampa ecology and threat to sentients"
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "ison_corridor",
+        "destination": "Ison Corridor (section of the Corellian Trade Spine)",
+        "travel_time": null,
+        "route_quality": "accessible_but_remote",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Alliance Worlds (Strongholds of Resistance)",
+            "page": 64,
+            "detail": "Hoth system location along Ison Corridor between Koda Spur and Lipsec Run"
+          },
+          {
+            "book": "Edge of the Empire Core Rulebook",
+            "page": 336,
+            "detail": "Corellian Trade Spine: notable locations include Bespin and Hoth"
+          },
+          {
+            "book": "Force and Destiny Core Rulebook",
+            "page": 363,
+            "detail": "Bespin located along the Ison Corridor"
+          }
+        ]
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "asteroid_field",
+        "type": "orbital_hazard",
+        "description": "A nearby asteroid field produces regular meteor strikes on Hoth's surface, posing hazards to starships and potential surface settlements. Ships approaching or departing Hoth may need to navigate through sections of the field.",
+        "mechanical_effect": "Piloting (Space) checks to navigate the asteroid field. Ships off course on approach to Hoth risk asteroid collisions. Meteor strikes on the surface are an ongoing environmental hazard for any surface installation.",
+        "source_refs": [
+          {
+            "book": "Age of Rebellion Core Rulebook",
+            "page": 379,
+            "detail": "Nearby asteroid field, meteors striking surface"
+          },
+          {
+            "book": "Alliance Worlds (Strongholds of Resistance)",
+            "page": 75,
+            "detail": "Supply Run plot hook — off-course ships must traverse asteroid section"
+          }
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": null,
+      "faction_label": "Native Wildlife",
+      "presence_levels": {
+        "open_ice_plains": {
+          "description": "The vast frozen surface of Hoth. Tauntaun herds traverse the plains seeking food beneath the ice. Wampas hunt across these areas using white fur camouflage. Blizzard conditions are common. Nighttime temperatures are lethal.",
+          "roles": [
+            {
+              "role": "Tauntaun herd",
+              "archetype_ref": "tauntaun",
+              "tier": "rival",
+              "count": "4-12",
+              "notes": "Bipedal reptomammalian herbivore with wooly thick hide, short front legs, bone-crested skull with curved horns. Survive on frozen algae on the plains and lichen in caves. Even temper makes them ideal mounts. Silhouette 2. Skills: Resilience 3, Survival 1, Vigilance 1. Trained Mount 1 (add boost to rider's Survival checks). Horns: Damage 7 Crit 5 Disorient 1. Cannot survive Hoth's nighttime temperatures.",
+              "source_ref": "Alliance Worlds p.64, Pilot Sourcebook (Stay on Target) p.89"
+            },
+            {
+              "role": "Wampa (solitary hunter)",
+              "archetype_ref": "wampa",
+              "tier": "rival",
+              "count": "1",
+              "notes": "",
+              "source_ref": "Alliance Worlds p.64"
+            },
+            {
+              "role": "Wampa small pack",
+              "archetype_ref": "wampa",
+              "tier": "rival",
+              "count": "2-3",
+              "notes": "Wampas may attack in small packs. Same stat block as solitary wampa. A pack hunting a tauntaun herd triggers a fight and stampede.",
+              "source_ref": "AoR Core p.379"
+            }
+          ]
+        },
+        "ice_caves_and_fissures": {
+          "description": "Natural ice caverns formed by underground hot springs. Wampa lairs. Tauntaun nesting and sheltering areas. Limited plant life — lichens and algae — sustained by geothermal warmth. Deep fissures with seemingly bottomless chasms. Rumored fire-breathing dragon creatures in the deepest fissures.",
+          "roles": [
+            {
+              "role": "Wampa in lair",
+              "archetype_ref": "wampa",
+              "tier": "rival",
+              "count": "1-3",
+              "notes": "Wampas lair in ice caverns near hot springs. Captured prey is dangled from the ceiling for later consumption. PCs may find missing companions or other Rebels stashed as future meals. Same stat block as open plains wampa.",
+              "source_ref": "Alliance Worlds pp.64, 75"
+            },
+            {
+              "role": "Fire-breathing dragon creature (rumored)",
+              "archetype_ref": null,
+              "tier": null,
+              "count": null,
+              "notes": "",
+              "source_ref": "AoR Core p.379"
+            }
+          ]
+        },
+        "echo_base_perimeter": {
+          "description": "The defensive zone around Echo Base, including trenches, tunnels, outposts, sensor networks, and the immediate surrounding terrain. Rebel patrols on tauntauns. SE-Vigilant sensor beacons track wildlife and scan for Imperial activity.",
+          "roles": [
+            {
+              "role": "Wampa intruder",
+              "archetype_ref": "wampa",
+              "tier": "rival",
+              "count": "1",
+              "notes": "Wampas continue to find ways inside Echo Base, attracted by high-pitched sounds from technology. When one breaches the base interior, Rebel troops isolate the area and destroy the creature. Wampas also trigger perimeter sensor alerts when wandering inside the defensive perimeter.",
+              "source_ref": "Alliance Worlds pp.73-74"
+            },
+            {
+              "role": "Tauntaun patrol mount",
+              "archetype_ref": "tauntaun",
+              "tier": "rival",
+              "count": "1-2 per patrol",
+              "notes": "Domesticated tauntauns used for daily surface patrols. Stealthier than speeders, reducing detection risk. Reserved primarily for patrol rotation with special transportation requests accommodated.",
+              "source_ref": "Alliance Worlds p.73"
+            }
+          ]
+        },
+        "orbital_and_approach": {
+          "description": "The Hoth system's orbital space and asteroid field approach. Relevant during the Imperial assault or supply run scenarios.",
+          "roles": [
+            {
+              "role": "Asteroid field debris",
+              "archetype_ref": null,
+              "tier": null,
+              "count": "variable",
+              "notes": "Navigation hazard. Piloting (Space) checks required to traverse. Meteors from this field regularly strike the surface.",
+              "source_ref": "AoR Core p.379, Alliance Worlds p.75"
+            }
+          ]
+        }
+      },
+      "alert_modifiers": null
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      {
+        "faction_id": "rebel_alliance_echo_base",
+        "control_type": "hidden_base",
+        "notes": "Alliance High Command secretly controls the glacier housing Echo Base. No other sentient faction has a permanent presence on the planet."
+      }
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "aor_echo_base_defense": {
+        "name": "Echo Base Defense (Battle of Hoth)",
+        "description": "",
+        "initial_faction_states": {
+          "rebel_alliance_echo_base": "fully operational, evacuation imminent",
+          "imperial_military_blizzard_force": "approaching, full assault force deployed"
+        },
+        "initial_heat": [
+          {
+            "faction_id": "imperial_military_blizzard_force",
+            "level": "maximum",
+            "notes": "Imperial probe droid has confirmed the base location. Full Imperial task force including Star Destroyers in orbit and ground assault force deploying."
+          }
+        ],
+        "suggested_hooks": [
+          "",
+          "PCs must staff the trenches or weapon emplacements, battling Blizzard Force snowtroopers with a frontline view of the walker battle until ordered to retreat to evacuation ships.",
+          "PCs are advance scouts or staff perimeter outposts that first see the walkers approaching.",
+          "",
+          "",
+          "Pilot PCs fly one of the transports or X-wing escorts running the Star Destroyer blockade."
+        ],
+        "source_refs": [
+          {
+            "book": "Alliance Worlds (Strongholds of Resistance)",
+            "pages": "75-76",
+            "detail": "The Empire Strikes — full Battle of Hoth encounter framework with multiple PC role options"
+          },
+          {
+            "book": "Commander Sourcebook (Lead by Example)",
+            "pages": "6, 8, 71",
+            "detail": "Rieekan's tactical retreat, large-scale battle framework"
+          },
+          {
+            "book": "GM Holocron 5.1.2",
+            "page": 21,
+            "detail": "Mass Combat event-based phases using Battle of Hoth as example: landing of the Empire, approach of the AT-ATs, breaching of the base, escape to space"
+          }
+        ]
+      },
+      "aor_echo_base_construction": {
+        "name": "Echo Base Construction and Operations",
+        "description": "The PCs are assigned to Echo Base during its construction phase, before the Imperial discovery. The base is technically incomplete but in partial operation. Adventures center on supply runs, wampa clearing, equipment adaptation, and the daily struggle against Hoth's environment. This preset works well for an extended campaign at a fixed location before transitioning to the Battle of Hoth preset.",
+        "initial_faction_states": {
+          "rebel_alliance_echo_base": "under construction, partial operations"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "Supply Run: PCs are given limited funds to acquire construction materials, laser cutters, weapons, droids, or other supplies and transport them to Hoth. Required items cost more than funds available. PCs must increase credits or lower costs without attracting Imperial attention. Upon arrival, they are off course and must traverse the asteroid field.",
+          "",
+          ""
+        ],
+        "source_refs": [
+          {
+            "book": "Alliance Worlds (Strongholds of Resistance)",
+            "page": 75,
+            "detail": "Supply Run and Wampa Wipeout plot hooks"
+          },
+          {
+            "book": "Engineer Sourcebook (Fully Operational)",
+            "page": 96,
+            "detail": "Building an Alliance main base on Hoth — carving caves, contending with cold and creatures"
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "129, 185, 227, 379",
+      "detail": "Primary Hoth planet entry, Resilience check examples, adverse environment gear, environmental effects"
+    },
+    {
+      "book": "Alliance Worlds (Strongholds of Resistance)",
+      "pages": "64, 71-76",
+      "detail": "Hoth planet entry with tauntaun and wampa stat blocks; Echo Base full writeup: layout, assets, personnel (thousands of support + 7,500 combat), defenses (ion cannon, shield generator, trenches), plot hooks (Supply Run, Wampa Wipeout), Battle of Hoth encounter framework"
+    },
+    {
+      "book": "Commander Sourcebook (Lead by Example)",
+      "pages": "6, 8, 10, 71, 96",
+      "detail": "General Rieekan's tactical retreat; Luke Skywalker's aerial command at Hoth; Battle of Hoth as large-scale battle; Defense of Hoth medal"
+    },
+    {
+      "book": "Engineer Sourcebook (Fully Operational)",
+      "page": "96",
+      "detail": "Building Alliance base on Hoth — carving ice caves, adapting snowspeeders"
+    },
+    {
+      "book": "Pilot/Ace Sourcebook (Stay on Target)",
+      "pages": "27, 89",
+      "detail": "Tauntaun stat block and mount description; Beast Rider usage on Hoth"
+    },
+    {
+      "book": "Soldier Sourcebook (Forged in Battle)",
+      "pages": "55, 96",
+      "detail": "SE-Vigilant sensor network at Echo Base; sub-zero temperature environmental hazards for ground troops"
+    },
+    {
+      "book": "Gadgets and Gear",
+      "page": "23",
+      "detail": "SX-21 pump-action blaster popular with Imperial Army in trench warfare on Hoth"
+    },
+    {
+      "book": "GM Holocron 5.1.2",
+      "page": "21",
+      "detail": "Mass Combat event-based phases using Battle of Hoth as example"
+    },
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "156, 336",
+      "detail": "Hoth referenced for insulated armor; Corellian Trade Spine notable locations include Hoth"
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "page": "363",
+      "detail": "Bespin and Ison Corridor reference (Hoth's hyperspace neighborhood)"
+    },
+    {
+      "book": "Warrior Sourcebook (Knights of Fate)",
+      "page": "87",
+      "detail": "Luke Skywalker's visions on Hoth and Dagobah as adventure hooks for Warriors"
+    },
+    {
+      "book": "Planet Compendium",
+      "page": "33",
+      "detail": "Original compendium entry (identity-depth source)"
+    }
+  ]
+}

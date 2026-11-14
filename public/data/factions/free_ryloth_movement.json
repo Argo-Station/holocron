@@ -1,0 +1,256 @@
+{
+  "id": "free_ryloth_movement",
+  "name": "Free Ryloth Movement",
+  "type": "military_force",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Dawn of Rebellion",
+    "Age of Rebellion Core Rulebook"
+  ],
+  "overview": "The Free Ryloth Movement is a Twi'lek resistance organization fighting to liberate Ryloth from Imperial occupation, led by Cham Syndulla — a veteran commander who first organized the Twi'lek Resistance against the Separatist invasion during the Clone Wars. The movement operates independently from the Rebel Alliance, mistrustful of outsiders after being betrayed by Republic forces that became Imperial occupiers. Its fighters are disciplined, fiercely loyal to Ryloth, and willing to use aggressive guerrilla tactics.",
+  "short_descriptor": "Cham Syndulla's resistance. Effective, territorial, and not answering to Alliance command. They'll work with you if Ryloth benefits. They won't subordinate their objectives to yours.",
+  "witness_statement": {
+    "text": "Ran blaster packs to a drop point in the northern warrens, three trips. Never saw the same face twice. Fourth trip, a Twi'lek woman met me at the tunnel mouth and said 'We don't need a fifth.' No thanks, no threats. Just done. They take what they need and you stop existing to them.",
+    "source": "Supply runner, independent contractor operating on Ryloth surface routes",
+    "verification": "CONFIRMED — SINGLE SOURCE"
+  },
+  "how_they_operate": [
+    {
+      "heading": "CELL STRUCTURE",
+      "text": "The Free Ryloth Movement is organized into independent cells operating from Ryloth's underground cave networks, with all strategic decisions flowing from Cham Syndulla as supreme commander. Senior operatives including Numa and Gobi Glie each command cells with tactical autonomy during operations, reporting to Cham through encrypted comlinks and physical runners when atmospheric conditions disrupt signals."
+    },
+    {
+      "heading": "TERRAIN",
+      "text": "The movement exploits Ryloth's extreme terrain — heat storms, cave systems, and inhospitable surface conditions — as force multipliers against Imperial conventional forces."
+    },
+    {
+      "heading": "SUPPLY",
+      "text": "Weapons and supplies are acquired through raids on Imperial targets, smuggling runs, and selective offworld contacts, with no formal supply chain."
+    },
+    {
+      "heading": "INDEPENDENCE",
+      "text": "The movement operates independently of the Rebel Alliance and rejects any external chain of command, a policy rooted in Cham Syndulla's experience of allying with the Republic during the Clone Wars only to watch those liberators become Imperial occupiers."
+    }
+  ],
+  "motivations": {
+    "primary": "Liberate Ryloth from Imperial occupation",
+    "secondary": [
+      "Avenge the betrayal of former Republic liberators who became Imperial oppressors",
+      "Prevent Twi'lek enslavement",
+      "Preserve Twi'lek cultural independence",
+      "Ensure Ryloth is never again subject to outside control"
+    ],
+    "notes": "The movement's motivations are shaped by a cycle of occupation and betrayal. Cham Syndulla allied with the Republic to drive out the Separatists, only to watch those same clone soldiers turn their weapons on his people when the Empire rose. This deep betrayal means the Free Ryloth Movement resists not just the Empire but any external authority claiming to help."
+  },
+  "goals": {
+    "strategic": [
+      "Drive the Imperial garrison completely off Ryloth",
+      "Establish Ryloth as a sovereign, independent world free from all external control",
+      "Unite all Twi'lek factions under the movement's banner against the common enemy"
+    ],
+    "operational": [
+      "Conduct guerrilla operations against Imperial military targets and supply lines on Ryloth",
+      "Recruit Twi'lek fighters from across the planet's underground communities",
+      "Acquire weapons and supplies through raids, smuggling, and selective offworld contacts",
+      "Protect Twi'lek civilians from Imperial reprisals and slavers"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "military_force",
+      "infiltration",
+      "demolition",
+      "guerrilla_tactics"
+    ],
+    "avoided": [
+      "Alliance oversight — Cham Syndulla answers to no one and rejects any chain of command he didn't build",
+      "Offworld entanglements — the movement's focus is Ryloth, not the broader galactic war",
+      "Trusting outsiders — repeated betrayals have made the movement deeply insular"
+    ],
+    "notes": "The Free Ryloth Movement uses classic guerrilla warfare adapted to Ryloth's extreme terrain — heat storms, underground cave networks, and harsh surface conditions provide natural advantages against Imperial conventional forces. Numa, one of Cham's most trusted agents, specializes in explosive devices. The movement maintains discipline that distinguishes it from groups like Gerrera's Partisans."
+  },
+  "strengths": [
+    "Intimate knowledge of Ryloth's extreme terrain — underground cave systems, heat storms, and inhospitable surface conditions",
+    "Deep-rooted legitimacy among the Twi'lek population as the continuation of the Clone Wars resistance",
+    "Battle-hardened leadership with decades of guerrilla experience against both Separatist and Imperial forces",
+    "Fanatical dedication to Ryloth's freedom produces fighters willing to accept any personal cost",
+    "Hera Syndulla's Alliance connections provide a potential (if untapped) bridge to broader Rebel resources"
+  ],
+  "weaknesses": [
+    "Institutional distrust of all outside organizations limits the movement's access to offworld weapons, intelligence networks, and potential allied forces.",
+    "Exclusive focus on Ryloth confines the movement's operational reach to a single planet, preventing power projection or influence in the broader galactic conflict.",
+    "Strategic and operational authority is concentrated in Cham Syndulla personally, with no established succession plan or distributed command doctrine.",
+    "Ryloth's extreme surface conditions — heat storms, toxic atmosphere in lowlands — constrain both resistance operations and Imperial pacification efforts, producing a stalemate that structurally favors the occupying force.",
+    "The dispersed Twi'lek civilian population across Ryloth's underground settlements is vulnerable to Imperial reprisal operations, and the movement lacks the numbers to defend all communities simultaneously."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase patrols around known Imperial approach routes. Move supply caches to backup positions. Rotate safe house locations.",
+    "medium": "Disperse fighters into Ryloth's underground cave networks. Cut external communications. Begin laying explosive traps along anticipated Imperial advance routes.",
+    "high": "Full dispersal into deep cave systems. Scorched earth denial of surface infrastructure. Numa's explosive teams mine all approach corridors. Non-combatants evacuated to the deepest warrens.",
+    "critical": "The movement fragments into independent cells operating without central coordination. Cham Syndulla goes deep underground. Each cell fights independently until the threat passes or the movement is destroyed. The caves have sustained Twi'lek resistance for generations — the movement trusts that some cells will survive."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Resistance fighter",
+      "Cell commander",
+      "Senior operative (e.g., Numa, Gobi Glie)",
+      "Cham Syndulla"
+    ],
+    "notes": "The movement uses encrypted comlinks for internal communication, but Ryloth's atmospheric conditions can disrupt signals. Runners through the cave networks serve as backup. The chain of command is tight — Cham makes strategic decisions, but cell commanders have tactical autonomy during operations."
+  },
+  "tension_patterns": [
+    "The movement's weapons deficit creates recurring pressure to accept Rebel Alliance supply shipments, which carry implicit expectations of operational coordination that Cham Syndulla consistently refuses.",
+    "Twi'lek civilians in Imperial-occupied areas frequently pass information to both the garrison and the resistance simultaneously, hedging survival odds rather than committing to either side.",
+    "Guerrilla operations targeting Imperial installations on Ryloth regularly risk destroying civilian infrastructure — water processing, power generation, transit tunnels — that the Twi'lek population depends on for post-liberation survival.",
+    "The movement's standard protocol for a compromised cell is immediate severance of all contact, even when the compromised cell possesses time-sensitive intelligence that cannot be obtained elsewhere.",
+    "Hera Syndulla's position in the Rebel Alliance represents an available channel to offworld resources, but activating it requires disclosing the movement's strength, disposition, and operational methods to an outside organization."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "patrol",
+    "economic": "skeleton",
+    "command": "skeleton",
+    "informational": "skeleton",
+    "military": "patrol",
+    "hidden": "dominant",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "medium",
+    "weapon": "high",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "The movement desperately needs weapons and explosives. Intelligence data on Imperial garrison strength and movements is highly valued. Persons of interest include potential recruits, defectors from the garrison, and smugglers willing to run the blockade. Artifacts hold no particular interest. Technology is valued when it aids guerrilla operations — communications equipment, detonators, medical supplies."
+  },
+  "ally_factions": [],
+  "enemy_factions": [
+    "imperial_military"
+  ],
+  "relationship_notes": {
+    "rebel_alliance": "Complex and strained. Hera Syndulla serves the Alliance as a pilot and operative, but her father Cham resists any formal Alliance oversight. The movement and the Alliance share an enemy but not a command structure. The Alliance would welcome the Free Ryloth Movement as an allied force; Cham refuses the strings attached.",
+    "imperial_military": "The occupying enemy. The Imperial garrison on Ryloth is the movement's primary target. The Empire has exploited Ryloth's people as slaves and its resources as raw materials. The hatred is absolute.",
+    "gerreras_partisans": "Parallel but distinct resistance groups. Both fight the Empire without Alliance constraints, but the Free Ryloth Movement maintains more discipline and a narrower geographic focus. Potential for cooperation on shared interests.",
+    "hutt_cartel": "Twi'lek slavery has long been profitable for the Hutts. The movement despises the Hutts but may pragmatically deal with Hutt smugglers for weapons shipments when no other source is available."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "none",
+    "colonies": "none",
+    "inner_rim": "none",
+    "expansion_region": "none",
+    "mid_rim": "none",
+    "outer_rim": "significant",
+    "hutt_space": "none",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Cham Syndulla",
+      "role": "Founder and supreme commander",
+      "era": [
+        "prequel",
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "CHAM_SYNDULLA",
+      "notes": "Organized the Twi'lek Resistance during the Clone Wars against the Separatist invasion. Reluctantly allied with the Republic, only to be betrayed when clone soldiers became Imperial occupiers. Continues to battle the Empire from Ryloth. Father of Hera Syndulla. Distrusts all outsiders.",
+      "network_assessment": "Cham runs Ryloth's resistance with absolute authority and trusts no one outside his cell structure. Any approach requires proving value to Ryloth specifically — galactic politics mean nothing to him. He has been burned by allies before and will not be burned again.",
+      "wants": "Complete Imperial withdrawal from Ryloth and the establishment of an independent Twi'lek government answering to no outside authority.",
+      "secret": "Has contingency plans to destroy critical Ryloth infrastructure — water processing, power grids — rather than let the Empire use it as leverage against the population.",
+      "behavior": {
+        "under_pressure": "Withdraws deeper into the cave networks and compartmentalizes. Cuts communication with anyone who is not essential to immediate survival.",
+        "when_losing": "Fragments the movement into autonomous cells that can survive independently. He has rebuilt from nothing before.",
+        "loyalty": "Ryloth. Not the Alliance, not democracy, not ideals. Ryloth and its people. Everything else is negotiable.",
+        "tells": "When he starts asking detailed questions about your logistics and personnel, he is assessing whether to absorb your resources into his operation."
+      },
+      "useful_to_players": [
+        "Controls the only organized resistance network on Ryloth with deep knowledge of the cave systems",
+        "His fighters are disciplined and battle-tested — a genuine military asset if their objectives align with yours",
+        "Has intelligence on Imperial garrison strength and patrol patterns across Ryloth"
+      ],
+      "hooks": [
+        "Cham put out a quiet call for offworld demolitions expertise — whatever he is planning, it is bigger than a patrol ambush",
+        "A Free Ryloth cell went silent three days ago and Cham's people are offering favors to anyone who can find out what happened"
+      ]
+    },
+    {
+      "name": "Numa",
+      "role": "Senior operative and explosives specialist",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "Rescued as a child by Republic clone troopers during the Clone Wars. Called them 'nerra' (brother). Those same soldiers became her captors when the Empire rose. Rescued by the Free Ryloth Movement. Her sense of betrayal exceeds even Cham's. Publicly cold and aloof but deeply committed. Natural aptitude with explosive devices led to rapid advancement.",
+      "network_assessment": "Numa is Cham's demolitions lead and one of his most trusted operatives. She does not negotiate, does not warm up, and does not give second chances. If she is at a meeting, the operation involves explosives.",
+      "wants": "To destroy every Imperial installation on Ryloth, one detonation at a time, until the occupation becomes untenable.",
+      "secret": "Still carries a clone trooper shoulder pauldron from the soldiers who rescued her as a child. Will not explain it. Will not throw it away.",
+      "behavior": {
+        "under_pressure": "Goes silent and methodical. Her training with explosives has made her precise under stress — panic gets people killed around detonators.",
+        "when_losing": "Rigs the retreat path. If Numa is falling back, assume everything behind her is about to explode.",
+        "loyalty": "Loyal to Cham personally and to Ryloth absolutely. The betrayal by the Republic clones made outsider trust impossible for her.",
+        "tells": "She unconsciously touches her left hip where she keeps the clone pauldron when conversations involve trust or betrayal."
+      },
+      "useful_to_players": [
+        "Expert demolitions knowledge applicable to Imperial fortifications, mining operations, and sabotage",
+        "Knows the cave network around Free Ryloth Movement operating areas better than almost anyone",
+        "Her approval carries weight with Cham — earning her trust is a path to the movement's inner circle"
+      ],
+      "hooks": [
+        "Numa needs a specific Imperial detonator model that the garrison keeps under heavy guard — she will trade cave network maps for it",
+        "Someone sold Numa bad thermal charges and three fighters died. She is looking for the supplier. Quietly."
+      ]
+    },
+    {
+      "name": "Hera Syndulla",
+      "role": "Alliance operative (bridge to the movement)",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "HERA_SYNDULLA",
+      "notes": "Cham's daughter who chose to fight the Empire through the Rebel Alliance rather than solely on Ryloth. Her dual loyalty — to the Alliance and to her father's cause — creates both opportunity and tension. She could serve as a bridge between the movement and Alliance resources, but doing so means revealing the movement's capabilities.",
+      "network_assessment": "Hera is the only reliable bridge between Alliance resources and the Free Ryloth Movement. She operates in both worlds but belongs fully to neither — her father considers her Alliance commitment a betrayal, and Alliance command knows her Ryloth loyalties complicate her objectivity.",
+      "wants": "To defeat the Empire through the Alliance while ensuring Ryloth's liberation remains a strategic priority rather than a footnote.",
+      "secret": "Has withheld specific intelligence about the Free Ryloth Movement's strength and disposition from Alliance command, maintaining her father's operational security at the cost of Alliance strategic planning.",
+      "behavior": {
+        "under_pressure": "Focuses on the mission. She is a pilot — trained to make decisions at speed and commit to them without second-guessing.",
+        "when_losing": "Improvises. Her reputation in the Alliance is built on pulling operations out of disaster through creativity and nerve.",
+        "loyalty": "Divided between the Alliance cause and her father's movement. The division is genuine and unresolved.",
+        "tells": "Becomes visibly tense when asked to choose between Alliance orders and Ryloth's interests. Will change the subject rather than commit."
+      },
+      "useful_to_players": [
+        "Can facilitate introductions to both Alliance command and the Free Ryloth Movement",
+        "One of the Alliance's best pilots and a skilled tactician in her own right",
+        "Her crew — the Ghost team — are elite operatives with diverse capabilities"
+      ],
+      "hooks": [
+        "Hera is running supply drops to Ryloth off the books — she needs a co-pilot who does not report to Alliance logistics",
+        "Cham sent Hera a coded message she has not responded to. She is looking for someone to carry a reply without either side knowing."
+      ]
+    }
+  ],
+  "source_material_notes": "Dawn of Rebellion (pp.68, 78, 86-87) provides the definitive treatment of the Free Ryloth Movement, Cham Syndulla's history, Numa's background, and Hera Syndulla's connection to the movement. The Age of Rebellion Core Rulebook (pp.367) covers Ryloth's geography and Imperial occupation. The movement's Clone Wars origins and the betrayal by former Republic forces are central to its identity.",
+  "field_sources": {
+    "motivations": "Dawn of Rebellion pp.84 (Clone Wars origins, Separatist then Imperial occupation, betrayal cycle), pp.87 (Numa's personal betrayal narrative)",
+    "goals": "Dawn of Rebellion pp.84 (liberation of Ryloth, independence from outside control); inferred from movement's operational pattern",
+    "methods": "Dawn of Rebellion pp.85 (Numa's explosives expertise, guerrilla operations); AoR Core pp.367 (Ryloth's underground terrain); inferred from resistance movement structure",
+    "strengths": "Dawn of Rebellion pp.86 (decades of experience), pp.78 (Hera's Alliance connections), pp.87 (Numa's dedication); AoR Core pp.367 (Ryloth terrain advantages)",
+    "weaknesses": "Dawn of Rebellion pp.86-87 (distrust of outsiders, narrow geographic focus, dependence on Cham's leadership); inferred from isolation",
+    "behavior_under_threat": "Inferred from guerrilla doctrine and Ryloth's underground cave systems (Dawn of Rebellion pp.86, AoR Core pp.367)",
+    "tension_patterns": "Inferred from Alliance-movement tensions (Dawn of Rebellion pp.78, 86), insider-outsider dynamics, and Hera's dual loyalty",
+    "regional_presence": "AoR Core pp.347, 367 (Ryloth in the Outer Rim along the Corellian Run); Dawn of Rebellion pp.86 (Ryloth-focused operations)",
+    "mcguffin_interest": "Inferred from guerrilla resistance resource needs (Dawn of Rebellion pp.86-87)"
+  }
+}

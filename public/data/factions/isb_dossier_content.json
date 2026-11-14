@@ -1,0 +1,2189 @@
+{
+  "schema_version": "1.0",
+  "node_id": "ISB-HOLONET-NODE-7714-ALPHA",
+  "files": {
+    "isb_overview": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-INT-ISB-OVERVIEW-001",
+        "subject": "IMPERIAL SECURITY BUREAU — ORGANIZATIONAL OVERVIEW — INTERNAL DISTRIBUTION ONLY",
+        "restriction_note": "DISTRIBUTION OUTSIDE BUREAU PERSONNEL IS A CLASS-I OFFENSE. DISTRIBUTION TO COMPNOR IS PROHIBITED."
+      },
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ORGANIZATIONAL MANDATE",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Imperial Security Bureau exists to identify, monitor, and neutralize threats to Imperial security originating from within Imperial institutions and the broader civilian population. The Bureau operates under direct Imperial authority, superseding local and regional governance in all security matters."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The preceding paragraph is the official mandate. The operational mandate is simpler: watch everyone. Trust no one. Document everything. Act when necessary. The Bureau's authority is effectively unlimited within Imperial space. This is by design."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 7-DELTA",
+          "verified": true,
+          "content": "They're always already watching. By the time you know they're interested, they know everything they need."
+        },
+        {
+          "type": "section_header",
+          "label": "WHAT THEY WANT",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "PRIMARY OBJECTIVE: Imperial stability through comprehensive surveillance and enforcement.\n\nOPERATIONAL OBJECTIVES:\n  · Identify threats before they materialize\n  · Maintain informant networks across all Imperial institutions and civilian sectors\n  · Ensure compliance through demonstrated consequence\n  · Document everything"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Bureau's secondary function — and arguably its primary one — is ensuring no other Imperial institution accumulates unchecked power. The Military is watched. Intelligence is watched. COMPNOR is watched. The Emperor's Office watches the Bureau. This is the system working correctly."
+        },
+        {
+          "type": "section_header",
+          "label": "HOW THEY OPERATE",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "ISB agents operate in plainclothes across all Imperial territories. Agents maintain cover identities appropriate to their operational environment. Agents are not required to identify themselves as Bureau personnel except when initiating formal arrest procedures."
+        },
+        {
+          "type": "official",
+          "content": "INFORMANT NETWORKS: The Bureau maintains informant assets across all sectors. Informants are not informed of other informants in their network. Informants who become security liabilities are managed according to Protocol 7-ISB-ASSET Sub-Section 9.\n\nNOTE ON SUB-SECTION 9: Sub-Section 9 is classified ISB-1."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Bureau does not use torture as a primary interrogation method. This is both a policy position and a practical one — subjects who believe they will be tortured stop talking. Subjects who believe they might be released keep talking. The distinction matters."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 12-GAMMA",
+          "verified": true,
+          "content": "An ISB agent doesn't threaten you. They ask questions. Very patient questions. They already know the answers. They're seeing if you'll lie."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2 — PARTIAL ACCESS"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: PROCEDURAL RIGIDITY\nBureau methodology is highly proceduralized. Agents who operate outside procedure create exploitable gaps. Agents who follow procedure create predictable patterns.\n\nVUL-002: INSTITUTIONAL RIVALRY\nISB relations with Imperial Intelligence and Military Command are formally cooperative and practically adversarial. Information does not flow freely between institutions."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Bureau's greatest vulnerability is its own completeness. The ISB generates more intelligence than it can effectively process. The threats between the high-priority threats sometimes are not caught. This is known. It is considered an acceptable operational cost."
+        },
+        {
+          "type": "section_header",
+          "label": "THREAT RESPONSE TIERS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "LOW: Passive surveillance. No action. File updated quarterly.\n\nMEDIUM: Active surveillance. Informant deployment. Asset recruitment attempted in subject's network.\n\nHIGH: Active investigation. Physical surveillance. Interrogation of known associates.\n\nCRITICAL: Full Bureau resources. Arrest authority exercised. Enhanced interrogation protocols initiated per [REDACTED] authorization."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 7-DELTA",
+          "verified": true,
+          "content": "If you're low-threat, you don't know they exist. If you're medium-threat, you suspect it. If you're high-threat, it's already too late to matter."
+        },
+        {
+          "type": "section_header",
+          "label": "INTERNAL COMPLIANCE RECORD",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "SANCTIONS ISSUED — LAST STANDARD QUARTER:\n  Surveillance without authorization: 23\n  Improper asset handling: 11\n  Failure to file within required period: 47\n  [REDACTED]: 8\n  [REDACTED]: [REDACTED]\n\nNOTE: Internal compliance data is itself classified. The fact that you can read this line means your clearance has been verified. Consider what that means."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "I am annotating my own organization's file. The irony is not lost. The ISB's blind spot is itself — the Bureau cannot conceive that its own completeness is the vulnerability. We generate so much data that one person reading broadly looks identical to diligence. That is what keeps me alive."
+        },
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The processing gap described in VUL-001 is real and worse than stated. Low-priority files are reviewed quarterly at best. Anything you need hidden, keep it below MEDIUM threshold and it disappears into the backlog. I have watched genuine threats sit in the queue for months because an analyst was reassigned to a political priority."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "I accessed this file three times this quarter. That is within normal parameters. Four would not be. The compliance record section is accurate — 47 agents sanctioned for filing failures. The Bureau watches its own people with the same paranoia it applies to everyone else. I am not exempt from that."
+        }
+      ],
+      "personnel": [],
+      "associates": []
+    },
+    "imperial_military": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-INT-MIL-001",
+        "subject": "IMPERIAL MILITARY — INTERNAL AFFAIRS ASSESSMENT",
+        "restriction_note": "THIS FILE IS RESTRICTED TO ISB PERSONNEL. DISTRIBUTION TO MILITARY COMMAND IS PROHIBITED. VIOLATION CARRIES CLASS-I PENALTY."
+      },
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Imperial Military represents the largest concentration of organized force in the known galaxy and the primary institutional check on ISB operational authority. The relationship between this Bureau and Military Command is formally cooperative and practically adversarial. Military commanders routinely obstruct Bureau operations citing jurisdiction. This is noted for the record."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Military's primary loyalty is to rank structure and institutional tradition, not to the Emperor's New Order as a political doctrine. Officers who served the Republic prior to the Reformation retain institutional loyalties that do not align with Imperial security objectives. This distinction has operational implications."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "They follow orders. They don't believe in them. That's fine until someone gives the wrong order."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: JURISDICTIONAL FRICTION\nMilitary commanders have demonstrated willingness to obstruct ISB operations when Bureau jurisdiction conflicts with Military operational priorities. Recommend: continued pressure through appropriate Imperial channels.\n\nVUL-002: OFFICER CORPS LOYALTY\nPre-Reformation officers represent a structural vulnerability. Recommend: continued monitoring of senior officers with extended Republic service records.\n\nVUL-003: STORMTROOPER CORPS MORALE\n[REDACTED — ISB-1 REQUIRED]\n\nVUL-004: REGIONAL GOVERNANCE FRICTION\nMilitary governors and Grand Moffs operate with significant autonomy. Oversight gaps identified in [REDACTED] sectors."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Any ISB agent observing Military personnel engaging in activities inconsistent with Imperial doctrine is required to file Report Form 7-ISB within 24 standard hours. Non-compliance is itself reportable."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "OFFICER CORPS REVIEW"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The ISB assessment of officer loyalty is accurate but incomplete. What they track is ideological drift. What they miss is operational sympathy — commanders who follow every order precisely but route supplies slowly, misfile transfer requests, lose equipment manifests. These officers will never be caught by loyalty screenings. They are your best recruitment targets."
+        },
+        {
+          "label": "FOR AXIS — PRIORITY UPDATE",
+          "content": "Fleet movements along the Outer Rim have increased 40% this quarter. The ISB attributes this to anti-piracy operations. It is not anti-piracy. Tarkin is consolidating assets around a project the Bureau is not fully briefed on. I cannot access the relevant files without triggering a review. Watch the Outer Rim supply chains — whatever they are building requires enormous materiel."
+        },
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "VUL-004 is the one that matters. Grand Moffs operate as regional warlords with Imperial sanction. The further from Coruscant, the less the chain of command holds. In the Outer Rim, a sympathetic garrison commander can lose an entire shipment and blame it on pirates. The ISB knows this happens. They cannot prove it faster than the next shipment moves."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "TARKIN, WILHUFF",
+          "file_ref": "#POI-MIL-0001",
+          "role": "GRAND MOFF — OUTER RIM TERRITORIES",
+          "status": "ACTIVE — ENHANCED MONITORING",
+          "threat_level": 0.7,
+          "location_note": "DEATH STAR / OUTER RIM [CONFIRMED]",
+          "npc_faction": "imperial_military",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "imperial_security_bureau",
+          "name": "IMPERIAL SECURITY BUREAU",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "Formally superior in security matters. Practically adversarial in jurisdiction disputes."
+        },
+        {
+          "faction_id": "imperial_intelligence",
+          "name": "IMPERIAL INTELLIGENCE",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Ongoing jurisdictional conflict. Information sharing is nominal."
+        },
+        {
+          "faction_id": "imperial_bureaucracy",
+          "name": "COMPNOR",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "COMPNOR loyalty certifications are treated as baseline screening only by this Bureau."
+        }
+      ]
+    },
+    "imperial_intelligence": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-INT-II-001",
+        "subject": "IMPERIAL INTELLIGENCE — THE UBIQTORATE — INTERNAL AFFAIRS ASSESSMENT",
+        "restriction_note": "EYES: ISB PERSONNEL ONLY. DO NOT SHARE WITH SUBJECT ORGANIZATION."
+      },
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Imperial Intelligence operates under COMPNOR authority with a mandate that overlaps Bureau jurisdiction in seventeen documented operational areas. Coordination between this Bureau and Imperial Intelligence is formally mandated by Imperial Decree 7734 and practically nonexistent. This is by design — theirs, not ours."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Imperial Intelligence collects intelligence. They do not share it. They do not coordinate on it. They classify it and sit on it. When the intelligence becomes relevant, they may act on it unilaterally or they may not. Predicting their behavior requires understanding their institutional incentives — which are, primarily, to remain the exclusive possessors of information they have collected."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 12-GAMMA",
+          "verified": true,
+          "content": "Imperial Intelligence doesn't share intelligence. They collect it, classify it, and sit on it until everyone who needed it is dead."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "FULLY REDACTED — OPERATIONAL SECURITY"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "RECOMMENDED POSTURE",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Treat all Imperial Intelligence personnel as potential assets of an adversarial service. Do not share operational details. Do not confirm or deny ongoing operations. Document all interactions. Report anomalies using Form 7-ISB-CI."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-3390",
+          "status": "AUTHORIZED",
+          "note": "COUNTER-INTELLIGENCE REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "I have dealt with Imperial Intelligence directly. They are better at this than the ISB. The ISB has more authority. Intelligence has more skill. The rivalry between us is the single largest gap in Imperial security coverage, and I exploit it every day. When Intelligence and ISB disagree on jurisdiction, neither organization covers the gap. That gap is where I operate."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Intelligence runs double agents inside the ISB. The ISB runs double agents inside Intelligence. Neither service has successfully identified the other's assets in over two years. If you need to move information through Imperial channels, route it through the contested space between these two organizations. Both will assume the other is responsible for any anomalies."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "The redacted vulnerability sections concern me. I cannot access them, which means the ISB has identified something about Intelligence it considers too dangerous to share at my clearance level. If you have assets inside Intelligence, warn them — the ISB may be preparing an operation against the Ubiqtorate that I cannot see from here."
+        }
+      ],
+      "personnel": [],
+      "associates": []
+    },
+    "imperial_bureaucracy": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-INT-COMP-001",
+        "subject": "COMPNOR — COMMISSION FOR THE PRESERVATION OF THE NEW ORDER — INTERNAL ASSESSMENT",
+        "restriction_note": "DISTRIBUTION TO COMPNOR PERSONNEL IS PROHIBITED."
+      },
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "COMPNOR fulfills a vital role in maintaining ideological cohesion across Imperial institutions. This Bureau maintains a cooperative relationship with COMPNOR's enforcement and documentation arms. COMPNOR loyalty certifications are reviewed as part of standard vetting procedures."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "COMPNOR's loyalty assessments are considered politically reliable and operationally naive. Bureau agents should treat COMPNOR loyalty certifications as baseline screening only. Subjects cleared by COMPNOR should not be considered cleared by this Bureau. COMPNOR believes what the Empire tells it to believe. The ISB believes what it can verify."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": false,
+          "content": "COMPNOR true believers are the most dangerous kind of naive. They report their friends. They don't think it's betrayal."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "COMPNOR's Sub-Adult Group is the recruitment pipeline for tomorrow's ISB agents, Intelligence officers, and military commanders. The true believers being trained now will hold real power in ten years. If you are thinking long-term — and you always are — this is where to plant seeds. A disillusioned SAGroup leader is worth more than a turned admiral."
+        },
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The ISB calls COMPNOR naive. This is institutional arrogance. COMPNOR's reporting network is enormous and their people are motivated by conviction, which makes them tireless. They are naive about tradecraft, not about reach. Your people should treat COMPNOR informants as a serious threat — a true believer neighbor who reports suspicious activity does not need to be competent to be lethal."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "COMPNOR loyalty screenings are crude but they are frequent. Any asset you place in an Imperial institution will face a COMPNOR review every six months. The reviews are easy to pass if you prepare. They are impossible to pass if you are surprised by one. Ensure your people know the schedule."
+        }
+      ],
+      "personnel": [],
+      "associates": []
+    },
+    "hutt_cartel": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-7734-HUT-001",
+        "subject": "HUTT KAJIDIC CRIMINAL CONSORTIUM",
+        "restriction_note": null
+      },
+      "threat_classification": "CLASS IV — ORGANIZED CRIMINAL",
+      "internal_security_relevance": "SIGNIFICANT",
+      "current_disposition": "TOLERATED / MONITORED",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Hutt kajidic network represents the primary organized criminal infrastructure in Hutt Space and significant portions of the Outer Rim. Current Imperial policy maintains a non-intervention posture in exchange for de facto cooperation on anti-Rebel intelligence. This arrangement is considered tactically advantageous in the short term and strategically untenable in the long term. Recommendation: continued monitoring."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 7-DELTA",
+          "verified": true,
+          "content": "They own half the Outer Rim and they'd like to own the other half. The Hutts don't rule through law — they rule through debt."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "official",
+          "content": "Debt leverage is the preferred instrument. Violence is expensive and permanent — debt is cheaper and lasts indefinitely. Systematic bribery of local officials is documented across fourteen sectors. Hired enforcement is contracted, not employed — loyalty is purchased per engagement."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Hutts actively avoid direct confrontation with Imperial Military assets. When a Hutt moves to direct confrontation, something has gone wrong with their calculations. This is when they are most dangerous and most likely to make mistakes."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: KAJIDIC RIVALRY\nOne Hutt's agreement is not every Hutt's agreement. Intelligence exploitation of inter-kajidic tensions has yielded results in documented operations.\n\nVUL-002: PURCHASED LOYALTY\nEnforcement personnel are contracted. Competitive financial offers have demonstrated effectiveness.\n\nVUL-003: ARROGANCE\nHutts consistently underestimate non-Hutt operatives. This is exploitable and has been exploited."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "Someone in every Hutt operation is skimming. Find them. They'll tell you everything."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "CROSS-REF IID-7734-PYK-001"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The ISB treats the Hutts as a monolith. They are not. The Desilijic and Besadii kajidics have been at each other's throats for centuries. Jabba's operation on Tatooine is practically a breakaway state from the broader Desilijic agenda. Each kajidic has its own intelligence apparatus, its own treasury, its own grudges. When the ISB negotiates with 'the Hutts,' they are negotiating with whichever Hutt answered the call. The rest feel no obligation."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "The Besadii kajidic is the weak point. They control spice processing operations that compete with the Pyke pipeline, and they are losing. A Besadii underboss with declining revenue and rising debts to rival kajidics is the most purchasable asset in the Outer Rim. The ISB has not pursued this because they consider inter-kajidic politics beneath their analytical scope. Their loss. Your gain."
+        },
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "Hutt supply corridors through Kessel, Formos, and the Triellus Trade Route are the most reliable smuggling infrastructure in the galaxy. The ISB monitors them but cannot interdict without disrupting the non-intervention arrangement. If you need to move cargo without Imperial interference, Hutt routes are the safest option — provided you can pay the tariff and accept that the Hutts will know exactly what you moved."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "JABBA DESILIJIC TIURE",
+          "file_ref": "#POI-HUT-0047",
+          "role": "KAJIDIC LORD — TATOOINE SECTOR",
+          "status": "ACTIVE — HIGH PRIORITY",
+          "threat_level": 0.8,
+          "location_note": "TATOOINE [LAST CONFIRMED]",
+          "npc_faction": "hutt_cartel",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "black_sun",
+          "name": "BLACK SUN",
+          "status": "ALLIED",
+          "verified": true,
+          "note": "Operational cooperation documented. Competing territorial interests in Mid Rim."
+        },
+        {
+          "faction_id": "pyke_syndicate",
+          "name": "PYKE SYNDICATE",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Ongoing conflict over spice distribution channels. Violent incidents documented."
+        },
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "De facto non-interference arrangement. Not to be mistaken for cooperation."
+        }
+      ]
+    },
+    "rebel_alliance": {
+      "classification": {
+        "doc_class": "VOID",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-REB-001",
+        "subject": "ALLIANCE TO RESTORE THE REPUBLIC — TERRORIST INSURGENCY — PRIMARY THREAT FILE",
+        "restriction_note": "MAXIMUM CLASSIFICATION. DISTRIBUTION REQUIRES DIRECTOR AUTHORIZATION."
+      },
+      "threat_classification": "CLASS I — EXISTENTIAL",
+      "internal_security_relevance": "PRIMARY CONCERN",
+      "current_disposition": "ACTIVE SUPPRESSION",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-1"
+        },
+        {
+          "type": "official",
+          "content": "The so-called Alliance to Restore the Republic represents the primary internal security threat to Imperial stability. Despite significant resource investment in suppression operations, insurgent cells continue to operate across multiple sectors. The Alliance demonstrates unexpected operational coherence for a decentralized organization."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Alliance is more dangerous than its resources suggest. True believers are operationally unpredictable — they cannot be purchased, they do not respond to standard deterrence, and they recruit from populations with legitimate grievances against Imperial policy. This last point is not recorded in standard threat assessments. It is recorded here."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "True believers with nowhere left to run. They've already lost everything. That makes them the most dangerous people in the galaxy."
+        },
+        {
+          "type": "section_header",
+          "label": "CELL STRUCTURE",
+          "classification": "REDACTED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN OPERATIVES",
+          "classification": "REDACTED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "SUSPECTED SYMPATHIZERS",
+          "classification": "REDACTED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-1 — PARTIAL ACCESS"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: RESOURCE CONSTRAINTS\nThe Alliance operates with severely limited resources. Interdiction of supply lines has demonstrated effectiveness."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "CELL ANALYSIS UPDATE"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-3390",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "The ISB's threat assessment of the Alliance is accurate. Their understanding of motivation is not. The Bureau believes the Alliance recruits through ideology and coercion. They have not considered that the Alliance recruits through hope — which cannot be interdicted, cannot be surveilled, and cannot be destroyed by arresting its source. See the Wookiee file. See the Mandalorian file. The Empire manufactures rebels faster than the ISB can catalogue them."
+        },
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The 'unexpected operational coherence' the analyst notes is not unexpected if you understand the cell structure correctly. The ISB assumes the Alliance is decentralized because cells do not communicate laterally. They have not identified the coordination layer — the intelligence brokers who move between cells without belonging to any of them. The Bureau is looking for a command hierarchy. They should be looking for a network of individual operators with extraordinary autonomy. They are looking for generals. They should be looking for people like you."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "This file is VOID classification. I should not be accessing it at all. I have a standing cross-reference authorization from a Pyke investigation that provides plausible cover, but that authorization expires in eleven weeks. After that, any access to this file creates a trail I cannot explain. Whatever you need from this file, tell me now."
+        }
+      ],
+      "personnel": [],
+      "associates": []
+    },
+    "black_sun": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-BSN-001",
+        "subject": "BLACK SUN CRIMINAL SYNDICATE — COMPREHENSIVE THREAT ASSESSMENT",
+        "restriction_note": "THIS FILE DOCUMENTS IMPERIAL OFFICIALS WITH CONFIRMED BLACK SUN FINANCIAL TIES. DISTRIBUTION REQUIRES ISB-1 AUTHORIZATION."
+      },
+      "threat_classification": "CLASS III — ORGANIZED CRIMINAL / INSTITUTIONAL PENETRATION",
+      "internal_security_relevance": "HIGH — CONFIRMED IMPERIAL CORRUPTION",
+      "current_disposition": "MONITORED / PARTIALLY TOLERATED",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Black Sun is a galaxy-spanning criminal syndicate operating at every level of galactic society, from dockside extortion to corporate boardrooms. Founded over three thousand years ago, the organization has survived every galactic government and will likely survive this one. The known galaxy is divided into nine territories, each administered by a Vigo — an old Tionese word meaning 'nephew,' intended to project familial loyalty. Thousands of operatives work for Black Sun without knowing it. This Bureau considers Black Sun the most structurally sophisticated criminal organization currently operating."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Black Sun does not merely operate alongside the Empire. It operates inside it. Bureau analysis has identified financial connections between Xizor Transport Systems and no fewer than fourteen Imperial procurement offices. These connections are documented in Annex 7-BSN, which is classified above this file's access level for reasons that should be self-evident."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 31-KAPPA",
+          "verified": true,
+          "content": "Organized crime with organizational charts. They're not thugs — they're executives who happen to kill people."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": ""
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Vigo system creates both strength and vulnerability. Each Vigo operates semi-autonomously, expanding personal power within their territory. This means one Vigo's arrest does not compromise the others. It also means one Vigo's ambition can create opportunities for Bureau exploitation. Recommend: identify Vigos with territorial grievances against one another. Apply pressure accordingly."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: VIGO RIVALRY\nNine territories. Nine ambitions. Inter-Vigo competition is endemic and exploitable. Bureau has documented at least three active territorial disputes.\n\nVUL-002: XIZOR-VADER PERSONAL CONFLICT\nPrince Xizor maintains a documented personal vendetta against Lord Vader related to the Falleen orbital bombardment. This irrational element introduces unpredictability into an otherwise calculated organization.\n\nVUL-003: DEPENDENCE ON SECRECY\nBlack Sun's primary asset is that most of the galaxy does not know it exists. Exposure of organizational structure would trigger cascading asset losses across all nine territories."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "VUL-002 is the entry point. Xizor's vendetta against Vader is personal, irrational, and ongoing. A rational actor would never antagonize the Emperor's enforcer. Xizor is not acting rationally on this matter. This makes him predictable in exactly one way."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "You don't find Black Sun. Black Sun finds a use for you. By the time you realize who you're working for, you owe them too much to walk away."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 19-SIGMA",
+          "verified": false,
+          "content": "Xizor hosted three Imperial Moffs on the First Light last quarter. Social function. No business discussed. Officially. The guest list is in Annex 7-BSN if you have the clearance."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "CROSS-REF IID-7734-HUT-001"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-3390",
+          "status": "AUTHORIZED",
+          "note": "ANNEX 7-BSN UPDATE"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PRIORITY UPDATE",
+          "content": "Annex 7-BSN contains the names of fourteen Imperial procurement officers on Xizor's payroll. I cannot access the annex directly, but I cross-referenced the procurement offices mentioned with personnel rotation schedules. Three of those officers were reassigned to Outer Rim postings in the last quarter — the ISB is quietly moving them away from Coruscant rather than prosecuting. That means the corruption goes higher than the officers themselves. Someone is protecting the arrangement."
+        },
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "The ISB does not want to admit how deep Black Sun reaches into Imperial institutions. The file says 'fourteen procurement offices.' The actual number is higher. I have seen requisition patterns that suggest Xizor Transport Systems subsidiaries hold contracts with the Imperial Navy itself — legitimate contracts, competitively bid, legally awarded. Black Sun is not infiltrating the Empire. It is doing business with it. The distinction matters."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Xizor's vendetta against Vader is your opportunity and your boundary. Black Sun's institutional corruption creates leverage you can use — compromised officials can be approached, supply chains can be tapped. But do not get between Xizor and Vader. That collision will be catastrophic and indiscriminate. Position your assets to benefit from the aftermath, not to be present for the event."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "XIZOR, PRINCE",
+          "file_ref": "#POI-BSN-0001",
+          "role": "UNDERLORD — BLACK SUN",
+          "status": "ACTIVE — MAXIMUM PRIORITY",
+          "threat_level": 0.9,
+          "location_note": "CORUSCANT / FALLEEN'S FIST [CONFIRMED]",
+          "npc_faction": "black_sun",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "ALLIED",
+          "verified": true,
+          "note": "Cooperative on territorial boundaries. Competing interests in Mid Rim spice distribution."
+        },
+        {
+          "faction_id": "crimson_dawn",
+          "name": "CRIMSON DAWN",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Active territorial conflict. Crimson Dawn expansion threatens Black Sun market share in hyperfuel corridors."
+        },
+        {
+          "faction_id": "zann_consortium",
+          "name": "ZANN CONSORTIUM",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Aggressive encroachment on Black Sun operations. Violent incidents documented across multiple sectors."
+        }
+      ]
+    },
+    "pyke_syndicate": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-PYK-001",
+        "subject": "PYKE SYNDICATE — SPICE CARTEL — THREAT ASSESSMENT",
+        "restriction_note": "CROSS-REFERENCE WITH IMPERIAL CUSTOMS CORRUPTION FILES RESTRICTED TO ISB-1."
+      },
+      "threat_classification": "CLASS IV — ORGANIZED CRIMINAL / NARCOTICS",
+      "internal_security_relevance": "MODERATE — CUSTOMS CORRUPTION VECTOR",
+      "current_disposition": "MONITORED / ENFORCEMENT SELECTIVE",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Pyke Syndicate controls the majority of galactic spice production from mining through refinement. Operating from their homeworld of Oba Diah, the Pykes maintain monopoly control over Kessel, Troiken, and Mon Gazza mining operations through enslaved labor forces and exclusive distribution partnerships with Hutt Kajidic networks. The Syndicate's economic position makes it structurally embedded in the galactic underworld economy — disruption of Pyke operations would destabilize spice markets across the Outer Rim."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Empire's relationship with the Pyke Syndicate is not formally acknowledged and is therefore difficult to characterize in official reporting. Bureau assessment: Imperial Customs officers along seventeen major trade corridors accept regular payments to ignore Pyke shipments. This is documented. The documentation is classified above this file's level because the list of names is politically inconvenient."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "The spice trade runs through them. Everything else runs through the spice."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "official",
+          "content": "The Pyke operational model is vertical integration of the spice supply chain. Mining operations use enslaved labor — primarily Wookiees and other species acquired through Trandoshan intermediaries. Refinement occurs on Pyke-controlled facilities. Distribution is contracted to Hutt networks under exclusivity agreements enforced through debt leverage and targeted assassination.\n\nEnforcement is surgical. The Pykes destroy competitors and traitors with precision rather than area denial — collateral damage disrupts the supply chain they depend on. Ruthless interrogators maintain internal discipline."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Pyke-Hutt relationship is the structural weakness. The Hutts control distribution. The Pykes control production. Neither can destroy the other without destroying their own revenue. This mutual dependence creates a stable equilibrium that benefits both parties and makes external disruption extremely difficult. Recommend: do not attempt to sever this relationship. Instead, exploit the tension within it."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: SINGLE COMMODITY DEPENDENCE\nPyke power derives entirely from spice. Disruption of mining operations — particularly on Kessel — would be existential to the organization.\n\nVUL-002: ENSLAVED WORKFORCE\nMining labor is enslaved and represents a constant rebellion risk. Documented incidents of slave revolts have disrupted production three times in the last standard year.\n\nVUL-003: TRANSIT VULNERABILITY\nSpice shipments in transit are targeted by pirates and rival operators. The Veiled Sorority has conducted documented raids on Pyke convoys."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 62-TAU",
+          "verified": true,
+          "content": "The Pykes don't waste violence. If they kill someone, it's because the cost of keeping them alive exceeded the cost of replacement. They've done the math."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 12-GAMMA",
+          "verified": false,
+          "content": "Heard a Pyke overseer on Kessel say they lose more miners to the energy spiders than to escape attempts. The spiders aren't on the payroll, but they might as well be."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-5518",
+          "status": "AUTHORIZED",
+          "note": "CUSTOMS CORRUPTION CROSS-REF"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The seventeen corrupted customs corridors are your supply chain. I have identified which corridors are most lightly monitored by cross-referencing Pyke shipment seizure rates with corridor assignment rotations. The Kessel Run terminus through Formos has a seizure rate of 0.3% — effectively unpoliced. Anything you need moved through the Outer Rim, that is your corridor. The Pykes will not object to additional traffic if you pay their transit tariff."
+        },
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The ISB treats the Pyke Syndicate as a narcotics problem. It is an infrastructure problem. The Pykes do not merely move spice — they maintain the largest private logistics network in the Outer Rim. Refueling stations, safe harbors, bribed port authorities, convoy schedules. The spice is the revenue. The infrastructure is the asset. If the spice trade collapsed tomorrow, the Pykes would pivot to moving something else through the same channels within a standard month."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "VUL-002 is operationally significant for you. Slave revolts on Kessel disrupt Pyke operations and create chaos that masks other activity. The Wookiee resistance networks on Kessel are already coordinating with Alliance contacts — see the Wookiee file. A well-timed revolt could provide cover for an extraction, a supply run, or a diversionary action. The Pykes blame the Trandoshans. The Trandoshans blame the Wookiees. Nobody looks at who benefited."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "MARG KRIM",
+          "file_ref": "#POI-PYK-0012",
+          "role": "SYNDICATE LEADER — OBA DIAH",
+          "status": "ACTIVE — MONITORING",
+          "threat_level": 0.6,
+          "location_note": "OBA DIAH [LAST CONFIRMED]",
+          "npc_faction": "pyke_syndicate",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "Symbiotic distribution partnership. Mutual dependence prevents open conflict. Tension over pricing is chronic."
+        },
+        {
+          "faction_id": "crimson_dawn",
+          "name": "CRIMSON DAWN",
+          "status": "ALLIED",
+          "verified": false,
+          "note": "Historical cooperation through Shadow Collective remnant networks. Current status unclear."
+        },
+        {
+          "faction_id": "black_sun",
+          "name": "BLACK SUN",
+          "status": "NEUTRAL",
+          "verified": true,
+          "note": "Non-competing operational focus reduces friction. Occasional coordination on shared transit corridors."
+        }
+      ]
+    },
+    "bounty_hunters_guild": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-7734-BHG-001",
+        "subject": "BOUNTY HUNTERS' GUILD — LICENSED MERCENARY ASSOCIATION — OPERATIONAL ASSESSMENT",
+        "restriction_note": "GUILD IS A SANCTIONED IMPERIAL ASSET. THIS FILE DOCUMENTS BUREAU CONCERNS WITH THAT ARRANGEMENT."
+      },
+      "threat_classification": "CLASS III — MERCENARY / INSTITUTIONAL",
+      "internal_security_relevance": "MODERATE — DUAL-USE ASSET",
+      "current_disposition": "SANCTIONED / MONITORED",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Bounty Hunters' Guild operates under Imperial Peacekeeping Certificate (IPKC) licensing as the primary professional association for sanctioned bounty hunters. The Guild provides contract distribution, arbitration, armory access, and self-policing mechanisms that give it institutional legitimacy. This Bureau acknowledges the Guild's utility as a force multiplier for Imperial law enforcement operations and simultaneously documents its concerns regarding the Guild's structural independence and the loyalties of its membership."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Guild is useful. This is the problem. Useful organizations acquire leverage. The Guild controls access to the most effective freelance enforcement operators in the galaxy. When the Empire needs a target found and conventional assets are unavailable or politically inconvenient, the Guild is the intermediary. This gives the Guild something it should not have: negotiating position."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 7-DELTA",
+          "verified": true,
+          "content": "Professionals. Mostly. The Guild keeps the worst of them in line — and the worst of them are very, very bad."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Guild operates through institutional leverage rather than direct force. Contract distribution networks ensure steady work flow for compliant members. Armories and intelligence networks provide operational advantages over freelance competitors. Members who violate guild codes face loss of privileges, blacklisting, or internal enforcement.\n\nThe IPKC licensing system is the Guild's primary instrument of control — guild hunters operate with Imperial legal sanction that freelancers cannot obtain. This creates a dependency loop: hunters need the Guild for legitimacy, the Guild needs the Empire for the IPKC, and the Empire needs the Guild for operational capability."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The dependency loop is stable as long as no party decides to break it. Bureau concern: elite operators like Fett demonstrate that the Guild is not necessary for individual success. If the Empire's most valuable contracts consistently flow to non-guild hunters, the Guild's institutional authority erodes. If the Guild's authority erodes, the self-policing mechanism fails. If the self-policing mechanism fails, the Bureau inherits the problem."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: IPKC DEPENDENCY\nThe Guild's authority extends exactly as far as the Empire's writ. In sectors where Imperial enforcement is weak, guild authority is nominal. Recommend: leverage IPKC renewal process for intelligence extraction.\n\nVUL-002: FREELANCE COMPETITION\nElite hunters operating outside guild structure demonstrate that guild membership is optional for the most capable operators. This undermines institutional cohesion.\n\nVUL-003: NEUTRALITY DOCTRINE\nThe Guild serves whoever pays. This neutrality is an asset when the Empire pays. It is a liability when the Empire's enemies do."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "A guild hunter with an IPKC badge can walk into any Imperial garrison and request assistance. Most garrison commanders comply. Consider what that access means in the wrong hands."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 31-KAPPA",
+          "verified": true,
+          "content": "The guild arbitration process is a joke. Two hunters claim the same bounty, they file paperwork, and while the paperwork is being processed one of them usually ends up dead. The survivor gets the bounty. System works."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "IPKC RENEWAL AUDIT"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-6604",
+          "status": "AUTHORIZED",
+          "note": "CONTRACT CROSS-REF"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "Three guild hunters are confirmed ISB informants: designations in the IPKC renewal database cross-referenced with Form 7-ISB-ASSET filings. I cannot extract names without triggering an audit, but I can tell you which sectors they operate in — Arkanis, Bothan, and the Anoat sector. Any operation in those regions should assume guild hunters are reporting to the Bureau. Avoid contracting guild services in those sectors entirely."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Freelance hunters — the ones without IPKC badges — are your recruitment pool. They operate outside Imperial sanction, which means they have no reporting obligations and no loyalty to the system. Fett is untouchable, but there are dozens of competent operators who left the guild or were expelled. They are motivated by credits, which is reliable, and they hate the guild, which is useful. The ISB considers them a nuisance. You should consider them an asset class."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "VUL-003 cuts both ways. The guild's neutrality means they will accept Alliance contracts. It also means they will accept Imperial contracts to find the people who placed those Alliance contracts. Never use the same guild intermediary twice. Never use a guild hunter for anything that connects to your network. Treat them as single-use instruments. The guild keeps meticulous records of who hires whom."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "FETT, BOBA",
+          "file_ref": "#POI-BHG-0003",
+          "role": "INDEPENDENT OPERATOR — NON-GUILD AFFILIATED",
+          "status": "ACTIVE — ENHANCED MONITORING",
+          "threat_level": 0.8,
+          "location_note": "UNKNOWN — LAST CONFIRMED OUTER RIM",
+          "npc_faction": "bounty_hunters_guild",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "ALLIED",
+          "verified": true,
+          "note": "IPKC licensing creates formal cooperation. Contract fulfillment rates remain acceptable."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "NEUTRAL",
+          "verified": true,
+          "note": "Hutts represent a significant private contract source. Guild neutrality permits this. Bureau notes the arrangement."
+        },
+        {
+          "faction_id": "black_sun",
+          "name": "BLACK SUN",
+          "status": "NEUTRAL",
+          "verified": false,
+          "note": "Black Sun contracts flow through intermediaries. Guild claims ignorance of ultimate client identity. Bureau is skeptical."
+        }
+      ]
+    },
+    "mandalorian_clans": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-MND-001",
+        "subject": "MANDALORIAN CLANS — OCCUPIED POPULATION — INSURGENCY RISK ASSESSMENT",
+        "restriction_note": "THIS FILE CONTAINS REFERENCES TO OPERATION NIGHTSABER. ISB-1 CLEARANCE REQUIRED FOR FULL ACCESS."
+      },
+      "threat_classification": "CLASS II — MILITARY / CULTURAL INSURGENCY",
+      "internal_security_relevance": "HIGH — CONFIRMED RESISTANCE ACTIVITY",
+      "current_disposition": "OCCUPIED / SUPPRESSED / INSURGENT",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Mandalorian clans represent a subjugated warrior culture under Imperial military occupation, governed through the Viceroy system. Current population estimate: approximately four million, concentrated in bio-dome cities on a homeworld scarred by centuries of warfare. Despite occupation, the clans retain cultural identity, military capability, and — critically — the institutional memory of sovereignty. Bureau assessment: the Mandalorians are not pacified. They are waiting."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Three factions compete for the soul of Mandalorian culture: the New Mandalorians seek diplomatic legitimacy and peace, the Death Watch remnants seek militant restoration, and the Protectors attempt pragmatic survival under Imperial rule. The Empire's Viceroy system exploits this fracture by playing factions against each other. Bureau assessment: this strategy is effective in the short term and catastrophic in the long term. A unified Mandalore under a single Mand'alor would represent a military threat disproportionate to the population size. Every individual adult is combat-trained. Their armament includes beskar, jetpacks, and Fang fighters that concern even Imperial Navy tacticians."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 88-AUREK",
+          "verified": true,
+          "content": "They remember a time before the Empire. They're going to make sure you do too."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Mandalorian methods vary by faction but share common characteristics: preference for direct action over subterfuge, clan-based operational units with exceptional cohesion, and individual combatant effectiveness that exceeds Imperial standard by a significant margin.\n\nProtectors: disciplined military action, negotiation under duress, selective compliance with Viceroy directives while covertly maintaining martial readiness.\n\nDeath Watch remnants: infiltration, targeted violence, recruitment of disaffected clan members, sabotage of Imperial infrastructure.\n\nAll factions: beskar armor and traditional weapons represent a force multiplier that cannot be neutralized through standard small-arms engagement."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: FACTIONAL DIVISION\nThe three-way split between New Mandalorians, Death Watch, and Protectors prevents unified action. The Viceroy system deliberately exacerbates these divisions. Recommend: continue current approach.\n\nVUL-002: POPULATION CONCENTRATION\nBio-dome cities on a scarred homeworld create concentrated, vulnerable population centers. The clans cannot absorb significant casualties.\n\nVUL-003: THE DARKSABER\nCultural legitimacy is concentrated in a single artifact — the Darksaber — and the tradition of Mand'alor. Control or neutralization of this artifact would remove the unification mechanism."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Bureau recommends against complacency regarding Mandalorian suppression. Four million people who are individually capable of killing stormtroopers and collectively bound by a culture that has survived every attempt at extermination for thousands of years is not a solved problem. It is a deferred one."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 88-AUREK",
+          "verified": true,
+          "content": "Viceroy Saxon thinks he controls the Protectors. The Protectors think they're waiting for the right moment. Both are correct. The timing is the only question."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 55-BESH",
+          "verified": false,
+          "content": "Death Watch cells operating off-world. At least three active in Outer Rim sectors. They're recruiting non-Mandalorians now. That's new. That's concerning."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "OPERATION NIGHTSABER REVIEW"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-3390",
+          "status": "AUTHORIZED",
+          "note": "VICEROY COMPLIANCE AUDIT"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "The ISB analyst who wrote this file understands the situation better than anyone in Imperial command. The Mandalorians are a deferred catastrophe. When the Empire is distracted — and there will come a day when it is distracted — four million trained warriors with generational rage and beskar armor will move. The question is not if. The question is whether they move alone or in coordination with the Alliance. You should ensure it is the latter."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Clan Wren is the contact point. The ISB suspects Alliance contact but cannot confirm it — see the associates section. Ursa Wren is pragmatic, not ideological. She will not join a rebellion for principle. She will join one that can credibly threaten the occupation of her homeworld. Offer her a military objective, not a manifesto. The Darksaber is the key — whoever holds it commands Mandalorian loyalty by cultural law. Its current location is unknown to the ISB. Find it before they do."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "Operation Nightsaber is referenced but redacted above my clearance. The name suggests a contingency plan for Mandalore — likely an orbital bombardment protocol or garrison reinforcement trigger. If the Empire decides the Mandalorians are moving toward unification, they will not negotiate. They will sterilize. Any Alliance coordination with Mandalorian clans must account for the possibility that the Empire will destroy the bio-domes rather than lose control of them."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "SAXON, GAR",
+          "file_ref": "#POI-MND-0001",
+          "role": "IMPERIAL VICEROY — MANDALORE",
+          "status": "ACTIVE — COOPERATIVE ASSET",
+          "threat_level": 0.5,
+          "location_note": "SUNDARI, MANDALORE [CONFIRMED]",
+          "npc_faction": "mandalorian_clans",
+          "npc_tier": "nemesis"
+        },
+        {
+          "name": "WREN, URSA",
+          "file_ref": "#POI-MND-0019",
+          "role": "CLAN WREN MATRIARCH — PROTECTOR FACTION",
+          "status": "ACTIVE — ENHANCED MONITORING",
+          "threat_level": 0.7,
+          "location_note": "KROWNEST [LAST CONFIRMED]",
+          "npc_faction": "mandalorian_clans",
+          "npc_tier": "rival"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Occupying force. Compliance is coerced, not voluntary. Resistance activity documented."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "name": "REBEL ALLIANCE",
+          "status": "COMPLEX",
+          "verified": false,
+          "note": "Unconfirmed reports of Clan Wren contact with Rebel operatives. Investigation ongoing."
+        },
+        {
+          "faction_id": "bounty_hunters_guild",
+          "name": "BOUNTY HUNTERS' GUILD",
+          "status": "NEUTRAL",
+          "verified": true,
+          "note": "Individual Mandalorians operate as guild hunters. Clan affiliations create potential intelligence leakage."
+        }
+      ]
+    },
+    "inquisitorius": {
+      "classification": {
+        "doc_class": "VOID",
+        "access_level": "ISB-0 ONLY",
+        "file_ref": "IID-VOID-INQ-001",
+        "subject": "THE INQUISITORIUS — [DESIGNATION CLASSIFIED] — FORCE-SENSITIVE ENFORCEMENT ARM",
+        "restriction_note": "VOID CLASSIFICATION. DIRECTOR AUTHORIZATION REQUIRED. ACKNOWLEDGING THE EXISTENCE OF THIS FILE TO NON-ISB PERSONNEL IS A CAPITAL OFFENSE. THIS IS NOT A METAPHOR."
+      },
+      "threat_classification": "CLASS I — EXISTENTIAL / INTERNAL",
+      "internal_security_relevance": "MAXIMUM — OPERATES OUTSIDE BUREAU OVERSIGHT",
+      "current_disposition": "ACTIVE / UNCONTROLLED / ABOVE BUREAU AUTHORITY",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "official",
+          "content": "The Inquisitorius is a secret order of Force-sensitive operatives founded by the Emperor and overseen by Lord Vader, tasked with the identification, capture, and elimination of surviving Jedi and Force-sensitive individuals. Inquisitors hold broad Imperial authority to requisition military assets up to and including Star Destroyers without prior approval or explanation. The Inquisitorius operates from the Citadel Inquisitorius in the Deep Core. Bureau jurisdiction does not extend to their operations. Bureau personnel who encounter Inquisitors in the field are instructed to comply with all directives and file Form 7-ISB-VOID within six standard hours."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "This Bureau monitors every significant power structure in the Empire. We do not monitor the Inquisitorius. We cannot monitor the Inquisitorius. They are Force users operating under direct Sith authority with a mandate that supersedes every institutional check in the Imperial system. They answer to Vader. Vader answers to the Emperor. There is no appeals process. There is no oversight mechanism. There is no Bureau protocol that applies. This is stated plainly because the implications must be understood: there exists within the Imperial power structure an armed force that this Bureau cannot investigate, cannot surveil, cannot predict, and cannot restrain. The Bureau's position is to document what it can observe and hope that the observations are never needed."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "The Empire's answer to a question nobody was supposed to ask. If one is looking for you, start running. Don't stop."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-0 — PARTIAL"
+        },
+        {
+          "type": "official",
+          "content": "Inquisitors are former Jedi or Force-sensitive individuals conditioned through methods this Bureau is not authorized to describe. They wield lightsabers and Force abilities that place them outside the engagement capability of standard Imperial personnel.\n\nPreferred methodology: trap-based operations. Jedi artifacts placed in known smuggling channels. Rumors of Force activity seeded through informant networks. Targets are drawn to prepared kill zones where conventional military assets provide the cordon and the Inquisitor provides the execution.\n\nWhen direct confrontation is required, Inquisitors requisition stormtroopers, purge troopers, or capital ships to overwhelm targets with conventional force before engaging personally."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Bureau observation: Inquisitors do not share intelligence with each other. Internal rivalry is endemic. They withhold target information, sabotage peers' operations, and conceal failures to avoid Vader's response to failure — which is, reportedly, terminal. This creates intelligence gaps that the targets exploit. The Bureau has documented at least four instances where a Jedi fugitive escaped through the gap between two competing Inquisitors. This observation is filed without recommendation because the Bureau has no authority to make one."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-0 — DO NOT DISTRIBUTE"
+        },
+        {
+          "type": "official",
+          "content": "NOTE: The following vulnerability assessment is filed for Bureau reference only. The Bureau does not have operational authority regarding the Inquisitorius and this analysis does not constitute a recommendation for action.\n\nVUL-001: PSYCHOLOGICAL INSTABILITY\nInquisitors are conditioned through torture and dark side immersion. Bureau behavioral analysis indicates elevated rates of paranoia, impulsivity, and overconfidence. Several field incidents attributed to Inquisitor psychological instability are documented in [REDACTED].\n\nVUL-002: INTERNAL RIVALRY\nCompetition between designated agents creates intelligence gaps and operational conflicts. No central coordination mechanism exists below the level of Vader himself.\n\nVUL-003: FAILURE CONCEALMENT\nInquisitors who fail do not report failure. They conceal it until the problem compounds. This creates cascading intelligence failures that the Bureau cannot correct because the Bureau is not informed."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "section_header",
+          "label": "BUREAU POSTURE",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "official",
+          "content": "STANDING ORDER TO ALL ISB PERSONNEL:\n\n  1. Do not interfere with Inquisitorius operations under any circumstances.\n  2. Comply with all Inquisitor directives immediately and without question.\n  3. Do not attempt surveillance of Inquisitorius personnel or facilities.\n  4. File Form 7-ISB-VOID within six standard hours of any Inquisitor encounter.\n  5. Do not discuss Inquisitor encounters with non-Bureau personnel.\n  6. Do not discuss Inquisitor encounters with other Bureau personnel below ISB-0 clearance.\n\nNON-COMPLIANCE WITH ANY OF THE ABOVE IS A CAPITAL OFFENSE."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The preceding standing order is the Bureau's official position. The unofficial position is identical. There is no unofficial position on the Inquisitorius. The Bureau does not have unofficial positions on matters classified VOID. This addendum does not exist."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [DEEP COVER]",
+          "verified": null,
+          "content": "I watched one take a blaster bolt to the chest and keep walking. The stormtroopers around her didn't flinch. They've seen it before. They were more afraid of her than the man shooting at her."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "They're not Jedi. Jedi had rules. These ones have handlers."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-DIRECTOR-001",
+          "status": "AUTHORIZED",
+          "note": "ANNUAL REVIEW"
+        },
+        {
+          "agent": "ISB-DIRECTOR-001",
+          "status": "AUTHORIZED",
+          "note": "INCIDENT REPORT — [REDACTED]"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "DENIED",
+          "note": "CLEARANCE INSUFFICIENT — FLAGGED"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "I should not be writing this. This file is VOID classification. I accessed it through a Director-level session that was not properly closed — a system error I did not create and cannot replicate. I have perhaps ninety seconds of plausible access before the session audit triggers. What follows is what I could read in that time."
+        },
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "They can sense things. I do not understand the mechanism and I do not need to. What I need you to understand is that your operatives cannot lie to an Inquisitor in person. They cannot hide fear. They cannot suppress intent. If an Inquisitor is in the room, your operative is already compromised. The only defense is distance. Do not allow your people within sensor range of Inquisitorius operations. There is no counter-intelligence protocol that works against someone who reads minds."
+        },
+        {
+          "label": "FOR AXIS — PRIORITY UPDATE",
+          "content": "VUL-002 is your only opening. The rivalry between Inquisitors creates gaps in their surveillance net — the four escaped Jedi mentioned in the file prove it. If your network shelters Force-sensitives, route them through sectors where two Inquisitors have overlapping jurisdiction. Each will assume the other is handling it. Neither will. I cannot identify which sectors those are from this file. I will not be accessing this file again."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "[DESIGNATION CLASSIFIED]",
+          "file_ref": "#POI-INQ-0001",
+          "role": "GRAND INQUISITOR",
+          "status": "ACTIVE — DO NOT APPROACH",
+          "threat_level": 1.0,
+          "location_note": "[CLASSIFIED]",
+          "npc_faction": "inquisitorius",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "Inquisitors requisition military assets without explanation. Commanders comply. There is no alternative."
+        },
+        {
+          "faction_id": "imperial_security_bureau",
+          "name": "IMPERIAL SECURITY BUREAU",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "Bureau provides intelligence support when requested. Requests are not optional. Reciprocal intelligence sharing: nonexistent."
+        }
+      ]
+    },
+    "corporate_sector_authority": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-7734-CSA-001",
+        "subject": "CORPORATE SECTOR AUTHORITY — CHARTERED AUTONOMOUS GOVERNMENT — COMPLIANCE ASSESSMENT",
+        "restriction_note": "CSA CHARTER REVIEW MATERIALS CLASSIFIED ISB-1. THIS FILE COVERS GENERAL ASSESSMENT ONLY."
+      },
+      "threat_classification": "CLASS IV — INSTITUTIONAL / ECONOMIC",
+      "internal_security_relevance": "LOW-MODERATE — CHARTER COMPLIANCE MONITORING",
+      "current_disposition": "CHARTERED / AUTONOMOUS / MONITORED",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Corporate Sector Authority administers approximately 30,000 worlds across 29 territories under an Imperial charter negotiated by Baron Orman Tagge. The CSA functions simultaneously as government, employer, law enforcement, and sole economic authority within its territory. Citizens have 'privileges' rather than rights. The Imperial military is virtually absent from the sector by charter agreement. Enforcement is conducted by the Espos — Security Police — operating as a fully armed corporate military force with a Picket Fleet including Victory-class Star Destroyers."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The CSA is the Empire's most successful privatization experiment and its most dangerous precedent. A corporate entity that governs 30,000 worlds, maintains its own military, operates its own judicial system with no external appeals process, and remits an annual tithe to the Empire in exchange for being left alone. The arrangement is profitable for both parties. Bureau concern: profitable arrangements create dependencies. The Empire needs the CSA tithe. This gives the CSA leverage it should not have."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 19-SIGMA",
+          "verified": true,
+          "content": "Legal. Technically. The CSA operates outside Republic and Imperial law by design — they wrote the design."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The CSA's preferred instrument is economic coercion. Workers depend on the Authority for employment, housing, healthcare, and every basic necessity — all at CSA-set prices. Dissent is managed by adjusting economic pressure before resorting to Espo enforcement.\n\nWhen enforcement is required, Espos have legal authority to detain indefinitely without external judicial review. Stars' End, the CSA's most notorious prison facility in Wild Space, uses stasis booths to store prisoners — some of whom have been forgotten entirely.\n\nThe Direx Board of 55 executives governs through quarterly profit mandates. Every policy decision is a business decision. Security, law enforcement, and social control exist to protect revenue."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The CSA does not need to be brutal. It needs to be thorough. A worker who depends on the Authority for food, housing, and medical care does not rebel — they comply. The few who do not comply are processed through a legal system designed by the Authority, adjudicated by the Authority, and enforced by the Authority. The system is closed. Bureau assessment: the CSA's internal control methodology is, in some respects, more effective than our own. This is noted without recommendation."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: TITHE DEPENDENCY\nThe annual Imperial tithe is the CSA's primary external constraint. Failure to pay would trigger charter review and potential direct Imperial intervention. Recommend: leverage tithe compliance for intelligence access.\n\nVUL-002: DIREX BOARD INFIGHTING\n55 executives competing for profit share and political position create exploitable internal divisions. At least seven documented proxy conflicts between board members in the last standard year.\n\nVUL-003: LABOR VULNERABILITY\nTotal worker dependency cuts both ways. A coordinated labor action would halt all CSA operations with no alternative workforce available."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 19-SIGMA",
+          "verified": true,
+          "content": "Espos aren't soldiers. They're employees. The difference matters at about the point where someone shoots back and they start calculating whether their salary covers the risk."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 62-TAU",
+          "verified": false,
+          "content": "Stars' End lost track of prisoners in stasis. Not a few. Hundreds. They don't know who's in there anymore. Nobody's checking."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "TITHE COMPLIANCE REVIEW"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-5518",
+          "status": "AUTHORIZED",
+          "note": "DIREX BOARD CROSS-REF"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The Corporate Sector is a hole in the Imperial surveillance net. The ISB has minimal presence there by charter restriction. The CSA's Espos enforce corporate law, not Imperial law. Your financial operations — accounts, shell companies, procurement fronts — should be routed through CSA-chartered institutions. The ISB cannot subpoena CSA financial records without a charter review process that takes months and requires Senate committee involvement. By the time they get access, the accounts are closed."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "The Direx Board infighting is an opportunity for long-term placement. Board members who are losing internal power struggles become receptive to external partnerships — especially ones that offer financial resources the board cannot trace. Three board members have been outvoted on consecutive quarterly mandates. They are accumulating grievances. Grievances are currency in our line of work. I can provide names if you have an operative who can pass as a corporate liaison."
+        },
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The ISB classifies the CSA as LOW-MODERATE threat. This is because the ISB measures threat by ideology, not capability. The CSA has no ideological objection to the Empire. It has a Victory-class Star Destroyer fleet and the legal authority to use it without Imperial permission. If the CSA ever decided the tithe arrangement was no longer profitable, the Empire would face a corporate secession with military teeth. The ISB is not watching for this because they cannot imagine a corporation choosing sovereignty over profit. I can."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "TAGGE, ORMAN (BARON)",
+          "file_ref": "#POI-CSA-0001",
+          "role": "CHARTER NEGOTIATOR — TAGGE FAMILY REPRESENTATIVE",
+          "status": "ACTIVE — ROUTINE MONITORING",
+          "threat_level": 0.4,
+          "location_note": "CORPORATE SECTOR — ETTI IV [LAST CONFIRMED]",
+          "npc_faction": "corporate_sector_authority",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "NEUTRAL",
+          "verified": true,
+          "note": "Imperial military presence in the Corporate Sector is minimal by charter. The CSA prefers it that way."
+        },
+        {
+          "faction_id": "bounty_hunters_guild",
+          "name": "BOUNTY HUNTERS' GUILD",
+          "status": "ALLIED",
+          "verified": true,
+          "note": "CSA contracts guild hunters for enforcement operations that require deniability. Standard corporate practice."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "HOSTILE",
+          "verified": false,
+          "note": "Hutt smuggling operations undermine CSA economic monopoly. Enforcement actions documented. Results: marginal."
+        }
+      ]
+    },
+    "crimson_dawn": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-CDN-001",
+        "subject": "CRIMSON DAWN — CRIMINAL SYNDICATE — THREAT ASSESSMENT",
+        "restriction_note": "COMMAND STRUCTURE ANALYSIS CONTAINS ISB-0 CLASSIFIED MATERIAL. PARTIAL ACCESS GRANTED AT ISB-1."
+      },
+      "threat_classification": "CLASS III — ORGANIZED CRIMINAL / UNKNOWN COMMAND FACTOR",
+      "internal_security_relevance": "HIGH — CONFIRMED IMPERIAL CORRUPTION + UNKNOWN VARIABLES",
+      "current_disposition": "ACTIVE / EXPANDING / INCOMPLETELY UNDERSTOOD",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Crimson Dawn is a criminal syndicate specializing in high-value operations including coaxium smuggling, extortion, and systematic corruption of Imperial officials. The organization operates from the luxury yacht First Light under the public leadership of Dryden Vos. Crimson Dawn maintains a veneer of sophistication — invitation-only gatherings, legitimate business fronts, cultural patronage — over an enforcement apparatus that is swift, lethal, and indiscriminate."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Bureau analysis of Crimson Dawn's operational pattern has identified a structural anomaly. Dryden Vos exercises visible command authority but does not appear to originate strategic directives. Orders flow to Vos from an unidentified source. Bureau has designated this unknown command element SUBJECT ZERO. All attempts to identify SUBJECT ZERO have failed. Four agents assigned to this investigation have been reassigned to other duties. One has been reported missing. Investigation status: suspended pending ISB-0 authorization."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 31-KAPPA",
+          "verified": true,
+          "content": "Dangerous people pretending to be sophisticated people. The pretense is wearing thin."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Crimson Dawn operates through a dual-layer methodology: legitimate fronts provide cover and revenue, while a parallel enforcement structure handles operations that require violence.\n\nImperial corruption is systematic — not opportunistic bribes but consistent, structured payments to customs officers, port administrators, and sector officials. Bureau has confirmed payments to officials in at least nine sectors. The payment infrastructure suggests institutional planning well beyond standard criminal capability.\n\nFailure within the organization is punished with death. Success is rewarded with promotion. Lieutenants serve goals they do not fully understand. This is by design."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: DUAL COMMAND STRUCTURE\nVos commands visible operations. SUBJECT ZERO commands strategy. The disconnect between visible and hidden command creates opportunities for manipulation — Vos can be pressured without SUBJECT ZERO's knowledge, and vice versa.\n\nVUL-002: DEPENDENCE ON IMPERIAL CORRUPTION\nCrimson Dawn's operational model requires cooperative Imperial officials. Removal of key corrupted officials would disrupt operations significantly. Bureau notes: this requires political will that may not exist."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — SUBJECT ZERO ANALYSIS"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — SUBJECT ZERO ANALYSIS"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The SUBJECT ZERO question is the only question that matters regarding Crimson Dawn. Vos is an operator. Operators do not build organizations this sophisticated. Someone else is behind this. Bureau does not have a working theory regarding SUBJECT ZERO's identity. Bureau has been instructed not to develop one. Make of that what you will."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "Got invited to a party on the First Light once. Beautiful ship. Beautiful people. The host had scars on his face that moved. Nobody mentioned them. Nobody mentioned anything that mattered. That's the whole operation in one evening."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 88-AUREK",
+          "verified": false,
+          "content": "A lieutenant vanished after asking questions about who Vos reports to. Not arrested. Not killed. Vanished. The people who knew her don't remember her name anymore. I mean that literally."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "SUBJECT ZERO INVESTIGATION"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "CORRUPTION CROSS-REF"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-3390",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "I believe SUBJECT ZERO is Force-sensitive. The missing agent, the lieutenant who vanished, the people who forgot her name — these are not standard criminal enforcement patterns. This is memory alteration. The ISB does not have a framework for this because they refuse to classify Force abilities as an intelligence threat vector. See the Inquisitorius file — the same institutional blind spot. Someone behind Crimson Dawn can reach into minds. The ISB was told to stop looking. Someone told them to stop. Consider who has that authority."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "Do not attempt to penetrate Crimson Dawn's command structure. Four ISB agents tried. One is missing. If SUBJECT ZERO can erase memories, then any operative you insert will either be turned without knowing it or erased entirely. Crimson Dawn is useful to you as a chaos factor — their conflict with Black Sun and the Consortium creates opportunities. Exploit the periphery. Do not touch the center."
+        },
+        {
+          "label": "FOR AXIS — CORRECTION",
+          "content": "The ISB classifies Crimson Dawn as CLASS III — organized criminal. This is wrong. An organization with a Force-sensitive hidden commander, systematic Imperial corruption across nine sectors, and an enforcement apparatus that can make people vanish from memory is not a criminal syndicate. It is an intelligence operation wearing a criminal syndicate as a mask. Treat it accordingly."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "VOS, DRYDEN",
+          "file_ref": "#POI-CDN-0001",
+          "role": "VISIBLE COMMANDER — CRIMSON DAWN",
+          "status": "ACTIVE — HIGH PRIORITY",
+          "threat_level": 0.7,
+          "location_note": "FIRST LIGHT — MOBILE [LAST CONFIRMED]",
+          "npc_faction": "crimson_dawn",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "black_sun",
+          "name": "BLACK SUN",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Active territorial competition. Crimson Dawn expansion directly threatens Black Sun market share."
+        },
+        {
+          "faction_id": "pyke_syndicate",
+          "name": "PYKE SYNDICATE",
+          "status": "ALLIED",
+          "verified": false,
+          "note": "Historical cooperation. Shadow Collective remnant connections. Current operational relationship unclear."
+        },
+        {
+          "faction_id": "zann_consortium",
+          "name": "ZANN CONSORTIUM",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Documented violent incidents. Crimson Dawn has contracted elimination operations against Consortium personnel."
+        }
+      ]
+    },
+    "zann_consortium": {
+      "classification": {
+        "doc_class": "VERMILLION",
+        "access_level": "ISB-1 AND ABOVE",
+        "file_ref": "IID-7734-ZAN-001",
+        "subject": "ZANN CONSORTIUM — CRIMINAL SYNDICATE — MILITARY THREAT ASSESSMENT",
+        "restriction_note": "STOLEN MILITARY TECHNOLOGY INVENTORY CLASSIFIED ISB-1. THIS FILE PROVIDES GENERAL ASSESSMENT ONLY."
+      },
+      "threat_classification": "CLASS III — ORGANIZED CRIMINAL / MILITARY CAPABILITY",
+      "internal_security_relevance": "HIGH — CONFIRMED MILITARY TECHNOLOGY THEFT",
+      "current_disposition": "ACTIVE / EXPANDING / HOSTILE",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Zann Consortium is a rapidly growing criminal syndicate distinguished from peer organizations by its reliance on military force rather than economic leverage. Led by Tyber Zann with the personal authority of a warrior-king, the Consortium derives its power from racketeering, robbery, theft, piracy, and — critically — the acquisition and exploitation of stolen military technology. Unlike the Hutts who bribe and Black Sun who infiltrate, the Consortium attacks. This Bureau considers the Zann Consortium the most operationally aggressive criminal organization currently active."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Consortium is a relative newcomer to the galactic underworld and does not derive power from smuggling — the traditional foundation of organized crime. This is significant. Tyber Zann has built an organization that competes with syndicates centuries older through sheer aggression and the strategic application of stolen military hardware. The Keldabe-class battleship acquired from MandalMotors is capable of engaging Imperial Star Destroyers. A criminal organization with capital ship capability is not a law enforcement problem. It is a military one."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 62-TAU",
+          "verified": true,
+          "content": "They don't want to run the underworld. They want to break it and see what they can build from the pieces."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Consortium's operational methodology is direct force. Racketeering, robbery, theft, and piracy are the primary revenue streams. The organization employs smugglers by the thousands but views smuggling as a logistics function, not the core business.\n\nMilitary technology acquisition is systematic. Shield-draining defiler systems, StarViper attack fighters, and the Keldabe battleship represent confirmed stolen assets. The Consortium reverse-engineers and deploys stolen technology faster than it can be interdicted.\n\nTyber Zann's personal vendetta against the Empire ensures the Consortium never cooperates willingly with Imperial authority. This is not a policy position — it is an ideological commitment."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: SINGLE POINT OF LEADERSHIP\nThe Consortium is Tyber Zann. Remove Zann and the organization collapses. There is no institutional structure that survives his elimination. This is both the primary vulnerability and the primary operational challenge — Zann is well-protected and operationally unpredictable.\n\nVUL-002: AGGRESSION AS LIABILITY\nThe Consortium's propensity for violence creates enemies on every front simultaneously. Black Sun, the Hutts, Crimson Dawn, and the Empire all have active grievances. The Consortium cannot sustain conflict on all fronts indefinitely.\n\nVUL-003: MERCENARY LOYALTY\nConsortium crews are hired muscle. They are loyal to credits, not ideology. Competitive offers have demonstrated effectiveness in prior operations."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Bureau recommends escalation of the Zann Consortium threat classification from CLASS III to CLASS II. Current classification underrepresents the military capability dimension. A criminal organization with a capital ship, reverse-engineered military technology, and an ideologically committed anti-Imperial leader is not a standard organized crime problem. Recommendation has been filed. It has not been acted upon. It is filed here for the record."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 44-ALPHA",
+          "verified": true,
+          "content": "Zann doesn't negotiate. He calculates. If the math says attack, he attacks. If the math says wait, he waits. The math always says attack eventually."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 31-KAPPA",
+          "verified": false,
+          "content": "They hit an Imperial supply depot on the Corellian Run last month. Took everything that wasn't bolted down and half the things that were. Garrison commander filed the report as 'pirate activity, unknown origin.' He knows exactly who it was."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "AUTHORIZED",
+          "note": "MILITARY TECH INVENTORY UPDATE"
+        },
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "QUARTERLY REVIEW"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-6604",
+          "status": "AUTHORIZED",
+          "note": "ESCALATION REQUEST — PENDING"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The stolen military technology inventory is classified above my access, but I have seen the requisition reports for the equipment that was stolen. The defiler systems alone represent a significant tactical capability — they drain shield generators, which means Consortium raiding parties can neutralize a corvette's defenses before boarding. If you need to disable an Imperial vessel without destroying it, the Consortium has the tools. The question is whether Zann would sell them or whether he would want to know why you need them."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Zann is not your ally. His hatred of the Empire is genuine but his methods are indiscriminate — he will attack Alliance supply convoys as readily as Imperial ones if the profit justifies it. However, VUL-003 is exploitable at the crew level. Consortium mercenaries rotate through cantinas on Nar Shaddaa, Ord Mantell, and Rishi. They talk. They drink. They complain about pay. An operative with credits and patience can extract Consortium operational schedules, raid targets, and fleet positions from these crews without ever approaching Zann himself."
+        },
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "The Consortium's reverse-engineering capability is the detail that should concern you. Stolen Imperial technology in criminal hands is dangerous. Stolen Imperial technology that has been modified and improved by criminal engineers is catastrophic. If the Consortium cracks the shield harmonics on the Keldabe's stolen systems, they will have a warship that Imperial targeting computers cannot lock onto. The ISB has not flagged this because they do not understand the engineering. I do. Watch for it."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "ZANN, TYBER",
+          "file_ref": "#POI-ZAN-0001",
+          "role": "SYNDICATE LEADER — ZANN CONSORTIUM",
+          "status": "ACTIVE — MAXIMUM PRIORITY",
+          "threat_level": 0.8,
+          "location_note": "UNKNOWN — MOBILE OPERATIONS [CONFIRMED]",
+          "npc_faction": "zann_consortium",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "black_sun",
+          "name": "BLACK SUN",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Active territorial warfare. Multiple violent incidents documented. No prospect of resolution."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Consortium racketeering operations encroach on Hutt territory. Retaliatory actions from both sides documented."
+        },
+        {
+          "faction_id": "crimson_dawn",
+          "name": "CRIMSON DAWN",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Crimson Dawn has contracted elimination operations against Consortium personnel. Consortium retaliation confirmed."
+        }
+      ]
+    },
+    "wookiee_clans": {
+      "classification": {
+        "doc_class": "OBSIDIAN",
+        "access_level": "ISB-2 AND ABOVE",
+        "file_ref": "IID-7734-WOK-001",
+        "subject": "WOOKIEE CLANS OF KASHYYYK — ENSLAVED POPULATION — RESISTANCE RISK ASSESSMENT",
+        "restriction_note": "LABOR ALLOCATION DATA CLASSIFIED ISB-1. CROSS-REFERENCE WITH TRANDOSHAN SLAVERS GUILD FILE RESTRICTED."
+      },
+      "threat_classification": "CLASS IV — SUBJUGATED POPULATION / RESISTANCE RISK",
+      "internal_security_relevance": "MODERATE — ONGOING RESISTANCE + REBEL ALLIANCE RECRUITMENT VECTOR",
+      "current_disposition": "ENSLAVED / RESISTANCE ACTIVE / SUPPRESSED",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "The Wookiee clans of Kashyyyk represent a subjugated population of approximately 56 million under direct Imperial enslavement. Kashyyyk is one of the most heavily patrolled enslaved worlds in the galaxy. Free Wookiees are fugitives by Imperial definition. The clans are governed — or were governed — by the Wookiee Council, which has been dissolved under Imperial occupation. Resistance activity in the wroshyr forests is persistent, documented, and incompletely suppressed."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The Wookiee enslavement is the Empire's most efficient labor program and its most reliable insurgency incubator. Every Wookiee conscripted into Imperial labor projects is an adult combatant with superior physical capability, a cultural tradition of armed resistance, and a personal motivation for revenge that will not diminish with time. Bureau assessment: the current policy of mass enslavement produces short-term economic output and long-term security liability. This assessment has been filed annually for three years. It has not been acted upon."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 55-BESH",
+          "verified": true,
+          "content": "Two hundred years of patience. One moment of not. The Empire made a very poor choice of slave labor."
+        },
+        {
+          "type": "section_header",
+          "label": "KNOWN METHODS",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "Wookiee resistance employs guerrilla tactics adapted to the wroshyr forest environment. The forests of Kashyyyk are multi-layered, with canopy levels extending thousands of meters above the surface. Imperial forces operate effectively on the upper platforms and poorly in the lower levels, where Wookiee knowledge of the ecology provides decisive advantage.\n\nResistance methods: ambush and withdrawal using canopy routes, sabotage of Imperial logging and mining equipment, covert rescue of enslaved clan members from processing centers, and — increasingly — coordination with off-world allies including confirmed Rebel Alliance contacts.\n\nIndividual Wookiee combatants employ bowcasters, ryyk blades, and physical strength sufficient to dismember an armored stormtrooper. Bureau standard engagement guidance: do not engage individual Wookiee combatants without numerical superiority of no less than 4:1."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The life debt tradition is operationally significant. A Wookiee who has sworn a life debt to a non-Wookiee will pursue that obligation with absolute commitment. This creates unpredictable force multipliers — a single Rebel operative who rescues enslaved Wookiees may acquire a permanent, lethal, and unconditionally loyal companion. Bureau has documented at least eleven instances of Wookiee life-debt combatants operating alongside Rebel cells."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-2"
+        },
+        {
+          "type": "official",
+          "content": "VUL-001: HOSTAGE ECOLOGY\nThe wroshyr forests are the foundation of Wookiee civilization. Imperial threats to the forest ecology — deforestation, industrial pollution, orbital bombardment of canopy zones — create effective coercive leverage against resistance activity.\n\nVUL-002: FAMILY BONDS\nWookiee clan loyalty is absolute. Captured family members provide leverage against resistance fighters. This method has been employed in documented operations.\n\nVUL-003: TRANDOSHAN PROXY ENFORCEMENT\nThe Trandoshan Slavers Guild provides a proxy enforcement capability that reduces Imperial resource commitment. Trandoshan cultural enmity with Wookiees ensures motivated enforcement without Imperial ideological investment."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-1 REQUIRED"
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "VUL-003 is a double-edged instrument. Trandoshan enforcement is enthusiastic but undisciplined. Documented incidents of excessive force have generated propaganda material for the Rebel Alliance and accelerated Wookiee radicalization. Bureau recommendation: maintain Trandoshan proxy enforcement but establish clearer operational boundaries. Recommendation status: ignored."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-3"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 55-BESH",
+          "verified": true,
+          "content": "Garrison commander on Kashyyyk told me they lose a patrol in the lower levels every standard week. Not killed — vanished. Equipment found later, stripped clean. Bodies never recovered. The forest eats them."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET 12-GAMMA",
+          "verified": true,
+          "content": "Freed Wookiees don't go home. They go to the Rebellion. Every one of them. The Alliance doesn't need to recruit on Kashyyyk. The Empire does the recruiting for them."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-AGENT-4471",
+          "status": "AUTHORIZED",
+          "note": "ROUTINE"
+        },
+        {
+          "agent": "ISB-AGENT-2298",
+          "status": "AUTHORIZED",
+          "note": "REBEL ALLIANCE CROSS-REF"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-5518",
+          "status": "AUTHORIZED",
+          "note": "LABOR ALLOCATION REVIEW"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "This is the file where the ISB's moral vacancy is most visible. Fifty-six million enslaved people catalogued as a 'labor program' with 'resistance risk.' The analyst who wrote this file knows exactly what the Empire is doing. They filed it as a security assessment because that is the only language the Bureau speaks. The Wookiees remember everything. They remember who helped. They remember who didn't. When this ends — and it will end — that memory will matter more than any intelligence file."
+        },
+        {
+          "label": "FOR AXIS — OPERATIONAL NOTE",
+          "content": "The life debt tradition is not merely operationally significant — it is the most reliable loyalty mechanism in the galaxy. A freed Wookiee who swears a life debt cannot be turned, cannot be bribed, and cannot be broken. The ISB documents this as a threat. You should document it as a resource. Every liberation operation on Kashyyyk or the Kessel mines produces warriors who will fight for the Alliance with absolute commitment and zero risk of betrayal. The cost-benefit calculation is not even close."
+        },
+        {
+          "label": "FOR AXIS — RECOMMENDATION",
+          "content": "Coordinate with the Pyke file. Wookiee slave labor in Kessel mines intersects with the Pyke spice operation. A liberation raid on Kessel disrupts two Imperial interests simultaneously — the labor program and the spice trade the Empire quietly profits from. The Trandoshan proxy forces on Kashyyyk are the weak link in the garrison — they are undisciplined and under-equipped compared to regular Imperial forces. Any extraction operation should target Trandoshan-patrolled sectors rather than Imperial garrison zones."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "TARFFUL",
+          "file_ref": "#POI-WOK-0003",
+          "role": "CHIEFTAIN — WOOKIEE RESISTANCE LEADER",
+          "status": "ACTIVE — FUGITIVE — HIGH PRIORITY",
+          "threat_level": 0.7,
+          "location_note": "KASHYYYK — LOWER WROSHYR LEVELS [UNCONFIRMED]",
+          "npc_faction": "wookiee_clans",
+          "npc_tier": "rival"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "rebel_alliance",
+          "name": "REBEL ALLIANCE",
+          "status": "ALLIED",
+          "verified": true,
+          "note": "Confirmed coordination between Wookiee resistance and Alliance operatives. Recruitment pipeline active."
+        },
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Occupying and enslaving force. Relationship is precisely what it appears to be."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "name": "HUTT CARTEL",
+          "status": "HOSTILE",
+          "verified": true,
+          "note": "Hutts participate in Wookiee slave trade as purchasers. Wookiee labor documented in Hutt mining and construction operations."
+        }
+      ]
+    },
+    "knights_of_ren": {
+      "classification": {
+        "doc_class": "VOID",
+        "access_level": "ISB-0 ONLY",
+        "file_ref": "IID-VOID-KOR-001",
+        "subject": "[UNKNOWN DESIGNATION] — UNAFFILIATED FORCE-SENSITIVE ORDER — THREAT CLASSIFICATION PENDING",
+        "restriction_note": "VOID CLASSIFICATION. THIS FILE EXISTS BECAUSE THE BUREAU CANNOT EXPLAIN WHAT IT DOCUMENTS. DIRECTOR AUTHORIZATION REQUIRED FOR ACCESS. DIRECTOR AUTHORIZATION REQUIRED FOR ACKNOWLEDGMENT."
+      },
+      "threat_classification": "CLASS I — UNKNOWN / UNCONTROLLED / FORCE-SENSITIVE",
+      "internal_security_relevance": "MAXIMUM — CANNOT BE ASSESSED WITH AVAILABLE INTELLIGENCE",
+      "current_disposition": "UNKNOWN — CONTACT SPORADIC — INTENT UNCLEAR",
+      "sections": [
+        {
+          "type": "section_header",
+          "label": "ANALYST SUMMARY",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "official",
+          "content": "This Bureau has documented six incidents involving a group of masked Force-sensitive individuals operating outside the formal Imperial hierarchy. Designation: UNKNOWN. The individuals do not identify themselves. They do not explain their purpose. They appear at locations associated with Force-related phenomena, ancient ruins, and artifact repositories. They take what they came for. They leave.\n\nImperial garrison commanders who have encountered these individuals report being compelled to provide assistance without formal authorization. Compelled is the precise word. The mechanism of compulsion is not documented in any standard operational manual."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "This file should not exist. The Bureau classifies what it can identify. These individuals cannot be identified. They do not appear in any Imperial personnel database, any known criminal registry, or any Force-user tracking system maintained by the Inquisitorius. The Inquisitorius has been queried regarding these individuals. The Inquisitorius has not responded. The query was submitted fourteen months ago. The silence is its own answer."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [DEEP COVER]",
+          "verified": null,
+          "content": "They found the dark side and kept going. Whatever they are now, it isn't Sith — it's something older and less disciplined."
+        },
+        {
+          "type": "section_header",
+          "label": "OBSERVED BEHAVIOR",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "official",
+          "content": "INCIDENT LOG — COMPILED FROM SIX DOCUMENTED ENCOUNTERS:\n\n  · All individuals wear masks. No faces have been observed.\n  · Group size varies: minimum two, maximum six individuals observed simultaneously.\n  · One individual appears to hold authority. Designation: 'REN' (unconfirmed — based on fragmentary comms intercept).\n  · Individuals demonstrate Force sensitivity consistent with or exceeding Inquisitor-level capability.\n  · Targets of interest: ancient ruins, Force vergences, artifact caches. No interest in political, military, or economic targets.\n  · Duration of presence: 2-6 standard hours per incident. They do not remain.\n  · Imperial personnel who interfere are incapacitated. Imperial personnel who cooperate are ignored.\n  · No fatalities of Imperial personnel documented. This may indicate restraint or disinterest."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "The absence of Imperial fatalities is the detail that concerns this analyst most. The Inquisitorius kills Imperial personnel who interfere with their operations. These individuals do not. This suggests either greater discipline, different objectives, or — and this is the possibility that should concern the Bureau — a different relationship with the Imperial power structure than the one the Bureau is aware of. Someone may have authorized these individuals. The Bureau was not informed."
+        },
+        {
+          "type": "section_header",
+          "label": "EXPLOITABLE VULNERABILITIES",
+          "classification": "ISB-0 — SPECULATIVE"
+        },
+        {
+          "type": "official",
+          "content": "NOTE: The following assessment is speculative. Insufficient intelligence exists for validated vulnerability analysis.\n\nVUL-001: SMALL NUMBERS\nMaximum observed group size is six. This limits operational scope regardless of individual capability.\n\nVUL-002: NARROW FOCUS\nInterest appears limited to Force-related artifacts and locations. Predictive modeling based on known artifact repositories may enable anticipation of future appearances.\n\nVUL-003: UNKNOWN COMMAND STRUCTURE\nThe relationship between the apparent leader ('REN') and other members is unclear. Internal dynamics cannot be exploited until they are understood."
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "redacted",
+          "clearance": "ISB-0 — DIRECTOR EYES ONLY"
+        },
+        {
+          "type": "section_header",
+          "label": "BUREAU POSTURE",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "official",
+          "content": "STANDING ORDER — PROVISIONAL — PENDING DIRECTOR REVIEW:\n\n  1. Do not engage. Do not interfere. Do not surveil overtly.\n  2. Document all encounters using Form 7-ISB-VOID.\n  3. Do not contact the Inquisitorius regarding these individuals without ISB-0 authorization.\n  4. Do not discuss encounters with non-Bureau personnel under any circumstances.\n  5. If encountered: comply with directives. Do not resist. File report within six standard hours.\n\nNOTE: These orders mirror the Bureau's posture toward the Inquisitorius. The Bureau acknowledges the parallel and is uncomfortable with it. The Bureau is uncomfortable with an expanding category of entities it cannot control, cannot investigate, and must comply with on contact. This discomfort is recorded for the institutional record."
+        },
+        {
+          "type": "analyst_addendum",
+          "content": "Two Force-sensitive orders operating within Imperial space with effective impunity. The Inquisitorius, which at least has a documented mandate. And these individuals, who do not. The Empire is accumulating Force-related assets — or Force-related liabilities — faster than the Bureau can classify them. The distinction between asset and liability may prove to be the most important intelligence question of this era. The Bureau is not equipped to answer it."
+        },
+        {
+          "type": "section_header",
+          "label": "FIELD INTELLIGENCE",
+          "classification": "ISB-0"
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "They walked into a sealed Jedi ruin on Devaron. The garrison commander had been trying to breach it for three weeks. They opened it by touching the door. Took something from inside. Left. The garrison commander filed no report. He doesn't remember it happening. I was standing next to him. I remember."
+        },
+        {
+          "type": "field_note",
+          "source": "ASSET [REDACTED]",
+          "verified": null,
+          "content": "One of them spoke to me. Just once. Said: 'The shadow has a shadow.' Then walked away. I don't know what it means. I think about it every day."
+        }
+      ],
+      "access_log_entries": [
+        {
+          "agent": "ISB-DIRECTOR-001",
+          "status": "AUTHORIZED",
+          "note": "FILE CREATION — PROVISIONAL"
+        },
+        {
+          "agent": "ISB-DIRECTOR-001",
+          "status": "AUTHORIZED",
+          "note": "INCIDENT LOG UPDATE"
+        },
+        {
+          "agent": "[REDACTED]",
+          "status": "AUTHORIZED",
+          "note": "FLAGGED — PATTERN ANOMALY"
+        },
+        {
+          "agent": "ISB-AGENT-7712",
+          "status": "DENIED",
+          "note": "CLEARANCE INSUFFICIENT — FLAGGED"
+        }
+      ],
+      "broker_notes": [
+        {
+          "label": "FOR AXIS — WARNING",
+          "content": "I have almost nothing. This file is VOID. I accessed it through the same session gap as the Inquisitorius file and I had less time. What I can tell you is this: the Bureau does not know what these people are, and the Bureau is afraid of things it does not know. I am afraid of them too. That is not a feeling I commit to writing lightly."
+        },
+        {
+          "label": "FOR AXIS — PERSONAL ASSESSMENT",
+          "content": "The garrison commander on Devaron did not remember the encounter. The asset standing next to him did. That pattern — selective memory alteration — matches what I suspect about SUBJECT ZERO in the Crimson Dawn file. I do not know if there is a connection. I do not have enough information to speculate responsibly. But two unrelated Force-sensitive groups both demonstrating memory alteration capability is either coincidence or something worse. I am noting it here. Do with it what you can."
+        }
+      ],
+      "personnel": [
+        {
+          "name": "[DESIGNATION UNKNOWN]",
+          "file_ref": "#POI-KOR-0001",
+          "role": "APPARENT LEADER — 'REN' [UNCONFIRMED]",
+          "status": "ACTIVE — LOCATION UNKNOWN — DO NOT ENGAGE",
+          "threat_level": 1.0,
+          "location_note": "[UNKNOWN — NO CONFIRMED BASE OF OPERATIONS]",
+          "npc_faction": "knights_of_ren",
+          "npc_tier": "nemesis"
+        }
+      ],
+      "associates": [
+        {
+          "faction_id": "inquisitorius",
+          "name": "INQUISITORIUS",
+          "status": "COMPLEX",
+          "verified": false,
+          "note": "Overlapping operational interest in Force artifacts. No confirmed interaction. No confirmed conflict. The absence of both is itself significant."
+        },
+        {
+          "faction_id": "imperial_military",
+          "name": "IMPERIAL MILITARY",
+          "status": "COMPLEX",
+          "verified": true,
+          "note": "Garrison commanders comply with directives from these individuals. Authorization for this compliance has not been identified."
+        }
+      ]
+    }
+  }
+}

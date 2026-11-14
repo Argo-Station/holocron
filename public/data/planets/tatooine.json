@@ -1,0 +1,1010 @@
+{
+  "id": "tatooine",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Tatooine",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Arkanis Sector",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Tatooine is what the galaxy forgot about. A desert world orbiting twin suns at the edge of civilized space, too barren to exploit and too stubborn to die. Scattered across its surface are settlements of people the galaxy chewed up and spat out — moisture farmers wringing water from sand, Jawa clans picking through the bones of failed mining operations, Tusken Raiders defending territory nobody else wants. The Empire installed governors. The governors watch. The Hutts run everything that matters. Bounty hunters come here because there is always someone hiding, and Tatooine is where you go when you have nowhere left to go.",
+    "atmosphere": "Twin suns bleaching everything white. Heat that distorts the horizon into shimmering nothing. The smell of bantha, dewback, and dust that gets into everything. Pourstone buildings packed tight in settlement warrens, walls trapping heat that radiates back after dark. Outside the cities, endless dune seas broken by jagged rock formations and mountains where krayt dragons hunt. The silence between settlements is absolute and hostile. At night the temperature drops hard enough to kill the unprepared.",
+    "reputation": "Miserable. A dust ball. A speck. Everyone who lands here says they're leaving soon. Most of them are still here. Tatooine has a gravitational pull that has nothing to do with physics — it draws in people running from something and then gives them nowhere to run to. Despite being remote and barren, the planet keeps showing up at the center of galactic events in ways nobody can explain. Smugglers know it as a busy waypoint on the Triellus Trade Route. Bounty hunters know it as a reliable source of work. Everyone else knows it as the kind of place where you can find a fast ship if you don't ask questions."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Hutt control is unchallenged — the Republic wrested nominal control during the Clone Wars but Jabba's influence was never seriously threatened. Geonosis nearby served as early Separatist base of operations. The planet's proximity to the Corellian Run made it a strategic side-jump for wartime logistics."
+    },
+    {
+      "era": "post_empire",
+      "delta": "Jabba is dead. The power vacuum his demise created is the defining political fact on Tatooine. Lesser Hutt interests and criminal operators are scrambling for territory. The Imperial governor's authority, already nominal, has collapsed entirely. Moisture farmers and settlement councils are more independent but also more vulnerable. Mos Eisley and Mos Espa are contested ground between rival criminal factions."
+    }
+  ],
+  "geography": {
+    "structure_type": "desert_planet",
+    "structure_notes": "Arid terrain alternating between trackless dune seas, jagged rock wastes, and sharp-toothed mountain ranges. No surface water. Twin suns create extreme daytime heat. Settlements cluster around moisture-farming viable zones and spaceport locations along the Triellus Trade Route.",
+    "districts": [
+      {
+        "id": "mos_eisley",
+        "name": "Mos Eisley",
+        "character": "",
+        "authority": "Jabba the Hutt (de facto), Imperial governor (nominal)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "The primary spaceport and the closest thing Tatooine has to a cosmopolitan center. When looking for information or a fast ship, this is where you start. Docking Bay 94 is a landmark. Otu Del's Custom Pods and Swoops caters to racers. Geordi Hans's Spaceport Speeders deals in T-16 skyhoppers and other vehicles."
+      },
+      {
+        "id": "mos_espa",
+        "name": "Mos Espa",
+        "character": "Older spaceport settlement. Podracing hub. More openly Hutt-controlled than Mos Eisley. A mix of traders, slaves, and speculators.",
+        "authority": "Hutt interests (direct)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Historical significance as a major settlement predating the Empire. Podracing draws offworld traffic and gambling revenue."
+      },
+      {
+        "id": "bestine",
+        "name": "Bestine",
+        "character": "The nominal capital. Seat of the Imperial governor. The most 'official' settlement on Tatooine, which means very little in practice.",
+        "authority": "Imperial governor (official), local councils (practical)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political"
+        ],
+        "notes": "The Imperial governor resides here. Imperial presence is highest in Bestine but still largely ceremonial. The governor watches — and that is mostly what the governor does."
+      },
+      {
+        "id": "anchorhead",
+        "name": "Anchorhead",
+        "character": "Small settlement serving the surrounding moisture farming community. Quiet, provincial, and deeply suspicious of outsiders. The kind of place where nothing happens until it does.",
+        "authority": "Local councils",
+        "crime_index": "low",
+        "strategic_value": [
+          "none_conventional"
+        ],
+        "notes": "Gateway to the moisture farming regions. Closest settlement to the Jundland Wastes. Residents know the land and keep to themselves."
+      },
+      {
+        "id": "jundland_wastes",
+        "name": "Jundland Wastes",
+        "character": "Rocky badlands and canyon systems. Tusken Raider territory. Krayt dragon hunting grounds. Beggar's Canyon cuts through the formation — a natural obstacle course used by thrill-seekers and pilots testing their skills.",
+        "authority": "Tusken Raiders (territorial claim), none (practical)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "none_conventional",
+          "high_hidden"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "dune_sea",
+        "name": "Dune Sea",
+        "character": "Vast trackless desert. Jawa sandcrawler routes. The Great Pit of Carkoon containing the Sarlacc. Jabba's Palace sits at the edge of the Western Dune Sea.",
+        "authority": "Jabba the Hutt (palace environs), Jawa clans (nomadic), none (vast majority)",
+        "crime_index": "variable",
+        "strategic_value": [
+          "economic",
+          "high_hidden"
+        ],
+        "notes": "Jawa sandcrawlers — repurposed digger crawlers left behind by mining consortiums — roam the wastes looking for scrap, selling and trading to moisture farmers and other nomads. Jabba's Palace is the true seat of power on Tatooine. The Sarlacc digests its prey over thousands of years."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "Moisture farmers, settlers, merchants, spaceport workers, smugglers, criminals. Humans make up roughly 70% of Tatooine's population. They fill every civilian role — from the intractable moisture farmers sweating gallons to squeeze water from sand, to the spacers and scoundrels passing through Mos Eisley.",
+      "districts": [
+        "mos_eisley",
+        "mos_espa",
+        "bestine",
+        "anchorhead"
+      ]
+    },
+    {
+      "name": "Jawa",
+      "population_level": "minority",
+      "social_role": "Scavengers, traders, tinkers. Diminutive species native to Tatooine. Travel in clan groups aboard massive sandcrawlers, salvaging abandoned equipment and technology. They sell and trade to moisture farmers and other nomads. Roughly 5% of the population.",
+      "districts": [
+        "dune_sea",
+        "mos_eisley",
+        "anchorhead"
+      ]
+    },
+    {
+      "name": "Tusken Raider",
+      "population_level": "minority",
+      "social_role": "",
+      "districts": [
+        "jundland_wastes",
+        "dune_sea"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "Transient spacers, smugglers, bounty hunters, traders, fugitives. The remaining 20% is a rotating cast of species passing through the spaceports or working for Hutt interests. Rodians, Twi'leks, Ithorians, Duros, and dozens of others can be found in Mos Eisley's cantina on any given day.",
+      "districts": [
+        "mos_eisley",
+        "mos_espa"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "jabba_hutt_enterprise",
+      "name": "Jabba the Hutt's Criminal Enterprise",
+      "type": "criminal",
+      "control_type": [
+        "economic",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Jabba is the true master of Tatooine. The Empire installed governors; Jabba ignores them. His criminal enterprise is the dominant force in planetary affairs. Hutts are resistant to Force manipulation and indifferent to ideology. Financial leverage is the only meaningful pressure — Jabba responds to threats against revenue and supply lines."
+      },
+      "motivation": "Total economic and criminal dominance over Tatooine and its trade routes. Jabba worked to convince the Hutts that coordination and cooperation serve better than infighting, and he uses this philosophy to maintain his position as the premier Hutt crime lord on the Outer Rim. He avoids costly conflicts with competing entities, preferring a live-and-let-live philosophy — but failure and disloyalty are met with elaborate punishment.",
+      "assets": [
+        "Jabba's Palace — fortified compound at the edge of the Western Dune Sea",
+        "Townhouse in central Mos Eisley serving as tribute center",
+        "Gamorrean guards and various species enforcers",
+        "Extensive bounty hunter network and contracts",
+        "Control of smuggling routes through Tatooine",
+        "Criminal infrastructure across both major spaceports",
+        "Rancor pit and Sarlacc as instruments of punishment",
+        "Network of informants across all settlements"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_garrison",
+          "type": "transactional",
+          "notes": ""
+        },
+        {
+          "faction_id": "bounty_hunters",
+          "type": "employer",
+          "notes": "Jabba is the premier employer of bounty hunters on Tatooine. He doesn't like failure and sends trigger-happy bounty hunters after those who disappoint him. Working for Jabba pays well but the cost of failure is extreme."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Trade route data, shipping manifests, Imperial patrol schedules — anything that gives Jabba more control over what moves through Tatooine space. Information is leverage and leverage is currency."
+        },
+        {
+          "type": "resource",
+          "reason": "Spice, weapons, contraband of any kind. Jabba controls the flow of illegal goods through Tatooine. A significant resource cache is worth acquiring or taxing."
+        },
+        {
+          "type": "person",
+          "reason": ""
+        },
+        {
+          "type": "artifact",
+          "reason": "No intrinsic interest. Valuable only as something to sell or use as leverage. Jabba would auction a Force artifact to the highest bidder without a second thought."
+        }
+      ]
+    },
+    {
+      "id": "imperial_garrison",
+      "name": "Imperial Garrison",
+      "type": "imperial",
+      "control_type": [
+        "political"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "criminal": "moderate",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Imperial presence on Tatooine is nominal. Governors are installed and most do just that — watch. The sheer distance from the Core, the Hutt stranglehold on actual power, and the lawless nature of the population make genuine Imperial control impractical. Individual officials are susceptible to corruption given the environment."
+      },
+      "motivation": "Maintaining the fiction of Imperial authority on Tatooine. The governor exists to observe, report, and remind the population that the Empire claims sovereignty. In practice, Imperial policy bends around Hutt reality. The garrison enforces Imperial law only when it is convenient and does not conflict with Jabba's interests.",
+      "assets": [
+        "Governor's residence in Bestine",
+        "Small stormtrooper garrison",
+        "Nominal customs authority at spaceports",
+        "Communication links to Arkanis Sector command"
+      ],
+      "relationships": [
+        {
+          "faction_id": "jabba_hutt_enterprise",
+          "type": "transactional",
+          "notes": "The governor nominally governs. Jabba actually rules. The arrangement persists because the Empire doesn't consider Tatooine worth the resources required to change it, and Jabba doesn't consider the Imperial presence threatening enough to challenge."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Routine interest in intelligence affecting Imperial security. The local garrison files reports that sector command may or may not read."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standing orders to report Force-related artifacts to ISB. The local garrison would comply but would not prioritize this over avoiding conflict with Jabba."
+        },
+        {
+          "type": "person",
+          "reason": "Wanted fugitives, Rebel sympathizers, Force-sensitives — all reportable to sector command. Whether the garrison acts on this information depends on whether doing so creates problems with Jabba."
+        }
+      ]
+    },
+    {
+      "id": "bounty_hunters",
+      "name": "Bounty Hunters",
+      "type": "independent",
+      "control_type": [
+        "none — freelance operators"
+      ],
+      "control_strength": "present",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": ""
+      },
+      "motivation": "Credits. Tatooine is where bounty hunters are never at a loss for jobs. The concentration of fugitives, criminals, and people who have failed Hutts creates a permanent market for their services.",
+      "assets": [
+        "Individual skill and equipment",
+        "Informant networks in spaceport cantinas",
+        "Relationships with Jabba and other employers",
+        "Access to Mos Eisley's hiring infrastructure"
+      ],
+      "relationships": [
+        {
+          "faction_id": "jabba_hutt_enterprise",
+          "type": "employee",
+          "notes": "Many bounty hunters work Jabba's contracts. The pay is good. Failure means becoming a target yourself. Notable hunters like Jodo Kast and Puggles Trodd have built reputations on Tatooine work."
+        },
+        {
+          "faction_id": "imperial_garrison",
+          "type": "neutral",
+          "notes": "Some hunters carry Imperial Bounty Hunting Guild licenses. The garrison tolerates hunters as long as they don't cause more problems than they solve."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "This is the job. A person with a bounty is the entire reason they're here."
+        },
+        {
+          "type": "data",
+          "reason": "Only valuable if it leads to a bounty target or can be sold to someone who will pay for it."
+        },
+        {
+          "type": "artifact",
+          "reason": "Valuable only if someone is willing to pay a bounty-level fee for its retrieval."
+        }
+      ]
+    },
+    {
+      "id": "tusken_raiders",
+      "name": "Tusken Raiders",
+      "type": "indigenous",
+      "control_type": [
+        "territorial"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "none",
+        "dark_side": "low",
+        "financial": "none",
+        "note": "The Tusken Raiders are a primitive and violent nomadic culture with no interest in galactic politics, commerce, or ideology. They defend their territory with lethal force and attack settlements when they have numerical advantage. They cannot be bought, negotiated with through normal channels, or meaningfully threatened by Imperial authority."
+      },
+      "motivation": "Territorial defense and cultural survival. The Tusken Raiders were here before the colonists and will be here after them. They raid moisture farms for supplies and ammunition, and they kill anyone who enters their territory uninvited.",
+      "assets": [
+        "Intimate knowledge of the Jundland Wastes and deep desert",
+        "Bantha mounts adapted to extreme desert conditions",
+        "Gaffi sticks and slugthrower rifles",
+        "Numbers that fluctuate seasonally and are never reliably estimated"
+      ],
+      "relationships": [
+        {
+          "faction_id": "jabba_hutt_enterprise",
+          "type": "irrelevant",
+          "notes": "Jabba has no dealings with the Tusken Raiders. They are a hazard of the terrain, not a faction to negotiate with."
+        },
+        {
+          "faction_id": "imperial_garrison",
+          "type": "irrelevant",
+          "notes": "The Empire does not consider the Tusken Raiders a political entity. They are classified as hostile wildlife for operational purposes."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "No interest unless it is physically in their territory, in which case they will kill anyone who comes to retrieve it."
+        },
+        {
+          "type": "person",
+          "reason": "No interest. A person in Tusken territory is either dead or about to be."
+        },
+        {
+          "type": "data",
+          "reason": "No interest. The concept is meaningless to them."
+        }
+      ]
+    },
+    {
+      "id": "jawa_clans",
+      "name": "Jawa Clans",
+      "type": "indigenous",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "none",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Jawas are scavengers and traders. They respond to economic incentive and avoid conflict. Their sandcrawler routes cover vast territory and they know the desert better than anyone except the Tusken Raiders. They can be bargained with but not intimidated — they simply disappear into the desert."
+      },
+      "motivation": "Scavenging, trading, and survival. Jawa clans travel in sandcrawlers — repurposed digger crawlers left behind by mining consortiums — roaming the wastes for salvageable technology and scrap. They sell to moisture farmers, settlements, and anyone else willing to trade.",
+      "assets": [
+        "Sandcrawler mobile bases (crew of ~100 Jawas each)",
+        "Extensive knowledge of desert terrain and abandoned sites",
+        "Salvaged technology and droid inventory",
+        "Trade relationships with moisture farming communities"
+      ],
+      "relationships": [
+        {
+          "faction_id": "jabba_hutt_enterprise",
+          "type": "neutral",
+          "notes": "Jawas operate beneath Jabba's notice for the most part. They are too small-scale to threaten or tax meaningfully. Occasional trade interactions."
+        },
+        {
+          "faction_id": "tusken_raiders",
+          "type": "hostile",
+          "notes": "Tusken Raiders prey on Jawa sandcrawlers when opportunity permits. Jawas avoid Tusken territory."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "If it looks like technology, Jawas will scavenge it. They might not know what a Force artifact is, but they would recognize it as valuable and attempt to sell it.",
+          "inferred": true
+        },
+        {
+          "type": "data",
+          "reason": "No direct interest. Jawas deal in physical objects, not information."
+        },
+        {
+          "type": "person",
+          "reason": "No interest unless the person has technology to trade."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "jabbas_palace",
+      "name": "Jabba's Palace",
+      "district_id": "dune_sea",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": "jabba_hutt_enterprise",
+      "controlling_faction_notes": "Jabba's personal fortress and the true seat of power on Tatooine. Access is by Jabba's invitation or at the supplicant's risk. Security includes Gamorrean guards, a rancor pit, and Jabba's personal retinue of enforcers and hangers-on.",
+      "strategic_value": "Where the real decisions about Tatooine get made. Controlling or influencing what happens here changes the power dynamics of the entire planet. Every criminal operation, bounty contract, and smuggling route on Tatooine connects back to this compound.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "hutt_crime_lord",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Jabba himself. Every interaction is a power dynamic. Audiences are granted from his throne dais. Displeasure is expressed via trapdoor to the rancor pit."
+        },
+        {
+          "archetype_ref": "gamorrean_guard",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Palace security. Better equipped than typical Gamorrean muscle. Loyal to Jabba through payment and fear."
+        },
+        {
+          "archetype_ref": "bounty_hunter",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Hunters waiting for contracts or delivering bounties. Armed, dangerous, and competitive with each other."
+        },
+        {
+          "archetype_ref": "protocol_droid",
+          "tier": "minion",
+          "count": "1",
+          "notes": "Translator and majordomo. Manages audiences and protocols. Knows Jabba's schedule and preferences."
+        }
+      ]
+    },
+    {
+      "id": "chalmuns_cantina",
+      "name": "Chalmun's Cantina",
+      "district_id": "mos_eisley",
+      "type": [
+        "informational",
+        "economic"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Independently operated but Jabba's influence permeates. The cantina is where deals happen, information changes hands, and crews get hired. No single faction controls it — everyone uses it.",
+      "strategic_value": "The primary information exchange and hiring hall on Tatooine. When looking for information or a fast ship, this is where you go. A selection of the galaxy's most interesting species can always be found here.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Knows what's happening in Mos Eisley and who's looking for work or transport. Sells to anyone."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Looking for cargo or passengers. May have a fast ship available for the right price."
+        },
+        {
+          "archetype_ref": "bounty_hunter",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Watching for targets. The cantina is where bounties walk in voluntarily."
+        },
+        {
+          "archetype_ref": "thug",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Cantina regulars. Trouble looking for an excuse."
+        }
+      ]
+    },
+    {
+      "id": "mos_eisley_spaceport",
+      "name": "Mos Eisley Spaceport",
+      "district_id": "mos_eisley",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "jabba_hutt_enterprise",
+      "controlling_faction_notes": "Jabba's people manage the docking bays and take their percentage. Imperial customs maintains a nominal checkpoint that everyone knows how to work around.",
+      "strategic_value": "Controls who and what enters and leaves Tatooine. The primary chokepoint for smuggling operations and the first point of contact for anyone arriving on-planet.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "customs_officer",
+          "tier": "minion",
+          "count": "1-2",
+          "notes": "Imperial customs officials. Easily bribed or circumvented. Their authority is real on paper and negotiable in practice."
+        },
+        {
+          "archetype_ref": "dock_worker",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Mixed species laborers. Good source of information about arrivals and departures."
+        },
+        {
+          "archetype_ref": "imperial_stormtrooper",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Periodic patrols. Present but not aggressive unless given specific orders."
+        }
+      ]
+    },
+    {
+      "id": "moisture_farms",
+      "name": "Moisture Farming Homesteads",
+      "district_id": "anchorhead",
+      "type": [
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Independently operated family homesteads. No faction controls them directly. Tusken Raiders raid them. Jawas trade with them. Jabba's influence is felt through commodity pricing and the occasional shakedown.",
+      "strategic_value": "The backbone of Tatooine's legitimate economy. Moisture harvested from the desert is transported to major cities. The farms are isolated, vulnerable to Tusken Raider attacks, and dependent on Jawa traders for technology and parts.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "moisture_farmer",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Hardy, suspicious of outsiders, and armed against Tusken Raiders. They know the local terrain and weather patterns."
+        },
+        {
+          "archetype_ref": "jawa_trader",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Jawa scavengers making their rounds. Selling droids and salvaged equipment from their sandcrawler."
+        }
+      ]
+    },
+    {
+      "id": "beggars_canyon",
+      "name": "Beggar's Canyon",
+      "district_id": "jundland_wastes",
+      "type": [
+        "exploration",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Uncontrolled. Tusken Raider territory surrounds it. Local pilots use it as an informal racing course and testing ground.",
+      "strategic_value": "Natural obstacle course through the Jundland rock formations. Pilots test their skills threading 'the Needle.' Tactically useful as a hiding place or ambush point. Deep canyon systems could conceal ships, camps, or caches.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "tusken_raider",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Raiding party. Armed with gaffi sticks and slugthrower rifles. Will attack anyone in their territory."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "hutt_criminal_influence",
+      "type": "criminal",
+      "source_faction_id": "jabba_hutt_enterprise",
+      "source_description": "Jabba's criminal enterprise is the de facto government of Tatooine. His influence permeates every settlement, every trade route, and every transaction. The Empire installed governors; the governors learned quickly that real power on Tatooine flows through Jabba's palace, not Bestine.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "imperial_garrison",
+          "description": "Imperial authority bends around Hutt reality. The governor observes and reports but does not interfere with Jabba's operations. Stormtrooper patrols avoid confrontation with Jabba's people."
+        },
+        {
+          "faction_id": "bounty_hunters",
+          "description": "The bounty hunting economy on Tatooine is driven by Jabba's contracts. Hunters who displease Jabba find themselves on the wrong end of a bounty. The constant flow of fugitives hiding on Tatooine ensures a permanent market."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Jabba's name carries weight everywhere on Tatooine. Invoking his name or his displeasure adds automatic advantages or threats to social checks depending on context. Merchants, spacers, and locals all factor Jabba's interests into their decisions."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "nar_shaddaa",
+        "destination": "Nar Shaddaa",
+        "travel_time": "12-16 hours",
+        "route_quality": "well-established",
+        "notes": "Common smuggling run. Well-mapped and heavily trafficked. Imperial patrols are sparse between Hutt Space and the Outer Rim."
+      },
+      {
+        "id": "geonosis",
+        "destination": "Geonosis",
+        "travel_time": "short — nearby system",
+        "route_quality": "well-established",
+        "notes": "Geonosis is located extremely close to the Tatooine system. Former Separatist base of operations. Now under Imperial control with extensive factories beneath its surface.",
+        "source_refs": [
+          {
+            "book": "EotE Core",
+            "page": 353,
+            "detail": "Geonosis entry explicitly states location extremely close to Tatooine system"
+          }
+        ]
+      },
+      {
+        "id": "corellian_run_junction",
+        "destination": "Corellian Run (major hyperspace lane)",
+        "travel_time": "variable — side jump",
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "EotE Core",
+            "page": 372,
+            "detail": "Proximity to the Corellian Run described as making Tatooine a lucrative side jump"
+          }
+        ]
+      },
+      {
+        "id": "triellus_trade_route",
+        "destination": "Triellus Trade Route (primary route)",
+        "travel_time": "variable",
+        "route_quality": "well-established",
+        "notes": "Tatooine's primary hyperspace connection. The Triellus Trade Route links Tatooine to the broader Outer Rim trade network.",
+        "source_refs": [
+          {
+            "book": "EotE Core",
+            "page": 372,
+            "detail": "Triellus Trade Route listed as Tatooine's trade route in astronavigation data"
+          }
+        ]
+      },
+      {
+        "id": "kessel",
+        "destination": "Kessel",
+        "travel_time": "variable — 20-40 hours",
+        "route_quality": "dangerous",
+        "notes": "Reachable via connections through the Outer Rim. The Kessel Run is a treacherous hyperspace route bounded by black holes. Spice trade connects the two worlds.",
+        "inferred": true
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_garrison",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The governor's office is staffed. That's it. No visible military presence. The Empire's claim to Tatooine is a line on a star chart and nothing more.",
+          "presence_reason": "Default state. The Empire has never invested significant resources in Tatooine because the planet has nothing worth protecting and the Hutts handle local order in their own way.",
+          "roles": [
+            {
+              "role": "Imperial governor's aide",
+              "archetype_ref": "imperial_bureaucrat",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Files reports to sector command. Does not leave Bestine."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Small stormtrooper patrols in Mos Eisley and Bestine. A customs checkpoint at the spaceport. The governor is active but deferential to Hutt interests. This is the Empire maintaining the minimum presence required to claim sovereignty.",
+          "presence_reason": "Standard Imperial posture on Tatooine. Enough to be seen, not enough to threaten Jabba or interfere with the criminal economy that keeps the planet functioning.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Paired patrols on predictable routes in Mos Eisley and Bestine. Professional but not hunting anyone."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Spaceport checkpoint. Bribable. Knows which ships to inspect and which to wave through."
+            },
+            {
+              "role": "Imperial governor",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Watches. Reports. Does not challenge Jabba. Pragmatic about the limits of Imperial authority here."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced garrison. Something has triggered sector command's attention. Stormtroopers at spaceport checkpoints, active patrols in both major cities, customs inspections becoming thorough. Jabba is privately annoyed but not yet pushing back.",
+          "presence_reason": "A credible threat — Rebel activity detected, a high-value fugitive tracked to Tatooine, or direct orders from the Moff. Someone above the governor made a call.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Multiple squads covering Mos Eisley, Mos Espa, and Bestine simultaneously."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Both spaceports locked down. Inspections are thorough."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Sent from sector command. Running an investigation that the governor may not be fully briefed on."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior military officer coordinating the escalation. May have authority to override the governor."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military occupation. Star Destroyer in orbit. The Empire has decided Tatooine matters. Jabba's arrangement is functionally suspended. Civilians are restricted. This is a statement — and it will not last long before the costs outweigh the benefits.",
+          "presence_reason": "Something extraordinary — a Force-sensitive confirmed, a catastrophic intelligence failure, a direct order from Vader or the Emperor. The Empire does not commit these resources to Tatooine under normal circumstances.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Building-by-building search capability. All settlements covered."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Every docking bay locked. No ships leave without clearance."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "ISB is running the operation. The governor has been sidelined."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior command on site. Coordinating ground and orbital assets."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. An Inquisitor's arrival changes the entire dynamic — even Jabba cooperates."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Stormtrooper patrols are more attentive. Customs checks become less negotiable. The governor is asking questions he normally wouldn't.",
+        "targeted": "The Empire is looking for specific individuals. Checkpoint holos of targets distributed. Departing ships are inspected. Jabba's people are asked — not ordered — to cooperate.",
+        "manhunt": "Full lockdown of spaceports. No ships leave without Imperial authorization. Stormtroopers conduct sweeps in target's last known district. Jabba is formally requested to assist — and the request carries an implicit threat."
+      }
+    },
+    {
+      "faction_id": "jabba_hutt_enterprise",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Jabba's presence is felt but not seen. A single enforcer collecting tribute. Informants watching. The infrastructure of criminal control is dormant but intact.",
+          "presence_reason": "Jabba has pulled active resources elsewhere — a more pressing matter on Nal Hutta, a rival Hutt dispute, or the asset in question is not currently worth staffing. His absence is temporary and intentional.",
+          "roles": [
+            {
+              "role": "Hutt tribute collector",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 1,
+              "notes": "Collecting the percentage. Not asking questions. Not answering them either."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Jabba operations. Enforcers on the streets of Mos Eisley, eyes in the cantina, tribute flowing on schedule. Jabba's townhouse in the city center is staffed. This is Tatooine functioning normally under Hutt rule.",
+          "presence_reason": "Business as usual. Jabba's criminal infrastructure is running and taking its cut of everything that moves.",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Visible muscle on known routes. Deterrent presence."
+            },
+            {
+              "role": "Nikto enforcer",
+              "archetype_ref": "nikto_guard",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Mid-level operators with authority to make decisions. More initiative than Gamorreans."
+            },
+            {
+              "role": "Cantina informant",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Reports to Jabba's organization. Everything said in the cantina reaches the palace eventually."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Jabba is protecting something or responding to a threat. More enforcers than normal. Bounty hunters on contract. Named lieutenants visible in the spaceports. Someone has drawn Jabba's personal attention.",
+          "presence_reason": "A threat to Jabba's interests — a rival criminal operation probing his territory, a shipment gone missing, someone who failed to pay tribute, or an Imperial overreach that needs discouraging.",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Multiple teams. Overlapping coverage of settlement streets."
+            },
+            {
+              "role": "Nikto enforcer",
+              "archetype_ref": "nikto_guard",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Operational commanders running enforcement teams."
+            },
+            {
+              "role": "Hired bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Jabba has hired outside help. The target is worth the expense."
+            },
+            {
+              "role": "Hutt lieutenant",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Named operative with authority to act on Jabba's behalf."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Jabba is making a statement. The palace retinue has deployed into the cities. Every criminal operator on the planet knows something is happening — and what happens to people who get in the way. Jabba's revenge is elaborate, public, and designed to send a message.",
+          "presence_reason": "",
+          "roles": [
+            {
+              "role": "Gamorrean enforcer patrol",
+              "archetype_ref": "gamorrean_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Total coverage. Every street, every docking bay."
+            },
+            {
+              "role": "Nikto enforcer squad",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Armed for a fight."
+            },
+            {
+              "role": "Hired bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Multiple contracts active. The reward is large enough to draw hunters from offworld."
+            },
+            {
+              "role": "Hutt lieutenant",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior operatives coordinating the operation across settlements."
+            },
+            {
+              "role": "Jabba the Hutt",
+              "archetype_ref": "hutt_crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Jabba has taken personal interest. The target's fate will be public and spectacular."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Jabba's enforcers pay closer attention. Tribute demands increase without explanation. Independent operators get leaned on. Someone is being made an example of.",
+        "targeted": "Jabba has identified a specific target. Bounty hunters are hired. Informant networks activated. The target's known associates are brought in for questioning — Jabba's way.",
+        "manhunt": "Jabba wants someone found and he is spending real money. Every bounty hunter on the planet and several from offworld are looking. Every informant is listening. Every dock worker is watching departing ships. The reward is large enough to tempt even loyal people. Failure and disloyalty earn a trip to the Sarlacc."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "EotE_smuggler_start": {
+        "label": "Edge of the Empire — Smuggler's Starting Point",
+        "description": "Players arrive on Tatooine looking for work, running from debt, or both. Jabba's network is the primary employer. The spaceports are busy with smuggling traffic on the Triellus Trade Route. The Empire is background noise. There is always some scum up to something out here.",
+        "controlling_factions": [
+          {
+            "location_id": "mos_eisley",
+            "faction_id": "jabba_hutt_enterprise",
+            "presence_level": "patrol",
+            "notes": "Standard Jabba operations. The cantina is the hiring hall. Work is available for those willing to take risks."
+          },
+          {
+            "location_id": "mos_eisley_spaceport",
+            "faction_id": "imperial_garrison",
+            "presence_level": "patrol",
+            "notes": "Nominal customs checkpoint. Bribable. Not looking for trouble."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "Jabba is always looking for reliable smugglers. Getting an audience is the hard part — once you're in, the work is steady and the pay is decent. Failure means bounty hunters.",
+          "A shipment of spice bound for the Core Worlds needs a crew willing to make the run. The previous crew disappeared — whether they ran with the cargo or ran into trouble is unclear.",
+          "A moisture farmer near Anchorhead has found something in a krayt dragon cave. He doesn't know what it is and he's afraid to ask anyone local. He needs someone from offworld he can trust — or at least someone who doesn't report to Jabba.",
+          "Bounty hunters in Chalmun's Cantina are talking about a new target — someone who just arrived on-planet and is trying very hard not to be noticed."
+        ]
+      },
+      "EotE_bounty_hunter_contract": {
+        "label": "Edge of the Empire — Bounty Hunter Contract",
+        "description": "",
+        "controlling_factions": [
+          {
+            "location_id": "jabbas_palace",
+            "faction_id": "jabba_hutt_enterprise",
+            "presence_level": "patrol",
+            "notes": "Standard palace security. Audiences with Jabba are where contracts are awarded."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "Jabba has a bounty on a smuggler who jettisoned a shipment of precious cargo when Imperial customs boarded his ship. The smuggler claims it wasn't his fault. Jabba doesn't care.",
+          "A rival bounty hunter — Jodo Kast or someone of similar reputation — is working the same contract. The competition is as dangerous as the target.",
+          "",
+          "The target has connections among the Jawa clans. Finding him means tracking sandcrawler routes across the Dune Sea."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "372",
+      "detail": "Primary planet entry — astronavigation data, population, government, terrain, cities, exports/imports, trade routes, background text, Mos Eisley sidebar"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "354",
+      "detail": "Brief planet summary in Outer Rim notable locations list — homeworld of Jawas and Tusken Raiders, Imperial control wrested from Hutts after Clone Wars, Jabba remains dominant"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "260",
+      "detail": "Sandcrawler/Digger Crawler vehicle entry — Jawa clans, former mining consortiums, trade with moisture farmers"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "173, 175",
+      "detail": "Tusken Raider weapons — slugthrower rifles with captured ammunition, gaffi sticks from tracti hardwood, krayt dragon horn/bone, scavenged metal"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "355",
+      "detail": "Grinner's Outer Rim Opportunities — Jabba's reputation, bounty hunters, Tatooine as starting point"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "386-387",
+      "detail": "The Hutts faction section — Jabba's philosophy of coordination, revenge as cultural pastime, organizational structure"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "156",
+      "detail": "Galactic Economics — moisture harvested from deserts transported to major cities"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "364",
+      "detail": "Shadowports — Tatooine listed among better-known Outer Rim shadowports"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "375",
+      "detail": "Planetary governors section — governors observe and advise, nominal command of garrison forces"
+    }
+  ]
+}

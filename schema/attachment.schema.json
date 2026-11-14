@@ -1,0 +1,434 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/attachment.schema.json",
+  "title": "Personal Item Attachment",
+  "description": "Canonical personal-item attachment record (Lap B, ruling loadout-lap-b-attachment-schema). Ingested from OggDude's itemattachments Type='Weapon'|'Armor'|'Gear' (203 + REPASSLIFT reclassified per R-LBS-7 = 204). Option C schema (R-LBS-1): structured first-class fields for resolver-readable stat modifiers + prose base_mods/added_mods for everything else. hp is null-honest (R-LBS-3 convention). Structured fields carry BASE values only (R-LBS-8); unlockable ranks live in added_mods with their rank count.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "type",
+    "hp",
+    "_provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key. Traceability only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Decoded from OggDude Description markup."
+    },
+    "type": {
+      "enum": [
+        "weapon",
+        "armor",
+        "gear"
+      ],
+      "description": "Which item registry this attachment targets. Lowercased from OggDude Type."
+    },
+    "hp": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Hard-point install cost; null = source lists none (R-LBS-3 null-honest). 62 of 327 source records lack HP; 12 of 18 Gear-type lack it."
+    },
+    "price": {
+      "$ref": "item-common.schema.json#/$defs/price"
+    },
+    "rarity": {
+      "$ref": "item-common.schema.json#/$defs/rarity"
+    },
+    "restricted": {
+      "$ref": "item-common.schema.json#/$defs/restricted"
+    },
+    "sources": {
+      "$ref": "item-common.schema.json#/$defs/sources"
+    },
+    "is_crystal": {
+      "type": "boolean",
+      "default": false,
+      "description": "True for lightsaber crystals (21 source records). Flag only — no crystal behaviour shipped (R-LBS-4 scope fence)."
+    },
+    "encumbrance_threshold_bonus": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "BASE bonus to encumbrance threshold from this attachment when installed (R-LBS-8). null = does not modify. Unlockable additional ranks live in added_mods. Read by computeEncumbrance via R-LAB-7."
+    },
+    "damage_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Additive damage modifier. Positive = increase. null = does not modify. Source keys: DAMADD (+), DAMSUB (-)."
+    },
+    "crit_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Relative critical rating modifier. Negative = easier to crit (CRITSUB). null = does not modify. R-LBS-2: separate from crit_set."
+    },
+    "crit_set": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Absolute critical rating override (CRITSET). null = does not override. R-LBS-2: a flag that changes the meaning of a neighbouring number is the shape that produces silent wrong maths."
+    },
+    "damage_set": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Absolute damage override (DAMSET). null = does not override. Mirrors crit_set pattern. 23 lightsaber crystals. DATA ONLY — not wired to the resolver in this lap (C-IES-1)."
+    },
+    "range_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Range band delta (RANGEADD +1, RANGESUB -1). null = does not modify. DATA ONLY — not wired to the resolver in this lap."
+    },
+    "soak_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Additive soak modifier. Source keys: ARMORADD. null = does not modify."
+    },
+    "defense_melee_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Additive melee defense modifier. Source keys: MELEEDEFADD, DEFENSIVE. null = does not modify."
+    },
+    "defense_ranged_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Additive ranged defense modifier. Source keys: RANGEDEFADD, DEFADD. null = does not modify."
+    },
+    "encumbrance_mod": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "Additive encumbrance modifier on the parent item. Negative = lighter (ENCSUB). null = does not modify."
+    },
+    "qualities_add": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Canonical quality id (e.g. 'pierce', 'vicious')."
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Quality rank when ranked."
+          }
+        }
+      },
+      "description": "Weapon/armor qualities added by this attachment (BaseMods only). Source keys: PIERCE, VICIOUS, STUN, BURN, etc."
+    },
+    "qualities_remove": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Weapon/armor qualities removed by this attachment. Source keys: REMQUALSTUNSETTING, REMQUALBREACH, etc."
+    },
+    "character_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "item-common.schema.json#/$defs/item_character_effect"
+      },
+      "description": "F-100 M12 MV3 (f100-m12-census-card R-M12C-55/-95; gate table f100-m12-gate-table §2): a BASE line's talent effect op, held while the character USES the modded item (EotE p.187: 'as if he had +1 rank … when using the modded item'). The base line carries the same op as its `effect` (type item_character_effect), the QR1 precedent. Newly MODELLED (R-M12F-8)."
+    },
+    "host_hard_points_delta": {
+      "type": "integer",
+      "description": "F-100 M12 MV4 (f100-m12-census-card R-M12C-55/-95): a BASE line that changes its HOST's available hard points (Component Alteration, Concealment Alteration: -1, once per item, permanent), the attachment-side sibling of a talent item_effect's hard_points_delta, read by pcHardpointAccounting. The base line carries it as its `effect` (type host_hard_points_delta). Newly MODELLED (R-M12F-8)."
+    },
+    "qualities_reduce": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "by",
+          "cite"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Canonical quality id whose RATING is lowered (e.g. 'cumbersome')."
+          },
+          "by": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "How far the rating drops (EotE p.193: 'Decrease Cumbersome rating by 2')."
+          },
+          "floor": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "OPTIONAL: the lowest rating this row leaves (default 0: at 0 the quality is gone). A rating at or below it is never raised."
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OPTIONAL: the page's own words for WHEN the reduction holds (the bipod's 'when firing from a prone or crouched position (or can otherwise brace the bipod on something)', EotE p.188). A row with a condition is never applied: it is OFFERED (SWRPGQualityRows.poolRows, via the resolved record's _qualityOffers)."
+          },
+          "cite": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "book",
+              "page"
+            ],
+            "properties": {
+              "book": {
+                "type": "string"
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "description": "The printing the row stands on: book id + PRINTED page (R-RRD-1)."
+          }
+        }
+      },
+      "description": "F-100 M12 QR1 (f100-m12-build-card R-M12B-8 B-1204; census card R-M12C-9/-53 + erratum, admitted R-M12C-95): BASE reductions of a quality's RATING on the host weapon, applied by ItemResolve.applyInstalledAttachments after this attachment's qualities_add. LIVE. Written ONLY by scripts/canonical/apply_m12_attachment_corrections.py (page-cited); personal_attachments.py emits {key, by} from OggDude's negative-count and SUBQUAL* keys (the cause of B-1204, fixed)."
+    },
+    "qualities_replace": {
+      "const": true,
+      "description": ""
+    },
+    "base_mods": {
+      "$ref": "item-common.schema.json#/$defs/base_mods"
+    },
+    "added_mods": {
+      "$ref": "item-common.schema.json#/$defs/base_mods"
+    },
+    "pool_mods": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_entry"
+          },
+          {
+            "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused/allOf/0"
+          },
+          {
+            "required": [
+              "condition"
+            ],
+            "description": "F-100 M12 R-M12B-63 (f100-m12-build-card ADDENDUM 20): `condition` is EXPLICIT on an attachment row — null only where the line's words carry none, else its words. Presence is the fact; an absent key is not a recorded fact, and would auto-apply by accident once R1 carries the row."
+          }
+        ]
+      },
+      "description": "Extracted dice-pool modifiers at row level (R-DPS-1). Each entry traces back to its source mod object via from. F-100 M12 (f100-m12-census-card R-M12C-55/-95/-98, the reader gap R1): CARRIED onto the host by applyInstalledAttachments (base rows always; a row whose `from.channel` is added_mods only while that option is selected), newly MODELLED (R-M12F-8). An attachment row takes the refusal wrapper's FIRST arm only, as a quality row does (R-B219C-17): it refuses a difficulty upgrade but ADMITS `symbol: threat`, which lands on the OWNER's own check (Galven pattern resequencing, \"Adds automatic [TH][TH] to all combat checks made using this weapon\", Forged in Battle p.51; R-M12C-98). `applies_to {scope: host_item}` (MV1) is admitted here and nowhere else."
+    },
+    "weapon_profile": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Secondary weapon profile granted by this attachment (R-LBS-5). 12 in-scope rows. A profile, not a second weapons registry — display + resolve data, never looked up by id.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skill": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "damage": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "damage_base": {
+          "enum": [
+            "brawn"
+          ],
+          "description": "Present when the profile uses Brawn+value (DamageAdd, melee). Absent = flat damage."
+        },
+        "crit": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "range": {
+          "enum": [
+            "engaged",
+            "close",
+            "short",
+            "medium",
+            "long",
+            "extreme"
+          ]
+        },
+        "qualities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "RAW install limits — which items can take this attachment. ACROSS kinds: AND (every kind present must pass). WITHIN a kind's array: OR. An item lacking the matched field sends that kind to `unevaluated`, never to `reasons` — flagged, not scored (C-LBA-1).",
+      "properties": {
+        "category_limit": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Item categories the attachment may install on. OR within the array."
+        },
+        "item_limit": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Named models only, by OggDude source key. OR within the array."
+        },
+        "skill_limit": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "CANONICAL skill ids (ranged_heavy, melee, ...) matched against the item's resolved `skill`. NEVER raw OggDude keys (RANGHVY): the registries hold snake_case ids, so an untranslated key matches nothing and the constraint fails open — silence wearing a constraint's clothes. The importer translates via skills.vocab.json aliases. OR within the array. (R-ACV-2)"
+        },
+        "type_limit": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "OggDude Type-taxonomy strings (Melee, Energy Weapon, Slugthrower, ...) matched EXACTLY against the item's own `type`. A different axis from category_limit; the two coexist. OR within the array. (R-ACV-2)"
+        },
+        "stat_limit": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "soak": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "min": {
+                  "type": "integer"
+                },
+                "max": {
+                  "type": "integer"
+                }
+              }
+            },
+            "defense": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "min": {
+                  "type": "integer"
+                },
+                "max": {
+                  "type": "integer"
+                }
+              }
+            },
+            "encumbrance": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "min": {
+                  "type": "integer"
+                },
+                "max": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "description": "Numeric thresholds on the item's PRINTED profile. Keys are a CLOSED vocabulary — soak, defense, encumbrance — being the canonical record's own field names; an unknown key is a HARD validator failure, because a typo would silently unevaluate and fail open forever. Bounds are inclusive integers, at least one of min/max. Multiple keys AND. There is NO OR grammar: canonical armor carries one `defense` field, so \"melee or ranged defense 1+\" is just {defense:{min:1}}. Evaluated against the BASE record, never the resolved-with-attachments shape — eligibility that moved with installed attachments would make install ORDER change what fits. (R-ANE-1/2)"
+        }
+      }
+    },
+    "_provenance": {
+      "type": "string",
+      "default": "oggdude"
+    },
+    "universal": {
+      "type": "boolean",
+      "description": "REVIEWED marker: a human read this attachment and found it genuinely fits anything of its type. Distinct from silence — an attachment with neither `constraints` nor `universal: true` has never been assessed, and the validator fails on it. Never set by inference. (B-252)"
+    },
+    "constraints_wording": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "inferred"
+      ],
+      "description": "How this record's `constraints` were arrived at. `verified` — the source states the rule outright (an OggDude structured field, or an unambiguous sentence a human read). `inferred` — a human read prose that IMPLIES the rule without stating it. Required whenever `constraints` is present, so a reader can tell a transcribed rule from a judged one without re-deriving either. (R-ACV-2 / B-252)"
+    },
+    "universal_wording": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "inferred"
+      ],
+      "description": "How `universal: true` was arrived at. `verified` — the description says so outright ('can be applied to any armor'). `inferred` — no restriction is stated anywhere, or the only limit is one the book leaves to the table ('any armor that could logically...'). Required with `universal`, for the same reason `constraints_wording` is required with `constraints`: a reviewed finding and a transcribed one must be tellable apart. (B-252)"
+    }
+  }
+}

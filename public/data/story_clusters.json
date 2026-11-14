@@ -1,0 +1,1450 @@
+{
+  "version": "1.0",
+  "story_clusters": [
+    {
+      "cluster_id": "interrupted_meal",
+      "name": "The Interrupted Meal",
+      "description": "A meal was abandoned mid-bite, suggesting the occupants left in a sudden panic.",
+      "tags": ["social", "sleeping", "any"],
+      "objects": [
+        { "item": "ration pack", "state": "torn open with contents half-eaten, synth-meat still glistening", "position": "on table center" },
+        { "item": "drinking cup", "state": "knocked sideways with blue milk pooling across the surface", "position": "on table edge, dripping" },
+        { "item": "chair", "state": "shoved back at an angle, one leg scratching a groove into the deck plating", "position": "pulled away from table" },
+        { "item": "utensil set", "state": "one fork still embedded upright in a portion of nerf steak", "position": "on plate, on table" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["recently_abandoned", "panic", "urgency"],
+      "faction_fit": ["any"],
+      "excludes": ["long_cold_table"]
+    },
+    {
+      "cluster_id": "dropped_travel_bags",
+      "name": "Dropped Travel Bags",
+      "description": "Personal luggage was dropped in a corridor as if the carriers broke into a run.",
+      "tags": ["transit", "sleeping", "any"],
+      "objects": [
+        { "item": "travel satchel", "state": "flap open with clothing spilling out across the floor", "position": "on floor center" },
+        { "item": "synthleather duffel", "state": "strap snapped, contents scattered in a trailing line", "position": "on floor near door" },
+        { "item": "personal datapad", "state": "screen cracked from impact, still displaying a transit schedule", "position": "on floor beside satchel" },
+        { "item": "credit pouch", "state": "half-open with a few credit chips visible inside", "position": "under edge of duffel" }
+      ],
+      "footprint": "1.5m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["recently_abandoned", "panic", "flight"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "half_loaded_crates",
+      "name": "The Stalled Evacuation",
+      "description": "Crates were being loaded onto a repulsor sled when the work abruptly stopped.",
+      "tags": ["storage", "transit"],
+      "objects": [
+        { "item": "durasteel cargo crate", "state": "lid pried off, packing foam half-removed, contents partially exposed", "position": "on repulsor sled" },
+        { "item": "repulsor sled", "state": "powered down mid-hover, resting at a slight tilt on depleted cells", "position": "center of room" },
+        { "item": "packing materials", "state": "sheets of anti-static wrap crumpled and strewn across the floor", "position": "scattered around sled" },
+        { "item": "cargo manifest flimsiplast", "state": "crumpled in a fist then dropped, ink smeared from sweat", "position": "on floor near sled" }
+      ],
+      "footprint": "3m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["recently_abandoned", "urgency", "evacuation"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_cargo_bay"]
+    },
+    {
+      "cluster_id": "gear_left_behind",
+      "name": "Abandoned Duty Station",
+      "description": "A guard or technician left their post so quickly they abandoned personal gear and sidearm.",
+      "tags": ["security", "command", "any"],
+      "objects": [
+        { "item": "utility belt", "state": "unbuckled and draped over a chair back, pouches still full", "position": "on chair against wall" },
+        { "item": "blaster holster", "state": "empty, retention strap unsnapped, still clipped to belt", "position": "on chair with belt" },
+        { "item": "comlink", "state": "left on, emitting a faint static hiss from an open channel", "position": "on console surface" },
+        { "item": "stim-caf mug", "state": "still warm to the touch, half-full, no condensation ring yet", "position": "on console beside comlink" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["recently_abandoned", "panic", "dereliction"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "open_blast_door",
+      "name": "The Propped Blast Door",
+      "description": "A heavy blast door has been wedged open with whatever was at hand, suggesting a rushed exit through a normally sealed passage.",
+      "tags": ["transit", "security"],
+      "objects": [
+        { "item": "blast door", "state": "jammed three-quarters open, hydraulics whining with strain", "position": "in doorway" },
+        { "item": "hydrospanner", "state": "wedged into the door track as an improvised chock", "position": "at base of door track" },
+        { "item": "durasteel rod", "state": "bent from being used as a pry bar, scorch marks on one end", "position": "on floor near doorway" },
+        { "item": "emergency override panel", "state": "cover ripped off, wires pulled and spliced with bare fingers", "position": "mounted on wall beside door" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "doorway_adjacent",
+      "narrative_fit": ["recently_abandoned", "panic", "breach", "urgency"],
+      "faction_fit": ["any"],
+      "excludes": ["sealed_checkpoint"]
+    },
+    {
+      "cluster_id": "scattered_personal_items",
+      "name": "The Ransacked Bunk",
+      "description": "Someone tore through their own belongings grabbing only essentials before fleeing.",
+      "tags": ["sleeping"],
+      "objects": [
+        { "item": "footlocker", "state": "upended with contents dumped across the bunk mattress", "position": "at foot of bunk, on its side" },
+        { "item": "clothing", "state": "civilian garments tossed aside in favor of something warmer or more durable", "position": "draped over bunk frame" },
+        { "item": "empty medpac slot", "state": "wall-mounted medpac bracket with the kit torn free, mounting screws bent", "position": "on wall above bunk" },
+        { "item": "boots", "state": "one left behind, the other missing — mismatched sole prints lead toward the door", "position": "on floor beside bunk" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["recently_abandoned", "panic", "flight"],
+      "faction_fit": ["any"],
+      "excludes": ["neatly_made_bunk"]
+    },
+    {
+      "cluster_id": "comms_left_open",
+      "name": "The Open Channel",
+      "description": "A communications station was abandoned mid-transmission, the channel still broadcasting dead air.",
+      "tags": ["command", "technical"],
+      "objects": [
+        { "item": "comm terminal", "state": "powered on, transmission light blinking amber, recording buffer full", "position": "on desk against wall" },
+        { "item": "headset", "state": "dangling off the desk edge by its cord, earpiece swinging gently", "position": "hanging from desk edge" },
+        { "item": "transcription flimsiplast", "state": "half-covered in hurried shorthand, final line trails off mid-word", "position": "on desk under headset cord" },
+        { "item": "code cylinder", "state": "still inserted in the terminal's authorization slot", "position": "in terminal slot" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["recently_abandoned", "urgency", "interrupted"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "abandoned_cooking_station",
+      "name": "The Cold Cookfire",
+      "description": "A portable heating element was left running with food burning to carbon, filling the space with acrid smoke residue.",
+      "tags": ["social", "sleeping", "any"],
+      "objects": [
+        { "item": "portable heating element", "state": "still plugged in but auto-shutoff engaged, coils cooling to dull red", "position": "on crate used as counter" },
+        { "item": "cook pot", "state": "contents boiled dry and scorched black to the bottom", "position": "on heating element" },
+        { "item": "cutting board", "state": "vegetables half-chopped, vibroblade still resting across them", "position": "on crate beside heater" },
+        { "item": "spice jars", "state": "three small containers open, one knocked over with powder spilling", "position": "beside cutting board" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["recently_abandoned", "panic", "domestic"],
+      "faction_fit": ["any"],
+      "excludes": ["interrupted_meal"]
+    },
+    {
+      "cluster_id": "imperial_inspection_log",
+      "name": "The Inspector's Station",
+      "description": "An ISB or customs officer left behind a meticulous inspection station with logs documenting every container checked.",
+      "tags": ["command", "storage", "security"],
+      "objects": [
+        { "item": "datapad", "state": "locked to an inspection checklist app, fourteen of twenty items marked compliant", "position": "on portable desk" },
+        { "item": "Imperial seal stamp", "state": "ink pad open beside it, three freshly stamped clearance forms drying", "position": "on desk beside datapad" },
+        { "item": "scanning wand", "state": "powered down, still warm, chemical residue detector tip slightly discolored", "position": "clipped to desk edge" },
+        { "item": "clearance tags", "state": "stack of pre-printed durasteel tags with Imperial cog embossed, half the stack used", "position": "in open case on desk" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "bureaucratic", "imperial_order"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["rebel_comm_station"]
+    },
+    {
+      "cluster_id": "posted_imperial_orders",
+      "name": "The Commandant's Wall",
+      "description": "A wall of posted orders and directives creates a paper mosaic of Imperial authority and paranoia.",
+      "tags": ["command", "security"],
+      "objects": [
+        { "item": "duty roster flimsiplast", "state": "pinned to wall with durasteel tacks, current week highlighted in red ink", "position": "mounted on wall, center" },
+        { "item": "wanted holoposter", "state": "several faces displayed, two crossed out with 'NEUTRALIZED' stamped across them", "position": "mounted on wall, left side" },
+        { "item": "sector standing orders", "state": "formal document with Moff's seal, edges curling from humidity", "position": "mounted on wall, right side" },
+        { "item": "loyalty reminder placard", "state": "mass-produced propaganda piece reading 'REPORT SEDITION — PROTECT THE EMPIRE'", "position": "mounted on wall, above others" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "imperial_order", "paranoia"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["rebel_recruitment_wall"]
+    },
+    {
+      "cluster_id": "requisition_backlog",
+      "name": "The Supply Officer's Nightmare",
+      "description": "Stacks of unfilled requisition forms reveal an outpost slowly starving for supplies through bureaucratic failure.",
+      "tags": ["command", "storage"],
+      "objects": [
+        { "item": "requisition forms", "state": "three separate stacks sorted by priority, the urgent stack towering over the others", "position": "on desk in stacks" },
+        { "item": "supply terminal", "state": "screen displaying 'REQUEST DENIED — SECTOR ALLOCATION EXCEEDED' in red text", "position": "on desk against wall" },
+        { "item": "empty supply crate", "state": "labeled 'RATIONS — PRIORITY ALPHA' but unsealed and hollow", "position": "on floor beside desk" },
+        { "item": "officer's personal log", "state": "datapad open to an increasingly desperate series of appeals to sector command", "position": "on desk, partially hidden under forms" }
+      ],
+      "footprint": "2m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["occupied_tense", "desperation", "bureaucratic"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "imperial_manifest_station",
+      "name": "The Cargo Auditor's Post",
+      "description": "A portable audit station with cross-referenced manifests suggests someone was hunting for missing or diverted cargo.",
+      "tags": ["storage", "command"],
+      "objects": [
+        { "item": "cargo manifests", "state": "five separate flimsiplast sheets spread out, discrepancies circled in red marker", "position": "spread across folding table" },
+        { "item": "inventory scanner", "state": "holstered in charging cradle, screen showing last scan batch incomplete", "position": "on table edge" },
+        { "item": "discrepancy report", "state": "half-written formal report accusing a specific shipping company of diversion", "position": "on table, partially under manifests" },
+        { "item": "Imperial code cylinder", "state": "supply-officer grade, left inserted in a portable terminal", "position": "in terminal on table" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "center",
+      "narrative_fit": ["occupied_tense", "suspicion", "investigation"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["criminal_ledger_stash"]
+    },
+    {
+      "cluster_id": "loyalty_oath_ceremony",
+      "name": "The Oath Wall",
+      "description": "A display of signed loyalty oaths from every personnel member, some signatures noticeably shaky.",
+      "tags": ["command", "social"],
+      "objects": [
+        { "item": "loyalty oath documents", "state": "dozens of signed forms mounted behind transparisteel, arranged in neat rows", "position": "mounted on wall panel" },
+        { "item": "Imperial crest hologram", "state": "small projector casting a slowly rotating Imperial cog above the display", "position": "mounted above oath wall" },
+        { "item": "unsigned oath", "state": "a single blank form and stylus on a small shelf, waiting for the next arrival", "position": "on shelf below display" },
+        { "item": "disciplinary notice", "state": "small placard noting that refusal to sign constitutes grounds for immediate reassignment", "position": "mounted beside blank oath" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "imperial_order", "coercion"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["rebel_recruitment_wall"]
+    },
+    {
+      "cluster_id": "isb_surveillance_post",
+      "name": "The Watcher's Nest",
+      "description": "A concealed ISB monitoring station reveals that someone was watching the garrison's own personnel.",
+      "tags": ["hidden", "security", "command"],
+      "objects": [
+        { "item": "recording terminal", "state": "multiple feeds displayed in split-screen, audio logs timestamped and catalogued", "position": "on desk in concealed alcove" },
+        { "item": "personnel dossiers", "state": "physical files with candid holos attached, margin notes in precise handwriting", "position": "in locked drawer, lock picked" },
+        { "item": "parabolic listening device", "state": "compact unit aimed at the wall separating this space from the main briefing room", "position": "mounted on wall, angled" },
+        { "item": "dead-drop schedule", "state": "coded timetable for information exchanges, next drop circled", "position": "taped to underside of desk" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["occupied_tense", "paranoia", "surveillance"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["rebel_comm_station"]
+    },
+    {
+      "cluster_id": "rebel_star_chart",
+      "name": "The Navigator's Spread",
+      "description": "A star chart with hand-plotted hyperspace routes reveals someone was planning a journey through uncharted or restricted space.",
+      "tags": ["command", "hidden"],
+      "objects": [
+        { "item": "star chart hologram", "state": "portable projector displaying a sector map with three routes drawn in different colors", "position": "on table center" },
+        { "item": "nav computer backup", "state": "stripped from a ship, wired to a portable power cell, coordinates cached", "position": "on table beside projector" },
+        { "item": "route annotation cards", "state": "flimsiplast cards with fuel calculations, timing windows, and Imperial patrol gaps noted", "position": "arranged around projector" },
+        { "item": "sector patrol schedule", "state": "stolen Imperial document with highlighter marks on shift-change windows", "position": "pinned to wall above table" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["covert_operation", "planning", "hope"],
+      "faction_fit": ["rebel", "alliance", "smuggler"],
+      "excludes": ["imperial_manifest_station"]
+    },
+    {
+      "cluster_id": "rebel_coded_messages",
+      "name": "The Dead Drop Cache",
+      "description": "A concealed message exchange point holds encrypted data chips and a simple cipher key scratched into the wall.",
+      "tags": ["hidden", "transit"],
+      "objects": [
+        { "item": "data chips", "state": "three unmarked chips wrapped in anti-scan foil, tucked into a wall cavity", "position": "in false wall panel" },
+        { "item": "cipher reference", "state": "simple substitution key scratched faintly into duracrete with a sharp edge, nearly invisible", "position": "on wall inside cavity" },
+        { "item": "signal marker", "state": "a piece of colored tape on the exterior wall indicating the drop is loaded", "position": "on wall exterior, at knee height" },
+        { "item": "emergency destruct charge", "state": "tiny thermal detonator wired to a tamper switch on the cavity cover, barely visible", "position": "inside wall cavity, behind chips" }
+      ],
+      "footprint": "0.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["covert_operation", "danger", "espionage"],
+      "faction_fit": ["rebel", "alliance"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "rebel_comm_station",
+      "name": "The Improvised Signal Post",
+      "description": "A jury-rigged communications array cobbled from salvaged parts reveals a hidden rebel contact point.",
+      "tags": ["technical", "hidden", "command"],
+      "objects": [
+        { "item": "modified comlink array", "state": "three comlinks wired together with exposed solder joints, antenna boosted with salvaged dish", "position": "on crate against wall" },
+        { "item": "power cell stack", "state": "four mismatched power cells daisy-chained with insulated wire, charge indicators low", "position": "on floor beside crate" },
+        { "item": "frequency log", "state": "scrap of flimsiplast with broadcast times and frequencies in personal shorthand", "position": "tucked under comlink base" },
+        { "item": "Alliance code book", "state": "small hand-bound booklet with daily cipher pages, several pages torn out and burned", "position": "hidden inside hollowed-out tech manual" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "corner",
+      "narrative_fit": ["covert_operation", "resistance", "resourcefulness"],
+      "faction_fit": ["rebel", "alliance"],
+      "excludes": ["isb_surveillance_post", "imperial_inspection_log"]
+    },
+    {
+      "cluster_id": "rebel_recruitment_wall",
+      "name": "The Call to Arms",
+      "description": "Recruitment materials and propaganda posters speak to a network actively seeking new members for the cause.",
+      "tags": ["social", "hidden"],
+      "objects": [
+        { "item": "recruitment holoposter", "state": "portable projector cycling through images of Imperial atrocities and Alliance victories", "position": "propped against wall" },
+        { "item": "sign-up datapad", "state": "names entered under obvious aliases, contact methods encoded as commercial references", "position": "on crate beside poster" },
+        { "item": "identity blanks", "state": "stack of forged citizenship documents, half completed with different names and faces", "position": "in sealed container beside datapad" },
+        { "item": "inspirational graffiti", "state": "Alliance starbird scratched into the wall, small but deliberate", "position": "on wall behind poster" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["covert_operation", "hope", "resistance"],
+      "faction_fit": ["rebel", "alliance"],
+      "excludes": ["posted_imperial_orders", "loyalty_oath_ceremony"]
+    },
+    {
+      "cluster_id": "rebel_forged_docs",
+      "name": "The Forger's Desk",
+      "description": "A meticulous document fabrication station with tools for creating Imperial-grade forgeries.",
+      "tags": ["hidden", "technical"],
+      "objects": [
+        { "item": "micro-engraving tool", "state": "precision stylus with magnifying lens attachment, powered down, tip worn from use", "position": "on desk center" },
+        { "item": "blank Imperial wafers", "state": "stack of unprinted identichip blanks, sourced from a stolen supply shipment", "position": "in locked case on desk" },
+        { "item": "reference documents", "state": "genuine Imperial IDs pinned under magnifier for comparison, every security feature annotated", "position": "on desk under lamp" },
+        { "item": "finished forgeries", "state": "three completed identity documents drying under a UV lamp, indistinguishable from authentic", "position": "on desk far side, under lamp" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["covert_operation", "espionage", "resourcefulness"],
+      "faction_fit": ["rebel", "alliance", "smuggler"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "rebel_field_intel",
+      "name": "The Analyst's Board",
+      "description": "A wall covered in connected images, notes, and string reveals someone mapping an Imperial operation.",
+      "tags": ["command", "hidden"],
+      "objects": [
+        { "item": "intelligence board", "state": "flimsiplast sheets pinned to a board with colored string connecting personnel to locations", "position": "mounted on wall" },
+        { "item": "surveillance holos", "state": "candid captures of Imperial officers printed on cheap flimsi, names and ranks penciled below", "position": "pinned to board" },
+        { "item": "timeline chart", "state": "horizontal bar showing supply convoy schedules with gap windows highlighted in green", "position": "pinned to board, bottom section" },
+        { "item": "mission briefing draft", "state": "handwritten operation plan with multiple revisions, latest version circled as 'GO'", "position": "on desk below board" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["covert_operation", "planning", "determination"],
+      "faction_fit": ["rebel", "alliance"],
+      "excludes": ["isb_surveillance_post"]
+    },
+    {
+      "cluster_id": "unmarked_cargo",
+      "name": "The Unlabeled Shipment",
+      "description": "Crates with deliberately removed markings and mismatched serial numbers suggest cargo that was never meant to be tracked.",
+      "tags": ["storage", "hidden"],
+      "objects": [
+        { "item": "cargo crate", "state": "factory labels sanded off, original paint visible as ghost outlines beneath fresh gray coating", "position": "stacked two high against wall" },
+        { "item": "shipping labels", "state": "peeled off and stuffed into a disposal bag, adhesive residue still on crate surfaces", "position": "in bag on floor beside crates" },
+        { "item": "false manifest", "state": "datapad loaded with a cargo list claiming agricultural equipment, contradicted by crate weight", "position": "on top crate" },
+        { "item": "pry bar", "state": "durasteel, well-used, faint scratches matching the crate lid edges", "position": "leaning against crate stack" }
+      ],
+      "footprint": "2m x 1.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "suspicion", "smuggling"],
+      "faction_fit": ["criminal", "smuggler", "hutt"],
+      "excludes": ["pristine_cargo_bay"]
+    },
+    {
+      "cluster_id": "hidden_credit_stash",
+      "name": "The Buried Fortune",
+      "description": "Credit chips hidden in a false-bottomed container reveal someone was skimming profits or hiding payment.",
+      "tags": ["hidden", "storage"],
+      "objects": [
+        { "item": "supply container", "state": "filled with legitimate ration packs on top, false bottom panel slightly misaligned", "position": "on floor against wall" },
+        { "item": "credit chips", "state": "mixed denominations wrapped in anti-scan cloth, totaling several thousand credits", "position": "in false bottom of container" },
+        { "item": "accounting chip", "state": "micro data chip with encrypted transaction records, requires a specific datapad to read", "position": "taped to underside of false bottom" },
+        { "item": "withdrawal note", "state": "scrap with a date and amount written in a personal cipher, presumably the next planned removal", "position": "folded inside credit wrap" }
+      ],
+      "footprint": "1m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "greed", "secrecy"],
+      "faction_fit": ["criminal", "smuggler", "hutt", "any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "criminal_ledger_stash",
+      "name": "The Double Books",
+      "description": "Two sets of ledgers — one clean for inspectors, one real — document a thriving black market operation.",
+      "tags": ["command", "hidden"],
+      "objects": [
+        { "item": "official ledger datapad", "state": "showing modest legitimate trade figures, perfectly formatted for Imperial audit standards", "position": "on desk surface, visible" },
+        { "item": "real ledger datapad", "state": "hidden in a magnetic mount under the desk, encrypted, showing ten times the official revenue", "position": "magnetically attached under desk" },
+        { "item": "transaction tokens", "state": "small carved chips used as physical receipts in deals too sensitive for electronic records", "position": "in drawer, wrapped in cloth" },
+        { "item": "contact list", "state": "names written in food-based code — 'Corellian brandy supplier' means weapons dealer", "position": "folded inside official ledger case" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "deception", "commerce"],
+      "faction_fit": ["criminal", "smuggler", "hutt"],
+      "excludes": ["imperial_manifest_station"]
+    },
+    {
+      "cluster_id": "spice_processing",
+      "name": "The Cut Station",
+      "description": "Equipment for measuring, cutting, and repackaging spice reveals a distribution operation.",
+      "tags": ["hidden", "storage"],
+      "objects": [
+        { "item": "precision scale", "state": "calibrated to milligrams, dusted with faint residue of glitterstim particles", "position": "on table center" },
+        { "item": "spice containers", "state": "sealed opaque vials in a padded case, each labeled with a different purity grade", "position": "in case on table" },
+        { "item": "cutting agent", "state": "bag of inert powder used to dilute product, measured portions pre-weighed in small cups", "position": "on table beside scale" },
+        { "item": "distribution packets", "state": "small heat-sealed bags ready for sale, sorted into batches by a color-coded system", "position": "in crate under table" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "danger", "commerce"],
+      "faction_fit": ["criminal", "hutt"],
+      "excludes": ["medical_field_surgery"]
+    },
+    {
+      "cluster_id": "forged_cargo_manifests",
+      "name": "The Paper Trail",
+      "description": "A collection of forged shipping documents covers the movement of contraband through legitimate trade routes.",
+      "tags": ["storage", "command"],
+      "objects": [
+        { "item": "manifest printer", "state": "portable unit loaded with stolen Imperial customs flimsiplast, warm from recent use", "position": "on crate surface" },
+        { "item": "customs seal blanks", "state": "counterfeit port authority seals in various stages of completion", "position": "in tray beside printer" },
+        { "item": "route maps", "state": "trade lane charts with customs inspection frequencies annotated in margin notes", "position": "pinned to wall above crate" },
+        { "item": "sample manifests", "state": "stack of genuine cleared manifests used as templates, format and language carefully studied", "position": "beside printer on crate" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "smuggling", "deception"],
+      "faction_fit": ["criminal", "smuggler", "hutt"],
+      "excludes": ["imperial_inspection_log"]
+    },
+    {
+      "cluster_id": "smuggler_compartments",
+      "name": "The Hollow Wall",
+      "description": "A section of wall paneling conceals a narrow compartment sized perfectly for contraband or a crouching humanoid.",
+      "tags": ["hidden", "transit"],
+      "objects": [
+        { "item": "wall panel", "state": "durasteel panel with hidden magnetic catches, slight color mismatch from surrounding panels", "position": "against wall, waist height" },
+        { "item": "compartment interior", "state": "foam-lined space approximately 0.5m deep, scuff marks and fabric fibers on the padding", "position": "behind wall panel" },
+        { "item": "air recycler", "state": "miniature unit wired into the wall's power conduit, providing breathable air to the sealed space", "position": "inside compartment, upper corner" },
+        { "item": "emergency glowrod", "state": "chemical type, cracked and used, fading green light still barely visible", "position": "inside compartment, on floor" }
+      ],
+      "footprint": "1.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["criminal_activity", "secrecy", "danger"],
+      "faction_fit": ["criminal", "smuggler", "any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "blaster_scorched_doorway",
+      "name": "The Fatal Funnel",
+      "description": "Concentrated blaster scoring around a doorway tells the story of a desperate firefight at a chokepoint.",
+      "tags": ["transit", "security"],
+      "objects": [
+        { "item": "door frame", "state": "durasteel warped and blackened by dozens of blaster impacts, some shots punched clean through", "position": "in doorway frame" },
+        { "item": "scorch marks", "state": "overlapping blast patterns on walls showing fire from both directions, carbon scoring deep", "position": "on walls flanking doorway" },
+        { "item": "spent power cell", "state": "blaster power pack drained to zero, discarded after a full-auto dump, casing hot-deformed", "position": "on floor inside doorway" },
+        { "item": "blood trail", "state": "dark smear leading away from the doorway, someone was hit and dragged themselves or was dragged", "position": "on floor, trailing from doorway" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "doorway_adjacent",
+      "narrative_fit": ["post_combat", "danger", "violence"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_corridor"]
+    },
+    {
+      "cluster_id": "overturned_barricade",
+      "name": "The Failed Stand",
+      "description": "An improvised barricade was constructed and then overrun, furniture and debris scattered by the force of the breach.",
+      "tags": ["transit", "security", "social"],
+      "objects": [
+        { "item": "overturned table", "state": "heavy durasteel table flipped on its side, surface pocked with blaster burns, one leg sheered off", "position": "across corridor or room center" },
+        { "item": "stacked crates", "state": "cargo containers shoved together as cover, two blasted open with contents scattered", "position": "behind table, against wall" },
+        { "item": "shell casings", "state": "dozens of spent slugthrower casings pooled in a brass scatter pattern behind the barricade", "position": "on floor behind barricade" },
+        { "item": "broken blaster rifle", "state": "stock snapped, used as a club in close quarters after the power cell died", "position": "on floor beside barricade" }
+      ],
+      "footprint": "3m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["post_combat", "desperation", "violence"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "blood_trail_to_medbay",
+      "name": "The Crawling Wounded",
+      "description": "A blood trail leads from a combat zone toward a medical area, handprints smeared along the walls at decreasing heights.",
+      "tags": ["transit", "medical"],
+      "objects": [
+        { "item": "blood trail", "state": "dark red smears growing fainter along the corridor, drip pattern showing increasing stumbling", "position": "on floor, continuous line" },
+        { "item": "handprints", "state": "bloody palm prints on the wall starting at shoulder height, descending to knee level", "position": "on wall, following trail" },
+        { "item": "dropped medpac", "state": "emergency kit dropped and spilled, one bacta patch torn open but not applied", "position": "on floor mid-trail" },
+        { "item": "torn uniform fabric", "state": "strip of cloth used as a tourniquet, soaked through and discarded", "position": "on floor near medpac" }
+      ],
+      "footprint": "1m x 5m",
+      "placement_rule": "center",
+      "narrative_fit": ["post_combat", "grief", "desperation"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "demolished_furniture",
+      "name": "The Ransacked Office",
+      "description": "Furniture has been systematically destroyed — not combat damage, but someone searching with violent frustration.",
+      "tags": ["command", "sleeping", "social"],
+      "objects": [
+        { "item": "desk", "state": "drawers ripped out and upended, contents swept to the floor, desk surface gouged by a vibroblade", "position": "center of room, askew" },
+        { "item": "chair", "state": "smashed against the wall, back broken, seat cushion slashed open with stuffing pulled out", "position": "against wall, in pieces" },
+        { "item": "shelving unit", "state": "toppled forward, contents avalanched across the floor, mounting bolts torn from the wall", "position": "fallen from wall" },
+        { "item": "data terminal", "state": "screen shattered by a deliberate blow, data port pried open and storage drives removed", "position": "on desk, destroyed" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["post_combat", "anger", "searching"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_workspace"]
+    },
+    {
+      "cluster_id": "blast_cratered_wall",
+      "name": "The Thermal Breach",
+      "description": "A thermal detonator or explosive charge was used to breach a wall, leaving a ragged hole and structural damage.",
+      "tags": ["transit", "security"],
+      "objects": [
+        { "item": "wall breach", "state": "ragged hole approximately 1.5m across, edges melted and re-solidified in dripping formations", "position": "in wall" },
+        { "item": "debris field", "state": "duracrete chunks and twisted durasteel scattered in a blast cone pattern across the floor", "position": "on floor radiating from breach" },
+        { "item": "detonator casing", "state": "partial thermal detonator shell fused to the wall edge, serial numbers melted away", "position": "embedded in breach edge" },
+        { "item": "structural cracks", "state": "hairline fractures radiating from the blast point, ceiling sagging slightly overhead", "position": "on wall and ceiling around breach" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["post_combat", "violence", "breach"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "execution_evidence",
+      "name": "The Last Wall",
+      "description": "A wall bearing multiple blaster impacts at chest height alongside binder restraint marks tells a grim story.",
+      "tags": ["security", "hidden"],
+      "objects": [
+        { "item": "wall scoring", "state": "cluster of six blaster burns at torso height, tightly grouped, carbon still fresh", "position": "on wall, center" },
+        { "item": "binder cuffs", "state": "standard Imperial issue, unlocked and discarded on the floor, wrist-ring edges bloodied", "position": "on floor below scorch marks" },
+        { "item": "blindfold", "state": "strip of dark cloth crumpled on the floor, damp with sweat", "position": "on floor beside binders" },
+        { "item": "boot scuffs", "state": "drag marks in the dust leading to and from the wall, two sets approaching, one set leaving", "position": "on floor, leading to wall" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["post_combat", "horror", "oppression"],
+      "faction_fit": ["empire", "imperial", "criminal", "hutt"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "combat_medic_aftermath",
+      "name": "The Triage Floor",
+      "description": "Spent medical supplies scattered in a bloody radius show where someone received desperate field treatment.",
+      "tags": ["medical", "any"],
+      "objects": [
+        { "item": "bacta patches", "state": "three used patches peeled off and discarded, backing still sticky with pink-tinged adhesive", "position": "on floor in cluster" },
+        { "item": "stimpack injectors", "state": "two empty auto-injectors with needles exposed, caps discarded nearby", "position": "on floor beside patches" },
+        { "item": "blood pool", "state": "dark stain approximately half a meter across, partially dried at edges, center still tacky", "position": "on floor center of cluster" },
+        { "item": "cut-away clothing", "state": "fabric sliced with surgical precision and pulled aside, thermal underlayer visible", "position": "on floor near blood pool" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "floor_only",
+      "narrative_fit": ["post_combat", "desperation", "survival"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "shrapnel_scatter",
+      "name": "The Grenade Kill Zone",
+      "description": "Shrapnel patterning and blast scoring on floor and walls mark where a frag grenade detonated in an enclosed space.",
+      "tags": ["transit", "security", "any"],
+      "objects": [
+        { "item": "shrapnel impacts", "state": "hundreds of tiny pockmarks in the walls radiating from a central point, some fragments still embedded", "position": "on walls and floor, radial pattern" },
+        { "item": "grenade spoon", "state": "bent activation lever from a fragmentation grenade, blown clear of the blast", "position": "on floor near doorway" },
+        { "item": "blast-etched floor", "state": "circular scorch pattern on deck plating, paint and surface coating vaporized in a 2m radius", "position": "on floor center" },
+        { "item": "damaged equipment", "state": "nearby wall-mounted panel shredded by fragments, wiring exposed and sparking intermittently", "position": "on wall near blast center" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["post_combat", "violence", "danger"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "dusty_console_bank",
+      "name": "The Dead Bridge",
+      "description": "A row of consoles coated in years of undisturbed dust, screens dark, chairs still positioned as if operators simply vanished.",
+      "tags": ["command", "technical"],
+      "objects": [
+        { "item": "console bank", "state": "four stations in a row, screens opaque with dust, power indicators all dark", "position": "against wall in row" },
+        { "item": "chairs", "state": "still facing their stations, dust outlines showing where arms once rested on armrests", "position": "at each console station" },
+        { "item": "dust layer", "state": "uniform gray coating approximately 3mm thick, undisturbed except where ceiling drips have carved channels", "position": "on all horizontal surfaces" },
+        { "item": "faded schedule", "state": "duty rotation pinned to partition wall, dates from years ago, paper yellowed and brittle", "position": "on partition between consoles" }
+      ],
+      "footprint": "4m x 1.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["long_abandoned", "melancholy", "mystery"],
+      "faction_fit": ["any"],
+      "excludes": ["rebel_comm_station", "imperial_inspection_log"]
+    },
+    {
+      "cluster_id": "dead_power_grid",
+      "name": "The Silent Generator",
+      "description": "A main power generator sits cold and corroded, its last fuel spent long ago.",
+      "tags": ["technical"],
+      "objects": [
+        { "item": "power generator", "state": "housing corroded, coolant reservoir dry and cracked, fuel gauge reading absolute zero", "position": "center of room, bolted to floor" },
+        { "item": "fuel lines", "state": "rigid durasteel tubing gone brittle, one section cracked with dried fuel residue crystallized inside", "position": "running from generator to wall" },
+        { "item": "control panel", "state": "last readout frozen on screen in faded characters: 'FUEL CRITICAL — SHUTDOWN IMMINENT'", "position": "on generator housing" },
+        { "item": "maintenance log", "state": "metal clipboard hanging from a hook, last entry months before final shutdown, increasingly desperate notes", "position": "on hook beside generator" }
+      ],
+      "footprint": "3m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["long_abandoned", "decay", "finality"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "nature_reclaiming",
+      "name": "The Growing Dark",
+      "description": "Fungal growth and moisture have begun reclaiming this space, roots probing through cracked duracrete.",
+      "tags": ["any"],
+      "objects": [
+        { "item": "fungal colonies", "state": "bioluminescent blue-green growth spreading across one wall in branching patterns, faintly pulsing", "position": "on wall, spreading from ceiling crack" },
+        { "item": "root tendrils", "state": "pale roots threading through a ceiling fracture, some thick as a finger, reaching toward the floor", "position": "hanging from ceiling crack" },
+        { "item": "standing water", "state": "shallow pool collecting in a low spot, surface scummed with organic film, reflecting light oddly", "position": "on floor in depression" },
+        { "item": "corroded equipment", "state": "wall-mounted unit dissolved by moisture, metal flaking in rusty layers, unrecognizable original function", "position": "on wall near moisture source" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "corner",
+      "narrative_fit": ["long_abandoned", "unease", "reclamation"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "structural_decay",
+      "name": "The Sagging Ceiling",
+      "description": "Structural supports have begun failing, the ceiling bowing dangerously with debris already fallen.",
+      "tags": ["any"],
+      "objects": [
+        { "item": "ceiling panel", "state": "hanging by one corner, swaying slightly in air currents, revealing conduit and structure above", "position": "overhead, partially detached" },
+        { "item": "fallen debris", "state": "pile of duracrete chunks and bent ceiling grid on the floor, dust still settling", "position": "on floor below damaged ceiling" },
+        { "item": "support beam", "state": "structural member visibly bowed under load, stress fractures visible as white lines in the metal", "position": "overhead, spanning room" },
+        { "item": "warning signs", "state": "old hazard tape stretched across one section, faded to pale pink, adhesive failing", "position": "stretched between walls at chest height" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["long_abandoned", "danger", "decay"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "old_graffiti_wall",
+      "name": "The Memory Wall",
+      "description": "Layers of graffiti spanning years tell a compressed history of everyone who passed through this forgotten place.",
+      "tags": ["social", "transit", "any"],
+      "objects": [
+        { "item": "oldest graffiti layer", "state": "faded scratches in Aurebesh, a name and date from decades ago, nearly illegible", "position": "on wall, lowest section" },
+        { "item": "middle layer tags", "state": "spray-painted gang symbols and territorial markers in overlapping colors, partially covered by newer work", "position": "on wall, middle section" },
+        { "item": "recent messages", "state": "sharp-edged scratches reading warnings and directions, some in languages other than Basic", "position": "on wall, upper section" },
+        { "item": "tally marks", "state": "methodical scratch marks grouped in fives, counting either days or something else entirely — over two hundred total", "position": "on wall, in one corner of the graffiti" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["long_abandoned", "melancholy", "history"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "family_holos",
+      "name": "The Loved Ones Left Behind",
+      "description": "A small collection of family holographs arranged on a personal shelf reveals someone who couldn't let go of home.",
+      "tags": ["sleeping", "social"],
+      "objects": [
+        { "item": "holo-projector", "state": "small personal unit cycling through three images: a family portrait, a child's face, a homestead", "position": "on shelf above bunk" },
+        { "item": "child's drawing", "state": "flimsiplast with crayon art showing a stick figure in a uniform next to a small house, 'COME HOME' written in wobbly letters", "position": "pinned to wall beside shelf" },
+        { "item": "pressed flower", "state": "dried and flattened between two pieces of transparisteel, species native to Alderaan", "position": "on shelf beside holo-projector" },
+        { "item": "correspondence", "state": "stack of printed messages bound with a cord, most recent one three months old, asking 'are you safe?'", "position": "in drawer below shelf" }
+      ],
+      "footprint": "1m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "grief", "longing"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "religious_shrine",
+      "name": "The Quiet Altar",
+      "description": "A small personal shrine to a specific faith tradition, maintained with care even in harsh conditions.",
+      "tags": ["sleeping", "ritual", "any"],
+      "objects": [
+        { "item": "altar surface", "state": "a crate draped with clean cloth, surface carefully arranged despite the surrounding disorder", "position": "against wall" },
+        { "item": "devotional tokens", "state": "small carved figures and polished stones arranged in a specific pattern, Jedi or Force-tradition iconography", "position": "on altar surface, arranged" },
+        { "item": "incense holder", "state": "handmade clay dish with residue of burned aromatic, faint lingering scent still perceptible", "position": "on altar center" },
+        { "item": "prayer beads", "state": "strand of worn wooden beads with a natural polish from years of handling, hung on a small hook", "position": "on wall hook above altar" }
+      ],
+      "footprint": "1m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "solace", "faith"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "cultural_artifacts",
+      "name": "The Homeworld Collection",
+      "description": "Artifacts from a specific homeworld arranged with care suggest someone preserving their cultural identity far from home.",
+      "tags": ["sleeping", "social"],
+      "objects": [
+        { "item": "woven textile", "state": "hand-loomed fabric in Twi'lek patterns hung as a wall decoration, colors still vibrant", "position": "on wall as hanging" },
+        { "item": "ceremonial cup", "state": "carved from a single piece of Kashyyyk wroshyr wood, used for daily drinking despite its significance", "position": "on shelf" },
+        { "item": "musical instrument", "state": "small stringed instrument with four strings, one broken, dust on the body but neck worn smooth from playing", "position": "leaning against wall beside bunk" },
+        { "item": "spice jar", "state": "cooking spice from a specific planet, nearly empty, clearly rationed for special occasions", "position": "on shelf beside cup" }
+      ],
+      "footprint": "1.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "longing", "identity"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "personal_journal",
+      "name": "The Unfinished Diary",
+      "description": "A personal journal left open to its final entry reveals the writer's state of mind before they departed or were taken.",
+      "tags": ["sleeping", "command"],
+      "objects": [
+        { "item": "journal datapad", "state": "open to a text entry dated recently, final paragraph trails off mid-sentence, battery at 3%", "position": "on bunk pillow" },
+        { "item": "stylus", "state": "personal writing implement still resting in the crease of the datapad, as if set down for a moment", "position": "on datapad" },
+        { "item": "stim-caf mug", "state": "empty mug with dried residue rings showing multiple refills, positioned for a long writing session", "position": "on floor beside bunk" },
+        { "item": "glowrod", "state": "personal light source wedged into bunk frame to provide reading light, dimming on low power", "position": "clipped to bunk frame" }
+      ],
+      "footprint": "1m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["recently_abandoned", "introspection", "foreboding"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "keepsake_collection",
+      "name": "The Soldier's Mementos",
+      "description": "A small box of carefully preserved keepsakes from different worlds and missions reveals a life of travel and loss.",
+      "tags": ["sleeping"],
+      "objects": [
+        { "item": "keepsake box", "state": "battered durasteel container with a crude latch, lined with soft cloth, well-traveled", "position": "in footlocker, top layer" },
+        { "item": "rank insignia", "state": "a military rank plaque from a different service than the current one, edges worn smooth from touching", "position": "in box, center" },
+        { "item": "locket", "state": "tarnished metal pendant containing a micro-holo of two people, catch mechanism worn from frequent opening", "position": "in box, wrapped in cloth" },
+        { "item": "unit patch", "state": "fabric patch from a unit that no longer exists, stitching fraying at edges but colors still bright", "position": "in box, beneath locket" }
+      ],
+      "footprint": "0.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "grief", "memory"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "lucky_charm_post",
+      "name": "The Gambler's Corner",
+      "description": "Lucky charms, dice, and small wagers pinned to a board near a duty station reveal the superstitions of bored sentries.",
+      "tags": ["security", "social"],
+      "objects": [
+        { "item": "chance cubes", "state": "mismatched pair worn smooth on the high-number faces, resting where they last landed", "position": "on crate surface" },
+        { "item": "wager board", "state": "flimsiplast with names and credit amounts, bets on everything from next patrol contact to weather", "position": "pinned to wall" },
+        { "item": "lucky token", "state": "Corellian bloodstripe toggle rubbed to a mirror finish, hung from a cord on a wall hook", "position": "on wall hook" },
+        { "item": "sabacc cards", "state": "incomplete deck held together with a rubber band, top card showing the Idiot — the wild card", "position": "on crate beside dice" }
+      ],
+      "footprint": "1m x 1m",
+      "placement_rule": "corner",
+      "narrative_fit": ["occupied_tense", "boredom", "camaraderie"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "exposed_wiring_mess",
+      "name": "The Frayed Nerves",
+      "description": "A wall panel has been removed exposing a tangled nest of deteriorating wiring, some actively sparking.",
+      "tags": ["technical", "any"],
+      "objects": [
+        { "item": "removed wall panel", "state": "leaning against the wall beside the opening, mounting clips bent from being pried off", "position": "on floor against wall" },
+        { "item": "exposed wiring", "state": "bundle of color-coded cables with insulation cracked and peeling, several spliced with electrical tape", "position": "inside wall cavity" },
+        { "item": "sparking junction", "state": "bare wire contact point throwing blue-white sparks at irregular intervals, scorch marks spreading", "position": "inside wall cavity, center" },
+        { "item": "diagnostic tool", "state": "multimeter left clipped to a wire, screen reading fault codes in scrolling red text", "position": "hanging from wire bundle" }
+      ],
+      "footprint": "1.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["deteriorating", "danger", "neglect"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_workspace"]
+    },
+    {
+      "cluster_id": "jury_rigged_repair",
+      "name": "The Miracle Fix",
+      "description": "A critical system has been repaired with whatever was available — tape, wire, hope, and profanity.",
+      "tags": ["technical"],
+      "objects": [
+        { "item": "life support unit", "state": "housing held together with cargo straps, a food container repurposed as a coolant reservoir", "position": "mounted on wall, barely" },
+        { "item": "replacement parts", "state": "components from at least three different systems cobbled together, none originally designed for this purpose", "position": "inside unit housing" },
+        { "item": "instruction notes", "state": "angry handwritten labels: 'DO NOT TOUCH THIS WIRE' and 'TAP TWICE TO RESTART' and 'PRAY'", "position": "taped to unit housing" },
+        { "item": "tool scatter", "state": "hydrospanner, fusion cutter, roll of insulation tape, and a hammer — left within arm's reach for the next failure", "position": "on floor below unit" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["deteriorating", "resourcefulness", "desperation"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "coolant_leak",
+      "name": "The Slow Poison",
+      "description": "A coolant line has cracked, filling the area with a spreading pool of chemical-green liquid and acrid fumes.",
+      "tags": ["technical", "any"],
+      "objects": [
+        { "item": "coolant pipe", "state": "hairline crack in durasteel tubing, thin stream of green fluid weeping steadily down the wall", "position": "on wall, overhead" },
+        { "item": "coolant pool", "state": "chemical-green liquid pooling on the floor, surface slightly viscous, iridescent sheen catching light", "position": "on floor below pipe" },
+        { "item": "drip catch", "state": "someone placed a bucket under the worst drip, long since overflowed, ring of dried residue around it", "position": "on floor under pipe" },
+        { "item": "warning sign", "state": "hand-scrawled 'TOXIC — DON'T BREATHE' on a scrap of flimsiplast taped to the wall nearby", "position": "on wall beside pipe" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["deteriorating", "danger", "neglect"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "droid_graveyard",
+      "name": "The Spare Parts Heap",
+      "description": "Droid remains have been stripped for parts and piled in a corner, a mechanical ossuary of former servants.",
+      "tags": ["technical", "storage"],
+      "objects": [
+        { "item": "droid chassis", "state": "astromech body shell with all internal components removed, motivator housing empty, scored by cutting tools", "position": "on floor, leaning against wall" },
+        { "item": "limb pile", "state": "assorted droid appendages — manipulator arms, locomotion units — sorted roughly by size", "position": "on floor beside chassis" },
+        { "item": "photoreceptor", "state": "single optical sensor unit staring upward from the pile, lens cracked, faintly reflecting ambient light", "position": "on top of limb pile" },
+        { "item": "salvage bin", "state": "container of sorted small components — servos, gyros, circuit boards — each labeled with function", "position": "on crate beside pile" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "corner",
+      "narrative_fit": ["deteriorating", "resourcefulness", "decay"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "sparking_control_panel",
+      "name": "The Dying Console",
+      "description": "A control panel cycles through error states, screen flickering between garbled data and static, a system in its death throes.",
+      "tags": ["command", "technical"],
+      "objects": [
+        { "item": "control panel", "state": "screen flickering between garbled readouts and blue static, backlight pulsing irregularly", "position": "mounted on wall" },
+        { "item": "error readout", "state": "scrolling cascade of fault codes too fast to read, interspersed with fragments of old logs", "position": "on panel screen" },
+        { "item": "burned-out components", "state": "two sub-modules below the panel blackened and dead, replacement slots empty", "position": "in panel housing, below screen" },
+        { "item": "attempted bypass", "state": "someone ran jumper cables around the dead modules, providing minimal power to the screen but no function", "position": "visible in open panel housing" }
+      ],
+      "footprint": "1m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["deteriorating", "decay", "futility"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "false_wall_cache",
+      "name": "The Builder's Secret",
+      "description": "A section of wall was constructed with a hidden compartment by someone who planned ahead for the need to hide things.",
+      "tags": ["hidden"],
+      "objects": [
+        { "item": "false wall section", "state": "panel with slightly different acoustic resonance when tapped, seam visible only at floor level", "position": "in wall, at eye height" },
+        { "item": "concealed shelf", "state": "narrow shelf built into wall cavity, dust patterns showing regular access to the left side", "position": "behind false panel" },
+        { "item": "cached blaster", "state": "compact hold-out blaster in oiled cloth, fully charged power cell, ready for immediate use", "position": "on concealed shelf, left side" },
+        { "item": "emergency credits", "state": "small pouch of high-denomination credit chips, enough for passage off-world", "position": "on concealed shelf, right side" }
+      ],
+      "footprint": "1m x 0.3m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["paranoia", "preparation", "secrecy"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "buried_supply_cache",
+      "name": "The Dead Man's Drop",
+      "description": "Supplies buried beneath floor plating suggest someone prepared a survival cache they never returned for.",
+      "tags": ["hidden", "storage"],
+      "objects": [
+        { "item": "loose floor plate", "state": "deck plate with bolt heads that turn freely — threads stripped intentionally for quick removal", "position": "on floor, slightly raised" },
+        { "item": "sealed container", "state": "vacuum-sealed durasteel case beneath the plate, moisture beading on its surface from temperature differential", "position": "under floor plate" },
+        { "item": "survival rations", "state": "military-grade sealed ration packs, enough for one person for two weeks, expiration dates still valid", "position": "in sealed container" },
+        { "item": "holdout blaster", "state": "small weapon in preservation wrap, power cell stored separately to prevent drain", "position": "in sealed container, bottom layer" }
+      ],
+      "footprint": "1m x 1m",
+      "placement_rule": "floor_only",
+      "narrative_fit": ["paranoia", "preparation", "survival"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "concealed_weapon_rack",
+      "name": "The Hidden Arsenal",
+      "description": "Weapons concealed behind a legitimate storage unit reveal someone was arming for a fight they expected but hadn't yet started.",
+      "tags": ["hidden", "security", "storage"],
+      "objects": [
+        { "item": "supply shelf", "state": "ordinary-looking storage unit on tracks, slides sideways to reveal a wall-mounted weapon rack", "position": "against wall, movable" },
+        { "item": "weapon rack", "state": "holds four blaster rifles and two blaster pistols, all cleaned and charged, organized by type", "position": "behind shelf, on wall" },
+        { "item": "ammunition crate", "state": "small case of spare power packs sorted by weapon compatibility, inventory list taped inside the lid", "position": "on floor below rack" },
+        { "item": "cleaning kit", "state": "blaster maintenance tools laid out on an oiled cloth, one weapon partially disassembled for servicing", "position": "on shelf beside rack entrance" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["preparation", "danger", "resistance"],
+      "faction_fit": ["rebel", "alliance", "criminal", "any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "hidden_datapad_stash",
+      "name": "The Insurance Policy",
+      "description": "Datapads hidden in a ventilation duct contain copied records — someone was building leverage or preparing to run.",
+      "tags": ["hidden", "technical"],
+      "objects": [
+        { "item": "vent cover", "state": "screws replaced with quick-release pins, cover appears normal but lifts free with a gentle pull", "position": "on wall, near floor" },
+        { "item": "wrapped datapads", "state": "three datapads in static-proof wrap, each containing copies of financial records, personnel files, or communications", "position": "inside ventilation duct" },
+        { "item": "index card", "state": "flimsiplast listing what each datapad contains in abbreviated personal code", "position": "inside wrap with datapads" },
+        { "item": "dust disturbance", "state": "clean finger marks in the duct dust showing recent and repeated access", "position": "inside duct, on surfaces" }
+      ],
+      "footprint": "0.5m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["paranoia", "espionage", "self-preservation"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "smuggler_floor_safe",
+      "name": "The Underneath",
+      "description": "A concealed floor compartment with sophisticated anti-detection lining suggests professional smuggling infrastructure.",
+      "tags": ["hidden", "storage"],
+      "objects": [
+        { "item": "floor compartment", "state": "sensor-baffled compartment beneath deck plating, lined with scan-absorbing material, 1m x 0.5m x 0.3m", "position": "under floor, center of room" },
+        { "item": "scan-proof lining", "state": "thin sheets of sensor-absorbing composite bonded to the compartment walls, military-grade material", "position": "lining compartment interior" },
+        { "item": "latch mechanism", "state": "magnetic lock requiring a specific tool to open — a modified hydrospanner with a magnetic tip", "position": "flush with floor surface" },
+        { "item": "residue traces", "state": "faint chemical traces on the compartment floor from whatever was last stored here, now removed", "position": "on compartment floor" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "floor_only",
+      "narrative_fit": ["criminal_activity", "secrecy", "smuggling"],
+      "faction_fit": ["criminal", "smuggler"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "patrol_schedule_board",
+      "name": "The Watch Commander's Wall",
+      "description": "A detailed patrol schedule and checkpoint assignments reveal the rhythm and gaps in a security operation.",
+      "tags": ["security", "command"],
+      "objects": [
+        { "item": "schedule board", "state": "large flimsiplast grid showing 24-hour rotation, names color-coded by squad, several shifts unmarked", "position": "mounted on wall" },
+        { "item": "checkpoint map", "state": "overhead diagram of the facility with numbered checkpoint positions and patrol routes marked in grease pencil", "position": "mounted on wall beside schedule" },
+        { "item": "incident log", "state": "running list of security events — false alarms, wildlife contacts, one 'unauthorized access attempt' circled twice", "position": "on clipboard hanging from board" },
+        { "item": "comlink charging rack", "state": "wall-mounted rack with slots for six patrol comlinks, two slots empty matching currently deployed patrols", "position": "on wall below schedule" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "routine", "vigilance"],
+      "faction_fit": ["empire", "imperial", "any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "guard_shift_remnants",
+      "name": "The Bored Sentry",
+      "description": "The debris of a long guard shift — food wrappers, doodles, and a well-worn seat — reveals the tedium of occupation.",
+      "tags": ["security"],
+      "objects": [
+        { "item": "guard chair", "state": "duraplast chair with seat worn smooth, positioned for sightline to the main approach", "position": "corner, angled toward door" },
+        { "item": "food wrappers", "state": "ration bar packaging and stim-caf containers accumulated in a small pile beside the chair", "position": "on floor beside chair" },
+        { "item": "doodle pad", "state": "flimsiplast covered in idle drawings — ships, faces, tally marks counting down to something", "position": "on crate beside chair" },
+        { "item": "bootknife marks", "state": "parallel gouges in the crate surface where someone repeatedly drew and sheathed a blade from boredom", "position": "on crate edge" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["occupied_tense", "boredom", "routine"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "camera_mount_array",
+      "name": "The All-Seeing Eyes",
+      "description": "Security camera mounts — some active, some blinded — reveal a surveillance system in various states of functionality.",
+      "tags": ["security", "technical"],
+      "objects": [
+        { "item": "active camera", "state": "small unit with blinking red indicator, lens slowly panning on a timed sweep", "position": "mounted high on wall corner" },
+        { "item": "disabled camera", "state": "unit with lens covered by a piece of tape, power cable severed cleanly — someone specific blinded this one", "position": "mounted high on opposite corner" },
+        { "item": "camera feed monitor", "state": "small screen showing the active camera's view, recording indicator lit, storage half full", "position": "on wall below active camera" },
+        { "item": "blind spot marker", "state": "faint chalk mark on the floor indicating where the active camera's coverage ends", "position": "on floor, precise location" }
+      ],
+      "footprint": "room-wide",
+      "placement_rule": "corner",
+      "narrative_fit": ["occupied_tense", "surveillance", "paranoia"],
+      "faction_fit": ["empire", "imperial", "any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "checkpoint_barrier",
+      "name": "The Stop Line",
+      "description": "A checkpoint with barrier and search station controls access between zones.",
+      "tags": ["security", "transit"],
+      "objects": [
+        { "item": "barrier arm", "state": "durasteel crossbar in the lowered position, manual override lever locked with a standard key", "position": "across corridor or doorway" },
+        { "item": "identity scanner", "state": "wall-mounted ID chip reader, screen displaying 'SCAN CREDENTIAL' in amber text", "position": "on wall beside barrier" },
+        { "item": "search table", "state": "flat surface at waist height with lip edges to prevent items rolling off, surface scratched from use", "position": "beside barrier" },
+        { "item": "contraband bin", "state": "sealed container labeled 'CONFISCATED — DO NOT OPEN WITHOUT AUTHORIZATION', rattling when moved", "position": "under search table" }
+      ],
+      "footprint": "2m x 1.5m",
+      "placement_rule": "doorway_adjacent",
+      "narrative_fit": ["occupied_tense", "control", "oppression"],
+      "faction_fit": ["empire", "imperial"],
+      "excludes": ["open_blast_door"]
+    },
+    {
+      "cluster_id": "ration_counting_post",
+      "name": "The Shrinking Larder",
+      "description": "A ration distribution station with meticulous tracking reveals supplies being carefully managed toward zero.",
+      "tags": ["storage", "command"],
+      "objects": [
+        { "item": "ration crates", "state": "three crates of descending fullness — one empty, one quarter-full, one sealed reserve marked 'EMERGENCY ONLY'", "position": "against wall in row" },
+        { "item": "distribution log", "state": "datapad tracking daily allocations per person, portions decreasing over the past two weeks", "position": "on crate surface" },
+        { "item": "measuring scale", "state": "simple balance scale with standard weight, used to divide portions exactly equally", "position": "on crate beside log" },
+        { "item": "rationing notice", "state": "posted announcement reducing daily caloric allocation by 20%, signed by the commanding officer", "position": "posted on wall above crates" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "desperation", "scarcity"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "depleted_bacta_station",
+      "name": "The Empty Dispensary",
+      "description": "A medical supply station picked clean of bacta and essential supplies reveals a facility that ran out of healing.",
+      "tags": ["medical"],
+      "objects": [
+        { "item": "bacta dispenser", "state": "wall-mounted unit with reservoir window showing empty, 'REFILL REQUIRED' warning blinking", "position": "mounted on wall" },
+        { "item": "supply cabinet", "state": "doors hanging open, shelves bare except for basic wound-cleaning supplies and empty containers", "position": "against wall beside dispenser" },
+        { "item": "requisition attempts", "state": "stack of supply requests marked 'DENIED' or 'BACKORDERED', spanning weeks of increasing urgency", "position": "on counter below cabinet" },
+        { "item": "improvised remedies", "state": "jars of herbal preparations and folk remedies arranged where bacta supplies should be", "position": "on cabinet shelves" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "desperation", "scarcity"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "medical_field_surgery",
+      "name": "The Cutting Floor",
+      "description": "An improvised surgical setup on a cleared table shows where someone performed emergency surgery with inadequate tools.",
+      "tags": ["medical"],
+      "objects": [
+        { "item": "operating surface", "state": "table cleared and covered with a sterilization sheet, edges clamped down, surface stained despite cleaning", "position": "center of room" },
+        { "item": "surgical tools", "state": "mix of proper medical instruments and improvised substitutes — a vibroblade handle as a retractor, pliers as forceps", "position": "on tray beside table" },
+        { "item": "used bacta patches", "state": "precious bacta applied in small measured amounts, applicators lined up showing exactly how much was rationed", "position": "in waste container beside table" },
+        { "item": "blood-soaked linens", "state": "bundle of cloth strips used as surgical draping, soaked through and set aside for washing and reuse", "position": "in basin on floor" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["post_combat", "desperation", "survival"],
+      "faction_fit": ["any"],
+      "excludes": ["spice_processing"]
+    },
+    {
+      "cluster_id": "quarantine_zone",
+      "name": "The Sealed Ward",
+      "description": "Hazard markers and sealed barriers indicate an area quarantined due to biological or chemical contamination.",
+      "tags": ["medical", "security"],
+      "objects": [
+        { "item": "quarantine tape", "state": "bright red hazard tape stretched across the entrance, biohazard symbol repeated every half meter", "position": "across doorway" },
+        { "item": "decon sprayer", "state": "pressurized decontamination unit mounted beside the entrance, charge indicator amber — half depleted", "position": "mounted on wall beside entrance" },
+        { "item": "patient cots", "state": "two field cots with restraint straps, sheets stained with unidentifiable fluid, one set of straps broken", "position": "inside quarantine area" },
+        { "item": "medical scanner", "state": "handheld diagnostic unit left powered on, last reading showing anomalous results flagged in red", "position": "on cot edge" }
+      ],
+      "footprint": "3m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["danger", "contamination", "fear"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "medic_journal",
+      "name": "The Healer's Burden",
+      "description": "A medical officer's personal log reveals the toll of treating casualties with dwindling supplies.",
+      "tags": ["medical", "sleeping"],
+      "objects": [
+        { "item": "medical log datapad", "state": "patient records showing a declining survival rate as supplies diminished, clinical language giving way to frustrated notes", "position": "on desk" },
+        { "item": "empty stimpack rack", "state": "wall-mounted holder for twelve stimpacks, only two remaining, slots dusty where others were", "position": "on wall above desk" },
+        { "item": "hand tremor evidence", "state": "a cup of caf with dried rings from being set down with shaking hands, stylus marks on the desk from drops", "position": "on desk beside datapad" },
+        { "item": "patient outcome board", "state": "tally showing treated, survived, and lost columns — the lost column growing longer with recent entries", "position": "on wall beside desk" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "grief", "exhaustion"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "bloodied_bandage_pile",
+      "name": "The Mass Casualty",
+      "description": "Piles of used bandages and empty medical supplies reveal a mass casualty event that overwhelmed available resources.",
+      "tags": ["medical"],
+      "objects": [
+        { "item": "bandage pile", "state": "heap of blood-soaked cloth strips and gauze, some improvised from torn clothing, discarded in urgency", "position": "on floor corner" },
+        { "item": "empty medpac cases", "state": "six standard medpac containers opened and emptied completely, stacked neatly by someone trying to maintain order", "position": "stacked against wall" },
+        { "item": "triage tags", "state": "colored flimsiplast strips used to categorize patients by severity — too many black tags in the discard pile", "position": "scattered on floor" },
+        { "item": "boot prints", "state": "overlapping prints in dried blood showing frantic movement patterns, multiple people moving in all directions", "position": "on floor throughout area" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "corner",
+      "narrative_fit": ["post_combat", "horror", "overwhelm"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "interrogation_chair",
+      "name": "The Question Room",
+      "description": "A chair bolted to the floor with restraints and nearby tools speaks to systematic interrogation.",
+      "tags": ["security", "hidden"],
+      "objects": [
+        { "item": "interrogation chair", "state": "durasteel frame bolted to deck plating, armrest restraints worn smooth from struggling, seat slightly angled back", "position": "center of room" },
+        { "item": "stun cuffs", "state": "heavy-duty binder cuffs with integrated stun function, charge indicator showing recent use", "position": "on chair armrest, unlocked" },
+        { "item": "recording device", "state": "audio recorder mounted to wall at seated head height, memory nearly full, indicator blinking", "position": "on wall facing chair" },
+        { "item": "bright light", "state": "adjustable high-intensity lamp aimed at the chair's headrest position, still powered on", "position": "on adjustable arm above chair" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["occupied_tense", "oppression", "fear"],
+      "faction_fit": ["empire", "imperial", "criminal", "hutt"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "discarded_interrogation_tools",
+      "name": "The Toolbox",
+      "description": "A case of interrogation implements left open reveals the methods used to extract information.",
+      "tags": ["security", "hidden"],
+      "objects": [
+        { "item": "tool case", "state": "padded case with shaped cutouts for each implement, several slots empty — tools still deployed or discarded", "position": "on table against wall" },
+        { "item": "neural probe", "state": "medical-grade neural interface modified for interrogation use, calibration set well beyond safe therapeutic levels", "position": "in case, center slot" },
+        { "item": "stimulant injectors", "state": "used to keep subjects conscious, three empty injectors and two full ones remaining", "position": "in case, side slots" },
+        { "item": "confession transcripts", "state": "flimsiplast printouts of extracted statements, some annotated 'UNRELIABLE — SUBJECT COMPLIANCE TOO RAPID'", "position": "stacked on table beside case" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "horror", "oppression"],
+      "faction_fit": ["empire", "imperial", "criminal"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "wiped_terminal",
+      "name": "The Scrubbed Record",
+      "description": "A data terminal has been deliberately wiped, but the wiping was rushed and fragments of data may remain recoverable.",
+      "tags": ["command", "technical"],
+      "objects": [
+        { "item": "data terminal", "state": "powered on, screen showing 'SECURE ERASE: 94% COMPLETE — INTERRUPTED', progress bar frozen", "position": "on desk against wall" },
+        { "item": "removed storage drives", "state": "two drive bays empty with connectors showing fresh scratch marks from hurried removal", "position": "in terminal housing, empty bays" },
+        { "item": "degaussing tool", "state": "magnetic erasure device left plugged in, used on the drives before physical removal as double security", "position": "on desk beside terminal" },
+        { "item": "data chip fragments", "state": "tiny pieces of a physically destroyed data chip swept to the desk edge, someone crushed one underfoot", "position": "on desk edge and floor" }
+      ],
+      "footprint": "1.5m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["recently_abandoned", "cover_up", "espionage"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "prisoner_cell_remnants",
+      "name": "The Empty Cell",
+      "description": "Marks left by a prisoner — scratches, worn surfaces, hidden messages — tell a story of captivity.",
+      "tags": ["security", "hidden"],
+      "objects": [
+        { "item": "wall scratches", "state": "tally marks counting days in groups of seven, over sixty groups visible, scratched with a fingernail or small object", "position": "on wall near floor level" },
+        { "item": "worn floor patch", "state": "section of deck plating polished smooth by pacing feet, a circuit of approximately three meters", "position": "on floor, oval path" },
+        { "item": "hidden message", "state": "tiny Aurebesh characters scratched behind a loose wall bolt, reading coordinates or a name", "position": "on wall behind bolt head" },
+        { "item": "restraint anchor", "state": "durasteel ring welded to the wall with chain marks, chain removed but anchor scars remain", "position": "on wall at waist height" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["oppression", "endurance", "captivity"],
+      "faction_fit": ["empire", "imperial", "criminal", "hutt"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "ritual_meditation_circle",
+      "name": "The Silent Circle",
+      "description": "Objects arranged in a deliberate pattern on the floor suggest Force meditation or a spiritual practice.",
+      "tags": ["ritual", "hidden"],
+      "objects": [
+        { "item": "arranged stones", "state": "smooth river stones placed in a precise circle approximately 2m across, spacing mathematically exact", "position": "on floor, circular pattern" },
+        { "item": "meditation cushion", "state": "woven mat at the circle's center, indentation showing long use, fabric worn thin where knees rest", "position": "on floor, circle center" },
+        { "item": "kyber shard", "state": "tiny crystal fragment resting on a cloth at the north point of the circle, faintly humming when touched", "position": "on floor at circle edge" },
+        { "item": "incense traces", "state": "small mounds of ash at four equidistant points around the circle, fragrance long faded", "position": "on floor at circle edges" }
+      ],
+      "footprint": "2.5m x 2.5m",
+      "placement_rule": "center",
+      "narrative_fit": ["spiritual", "mystery", "solace"],
+      "faction_fit": ["any"],
+      "excludes": ["spice_processing"]
+    },
+    {
+      "cluster_id": "offering_shrine",
+      "name": "The Grateful Dead",
+      "description": "A memorial arrangement with offerings left for the departed suggests a community that has suffered losses.",
+      "tags": ["ritual", "social"],
+      "objects": [
+        { "item": "memorial wall", "state": "names scratched or written on the wall in different hands, some with dates, spanning months", "position": "on wall section" },
+        { "item": "offerings", "state": "small items left at the base of the wall — a ration bar, a flower, a credit chip, a child's toy", "position": "on floor at wall base" },
+        { "item": "candle stubs", "state": "emergency glowrods set upright in melted wax pools, most burned down completely, two still faintly glowing", "position": "on floor among offerings" },
+        { "item": "memorial token", "state": "a military identification tag hung on a nail, name and unit still readable", "position": "on wall at center of names" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["grief", "community", "remembrance"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "force_tradition_symbols",
+      "name": "The Hidden Teaching",
+      "description": "Symbols and texts related to Force traditions have been concealed here, perhaps by a Jedi survivor or Force-sensitive seeker.",
+      "tags": ["ritual", "hidden"],
+      "objects": [
+        { "item": "carved symbols", "state": "Jedi Order insignia and ancient Force glyphs carved into a stone surface, deliberately aged to look old", "position": "on concealed surface behind panel" },
+        { "item": "teaching texts", "state": "handwritten copies of Force philosophy on durable flimsi, hidden inside a hollowed-out technical manual", "position": "inside hollow book on shelf" },
+        { "item": "lightsaber components", "state": "individual parts of a lightsaber stored separately — emitter shroud, focusing lens, power cell — no crystal", "position": "distributed in different hiding spots" },
+        { "item": "student notes", "state": "someone else's handwriting practicing the same glyphs, cruder but earnest, with questions written in margins", "position": "folded inside teaching texts" }
+      ],
+      "footprint": "1m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["spiritual", "secrecy", "hope"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "gnawed_supply_crates",
+      "name": "The Hungry Visitors",
+      "description": "Supply crates have been gnawed through by creatures, their contents raided and scattered with droppings left behind.",
+      "tags": ["storage", "any"],
+      "objects": [
+        { "item": "gnawed crate", "state": "plastoid corner chewed through by strong jaws, hole just large enough for a womp-rat-sized creature", "position": "against wall" },
+        { "item": "scattered rations", "state": "food packets dragged out and torn open, contents partially consumed and left to spoil", "position": "on floor around crate" },
+        { "item": "droppings", "state": "small dark pellets concentrated near the food source but trailing toward a ventilation grate", "position": "on floor, trailing pattern" },
+        { "item": "nest material", "state": "shredded packing material and flimsiplast woven into a rough nest shape inside the emptied crate", "position": "inside gnawed crate" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "corner",
+      "narrative_fit": ["long_abandoned", "infestation", "decay"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_cargo_bay"]
+    },
+    {
+      "cluster_id": "burrow_network",
+      "name": "The Thing Below",
+      "description": "Holes gnawed or dug through deck plating and walls suggest a creature has established territory within the structure itself.",
+      "tags": ["any"],
+      "objects": [
+        { "item": "floor burrow", "state": "ragged hole in deck plating approximately 30cm across, edges bent downward, scratched smooth by repeated passage", "position": "on floor near wall" },
+        { "item": "wall tunnel", "state": "corresponding hole in wall base connecting to floor burrow, creating a through-route between spaces", "position": "in wall at floor level" },
+        { "item": "disturbed surfaces", "state": "claw marks scoring the floor in radiating patterns around the burrow, territorial marking behavior", "position": "on floor around burrow" },
+        { "item": "prey remains", "state": "small bones and carapace fragments collected near the burrow entrance, a hunting creature's refuse pile", "position": "on floor near burrow" }
+      ],
+      "footprint": "1.5m x 1.5m",
+      "placement_rule": "corner",
+      "narrative_fit": ["long_abandoned", "danger", "infestation"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "mynock_colony",
+      "name": "The Power Drain",
+      "description": "Mynocks have colonized the upper surfaces, their silicon-based bodies clustered on power conduits like parasitic barnacles.",
+      "tags": ["technical", "any"],
+      "objects": [
+        { "item": "mynock cluster", "state": "three to five dark leathery creatures attached to the ceiling power conduit, wings folded, feeding on energy", "position": "on ceiling, attached to conduit" },
+        { "item": "drained power line", "state": "conduit section visibly dimmer where mynocks feed, light fixtures downstream flickering and failing", "position": "on ceiling" },
+        { "item": "shed skin fragments", "state": "papery silicon-based skin pieces drifting down from the colony, collecting in corners", "position": "on floor below colony" },
+        { "item": "acid damage", "state": "mynock digestive residue has corroded the conduit housing, creating a pitting pattern in the metal", "position": "on ceiling conduit" }
+      ],
+      "footprint": "2m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["infestation", "danger", "decay"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "rationed_pantry",
+      "name": "The Last Meals",
+      "description": "Food supplies organized with desperate precision — every gram counted, every meal planned, the end visible.",
+      "tags": ["storage", "social"],
+      "objects": [
+        { "item": "food containers", "state": "transparent containers showing remaining quantities, each labeled with a date when it will run out", "position": "on shelf against wall" },
+        { "item": "meal plan", "state": "chart showing exactly what each person eats each day, portions calculated to the calorie", "position": "posted on wall beside shelf" },
+        { "item": "empty containers", "state": "cleaned and stacked neatly, kept because they might be useful, a dozen where thirty once stood", "position": "stacked on lower shelf" },
+        { "item": "water purifier", "state": "improvised filtration system using layered cloth and charcoal, slow drip into a collection vessel", "position": "on shelf end, dripping" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["desperation", "scarcity", "endurance"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "patched_clothing_line",
+      "name": "The Mended Life",
+      "description": "A clothesline of repeatedly mended garments tells a story of people making things last far beyond their intended life.",
+      "tags": ["sleeping", "social"],
+      "objects": [
+        { "item": "clothesline", "state": "cord strung between two points, hanging with garments in various states of repair, some still damp", "position": "strung across space, overhead" },
+        { "item": "patched jacket", "state": "flight jacket with seven visible patches of different materials, original fabric barely holding them together", "position": "on line, center" },
+        { "item": "sewing kit", "state": "needle and thread collection made from salvaged materials, thread wound on repurposed power cell casings", "position": "on crate below clothesline" },
+        { "item": "fabric scraps", "state": "bag of collected cloth scraps sorted by color and weight, saved for future repairs", "position": "beside sewing kit" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["desperation", "resourcefulness", "endurance"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "improvised_everything",
+      "name": "The Scavenger's Workshop",
+      "description": "A workspace where broken things become other things — a culture of repair and repurpose born from absolute necessity.",
+      "tags": ["technical", "social"],
+      "objects": [
+        { "item": "workbench", "state": "surface scarred by a thousand projects, covered in components being sorted for repurpose", "position": "against wall, center" },
+        { "item": "repurposed items", "state": "a blaster power cell wired as a room heater, a droid leg as a table support, helmet as a bowl", "position": "on and around workbench" },
+        { "item": "tool collection", "state": "each tool itself a repair — a hydrospanner with a wrapped handle, pliers with one jaw rewelded", "position": "hung on wall above bench" },
+        { "item": "project queue", "state": "broken items lined up awaiting repair, a handwritten sign reading 'NOTHING IS JUNK' above them", "position": "on shelf beside bench" }
+      ],
+      "footprint": "2m x 1.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["desperation", "resourcefulness", "community"],
+      "faction_fit": ["any"],
+      "excludes": ["pristine_workspace"]
+    },
+    {
+      "cluster_id": "barter_board",
+      "name": "The Trade Wall",
+      "description": "A community trade board where people exchange goods and services without currency — an economy of favors and needs.",
+      "tags": ["social"],
+      "objects": [
+        { "item": "trade board", "state": "wall section covered in pinned notes offering and requesting items, some notes yellowed, some fresh", "position": "on wall" },
+        { "item": "sample goods", "state": "small items left on a shelf below the board as proof of offer — a power cell, a food packet, a tool", "position": "on shelf below board" },
+        { "item": "completed trades", "state": "notes marked 'DONE' but left up as a record, showing a web of mutual dependency", "position": "on board, lower section" },
+        { "item": "community rules", "state": "hand-lettered sign establishing trade fairness rules, signed by a dozen different hands at the bottom", "position": "posted above trade board" }
+      ],
+      "footprint": "2m x 0.5m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["community", "scarcity", "resilience"],
+      "faction_fit": ["any"],
+      "excludes": []
+    },
+    {
+      "cluster_id": "long_cold_table",
+      "name": "The Conference Nobody Finished",
+      "description": "A meeting was underway when everyone left — drinks half-finished, notes mid-sentence, chairs pushed back in unison.",
+      "tags": ["command", "social"],
+      "objects": [
+        { "item": "conference table", "state": "long table with six place settings of datapads and drink containers, all abandoned simultaneously", "position": "center of room" },
+        { "item": "holographic display", "state": "table-mounted holo-projector still showing a tactical overview, frozen on last frame, dust on the lens", "position": "center of table" },
+        { "item": "meeting notes", "state": "shared datapad with agenda items, check marks through the first four, the fifth titled 'CONTINGENCY' with no notes", "position": "at head of table" },
+        { "item": "chairs", "state": "all pushed back from the table at the same angle, as if everyone stood at the same moment", "position": "around table, uniformly pushed back" }
+      ],
+      "footprint": "4m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["recently_abandoned", "urgency", "mystery"],
+      "faction_fit": ["any"],
+      "excludes": ["interrupted_meal"]
+    },
+    {
+      "cluster_id": "neatly_made_bunk",
+      "name": "The Perfectionist's Rack",
+      "description": "One bunk stands out for its military-perfect neatness, the occupant's personality encoded in tight corners and aligned belongings.",
+      "tags": ["sleeping"],
+      "objects": [
+        { "item": "bunk", "state": "sheets pulled tight enough to bounce a credit chip, pillow centered precisely, blanket folded with creased edges", "position": "against wall" },
+        { "item": "footlocker", "state": "contents arranged in geometric precision, each item in its designated spot, not a thread out of place", "position": "at foot of bunk" },
+        { "item": "uniform", "state": "spare set hung on a hook, pressed and squared, boots beneath it polished to a mirror finish", "position": "on wall hook beside bunk" },
+        { "item": "personal items", "state": "three items on the shelf — a chrono, a data chip, a small tool — each placed at exact right angles to the shelf edge", "position": "on shelf above bunk" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "against_wall",
+      "narrative_fit": ["occupied_tense", "discipline", "control"],
+      "faction_fit": ["empire", "imperial", "any"],
+      "excludes": ["scattered_personal_items"]
+    },
+    {
+      "cluster_id": "pristine_workspace",
+      "name": "The Untouched Office",
+      "description": "A workspace so clean and organized it feels staged — or its occupant was obsessively precise.",
+      "tags": ["command"],
+      "objects": [
+        { "item": "desk", "state": "surface clean, datapad centered precisely, stylus parallel to pad edge, no dust visible", "position": "center of room" },
+        { "item": "filing system", "state": "wall-mounted organizer with each slot labeled in precise Aurebesh, color-coded by category", "position": "on wall behind desk" },
+        { "item": "chair", "state": "pushed in to exact distance from desk, height adjusted to regulation standard, lumbar support engaged", "position": "at desk" },
+        { "item": "waste receptacle", "state": "empty and lined with a fresh bag, as if just serviced, but the room has been unoccupied for days", "position": "beside desk" }
+      ],
+      "footprint": "2.5m x 2m",
+      "placement_rule": "center",
+      "narrative_fit": ["occupied_tense", "control", "unease"],
+      "faction_fit": ["empire", "imperial", "any"],
+      "excludes": ["demolished_furniture", "exposed_wiring_mess", "improvised_everything"]
+    },
+    {
+      "cluster_id": "sealed_checkpoint",
+      "name": "The Locked Gate",
+      "description": "A security checkpoint sealed from the inside, barrier locked, credentials still in the scanner — the guard sealed it and left by another route.",
+      "tags": ["security", "transit"],
+      "objects": [
+        { "item": "security barrier", "state": "blast-rated door sealed with red lock indicators lit, manual override disabled from the inside", "position": "in doorway" },
+        { "item": "guard terminal", "state": "screen showing 'LOCKDOWN ENGAGED — AUTHORIZATION: EMERGENCY', last entry timestamped hours or days ago", "position": "on wall beside barrier" },
+        { "item": "abandoned credentials", "state": "guard's code cylinder still in the terminal slot, as if they sealed the door and walked away from their post forever", "position": "in terminal" },
+        { "item": "maintenance hatch", "state": "small access panel in the floor or wall nearby, cover ajar — the guard's exit route", "position": "near barrier, floor or wall" }
+      ],
+      "footprint": "2m x 1m",
+      "placement_rule": "doorway_adjacent",
+      "narrative_fit": ["recently_abandoned", "danger", "lockdown"],
+      "faction_fit": ["any"],
+      "excludes": ["open_blast_door"]
+    },
+    {
+      "cluster_id": "pristine_cargo_bay",
+      "name": "The Spotless Hold",
+      "description": "A cargo area so clean it's suspicious — recently emptied and scrubbed, but faint outlines on the floor show where heavy crates sat for a long time.",
+      "tags": ["storage"],
+      "objects": [
+        { "item": "clean floor", "state": "deck plating scrubbed to bare metal, chemical cleaning smell still faint, but rectangular dust shadows betray recent removal", "position": "on floor throughout" },
+        { "item": "loading marks", "state": "scratches and compression marks on the floor matching heavy cargo that has been removed", "position": "on floor in grid pattern" },
+        { "item": "cleaning supplies", "state": "industrial solvent container and scrub unit left in the corner, still wet — the cleaning was very recent", "position": "in corner" },
+        { "item": "missed evidence", "state": "a single packing label wedged in a floor seam, readable if someone looks closely", "position": "in floor seam near wall" }
+      ],
+      "footprint": "4m x 3m",
+      "placement_rule": "center",
+      "narrative_fit": ["cover_up", "suspicion", "criminal_activity"],
+      "faction_fit": ["criminal", "smuggler", "any"],
+      "excludes": ["half_loaded_crates", "unmarked_cargo", "gnawed_supply_crates"]
+    },
+    {
+      "cluster_id": "pristine_corridor",
+      "name": "The Untouched Passage",
+      "description": "A corridor in oddly perfect condition while surrounding areas show wear — repaired recently or bypassed entirely.",
+      "tags": ["transit"],
+      "objects": [
+        { "item": "fresh paint", "state": "walls recently coated in standard Imperial gray, paint smell still detectable, no scuffs or marks", "position": "on walls" },
+        { "item": "new lighting", "state": "overhead panels all functioning at full brightness, replacement units with visible model numbers still legible", "position": "overhead" },
+        { "item": "floor polish", "state": "deck plating buffed to uniform finish, so clean it shows reflections, no boot prints yet", "position": "on floor" },
+        { "item": "contrast line", "state": "sharp visual divide where the maintained section meets neglected areas, like a boundary between two eras", "position": "at corridor junction" }
+      ],
+      "footprint": "2m x 4m",
+      "placement_rule": "center",
+      "narrative_fit": ["occupied_tense", "unease", "deception"],
+      "faction_fit": ["empire", "imperial", "any"],
+      "excludes": ["blaster_scorched_doorway", "structural_decay"]
+    }
+  ]
+}

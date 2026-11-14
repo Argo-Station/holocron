@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Project Holocron — a Star Wars RPG suite</title>
+  <script src="/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the Ko-fi footer (R-AAC-19) -->
+  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <meta name="description" content="Project Holocron — make a character, run the table, and learn the narrative dice. A beautiful Star Wars roleplaying suite." />
+  <meta name="theme-color" content="#071C2F" />
+
+  <!-- PWA / standalone install (ruling sheet-immersive-table-mode-brief Addendum 1): "Add to Home Screen"
+       launches full-screen, past iPad Safari's own address/tab bar (which never auto-minimizes on our
+       no-scroll canvas). The 3 apps already carry the apple meta; the launchpad gains it here. -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Holocron" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
+
+  <!-- Launchpad (Lap L1). Static front door — premium in the FIRST PAINT (research: aesthetic verdict
+       in ~50ms, before motion). Weighted bento hub, one-tap routes. No JS, no build step; consumes the
+       shared design tokens. Premium whitelist: only opacity/transform animate; no autoplay video / WebGL
+       / animated blur. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/tokens.css" rel="stylesheet" />
+  <!-- PAPER N7 · B-1253 (D-175 H2 · T2; card paper-n7-frontdoor-lab-card ADDENDUM 4): the front door stands on the
+       paper kit, so the kit's own files are linked here, in <head>, and the ground is the body's own markup — the
+       page is paper from its FIRST PAINT, never a ground applied by script (C-2, R-FD-4). Only the files whose parts
+       this page uses: the creator ground's tokens, paper.css (the sheet, plates, designation, maker), landing.css
+       (the way plates, lamp, run line, chevron, colophon). sheet.css is not needed here. -->
+  <link href="/lib/shared/grounds/creator.css" rel="stylesheet" />
+  <link href="/lib/shared/paper.css" rel="stylesheet" />
+  <link href="/lib/shared/landing.css" rel="stylesheet" />
+  <link href="/lib/shared/providerButtons.css" rel="stylesheet" /><!-- F-34: the providers' button chrome, shared with /account/ -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* The page outside the body (overscroll) is the paper too: #DEDCD4 is --doc-paper, written out because <html>
+       stands outside the ground's scope ([data-doc-ground] on <body>), as chrome.css's [data-paper-ground] does. */
+    html { background: #DEDCD4; }
+    body {
+      -webkit-font-smoothing: antialiased;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── THE HERO (H2): the wordmark on one plain plate — the kit's designation over its rule, the maker below ── */
+    .hero {
+      flex: 0 0 auto;
+      padding: clamp(48px, 14vh, 132px) 20px clamp(28px, 6vh, 56px);
+      text-align: center;
+    }
+    .hero .hero-plate { max-width: 600px; margin: 0 auto; padding: 34px 20px 30px; }
+    @media (min-width: 700px) { .hero .hero-plate { padding: 46px 32px 40px; } }
+    .hero .hp-desig.wordmark { font-size: clamp(34px, 10.4vw, 76px); line-height: 1.02; letter-spacing: .08em; margin: 0; text-align: center; }
+    .hero .hp-desig-rule.hero-rule { width: clamp(120px, 22vw, 200px); margin: 16px auto 0; }
+    .hero .hp-maker.tagline { margin: 14px 0 0; text-align: center; font-size: clamp(10px, 2.6vw, 12px); }
+
+    /* ── THE TILES (T2): the paper landing's own way plates; the app's name is the plate's run line after a lamp in
+       its accent. The accent is a FILL (the lamp), never ink: the NAME carries the identity (lab finding 10). ── */
+    .hub {
+      flex: 1 1 auto;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: clamp(16px, 4vh, 28px) 16px 8px;
+    }
+    .hub .ld-surface.hub-surface { height: auto; overflow: visible; display: block; }   /* the landing's surface is a whole screen; here it takes its plates' height */
+    .hub .ld-wayplates { gap: 12px; }
+    .hub .ld-surface .hp-plate.ld-wayplate.tile {
+      text-decoration: none; padding: 14px 16px;   /* content height, over the landing's own 44px floor (as drawn) */
+      flex-direction: row; align-items: center; justify-content: space-between; gap: 16px;
+      transition: transform .12s linear;
+    }
+    .hub .tile .ld-wpb { gap: 4px; flex: 1 1 auto; }
+    .hub .tile .ld-chrun.tile-run { margin: 0 0 4px; display: flex; align-items: center; gap: 8px; color: var(--doc-accent); }
+    .hub .tile .ld-lamp { width: 8px; height: 8px; border-radius: 50%; background: var(--tile-accent); }
+    .hub .tile .hp-row-desig.tile-title { contain: none; font-size: clamp(15px, 4vw, 17px); white-space: normal; }
+    .hub .tile .ld-chev { font-size: 18px; }
+    @media (hover: hover) {
+      .hub .tile:hover { transform: translateY(-1px); }
+      .hub .tile:hover .ld-chev { transform: translateX(3px); }
+    }
+
+    /* ── F-34: the quiet-corner login door (ruling f34-login-build-scope; accounts-sync §5) ──
+       The landing page's first paint is UNCHANGED (just-looking law): the slot reserves its
+       height from the start and fills only after /api/v1/me answers. It renders FROM state —
+       signed out shows one quiet line + the bound providers; a dead API or no credentials
+       renders nothing (an empty corner, never a dead button — R-F34-6's defect class). */
+    /* C-DP-1.3 — DARK IS ZERO FOOTPRINT. With the flag off the band has no padding, no height and
+       reserves nothing: the page is byte-for-byte the page that shipped before login existed.
+       LIT reserves its height from FIRST PAINT via `.is-lit`, which the inline script below adds
+       synchronously off a build-time constant — so the async /api/v1/me answer fills space that
+       already exists instead of shoving the footer down under a reader. The two states are the
+       whole reason the reservation lives on the band and not on .account-door. */
+    .account-band { display: flex; justify-content: center; }
+    .account-band.is-lit { padding: 26px 16px 0; }
+    /* The three reservations are MEASURED, not estimated: the provider buttons wrap to two rows
+       below 433px, and the one-line copy wraps to two lines below 400px. Both thresholds are
+       content-dependent — change the copy or a button's width and they move, as they already did
+       once when the Privacy link left the button row — so smoke_f34_account_ui asserts
+       reserved == rendered at every width. If that goes red, the number here is stale; re-measure
+       it, never widen it to hide the gap. (Re-measured on paper, B-1253: the line is the kit's run
+       line and Privacy the landing's link-with-a-chevron.) */
+    .account-band.is-lit .account-door { min-height: 119px; }
+    @media (max-width: 432px) { .account-band.is-lit .account-door { min-height: 173px; } }
+    @media (max-width: 399px) { .account-band.is-lit .account-door { min-height: 188px; } }
+    .account-door {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    }
+    /* The band's parts are the kit's: the line is the run line (.ld-chrun), Privacy and Account the landing's
+       link-with-a-chevron (.ld-explore, shown here: the landing hides it outside its phone stage), Sign out the
+       quiet button (.hp-quiet). */
+    .account-door .door-line.ld-chrun {
+      margin: 0; color: var(--doc-ink-muted); line-height: 1.5;
+      letter-spacing: .18em;   /* the band line's own spacing, kept as drawn (the run line's is .13em) */
+      /* Centred TEXT, not just a centred box: the flex parent centres the element, but below 400px
+         this line wraps to two, and without this the second line ("DEVICES") hangs left under a
+         centred first line. Only visible on a phone, which is where it was caught. */
+      text-align: center;
+    }
+    .account-door .door-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 12px; }
+    .account-door .door-row .door-line.ld-chrun { margin-right: 4px; }
+    .account-door .door-line + .door-row { margin-top: 4px; }
+    .account-door a.door-link.ld-explore {
+      display: inline-flex; width: auto; margin: 0; padding: 0 6px; border-top: 0;
+      justify-content: center; gap: 2px; text-decoration: none;
+    }
+    .account-door button.door-link.hp-quiet { color: var(--doc-ink-muted); }
+
+    /* ── THE SUPPORT FOOTER: the landing's colophon. The Ko-fi donation path, relocated here from the (removed)
+       Player Tutorial Hub (nav Phase 4). Subtle, suite-level; donation only, no about copy. ── */
+    .support.ld-col {
+      margin: 30px auto 0; width: 100%; max-width: 600px; padding: 10px 16px 32px;
+      text-align: center; background: none;
+    }
+    .support a {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none;
+      font-family: var(--font-mono, 'Share Tech Mono', monospace); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--doc-ink-muted);
+    }
+    .support a:hover { color: var(--doc-action); }
+    .support svg { width: 13px; height: 13px; }
+  </style>
+</head>
+<body data-doc-ground="creator" class="hp-sheet">
+  <header class="hero">
+    <div class="hp-plate hero-plate" data-pad="read">
+      <h1 class="hp-desig wordmark">PROJECT<br />HOLOCRON</h1>
+      <div class="hp-desig-rule hero-rule" aria-hidden="true"></div>
+      <p class="hp-maker tagline">A Star Wars Roleplaying Suite</p>
+    </div>
+  </header>
+
+  <nav class="hub" aria-label="Choose your tool">
+    <div class="ld-surface hub-surface"><div class="ld-wayplates">
+      <a class="hp-plate ld-wayplate tile" href="/player/" style="--tile-accent: #4EAAFF" data-role="tile-player">
+        <span class="ld-wpb">
+          <span class="ld-chrun tile-run"><span class="ld-lamp" aria-hidden="true"></span><span class="tile-eyebrow">Player Datapad</span></span>
+          <span class="hp-row-desig ld-wpt tile-title">Create a Character</span>
+          <span class="ld-waysub tile-sub">Characters · Sheets · Store</span>
+        </span>
+        <span class="ld-wptab"><span class="ld-chev" aria-hidden="true">&rsaquo;</span></span>
+      </a>
+      <a class="hp-plate ld-wayplate tile" href="/gm/" style="--tile-accent: #F5C842" data-role="tile-gm">
+        <span class="ld-wpb">
+          <span class="ld-chrun tile-run"><span class="ld-lamp" aria-hidden="true"></span><span class="tile-eyebrow">GM Holocron</span></span>
+          <span class="hp-row-desig ld-wpt tile-title">Run the Table</span>
+          <span class="ld-waysub tile-sub">NPCs · Maps · Items · Ships</span>
+        </span>
+        <span class="ld-wptab"><span class="ld-chev" aria-hidden="true">&rsaquo;</span></span>
+      </a>
+      <a class="hp-plate ld-wayplate tile" href="/dice/" style="--tile-accent: #B080FF" data-role="tile-dice">
+        <span class="ld-wpb">
+          <span class="ld-chrun tile-run"><span class="ld-lamp" aria-hidden="true"></span><span class="tile-eyebrow">HoloDice</span></span>
+          <span class="hp-row-desig ld-wpt tile-title">Roll the Dice</span>
+          <span class="ld-waysub tile-sub">Roller · Odds · Dice Key</span>
+        </span>
+        <span class="ld-wptab"><span class="ld-chev" aria-hidden="true">&rsaquo;</span></span>
+      </a>
+    </div></div>
+  </nav>
+
+  <!-- F-34 C-DP-1 (ruling f34-door-placement §3) — the door's own band, AFTER the tiles and
+       BEFORE the footer. It used to live inside <footer class="support">, next to the Ko-fi link,
+       where the product's owner could not find it in a lit screenshot while actively looking for
+       it. Separation from the donation link is achieved by document structure, not by pixels
+       inside one block. No card chrome: the door's line + the provider buttons ARE the band, and
+       its weight stays under the three tiles. -->
+  <section class="account-band" id="account-band" aria-label="Account">
+    <div class="account-door" id="account-door" aria-live="polite"></div>
+  </section>
+
+  <footer class="support ld-col" id="support-foot">
+    <a target="_blank" rel="noopener noreferrer" data-role="support"
+       aria-label="Support the project on Ko-fi (opens in a new tab)">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.9-10-9.5C.5 8 2.2 4.5 5.6 4.5c2 0 3.4 1.2 4.4 2.6 1-1.4 2.4-2.6 4.4-2.6 3.4 0 5.1 3.5 3.6 7C19.5 16.1 12 21 12 21z"/></svg>
+      Support on Ko-fi
+    </a>
+  </footer>
+  <!-- The Ko-fi address is an account value (lib/shared/siteSettings.js, R-AAC-19): set here, or the footer goes
+       when it is blank (the public copy's template). Runs as the parser reaches it, before first paint. -->
+  <script>
+    (function () {
+      var url = (window.SWRPGSiteSettings || {}).KOFI_URL, foot = document.getElementById('support-foot');
+      if (!foot) return;
+      if (url) foot.querySelector('a[data-role="support"]').href = url; else foot.remove();
+    })();
+  </script>
+
+  <!-- F-34 Phase A — the door's only logic: render from SWRPGAccount state. The launchpad stays
+       otherwise JS-free (Lap L1); this is the one exception the architecture ruling names
+       ("login/logout on the launchpad"), and it degrades to an empty corner on any failure. -->
+  <script src="/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
+  <script src="/lib/shared/account.js"></script>
+  <script>
+    (function () {
+      var door = document.getElementById('account-door');
+      if (!door || !window.SWRPGAccount) return;
+      var acct = window.SWRPGAccount;
+      var busy = false;
+
+      // C-DP-1.3 — the band's height reservation. Called at LOAD (this script is inline and
+      // synchronous, so the class lands before first paint and the async /api/v1/me answer fills
+      // space that already exists) AND again from render(). Both, deliberately: reserving only at
+      // load would capture the flag, which account.js's contract forbids ("read at RENDER time by
+      // every consumer, never captured at load, so the four surfaces can never disagree"), and
+      // reserving only at render would jump the footer at whatever moment the network answered.
+      // Off the flag it adds nothing and removes any stale class, so a dark page reserves nothing.
+      var band = document.getElementById('account-band');
+      function syncBandLit() {
+        if (!band) return;
+        var lit = !!(window.SWRPGAccountUIEnabled && window.SWRPGAccountUIEnabled());
+        band.classList.toggle('is-lit', lit);
+      }
+      syncBandLit();
+
+      function el(tag, cls, text, attrs) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        for (var k in (attrs || {})) n.setAttribute(k, attrs[k]);
+        return n;
+      }
+      // B-1253: a link in the band is the landing's link-with-a-chevron (.ld-explore + .ld-chev, the drawn mark).
+      function chevLink(text, href, role) {
+        var a = el('a', 'door-link ld-explore', text, { href: href, 'data-role': role });
+        a.appendChild(el('span', 'ld-chev', '\u203A', { 'aria-hidden': 'true' }));
+        return a;
+      }
+
+      function render(s) {
+        door.textContent = '';
+        // R-PA-1 / C-PA-1 — the dark launch. While the flag is off this corner renders nothing at
+        // all, whatever the session says and whatever credentials are bound. Read at render time.
+        syncBandLit();
+        if (!window.SWRPGAccountUIEnabled || !window.SWRPGAccountUIEnabled()) return;
+        if (s.user) {
+          var row = el('div', 'door-row');
+          row.appendChild(el('span', 'door-line ld-chrun', 'Signed in as ' + (s.user.name || 'you')));
+          var account = chevLink('Account', '/account/', 'account');
+          var out = el('button', 'door-link hp-quiet', 'Sign out', { type: 'button', 'data-role': 'sign-out' });
+          out.addEventListener('click', function () { acct.logout(); });
+          row.appendChild(account); row.appendChild(out);
+          door.appendChild(row);
+        } else if (s.providers.length) {
+          door.appendChild(el('div', 'door-line ld-chrun', 'Sign in to keep your characters on all your devices'));
+          var row2 = el('div', 'door-row');
+          var PB = window.SWRPGProviderButtons;
+          s.providers.forEach(function (p) {
+            // R-PA-3: the label comes from the server beside the mechanism fact — never the raw
+            // machine id, which would put "Sign in with google" in front of a human.
+            var label = 'Sign in with ' + (p.label || p.id);
+            var b = el('button', 'provider-btn', null, { type: 'button', 'aria-label': label, 'data-role': 'sign-in-' + p.id });
+            if (p.id === 'google' && PB) {
+              // Google's asset IS the button, text included as vector paths. Nothing of ours goes
+              // inside it — that is what keeps it the pre-approved artwork rather than a lookalike.
+              b.className = 'provider-btn is-google';
+              b.innerHTML = PB.GOOGLE_BUTTON_SVG;
+            } else if (p.id === 'discord' && PB) {
+              var mark = el('span', 'mark');
+              mark.innerHTML = PB.DISCORD_MARK_SVG;   // official, unmodified, in blurple
+              b.appendChild(mark);
+              b.appendChild(el('span', null, label));
+            } else {
+              b.appendChild(el('span', null, label));  // a provider we have no mark for
+            }
+            b.addEventListener('click', function () {
+              if (busy) return;
+              busy = true; b.disabled = true;
+              acct.login(p.id).then(function (r) {
+                if (!r.ok) {   // stayed on this page → the redirect never happened; say so plainly
+                  busy = false; b.disabled = false;
+                  door.appendChild(el('div', 'door-line ld-chrun', 'Sign-in unavailable. Try again.'));
+                }
+              });
+            });
+            row2.appendChild(b);
+          });
+          door.appendChild(row2);
+          // "Privacy" rather than "What we store": the latter described the page's first section,
+          // not the page, and it is not the word anyone scans for. Not "Privacy Policy" — that
+          // names a document with parts this page does not have (controller, retention, rights,
+          // contact), and claiming the form without the substance is the overclaim C-B-9 is about.
+          //
+          // It sits on its OWN line, not inside row2. As a third flex item it was part of what the
+          // row centred, so the button PAIR was pushed left by half this link's width — measured at
+          // -38px on desktop and -17px on a phone, at every width except 480px, where it happened
+          // to wrap onto its own line and looked correct by accident. The buttons are the thing a
+          // person aims at; they centre on their own now, and this centres under them.
+          door.appendChild(chevLink('Privacy', '/account/', 'privacy'));
+        }
+        // offline / no providers bound → the corner stays empty, exactly as wide as before
+      }
+
+      acct.subscribe(render);
+      acct.refresh();
+    })();
+  </script>
+</body>
+</html>

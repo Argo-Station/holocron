@@ -1,0 +1,206 @@
+{
+  "id": "trandoshan_slavers",
+  "name": "Trandoshan Hunters",
+  "type": "cultural_group",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Edge of the Empire Core Rulebook",
+    "No Disintegrations",
+    "Age of Rebellion Core Rulebook"
+  ],
+  "overview": "",
+  "short_descriptor": "Religious hunters. The Scorekeeper doctrine drives everything — kills have spiritual value. Imperial-aligned because the Empire pays for Wookiee slaves. Predictable in motivation, dangerous in execution.",
+  "how_they_operate": [
+    {
+      "heading": "CLANS",
+      "text": "Trandoshan society is organized into autonomous clans, each controlling defined hunting territories. There is no centralized Trandoshan government — clan elders hold authority within their territory, and inter-clan coordination requires personal negotiation that is rare and usually hostile."
+    },
+    {
+      "heading": "HUNTING PARTIES",
+      "text": "Hunting parties are the primary operational unit: small teams with established pack tactics built around flanking, cornering, and overwhelming quarry through coordination."
+    },
+    {
+      "heading": "JAGANNATH",
+      "text": "Every kill earns jagannath points tallied by the Scorekeeper goddess, which determine both social standing and placement in the afterlife."
+    },
+    {
+      "heading": "THE KASHYYYK CONTRACT",
+      "text": "The Imperial authorization to participate in Wookiee enslavement on Kashyyyk provides the most reliable source of both jagannath and credits, and in exchange Trandoshans serve as enthusiastic enforcers and slavers with Imperial military support."
+    },
+    {
+      "heading": "BOUNTY HUNTERS",
+      "text": "Individual Trandoshans who leave clan territory often operate as bounty hunters through the Bounty Hunters' Guild, with Bossk being the most prominent example."
+    }
+  ],
+  "witness_statement": {
+    "text": "Had a Trandoshan tracking party pick up my scent on Kashyyyk. Spent three days in the wroshyr canopy trying to lose them. Cut through a river, doubled back, climbed until the air thinned. They followed every step. On the fourth morning I woke up and found claw marks on the branch I was sleeping on. Just marks. They wanted me to know they could've taken me. My Wookiee guide said that meant they'd decided I wasn't worth the jagannath. Most relieving insult of my life.",
+    "source": "Human scout, formerly embedded with Wookiee resistance on Kashyyyk",
+    "verification": "CONFIRMED — SINGLE SOURCE"
+  },
+  "motivations": {
+    "primary": "Accumulate jagannath through the hunt",
+    "secondary": [
+      "Gain favor with the Scorekeeper",
+      "Dominate or enslave the Wookiees of Kashyyyk",
+      "Advance personal and clan status through prestigious kills",
+      "Profit from bounty hunting and slaving"
+    ],
+    "notes": ""
+  },
+  "goals": {
+    "strategic": [
+      "Secure permanent dominance over Kashyyyk and the Wookiee population",
+      "Maintain Imperial favor as authorized Wookiee slavers and bounty hunters",
+      "Expand Trandoshan hunting grounds across the galaxy through Imperial partnerships"
+    ],
+    "operational": [
+      "Organize hunting parties to pursue high-value quarry for jagannath and profit",
+      "Capture Wookiees for the Imperial slave trade — the most reliable source of both jagannath and credits",
+      "Take bounty hunting contracts that offer prestigious targets worthy of the Scorekeeper's attention",
+      "Defend Trandoshan clan hunting territories from rival clans and outside encroachment"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "military_force",
+      "hired_muscle",
+      "intimidation",
+      "tracking"
+    ],
+    "avoided": [
+      "Subtlety or deception — Trandoshans consider indirect methods dishonorable and unworthy of jagannath",
+      "Diplomacy — negotiation is seen as weakness unless conducted from a position of overwhelming force",
+      "Retreating from a hunt — abandoning prey brings shame and costs jagannath"
+    ],
+    "notes": "Trandoshans prefer direct, physical confrontation. Their regenerative abilities and natural resilience make them confident in combat. Hunting parties operate with pack tactics — flanking, cornering, and overwhelming prey through coordination. The most prestigious hunts involve dangerous quarry taken through skill and courage rather than technological advantage."
+  },
+  "strengths": [
+    "Natural regeneration allows recovery from wounds that would permanently disable other species",
+    "Religious fervor provides unshakeable motivation — every fight is a sacred act with eternal consequences",
+    "Imperial authorization as Wookiee slavers provides legal cover, equipment access, and military support",
+    "Cold-blooded physiology and infrared vision provide combat advantages in varied environments",
+    "Clan-based social structure enables rapid mobilization of hunting parties with established pack tactics"
+  ],
+  "weaknesses": [
+    "The jagannath system's spiritual incentives for prestigious kills routinely override tactical judgment, causing hunters to pursue high-value quarry at costs disproportionate to any material benefit.",
+    "Trandoshan hostility toward Wookiees is culturally ingrained to the point where the presence of Wookiees in any operational context reliably disrupts mission discipline and objective prioritization.",
+    "Inter-clan territorial disputes prevent unified Trandoshan military mobilization and create rivalries that outside parties can exploit through selective alliance or provocation.",
+    "Trandoshan participation in the Wookiee slave trade depends on Imperial authorization and military support, making the entire economic relationship vulnerable to shifts in Imperial policy or priorities.",
+    "The species' widespread reputation for belligerence, cruelty, and unreliability restricts the range of factions and organizations willing to enter partnership or contractual arrangements with Trandoshan groups."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase territorial patrols. Issue challenges to the threat source — Trandoshans prefer to confront problems directly.",
+    "medium": "Mobilize clan hunting parties. Seek to identify and track the threat source as quarry. The threatened Trandoshan begins treating the situation as a hunt.",
+    "high": "Full clan mobilization. Multiple hunting parties coordinate to corner and destroy the threat. Retreating clans lose jagannath, so they fight with suicidal determination.",
+    "critical": "Berserker response — individual Trandoshans pursue the most prestigious kill available regardless of survival odds. Clan elders petition the Scorekeeper for divine guidance. If Imperial allies are available, Trandoshans call in every favor."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "minutes",
+    "chain_of_command": [
+      "Individual hunter",
+      "Hunting party leader",
+      "Clan elder",
+      "No higher authority — clans are autonomous"
+    ],
+    "notes": "Trandoshan escalation is fast and direct. There is no centralized Trandoshan government — each clan operates independently. Hunting parties communicate through direct comlink contact. Inter-clan coordination requires personal negotiation between elders, which is rare and usually hostile."
+  },
+  "tension_patterns": [
+    "The jagannath system awards maximum spiritual value for killing prestigious quarry, creating a recurring conflict between Scorekeeper doctrine and bounty contracts that require live capture.",
+    "Trandoshan hunting parties and other interested parties frequently pursue the same targets for incompatible purposes — Trandoshans seeking jagannath through the kill while others require the target alive or intact.",
+    "Imperial authorization for Wookiee enslavement is the foundation of Trandoshan-Imperial cooperation, but individual hunters who identify more profitable buyers for captured Wookiees risk losing Imperial military protection by diverting from sanctioned channels.",
+    "Trandoshan clan territories have defined boundaries enforced by lethal response to trespassers, and quarry that crosses into a rival clan's territory becomes inaccessible without triggering inter-clan conflict.",
+    "Generational divisions exist within Trandoshan clans between orthodox Scorekeeper adherents and younger hunters who question the doctrine's literal interpretation, with doubters viewed as liabilities by their hunting parties."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "patrol",
+    "economic": "skeleton",
+    "command": "skeleton",
+    "informational": "skeleton",
+    "military": "patrol",
+    "hidden": "patrol",
+    "covert": "skeleton"
+  },
+  "mcguffin_interest": {
+    "data": "low",
+    "contraband": "medium",
+    "weapon": "high",
+    "person": "high",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "Trandoshans value weapons (better tools for the hunt), persons (bounty targets and slaves generate both jagannath and credits), and technology that enhances tracking or combat. Data and artifacts hold little interest unless they lead to high-value quarry."
+  },
+  "ally_factions": [
+    "imperial_military"
+  ],
+  "enemy_factions": [
+    "wookiee_clans",
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "imperial_military": "The Empire authorized Trandoshan participation in Wookiee enslavement and granted them representation in the Imperial Senate. Trandoshans serve as enthusiastic enforcers and slavers in exchange for hunting rights and military support.",
+    "wookiee_clans": "Centuries of warfare define this relationship. Trandoshans attempted to colonize Kashyyyk, were driven off twice, and now exploit Imperial occupation to enslave their ancient enemies. The hatred is existential and mutual.",
+    "rebel_alliance": "The Alliance opposes Wookiee enslavement, making them enemies of the Trandoshan slave trade. Individual Trandoshans occasionally work as bounty hunters against Rebels.",
+    "bounty_hunters_guild": "Many Trandoshans are Guild members. The most famous, Bossk, commands a crew of bounty hunters from his W-666 vessel. Guild membership provides contracts but also imposes rules that some Trandoshans resent."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "minimal",
+    "expansion_region": "minimal",
+    "mid_rim": "significant",
+    "outer_rim": "moderate",
+    "hutt_space": "moderate",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Bossk",
+      "role": "Notorious bounty hunter",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "BOSSK",
+      "notes": "The most famous Trandoshan in the galaxy. Commands the W-666 vessel and a crew of bounty hunters. His reputation for ruthless efficiency makes him one of the most sought-after hunters in the Guild.",
+      "network_assessment": "Bossk is the standard by which Trandoshan bounty hunters are measured. He operates through the Guild but answers to his own jagannath tally. If he is hunting you, the contract is either very lucrative or very personal. Either way, running is temporary.",
+      "wants": "To accumulate the highest jagannath tally in Trandoshan history through the capture or killing of the galaxy's most dangerous quarry.",
+      "secret": "Has a standing personal vendetta against specific Wookiees that supersedes any active bounty contract. He will abandon a paying job to pursue a Wookiee target if one crosses his path.",
+      "behavior": {
+        "under_pressure": "Becomes more focused and aggressive. Trandoshan physiology and religious conviction make him functionally incapable of panic — every threat is just another hunt.",
+        "when_losing": "Retreats to the W-666 and regroups. He is pragmatic enough to disengage when outmatched, which distinguishes him from the average Trandoshan berserker.",
+        "loyalty": "To the Scorekeeper and to his own reputation. Guild contracts are honored because his reputation depends on it, not out of institutional loyalty.",
+        "tells": "His crew's behavior signals his intentions — when they start checking weapons and reviewing target files, Bossk has accepted a contract and the hunt is about to begin."
+      },
+      "useful_to_players": [
+        "His Guild connections provide access to bounty hunter intelligence networks across the galaxy",
+        "The W-666 is a capable combat vessel available for hire if the payment or the quarry is interesting enough",
+        "His reputation can be leveraged — invoking Bossk's name carries weight in criminal and bounty hunting circles"
+      ],
+      "hooks": [
+        "Bossk posted a crew call for a job in the Kashyyyk system — unusual because he normally works with his regular team. Whatever the target is, it requires numbers.",
+        "A bounty Bossk was tracking turned up dead before he could collect. Someone stole his kill and his jagannath. He is not interested in the credits anymore — he wants the name."
+      ]
+    }
+  ],
+  "source_material_notes": "The Edge of the Empire Core Rulebook (pp.59-61) provides the definitive treatment of Trandoshan physiology, the Scorekeeper religion, jagannath points, and the Wookiee-Trandoshan conflict. No Disintegrations (p.7) references Bossk and the W-666. The AoR Core Rulebook (pp.439-440) includes Passk, a Trandoshan information broker, showing the species' broader occupational range.",
+  "field_sources": {
+    "motivations": "EotE Core pp.59-60 (Scorekeeper worship, jagannath system, hunt-centric society)",
+    "goals": "EotE Core pp.59-61 (Wookiee enmity, Imperial alliance, hunting culture); inferred from slaving operations",
+    "methods": "EotE Core pp.59 (belligerent nature, combat preference); inferred from species physiology and culture",
+    "strengths": "EotE Core pp.59-60 (regeneration, Scorekeeper motivation, Imperial authorization); inferred from species traits",
+    "weaknesses": "EotE Core pp.59-61 (Wookiee obsession, clan fragmentation); inferred from cultural rigidity",
+    "behavior_under_threat": "Inferred from Trandoshan belligerence and jagannath system (EotE Core pp.59-60)",
+    "tension_patterns": "Inferred from jagannath religious system, clan territorial disputes, and Imperial dependency (EotE Core pp.59-61)",
+    "regional_presence": "EotE Core pp.59-61 (Trandosha near Kashyyyk in Mid Rim); inferred broader presence from bounty hunting and slaving operations",
+    "mcguffin_interest": "Inferred from hunting culture and slaving operations (EotE Core pp.59-60)"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/reward.schema.json",
+  "title": "Reward type",
+  "description": "One reward TYPE of `public/data/canonical/rewards.json` (ruling `release-r6-rewards-c0` R-R6RC-1, card `release-r6-backend` §5). A character's reward ROW is `sheetData.rewards[]` (release-r4-shapes S2, amended by ADDENDUM 4 with `improvement`); its `key` is this record's `key`, its `tier` one of this record's tier or option keys. STRUCTURE from OggDude Rewards.xml (12 of its 13 keys; JEDI is OUT); EXPLOIT, ACE and TROPHY are corpus-only (`ogg_key: null`). Words are authored plain from the printed pages. Nothing here is a price the app enforces beyond the XP a tier costs: `max_shown` is shown, never enforced (R-R6RC-1).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["key", "name", "ogg_key", "kind", "title", "max_shown", "choice", "tiers", "options", "effect", "description", "sources", "cite"],
+  "properties": {
+    "key": { "enum": ["ALLY", "APPRENTICE", "FOLLOWER", "SCHOOL", "HONTITLE", "REP", "MEDALS", "MEDALSCAMP", "DECORATIONS", "BS", "MAKERSMARK", "PROVENEXP", "EXPLOIT", "ACE", "TROPHY"],
+      "description": "S2's `key` (release-r4-shapes S2). The registry's map key equals it." },
+    "name": { "type": "string", "minLength": 1 },
+    "ogg_key": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+      "description": "OggDude's RewardKey; null for the three corpus-only types, which export as a receipt row (R-R6RC-4)." },
+    "kind": { "enum": ["bought", "honour", "scar", "reputation"],
+      "description": "CLOSED (R-R6RC-1). bought: XP tiers bought in order (Knights of Fate); honour: given, no XP; scar: a Battle Scar (Forged in Battle p.95); reputation: a sphere's level (Keeping the Peace p.92)." },
+    "title": { "oneOf": [{ "enum": ["name", "sphere", "title", "field", "free"] }, { "type": "null" }],
+      "description": "CLOSED (R-R6RC-1): what S2's `name` holds for this type — the person's name, the sphere of influence, the title, the field of expertise, or free words. OggDude's RewardTitle, renamed." },
+    "max_shown": { "oneOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }],
+      "description": "A number SHOWN beside the type, NEVER ENFORCED: no buy path reads it (R-R6RC-1, rider 4)." },
+    "choice": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }],
+      "description": "The OggDude ChoiceKey that S2's `tier` keys into (HONTITLE: the strength choice; its kind choice is `kind_choice`)." },
+    "kind_choice": { "type": "string", "minLength": 1,
+      "description": "HONTITLE only: the OggDude ChoiceKey of the title's kind, derived from S2's `skills` and never stored (R-R6RC-2)." },
+    "talent_choice": { "type": "string", "minLength": 1,
+      "description": "BS only: the OggDude ChoiceKey of the scar's talent pick (`options`), which the export writes beside the severity; brief release-r6-rewards-followups." },
+    "kinds": { "type": "array", "minItems": 1,
+      "items": { "type": "object", "additionalProperties": false, "required": ["key", "name", "skills"],
+        "properties": { "key": { "type": "string" }, "name": { "type": "string" },
+          "skills": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "string", "pattern": "^[a-z_]+$" } } } },
+      "description": "HONTITLE only: each kind's option key and its fixed skill pair (Knights of Fate p.92)." },
+    "tiers": { "type": "array", "items": { "$ref": "#/$defs/tier" },
+      "description": "In purchase order. `xp` is the price of THAT tier; S2's `xp` sums the tiers bought. Empty for honours." },
+    "options": { "type": "array", "items": { "$ref": "#/$defs/option" },
+      "description": "Named picks with no price: the medals, REP's seven levels, the exploits, BS's suggested talents." },
+    "effect": { "oneOf": [{ "$ref": "#/$defs/effect" }, { "type": "null" }],
+      "description": "A type-level effect (Proven Expertise, Maker's Mark); null where the tiers or options carry it, or where the book prints none." },
+    "text": { "type": "string", "description": "The type's own rule line, where it has one ('No rule.' where the book says so)." },
+    "description": { "type": "string", "minLength": 1, "description": "Authored plain from the printed pages." },
+    "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9_]+$" } },
+    "cite": { "type": "string", "pattern": "^[A-Z][A-Za-z' ]+ pp?\\.[0-9]+(–[0-9]+)?(, [A-Z][A-Za-z' ]+ pp?\\.[0-9]+(–[0-9]+)?)*$" }
+  },
+  "$defs": {
+    "contact_result": {
+      "type": "object", "additionalProperties": false, "required": ["spend", "result", "cite"],
+      "description": "One row of the registry's top-level `contact_results` (ruling `release-r6-ui-c0` U7): Table 3-8, spending a contact network's result, shown on demand after a CONTACT roll (card `release-r6-ui` ADDENDUM 6). Told, never applied.",
+      "properties": {
+        "spend": { "type": "string", "minLength": 1, "description": "What the roll spends: '2 advantages', '3 threats or a despair'." },
+        "result": { "type": "string", "minLength": 1, "description": "The result, in plain words (R-CVS)." },
+        "cite": { "const": "Endless Vigil p.79" }
+      }
+    },
+    "tier": {
+      "type": "object", "additionalProperties": false, "required": ["key", "name", "xp", "effect", "text"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1, "description": "OggDude's OptionKey (FOLLAB1OP2 …)." },
+        "name": { "type": "string", "minLength": 1 },
+        "xp": { "type": "integer", "minimum": 0 },
+        "effect": { "oneOf": [{ "$ref": "#/$defs/effect" }, { "type": "null" },
+          { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/effect", "required": ["targets", "mods"] },
+            "description": "SCHOOL (Q1a): one part per target set, each with its own `targets` and `mods` (Knights of Fate p.95 gives allies/followers and apprentice-aided checks different dice)." }] },
+        "text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "option": {
+      "type": "object", "additionalProperties": false, "required": ["key", "name"],
+      "properties": {
+        "key": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }], "description": "OggDude's OptionKey; null for a corpus-only option." },
+        "name": { "type": "string", "minLength": 1 },
+        "level": { "type": "integer", "minimum": -3, "maximum": 3, "description": "REP only; S2's `level` must equal it when `tier` names this option." },
+        "talent": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "BS only: a talents.json id." },
+        "suggested": { "const": true, "description": "BS only: the book's list is a recommendation (Forged in Battle p.95); S2's `talent` may hold any talent." },
+        "effect": { "oneOf": [{ "$ref": "#/$defs/effect" }, { "type": "null" }] },
+        "text": { "type": "string" }
+      }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "per": { "enum": ["session", "encounter"], "description": "How often it fires (Ally/Follower once a session; Title once an encounter)." },
+        "skills": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["scope", "value"],
+          "properties": { "scope": { "enum": ["skill", "group"] }, "value": { "type": "string", "pattern": "^[a-z_]+$" } } },
+          "description": "The checks a whole pool rolls (Ally, Follower)." },
+        "pool": { "type": "object", "additionalProperties": false, "required": ["ability", "proficiency"],
+          "properties": { "ability": { "type": "integer", "minimum": 0 }, "proficiency": { "type": "integer", "minimum": 0 } },
+          "description": "A WHOLE pool as printed; read as buildPool({characteristic: ability + proficiency, skillRank: proficiency}) — no second pool builder." },
+        "mods": { "type": "array", "items": { "$ref": "item-common.schema.json#/$defs/pool_mod_entry" },
+          "description": "Modifiers in the vocabulary talents and items use." },
+        "targets": { "type": "array", "minItems": 1, "items": { "enum": ["ALLY", "FOLLOWER", "APPRENTICE"] },
+          "description": "SCHOOL only (Q1a): the rewards whose checks `mods` improve." },
+        "any_of": { "type": "array", "minItems": 2, "items": { "type": "object", "additionalProperties": false,
+          "properties": { "mods": { "type": "array", "items": { "$ref": "item-common.schema.json#/$defs/pool_mod_entry" } }, "told": { "type": "string", "minLength": 1 } },
+          "minProperties": 1, "maxProperties": 1 },
+          "description": "APPRENTICE (Q1b): pick one arm each turn; an arm with no die vocabulary (melee defence) is TOLD — shown, never applied." },
+        "told": { "type": "string", "minLength": 1, "description": "Rule words shown, never applied." },
+        "advantage_less": { "type": "integer", "minimum": 1,
+          "description": "MAKERSMARK only (R-R6RC-3): how many advantage the held improvement's cost is lowered by, read live by craftStore's row cost." },
+        "advantage_floor": { "type": "integer", "minimum": 0, "description": "MAKERSMARK only: the lowest the lowered cost may go." }
+      }
+    }
+  }
+}

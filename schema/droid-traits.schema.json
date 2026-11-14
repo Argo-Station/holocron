@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/droid-traits.schema.json",
+  "title": "Droid Personality Traits",
+  "description": "The whole droid trait registry, public/data/canonical/droid_traits.json: Table 3-11, Droid Personality Traits (Special Modifications printed 83). Ruling release-r6-companions-c0 Q3 (R-R6CC-3; R-Y2-1). Nine positive and nine negative traits by d100 band, and the table's two bands that are not traits (91-95, 96-100: the GM or the player invents one; 96-100 then rolls again). Written by scripts/canonical/crafting_droid_batch.py from OggDude CraftDroidTraits.xml (keys, names) and the page (bands, text authored plain, F-EDS-6). Read by the droid resolver (droidOf) for a crafted droid's `traits` and by trait_add rows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "generated_from", "generated_by", "cite", "count", "traits", "bands"],
+  "properties": {
+    "schema": { "const": "droid-traits.schema.json" },
+    "schema_version": { "const": 1 },
+    "generated_from": { "type": "string", "minLength": 1 },
+    "generated_by": { "type": "string", "minLength": 1 },
+    "_doc": { "type": "string" },
+    "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$" },
+    "count": { "type": "integer", "minimum": 0, "description": "The number of `traits`; reconciled by the layer check." },
+    "traits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "polarity", "d100", "text", "cite", "ogg_key"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Stable; what a crafted droid's `traits[].trait_id` stores." },
+          "name": { "type": "string", "minLength": 1 },
+          "polarity": { "enum": ["positive", "negative"] },
+          "d100": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 1, "maximum": 100 }, "description": "The inclusive d100 band, [lo, hi], within the trait's own column." },
+          "text": { "type": "string", "minLength": 1, "description": "What the trait means, in this project's plain voice (not the book's prose)." },
+          "cite": { "type": "string", "pattern": "^.+ p\\.[0-9]+$" },
+          "ogg_key": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "bands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["d100", "positive", "negative", "reroll"],
+        "properties": {
+          "d100": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 1, "maximum": 100 } },
+          "positive": { "enum": ["gm", "player"], "description": "Who invents or chooses the positive trait on this band." },
+          "negative": { "enum": ["gm", "player"], "description": "Who invents or chooses the negative trait on this band." },
+          "reroll": { "type": "boolean", "description": "The band then rolls again on the table (96-100)." }
+        }
+      }
+    }
+  }
+}

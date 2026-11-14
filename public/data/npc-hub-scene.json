@@ -1,0 +1,67 @@
+{
+  "sceneId": "npc-generator",
+  "sceneName": "Cantina",
+  "locationText": "CANTINA — NPC GENERATOR",
+  "backgroundAsset": "public/Assets/cantina/Cantina_Background.png",
+  "hotspots": [
+    {
+      "id": "minion-table",
+      "kind": "npc-tier",
+      "tier": "minion",
+      "stepId": "minion",
+      "x": 25.0,
+      "y": 55.0,
+      "img": "public/Assets/cantina/Minion_Group.png",
+      "imgWidth": 140,
+      "anchor": "bottom",
+      "tooltip": "Minion Generator"
+    },
+    {
+      "id": "rival-booth",
+      "kind": "npc-tier",
+      "tier": "rival",
+      "stepId": "rival",
+      "x": 55.0,
+      "y": 50.0,
+      "img": "public/Assets/cantina/Rival_Figure.png",
+      "imgWidth": 100,
+      "anchor": "bottom",
+      "tooltip": "Rival Generator"
+    },
+    {
+      "id": "nemesis-chair",
+      "kind": "npc-tier",
+      "tier": "nemesis",
+      "stepId": "nemesis",
+      "x": 78.0,
+      "y": 48.0,
+      "img": "public/Assets/cantina/Nemesis_Figure.png",
+      "imgWidth": 110,
+      "anchor": "bottom",
+      "tooltip": "Nemesis Generator"
+    },
+    {
+      "id": "cantina-bar",
+      "kind": "lore",
+      "loreId": "npc-briefing",
+      "x": 50.0,
+      "y": 30.0,
+      "img": "public/Assets/cantina/Bartender.png",
+      "imgWidth": 90,
+      "anchor": "bottom",
+      "tooltip": "NPC Briefing"
+    },
+    {
+      "id": "faction-terminal",
+      "kind": "npc-tier",
+      "tier": null,
+      "stepId": "factionlore",
+      "x": 88.0,
+      "y": 35.0,
+      "img": null,
+      "imgWidth": 48,
+      "anchor": "bottom",
+      "tooltip": "Faction Intelligence"
+    }
+  ]
+}

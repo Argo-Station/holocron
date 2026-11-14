@@ -1,0 +1,984 @@
+{
+  "id": "ord_mantell",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Ord Mantell",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Mid Rim",
+    "sector": "Bright Jewel Sector",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Ord Mantell is what happens when Corellian frontier spirit meets total regulatory capture. Originally a Republic ordnance depot, it evolved into a planet-sized casino floor where every official is for sale and every law is negotiable. The credit is the only true authority. Smugglers, gamblers, and bounty hunters treat it as neutral ground — not because anyone declared it so, but because the cost of enforcing order here has always exceeded the profit. The Empire is starting to change that calculus, but hasn't committed yet.",
+    "atmosphere": "Worlport's betting strips blaze with neon and holographic advertisements in a dozen languages. The air smells of engine exhaust, cheap food, and the faint ozone of overworked repulsorlifts. Beyond the casino districts, the landscape shifts abruptly — junkyards, strip mines, and factory complexes sprawl across the mesas and plains. Farther out, the continental shores hold fishing villages and farming communities that want nothing to do with the rest of the planet. The whole world has the feeling of a rest stop that grew into a city — functional, transient, and indifferent to who you are or what you've done.",
+    "reputation": "A spacer's paradise. If you need to disappear between hyperspace jumps, this is where you stop. If you need something moved without questions, this is where you arrange it. Bounty hunters operate openly and the courts recognize their authority as a free-market approach to law enforcement. The casinos pull millions of tourists annually, which provides cover for everything else. The Empire calls it a haven for scoundrels — which is accurate, and which is exactly why it's useful."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Republic ordnance depots still partially active. Separatist sympathizers operate openly alongside Republic loyalists — Ord Mantell doesn't care which side pays. Criminal infrastructure is fully established but the Corellian frontier character is even more pronounced. No Imperial presence. The planet's strategic value as a hyperspace junction makes it a target for both sides, but neither commits to occupation."
+    },
+    {
+      "era": "post_empire",
+      "delta": "Imperial garrison withdrawn or collapsed. The blackmail leverage on the planetary governor evaporates. Ord Mantell reverts fully to its natural state — wide-open lawlessness with a thin veneer of elected government. New Republic presence is minimal because Ord Mantell doesn't want governance and the New Republic has bigger problems. Criminal organizations expand into the power vacuum left by departing Imperial intelligence. Bounty hunter activity intensifies as old Imperial warrants become worthless and new factions issue new contracts."
+    }
+  ],
+  "geography": {
+    "structure_type": "terrestrial_varied",
+    "structure_notes": "Mesas, plains, mountains, and island chains. Urban development concentrated in three major cities along the continental coasts and plateaus. Industrial zones and junkyards surround the cities. Agricultural and fishing communities scattered along the shores. Strip mines dot the interior mesas.",
+    "districts": [
+      {
+        "id": "worlport_betting_strip",
+        "name": "Worlport Betting Strip",
+        "character": "The main drag of the planetary capital. Casinos, cantinas, hotels, and entertainment venues packed together. The Lady Fate Casino anchors the strip as the most famous establishment, but the real action happens in the side-street gambling houses. Tourist traffic provides cover for every kind of illicit transaction.",
+        "authority": "Private security firms contracted by casinos and the planetary governor's office",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Source: EotE Core p.370 — Lady Fate Casino on Worlport's main drag. Real gamblers prefer the side-street houses. Private security firms handle policing, prioritizing tourist safety above all else."
+      },
+      {
+        "id": "worlport_back_alleys",
+        "name": "Worlport Back Alleys",
+        "character": "The side streets and alleys behind the betting strip where the serious gambling, smuggling arrangements, and black market deals happen. Open-air markets sell almost anything. Seedy cantinas where illicit cargo transport gets arranged. This is where Ord Mantell's real economy operates.",
+        "authority": "Nominal — private security patrols are thin here",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "economic",
+          "informational",
+          "military_supply_lines"
+        ],
+        "notes": "Source: EotE Core p.370 — open-air markets sell almost anything, seedy cantinas arrange illicit cargo transport. Nothing is truly illegal on Ord Mantell."
+      },
+      {
+        "id": "industrial_outskirts",
+        "name": "Industrial Outskirts",
+        "character": "Junkyards, factories, and strip mines beyond the betting strips. The economic engine that nobody visits on a gambling holiday. Manufactured goods are one of the planet's major exports. Workers here are locals, not tourists, and they have a different relationship with the planet than the transient population.",
+        "authority": "Corporate operators, minimal government oversight",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "military_supply_lines"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "freelonn",
+        "name": "Freelonn",
+        "character": "Secondary city with its own gambling scene. The Chance Cube casino is known for high payouts. Less tourist-oriented than Worlport — more locals, more regulars, more people who live here rather than pass through.",
+        "authority": "Local elected officials, private security",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Source: EotE Core p.370 — The Chance Cube in Freelonn has some of the highest payouts along the Celanon Spur."
+      },
+      {
+        "id": "savroia",
+        "name": "Savroia",
+        "character": "Third major city. Lucky Detooa's casino operates here. Similar character to Freelonn — a functional city with gambling infrastructure but less spectacle than Worlport.",
+        "authority": "Local elected officials, private security",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Source: EotE Core p.370 — Lucky Detooa's in Savroia has high payouts."
+      },
+      {
+        "id": "coastal_communities",
+        "name": "Coastal Communities",
+        "character": "Small fishing, religious, and agricultural settlements along the continental shores. These communities prefer isolation and want nothing to do with outlanders. A completely different world from the casino cities — quiet, insular, and self-sufficient.",
+        "authority": "Local community governance",
+        "crime_index": "low",
+        "strategic_value": [
+          "none_conventional",
+          "high_hidden"
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "The baseline population. Humans fill every role — casino operators, tourists, smugglers, bounty hunters, factory workers, farmers, government officials. Corellian heritage runs deep in the founding population, and that frontier independence defines the culture.",
+      "districts": [
+        "worlport_betting_strip",
+        "worlport_back_alleys",
+        "industrial_outskirts",
+        "freelonn",
+        "savroia",
+        "coastal_communities"
+      ]
+    },
+    {
+      "name": "Varied Species",
+      "population_level": "common",
+      "social_role": "Ord Mantell's open-door policy has attracted every species in the galaxy over the millennia. The sourcebook lists population as 'varied species' without specifying — this is a cosmopolitan world where anyone with credits is welcome and nobody asks questions about origins.",
+      "districts": [
+        "worlport_betting_strip",
+        "worlport_back_alleys",
+        "freelonn",
+        "savroia"
+      ],
+      "inferred": true,
+      "inference_note": "EotE Core p.370 lists population as '4 billion (varied species)' without breakdown. Specific species composition is not detailed in any FFG source."
+    }
+  ],
+  "factions": [
+    {
+      "id": "planetary_government",
+      "name": "Mantellian Planetary Government",
+      "type": "government",
+      "control_type": [
+        "political"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "high",
+        "dark_side": "low",
+        "financial": "extreme",
+        "note": ""
+      },
+      "motivation": "Maintaining the appearance of governance while profiting from the planet's permissive economy. The government's primary function is collecting voting taxes and distributing security contracts. Everything else is negotiable — for a price.",
+      "assets": [
+        "Authority to issue security contracts to private firms",
+        "Control of voting tax revenue",
+        "Nominal jurisdiction over courts and legal system",
+        "Courts that recognize bounty hunter authority as legitimate law enforcement"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "subordinate_coerced",
+          "notes": "The Empire blackmails the planetary governor rather than governing directly. The governor cooperates because the alternative is worse. This arrangement gives the Empire control without the cost of direct administration."
+        },
+        {
+          "faction_id": "criminal_networks",
+          "type": "symbiotic",
+          "notes": "The government depends on the criminal economy for revenue and the criminal economy depends on the government not enforcing laws. Both sides understand this arrangement perfectly."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Potentially valuable as leverage or as something to sell. The government would trade intelligence to whoever pays the most or threatens the most effectively."
+        },
+        {
+          "type": "resource",
+          "reason": "Taxable. Anything that generates economic activity on Ord Mantell is welcome, regardless of its origin or legality."
+        },
+        {
+          "type": "person",
+          "reason": "Only relevant if the Empire pressures the governor to act. Otherwise, the government doesn't care who is on the planet as long as they're spending credits."
+        },
+        {
+          "type": "artifact",
+          "reason": "No intrinsic interest. Would be treated as a valuable commodity to be taxed or sold."
+        }
+      ]
+    },
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "informational"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial presence on Ord Mantell is growing and professionally run. Their primary concern is Rebel activity — the criminal economy is tolerated as long as it doesn't harbor the Rebellion. Individual officers may be corrupted by Ord Mantell's culture, but the institution maintains discipline."
+      },
+      "motivation": "Preventing Ord Mantell from becoming a Rebel hideaway. The planet's location at the junction of two hyperspace routes and its culture of anonymity make it an obvious refuge for Rebel operatives. Secondary mission: monitoring criminal activity that might fund or supply the Rebellion.",
+      "assets": [
+        "Growing ground force presence — stormtrooper patrols in major cities",
+        "Blackmail leverage over the planetary governor",
+        "Fleet maneuvers in the Bright Jewel system",
+        "Intelligence operatives monitoring spaceport traffic",
+        "Authority to pressure the governor into cooperation"
+      ],
+      "relationships": [
+        {
+          "faction_id": "planetary_government",
+          "type": "dominant_coercive",
+          "notes": "The Empire permits Ord Mantell its veneer of independence while controlling the governor through blackmail. This is cheaper than direct occupation and maintains plausible deniability."
+        },
+        {
+          "faction_id": "criminal_networks",
+          "type": "hostile_selective",
+          "notes": "The Empire tolerates the criminal economy but cracks down on operations that might serve Rebel interests. Criminal crackdowns are selective and politically motivated — they target what's useful to target."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "enemy",
+          "notes": "The primary reason for Imperial presence. Ord Mantell's anonymity and transient population make it an obvious Rebel staging area, and the Empire knows it."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "If it's Imperial data, recovery is a top priority. If it's Rebel data, acquisition is equally important. Ord Mantell's position on two hyperspace routes makes it a natural intelligence chokepoint."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standard ISB standing orders apply — secure and report. The local garrison follows orders without knowing the reasons behind them."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives and Force-sensitives are primary targets. The growing Imperial presence exists specifically to find these people. A confirmed Rebel operative on Ord Mantell would justify the escalation the Empire has been building toward."
+        }
+      ]
+    },
+    {
+      "id": "criminal_networks",
+      "name": "Criminal Networks",
+      "type": "criminal",
+      "control_type": [
+        "economic",
+        "informational"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The criminal networks on Ord Mantell are decentralized — no single organization dominates the way the Hutts dominate Nar Shaddaa. This makes them resilient but also susceptible to financial pressure and internal competition. Imperial crackdowns disrupt operations but don't destroy the underlying infrastructure."
+      },
+      "motivation": "Profit. Ord Mantell's criminal economy exists to move goods, information, and people for credits. Smuggling, gambling, black market trade, and bounty hunting are the primary industries. The networks compete with each other but share a common interest in keeping Ord Mantell ungoverned.",
+      "assets": [
+        "Open-air black markets selling almost anything",
+        "Smuggling infrastructure — cantinas where illicit transport is arranged",
+        "Bounty hunter networks recognized by local courts",
+        "Casino revenue streams that launder criminal profits",
+        "Contacts throughout the Celanon Spur and Entralla Route trade corridors"
+      ],
+      "relationships": [
+        {
+          "faction_id": "planetary_government",
+          "type": "symbiotic",
+          "notes": "The criminal networks are the economy. The government takes its cut and doesn't interfere. Both sides benefit from the arrangement."
+        },
+        {
+          "faction_id": "imperial_military",
+          "type": "hostile_selective",
+          "notes": "The Empire cracks down selectively. The networks adapt, route around enforcement actions, and continue operating. The relationship is adversarial but functional — total suppression would require resources the Empire hasn't committed."
+        },
+        {
+          "faction_id": "rebel_alliance",
+          "type": "transactional",
+          "notes": "The criminal networks don't care about politics. Rebels are customers like anyone else — they pay for transport, information, and supplies. The risk is that serving Rebel customers draws Imperial attention, which is bad for business."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Valuable commodity. Intelligence is bought and sold on Ord Mantell as freely as spice. Military data would fetch a premium from multiple buyers."
+        },
+        {
+          "type": "resource",
+          "reason": "Everything is for sale. A significant resource cache is just inventory waiting for a buyer."
+        },
+        {
+          "type": "person",
+          "reason": "Bounty hunting is a recognized profession. A person with a price on their head is a business opportunity, processed through courts that respect bounty hunter rights."
+        },
+        {
+          "type": "artifact",
+          "reason": "Commodity value only. The criminal networks would sell it to whoever pays the most without understanding or caring what it does."
+        }
+      ]
+    },
+    {
+      "id": "bounty_hunters_guild",
+      "name": "Bounty Hunters",
+      "type": "independent",
+      "control_type": [
+        "enforcement"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Bounty hunters on Ord Mantell are independent operators motivated by credits. They respond to whoever is paying. The courts legally recognize their authority, giving them a unique quasi-official status that no other faction on the planet enjoys."
+      },
+      "motivation": "Collecting bounties. Ord Mantell's courts recognize bounty hunters as a free-market approach to law enforcement, giving them legal standing that most planets deny them. This makes Ord Mantell a natural base of operations and a place where bounties can be collected through official channels.",
+      "assets": [
+        "Legal recognition by Mantellian courts",
+        "Information networks among the criminal population",
+        "Personal combat capability — bounty hunters are professionals",
+        "Freedom of movement across all districts without challenge"
+      ],
+      "relationships": [
+        {
+          "faction_id": "planetary_government",
+          "type": "sanctioned",
+          "notes": "The courts respect bounty hunter rights and privileges. This is official, legal, and part of Ord Mantell's approach to law enforcement."
+        },
+        {
+          "faction_id": "criminal_networks",
+          "type": "adversarial_professional",
+          "notes": "Bounty hunters and criminals exist in a professional adversarial relationship. Both sides understand the rules. It's business, not personal — until it is."
+        },
+        {
+          "faction_id": "imperial_military",
+          "type": "transactional",
+          "notes": "The Empire uses bounty hunters as force multipliers. Imperial bounties are lucrative and carry official backing. Some bounty hunters prefer Imperial contracts for the reliability of payment."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Only valuable if it leads to a bounty. Information is a tool, not a commodity, for bounty hunters."
+        },
+        {
+          "type": "person",
+          "reason": "This is the job. A person with a bounty is the entire reason bounty hunters are on Ord Mantell. The legal infrastructure here makes collection straightforward."
+        },
+        {
+          "type": "artifact",
+          "reason": "Only if someone has posted a bounty for its recovery. Otherwise, not their concern."
+        }
+      ]
+    },
+    {
+      "id": "knights_of_ren",
+      "name": "Knights of Ren",
+      "type": "dark_side_organization",
+      "control_type": [
+        "cultural",
+        "informational_covert"
+      ],
+      "control_strength": "absent",
+      "susceptibility": null,
+      "motivation": "Ord Mantell has no known Force significance. The Knights of Ren have no established presence here. However, the planet's transient population and culture of anonymity could serve as cover for Knights tracking Force-sensitive individuals passing through the hyperspace junction.",
+      "assets": null,
+      "relationships": null,
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "If a Force artifact surfaces on Ord Mantell, the Knights would come for it. The planet's lack of established dark side presence means they would operate without local support."
+        },
+        {
+          "type": "person",
+          "reason": "Force-sensitives passing through the hyperspace junction are potential targets. Ord Mantell's anonymity cuts both ways — it hides prey as effectively as it hides hunters."
+        }
+      ],
+      "inferred": true,
+      "inference_note": "No FFG source mentions Knights of Ren on Ord Mantell. This entry exists for schema parity with nar_shaddaa.json. Control strength set to 'absent' to reflect no canonical presence."
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "lady_fate_casino",
+      "name": "Lady Fate Casino",
+      "district_id": "worlport_betting_strip",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "criminal_networks",
+      "controlling_faction_notes": "The most famous casino on the planet. A tourist trap by serious gambler standards, but it draws billions of off-worlders and the credit flow funds everything else on Worlport's main drag.",
+      "strategic_value": "The public face of Ord Mantell's economy. Controls a massive flow of credits and tourist traffic. The casino floor is an information exchange — everyone passes through here, and everyone talks.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "casino_security",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Private security contractors. Professional and well-equipped — tourist safety is the priority because tourists are the revenue."
+        },
+        {
+          "archetype_ref": "casino_manager",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Runs the floor. Knows every regular, every high roller, and every card counter. Connected to the planetary government through donation channels."
+        },
+        {
+          "archetype_ref": "gambler",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Mix of tourists, regulars, and professionals. Some are information sources, most are just losing credits."
+        }
+      ]
+    },
+    {
+      "id": "side_street_gambling_houses",
+      "name": "Side-Street Gambling Houses",
+      "district_id": "worlport_back_alleys",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "criminal_networks",
+      "controlling_faction_notes": "The Chance Cube, Lucky Detooa's, Throw Me a Bone, and dozens of others. These are where the real gambling happens — high payouts, serious players, and no tourist insulation.",
+      "strategic_value": "The real information exchange on Ord Mantell. Serious operators come here to gamble, deal, and arrange business. More actionable intelligence flows through these back-alley houses than through any official channel on the planet.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Every gambling house has at least one regular who trades in information. Loyalty is to credits."
+        },
+        {
+          "archetype_ref": "professional_gambler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Serious players who have been coming here for years. They know everyone and everything, and they'll share — for a price or a favor."
+        },
+        {
+          "archetype_ref": "thug",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "House security. Less professional than casino security — more direct in their methods."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Arranging transport for illicit cargo between hands. The cantinas adjacent to gambling houses are where smuggling contracts get signed."
+        }
+      ]
+    },
+    {
+      "id": "worlport_spaceport",
+      "name": "Worlport Spaceport",
+      "district_id": "worlport_betting_strip",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "planetary_government",
+      "controlling_faction_notes": "Government-operated but with growing Imperial presence. The spaceport is the primary chokepoint for traffic arriving via the Celanon Spur and Entralla Route hyperspace junction.",
+      "strategic_value": "Controls planetary access. The forced hyperspace stopover means most traffic through this sector passes through here. Imperial intelligence monitors arrivals. Smugglers use the volume of legitimate traffic as cover.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Growing Imperial presence. Patrols are becoming more frequent and more visible. Mantellians are noticing.",
+          "inferred": true,
+          "inference_note": "EotE Core p.370 states Mantellians are seeing more stormtroopers. Specific spaceport deployment is inferred."
+        },
+        {
+          "archetype_ref": "customs_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Government customs officials. Bribable per Ord Mantell tradition. May conflict with Imperial monitoring."
+        },
+        {
+          "archetype_ref": "dock_worker",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Mixed species laborers handling the constant flow of traffic from the hyperspace junction."
+        },
+        {
+          "archetype_ref": "bounty_hunter",
+          "tier": "rival",
+          "count": "0-1",
+          "notes": "Spaceports are where bounty hunters watch for targets arriving on-planet. They have legal authority to operate here."
+        }
+      ]
+    },
+    {
+      "id": "ten_mile_plateau",
+      "name": "Ten Mile Plateau",
+      "district_id": "industrial_outskirts",
+      "type": [
+        "exploration",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Named as an area of interest in the EotE sourcebook but not described in detail. Its function and significance are not specified.",
+      "strategic_value": "Unknown. The Ten Mile Plateau is listed as a notable location but its strategic or narrative value is not detailed in any FFG source.",
+      "takeover_priority": null,
+      "encounter_roles": [],
+      "inferred": true,
+      "inference_note": "EotE Core p.370 lists Ten Mile Plateau as an area of interest but provides no description. All details beyond the name are uncovered."
+    },
+    {
+      "id": "open_air_markets",
+      "name": "Open-Air Markets",
+      "district_id": "worlport_back_alleys",
+      "type": [
+        "economic"
+      ],
+      "controlling_faction_id": "criminal_networks",
+      "controlling_faction_notes": "Decentralized market stalls selling almost anything. No single operator controls the markets — they're an organic expression of Ord Mantell's anything-goes economy.",
+      "strategic_value": "Black market access. Weapons, contraband, forged documents, restricted technology — if it exists, someone here is selling it. The volume and variety make oversight impossible.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "black_market_vendor",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Sell restricted goods openly. This is Ord Mantell — nothing is truly illegal here."
+        },
+        {
+          "archetype_ref": "thug",
+          "tier": "minion",
+          "count": "2",
+          "notes": "Vendor muscle or independent operators looking for easy marks among the tourists."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_creeping_control",
+      "type": "political",
+      "source_faction_id": "imperial_military",
+      "source_description": "The Empire is gradually increasing its presence on Ord Mantell through fleet maneuvers, ground force buildup, and blackmail of the planetary governor. This is not occupation — it is slow, deliberate encroachment. Each month there are a few more stormtroopers, a few more checkpoints, a few more questions being asked. The Mantellians notice and don't like it, but the governor can't push back because the Empire has leverage.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "criminal_networks",
+          "description": "Selective criminal crackdowns are increasing. The Empire isn't trying to shut down the criminal economy — it's using enforcement actions as political tools, targeting operations that might serve Rebel interests while ignoring everything else."
+        },
+        {
+          "faction_id": "planetary_government",
+          "description": "The governor is cooperating with Imperial demands more frequently and more visibly. Government officials who resist are finding themselves investigated. The veneer of independence is thinning."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "low",
+          "modifier": "Imperial patrols are visible but passive. Stormtroopers present at spaceports and major intersections. Social checks to avoid Imperial notice are at standard difficulty."
+        },
+        {
+          "threshold": "significant",
+          "modifier": "Imperial checkpoints active on major routes. Fleet maneuvers visible in orbit. Criminal contacts are nervous. Social checks to avoid Imperial notice increase difficulty by 1. Smuggling checks increase difficulty by 1."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "celanon_spur",
+        "destination": "Celanon Spur (various destinations)",
+        "travel_time": "variable by destination",
+        "route_quality": "well-established",
+        "notes": ""
+      },
+      {
+        "id": "entralla_route",
+        "destination": "Entralla Route (connects to Muunilinst)",
+        "travel_time": "variable by destination",
+        "route_quality": "well-established",
+        "notes": "Connects Ord Mantell to Muunilinst and the banking systems. The Entralla Route terminates at Ord Mantell, making the planet the turn onto the Celanon Spur — the navigational chokepoint that defines its strategic importance."
+      },
+      {
+        "id": "nar_shaddaa",
+        "destination": "Nar Shaddaa",
+        "travel_time": "18-24 hours",
+        "route_quality": "moderate",
+        "notes": "Used by smugglers and bounty hunters. The route passes through less-patrolled space. Source: nar_shaddaa.json navigation data."
+      },
+      {
+        "id": "coruscant",
+        "destination": "Coruscant",
+        "travel_time": null,
+        "route_quality": null,
+        "notes": "Reachable via the Celanon Spur connecting to major Core-ward lanes. Travel time not specified in FFG sources for this specific route.",
+        "inferred": true,
+        "inference_note": "Connectivity inferred from Mid Rim position and Celanon Spur access. No specific travel time given in FFG sources."
+      }
+    ],
+    "anomalies": [
+      {
+        "id": "hyperspace_junction_bottleneck",
+        "type": "forced_destination",
+        "name": "Celanon-Entralla Junction",
+        "description": "The intersection of the Celanon Spur and Entralla Route creates a navigational bottleneck. Only the fastest navicomputers can make the course correction between the two routes without dropping out of hyperspace, making Ord Mantell an obvious — and often unavoidable — stopover.",
+        "trigger": "Any ship transitioning between the Celanon Spur and Entralla Route without a top-tier navicomputer. This is the primary reason Ord Mantell exists as a major waypoint.",
+        "possible_destinations": [
+          "Ord Mantell — forced stopover for navicomputer recalculation",
+          "Drift in the Bright Jewel system — failed course correction, must recalculate manually"
+        ]
+      }
+    ]
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal Imperial footprint. A few plainclothes intelligence operatives monitoring spaceport traffic. The governor is under blackmail but no visible military assets are deployed. The Empire is watching but not acting.",
+          "presence_reason": "Routine intelligence monitoring. The Empire maintains awareness of Ord Mantell's traffic without committing visible resources. The blackmail leverage on the governor provides control without soldiers.",
+          "roles": [
+            {
+              "role": "ISB observer plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Monitoring spaceport arrivals. Filing reports on persons of interest. Does not act overtly."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Growing Imperial presence that Mantellians are beginning to notice. Stormtrooper patrols in Worlport and the other major cities. Fleet maneuvers visible in the Bright Jewel system. The veneer of independence is intact but thinning.",
+          "presence_reason": "The Empire fears Ord Mantell is becoming a Rebel hideaway. The gradual buildup of ground forces and fleet activity is a deliberate escalation designed to deter Rebel use of the planet without triggering a confrontation with the local population.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Paired patrols in major cities. Their presence is new and noted by locals. Professional but increasingly assertive."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Running informant networks among the spaceport worker population. Monitoring for Rebel activity."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the growing Imperial presence. Coordinating with the blackmailed governor. Balancing escalation against local resistance."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Significant Imperial escalation. Checkpoints at spaceports and major intersections. Fleet assets in close orbit. Criminal crackdowns targeting specific operations. The governor is being pushed to authorize actions that damage Ord Mantell's reputation as a free port.",
+          "presence_reason": "Confirmed or suspected Rebel activity has triggered an escalation. The Empire is willing to damage Ord Mantell's economy to flush out a target. The governor cooperates because the blackmail material is worse than the economic damage.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Multiple squads covering all major routes in Worlport, Freelonn, and Savroia simultaneously."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Spaceport inspections are thorough. The usual bribes are not working. Departing ships are being checked."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full intelligence operation. Running interrogations and flipping criminal contacts with Imperial resources."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior command staff coordinating ground and orbital operations. Authority to blockade the spaceport."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial occupation. The veneer of independence is dropped. The governor is a puppet or has been replaced. Stormtroopers at every intersection, checkpoints on every route, fleet in close orbit. Ord Mantell's gambling economy is disrupted — tourists stop coming when stormtroopers are everywhere. The planet's entire character changes.",
+          "presence_reason": "The Empire has decided Ord Mantell's strategic value as a hyperspace junction outweighs the cost of alienating the local population and destroying the gambling economy. Something happened — a high-value Rebel target, a major intelligence failure, or a direct order from sector command.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Building-by-building search capability. All routes covered. Casino districts under martial law."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 3,
+              "notes": "No ship leaves without clearance. The hyperspace junction is locked down."
+            },
+            {
+              "role": "ISB agent plainclothes",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 5,
+              "notes": "ISB running the operation. Criminal networks are being systematically interrogated."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "One coordinates ground operations, one manages the orbital blockade."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. An Inquisitor on Ord Mantell would terrify a population that has never seen one."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols are more attentive. Stormtroopers linger near spaceports and gambling houses. The governor's office issues vague security advisories. Criminal contacts report being questioned.",
+        "targeted": "The Empire is looking for specific individuals. Holos at checkpoints. Informant networks activated. Departing ships inspected. The criminal networks notice and start charging more for everything.",
+        "manhunt": "Full lockdown. No ships leave without Imperial authorization. Stormtroopers search casinos, gambling houses, and cantinas systematically. The governor publicly cooperates. Tourist traffic collapses. The entire economy grinds to a halt."
+      }
+    },
+    {
+      "faction_id": "criminal_networks",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Minimal criminal activity — something has scared the operators off. Markets are quiet. Gambling houses are running straight games. The cantinas are serving drinks and nothing else. This is Ord Mantell when it's holding its breath.",
+          "presence_reason": "A major Imperial crackdown, a gang war, or something worse has driven the criminal economy underground. The infrastructure exists but it's dormant. This state is deeply unnatural for Ord Mantell and won't last.",
+          "roles": [
+            {
+              "role": "Cautious vendor",
+              "archetype_ref": "black_market_vendor",
+              "tier": "rival",
+              "count": 1,
+              "notes": "One or two operators still willing to deal, but only with trusted contacts. Prices are triple."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard operations. Open-air markets selling everything. Gambling houses running at capacity. Smuggling contracts arranged in cantinas. Bounty hunters working contracts openly. This is Ord Mantell as it normally is — wide open and making money.",
+          "presence_reason": "Business as usual. The criminal economy is the economy. It doesn't need a reason to operate — it needs a reason to stop.",
+          "roles": [
+            {
+              "role": "Black market vendor",
+              "archetype_ref": "black_market_vendor",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Selling openly in the markets. Anything available for the right price."
+            },
+            {
+              "role": "Smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Arranging transport in cantinas. Multiple operators competing for contracts."
+            },
+            {
+              "role": "Bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Working a contract. Legal authority to operate. Professional and focused."
+            },
+            {
+              "role": "Thug",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Muscle for hire, market security, or independent operators."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The criminal networks are consolidating in response to a threat — probably Imperial escalation. Black market operations move indoors. Smuggling rates increase. Gambling houses become fortified meeting points. The economy is still running but it's running nervous.",
+          "presence_reason": "Imperial crackdowns, a major bounty posted, or inter-network conflict has raised the stakes. The criminal infrastructure is adapting, not retreating.",
+          "roles": [
+            {
+              "role": "Black market vendor",
+              "archetype_ref": "black_market_vendor",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Operating from concealed locations. Prices higher but inventory unchanged."
+            },
+            {
+              "role": "Smuggler",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 3,
+              "notes": "More operators, higher prices, riskier routes. The demand for transport increases when things get hot."
+            },
+            {
+              "role": "Bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Multiple bounty hunters active. Someone with a big price on their head is on-planet."
+            },
+            {
+              "role": "Crime boss",
+              "archetype_ref": "crime_lord",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A senior operator has taken personal interest. They're coordinating network response to the threat."
+            },
+            {
+              "role": "Thug",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Armed and on alert. The casual violence threshold has dropped."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The criminal networks own the streets. This is Ord Mantell at its most lawless — private security overwhelmed, government powerless, and the only law is what you can enforce yourself. This might happen if Imperial forces withdraw suddenly, or if a power vacuum opens at the top.",
+          "presence_reason": "Total breakdown of whatever thin order existed. The criminal economy has absorbed all other authority. Every transaction is criminal because there's no other kind.",
+          "roles": [
+            {
+              "role": "Black market vendor",
+              "archetype_ref": "black_market_vendor",
+              "tier": "rival",
+              "count": 5,
+              "notes": "Everything is for sale everywhere. No pretense of legality needed."
+            },
+            {
+              "role": "Crime lord",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Someone has risen to the top of the chaos. They control territory, enforce their own rules, and take a cut of everything."
+            },
+            {
+              "role": "Bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 3,
+              "notes": "The only law enforcement. Working for whoever pays. Multiple active contracts."
+            },
+            {
+              "role": "Thug",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Armed gangs controlling territory. Violence is the default conflict resolution."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Criminal contacts are more cautious. Prices tick up. Smugglers ask more questions before accepting contracts. Something has made the networks nervous but nobody is talking about what.",
+        "targeted": "The networks have identified a specific threat or opportunity. Information about the target circulates through cantinas and gambling houses. Bounty hunters are comparing notes. Someone is being watched by everyone simultaneously.",
+        "manhunt": "Every bounty hunter on Ord Mantell is looking. Every criminal contact is listening. Every smuggler is checking passenger manifests. The bounty is high enough to override professional courtesy and personal loyalty."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Cover identities among the transient spacer population",
+      "Rebel Alliance: Access to smuggling networks willing to move Rebel supplies",
+      "Rebel Alliance: The planet's culture of anonymity and non-interference",
+      "Rebel Alliance: Hyperspace route access to both the Celanon Spur and Entralla Route",
+      "Rebel Alliance on this planet: Exploiting Ord Mantell's location at the junction of the Celanon Spur and Entralla Route for logistics, recruitment among the transient spacer population, and intelligence gathering on Imperial fleet "
+    ],
+    "presets": {
+      "EotE_smugglers_stopover": {
+        "label": "Edge of the Empire — Smuggler's Stopover",
+        "description": "The players arrive on Ord Mantell as part of a smuggling run along the Celanon Spur. The forced hyperspace stopover is routine — refuel, make a delivery, collect payment. But the contact isn't at the rendezvous, the cargo is hotter than advertised, and Imperial patrols are thicker than usual. Something changed while the players were in hyperspace.",
+        "controlling_factions": [
+          {
+            "location_id": "worlport_spaceport",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard Imperial presence but attentive. New arrivals are being logged more carefully than usual."
+          },
+          {
+            "location_id": "worlport_back_alleys",
+            "faction_id": "criminal_networks",
+            "presence_level": "patrol",
+            "notes": "Business as usual on the surface. Criminal contacts are slightly more cautious than normal."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "The contact missed the rendezvous because they were picked up by a bounty hunter two hours before the players landed. The bounty hunter is still on-planet, in a side-street gambling house, waiting for confirmation of payment before turning the contact over.",
+          "The cargo contains components that match an item on an Imperial interdiction list. The players don't know this. The customs officer at the spaceport would have caught it if the players hadn't bribed him — but the ISB agent who observed the bribe is now interested in what's worth bribing for.",
+          "A second smuggling crew was supposed to pick up the same cargo. They're still coming. They'll be unhappy when they find out someone else has it.",
+          "The planetary governor just received new blackmail material from Imperial intelligence and is cooperating more aggressively than usual. Security contractors have been told to assist Imperial patrols — a new development that the criminal networks haven't adjusted to yet."
+        ]
+      },
+      "AoR_rebel_logistics": {
+        "label": "Age of Rebellion — Rebel Logistics Route",
+        "description": "The Rebellion is using Ord Mantell's hyperspace junction as a waypoint for supply routing. A small logistics cell operates under cover among the spaceport worker population. The Empire suspects Rebel activity but hasn't confirmed it — yet. The players are here to make a handoff, but the logistics cell has gone silent.",
+        "controlling_factions": [
+          {
+            "location_id": "worlport_spaceport",
+            "faction_id": "imperial_military",
+            "presence_level": "fortified",
+            "notes": "Imperial presence escalated. Checkpoints active. Departing ships inspected. Something triggered this — the players need to find out what."
+          },
+          {
+            "location_id": "worlport_betting_strip",
+            "faction_id": "criminal_networks",
+            "presence_level": "fortified",
+            "notes": "Criminal networks adapting to Imperial escalation. Operations moving underground. Prices rising."
+          }
+        ],
+        "faction_relationship_overrides": [
+          {
+            "faction_id": "criminal_networks",
+            "target_faction_id": "rebel_alliance",
+            "type": "hostile_reluctant",
+            "notes": "The criminal networks normally don't care about politics, but Imperial crackdowns are hurting business. Rebel-affiliated customers are becoming toxic. Some operators will still deal; most won't."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "suspicious",
+            "reason": "Unconfirmed Rebel activity in the Bright Jewel sector. The escalation is precautionary but aggressive."
+          }
+        ],
+        "flags": [
+          "The logistics cell went silent because one member was identified by an ISB informant in the spaceport worker pool. She's alive but hiding in one of the coastal communities outside the cities. The other cell members don't know what happened — they scattered when the contact protocol broke.",
+          "The ISB informant doesn't know they identified a Rebel operative — they reported 'unusual communication patterns' and ISB connected the dots. The informant is a dock worker who can be identified through careful investigation.",
+          "The supply handoff can still happen if the players find an alternative route through the criminal networks. A smuggler in Freelonn's Chance Cube owes the Rebellion a favor from before the war. He hasn't been contacted because the logistics cell didn't know about him.",
+          "The Imperial escalation has a secondary motive — an Imperial officer is using 'Rebel activity' as cover to investigate the governor's corruption for his own political advancement. He'll fabricate evidence if he has to."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "source": "Edge of the Empire Core Rulebook",
+      "alias": "eote",
+      "pages": "370",
+      "scope": "Primary planet entry — full astronavigation data, background, government, population, terrain, cities, areas of interest, exports, imports, trade routes, casino sidebar, Imperial presence description",
+      "weight": "primary"
+    },
+    {
+      "source": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": "363",
+      "scope": "Brief paragraph — confirms haven for scoundrels/smugglers/gamblers, growing Imperial presence, criminal crackdowns, astrogation chokepoint between Entralla Route and Celanon Spur",
+      "weight": "secondary"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+// holocron-table-server — ENCOUNTERS E6's table server. THE THIRD DEPLOYABLE (ruling `encounters-e6-plumbing` §3 step 2,
+// ADDENDUM 1 P6.1, ADDENDUM 2 P8.2).
+//
+// A separate Workers project for the room server's reason: a Durable Object cannot live in the Pages project. It shares
+// NO code with room-server/ (R-E6W-2: kept apart from HOLOTABLE's). A `commercial` push does not ship it; its
+// `wrangler deploy` is JASON'S WORD each time (R-PBD1). `npx wrangler deploy --dry-run` is the ruled pre-deploy step.
+//
+// NO WORKERS LOGS, NO LOGPUSH (ADDENDUM 2, R-E6P-R4; D-524 b4): the upgrade URL carries a table code or id, and request
+// logging would record it per request. `observability` is therefore DISABLED here on purpose — the opposite of the room
+// server's setting — and test/deploy_shape.cjs F5 pins it.
+{
+  "name": "holocron-table-server",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-24",
+
+  "observability": { "enabled": false },
+
+  "durable_objects": {
+    "bindings": [
+      { "name": "TABLE", "class_name": "Table" },
+      { "name": "LISTING", "class_name": "Listing" },
+      { "name": "CODE", "class_name": "Code" }
+    ]
+  },
+
+  // The CURRENT lifecycle shape (`exports`), as the room server; SQLite-backed, immutable once provisioned. All three
+  // classes in this one change (R-E6P-R5).
+  "exports": {
+    "Table": { "type": "durable-object", "storage": "sqlite" },
+    "Listing": { "type": "durable-object", "storage": "sqlite" },
+    "Code": { "type": "durable-object", "storage": "sqlite" }
+  }
+}

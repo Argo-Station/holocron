@@ -1,0 +1,23 @@
+{
+  "mod": "respecialized",
+  "version": "eote-v2",
+  "line": "eote",
+  "attribution": "reSpecialized Project (community). Rebuilds specialization trees; consumed with credit.",
+  "dataset_version": "tagged release 6Aug2026 1637 (reSpecialized Project)",
+  "retrieved": "2026-08-25",
+  "consumption_note": "EotE v2 slice, consumed from the tagged release for NEW characters (ruling f100-m6-contracts R-M6K-3, R-M6K-22; card f100-m6-pack-card). eote-v1 stays on every character already stamped with it; a sheet never folds both versions (R-M6K-4).",
+  "counts": {
+    "specs": 46,
+    "added_specs": 11,
+    "overlay_talents": 286
+  },
+  "base_talents_reused": 168,
+  "label": "reSpecialized — Edge of the Empire",
+  "group": "Community",
+  "kind": "variant",
+  "counts_basis": "rewrites = specs - added_specs (a tree the overlay carries that the base already had) · adds = added_specs · talents = overlay_talents - base_talents_reused (the remainder are the base’s own talents reused inside rewritten trees, and are not this mod’s to claim)",
+  "overlays": [
+    "careers",
+    "signature_abilities"
+  ]
+}

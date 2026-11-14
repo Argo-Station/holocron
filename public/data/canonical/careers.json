@@ -1,0 +1,613 @@
+{
+  "schema": "career.schema.json",
+  "schema_version": 1,
+  "generated_from": "oggdude_merged.json",
+  "generated_by": "scripts/canonical/run_phase4.py (ADR 0003)",
+  "count": 21,
+  "careers": {
+    "ace": {
+      "id": "ace",
+      "_source_key": "THEACE",
+      "name": "Ace",
+      "description": "Aces are elite combat pilots and vehicle specialists who live and die by their reflexes. They serve as dogfighters, transport pilots, and gunners across every theater of the Galactic Civil War. Whether behind the stick of a starfighter or manning a turret on a capital ship, an Ace turns any vehicle into a weapon. Many come from military backgrounds; others learned to fly running blockades or racing through asteroid fields.",
+      "career_skills": [
+        "astrogation",
+        "cool",
+        "gunnery",
+        "mechanics",
+        "perception",
+        "piloting_planetary",
+        "piloting_space",
+        "ranged_light"
+      ],
+      "specializations": [
+        "beast_rider",
+        "driver",
+        "gunner",
+        "hotshot",
+        "pilot",
+        "rigger"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "bounty_hunter": {
+      "id": "bounty_hunter",
+      "_source_key": "BOUNT",
+      "name": "Bounty Hunter",
+      "description": "Bounty Hunters track, capture, or eliminate targets for pay. They operate under Imperial Peace-Keeping Certificates, Guild contracts, or independently. The profession demands expertise in tracking, combat, investigation, and intimidation. Most Bounty Hunters specialize. Some favor surveillance and ambush, others prefer direct confrontation. The Bounty Hunters' Guild provides structure and steady work; Independents trade that security for freedom of choice.",
+      "career_skills": [
+        "athletics",
+        "brawl",
+        "perception",
+        "piloting_planetary",
+        "piloting_space",
+        "ranged_heavy",
+        "streetwise",
+        "vigilance"
+      ],
+      "specializations": [
+        "assassin",
+        "gadgeteer",
+        "martial_artist",
+        "operator",
+        "skip_tracer",
+        "survivalist"
+      ],
+      "free_ranks": 4,
+      "starting_entitlements": [
+        {
+          "id": "ipkc",
+          "name": "Imperial Peace-Keeping Certificate",
+          "note": "Granted automatically; a player may decline it."
+        }
+      ],
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "clone_soldier": {
+      "id": "clone_soldier",
+      "_source_key": "CLONE",
+      "name": "Clone Soldier",
+      "description": "Clone Soldiers are products of the Kaminoan cloning program, bred and trained from birth for military service. Their initial conditioning is narrowly focused on combat operations, but the demands of a galactic war force rapid adaptation. Many Clone Soldiers develop distinct identities and specializations far beyond their original training parameters. They serve as the backbone of the Republic's military forces during the Clone Wars.",
+      "career_skills": [
+        "athletics",
+        "brawl",
+        "cool",
+        "discipline",
+        "medicine",
+        "ranged_light",
+        "ranged_heavy",
+        "vigilance"
+      ],
+      "specializations": [
+        "clone_officer",
+        "clone_pilot",
+        "clone_trooper",
+        "arc_trooper",
+        "clone_commander",
+        "clone_veteran"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude"
+    },
+    "colonist": {
+      "id": "colonist",
+      "_source_key": "COLO",
+      "name": "Colonist",
+      "description": "Colonists are the settlers, professionals, and entrepreneurs who build civilization on the frontier. They include doctors, merchants, politicians, scholars, and performers: anyone whose primary skills are social, intellectual, or economic rather than martial. On the Outer Rim, where Imperial law is thin and infrastructure thinner, a Colonist's knowledge and connections are survival tools as valuable as any blaster.",
+      "career_skills": [
+        "charm",
+        "core_worlds",
+        "deception",
+        "education",
+        "leadership",
+        "lore",
+        "negotiation",
+        "streetwise"
+      ],
+      "specializations": [
+        "doctor",
+        "entrepreneur",
+        "marshal",
+        "performer",
+        "politico",
+        "scholar"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "commander": {
+      "id": "commander",
+      "_source_key": "COMMANDER",
+      "name": "Commander",
+      "description": "Commanders lead from the front or from the command center, directing troops and coordinating operations. They are tacticians, strategists, and field leaders who inspire loyalty under fire and make decisions that determine whether people live or die. In the Rebellion, where resources are always scarce and retreat is often impossible, effective command is the difference between a successful operation and a massacre.",
+      "career_skills": [
+        "coercion",
+        "cool",
+        "discipline",
+        "leadership",
+        "perception",
+        "ranged_light",
+        "vigilance",
+        "warfare"
+      ],
+      "specializations": [
+        "commodore",
+        "figurehead",
+        "instructor",
+        "squadron_leader",
+        "strategist",
+        "tactician"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "consular": {
+      "id": "consular",
+      "_source_key": "CONSULAR",
+      "name": "Consular",
+      "description": "Consulars are Force-sensitives who channel their abilities through diplomacy, healing, and negotiation rather than combat. They serve as mediators, advisors, and scholars of the Force. In the old Jedi Order, Consulars were the negotiators sent to resolve conflicts before lightsabers were drawn. Those who survive in the post-Order galaxy apply those same skills in hiding, serving communities that never know what they truly are.",
+      "career_skills": [
+        "cool",
+        "discipline",
+        "education",
+        "leadership",
+        "lore",
+        "negotiation"
+      ],
+      "specializations": [
+        "arbiter",
+        "ascetic",
+        "healer",
+        "niman_disciple",
+        "sage",
+        "teacher"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "diplomat": {
+      "id": "diplomat",
+      "_source_key": "DIPLOMAT",
+      "name": "Diplomat",
+      "description": "Diplomats deal in politics, persuasion, and information. They broker deals, manage alliances, forge supply agreements, and maintain the fragile coalition of systems that supports the Rebellion. A skilled Diplomat can open doors that no amount of firepower can breach, turning enemies into assets and neutral parties into allies through negotiation, charm, or leverage.",
+      "career_skills": [
+        "charm",
+        "core_worlds",
+        "deception",
+        "leadership",
+        "lore",
+        "negotiation",
+        "outer_rim",
+        "xenology"
+      ],
+      "specializations": [
+        "advocate",
+        "agitator",
+        "ambassador",
+        "analyst",
+        "propagandist",
+        "quartermaster"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "engineer": {
+      "id": "engineer",
+      "_source_key": "ENGINEER",
+      "name": "Engineer",
+      "description": "Engineers keep machines running, defenses operational, and technology functioning under impossible conditions. They design, build, repair, and modify everything from weapon systems to communication arrays. In the Rebellion, where equipment is salvaged, repurposed, and held together with improvisation, Engineers are indispensable. They turn captured Imperial hardware into Rebel assets and keep aging ships combat-worthy.",
+      "career_skills": [
+        "athletics",
+        "computers",
+        "education",
+        "mechanics",
+        "perception",
+        "piloting_space",
+        "ranged_light",
+        "vigilance"
+      ],
+      "specializations": [
+        "droid_specialist",
+        "mechanic",
+        "saboteur",
+        "sapper",
+        "scientist",
+        "shipwright"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "explorer": {
+      "id": "explorer",
+      "_source_key": "EXPLORER",
+      "name": "Explorer",
+      "description": "Explorers chart unknown territory, navigate dangerous hyperspace routes, and survive in environments that would kill most beings. They are pathfinders, scouts, and wilderness experts who push beyond the edges of known space. Many work as independent trailblazers, selling navigational data or guiding expeditions. Others serve as forward scouts for military operations or corporate interests in uncharted regions.",
+      "career_skills": [
+        "astrogation",
+        "cool",
+        "lore",
+        "outer_rim",
+        "perception",
+        "piloting_space",
+        "survival",
+        "xenology"
+      ],
+      "specializations": [
+        "archaeologist",
+        "big_game_hunter",
+        "driver",
+        "fringer",
+        "scout",
+        "trader"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "guardian": {
+      "id": "guardian",
+      "_source_key": "GUARD",
+      "name": "Guardian",
+      "description": "Guardians are Force-sensitives who dedicate their abilities to the protection of others. They combine martial training with the Force to serve as defenders, peacekeepers, and warriors of principle. Where Consulars negotiate, Guardians stand between the innocent and those who would harm them. Their combat style integrates lightsaber technique with Force-enhanced physical abilities.",
+      "career_skills": [
+        "brawl",
+        "cool",
+        "discipline",
+        "melee",
+        "resilience",
+        "vigilance"
+      ],
+      "specializations": [
+        "armorer",
+        "peacekeeper",
+        "protector",
+        "soresu_defender",
+        "warden",
+        "warleader"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "hired_gun": {
+      "id": "hired_gun",
+      "_source_key": "HIREDGUN",
+      "name": "Hired Gun",
+      "description": "Hired Guns are professional combatants who sell their martial skills to the highest bidder. They work as bodyguards, mercenaries, enforcers, and soldiers of fortune across the Outer Rim. Some are former military; others learned to fight in gladiatorial pits, street gangs, or planetary militias. What they share is an aptitude for violence and a practical understanding of its application.",
+      "career_skills": [
+        "athletics",
+        "brawl",
+        "discipline",
+        "melee",
+        "piloting_planetary",
+        "ranged_light",
+        "resilience",
+        "vigilance"
+      ],
+      "specializations": [
+        "bodyguard",
+        "demolitionist",
+        "enforcer",
+        "heavy",
+        "marauder",
+        "mercenary_soldier"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "jedi": {
+      "id": "jedi",
+      "_source_key": "JEDI",
+      "name": "Jedi",
+      "description": "Jedi are members of the ancient monastic order devoted to the light side of the Force. Their training encompasses lightsaber combat, Force abilities, diplomacy, and scholarly study. During the Clone Wars, Jedi serve as generals and peacekeepers for the Galactic Republic. Their Order's traditions span thousands of years, emphasizing selflessness, discipline, and service to the greater good of the galaxy.",
+      "career_skills": [
+        "athletics",
+        "cool",
+        "discipline",
+        "lightsaber",
+        "lore",
+        "piloting_space"
+      ],
+      "specializations": [
+        "knight",
+        "padawan",
+        "general",
+        "master"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude"
+    },
+    "mystic": {
+      "id": "mystic",
+      "_source_key": "MYSTIC",
+      "name": "Mystic",
+      "description": "Mystics engage with the Force through intuition, vision, and esoteric knowledge rather than martial discipline. They include seers, prophets, Force-sensitive advisors, and students of arcane traditions outside the Jedi framework. Some serve as spiritual guides to communities that still quietly revere the Force. Others pursue forbidden knowledge, walking the boundary between the light and dark sides.",
+      "career_skills": [
+        "charm",
+        "coercion",
+        "lore",
+        "outer_rim",
+        "perception",
+        "vigilance"
+      ],
+      "specializations": [
+        "advisor",
+        "alchemist",
+        "magus",
+        "makashi_duelist",
+        "prophet",
+        "seer"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "seeker": {
+      "id": "seeker",
+      "_source_key": "SEEKER",
+      "name": "Seeker",
+      "description": "Seekers are Force-sensitives drawn to the wild places of the galaxy, following the Force into uncharted territory. They combine survival skills with Force sensitivity, operating as trackers, hunters, and hermits in the wilderness. Many are self-taught, having discovered their abilities far from any formal training. They tend to develop an instinctive, primal connection to the Force shaped by their environments.",
+      "career_skills": [
+        "piloting_planetary",
+        "piloting_space",
+        "ranged_heavy",
+        "survival",
+        "vigilance",
+        "xenology"
+      ],
+      "specializations": [
+        "ataru_striker",
+        "executioner",
+        "hermit",
+        "hunter",
+        "navigator",
+        "pathfinder"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "sentinel": {
+      "id": "sentinel",
+      "_source_key": "SENTINEL",
+      "name": "Sentinel",
+      "description": "Sentinels are Force-sensitives who blend Force abilities with practical, technical skills. They operate in the shadows: investigating, infiltrating, and neutralizing threats through a combination of stealth, technology, and the Force. In the old Order, Sentinels hunted criminals and dark side users in the galaxy's underworld. The survivors apply those same methods against the Empire.",
+      "career_skills": [
+        "computers",
+        "core_worlds",
+        "deception",
+        "perception",
+        "skulduggery",
+        "stealth"
+      ],
+      "specializations": [
+        "artisan",
+        "investigator",
+        "racer",
+        "sentry",
+        "shadow",
+        "shien_expert"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "smuggler": {
+      "id": "smuggler",
+      "_source_key": "SMUG",
+      "name": "Smuggler",
+      "description": "Smugglers move cargo across borders that governments prefer to keep closed. They are pilots, con artists, and underworld operators who navigate Imperial blockades, customs inspections, and criminal territories as part of daily business. Many operate under debt to crime lords who hold markers on their ships. On the Outer Rim, where Imperial tariffs and trade restrictions cut off essential supplies, Smugglers are often the only lifeline remote communities have.",
+      "career_skills": [
+        "coordination",
+        "deception",
+        "perception",
+        "piloting_space",
+        "skulduggery",
+        "streetwise",
+        "underworld",
+        "vigilance"
+      ],
+      "specializations": [
+        "charmer",
+        "gambler",
+        "gunslinger",
+        "pilot",
+        "scoundrel",
+        "thief"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "soldier": {
+      "id": "soldier",
+      "_source_key": "SOLDIER",
+      "name": "Soldier",
+      "description": "Soldiers are professional fighters who serve in organized military forces. They take up arms for a cause, for pay, or because fighting is the only trade they know. In the Rebellion, Soldiers are the front-line troops who hold positions, execute assaults, and absorb casualties so that others can complete the mission. Their training covers infantry combat, heavy weapons, survival, and battlefield medicine.",
+      "career_skills": [
+        "athletics",
+        "brawl",
+        "medicine",
+        "melee",
+        "ranged_heavy",
+        "ranged_light",
+        "survival",
+        "warfare"
+      ],
+      "specializations": [
+        "commando",
+        "heavy",
+        "medic",
+        "sharpshooter",
+        "trailblazer",
+        "vanguard"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "spy": {
+      "id": "spy",
+      "_source_key": "SPY",
+      "name": "Spy",
+      "description": "Spies operate in the space between information and action. They gather intelligence, run counter-intelligence operations, conduct sabotage, and manage covert networks. A Spy's work happens before the battle: planting operatives, intercepting communications, turning enemy assets, and ensuring that commanders have the information they need to act. In the Rebellion, Spy networks are often the only advance warning of Imperial operations.",
+      "career_skills": [
+        "computers",
+        "cool",
+        "coordination",
+        "deception",
+        "perception",
+        "skulduggery",
+        "stealth",
+        "warfare"
+      ],
+      "specializations": [
+        "courier",
+        "infiltrator",
+        "interrogator",
+        "scout",
+        "sleeper_agent",
+        "slicer"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude"
+    },
+    "technician": {
+      "id": "technician",
+      "_source_key": "TECHNICIAN",
+      "name": "Technician",
+      "description": "Technicians are skilled specialists who understand how things work and how to make them work better. They are mechanics, slicers, demolitions experts, and tinkerers who keep equipment operational and modify it beyond factory specifications. On the Outer Rim, where replacement parts are scarce and new equipment is a luxury, a Technician who can fabricate solutions from salvage is worth their weight in credits.",
+      "career_skills": [
+        "astrogation",
+        "computers",
+        "coordination",
+        "discipline",
+        "mechanics",
+        "outer_rim",
+        "perception",
+        "piloting_planetary"
+      ],
+      "specializations": [
+        "cyber_tech",
+        "droid_tech",
+        "mechanic",
+        "modder",
+        "outlaw_tech",
+        "slicer"
+      ],
+      "free_ranks": 4,
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude"
+    },
+    "warrior": {
+      "id": "warrior",
+      "_source_key": "WAR",
+      "name": "Warrior",
+      "description": "Warriors are Force-sensitives who channel their abilities primarily through combat. They are aggressive, direct, and physically formidable, favoring martial approaches to problems. Their Force use enhances their natural fighting abilities: speed, strength, resilience, and battlefield awareness. Warriors range from disciplined duelists to berserkers who channel raw emotion into devastating attacks.",
+      "career_skills": [
+        "athletics",
+        "brawl",
+        "cool",
+        "melee",
+        "perception",
+        "survival"
+      ],
+      "specializations": [
+        "aggressor",
+        "colossus",
+        "juyo_berserker",
+        "shii_cho_knight",
+        "starfighter_ace",
+        "steel_hand_adept"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude"
+    },
+    "tor_sith": {
+      "id": "tor_sith",
+      "name": "Sith",
+      "career_skills": [
+        "coercion",
+        "discipline",
+        "lore",
+        "lightsaber",
+        "resilience",
+        "stealth"
+      ],
+      "specializations": [
+        "tor_acolyte",
+        "tor_blademaster",
+        "tor_lord",
+        "tor_sorcerer"
+      ],
+      "free_ranks": 3,
+      "force_rating": 1,
+      "sources": [
+        "the_old_republic_era_sourcebook"
+      ],
+      "_provenance": "community",
+      "description": "The Sith are Force users who have committed to the dark side rather than merely brushed against it. Where a Jedi is trained to refuse what power offers, a Sith is trained to take it and account for the cost later. The career suits a character whose ambition is meant to drive play, and it asks a table to be ready for one.",
+      "_dataset": "tor"
+    }
+  }
+}

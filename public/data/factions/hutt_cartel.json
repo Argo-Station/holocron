@@ -1,0 +1,372 @@
+{
+  "id": "hutt_cartel",
+  "name": "The Hutts",
+  "type": "criminal_syndicate",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion",
+    "new_republic"
+  ],
+  "overview": "",
+  "short_descriptor": "Transactional at every level. Loyalty is purchased, not earned — which means it can be purchased away. The danger isn't their soldiers. It's their memory. Hutts hold debts for decades.",
+  "witness_statement": {
+    "text": "Took a cargo job on Nar Shaddaa. Straightforward haul, decent pay. Didn't read the contract closely enough — there was a 'service continuity clause' buried in the fine print. Three years later I'm still hauling for them, and every time I try to settle up, the number's bigger than last time. That's how they get you. Not with blasters. With math.",
+    "source": "Cargo handler, Nar Shaddaa vertical freight district",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "history": [
+    {
+      "heading": "EARLY EXPANSION",
+      "text": "The Hutts were among the earliest interstellar explorers and colonists in the galaxy. Expanding outward from their homeworld of Varl, their colonies thrived thanks to their own cunning, determination, and the enslavement of species they discovered in their path. Their first encounters with humans were in the ancient Tion Cluster, and their first suitable rival was Xim the Despot."
+    },
+    {
+      "heading": "THE FALL OF VARL",
+      "text": ""
+    },
+    {
+      "heading": "EGO AND INFLUENCE",
+      "text": ""
+    },
+    {
+      "heading": "HUTT SPACE",
+      "text": ""
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "KAJIDIC STRUCTURE",
+      "text": ""
+    },
+    {
+      "heading": "WEALTH AND POWER",
+      "text": ""
+    },
+    {
+      "heading": "BUSINESS MODEL",
+      "text": ""
+    },
+    {
+      "heading": "REVENGE",
+      "text": ""
+    },
+    {
+      "heading": "COORDINATION",
+      "text": ""
+    }
+  ],
+  "territory": [
+    "Hutt Space (large region along Mid Rim / Outer Rim border in the Slice)",
+    "Nal Hutta (adopted homeworld, Y'Toub system)",
+    "Nar Shaddaa (the Smugglers' Moon, city-moon of Nal Hutta)",
+    "Varl (original homeworld, sacred, protected from outsiders)",
+    "Boonta (closely located inhabited systems in center of Hutt Space, closed to outsiders, protected by Hutt warships)",
+    "Sleheyron (powerful trade world deeply entrenched in Hutt intrigue)",
+    "Klatooine (homeworld of Klatooinians, conquered by Hutts prior to Republic)",
+    "Toydaria (homeworld of Toydarians, long-time Hutt servants, exports foodstuffs and resorts for Hutts)",
+    "Ylesia (glitterstim spice mining and processing, uses slave labor)",
+    "Tatooine (dominant criminal presence via Jabba, despite nominal Imperial control)",
+    "Kwenn Space Station (Coreward edge of Hutt Space, Royal K Casino)",
+    "Kleeva / Boonda's Moon (droid factory, one of Hutts' best-recognized legitimate businesses)",
+    "Cyax (star system considered taboo and sacred by the Hutts, kept off official charts)",
+    "Sriluur (homeworld of the Weequay, favorite meeting place for smugglers)"
+  ],
+  "prominent_figures": [
+    {
+      "name": "Jabba Desilijic Tiure (Jabba the Hutt)",
+      "role": "Preeminent crime lord, de facto leader who unified kajidic cooperation",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "VENERABLE_HUTT",
+      "notes": "Worked hard to convince Hutts to cooperate against 'lesser races' rather than compete with each other. Dominant force on Tatooine. Avoids costly conflicts, preferring a live-and-let-live philosophy. Keeps even Black Sun out of his business through concessions and favors.",
+      "network_assessment": "Jabba runs Tatooine and most of the Outer Rim spice lanes. He doesn't need to threaten you — his patience is the threat. Cross him and he'll wait years for the right moment to make an example of you.",
+      "wants": "Consolidation of kajidic cooperation under his influence; expansion of Outer Rim trade monopolies without provoking Imperial retaliation.",
+      "secret": "His 'live-and-let-live' philosophy with Black Sun is a calculated stall — he's mapping Xizor's supply chain vulnerabilities for eventual exploitation.",
+      "behavior": {
+        "under_pressure": "Becomes quieter, not louder. Retreats to his palace and lets intermediaries absorb the heat while he reassesses.",
+        "when_losing": "Escalates through proxies — bounty hunters, rival gangs, economic sabotage — never exposing himself directly.",
+        "loyalty": "Loyalty is transactional. He rewards reliable service generously and punishes betrayal with theatrical cruelty. The spectacle is the point.",
+        "tells": "When Jabba stops eating during a meeting, the conversation has become serious. When he laughs, someone is about to have a very bad day."
+      },
+      "useful_to_players": [
+        "His preference for cooperation over conflict means he can be negotiated with if you bring something he values",
+        "His grudge list is long but prioritized — if you're low on it, you have time to make yourself useful before it catches up",
+        "His network of informants is vast but slow to relay — act fast after crossing him and you can create distance"
+      ],
+      "hooks": [
+        "Last I heard, Jabba's been buying up water rights on three systems rimward of Tatooine. Nobody buys water unless they're planning to sell it back at a markup.",
+        "Word is one of Jabba's favorite smugglers hasn't checked in for two standard weeks. The palace is quiet about it, which means someone's getting a visit soon."
+      ]
+    },
+    {
+      "name": "Durga",
+      "role": "Black Sun Vigo and Hutt intermediary",
+      "suggested_tier": "rival",
+      "notes": "",
+      "network_assessment": "Durga plays both sides of the Hutt-Black Sun line and thinks he's clever for it. He is clever — but everyone knows he's doing it, which limits how far the cleverness goes.",
+      "wants": "Maximize personal leverage by being indispensable to both Black Sun and the Besadii kajidic simultaneously.",
+      "secret": "He feeds intelligence in both directions — Hutt operations to Black Sun, Black Sun operations to the Hutts — but edits what he shares to keep both sides slightly misinformed.",
+      "behavior": {
+        "under_pressure": "Deflects blame onto subordinates and floods both organizations with conflicting reports to buy time.",
+        "when_losing": "Switches allegiance to whichever side is winning, presenting himself as a loyal agent who was working from the inside all along.",
+        "loyalty": "Loyal exclusively to his own position. Will betray either organization the moment self-preservation requires it.",
+        "tells": "When Durga starts volunteering information unprompted, he's building a narrative to cover something he's already done."
+      },
+      "useful_to_players": [
+        "His double-agent position means he'll deal with anyone who offers leverage over either the Hutts or Black Sun",
+        "He's a known quantity to both organizations — neither fully trusts him, which means his promises carry less enforcement weight",
+        "Information sold to Durga reaches two syndicates, which can be exploited if you want something widely known without being the source"
+      ],
+      "hooks": [
+        "Durga's been hiring Klatooinian muscle outside Trade Guild channels. Off-book recruitment usually means he's planning something his bosses don't know about.",
+        "Somebody on Nar Shaddaa is moving unmarked cargo through Durga's docking bays — but Durga's people are looking the other way. That's not free. That's a favor being called in."
+      ]
+    },
+    {
+      "name": "Gormo Vosadii Grasso",
+      "role": "Owner of Gus Treta Inner System Market Station (Corellian system)",
+      "suggested_tier": "rival",
+      "stat_block_ref": "GORMO_VOSADII_GRASSO",
+      "notes": "",
+      "network_assessment": "Gormo is a disgraced Hutt running a legitimate market station in the Corellian system. He's hungry for a second act and that makes him approachable — but also unpredictable when opportunity presents itself.",
+      "wants": "A scheme big enough to restore his standing within the Vosadii kajidic. Legitimate profits aren't enough — he needs a win that matters to the clans.",
+      "secret": "He's been quietly surveying spice trade routes through the Corellian system, testing whether he can rebuild what he lost without the kajidic's knowledge or permission.",
+      "behavior": {
+        "under_pressure": "Falls back on his legitimate business persona — cooperative, transparent, eager to help authorities. Uses respectability as a shield.",
+        "when_losing": "Becomes desperate and risk-tolerant. A disgraced Hutt with nothing left to lose will take gambles that a comfortable one never would.",
+        "loyalty": "Genuinely loyal to the Vosadii kajidic despite his disgrace. Restoration of clan standing is his primary motivator.",
+        "tells": "Overly generous hospitality signals he wants something. The nicer the treatment at Gus Treta, the bigger the ask coming."
+      },
+      "useful_to_players": [
+        "His desperation for a comeback makes him willing to partner with outsiders that other Hutts would dismiss",
+        "Gus Treta Market Station is a legitimate operation — useful as neutral ground or a safe harbor in the Corellian system",
+        "His reputation for trustworthiness is genuine by Hutt standards, making him a rare reliable contact in Hutt networks"
+      ],
+      "hooks": [
+        "Gormo's been buying rounds for freighter captains at Gus Treta and asking a lot of questions about unpatrolled hyperspace exits. That's reconnaissance, not hospitality.",
+        "The Vosadii clan hasn't contacted Gormo in six standard months. Either they've forgotten about him or they're about to remember."
+      ]
+    },
+    {
+      "name": "Prall",
+      "role": "CEO of PharmCorp, shadow ruler of Nubia",
+      "suggested_tier": "rival",
+      "notes": "",
+      "network_assessment": "Prall owns Nubia's government through PharmCorp and nobody outside the system knows it. He's the most dangerous kind of Hutt — the kind that doesn't look like a Hutt from the outside.",
+      "wants": "Continued invisible control of Nubia's economy and government. Expansion of PharmCorp into adjacent systems without attracting Imperial regulatory attention.",
+      "secret": "The entire corporate cabal running Nubia answers to him, but the human executives believe they're partners, not puppets. If that illusion breaks, so does his power base.",
+      "behavior": {
+        "under_pressure": "Retreats further behind layers of corporate deniability. Sacrifices executives and intermediaries to absorb scrutiny.",
+        "when_losing": "Activates contingency plans built into PharmCorp's corporate charter — poison pills, asset transfers, identity resets for key personnel.",
+        "loyalty": "Loyal to his own infrastructure. The system he built is the thing he protects, not the people inside it.",
+        "tells": "When Prall invites someone to the Nubian Palace resort, it's either a recruitment pitch or a farewell dinner. The menu is the same either way."
+      },
+      "useful_to_players": [
+        "His obsession with secrecy means he'll negotiate generously with anyone who stumbles onto his true role — buying silence is cheaper than violence",
+        "PharmCorp's legitimate supply chains can be used to move things through Nubian space without attracting attention",
+        "His human executives don't know they work for a Hutt — that's leverage if you can prove the connection"
+      ],
+      "hooks": [
+        "PharmCorp just won an exclusive Imperial contract for bacta distribution in three Mid Rim sectors. That's a lot of credits flowing through one Hutt's lap.",
+        "A PharmCorp executive was found dead on Nubia last week — officially a speeder accident. The replacement was hired the same day. That's not grief. That's inventory management."
+      ]
+    },
+    {
+      "name": "Tyber Zann",
+      "role": "Founder of the Zann Consortium (former Hutt protege)",
+      "suggested_tier": "nemesis",
+      "notes": "",
+      "network_assessment": "Tyber Zann burned his bridge with Jabba, survived Kessel, and built a rival syndicate from nothing. He's smart, ruthless, and carries a grudge. Treat him as hostile to anything connected to the Hutts.",
+      "wants": "Expand the Zann Consortium into territories currently controlled by the Hutts. Humiliate Jabba specifically.",
+      "secret": "He maintained contacts inside the Kessel mines after his escape — he has ongoing intelligence on spice production that neither the Hutts nor the Pykes know about.",
+      "behavior": {
+        "under_pressure": "Aggressive and improvisational. His survival instinct was forged in the spice mines, and he fights hardest when cornered.",
+        "when_losing": "Cuts losses ruthlessly — abandons allies, burns assets, and relocates operations faster than most syndicates can track.",
+        "loyalty": "Loyal to the Consortium as an extension of himself. Subordinates are tools; useful ones are maintained, broken ones are discarded.",
+        "tells": "When Zann starts making generous offers to former Hutt operatives, he's about to move against a Hutt operation in that sector."
+      },
+      "useful_to_players": [
+        "His hatred of the Hutts makes him a natural ally for anyone working against Hutt interests — the enemy of your enemy",
+        "The Consortium is newer and less established than Hutt networks, meaning there are gaps in its operations that outsiders can exploit or fill",
+        "His willingness to burn bridges means deals with Zann have an expiration date — useful for short-term arrangements"
+      ],
+      "hooks": [
+        "Zann's been recruiting ex-Hutt smugglers along the Corellian Run. That's not expansion — that's targeted poaching. He's mapping Jabba's supply lines.",
+        "The Consortium just set up a front company on Kwenn Station, right on the edge of Hutt Space. That's either very confident or very stupid."
+      ]
+    }
+  ],
+  "enemies": [
+    "Galactic Empire (nominally controls Hutt Space; occasional shows of force, but largely tolerates Hutt autonomy)",
+    "Alliance to Restore the Republic (prefers not to deal with Hutts due to untrustworthiness; opposes slaving and spice trafficking)",
+    "Black Sun (respects Hutts' territorial hold but competes for underworld influence; delicate balance maintained)",
+    "Zann Consortium (founded by Jabba's former protege who betrayed him; growing rival power)",
+    "Hidden Dagger Pirates (fighting over the Void in Corellia's Pirate's Shadow)"
+  ],
+  "allies": [
+    "Klatooinians (conquered species; Klatooinian Trade Guild operates under Hutt influence)",
+    "Toydarians (long-time servants of the Hutts, export foodstuffs and provide resorts)",
+    "Weequay (harsh, resilient species who often serve as Hutt enforcers)",
+    "Gamorreans (employed as palace guards and enforcers by Hutts)",
+    "Bounty Hunters Guild (Hutts are major employers of bounty hunters for enforcement and revenge)"
+  ],
+  "motivations": {
+    "primary": "Profit and economic dominance",
+    "secondary": [
+      "Clan supremacy through inter-kajidic economic competition",
+      "Preservation of species-wide superiority complex and godlike self-image",
+      "Revenge as cultural imperative — legendary patience, elaborate punishment",
+      "Maintaining semi-autonomous control of Hutt Space free from Imperial interference",
+      "Expanding territorial and economic influence beyond Hutt Space into the broader Outer Rim"
+    ],
+    "notes": "All motivations flow from the Hutts' core belief that they are superior to all other species. Profit is the primary driver, but ego and clan prestige are inseparable from it. The phrase 'Someone's got to have it, why not us?' captures their philosophy. Revenge is never abandoned — a Hutt will spend exorbitant resources to punish a slight, because allowing one to pass would undermine the species' aura of invincibility."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain Hutt Space as a semi-autonomous region beyond effective Imperial control",
+      "Ensure no single rival organization (Black Sun, Zann Consortium) can challenge Hutt economic supremacy in the Outer Rim",
+      "Expand kajidic influence into Mid Rim and Expansion Region markets through front companies and bribery",
+      "Preserve the Ruling Council's authority over all 48 kajidics to prevent destructive inter-clan warfare"
+    ],
+    "operational": [
+      "Control product flow — spice, weapons, slaves, contraband — and take a percentage of every transaction",
+      "Keep Imperial officials bribed and compliant along key trade routes",
+      "Recruit and retain reliable non-Hutt operatives (bounty hunters, smugglers, enforcers) through debt and compensation",
+      "Eliminate or absorb smaller criminal operations that compete with kajidic enterprises"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "debt_leverage",
+      "bribery",
+      "hired_muscle",
+      "assassination",
+      "blackmail",
+      "negotiation",
+      "legal_pressure",
+      "information_control"
+    ],
+    "avoided": [
+      "Direct military confrontation with the Empire — Hutts lack the firepower and avoid provoking Imperial retaliation",
+      "Killing other Hutts — inter-kajidic disputes are settled through economic warfare, Ruling Council arbitration, or proxy conflict, almost never through direct assassination of a Hutt",
+      "Open warfare between kajidics — destructive and bad for business; Jabba's cooperation doctrine discourages it"
+    ],
+    "notes": "Hutts prefer to control people through debt, indentured servitude, and economic dependency rather than overt force. Legitimate businesses serve as fronts. Piracy is conducted through proxies. Slavery is both an economic engine and a tool of control. Non-Hutt underlings are expendable and can be assassinated freely; Hutts themselves are almost never targeted directly."
+  },
+  "strengths": [
+    "Impregnable core territory — Bootana Hutta (core systems of Hutt Space) is closed to outsiders and protected by Hutt warships",
+    "Centuries of institutional memory — Hutts live for hundreds of years, accumulating knowledge, grudges, and contacts across generations",
+    "Galaxy-spanning criminal networks — kajidic operations touch every major trade route and most Outer Rim worlds",
+    "Economic indispensability — Hutts serve as middlemen, brokers, and market-makers; eliminating them would disrupt galactic commerce",
+    "Mutual deterrence with the Empire — the cost of conquering Hutt Space exceeds the benefit, creating a stable detente"
+  ],
+  "weaknesses": [
+    "The 48-clan Grand Council is structurally fractious; Desilijic and Besadii kajidics compete constantly, and consensus decisions take weeks or months.",
+    "Individual Hutt ego and greed routinely override collective strategic interests, producing predictable blind spots around personal vanity and revenge.",
+    "Hutt warships can defend Bootana Hutta but lack the fleet strength to project power against a sustained Imperial military campaign.",
+    "Durga Besadii's simultaneous role as Hutt kajidic member and Black Sun Vigo creates a structural intelligence leak between the two organizations.",
+    "Hutt economic power depends on open hyperlanes; any sustained blockade or route disruption collapses the revenue model that funds their autonomy.",
+    "ISB maintains informant networks throughout Hutt Space despite nominal Hutt autonomy, exploiting the large non-Hutt workforce that has no loyalty to the kajidics."
+  ],
+  "behavior_under_threat": {
+    "low": "Minor irritant (petty theft, disrespectful underling). Deploy bounty hunters or local enforcers. Make an example through elaborate punishment to deter future offenses.",
+    "medium": "Credible economic threat from a rival (competing operation, trade route encroachment). Bring the matter before the Ruling Council for sanctions. Undercut the rival's supply chain. Bribe their allies away.",
+    "high": "Imperial crackdown or assassination attempt on a Hutt. Offer bribes and concessions to Imperial officials. Deploy covert poisoning or flip the attacker's underlings. Activate deep-cover informants.",
+    "critical": "Full military assault on Hutt territory or coordinated multi-kajidic betrayal. Sacrifice outlying assets to buy time. Retreat to Bootana Hutta's fortified core. Mobilize all kajidic warships. In the case of slave revolt — relentless, disproportionate pursuit regardless of cost."
+  },
+  "alert_escalation": {
+    "communication_method": "informant",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "On-site hired muscle (Gamorrean guards, Weequay enforcers, local thugs)",
+      "Majordomo or site manager (non-Hutt lieutenant running day-to-day operations)",
+      "The Hutt overseeing this particular operation (typically remote, on a palace barge or estate)",
+      "Kajidic elders on Nal Hutta (only for matters affecting the clan's standing or Ruling Council politics)"
+    ],
+    "notes": "Escalation is slow by design — each layer of non-Hutt personnel is expected to handle problems without bothering the Hutt above them. Majordomos who escalate too often are replaced. Majordomos who fail to escalate a genuine crisis are fed to the rancor. This creates a culture where mid-level operatives try to solve problems quietly, which means small issues can fester into large ones before the Hutt in charge learns of them."
+  },
+  "tension_patterns": [
+    "Hutt operations routinely underreport revenue to the overseeing kajidic, creating a persistent embezzlement layer between site managers and clan leadership.",
+    "Multiple kajidics frequently assign representatives to the same district with contradictory directives, producing jurisdictional conflicts at the operational level.",
+    "Rival kajidics bribe the same Imperial liaisons that the operating clan relies on, turning shared corruption networks into intelligence vulnerabilities.",
+    "Black Sun recruitment of Hutt majordomos through Besadii intermediaries is a recurring pattern, exploiting the gap between non-Hutt compensation and the loyalty expected of them.",
+    "Enslaved workforces accumulate operational knowledge over time that their overseers do not account for, creating an unmonitored intelligence risk within Hutt facilities."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "fortified",
+    "economic": "dominant",
+    "command": "fortified",
+    "informational": "skeleton",
+    "military": "skeleton",
+    "hidden": "patrol",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "high",
+    "weapon": "medium",
+    "person": "high",
+    "artifact": "low",
+    "technology": "low",
+    "notes": "Contraband (spice, slaves, illegal goods) is the lifeblood of Hutt operations. Persons of interest — escaped slaves, debtors, bounty targets, useful specialists — are always valuable. Data matters when it involves secret hyperspace routes, rival kajidic operations, or Imperial patrol schedules. Weapons are a trade good more than a strategic interest. Artifacts only matter if connected to Varl or Cyax. Technology is acquired through purchase, not pursuit."
+  },
+  "ally_factions": [
+    "bounty_hunters_guild"
+  ],
+  "enemy_factions": [
+    "imperial_military",
+    "imperial_security_bureau",
+    "rebel_alliance",
+    "black_sun",
+    "zann_consortium"
+  ],
+  "relationship_notes": {
+    "imperial_military": "Nominally subject to Imperial authority but effectively autonomous in Hutt Space through decades of bribery and mutual deterrence; occasional Imperial shows of force are tolerated as the cost of doing business.",
+    "imperial_security_bureau": "ISB maintains informants throughout Hutt Space and is one of the few Imperial agencies the Hutts genuinely respect as a threat; the Hutts counter with their own intelligence networks and lavish bribes.",
+    "rebel_alliance": "The Rebellion opposes Hutt slaving and spice trafficking on principle, but individual Rebel cells occasionally deal with Hutts when desperate for supplies or passage; the Hutts find them unreliable and idealistic.",
+    "black_sun": "A delicate balance of competition and coexistence; Black Sun respects Hutt territorial control while competing for underworld influence elsewhere; Durga Besadii serves as the dangerous bridge between the two organizations.",
+    "zann_consortium": "Pure enmity — Tyber Zann betrayed Jabba personally, and the Hutts view the Consortium as an upstart operation that must eventually be crushed or absorbed.",
+    "bounty_hunters_guild": "The Hutts are among the Guild's most prolific employers; this is a transactional relationship built on mutual profit, not loyalty."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "moderate",
+    "mid_rim": "significant",
+    "outer_rim": "significant",
+    "hutt_space": "dominant",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "source_refs": [
+    "EotE Core pp.9 (Beware the Powerful Hutts overview)",
+    "EotE Core pp.358-360 (Hutt Space gazetteer, Hutt Manipulation, notable locations)",
+    "EotE Core pp.369 (Nal Hutta planetary profile, Smugglers' Moon sidebar)",
+    "EotE Core pp.372 (Tatooine - Hutts as true masters, Jabba dominant)",
+    "EotE Core pp.384 (Durga the Hutt as Black Sun Vigo)",
+    "EotE Core pp.386-387 (The Hutts faction entry: society, organization, activities, dealing with Hutts)",
+    "EotE Core pp.389 (Zann Consortium - Tyber Zann as former Jabba protege)",
+    "AoR Core pp.291 (Hutts especially resistant to Force mind tricks)",
+    "AoR Core pp.424-426 (Hutt Crime Lord nemesis NPC profile, galactic underworld overview)",
+    "Suns of Fortune (Corellia) pp.50 (The Void - Hutt Cartel vs Hidden Dagger pirates)",
+    "Suns of Fortune (Corellia) pp.50-51 (Gormo Vosadii Grasso NPC, Gus Treta Market Station)",
+    "Suns of Fortune (Corellia) pp.64-65 (Prall the Hutt, PharmCorp, shadow ruler of Nubia)",
+    "Lords of Nal Hutta (Hutt Ruling Council, kajidic structure, Bootana Hutta, clan profiles)"
+  ],
+  "source_material_notes": "Lords of Nal Hutta is the definitive sourcebook for Hutt organizational structure, kajidic politics, the Ruling Council, and Hutt Space geography. EotE Core pp.386-387 provides the best concise faction overview. Suns of Fortune covers Hutt operations in the Corellian sector specifically. AoR Core pp.424-426 has the best Hutt Crime Lord NPC profile and underworld context.",
+  "field_sources": {
+    "motivations": "Lords of Nal Hutta (kajidic competition, cultural superiority); EotE Core pp.386-387 (revenge culture, economic dominance)",
+    "goals": "Lords of Nal Hutta (Ruling Council authority, kajidic coordination); EotE Core pp.358-360 (territorial expansion, trade route control)",
+    "methods": "EotE Core pp.386-387 (debt, slavery, revenge, legitimate fronts); Lords of Nal Hutta (proxy warfare, assassination rules, Ruling Council arbitration)",
+    "strengths": "Lords of Nal Hutta (Bootana Hutta fortress territory, warships, institutional memory); EotE Core pp.386-387 (economic indispensability, galaxy-spanning networks)",
+    "weaknesses": "Lords of Nal Hutta (inter-kajidic rivalry, Desilijic vs Besadii, Grand Council dysfunction); EotE Core pp.384 (Durga as Black Sun leak); inferred from faction behavior (Imperial intelligence penetration)",
+    "behavior_under_threat": "EotE Core pp.386-387 (bounty hunters for enforcement, elaborate revenge); Lords of Nal Hutta (Ruling Council sanctions, Bootana Hutta retreat); inferred from faction behavior (escalation ladder)",
+    "tension_patterns": "Inferred from Lords of Nal Hutta kajidic politics + EotE Core faction behavior patterns",
+    "regional_presence": "EotE Core pp.358-360 (Hutt Space boundaries, Outer Rim influence); Suns of Fortune (Corellian sector presence); Lords of Nal Hutta (core vs peripheral territory)",
+    "mcguffin_interest": "Inferred from motivations + methods; EotE Core pp.386-387 (spice, slaves, weapons as trade goods); Lords of Nal Hutta (Varl/Cyax sacred sites)",
+    "alert_escalation": "Inferred from Lords of Nal Hutta organizational hierarchy (Hutt > majordomo > enforcers) and EotE Core pp.386-387 (kajidic operational structure)",
+    "presence_by_location_type": "Inferred from faction methods — dominant at economic sites, fortified at transit chokepoints, skeleton at military/informational (outsourced to hired muscle and informants)"
+  }
+}

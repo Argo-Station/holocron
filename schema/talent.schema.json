@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/talent.schema.json",
+  "title": "Talent",
+  "description": "Canonical, app-owned talent record. Ingested ONCE from oggdude_merged.json `talents.items` (583 entries). Captures the display-critical core (what every consumer reads today: Name/Description/Ranked/ActivationValue + ForceTalent/Conflict), plus the talent's machine-applied effects as DATA (ruling f100-effects-census §6, f100-effects-grammar-contracts R-FEGC-1/2): `effects[]` (charbuild-common $defs/effect — a talent's effect on a character-sheet number) and `pool_mods[]` (item-common $defs/pool_mod_entry, reused verbatim — a talent's dice). Both OPTIONAL; a talent without them is display-text only. Replaces the byKey talents map in normalizeOggdude and GM refData.talents.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "description",
+    "ranked",
+    "activation"
+  ],
+  "$comment": "INGEST CONTRACT — Ranked: 'true'|'false'|ABSENT -> bool, default false (30/583 absent). ActivationValue (583/583) maps taPassive->passive, taIncidental->incidental, taManeuver->maneuver, taAction->action, taIncidentalOOT->incidental_out_of_turn, taActionOOT->action_out_of_turn (RAW taxonomy eote p.137, aor p.141; taActionOOT: 0 base users, 1 reSpec user — ruling f9-phase-a-activation-enum-handoff 2026-07-14). ForceTalent (147) 'true' -> force_talent. Conflict (13) -> conflict int. Source (244) OR Sources (340) -> sources[]. The stray 'Activation' field (35) is reported, not captured, pending inspection. Coded effect fields: reported per-key counts in the ingest report, deferred.",
+  "properties": {
+    "id": {
+      "$ref": "charbuild-common.schema.json#/$defs/id"
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key (e.g. 'ADV'). Traceability only."
+    },
+    "same_as": {
+      "$ref": "charbuild-common.schema.json#/$defs/id",
+      "description": "B-1021 (ruling release-r7-bug-burndown ADDENDUM 65/66): the same talent, the same rules, a different emitted id. Names the identity's talent id; absent means the record is its own identity. Stamped by the reSpecialized emitter from the `_same_as` section of scripts/canonical/respec_talent_equivalence.json, never authored by hand. Its ONE reader is CharResolve.resolveSheetTalents, which folds a sheet's entries of one identity into one row with their ranks summed."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "$ref": "charbuild-common.schema.json#/$defs/description"
+    },
+    "ranked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Ranked talents may be purchased multiple times with stacking effects; ranks stack across specializations (eote p.102)."
+    },
+    "activation": {
+      "enum": [
+        "passive",
+        "incidental",
+        "maneuver",
+        "action",
+        "incidental_out_of_turn",
+        "action_out_of_turn",
+        "active"
+      ],
+      "description": "RAW activation taxonomy: Passive (always on) or Active with the required action type; 'out of turn' marks Active talents usable on others' turns (eote p.137; aor p.141). `active`: the print says Activation: Active with no parenthetical (f100-m8-batches R-M8BG-219/225); the record follows the print."
+    },
+    "force_talent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Force talent — requires Force Rating 1+ to use (OggDude ForceTalent)."
+    },
+    "conflict": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Conflict gained when this talent is used/bought, where printed (OggDude Conflict, 13/583)."
+    },
+    "sources": {
+      "$ref": "charbuild-common.schema.json#/$defs/sources"
+    },
+    "_provenance": {
+      "$ref": "charbuild-common.schema.json#/$defs/provenance"
+    },
+    "_dataset": { "$ref": "charbuild-common.schema.json#/$defs/dataset" },
+    "effects": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/talent_effect" },
+      "description": "Machine-applied effects on character-sheet numbers (R-F100-2/3/4, R-FEC-1, R-FEGC-1). Written by scripts/canonical/apply_talent_effects.py, never by hand. Read by charResolve.derivedBonusesFromTalents / computeDerived through the charbuild registry."
+    },
+    "pool_mods": {
+      "type": "array",
+      "items": { "allOf": [{ "$ref": "item-common.schema.json#/$defs/pool_mod_entry" }, { "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused" }] },
+      "description": "The talent's dice-pool modifiers, the same entry shape an item carries (R-F100-6, R-FEGC-2). Written UNRANKED; poolMods.collect scales `count` by owned ranks unless the entry pins `per_rank: false`."
+    },
+    "told": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/told_entry" },
+      "description": "F-100 M8 C5 (R-M8K-5): effects the app SHOWS and never computes — spans of this talent's own description, at their moment or on the entry. Written by scripts/canonical/apply_talent_effects.py, never by hand."
+    },
+    "item_effects": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/item_effect" },
+      "description": "F-100 M8 C7 (R-M8K-7; R-M8G-16): this talent's change to ONE owned item, projected at render by ItemResolve.applyCharacterEffects; never written into the item record."
+    },
+    "vehicle_effects": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/vehicle_effect" },
+      "description": "SHIP YARD × F-100 M8 (ruling f100-m8-c8-signature-vehicle R-M8C8-1): what this talent does to the numbers of the holder's Signature Vehicle (R-S1RJ-5). Applied only by SWRPGVesselResolve.resolve, to the ONE holder's bonded vessel (R-S4G-6), each row recorded in `because` under the talent's name."
+    },
+    "spend": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/spend_row" },
+      "description": "F-100 THE SURFACING MISSION (card f100-surfacing-roll-options-card R-SRO-3 as amended by ADDENDUM 8 F4/F11; brief f100-surfacing-roll-options-vocab §3 V3): what the owner may BUY with the roll's results after a matching check — listed in the dice hub's ONE spend menu beside a weapon's quality activations, the talent as the row's source (D-294 L1). Read by SWRPGQualityRows.talentSpendRows (the one reader). Written per ONE rank; `repeat: 'rating'` reads the owned ranks. Never applied: the player ticks, the table applies."
+    },
+    "target": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/target_row" },
+      "description": "F-100 THE SURFACING MISSION (card R-SRO-4 as amended by ADDENDUM 8 F5/F6/F7; brief §3 V4): the owner's choice of what a matching hit does to its TARGET (today only damage dealt as strain) — a tick BEFORE the roll in the mode-tick place, labelled from the row's shape (\"Deal as strain\", + a paired roll_numbers row's skill: \"Deal as strain (+Medicine)\", D-294 L2), echoed after the roll on the TARGET lines. Read by SWRPGQualityRows.talentTargetOffers and targetRows' talent leg."
+    },
+    "roll_numbers": {
+      "type": "array",
+      "items": { "$ref": "charbuild-common.schema.json#/$defs/talent_roll_number" },
+      "description": "F-100 M8 C11 (R-M8K-16): numbers this talent changes AT A ROLL — damage beside a weapon's damage, a weapon's Critical rating, the d100 of a Critical Injury the owner suffers."
+    },
+    "_desc_override": {
+      "type": "string",
+      "description": "Printed-page cite recorded by scripts/canonical/apply_talent_desc_overrides.py when a RAW-verified correction replaces an oggdude import typo (e.g. superior_reflexes 'melee damage' -> 'melee defense', EotE CRB p.144). Surfaced by L1cb.4 (ruling f-eds-6-pipeline-replacements Q1)."
+    },
+    "career_skill_choice_grants": {
+      "$ref": "charbuild-common.schema.json#/$defs/career_skill_choice_grants",
+      "description": "PLAYER-CHOSEN career skills granted by a TALENT: the player picks `count` skills from `pool` and each becomes a CAREER SKILL for the PC (it does NOT grant a rank). Ruled by `talent-choice-triage` R-TCT-1/2 and `talent-choice-persist-shape` R-TCP-1 for B-181 — Well Rounded/Well Read promised the grant in prose and carried no structure, so the choice was unmakeable and career-skill XP costs were wrong. SAME field name, shape and pool vocabulary as the specialization grant by construction, not by copy-intent (R-PFR2-3: extend, never a parallel path); validate_registries L1cb.6 pins all THREE enums (species, specialization, talent) to skills.vocab.json in both directions. THE ONE DIFFERENCE IS RANKS: a talent may be owned N times, and R-TCT-2 rules each rank grants another set, so `count` is PER RANK and the total is summed at derive-time over owned tree positions — never stored (`talent-choice-persist-shape` R-TCP-1: scaling falls out of the address, it is not persisted)."
+    }
+  },
+  "$defs": {
+    "spend_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "applies_to", "when", "words", "cite"],
+      "anyOf": [{ "required": ["req"] }, { "required": ["cost"] }],
+      "description": "A talent's SPEND row (R-SRO-3, ADDENDUM 8 F4): the quality spend_row's member names and meanings (id · req · repeat · when · cite; quality.schema.json $defs/spend_row) plus the talent's anchor (`applies_to`), its words span (the menu's text, F3 (a) at the frames ruling — no authored `effect`), and the use's `cost`/`limit` shown as tags. A row priced only in Destiny carries `cost` and no `req`.",
+      "properties": {
+        "dark": { "$ref": "charbuild-common.schema.json#/$defs/dark_key" },
+        "id": { "$ref": "charbuild-common.schema.json#/$defs/row_id" },
+        "who": { "$ref": "charbuild-common.schema.json#/$defs/who" },
+        "applies_to": { "$ref": "item-common.schema.json#/$defs/pool_mod_entry/properties/applies_to" },
+        "when": { "enum": ["hit", "miss", "any"], "description": "On a successful check (hit), a failed one (miss), or either (any: \"when making a … check\")." },
+        "req": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/spend_clause" },
+          "description": "The price: ANY ONE clause pays (spend_tables' OR), read unchanged by spendAfford." },
+        "repeat": { "oneOf": [{ "const": true }, { "const": "rating" }, { "type": "integer", "minimum": 2 }],
+          "description": "Absent: once per check. true: as often as it is paid. \"rating\": up to the owned ranks (an unranked talent reads 1, as an unrated quality does). A number: up to that many." },
+        "cost": { "$ref": "charbuild-common.schema.json#/$defs/use_cost" },
+        "limit": { "$ref": "charbuild-common.schema.json#/$defs/use_limit" },
+        "pick": { "$ref": "charbuild-common.schema.json#/$defs/pick" },
+        "words": { "$ref": "charbuild-common.schema.json#/$defs/words" },
+        "cite": { "$ref": "charbuild-common.schema.json#/$defs/cite" }
+      }
+    },
+    "spend_clause": {
+      "description": "One way to pay — a single key and how many: Advantage, Triumph, or (ADDENDUM 8 F11) a Force point from the roll's light-side pips. The dark side, Threat and Despair stay the table's (an opponent's check is not the owner's tally) — EXCEPT on the OWNER's own result (roll-options card ADDENDUM 14 F7): `de` / `th` spend a Despair / Threat the owner rolled, i.e. cancel it (Translation Error, Superhuman Reflexes, Holistic Navigation); the refusal's premise, an opponent's check, does not reach the owner's own tally. A talent spend row only (this schema's; the quality and crafting spend rows keep theirs). Written as a oneOf of single-key objects (crafting-spend's req says the same with min/maxProperties, which the pack rail lib/shared/packValidate.js does not implement).",
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["ad"], "properties": { "ad": { "type": "integer", "minimum": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["tr"], "properties": { "tr": { "type": "integer", "minimum": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["fp"], "properties": { "fp": { "type": "integer", "minimum": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["de"], "properties": { "de": { "type": "integer", "minimum": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["th"], "properties": { "th": { "type": "integer", "minimum": 1 } } }
+      ]
+    },
+    "target_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "op", "value", "applies_to", "condition", "cite"],
+      "description": "A talent's TARGET row (R-SRO-4, ADDENDUM 8 F5): `damage_as` strain only, OFFERED by its `condition` (the \"may\" words span, the talent rows' meaning of condition — never the quality row's target_condition object).",
+      "properties": {
+        "dark": { "$ref": "charbuild-common.schema.json#/$defs/dark_key" },
+        "id": { "$ref": "charbuild-common.schema.json#/$defs/row_id" },
+        "who": { "$ref": "charbuild-common.schema.json#/$defs/who" },
+        "op": { "const": "damage_as" },
+        "value": { "const": "strain" },
+        "applies_to": { "$ref": "item-common.schema.json#/$defs/pool_mod_entry/properties/applies_to" },
+        "condition": { "$ref": "charbuild-common.schema.json#/$defs/words" },
+        "soak": { "enum": ["ignored"], "description": "5e (card f100-surfacing-roll-options-card ADDENDUM 25 F3): the strain this row deals is not reduced by soak (Pressure Point, EotE p.141). Absent = soak applies as printed (Stunning Blow, EotE p.144: \"This does not ignore soak\"; Stun Damage p.157). Read by SWRPGQualityRows.targetRows' talent leg, which copies it onto the pushed row; the hub's echo words it." },
+        "cite": { "$ref": "charbuild-common.schema.json#/$defs/cite" }
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "schema": "droid-traits.schema.json",
+  "schema_version": 1,
+  "generated_from": "OggDude CraftTemplates.xml + CraftImprovements.xml + CraftDroidTraits.xml (data-sources/oggdude_current/2026-07-14, TempType CraftDroidTrait) for structure and numbers; names, once-only limits, profile cells and cites read off the render of Special Modifications printed p.83 (corpus +3, swrpg_index.pdf_pages); scripts/canonical/crafting_droid_batch.py",
+  "generated_by": "scripts/canonical/crafting_droid_batch.py",
+  "_doc": "Table 3-11: Droid Personality Traits (Special Modifications printed 83): nine positive and nine negative traits by d100 band, and the two bands that are not traits (91-95, 96-100). Ruling release-r6-companions-c0 Q3 (R-R6CC-3). Text authored plain from the page (F-EDS-6).",
+  "cite": "Special Modifications p.83",
+  "count": 18,
+  "traits": [
+    {
+      "id": "loyal",
+      "name": "Loyal",
+      "polarity": "positive",
+      "d100": [1, 10],
+      "text": "Puts its creator's needs above its own and looks for ways to help, asked or not.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS1"
+    },
+    {
+      "id": "resourceful",
+      "name": "Resourceful",
+      "polarity": "positive",
+      "d100": [11, 20],
+      "text": "Adapts quickly to problems instead of getting stuck in narrow programming.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS2"
+    },
+    {
+      "id": "patient",
+      "name": "Patient",
+      "polarity": "positive",
+      "d100": [21, 30],
+      "text": "Has more patience than even the longest-lived organic beings.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS3"
+    },
+    {
+      "id": "enthusiastic",
+      "name": "Enthusiastic",
+      "polarity": "positive",
+      "d100": [31, 40],
+      "text": "Sees opportunities everywhere and points them out.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS4"
+    },
+    {
+      "id": "compassionate",
+      "name": "Compassionate",
+      "polarity": "positive",
+      "d100": [41, 50],
+      "text": "Cares for others and tries to bring out their best.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS5"
+    },
+    {
+      "id": "efficient",
+      "name": "Efficient",
+      "polarity": "positive",
+      "d100": [51, 60],
+      "text": "Hates waste; does everything as quickly and precisely as it can.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS6"
+    },
+    {
+      "id": "well_mannered",
+      "name": "Well-Mannered",
+      "polarity": "positive",
+      "d100": [61, 70],
+      "text": "Keeps perfect etiquette, even with people it dislikes.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS7"
+    },
+    {
+      "id": "cheerful",
+      "name": "Cheerful",
+      "polarity": "positive",
+      "d100": [71, 80],
+      "text": "Keeps a good attitude: the first step to success, it says.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS8"
+    },
+    {
+      "id": "reliable",
+      "name": "Reliable",
+      "polarity": "positive",
+      "d100": [81, 90],
+      "text": "Always comes through for its creator and friends.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "POS9"
+    },
+    {
+      "id": "cowardly",
+      "name": "Cowardly",
+      "polarity": "negative",
+      "d100": [1, 10],
+      "text": "Puts its own survival first and shies away from danger.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG1"
+    },
+    {
+      "id": "overly_literal",
+      "name": "Overly Literal",
+      "polarity": "negative",
+      "d100": [11, 20],
+      "text": "Takes words at their direct meaning and misses the nuance.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG2"
+    },
+    {
+      "id": "arrogant",
+      "name": "Arrogant",
+      "polarity": "negative",
+      "d100": [21, 30],
+      "text": "Thinks very highly of its own abilities.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG3"
+    },
+    {
+      "id": "impulsive",
+      "name": "Impulsive",
+      "polarity": "negative",
+      "d100": [31, 40],
+      "text": "Sees opportunities and acts on them without warning.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG4"
+    },
+    {
+      "id": "ruthless",
+      "name": "Ruthless",
+      "polarity": "negative",
+      "d100": [41, 50],
+      "text": "Destroys anything that gets in its way.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG5"
+    },
+    {
+      "id": "lazy",
+      "name": "Lazy",
+      "polarity": "negative",
+      "d100": [51, 60],
+      "text": "Avoids doing the job it was built for whenever it can.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG6"
+    },
+    {
+      "id": "abrasive",
+      "name": "Abrasive",
+      "polarity": "negative",
+      "d100": [61, 70],
+      "text": "Sarcastic or silent; every word and act is barbed.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG7"
+    },
+    {
+      "id": "pessimistic",
+      "name": "Pessimistic",
+      "polarity": "negative",
+      "d100": [71, 80],
+      "text": "Sees doom around every corner and says so.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG8"
+    },
+    {
+      "id": "unhinged",
+      "name": "Unhinged",
+      "polarity": "negative",
+      "d100": [81, 90],
+      "text": "Its decisions can't be predicted.",
+      "cite": "Special Modifications p.83",
+      "ogg_key": "NEG9"
+    }
+  ],
+  "bands": [
+    { "d100": [91, 95], "positive": "gm", "negative": "player", "reroll": false },
+    { "d100": [96, 100], "positive": "player", "negative": "gm", "reroll": true }
+  ]
+}

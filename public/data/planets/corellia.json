@@ -1,0 +1,1216 @@
+{
+  "id": "corellia",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Corellia",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Core Worlds",
+    "sector": "Corellian Sector",
+    "system": "Corellian",
+    "grid": "M-11",
+    "era": "galactic_civil_war",
+    "essence": "Corellia is the birthplace of the galaxy's restlessness. A lush Core World of forests, golden beaches, and soaring cities that also invented hyperspace travel and produced more smugglers, scoundrels, and starship engineers than any other planet in history. Speed is in the blood here, literally and figuratively. Corellians built the ships that connected the galaxy and then flew them into trouble. The planet's surface is clean and beautiful because they had the audacity to move their entire industrial sector into orbit centuries ago. Now the Empire holds the leash through a puppet Diktat and a Grand Moff, but Corellian independence is bone-deep. CorSec keeps the peace, Imperial liaisons keep the illusion, and in the shadows of Blue Sector and the orbital yards, the old Corellian spirit of doing whatever you want and daring anyone to stop you is alive and well.",
+    "atmosphere": "Green hills rolling to golden coastlines. Mountain ranges with ice caps catching the light. Coronet City rising in graceful towers from the southern continent, its transit system humming day and night. The Orbital Industrial Zone visible as a metallic net across the sky, flickering with the constant movement of freighters and construction gantries. The smell of spiced ale and engine grease in Blue Sector. Strings of colored lights over Treasure Ship Row, the shriek of a blaster punctuating the music. Selonian tunnels cool and quiet beneath the streets. Swoop engines screaming through back alleys at midnight.",
+    "reputation": "Fast ships, faster pilots, and a population that treats rules as suggestions. Corellians will bet on anything, fight anyone, and then buy them a drink afterward. The galaxy's premier source of light freighters, smugglers, and the kind of bold stupidity that occasionally saves the galaxy. Everyone knows a Corellian. Everyone has a story about a Corellian. The stories usually involve a ship, a bad idea, and an improbable escape. Despite the scoundrel reputation, Corellians are fiercely sentimental about home and family. They carry trinkets from Corellia wherever they go. The bloodstripes sewn down their trouser legs are earned through genuine acts of bravery. They are not as simple as they seem."
+  },
+  "compendium": {
+    "background": "",
+    "government": "republic",
+    "population": "",
+    "languages": "Basic",
+    "terrain": "forests, hills, plains",
+    "major_cities": "Coronet (capital), Kor Vella, Tyrena",
+    "areas_of_interest": "",
+    "exports": "starships, starship components, alcohol, agricultural products, fuels",
+    "imports": "luxury goods, raw materials, personal weapons",
+    "trade_routes": "",
+    "orbital_metrics": "",
+    "rarity_modifier": -2,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Senator Garm Bel Iblis invoked Contemplanys Hermi, the ancient proviso allowing the Corellian Sector to withdraw from Republic participation. The entire sector remained neutral throughout the Clone Wars. This stance spared the system direct war damage but failed to protect Corellian independence when the Republic became the Empire."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With the Empire weakened, the corporatocracy may reassert genuine independence. The puppet Diktat's authority erodes. CorSec and the Corellian Navy have stronger bargaining positions. Criminal elements that profited under Imperial distraction face new competition. The Orbital Industrial Zone becomes even more strategically valuable as the galaxy rebuilds its fleets."
+    }
+  ],
+  "geography": {
+    "structure_type": "temperate_urbanized",
+    "structure_notes": "",
+    "districts": [
+      {
+        "id": "coronet_city",
+        "name": "Coronet City",
+        "character": "",
+        "authority": "Diktat Daclif Gallamby (puppet), Imperial Grand Moff (actual)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "economic",
+          "informational"
+        ],
+        "notes": "Seat of the Diktat and the planetary government. CEC headquarters campus overlooks the beach. Embassy Hill houses off-world ambassadors. Transit system includes maglev, subway, and speeder bus lines running day and night."
+      },
+      {
+        "id": "blue_sector",
+        "name": "Blue Sector",
+        "character": "",
+        "authority": "Swoop gangs (de facto), CorSec (nominal, withdrawn)",
+        "crime_index": "extreme",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Home to Treasure Ship Row. Despite the crime, remains one of the most popular destinations for city residents and tourists. Wealthy citizens go 'slumming' here. Also contains The Pit, an ancient crater-landfill and scrapyard with archaeological value and a desperate shantytown population."
+      },
+      {
+        "id": "selonia_town",
+        "name": "Selonia Town",
+        "character": "Vast labyrinthine Selonian tunnels deep beneath Coronet's subway and sewer systems. Hundreds of square kilometers of tunnels and terraced caverns housing hundreds of thousands of Selonians, Drall, and other sentients who prefer subterranean life.",
+        "authority": "Selonian sept leaders, Coronet City municipal services",
+        "crime_index": "low",
+        "strategic_value": [
+          "infrastructure"
+        ],
+        "notes": "Fully connected to Coronet's subway, maglev, communications, and HoloNet grid. Municipal infrastructure provided by Coronet City through taxes and fees. A city within a city."
+      },
+      {
+        "id": "kor_vella",
+        "name": "Kor Vella",
+        "character": "City built atop a sheer mesa over a kilometer high on the Vella plains. Popular vacation spot. Former religious settlement turned boomtown when ores were discovered in the mesa. Now a respected commercial hub and tourist destination with dramatic vistas.",
+        "authority": "Local government, Imperial oversight",
+        "crime_index": "low",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Draws investors and tourists. Laws and economy are business-friendly. Climbing and hunting remain popular. Smaller than Coronet but holds sway in the planetary economy."
+      },
+      {
+        "id": "tyrena",
+        "name": "Tyrena",
+        "character": "",
+        "authority": "Local government, Imperial oversight",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic",
+          "cultural"
+        ],
+        "notes": "Home to the Corellian Symphony Orchestra and the Tyrena Dance Company. Major tourism hub with outfitters for expeditions to Agrilat, Gold Beaches, and Kor Vella. The North-East district is a rough scar of vice and crime rivaling Coronet's Blue Sector."
+      },
+      {
+        "id": "orbital_industrial_zone",
+        "name": "Orbital Industrial Zone",
+        "character": "Corellia's entire medium and heavy industry sector, spread across half the planet's orbit like a massive metal net. Factories, foundries, refineries, and shipyards connected by flexible gantries hundreds of kilometers long. Awash with light, thronged with ships of every class.",
+        "authority": "Corellian Port Authority, Corellian Navy, Imperial oversight",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "economic",
+          "infrastructure"
+        ],
+        "notes": "Birthplace of some of the most famous ships in galactic history. CEC shipyards are here. Corellian Navy headquarters and academy are located here. Port Authority operates customs and revenue cutters. Rivals Kuat's industrial ring in output."
+      },
+      {
+        "id": "agrilat",
+        "name": "Agrilat Crystal Swamps",
+        "character": "Stunning natural wonder on the northern continent. Nearly 10,000 square kilometers of coastal marshes between the northern sea and Orik's Spine mountains. Strange crystalline native plant life gives the region its nickname.",
+        "authority": "Protected nature preserve (Diktat decree), CorSec (enforcement)",
+        "crime_index": "variable",
+        "strategic_value": [
+          "exploration",
+          "hidden"
+        ],
+        "notes": "Access strictly controlled. Corellians bend these laws routinely. Hidden swoop racing courses operate within the crystal forests. Dangerous fauna. Declared a protected nature preserve."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human (Corellian)",
+      "population_level": "dominant",
+      "social_role": "",
+      "districts": [
+        "coronet_city",
+        "blue_sector",
+        "kor_vella",
+        "tyrena",
+        "orbital_industrial_zone"
+      ]
+    },
+    {
+      "name": "Drall",
+      "population_level": "significant_minority",
+      "social_role": "Scientists, scholars, technicians, bureaucrats. Small furry species with large scientific and technological understanding. Settled on Corellia as workers in various industries. Some serve as majordomo figures in criminal organizations.",
+      "districts": [
+        "coronet_city",
+        "selonia_town"
+      ]
+    },
+    {
+      "name": "Selonian",
+      "population_level": "significant_minority",
+      "social_role": "Laborers, tunnel builders, shipyard workers, enforcers. Came to Corellia for work in CEC shipyards. Live primarily in the vast Selonia Town tunnels beneath Coronet. Organized in septs. Some Selonians work as muscle for criminal organizations.",
+      "districts": [
+        "selonia_town",
+        "coronet_city",
+        "orbital_industrial_zone"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "Transient spacers, traders, diplomats, tourists, workers. Coronet City has the most diverse population in the Corellian Sector. The orbital yards attract laborers and specialists from across the galaxy.",
+      "districts": [
+        "coronet_city",
+        "blue_sector",
+        "orbital_industrial_zone"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_authority_corellia",
+      "name": "Imperial Authority (Corellian Sector)",
+      "galaxy_faction_ref": "galactic_empire",
+      "type": "imperial",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Empire controls Corellia through Grand Moff Naomi Dargon, who replaced the original Grand Moff Fliry Vorru. The puppet Diktat Daclif Gallamby fronts the corporate government. Imperial 'liaisons' are embedded within CorSec. Star Destroyers are common in orbit. Corellia's resources and industries have been nationalized under Imperial control, but the Empire has not been able to completely absorb the shipyards and engineering corps. Dargon is an analytical manipulator who plays Corellian factions against each other."
+      },
+      "motivation": "Exploitation of Corellia's shipbuilding capacity and industrial output. Suppression of Corellian independence movements. Control of the Corellian Run and Corellian Trade Spine hyperspace routes. Dargon ordered the bombardment of Froz as a reminder to the sector of Imperial consequences.",
+      "assets": [
+        "Grand Moff's administrative apparatus",
+        "Imperial fleet presence in orbit (Star Destroyers)",
+        "Imperial liaisons embedded within CorSec",
+        "Garrisons on planet surface",
+        "Control over nationalized resources and industries",
+        "Imperial customs and port authority oversight"
+      ],
+      "relationships": [
+        {
+          "faction_id": "corsec",
+          "type": "subordinate_control",
+          "notes": "CorSec operates with Imperial 'liaisons' who monitor and direct operations. CorSec retains operational independence for routine policing but strategic decisions require Imperial approval."
+        },
+        {
+          "faction_id": "corellian_corporatocracy",
+          "type": "exploitative",
+          "notes": "The Diktat is a puppet. The corporate boards of CEC, Corellia Mining Corporation, and Gowix Computers run the economy, but ultimately serve Imperial interests. Nationalization of resources gives the Empire leverage over corporate leadership."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on Rebel sympathizers in the Corellian Sector. Shipping manifests and hyperspace route data. CorSec investigation files. Anything that reveals anti-Imperial activity in a sector known for independent sentiment."
+        },
+        {
+          "type": "resource",
+          "reason": "Shipyard output, raw materials, military hardware. The Empire's primary interest in Corellia is industrial. CEC's production capacity is a strategic asset."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives, dissident politicians, fugitive Corellians like Garm Bel Iblis. Force-sensitives per standing ISB orders."
+        }
+      ]
+    },
+    {
+      "id": "corsec",
+      "name": "Corellian Security Force (CorSec)",
+      "galaxy_faction_ref": null,
+      "type": "law_enforcement",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "moderate",
+        "financial": "moderate",
+        "note": "CorSec is Corellia's native security force, now operating under Imperial oversight through embedded liaisons. Rank-and-file officers are dedicated peacekeepers dealing with fractious Corellians. The Tactical Response Team (TRT) is an elite unit combining pilot, commando, and investigator roles. CorSec has effectively ceded Blue Sector to swoop gangs. Some personnel, like Centerpoint's Sergeant Pol Orrich, are on criminal payrolls."
+      },
+      "motivation": "Keeping the peace among Corellians, which is a generally thankless task. Investigating major crimes. Intercepting pirates in the system's asteroid fields. Maintaining order despite Imperial interference and criminal infiltration. Some officers are obsessed with rooting out organized crime despite politically connected superiors discouraging it.",
+      "assets": [
+        "CorSec precincts across all Corellian cities",
+        "Tactical Response Team (TRT) — elite commando/investigator/pilot unit",
+        "CorSec patrol boats and speeders",
+        "Investigator networks with criminal, civilian, and military contacts",
+        "CDEF blaster pistols, truncheons, Mk. IV armored vests (standard issue)"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_authority_corellia",
+          "type": "subordinate",
+          "notes": "Imperial liaisons embedded at all levels. CorSec retains operational autonomy for routine policing but must defer to Imperial priorities."
+        },
+        {
+          "faction_id": "swoop_gangs_corellia",
+          "type": "adversarial",
+          "notes": "CorSec and swoop gangs are natural enemies. CorSec has abandoned Blue Sector but TRT units pursue gang activity elsewhere in the system."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Criminal intelligence, smuggling operations, pirate locations. CorSec investigators develop wide networks and are always working active cases."
+        },
+        {
+          "type": "person",
+          "reason": "Wanted criminals, gang leaders, pirate captains. CorSec TRT is tasked with infiltrating crime syndicates and hunting pirates in the asteroid fields."
+        }
+      ]
+    },
+    {
+      "id": "black_sun_corellia",
+      "name": "Black Sun (Corellian Operations)",
+      "galaxy_faction_ref": "black_sun",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "Black Sun operates covertly in the Corellian System, supporting pirate operations rather than controlling territory directly. Their local presence is through proxies. The Silestro Privateers operating from the Rayless Lantern in the Pirate's Shadow asteroid field are explicitly supported by Black Sun."
+      },
+      "motivation": "Disrupting legitimate commerce to skim profits. Supporting pirate raids on merchant traffic throughout the system. Establishing covert criminal infrastructure that leverages Corellia's position on major hyperspace routes.",
+      "assets": [
+        "Silestro Privateers — pirate fleet led by Captain Jostero, operating from the Rayless Lantern in Pirate's Shadow",
+        "Covert financial backing of criminal operations",
+        "Proxy agents embedded in Corellian commerce"
+      ],
+      "relationships": [
+        {
+          "faction_id": "corsec",
+          "type": "adversarial",
+          "notes": "CorSec TRT actively hunts pirates in the asteroid fields. Black Sun's proxy arrangement provides operational distance."
+        },
+        {
+          "faction_id": "hutt_cartel_corellia",
+          "type": "competitive",
+          "notes": "The Hidden Dagger pirates and the Hutt Cartel fight a war of attrition in The Void, a pocket of clear space within Pirate's Shadow. Black Sun-backed Silestro Privateers operate independently nearby."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Cargo from raided merchant vessels. Military-grade starship components from the Orbital Industrial Zone. Anything of value that can be stripped from prize ships."
+        },
+        {
+          "type": "data",
+          "reason": "Shipping schedules, patrol routes, customs procedures. Information that makes pirate raids more profitable and less risky."
+        }
+      ]
+    },
+    {
+      "id": "hutt_cartel_corellia",
+      "name": "Hutt Cartel (Corellian System)",
+      "galaxy_faction_ref": "hutt_cartel",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "criminal": "moderate",
+        "financial": "high",
+        "note": "The Hutt Cartel maintains a presence through Gormo Vosadii Grasso, a dishonored Hutt who owns Gus Treta Inner System Market Station. Gormo runs the station as a legitimate business but his real interest is profits, information, and restoring his reputation within the Vosadii kajidic. The Hutt Cartel also contests The Void in Pirate's Shadow against the Hidden Dagger pirates."
+      },
+      "motivation": "Profit and information. Gormo uses Gus Treta as an intelligence-gathering hub for spacer activity throughout the system. The broader Hutt Cartel contests pirate territory in the asteroid fields. Gormo seeks a scheme to restore his standing after a botched spice smuggling enterprise dishonored him decades ago.",
+      "assets": [
+        "Gus Treta Inner System Market Station (owned by Gormo) — 300m station, 4000 permanent population, refueling and repair",
+        "Bell's Cantina (information hub within the station, run by Liddy Ravora)",
+        "Clay 'Pops' Merra — one of the best outlaw techs in the system, specializing in transponder code alteration",
+        "Selonian thugs from Den Kimotte (enforcement)",
+        "Hidden Dagger pirates contesting The Void"
+      ],
+      "relationships": [
+        {
+          "faction_id": "black_sun_corellia",
+          "type": "competitive",
+          "notes": "Hutt Cartel pirates and Black Sun-backed Silestro Privateers operate in adjacent regions of Pirate's Shadow."
+        },
+        {
+          "faction_id": "corsec",
+          "type": "adversarial",
+          "notes": "CorSec is aware of criminal activity at Gus Treta but Gormo runs the station cleanly enough to avoid direct confrontation. Officer Sera Riggers is obsessed with rooting out organized crime at Centerpoint, annoying her politically connected superiors."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Spacer gossip, shipping manifests, smuggling opportunities. Gormo's primary currency is information. Liddy Ravora at Bell's Cantina trades secrets professionally."
+        },
+        {
+          "type": "person",
+          "reason": "Anyone who owes a Hutt or can be leveraged. Down-on-their-luck spacers can be helped into Gormo's debt."
+        },
+        {
+          "type": "resource",
+          "reason": "Spice, contraband, prize vessel cargo. The station's outlaw tech Pops Merra processes smuggling ships routinely."
+        }
+      ]
+    },
+    {
+      "id": "swoop_gangs_corellia",
+      "name": "Corellian Swoop Gangs",
+      "galaxy_faction_ref": null,
+      "type": "criminal",
+      "control_type": [
+        "territorial"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "none",
+        "criminal": "moderate",
+        "financial": "moderate",
+        "note": ""
+      },
+      "motivation": "Territorial control, underground swoop racing, criminal profits, and the intoxicating power and prestige of gang life. Fellow gangers become family.",
+      "assets": [
+        "De facto control of Blue Sector in Coronet City",
+        "Underground swoop racing circuits in Blue Sector and Agrilat Crystal Swamps",
+        "Custom-built swoop bikes constructed in anonymous garages",
+        "Street-level enforcement and criminal enterprise infrastructure"
+      ],
+      "relationships": [
+        {
+          "faction_id": "corsec",
+          "type": "adversarial",
+          "notes": "Natural enemies. CorSec withdrew from Blue Sector but pursues gang activity elsewhere."
+        },
+        {
+          "faction_id": "imperial_authority_corellia",
+          "type": "irrelevant",
+          "notes": "The Empire does not consider swoop gangs a strategic concern. They are a local policing matter beneath Imperial attention."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Swoop parts, racing tech, weapons, spice. Anything that makes their bikes faster or their turf more profitable."
+        },
+        {
+          "type": "person",
+          "reason": "Rival gang members, CorSec informants, anyone who disrespected the gang. Territory disputes are personal."
+        }
+      ]
+    },
+    {
+      "id": "corellian_corporatocracy",
+      "name": "Corellian Corporatocracy",
+      "galaxy_faction_ref": null,
+      "type": "corporate",
+      "control_type": [
+        "economic",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "high",
+        "criminal": "low",
+        "financial": "high",
+        "note": ""
+      },
+      "motivation": "Profit, industrial output, and maintaining Corellia's economic power. The corporations built Corellia into a galactic powerhouse. They tolerate Imperial interference because it is less costly than resistance, but Corellian corporate leadership chafes under nationalization.",
+      "assets": [
+        "Corellian Engineering Corporation (CEC) — one of the three largest shipbuilders in the galaxy",
+        "Corellia Mining Corporation — galaxy-spanning mining operations",
+        "Gowix Computers — technology manufacturer",
+        "Orbital Industrial Zone — entire industrial infrastructure in planetary orbit",
+        "Corellian Port Authority — controls all commerce entering and leaving the planet"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_authority_corellia",
+          "type": "subordinate",
+          "notes": "The Diktat is a puppet. Corporate resources are nationalized. But the Empire cannot run the shipyards without Corellian expertise, creating a mutual dependency."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Industrial espionage, competitor intelligence, new hyperspace route surveys. CEC and CMC compete at galactic scale."
+        },
+        {
+          "type": "resource",
+          "reason": "Raw ores, rare materials, advanced components. The Orbital Industrial Zone has an insatiable hunger for raw materials."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "treasure_ship_row",
+      "name": "Treasure Ship Row",
+      "district_id": "blue_sector",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "swoop_gangs_corellia",
+      "controlling_faction_notes": "De facto swoop gang territory within Blue Sector. No single gang controls the Row — it is a shared neutral ground where commerce overrides turf wars. CorSec has no presence.",
+      "strategic_value": "",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Info-chants working the market. Sell to anyone. Knowledge of smuggling opportunities, CorSec operations, and Imperial activity."
+        },
+        {
+          "archetype_ref": "black_market_dealer",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Weapons dealers, stolen goods fences, counterfeit document merchants. Operating from stalls or back rooms."
+        },
+        {
+          "archetype_ref": "swoop_ganger",
+          "tier": "minion",
+          "count": "3-4",
+          "notes": "Gang members providing informal security and collecting protection fees from merchants."
+        },
+        {
+          "archetype_ref": "smuggler",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Looking for cargo, buyers, or crew. The Row is where smuggling deals originate."
+        }
+      ]
+    },
+    {
+      "id": "cec_shipyards",
+      "name": "CEC Orbital Shipyards",
+      "district_id": "orbital_industrial_zone",
+      "type": [
+        "military",
+        "economic",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "corellian_corporatocracy",
+      "controlling_faction_notes": "CEC operates the shipyards under Imperial nationalization. Corellian Port Authority manages traffic. Corellian Navy patrols. Imperial oversight is constant but production depends entirely on Corellian expertise.",
+      "strategic_value": "One of the three largest shipbuilding operations in the galaxy. Birthplace of the YT-1300 and countless other famous vessels. Controls Corellia's primary economic output. Whoever controls the shipyards controls the system's strategic value to the Empire.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "corellian_navy_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Navy personnel running patrols and escorts. Fiercely independent. May not share all intelligence with Imperial liaisons."
+        },
+        {
+          "archetype_ref": "port_authority_inspector",
+          "tier": "minion",
+          "count": "2-3",
+          "notes": "Revenue cutters and customs ships. Stopping and searching vessels for contraband."
+        },
+        {
+          "archetype_ref": "shipyard_engineer",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "CEC workers. Potential source of technical knowledge, stolen schematics, or smuggled components."
+        }
+      ]
+    },
+    {
+      "id": "corona_house",
+      "name": "Corona House",
+      "district_id": "coronet_city",
+      "type": [
+        "political",
+        "command"
+      ],
+      "controlling_faction_id": "imperial_authority_corellia",
+      "controlling_faction_notes": "Historical residence of the Diktat. Currently occupied by Diktat Daclif Gallamby, a puppet of the Imperial Grand Moff. State-of-the-art communications and security. Public gardens used for weddings and formal events.",
+      "strategic_value": "The symbolic seat of Corellian political power. Controlling Corona House means controlling the appearance of legitimate Corellian governance. The Diktat's office and the planetary legislative chambers are here. Intelligence gathered here reveals the intersection of Imperial, corporate, and political interests.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_bureaucrat",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Grand Moff's staff managing the Diktat. They maintain the fiction of Corellian self-governance."
+        },
+        {
+          "archetype_ref": "security_droid",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Heavily armed private security droids patrolling the grounds and Embassy Hill."
+        },
+        {
+          "archetype_ref": "politician",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Corellian legislators or diplomats. May harbor anti-Imperial sentiment beneath cooperation."
+        }
+      ]
+    },
+    {
+      "id": "gus_treta_station",
+      "name": "Gus Treta Inner System Market Station",
+      "district_id": null,
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "hutt_cartel_corellia",
+      "controlling_faction_notes": "Owned by Gormo Vosadii Grasso. Run as a legitimate business — refueling, repair, resupply, and trade. Gormo's real interest is profit and information. Bell's Cantina on the station is the system's cheapest source of spiced ale and its richest source of spacer gossip.",
+      "strategic_value": "Community hub for spacers throughout the Corellian System. 300-meter station with 4000 permanent residents and up to 4000 customers at peak. Spacers come here to refuel, find work, buy and sell cargo. Liddy Ravora runs Bell's Cantina as an information clearinghouse. Pops Merra alters transponder codes. A nexus for system-wide criminal intelligence.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "hutt_crime_lord",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Gormo Vosadii Grasso. Considered trustworthy for a Hutt. Little interest in the station beyond profits and information. Seeking a scheme to restore his reputation."
+        },
+        {
+          "archetype_ref": "information_broker",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Liddy Ravora at Bell's Cantina. Former waitress turned info-chant. First loyalty is to Gormo."
+        },
+        {
+          "archetype_ref": "outlaw_tech",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Clay 'Pops' Merra. One of the best in the system. Specialty: transponder code alteration. No smuggling ship in the system he hasn't touched."
+        },
+        {
+          "archetype_ref": "spacer",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "Transient spacers at Bell's Cantina. Source of rumors, job leads, and trouble."
+        }
+      ]
+    },
+    {
+      "id": "pirates_shadow",
+      "name": "Pirate's Shadow Asteroid Field",
+      "district_id": null,
+      "type": [
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Contested between the Silestro Privateers (Black Sun-backed, based at Rayless Lantern), the Hidden Dagger pirates (Hutt Cartel-aligned, contesting The Void), and CorSec TRT units that periodically sweep the area. No single faction controls the entire field.",
+      "strategic_value": "",
+      "takeover_priority": 5,
+      "encounter_roles": [
+        {
+          "archetype_ref": "pirate_captain",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Captain Jostero of the Silestro Privateers. Beautiful and murderous. Supported by Black Sun."
+        },
+        {
+          "archetype_ref": "pirate",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Privateers and pirates from multiple factions. Well-armed and operating from concealed bases."
+        },
+        {
+          "archetype_ref": "corsec_trt",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "CorSec Tactical Response Team member. Elite commando/pilot/investigator. Operates throughout the system hunting pirates."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_control",
+      "type": "political",
+      "source_faction_id": "imperial_authority_corellia",
+      "source_description": "The Empire controls the Corellian Sector through Grand Moff Naomi Dargon, the puppet Diktat, and embedded liaisons within CorSec. Imperial fleets patrol the system. Resources and industries have been nationalized. The historical proviso of Contemplanys Hermi — which once allowed the sector to withdraw from Republic participation — has been revoked. The bombardment of Froz serves as a standing reminder of Imperial consequences.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "corsec",
+          "description": "CorSec operates under Imperial liaisons. Strategic decisions require Imperial approval. Officers who push too hard against organized crime may be reassigned if their investigations inconvenience Imperial interests."
+        },
+        {
+          "faction_id": "corellian_corporatocracy",
+          "description": "CEC, CMC, and other corporations operate under nationalization. The Diktat fronts the government but takes orders from the Grand Moff. Corporate leadership maintains profitability within Imperial constraints."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Imperial authority permeates all official interactions on Corellia. Star Destroyers in orbit are a constant visual reminder. Corellians comply publicly while maintaining private networks of resistance and independence. Social checks involving Imperial cooperation gain automatic advantages; checks involving anti-Imperial activity require care."
+        }
+      ]
+    },
+    {
+      "id": "corellian_independence_spirit",
+      "type": "cultural",
+      "source_faction_id": null,
+      "source_description": "Corellia's fiercely independent character predates the Republic. Contemplanys Hermi was a unique constitutional proviso allowing the sector to withdraw from Republic participation. Senator Garm Bel Iblis invoked it during the Separatist Crisis. The entire sector remained neutral during the Clone Wars. Even under Imperial domination, this spirit manifests in CorSec's operational independence, the corporatocracy's resistance to full nationalization, swoop gang defiance, and the general Corellian tendency to treat rules as suggestions.",
+      "strength_default": "moderate",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "corsec",
+          "description": "CorSec officers view themselves as Corellian first and Imperial-supervised second. This creates friction with liaisons and opportunities for anti-Imperial operatives."
+        },
+        {
+          "faction_id": "swoop_gangs_corellia",
+          "description": "The gangs embody Corellian defiance in its rawest form. They answer to no one and view authority — CorSec or Imperial — as an enemy."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "moderate",
+          "modifier": "Corellians respond positively to displays of independence, bravery, and defiance. Appealing to Corellian pride adds automatic advantages to social checks with locals. Imperial credentials may generate hostility in informal settings like Blue Sector."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "corellian_run",
+        "destination": "Corellian Run (major hyperspace lane to Coruscant / Outer Rim)",
+        "travel_time": "variable — primary artery",
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Suns of Fortune",
+            "page": 11,
+            "detail": "Trade Routes listed; Run described in detail on p11-12"
+          }
+        ]
+      },
+      {
+        "id": "corellian_trade_spine",
+        "destination": "Corellian Trade Spine (major branch route)",
+        "travel_time": "variable — major tributary",
+        "route_quality": "well-established",
+        "notes": "One of the premier hyperspace trade routes of the Core regions. A massive tributary of the Corellian Run. Established within a millennium of Corellians achieving hyperspace flight. Connects to the Hydian Way and Namadii Corridor.",
+        "source_refs": [
+          {
+            "book": "Suns of Fortune",
+            "page": 12,
+            "detail": "Established as one of the premier hyperspace trade routes during Corellian expansion"
+          }
+        ]
+      },
+      {
+        "id": "coruscant",
+        "destination": "Coruscant",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Direct connection via the Corellian Run. Corellia is located to the galactic east of Coruscant. A primary Core World route, heavily trafficked.",
+        "inferred": true,
+        "source_refs": [
+          {
+            "book": "Suns of Fortune",
+            "page": 10,
+            "detail": "Located to the galactic east of Coruscant"
+          }
+        ]
+      },
+      {
+        "id": "duro",
+        "destination": "Duro",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Neighboring system within the Corellian Sector. Ancient allies. Corellians and Duros were kindred spirits who established the hyperlanes together.",
+        "source_refs": [
+          {
+            "book": "Suns of Fortune",
+            "page": 54,
+            "detail": "Daredevil explorers blazed hyperspace routes from Duros and Corellia"
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_authority_corellia",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Imperial oversight is bureaucratic only. The Grand Moff's liaisons are in place but military presence is minimal. Star Destroyers pass through rather than station. The Diktat governs day-to-day with corporate boards. CorSec operates with light Imperial monitoring.",
+          "presence_reason": "The Empire's attention is directed elsewhere — a crisis in another sector, fleet redeployment, or Dargon's confidence that Corellia is under control through institutional mechanisms rather than military force.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Embedded within CorSec and the Diktat's office. Monitoring and reporting. No enforcement capacity."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial posture on Corellia. Liaison officers in CorSec precincts. A Star Destroyer or two in orbit. Customs inspections at the Port of Corellia. Imperial garrisons staffed but not aggressive. The Diktat cooperates. The corporations comply. This is the Empire's normal grip on a Core World too valuable to alienate and too independent to fully control.",
+          "presence_reason": "Default state. The Empire maintains enough presence to assert sovereignty and monitor industrial output without provoking the Corellian independence streak into open resistance.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Liaisons embedded in CorSec, the Diktat's office, CEC, and the Port Authority."
+            },
+            {
+              "role": "Stormtrooper garrison",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Surface garrisons in Coronet City and Kor Vella. Professional but not conducting sweeps."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Operating alongside Corellian Port Authority in the Orbital Industrial Zone."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Something has triggered escalation. Additional Star Destroyers in orbit. Stormtrooper presence increased in all cities. Imperial officers taking direct control of CorSec operations. Customs inspections become thorough. The corporations are pressured. The independence spirit stirs — Corellians become less cooperative and more secretive.",
+          "presence_reason": "Rebel activity detected in the sector, an intelligence leak from the shipyards, political dissent reaching dangerous levels, or a direct order from the Grand Moff following a specific incident.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrols",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 16,
+              "notes": "Multiple squads covering Coronet City, Blue Sector approaches, Kor Vella, and Tyrena."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Investigating specific threats. May be running operations CorSec is not informed about."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 4,
+              "notes": "All ports locked down. Thorough inspections of every vessel."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer coordinating escalation. May override CorSec operational decisions."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military occupation. Multiple Star Destroyers in orbit. The Grand Moff has declared martial authority. CorSec is sidelined or directly subordinated. The Diktat's government is suspended. Stormtroopers patrol every district. The Orbital Industrial Zone is under military lockdown. Corellian independence sentiment reaches a crisis point — the population is either cowed or radicalized.",
+          "presence_reason": "Catastrophic event — a major Rebel operation launched from Corellian space, an assassination attempt on the Grand Moff, discovery of a massive weapons cache, or the Emperor's direct intervention. The Empire does not occupy Corellia lightly because the economic cost of shutting down the shipyards is enormous.",
+          "roles": [
+            {
+              "role": "Stormtrooper occupation force",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 30,
+              "notes": "Comprehensive coverage of all settlements and the Orbital Zone. Checkpoints, patrols, and rapid response teams."
+            },
+            {
+              "role": "ISB operations team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 4,
+              "notes": "ISB running the security operation. CorSec sidelined."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior command authority on site. Direct line to Grand Moff Dargon."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity confirmed. Corellia's Selonian tunnels and abandoned quarries could conceal Force users."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial liaisons ask more pointed questions. CorSec officers receive specific directives. Customs inspections increase in frequency. Star Destroyer patrol patterns tighten.",
+        "targeted": "ISB is looking for specific individuals. CorSec ordered to cooperate with Imperial-provided identification data. Spaceport departures monitored. Treasure Ship Row vendors pressured for information.",
+        "manhunt": "Full lockdown of the Port of Corellia. No vessel leaves without Imperial clearance. Stormtrooper sweeps of Blue Sector and Selonia Town. The Diktat issues public compliance orders. The corporatocracy is warned that non-cooperation will be treated as complicity."
+      }
+    },
+    {
+      "faction_id": "corsec",
+      "presence_levels": {
+        "skeleton": {
+          "description": "CorSec maintains precinct offices but active patrols are minimal. Officers handle administrative work and respond only to direct calls. Blue Sector is entirely unpatrolled. TRT operations are suspended or operating at reduced capacity.",
+          "presence_reason": "Budget cuts, Imperial reallocation of resources, or CorSec personnel diverted to support Imperial operations elsewhere in the system.",
+          "roles": [
+            {
+              "role": "CorSec desk officer",
+              "archetype_ref": "corsec_officer",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Staffing the precinct. Responding to comlink calls. Not patrolling."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard CorSec operations. Beat officers walking neighborhoods. Traffic monitoring on ground and in air. Community outreach. Investigators working active cases. Blue Sector remains unpatrolled by policy. TRT units deployed on specific missions.",
+          "presence_reason": "Normal peacekeeping. CorSec is doing its job within the constraints of Imperial oversight and criminal reality.",
+          "roles": [
+            {
+              "role": "CorSec beat officer",
+              "archetype_ref": "corsec_officer",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Walking beats, writing tickets, performing community outreach. Standard CDEF blaster pistols, truncheons, Mk. IV armored vests."
+            },
+            {
+              "role": "CorSec investigator",
+              "archetype_ref": "corsec_investigator",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Investigating major crimes. Works in pairs. Develops contacts across criminal, civilian, and military networks."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "CorSec has mobilized in response to a specific threat. Additional officers deployed. Investigators pulled from other cases. TRT on standby or actively deployed. Patrols extended to Blue Sector approaches. Coordination with Imperial liaisons becomes more active.",
+          "presence_reason": "Major crime surge, pirate incursion reaching into populated areas, swoop gang violence escalating beyond Blue Sector, or a high-profile case demanding resources.",
+          "roles": [
+            {
+              "role": "CorSec officer patrol",
+              "archetype_ref": "corsec_officer",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Enhanced patrols covering all major districts including Blue Sector perimeter."
+            },
+            {
+              "role": "CorSec investigator team",
+              "archetype_ref": "corsec_investigator",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Multiple investigator pairs working the same case. Cross-referencing contacts and leads."
+            },
+            {
+              "role": "CorSec TRT member",
+              "archetype_ref": "corsec_trt",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Tactical Response Team deployed for dangerous operations — infiltrating crime syndicates or hunting pirates."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full CorSec mobilization. Every officer on duty. TRT leading operations. CorSec has effectively taken over local security from Imperial forces or is operating in parallel. This level of mobilization strains the organization and cannot be sustained.",
+          "presence_reason": "Existential threat to Corellian security — a massive pirate fleet threatening the system, a criminal organization attempting to seize territory beyond Blue Sector, or a crisis requiring CorSec to act independently of compromised Imperial authority.",
+          "roles": [
+            {
+              "role": "CorSec officer patrol",
+              "archetype_ref": "corsec_officer",
+              "tier": "minion",
+              "count": 12,
+              "notes": "All precincts fully staffed and deployed. Even Blue Sector sees CorSec patrols."
+            },
+            {
+              "role": "CorSec investigator team",
+              "archetype_ref": "corsec_investigator",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full investigative capacity. Running multiple operations simultaneously."
+            },
+            {
+              "role": "CorSec TRT squad",
+              "archetype_ref": "corsec_trt",
+              "tier": "nemesis",
+              "count": 2,
+              "notes": "Multiple TRT members coordinating. Elite capability — piloting, combat, investigation."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "CorSec beat officers ask more questions. Investigators make rounds in unusual areas. Patrol frequency increases.",
+        "targeted": "CorSec has specific suspects. Investigators are tailing targets. TRT may be conducting surveillance. Imperial liaisons may or may not be informed depending on the case.",
+        "manhunt": "CorSec and TRT fully mobilized on a specific target. Roadblocks and speeder checkpoints. Coordinated sweeps. If the target is in Blue Sector, CorSec may attempt to reenter — which will provoke swoop gang resistance."
+      }
+    },
+    {
+      "faction_id": "black_sun_corellia",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Black Sun's presence is invisible. No active pirate operations. Proxy agents maintain passive intelligence gathering in Coronet City and the Orbital Zone.",
+          "presence_reason": "Black Sun has pulled resources to another sector or the Silestro Privateers have been temporarily disrupted by CorSec operations.",
+          "roles": [
+            {
+              "role": "Black Sun proxy agent",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Embedded in legitimate commerce. Gathering intelligence for future operations."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Black Sun operations. The Silestro Privateers conduct raids on merchant traffic from the Rayless Lantern. Captain Jostero commands. CorSec TRT conducts periodic sweeps but cannot root out the pirates from the asteroid field.",
+          "presence_reason": "Business as usual. Black Sun profits from piracy and disruption of legitimate commerce throughout the system.",
+          "roles": [
+            {
+              "role": "Silestro Privateer raider",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Raiding parties launched from the Rayless Lantern. Targeting merchant vessels."
+            },
+            {
+              "role": "Captain Jostero",
+              "archetype_ref": "pirate_captain",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Beautiful and murderous. Leads the Silestro Privateers. Directly supported by Black Sun."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Black Sun has escalated operations. More ships raiding. Supply lines to legitimate ports disrupted. Possible expansion into planet-side criminal operations through intermediaries in Blue Sector.",
+          "presence_reason": "Black Sun is making a strategic push — either responding to a Hutt Cartel challenge in The Void, exploiting an Imperial distraction, or positioning for a larger operation.",
+          "roles": [
+            {
+              "role": "Silestro Privateer fleet",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Multiple raiding parties operating simultaneously. System-wide threat."
+            },
+            {
+              "role": "Captain Jostero",
+              "archetype_ref": "pirate_captain",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Personally leading critical operations."
+            },
+            {
+              "role": "Black Sun operative",
+              "archetype_ref": "spy",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Agents operating in Coronet City and the Orbital Zone. Coordinating intelligence for pirate strikes."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Black Sun has achieved temporary naval superiority in the outer system. The Pirate's Shadow is a no-go zone. Merchant traffic rerouting. The Orbital Industrial Zone is threatened. CorSec and the Corellian Navy are mobilizing. Imperial intervention is likely.",
+          "presence_reason": "A rare and unsustainable escalation — Black Sun is committing significant resources to the Corellian System for a strategic objective. This draws unwanted attention and will not last.",
+          "roles": [
+            {
+              "role": "Black Sun fleet",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Major pirate force threatening system commerce."
+            },
+            {
+              "role": "Black Sun Vigo representative",
+              "archetype_ref": "crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior Black Sun operative overseeing the operation. This level of commitment means a Vigo has personal stake."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Increased pirate activity reported by merchant convoys. Shipping insurance rates rise.",
+        "targeted": "Specific vessels or cargo types targeted. Raiding patterns suggest intelligence from inside the Port Authority or CEC.",
+        "manhunt": "CorSec TRT, the Corellian Navy, and potentially Imperial forces conducting coordinated operations in the Pirate's Shadow."
+      }
+    },
+    {
+      "faction_id": "hutt_cartel_corellia",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Gormo remains at Gus Treta Station. Bell's Cantina operates. No active criminal operations beyond routine information gathering.",
+          "presence_reason": "Gormo is lying low — Hutt Cartel politics have made aggressive operations inadvisable, or CorSec attention has increased.",
+          "roles": [
+            {
+              "role": "Gormo's station staff",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Maintaining station operations. Nothing overt."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Hutt Cartel operations. Gus Treta Station running normally as a trade and intelligence hub. Bell's Cantina gathering information. Pops Merra altering transponder codes. Hidden Dagger pirates skirmishing in The Void.",
+          "presence_reason": "Normal operations. Gormo profits from the station and feeds intelligence to interested parties.",
+          "roles": [
+            {
+              "role": "Gormo Vosadii Grasso",
+              "archetype_ref": "hutt_crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Station owner. Legitimate businessman facade. Real interest is profit and reputation restoration."
+            },
+            {
+              "role": "Liddy Ravora",
+              "archetype_ref": "information_broker",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Bell's Cantina owner. Info-chant. First loyalty to Gormo."
+            },
+            {
+              "role": "Hidden Dagger pirate",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Contesting The Void against Black Sun-backed forces."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Gormo has found his scheme. Hutt Cartel resources flowing into the system. Hidden Dagger pirates reinforced. New criminal operations launched from Gus Treta as a base.",
+          "presence_reason": "Gormo has identified an opportunity to restore his reputation — a major spice deal, a theft from CEC, or leverage over a powerful figure.",
+          "roles": [
+            {
+              "role": "Gormo Vosadii Grasso",
+              "archetype_ref": "hutt_crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Actively directing operations. More dangerous than his usual passive stance."
+            },
+            {
+              "role": "Selonian thugs (Den Kimotte)",
+              "archetype_ref": "selonian_enforcer",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Kaldo's Selonian enforcers — silent, merciless, always traveling in groups of three."
+            },
+            {
+              "role": "Hidden Dagger fleet",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Reinforced pirate force pressing the advantage in The Void."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The Hutt Cartel has committed major resources. Gormo is no longer acting alone — kajidic leadership is involved. The Void is secured. Criminal operations threaten legitimate commerce. CorSec and Imperial forces respond.",
+          "presence_reason": "The Vosadii kajidic has decided the Corellian System is worth a major investment. Gormo's scheme succeeded enough to attract clan backing.",
+          "roles": [
+            {
+              "role": "Hutt Cartel envoy",
+              "archetype_ref": "hutt_crime_lord",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior Hutt sent by the kajidic to oversee expanded operations."
+            },
+            {
+              "role": "Cartel enforcers",
+              "archetype_ref": "thug",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Mixed species muscle. Operating on-station and potentially planet-side."
+            },
+            {
+              "role": "Hidden Dagger fleet",
+              "archetype_ref": "pirate",
+              "tier": "minion",
+              "count": 14,
+              "notes": "Major pirate force controlling The Void and raiding aggressively."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Gormo is more interested in certain visitors. Liddy asks pointed questions. Station security tightens subtly.",
+        "targeted": "Gormo has identified a specific target — a person, cargo, or piece of information. Pops Merra may refuse work or demand favors. Hidden Dagger pirates attack specific vessels.",
+        "manhunt": "Hutt Cartel resources fully committed. Selonian enforcers hunting on-planet. Gormo's network of spacer contacts activated as informants."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [
+      "imperial_authority_corellia",
+      "corellian_corporatocracy"
+    ],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "eote_smuggler": {
+        "name": "Corellian Underworld",
+        "description": "The PCs are smugglers, fringers, or hired guns operating out of Blue Sector in Coronet City. Treasure Ship Row is their marketplace, the cantinas are their office, and the Orbital Industrial Zone is where the real cargo moves. The Empire watches from above, CorSec patrols the streets they bother to patrol, and the swoop gangs run everything else. Gormo's station in the outer system offers refueling, repairs, and jobs that don't ask too many questions. The Pirate's Shadow is where things get dangerous. The PCs need to build contacts, find cargo, dodge CorSec investigators, and stay off the Imperial liaisons' radar — all while navigating a planet that values independence above everything and punishes disloyalty harshly.",
+        "initial_faction_states": {
+          "imperial_authority_corellia": "patrol",
+          "corsec": "patrol",
+          "black_sun_corellia": "patrol",
+          "hutt_cartel_corellia": "patrol",
+          "swoop_gangs_corellia": "patrol"
+        },
+        "initial_heat": [],
+        "suggested_hooks": [
+          "A CEC engineer needs a crate of restricted components smuggled off the Orbital Zone. The pay is good. The components are tracked.",
+          "Liddy Ravora at Bell's Cantina has a job lead: a cargo run to the Outer Rim, but the client is a Hutt. Gormo wants a favor in return for the introduction.",
+          "A swoop gang in Blue Sector is shaking down a merchant on Treasure Ship Row who has information the PCs need. The gang won't negotiate. CorSec won't help.",
+          "Captain Jostero's Silestro Privateers hit a convoy carrying something valuable. The original owner wants it back and is willing to pay — but retrieving it means entering the Pirate's Shadow.",
+          "An old Corellian spacer drinking in a Blue Sector cantina claims to know a hidden route through the system that avoids all Port Authority checkpoints. He'll share it for passage off-world. He's also wanted by CorSec."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "pages": "various",
+      "detail": "Corellian brandy, Corellian references in trade and equipment sections"
+    },
+    {
+      "book": "Suns of Fortune (Corellian Sector Sourcebook)",
+      "pages": "6-22, 49-56",
+      "detail": "Primary source for Corellia planet entry, Coronet City, Blue Sector, Treasure Ship Row, CorSec, Orbital Industrial Zone, Kor Vella, Tyrena, Agrilat, Pirate's Shadow, Gus Treta Station, criminal factions, NPCs"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "pages": "166",
+      "detail": "Rarity modifier table: Corellia listed as primary Core World (-2)"
+    },
+    {
+      "book": "Force and Destiny Core Rulebook",
+      "pages": "161",
+      "detail": "Rarity modifier table: Corellia listed as primary Core World (-2)"
+    }
+  ]
+}

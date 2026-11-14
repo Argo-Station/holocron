@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+
+  "flow_rules": {
+    "entry_requirements": [
+      "Every location must have exactly one primary entry room tagged 'transit'",
+      "Entry room must connect to at least 2 other rooms",
+      "Entry room cannot be a reward room",
+      "Entry room density must be 'sparse' or 'moderate'"
+    ],
+    "choke_point_rules": [
+      "At least one room must serve as a chokepoint (single-connection bottleneck) for locations with 6+ rooms",
+      "Chokepoints should be tagged 'transit' or 'security'",
+      "Chokepoints must not be the entry room"
+    ],
+    "reward_room_rules": [
+      "Locations with 6+ rooms should have at least one high-value room (tagged 'command', 'hidden', or 'storage')",
+      "Reward rooms should be at maximum graph distance from the entry",
+      "Reward rooms should have exactly 1 entry point"
+    ],
+    "exit_requirements": [
+      "At least one room must have has_alternate_exit: true for locations with 8+ rooms",
+      "Alternate exits must not be the primary entry room"
+    ]
+  },
+
+  "room_graph_rules": {
+    "min_connectivity": 1,
+    "max_connectivity": 4,
+    "required_room_tags": ["transit", "social"],
+    "forbidden_adjacencies": [
+      { "room_tag": "sleeping", "cannot_adjoin": "ritual" },
+      { "room_tag": "medical", "cannot_adjoin": "hidden" },
+      { "room_tag": "holding_cells", "cannot_adjoin": "sleeping" }
+    ],
+    "preferred_adjacencies": [
+      { "room_tag": "command", "prefers": "security" },
+      { "room_tag": "command", "prefers": "technical" },
+      { "room_tag": "social", "prefers": "transit" },
+      { "room_tag": "storage", "prefers": "transit" },
+      { "room_tag": "medical", "prefers": "sleeping" },
+      { "room_tag": "hidden", "prefers": "storage" },
+      { "room_tag": "security", "prefers": "transit" }
+    ]
+  },
+
+  "size_profiles": {
+    "small": { "min_rooms": 3, "max_rooms": 5, "max_depth": 3 },
+    "medium": { "min_rooms": 6, "max_rooms": 10, "max_depth": 5 },
+    "large": { "min_rooms": 11, "max_rooms": 18, "max_depth": 7 }
+  },
+
+  "cluster_placement_rules": {
+    "min_clusters_per_room": 1,
+    "max_clusters_per_room": 4,
+    "cluster_density_by_room_density": {
+      "sparse": { "min": 1, "max": 2 },
+      "moderate": { "min": 2, "max": 3 },
+      "dense": { "min": 2, "max": 4 },
+      "cluttered": { "min": 3, "max": 4 }
+    },
+    "no_duplicate_clusters_in_location": true,
+    "respect_excludes": true
+  }
+}

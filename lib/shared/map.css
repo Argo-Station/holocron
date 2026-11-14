@@ -1,0 +1,245 @@
+/* map.css — THE UNIVERSE MAP'S PAPER CHROME (PAPER N5 wave B; ruling `universe-map-paper-concept` R-UMP-1, rows
+   B-1149…B-1154). Mockup `lab/holocron/map.html` @ lab `16eb5206`, DECISIONS D-79 @ `40f732f9` ("A. Approve as drawn /
+   A. Keep the dark starchart / A. Untouched this wave"). Linked by gm/index.html after paper.css and store.css.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of the board's map stylesheet at that pin, in the board's own order: the head, the floating chrome (the
+   search pill and its list, Map controls' trigger), the route planner, the planet sheet and its pin, the screen
+   states and the boundary. NOT ported, each named in place: the B chart's ground (`.mp-app[data-ground="B"]` —
+   D-79 Q2 = A keeps the dark starchart), the board's canvas and hit layer (`.mp-cv`, `.mp-hits`, `.mp-node` —
+   the product's chart is GalaxyMapView, untouched), the photographs and the board's page chrome.
+
+   ── THE THREE MECHANICAL CHANGES ──────────────────────────────────────────────────────────────
+   1. THE FENCE — every rule sits under `:where([data-map-shell])`. The board wrote its rules UNPREFIXED beside
+      tokens.css, the creator ground and chrome.css; a zero-specificity fence keeps every tie exactly as the board
+      rendered it — among its own rules (`.mp-app button{font:inherit}` still out-specifies `.mp-pill`) and against
+      chrome.css's `[data-paper-chrome] .pb-*` (which still wins the menu's rows). The dark GM emits no
+      `[data-map-shell]`, so OFF matches nothing here.
+   2. THE DESK — the board's `@container mp (min-width:1024px)` becomes `:where([data-map-shell][data-desk="1"])`:
+      R-UMP-5 says the panel turns at the GM store's desk breakpoint, and the store's is not a number in a
+      stylesheet — it is `useStoreBand` (lib/store/view.jsx) over `useLayoutMode()`, the 1024 seam of
+      lib/shared/bands.js. UniverseMapScreen makes the same read and lands it as `data-desk`.
+   3. THE CHART IS NOT PAPER — the board's `.mp-app svg` rule is kept off Leaflet's own SVG
+      (`:not(.leaflet-container *)`), and the shell root, which carries `data-doc-ground="creator"` for the
+      ground's tokens, does not wear paper.css's wear and grain: those two layers paint OVER the root's children,
+      so on this root they would multiply onto the starchart, and the frames (drawn without them) and D-79 Q2 = A
+      keep the chart's look byte-unchanged. The sheet sheds them too (B-1153, at its rule); the boundary is a
+      `[data-paper-chrome]` page, which chrome.css already keeps flat — as F3/F5 draw it. */
+
+[data-map-shell][data-doc-ground="creator"]::before,
+[data-map-shell][data-doc-ground="creator"]::after{content:none}
+
+.mp-app:where([data-map-shell]){position:relative;width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden;font-family:var(--font-body);color:var(--doc-ink)}
+.mp-app:where([data-map-shell])[data-ground="A"]{background:linear-gradient(180deg,#030a14 0%,#000205 100%)}
+/* not ported (the B chart / the board's canvas): .mp-app[data-ground="B"] */
+.mp-app:where([data-map-shell]) button{font:inherit}
+.mp-app:where([data-map-shell]) svg:where(:not(.leaflet-container *)){fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+/* ── THE MAP'S HEADER (`.mp-head`) — padding 14/16/12, the 44px BACK, the centred title, the 44px spacer: the
+ * measures of the dark GmHeader it replaced (deleted with its two mounts, ruling `paper-n5-deletion` R-N5D-1). Paper: the bars' raised stock and hairline (chrome.css `.pb-top`), the title in ink, the
+ * subtitle in the muted ink — B-1121's 3.05:1 white-at-.35 subtitle is retired by the ground, not by a new size. */
+:where([data-map-shell]) .mp-head{flex:none;padding:14px 16px 12px;background:var(--doc-paper-raised);border-bottom:1px solid var(--doc-rule)}
+:where([data-map-shell]) .mp-head-row{display:flex;align-items:center}
+:where([data-map-shell]) .mp-back{display:flex;align-items:center;gap:4px;min-width:44px;min-height:44px;padding:0;border:0;background:none; cursor:pointer;color:var(--doc-ink-muted);font-family:var(--font-mono);font-size:var(--fs-xs)}
+:where([data-map-shell]) .mp-back svg{width:20px;height:20px;stroke-width:2}
+:where([data-map-shell]) .mp-back span{letter-spacing:.18em}
+:where([data-map-shell]) .mp-title{flex:1;text-align:center;min-width:0}
+:where([data-map-shell]) .mp-title-t{font-family:var(--font-display);font-weight:700;font-size:var(--fs-xs);letter-spacing:.14em;color:var(--doc-ink); text-transform:uppercase}
+:where([data-map-shell]) .mp-title-s{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.22em;color:var(--doc-ink-muted);margin-top:3px}
+:where([data-map-shell]) .mp-spacer{min-width:44px}
+/* ── THE BODY — the map fills it (app.jsx:930-934) ── */
+:where([data-map-shell]) .mp-body{flex:1;position:relative;overflow:hidden;min-height:0}
+/* not ported (the B chart / the board's canvas): .mp-cv */
+/* not ported (the B chart / the board's canvas): .mp-hits */
+/* a labelled world is a Leaflet marker: a focusable button named by the world. A: today's 40px box (GalaxyMapView
+ * `var hit = 40`) — B: the 44px floor (a face number, the model untouched) */
+/* not ported (the B chart / the board's canvas): .mp-node */
+/* ── THE FLOATING CHROME (app.jsx:1003-1032): 12px in from the top corners, z 470 ── */
+:where([data-map-shell]) .mp-float{position:absolute;top:12px;z-index:470}
+:where([data-map-shell]) .mp-fl{left:12px}
+:where([data-map-shell]) .mp-fr{right:12px}
+/* the pill: 44px, padding 10/14, gap 6 (app.jsx:1240-1250). Paper: the plate, the hairline, the kit's 2px radius and
+ * the page's own lift — a card lying on the chart, where the dark face was smoked glass with a blur. */
+:where([data-map-shell]) .mp-pill{min-height:44px;min-width:44px;padding:10px 14px;display:flex;align-items:center;gap:6px;box-sizing:border-box; border:1px solid var(--doc-rule);border-radius:2px;background:var(--doc-paper-raised);color:var(--doc-ink-muted); box-shadow:var(--doc-lift);cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.16em}
+:where([data-map-shell]) .mp-pill .mp-mag{width:14px;height:14px;flex:none;stroke-width:1.3}
+/* the open pill keeps its trigger as the collapse (B-1133: today nothing collapses it and Escape leaves it open);
+ * aria-expanded says which, and the inset rule is the chrome's "you are here" mark (chrome.css .pb-tab[data-on]) */
+:where([data-map-shell]) .mp-pill[aria-expanded="true"]{color:var(--doc-ink);box-shadow:inset 0 -3px 0 var(--doc-action)}
+:where([data-map-shell]) .mp-mc{letter-spacing:.12em}
+/* NOT THE BOARD'S MARKUP, THE BOARD'S LOOK (B-1151): the product's Map controls trigger is the shared ModuleMenu's own
+ * paper trigger, `.pb-icon` (chrome.css: the bars' glyph — no plate, no hairline), where the board drew `.mp-pill.mp-mc`.
+ * These are the pill's declarations and the open state's, laid on that trigger inside the map's top-right float; no
+ * font property, so the board's `.mp-app button{font:inherit}` decides the face exactly as it did on the board. One
+ * class past chrome.css's `[data-paper-chrome] .pb-icon` on a tie, and linked after it. */
+:where([data-map-shell]) .mp-fr .pb-icon{min-height:44px;min-width:44px;padding:10px 14px;display:flex;align-items:center;gap:6px;
+  box-sizing:border-box;border:1px solid var(--doc-rule);border-radius:2px;background:var(--doc-paper-raised);
+  color:var(--doc-ink-muted);box-shadow:var(--doc-lift);cursor:pointer;letter-spacing:.12em}
+:where([data-map-shell]) .mp-fr .pb-icon[aria-expanded="true"]{color:var(--doc-ink);box-shadow:inset 0 -3px 0 var(--doc-action)}
+:where([data-map-shell]) .mp-search{width:260px;padding:4px;box-sizing:border-box;background:var(--doc-paper-raised);border:1px solid var(--doc-rule); border-radius:2px;box-shadow:0 10px 28px rgba(23,22,27,.30);display:flex;flex-direction:column;gap:4px}
+:where([data-map-shell]) .mp-search > .mp-pill{border:0;box-shadow:inset 0 -3px 0 var(--doc-action);align-self:flex-start}
+/* SearchInput (app.jsx:2430-2475): gap 8, padding 8/12; the input at --fs-lg; the × a 44px target */
+:where([data-map-shell]) .mp-field{display:flex;align-items:center;gap:8px;min-height:46px;box-sizing:border-box;padding:0 0 0 12px; background:var(--doc-paper);border:1px solid var(--doc-rule);border-radius:2px;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-field .mp-mag{width:14px;height:14px;flex:none;stroke-width:1.3}
+:where([data-map-shell]) .mp-field input{flex:1;min-width:0;height:44px;border:0;outline:0;background:transparent;color:var(--doc-ink); font-family:var(--font-body);font-size:var(--fs-lg);letter-spacing:.02em;padding:0}
+:where([data-map-shell]) .mp-field input::placeholder{color:var(--doc-ink-muted);opacity:1}
+:where([data-map-shell]) .mp-clear{flex:none;min-width:44px;min-height:44px;border:0;background:none;cursor:pointer;color:var(--doc-ink-muted); font-family:var(--font-mono);font-size:var(--fs-lg)}
+/* the list (app.jsx:1170-1222): 280px, scrolls; rows padding 10/14. B-1133: a listbox of options, the first one
+ * ACTIVE because Enter picks it (app.jsx:1150) — the mark is the chrome's own (mat + inset action rule) */
+:where([data-map-shell]) .mp-list{max-height:280px;overflow-y:auto;background:var(--doc-paper-raised);border:1px solid var(--doc-rule);border-radius:2px; box-shadow:0 10px 28px rgba(23,22,27,.30)}
+:where([data-map-shell]) .mp-search .mp-list{box-shadow:none}
+:where([data-map-shell]) .mp-opt{display:block;padding:10px 14px;border-bottom:1px solid var(--doc-rule-fine);cursor:pointer}
+:where([data-map-shell]) .mp-opt[aria-selected="true"]{background:var(--doc-mat);box-shadow:inset 3px 0 0 var(--doc-action)}
+:where([data-map-shell]) .mp-opt-n{display:block;font-family:var(--font-body);font-weight:600;font-size:var(--fs-sm);color:var(--doc-ink);margin-bottom:2px}
+:where([data-map-shell]) .mp-opt-m{display:block;font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.14em;color:var(--doc-accent)}
+:where([data-map-shell]) .mp-mk{display:inline-block;margin-left:6px;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-mk::first-letter{color:var(--doc-good)}
+:where([data-map-shell]) .mp-mk[data-d="identity"]::first-letter{color:var(--doc-accent)}
+/* ── MAP CONTROLS — ModuleMenu's popover: absolute 8px under the trigger, right 0, 236px, padding 8, gap 2; rows
+ * 46px, padding 0 12px (ui.jsx:1336-1390). The GROUND and the INKS are chrome.css `.pb-pop` (blob), unchanged. ── */
+:where([data-map-shell]) .mp-mm{position:relative}
+:where([data-map-shell]) .mp-pop{position:absolute;top:calc(100% + 8px);right:0;z-index:200;min-width:236px;display:flex;flex-direction:column;gap:2px; padding:8px;box-sizing:border-box}
+:where([data-map-shell]) .mp-row{display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:46px;width:100%;padding:0 12px; border:0;background:none;cursor:pointer;text-align:left;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.12em}
+:where([data-map-shell]) .mp-tog{justify-content:space-between;gap:12px}
+:where([data-map-shell]) .mp-row .pb-pill{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.16em;padding:3px 8px}
+/* ── THE ROUTE PLANNER (app.jsx:1355-1372): top 52, centred, 100% − 24 up to 340, capped at 100% − 68 and scrolling,
+ * z 480, padding 14. Paper: a raised card (chrome.css's menu lift), square to the kit. ── */
+:where([data-map-shell]) .mp-route{position:absolute;top:52px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:340px; max-height:calc(100% - 68px);overflow-y:auto;z-index:480;box-sizing:border-box;padding:14px; background:var(--doc-paper-raised);border:1px solid var(--doc-rule);border-radius:2px;box-shadow:0 10px 28px rgba(23,22,27,.30)}
+:where([data-map-shell]) .mp-route-h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+:where([data-map-shell]) .mp-route-t{flex:1;font-family:var(--doc-sechead-face);font-size:var(--fs-xs);letter-spacing:.22em;color:var(--doc-sechead-ink)}
+:where([data-map-shell]) .mp-x{flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer; border:1px solid var(--doc-rule);border-radius:2px;background:var(--doc-paper-raised);color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-x svg{width:14px;height:14px;stroke-width:1.6}
+:where([data-map-shell]) .mp-fld{margin-bottom:8px;position:relative}
+:where([data-map-shell]) .mp-fld-end{margin-bottom:12px}
+:where([data-map-shell]) .mp-fl-l{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.2em;color:var(--doc-accent);margin-bottom:4px}
+/* the planner's lists stand IN FLOW: today they are absolute inside the planner's own scroll box and are cut off at its
+ * foot (measured live: a 312px panel over 516px of content, the list needing a scroll inside a scroll) */
+:where([data-map-shell]) .mp-fld .mp-list{margin-top:4px;max-height:236px;box-shadow:none}
+/* the result card: the planner's answer is a thing that IS, so its edge is the state ink (grounds/creator.css) */
+:where([data-map-shell]) .mp-res{padding:12px 14px;background:var(--doc-paper);border:1px solid var(--doc-rule-fine);border-left:3px solid var(--doc-state)}
+:where([data-map-shell]) .mp-res-same{padding:10px 12px;font-size:var(--fs-body);line-height:1.5;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-k{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-2xs);letter-spacing:.18em;color:var(--doc-accent)}
+:where([data-map-shell]) .mp-via{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.22em;color:var(--doc-accent);margin-bottom:6px}
+:where([data-map-shell]) .mp-path{font-size:var(--fs-body);line-height:1.55;color:var(--doc-ink);margin-bottom:10px;overflow-wrap:break-word}
+:where([data-map-shell]) .mp-legs{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+:where([data-map-shell]) .mp-leg{font-size:var(--fs-sm);line-height:1.5;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-leg-ft{color:var(--doc-ink)}
+:where([data-map-shell]) .mp-leg-l{font-style:italic;color:var(--doc-accent)}
+:where([data-map-shell]) .mp-leg-w{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.14em;color:var(--doc-critical)}
+:where([data-map-shell]) .mp-leg-d{color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-rule{height:1px;width:40px;background:var(--doc-rule);margin-bottom:8px}
+:where([data-map-shell]) .mp-days{font-family:var(--font-display);font-weight:700;font-size:var(--fs-lg);letter-spacing:.02em;color:var(--doc-ink); margin-bottom:4px;text-transform:uppercase}
+:where([data-map-shell]) .mp-astro{display:flex;align-items:center;flex-wrap:wrap;gap:0 8px;font-family:var(--font-mono);font-size:var(--fs-2xs); letter-spacing:.16em;color:var(--doc-ink)}
+:where([data-map-shell]) .mp-am{color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-pip{font-family:Genesys,sans-serif;font-size:var(--fs-sm);margin:0 1px;line-height:1;letter-spacing:0}
+:where([data-map-shell]) .mp-pip[data-die="difficulty"]{color:var(--doc-sym-difficulty)}
+:where([data-map-shell]) .mp-pip[data-die="boost"]{color:var(--doc-sym-boost)}
+:where([data-map-shell]) .mp-pip[data-die="setback"]{color:var(--doc-sym-setback)}
+:where([data-map-shell]) .mp-why{font-size:var(--fs-sm);color:var(--doc-ink-muted);margin-top:3px}
+:where([data-map-shell]) .mp-hc{margin-top:10px}
+:where([data-map-shell]) .mp-hc-l{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.18em;color:var(--doc-accent);margin-bottom:5px}
+:where([data-map-shell]) .mp-hc-l span{color:var(--doc-ink-muted);letter-spacing:.08em}
+:where([data-map-shell]) .mp-chips{display:flex;gap:5px;flex-wrap:wrap}
+/* B-1133: the class chips are PRESSED buttons; and 32px → the 44px floor */
+:where([data-map-shell]) .mp-chip{min-height:44px;min-width:44px;padding:5px 10px;border-radius:2px;cursor:pointer;font-family:var(--font-mono); font-size:var(--fs-xs);background:var(--doc-mat);border:1px solid var(--doc-rule);color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-chip[aria-pressed="true"]{background:var(--doc-state);border-color:var(--doc-state);color:var(--doc-state-ink)}
+:where([data-map-shell]) .mp-foot{font-size:var(--fs-sm);color:var(--doc-ink-muted);margin-top:4px;line-height:1.45}
+:where([data-map-shell]) .mp-wnote{margin-top:8px;padding-top:8px;border-top:1px dashed var(--doc-rule);font-size:var(--fs-sm);line-height:1.5;color:var(--doc-ink)}
+:where([data-map-shell]) .mp-k-w{color:var(--doc-critical)}
+/* CLEAR ROUTE: a thing the GM DOES, so it is the outlined action (paper.css .sb-toggle's register) */
+:where([data-map-shell]) .mp-clearr{width:100%;min-height:44px;margin-top:10px;padding:10px 14px;cursor:pointer;border-radius:2px; background:transparent;border:1px solid var(--doc-action);color:var(--doc-action); font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.16em}
+/* ── THE PLANET SHEET (app.jsx:1866-1890): a bottom sheet, 75% of the map tall, scrolling; padding 4/18/24. Paper:
+ * the page itself with the kit's sheet shadow (chrome.css's `0 -8px 30px` band) over the store's reading scrim.
+ * AT THE DESK (≥1024) THE LAB DRAWS IT AS A SIDE PANEL, a layout proposal (the copy table flags it): today at 1440 the
+ * sheet is the full window wide and three quarters of it tall, so the world you opened is under it. ── */
+:where([data-map-shell]) .mp-scrim{position:absolute;inset:0;z-index:450;background:rgba(23,22,27,.42)}
+:where([data-map-shell]) .mp-sheet.mp-unrolled{max-height:none;overflow:visible}
+:where([data-map-shell]) .mp-sheet{position:absolute;left:0;right:0;bottom:0;z-index:460;max-height:75%;overflow-y:auto;box-sizing:border-box; padding:4px 18px 24px;background:var(--doc-paper);border-top:1px solid var(--doc-rule);box-shadow:0 -8px 30px rgba(23,22,27,.34)}
+/* B-1133: the handle is a BUTTON (focusable; Enter closes, as a tap on the scrim does) — 120×44, its bar 40×3 */
+/* A PORT CORRECTION (B-1153): the board's sheet carries `data-doc-ground="creator"` and the board loads no paper.css,
+ * so E1–E8 draw a FLAT page whose children are static. In the product that attribute also pulls paper.css's page rules
+ * — the wear layers (::before/::after) and `> *{position:relative;z-index:1}` — which paint a texture no frame drew and
+ * lift the name (a later sibling) over the × at the desk, where no handle pushes it down (measured: the × at 1440 hit
+ * `h2.mp-name`). The sheet sheds both, as the shell root sheds the wear; the two children the board positions itself
+ * (the × and the sticky pills) keep their own rules. Full specificity on purpose: it must beat paper.css's lift. */
+[data-map-shell] .mp-sheet[data-doc-ground="creator"]::before,
+[data-map-shell] .mp-sheet[data-doc-ground="creator"]::after{content:none}
+[data-map-shell] .mp-sheet[data-doc-ground="creator"] > :not(.mp-sheet-x):not(.mp-jumps){position:static;z-index:auto}
+:where([data-map-shell]) .mp-handle{display:flex;align-items:center;justify-content:center;width:120px;height:44px;margin:0 auto 4px;padding:0; border:0;background:none;cursor:grab}
+:where([data-map-shell]) .mp-handle span{width:40px;height:3px;border-radius:2px;background:var(--doc-ink-structural)}
+:where([data-map-shell]) .mp-sheet-x{position:absolute;top:10px;right:12px;font-family:var(--font-body);font-size:var(--fs-xl);line-height:1}
+:where([data-map-shell]) .mp-eye{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.22em;color:var(--doc-accent);margin-bottom:4px}
+:where([data-map-shell]) .mp-name{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2xl);letter-spacing:.04em;color:var(--doc-ink); margin:0 0 4px;padding-right:48px;text-transform:uppercase;line-height:1.15}
+:where([data-map-shell]) .mp-gridref{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.14em;color:var(--doc-ink-muted);margin-bottom:10px}
+:where([data-map-shell]) .mp-gridref span{margin-left:10px}
+:where([data-map-shell]) .mp-div{height:1px;width:60px;background:var(--doc-rule);margin:6px 0 12px}
+:where([data-map-shell]) .mp-pinc{margin-bottom:12px}
+:where([data-map-shell]) .mp-pin-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+/* the pin: "PIN · VISITED, a plain date, no metaphor" (map-pins-concept). VISITED is a thing that simply IS, so on it
+ * takes the state fill; the ring is the map's own badge, the control and the badge one idiom (app.jsx:1715) */
+:where([data-map-shell]) .mp-pin{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px;border-radius:2px;cursor:pointer; border:1px solid var(--doc-rule);background:var(--doc-paper-raised);color:var(--doc-ink-muted); font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.16em}
+:where([data-map-shell]) .mp-pin[aria-checked="true"]{background:var(--doc-state);border-color:var(--doc-state);color:var(--doc-state-ink)}
+:where([data-map-shell]) .mp-ring{width:14px;height:14px;border-radius:50%;box-sizing:border-box;border:2px solid currentColor;flex:none}
+:where([data-map-shell]) .mp-when{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.16em;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-note{display:block;width:100%;max-width:520px;margin-top:8px;min-height:44px;box-sizing:border-box;padding:0 12px; background:var(--doc-paper-raised);border:1px solid var(--doc-rule);border-radius:2px;color:var(--doc-ink); font-family:var(--font-body);font-size:var(--fs-body)}
+:where([data-map-shell]) .mp-loadrec{padding:18px 0;text-align:center;font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.2em;color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-failed{padding:12px 14px;margin-bottom:8px;font-size:var(--fs-body);color:var(--doc-critical);background:var(--doc-paper-raised); border:1px solid var(--doc-critical);border-left-width:3px}
+:where([data-map-shell]) .mp-quiet-p{font-size:var(--fs-body);line-height:1.55;color:var(--doc-ink-muted);font-style:italic;margin:0}
+:where([data-map-shell]) .mp-jumps{position:sticky;top:-4px;z-index:5;display:flex;gap:6px;padding:8px 2px 10px;margin:0 -2px 4px;overflow-x:auto; scrollbar-width:none;background:var(--doc-paper)}
+/* finding 12: the jump pills WRAP (a class on the row, so frame_delta sees the drawing change). Today (app.jsx:2041-2054)
+   the row scrolls sideways behind an 18px fade, so a phone hides the fourth pill (LORE) and a GM cannot reach what they
+   cannot see (B-1133) */
+:where([data-map-shell]) .mp-jumps.mp-wrap{flex-wrap:wrap;overflow-x:visible}
+:where([data-map-shell]) .mp-jump{flex:0 0 auto;min-height:44px;min-width:44px;padding:0 14px;border-radius:2px;cursor:pointer;white-space:nowrap; background:var(--doc-mat);border:1px solid var(--doc-rule);color:var(--doc-ink-muted); font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.16em}
+:where([data-map-shell]) .mp-erab{margin-bottom:12px}
+:where([data-map-shell]) .mp-eras{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+/* B-1133: an era chip is PRESSED (one at a time); 32px → 44 */
+:where([data-map-shell]) .mp-era{min-height:44px;padding:6px 12px;border-radius:2px;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-2xs); letter-spacing:.14em;background:var(--doc-mat);border:1px solid var(--doc-rule);color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-era[aria-pressed="true"]{background:var(--doc-state);border-color:var(--doc-state);color:var(--doc-state-ink)}
+/* the era's shift: the one gold the ground allows is a FILL (--doc-mark), so it is the edge, never the type */
+:where([data-map-shell]) .mp-shift{padding:10px 12px;background:var(--doc-paper-raised);border:1px solid var(--doc-rule-fine);border-left:3px solid var(--doc-mark)}
+:where([data-map-shell]) .mp-shift-t{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.22em;color:var(--doc-accent);margin-bottom:4px}
+:where([data-map-shell]) .mp-shift-b{font-size:var(--fs-body);line-height:1.55;color:var(--doc-ink)}
+/* the section head: the ground's own contract (grounds/creator.css --doc-sechead-*) */
+:where([data-map-shell]) .mp-sec{font-family:var(--doc-sechead-face);font-weight:var(--doc-sechead-weight);font-size:var(--doc-sechead-size); letter-spacing:var(--doc-sechead-track);color:var(--doc-sechead-ink);border-bottom:var(--doc-sechead-rule); margin:16px 0 10px;padding:0 0 5px;text-transform:uppercase}
+:where([data-map-shell]) .mp-cards{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+:where([data-map-shell]) .mp-card{padding:10px 12px;background:var(--doc-paper-raised);border-left:3px solid var(--doc-ink-structural)}
+:where([data-map-shell]) .mp-card-n{font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);letter-spacing:.03em;color:var(--doc-ink); margin-bottom:3px;text-transform:uppercase}
+:where([data-map-shell]) .mp-card-l{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.16em;color:var(--doc-accent);margin-bottom:5px}
+:where([data-map-shell]) .mp-card-b{font-size:var(--fs-body);line-height:1.55;color:var(--doc-ink-muted);margin-bottom:5px}
+:where([data-map-shell]) .mp-tags{display:flex;flex-wrap:wrap;gap:4px}
+:where([data-map-shell]) .mp-tag{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.12em;color:var(--doc-ink-muted);padding:2px 6px; border:1px solid var(--doc-rule);border-radius:2px;background:var(--doc-mat)}
+:where([data-map-shell]) .mp-spp{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+:where([data-map-shell]) .mp-sp{padding:6px 10px;border:1px solid var(--doc-rule);border-radius:2px;background:var(--doc-paper-raised); font-weight:600;font-size:var(--fs-sm);color:var(--doc-ink);letter-spacing:.02em}
+:where([data-map-shell]) .mp-pct{color:var(--doc-accent);margin-left:4px;font-size:var(--fs-xs)}
+:where([data-map-shell]) .mp-lore{margin-bottom:10px}
+:where([data-map-shell]) .mp-lore-l{font-weight:600;font-size:var(--fs-xs);letter-spacing:.18em;color:var(--doc-accent);margin-bottom:3px}
+:where([data-map-shell]) .mp-lore-t{font-size:var(--fs-body);line-height:1.55;color:var(--doc-ink)}
+:where([data-map-shell]) .mp-dismiss{margin-top:14px;font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:.18em;color:var(--doc-ink-muted);text-align:center}
+/* AT THE DESK — the board's `@container mp (min-width:1024px)` is the GM store's desk band here (R-UMP-5): `data-desk="1"`
+ * lands on the shell from `useLayoutMode()`, the same read `useStoreBand` makes (lib/shared/bands.js's 1024 seam) —
+ * never a number typed in this file. */
+:where([data-map-shell][data-desk="1"]) .mp-sheet{top:68px;left:auto;width:min(460px,38%);max-height:none;border-top:1px solid var(--doc-rule);border-left:1px solid var(--doc-rule); box-shadow:-8px 0 30px rgba(23,22,27,.34);padding:12px 22px 24px}
+:where([data-map-shell][data-desk="1"]) .mp-handle{display:none}
+:where([data-map-shell][data-desk="1"]) .mp-sheet-x{top:12px;right:14px}
+:where([data-map-shell][data-desk="1"]) .mp-scrim{background:rgba(23,22,27,.22)}
+/* ── THE SCREEN STATES (app.jsx:936-1000) ── */
+:where([data-map-shell]) .mp-state{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+:where([data-map-shell]) .mp-state-over{z-index:440;pointer-events:none}
+:where([data-map-shell]) .mp-state-k{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.2em;color:var(--doc-ink-muted)}
+/* A PORT CORRECTION (B-1151): the board's A-ground rule read `.mp-state > div > *`, written for the offline lines that
+ * stand bare on the dark chart; it also reaches the NO PINNED WORLDS card's two lines (C4/C5 are drawn on B, so the
+ * board never met it) and would set them white on paper. The card keeps C4's inks: `.mp-notice` is excluded. */
+.mp-app:where([data-map-shell])[data-ground="A"] .mp-state > .mp-state-k,.mp-app:where([data-map-shell])[data-ground="A"] .mp-state > div:where(:not(.mp-notice)) > *{color:rgba(255,255,255,.72)}
+:where([data-map-shell]) .mp-state-err{color:var(--doc-critical);letter-spacing:.18em;margin-bottom:8px}
+/* A PORT CORRECTION (B-1154): on the board the rule above (0,3,1) out-specifies this one (0,3,0), so STARCHART OFFLINE
+ * on the A ground took the white — the critical line lost its ink (no frame draws offline on A; F2 is B). One class more
+ * gives the A ground's critical (#FF8C8C, 8.9:1 on the chart's ground) back to the critical line, as R-UMP-6 asks. */
+.mp-app:where([data-map-shell])[data-ground="A"] .mp-state .mp-state-err{color:#FF8C8C}
+:where([data-map-shell]) .mp-state-m{font-size:var(--fs-lg);color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-notice{padding:14px 20px;background:var(--doc-paper-raised);border:1px solid var(--doc-rule);border-radius:2px; box-shadow:var(--doc-lift);font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.18em;line-height:1.9; color:var(--doc-ink-muted)}
+:where([data-map-shell]) .mp-notice-k{color:var(--doc-ink)}
+/* the boundary: fixed, the whole screen (app.jsx:602-609) — on paper it is the page with a notice on it */
+:where([data-map-shell]) .mp-boundary{position:absolute;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center; gap:18px;padding:32px;text-align:center;background:var(--doc-paper)}
+:where([data-map-shell]) .mp-bd-h{font-family:var(--font-display);font-weight:700;font-size:var(--fs-xl);letter-spacing:.15em;color:var(--doc-ink);text-transform:uppercase}
+:where([data-map-shell]) .mp-bd-s{font-size:var(--fs-body);line-height:1.5;color:var(--doc-ink-muted);max-width:420px}
+:where([data-map-shell]) .mp-bd-m{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--doc-ink-muted);max-width:420px;overflow-wrap:anywhere}
+:where([data-map-shell]) .mp-bd-b{margin-top:8px;min-height:44px;padding:10px 22px;cursor:pointer;background:transparent;border:1px solid var(--doc-action); border-radius:2px;color:var(--doc-action);font-family:var(--font-display);font-weight:700;font-size:var(--fs-sm);letter-spacing:.12em}

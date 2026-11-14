@@ -1,0 +1,9 @@
+{
+ "_provenance": {
+  "written_by": "scripts/encounters_e3_v6_fixture.cjs",
+  "cut": "e39becafe",
+  "store": "lib/library/npc/benchStore.js@e39becafe",
+  "key": "swrpg_npc_bench"
+ },
+ "raw": "{\"version\":6,\"groups\":[{\"id\":\"v6-id-1\",\"name\":\"Docking bay ambush\",\"arrangement\":[],\"notes\":\"the ambush at bay 94\",\"vehicles\":[{\"id\":\"v6-id-5\",\"key\":\"tie_fighter\"}],\"members\":[{\"id\":\"v6-id-2\",\"_source_key\":\"first_order_stormtrooper\",\"currentWounds\":0,\"currentStrain\":0,\"conditions\":[\"disoriented\"],\"notes\":\"\",\"count\":4,\"poolWounds\":7},{\"id\":\"v6-id-3\",\"_source_key\":\"000\",\"currentWounds\":5,\"currentStrain\":2,\"conditions\":[],\"notes\":\"took the blaster bolt\",\"count\":1,\"poolWounds\":0},{\"id\":\"v6-id-4\",\"_source_key\":\"000\",\"currentWounds\":0,\"currentStrain\":0,\"conditions\":[],\"notes\":\"\",\"count\":1,\"poolWounds\":0,\"vehicle\":{\"id\":\"v6-id-5\",\"pilot\":true}}]}]}"
+}

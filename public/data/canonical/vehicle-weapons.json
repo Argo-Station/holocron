@@ -1,0 +1,2581 @@
+{
+  "schema": "vehicle-weapon.schema.json",
+  "schema_version": 1,
+  "generated_from": "oggdude_merged.json (OggDude Weapons, build input) · Table 7-17's 18 rows (EotE p.271) · one row outside it, the light repeating blaster (EotE p.250, R-S8C-12 G-2) · verified against Table 7-17 at EotE p.271 (with FaD p.271's reprint where EotE's text is garbled) and Table 7-1 via FaD p.234 (test/fixtures/vehicle_weapons_book.json) · RELEASE 1.0 R5: 46 ship guns, space mines and rounds, each from its printed stat block or table (card release-r5-data ADDENDA 6 and 8; the 46th, MISSUNGROCKMINI, admitted by card release-r5-board-answers K3), checked by the same fixture's R5 prints",
+  "generated_by": "scripts/canonical/build_vehicle_weapons.py (S4 JOB 3b, R-S4WC-5)",
+  "count": 65,
+  "vehicle_weapons": {
+    "AUTOBLAST": {
+      "id": "AUTOBLAST",
+      "name": "Auto-Blaster",
+      "price": 3000,
+      "rarity": 3,
+      "restricted": false,
+      "silhouette": {
+        "min": 2,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 3,
+        "crit": 5,
+        "qualities": [
+          {
+            "key": "auto_fire",
+            "count": null
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "AUTOBLAST",
+      "corrections": [
+        {
+          "field": "profile.qualities.auto_fire.count",
+          "from": 1,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints Auto-fire with no rank; OggDude 1"
+        }
+      ]
+    },
+    "BLASTCANLT": {
+      "id": "BLASTCANLT",
+      "name": "Blaster Cannon (Light)",
+      "price": 4000,
+      "rarity": 2,
+      "restricted": false,
+      "silhouette": {
+        "min": 2,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 4,
+        "crit": 4,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "BLASTCANLT"
+    },
+    "BLASTCANHVY": {
+      "id": "BLASTCANHVY",
+      "name": "Blaster Cannon (Heavy)",
+      "price": 5000,
+      "rarity": 3,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 4,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "BLASTCANHVY"
+    },
+    "CML": {
+      "id": "CML",
+      "name": "Concussion Missile Launcher",
+      "price": 7500,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "limited_ammo",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "CML"
+    },
+    "IONLT": {
+      "id": "IONLT",
+      "name": "Ion Cannon (Light)",
+      "price": 5000,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "ion",
+            "count": null
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONLT"
+    },
+    "IONMED": {
+      "id": "IONMED",
+      "name": "Ion Cannon (Medium)",
+      "price": 6000,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": {
+        "min": 5,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "ion",
+            "count": null
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONMED"
+    },
+    "IONHVY": {
+      "id": "IONHVY",
+      "name": "Ion Cannon (Heavy)",
+      "price": 7500,
+      "rarity": 7,
+      "restricted": false,
+      "silhouette": {
+        "min": 6,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrMedium",
+        "range_label": "Medium",
+        "damage": 7,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONHVY"
+    },
+    "LASERLT": {
+      "id": "LASERLT",
+      "name": "Laser Cannon (Light)",
+      "price": 5500,
+      "rarity": 4,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERLT"
+    },
+    "LASERMED": {
+      "id": "LASERMED",
+      "name": "Laser Cannon (Medium)",
+      "price": 7000,
+      "rarity": 4,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERMED"
+    },
+    "LASERHVY": {
+      "id": "LASERHVY",
+      "name": "Laser Cannon (Heavy)",
+      "price": 7500,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERHVY"
+    },
+    "PTL": {
+      "id": "PTL",
+      "name": "Proton Torpedo Launcher",
+      "price": 9000,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 8,
+        "crit": 2,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 6
+          },
+          {
+            "key": "breach",
+            "count": 6
+          },
+          {
+            "key": "guided",
+            "count": 2
+          },
+          {
+            "key": "limited_ammo",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "PTL"
+    },
+    "LASERQUAD": {
+      "id": "LASERQUAD",
+      "name": "Quad Laser Cannon",
+      "price": 8000,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "accurate",
+            "count": 1
+          },
+          {
+            "key": "linked",
+            "count": 3
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERQUAD"
+    },
+    "TRACTLT": {
+      "id": "TRACTLT",
+      "name": "Tractor Beam (Light)",
+      "price": 6000,
+      "rarity": 4,
+      "restricted": false,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "tractor",
+            "count": 2
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TRACTLT",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 3,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 3"
+        }
+      ]
+    },
+    "TRACTMED": {
+      "id": "TRACTMED",
+      "name": "Tractor Beam (Medium)",
+      "price": 8000,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": {
+        "min": 5,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "tractor",
+            "count": 4
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TRACTMED",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 0,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 0"
+        }
+      ]
+    },
+    "TRACTHVY": {
+      "id": "TRACTHVY",
+      "name": "Tractor Beam (Heavy)",
+      "price": 10000,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": {
+        "min": 5,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "tractor",
+            "count": 6
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TRACTHVY",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 0,
+          "to": null,
+          "cite": "fad p.234",
+          "why": "the book prints —; OggDude 0"
+        }
+      ]
+    },
+    "TURBOLT": {
+      "id": "TURBOLT",
+      "name": "Turbolaser (Light)",
+      "price": 12000,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": {
+        "min": 5,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrMedium",
+        "range_label": "Medium",
+        "damage": 9,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TURBOLT"
+    },
+    "TURBOMED": {
+      "id": "TURBOMED",
+      "name": "Turbolaser (Medium)",
+      "price": 15000,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": {
+        "min": 6,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrLong",
+        "range_label": "Long",
+        "damage": 10,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TURBOMED"
+    },
+    "TURBOHVY": {
+      "id": "TURBOHVY",
+      "name": "Turbolaser (Heavy)",
+      "price": 20000,
+      "rarity": 8,
+      "restricted": true,
+      "silhouette": {
+        "min": 6,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrLong",
+        "range_label": "Long",
+        "damage": 11,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 2
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.271",
+      "table": "EotE Table 7-17",
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TURBOHVY"
+    },
+    "BLASTLTREP_VEH": {
+      "id": "BLASTLTREP_VEH",
+      "name": "Light Repeating Blaster",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrExtreme",
+        "range_label": "Extreme",
+        "damage": 11,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "auto_fire",
+            "count": null
+          },
+          {
+            "key": "pierce",
+            "count": 1
+          }
+        ],
+        "skill": null,
+        "cite": "eote p.250"
+      },
+      "cite": "eote p.250",
+      "table": "EotE p.250 (Aratech 74-Z)",
+      "scale_note": "",
+      "sources": [
+        "eote"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "BLASTLTREP"
+    },
+    "CMLORD": {
+      "id": "CMLORD",
+      "name": "Concussion Missile",
+      "price": 500,
+      "rarity": null,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.230"
+      },
+      "cite": "eote p.229",
+      "table": "EotE p.230 (Table 7-1)",
+      "sources": [
+        "eote",
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "CMLORD"
+    },
+    "AFCML": {
+      "id": "AFCML",
+      "name": "Alternating-Fire Concussion Missile Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "limited_ammo",
+            "count": 3
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "pilot p.56"
+      },
+      "cite": "pilot p.56",
+      "table": "Stay on Target p.56 (Heavy-95 Headhunter)",
+      "sources": [
+        "stay_on_target"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "AFCML"
+    },
+    "ACML": {
+      "id": "ACML",
+      "name": "Assault Concussion Missile Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 7,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 5
+          },
+          {
+            "key": "guided",
+            "count": 2
+          },
+          {
+            "key": "inaccurate",
+            "count": 1
+          },
+          {
+            "key": "limited_ammo",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "fad p.268"
+      },
+      "cite": "fad p.268",
+      "table": "FaD p.268 (Victory-class Star Destroyer)",
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "ACML"
+    },
+    "CMLHK": {
+      "id": "CMLHK",
+      "name": "Hunter Killer Concussion Missile Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 7,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "accurate",
+            "count": 1
+          },
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 4
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "corellia p.107"
+      },
+      "cite": "corellia p.107",
+      "table": "Suns of Fortune p.107 (A-type Stiletto)",
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "CMLHK"
+    },
+    "IONLONG": {
+      "id": "IONLONG",
+      "name": "Long-Barrelled Ion Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrLong",
+        "range_label": "Long",
+        "damage": 9,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 3
+          },
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "commander p.53"
+      },
+      "cite": "commander p.53",
+      "table": "Lead by Example p.53 (Munificent-class frigate)",
+      "sources": [
+        "lead_by_example"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONLONG"
+    },
+    "LASERPTDEF": {
+      "id": "LASERPTDEF",
+      "name": "Point Defense Laser Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "accurate",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "aor p.280"
+      },
+      "cite": "aor p.280",
+      "table": "AoR p.280 (Vindicator-class heavy cruiser)",
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERPTDEF"
+    },
+    "LASERLONG": {
+      "id": "LASERLONG",
+      "name": "Long-Nosed Laser Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "accurate",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "corellia p.107"
+      },
+      "cite": "corellia p.107",
+      "table": "Suns of Fortune p.107 (A-type Stiletto)",
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LASERLONG"
+    },
+    "SUPPRESSCANNON": {
+      "id": "SUPPRESSCANNON",
+      "name": "Light Suppression Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 10,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 5
+          },
+          {
+            "key": "disorient",
+            "count": 4
+          },
+          {
+            "key": "stun_damage",
+            "count": null
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "colonist p.54"
+      },
+      "cite": "colonist p.54",
+      "table": "Far Horizons p.54 (AT-RCT)",
+      "sources": [
+        "far_horizons"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "SUPPRESSCANNON",
+      "scale_note": "",
+      "corrections": [
+        {
+          "field": "profile.crit",
+          "from": 0,
+          "to": null,
+          "cite": "colonist p.54",
+          "why": "the book prints Critical NA; OggDude 0"
+        }
+      ]
+    },
+    "ELECHARPOON": {
+      "id": "ELECHARPOON",
+      "name": "Electromagnetic Harpoon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "knockdown",
+            "count": null
+          },
+          {
+            "key": "ensnare",
+            "count": 5
+          },
+          {
+            "key": "limited_ammo",
+            "count": 5
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "eote p.249"
+      },
+      "cite": "eote p.249",
+      "table": "EotE p.249 (Incom T-47 airspeeder)",
+      "sources": [
+        "eote",
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "ELECHARPOON",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "eote p.249",
+          "why": "the book prints Damage -; OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 0,
+          "to": null,
+          "cite": "eote p.249",
+          "why": "the book prints Critical -; OggDude 0"
+        }
+      ]
+    },
+    "CONGRENLAUNCH": {
+      "id": "CONGRENLAUNCH",
+      "name": "Concussion Grenade Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrExtreme",
+        "range_label": "Extreme",
+        "damage": 10,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 1
+          },
+          {
+            "key": "blast",
+            "count": 8
+          },
+          {
+            "key": "limited_ammo",
+            "count": 20
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "commander p.52"
+      },
+      "cite": "commander p.52",
+      "table": "Lead by Example p.52 (AT-FRC)",
+      "sources": [
+        "lead_by_example",
+        "eote",
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "CONGRENLAUNCH",
+      "scale_note": ""
+    },
+    "PROTONBOMB": {
+      "id": "PROTONBOMB",
+      "name": "Proton Bomb Release Chute",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 7,
+        "crit": 2,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 8
+          },
+          {
+            "key": "blast",
+            "count": 7
+          },
+          {
+            "key": "limited_ammo",
+            "count": 16
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "aor p.272"
+      },
+      "cite": "aor p.272",
+      "table": "AoR p.272 (TIE/sa bomber)",
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "PROTONBOMB",
+      "corrections": [
+        {
+          "field": "profile.crit",
+          "from": 4,
+          "to": 2,
+          "cite": "aor p.272",
+          "why": "the book prints Critical 2; OggDude 4"
+        }
+      ]
+    },
+    "PROTONBAY": {
+      "id": "PROTONBAY",
+      "name": "Proton Bomb Bay",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 7,
+        "crit": 2,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 8
+          },
+          {
+            "key": "blast",
+            "count": 7
+          },
+          {
+            "key": "limited_ammo",
+            "count": 16
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "pilot p.54"
+      },
+      "cite": "pilot p.54",
+      "table": "Stay on Target p.54 (H-60 Tempest heavy bomber)",
+      "sources": [
+        "stay_on_target"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "PROTONBAY"
+    },
+    "BEAMDRILHVY": {
+      "id": "BEAMDRILHVY",
+      "name": "Heavy Beamdrill",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 3
+          },
+          {
+            "key": "inaccurate",
+            "count": 3
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "corellia p.106"
+      },
+      "cite": "corellia p.106",
+      "table": "Suns of Fortune p.106 (A-11 Model III Burrower)",
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "BEAMDRILHVY",
+      "scale_note": ""
+    },
+    "BEAMDRIL": {
+      "id": "BEAMDRIL",
+      "name": "Beamdrill",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "corellia p.107"
+      },
+      "cite": "corellia p.107",
+      "table": "Suns of Fortune p.107 (MEV2 Dug Digger)",
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "BEAMDRIL",
+      "scale_note": ""
+    },
+    "MINIROCKET": {
+      "id": "MINIROCKET",
+      "name": "Mini-Rocket Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 3,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 1
+          },
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "inaccurate",
+            "count": 1
+          },
+          {
+            "key": "limited_ammo",
+            "count": 5
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.63"
+      },
+      "cite": "hired p.63",
+      "table": "Dangerous Covenants p.63 (stat block)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINIROCKET"
+    },
+    "MASSDRIVMSL": {
+      "id": "MASSDRIVMSL",
+      "name": "Mass Driver Missile Launchers",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrExtreme",
+        "range_label": "Extreme",
+        "damage": 14,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "inaccurate",
+            "count": 1
+          },
+          {
+            "key": "limited_ammo",
+            "count": 10
+          },
+          {
+            "key": "slow_firing",
+            "count": 2
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.70"
+      },
+      "cite": "hired p.70",
+      "table": "Dangerous Covenants p.70 (Keldabe-class battleship)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MASSDRIVMSL"
+    },
+    "VL6": {
+      "id": "VL6",
+      "name": "VL-6 Warhead Launcher System",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 4
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "pilot p.61"
+      },
+      "cite": "pilot p.61",
+      "table": "Stay on Target p.61 (Ton-Falk-class escort carrier)",
+      "sources": [
+        "stay_on_target"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "VL6"
+    },
+    "LTTRACTCOUPLE": {
+      "id": "LTTRACTCOUPLE",
+      "name": "Light Tractor Beam Coupler",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "tractor",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "smuggler p.53"
+      },
+      "cite": "smuggler p.53",
+      "table": "Fly Casual p.53 (Starhawk speeder bike)",
+      "sources": [
+        "fly_casual"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "LTTRACTCOUPLE",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "smuggler p.53",
+          "why": "the book prints Damage -; OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 1,
+          "to": null,
+          "cite": "smuggler p.53",
+          "why": "the book prints Critical -; OggDude 1"
+        }
+      ]
+    },
+    "TORPLAUNCH": {
+      "id": "TORPLAUNCH",
+      "name": "Torpedo Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrMedium",
+        "range_label": "Medium",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 2
+          },
+          {
+            "key": "limited_ammo",
+            "count": 2
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "alliance p.117"
+      },
+      "cite": "alliance p.117",
+      "table": "Strongholds of Resistance p.117 (Keelkana-class attack submersible)",
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TORPLAUNCH"
+    },
+    "CLUSTERBOMB": {
+      "id": "CLUSTERBOMB",
+      "name": "Cluster Bomb Launcher",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 6
+          },
+          {
+            "key": "limited_ammo",
+            "count": 6
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "alliance p.119"
+      },
+      "cite": "alliance p.119",
+      "table": "Strongholds of Resistance p.119 (MC30c frigate)",
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "CLUSTERBOMB"
+    },
+    "MASSDRIVERCANNON": {
+      "id": "MASSDRIVERCANNON",
+      "name": "Mass-Driver Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 7,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "soldier p.57"
+      },
+      "cite": "soldier p.57",
+      "table": "Forged in Battle p.57 (AT-TE)",
+      "sources": [
+        "forged_in_battle"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MASSDRIVERCANNON"
+    },
+    "ANTIAIR": {
+      "id": "ANTIAIR",
+      "name": "Anti-Air Rockets",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 4,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 2
+          },
+          {
+            "key": "breach",
+            "count": 1
+          },
+          {
+            "key": "limited_ammo",
+            "count": 4
+          },
+          {
+            "key": "linked",
+            "count": 3
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "soldier p.62"
+      },
+      "cite": "soldier p.62",
+      "table": "Forged in Battle p.62 (LAAT/i)",
+      "sources": [
+        "forged_in_battle"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "ANTIAIR"
+    },
+    "ANTIPERSLASER": {
+      "id": "ANTIPERSLASER",
+      "name": "Anti-Personnel Laser",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 1,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "auto_fire",
+            "count": null
+          },
+          {
+            "key": "blast",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "soldier p.62"
+      },
+      "cite": "soldier p.62",
+      "table": "Forged in Battle p.62 (LAAT/i)",
+      "sources": [
+        "forged_in_battle"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "ANTIPERSLASER"
+    },
+    "IONBATT": {
+      "id": "IONBATT",
+      "name": "Battleship Ion Cannon",
+      "price": null,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrMedium",
+        "range_label": "Medium",
+        "damage": 9,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "breach",
+            "count": 3
+          },
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "slow_firing",
+            "count": 2
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "aor p.240"
+      },
+      "cite": "aor p.240",
+      "table": "AoR p.240 (Table 7-1)",
+      "sources": [
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONBATT"
+    },
+    "TRACTOR213": {
+      "id": "TRACTOR213",
+      "name": "Grappler 213 Tactical Tractor Beam",
+      "price": 6200,
+      "rarity": 7,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": null,
+        "crit": null,
+        "qualities": [],
+        "skill": "GUNN",
+        "cite": "hired p.62"
+      },
+      "cite": "hired p.62",
+      "table": "Dangerous Covenants p.62 (Table 2-9)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TRACTOR213",
+      "corrections": [
+        {
+          "field": "profile.damage",
+          "from": 0,
+          "to": null,
+          "cite": "hired p.62",
+          "why": "the book prints no damage (its effects are prose); OggDude 0"
+        },
+        {
+          "field": "profile.crit",
+          "from": 0,
+          "to": null,
+          "cite": "hired p.62",
+          "why": "the book prints no critical rating; OggDude 0"
+        }
+      ]
+    },
+    "MISSCONCMINI": {
+      "id": "MISSCONCMINI",
+      "name": "Concussion Missile (Mini)",
+      "price": 400,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 4,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 2
+          },
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSCONCMINI"
+    },
+    "MISSJAM": {
+      "id": "MISSJAM",
+      "name": "Jammer Missile",
+      "price": 300,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 0,
+        "crit": 0,
+        "qualities": [
+          {
+            "key": "guided",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSJAM"
+    },
+    "MISSDECOY": {
+      "id": "MISSDECOY",
+      "name": "Decoy Missile",
+      "price": 400,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 0,
+        "crit": 0,
+        "qualities": [
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSDECOY"
+    },
+    "MISSJAMMINI": {
+      "id": "MISSJAMMINI",
+      "name": "Jammer Missile (Mini)",
+      "price": 400,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 0,
+        "crit": 0,
+        "qualities": [
+          {
+            "key": "guided",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSJAMMINI"
+    },
+    "MISSUNGROCK": {
+      "id": "MISSUNGROCK",
+      "name": "Unguided Rocket",
+      "price": 300,
+      "rarity": 4,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 3
+          },
+          {
+            "key": "breach",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSUNGROCK",
+      "corrections": [
+        {
+          "field": "rarity",
+          "from": 0,
+          "to": 4,
+          "cite": "hired p.61",
+          "why": "the page prints Rarity 4; OggDude 0 (DECISIONS D-320 @ 8d57c86ef)"
+        }
+      ]
+    },
+    "MISSUNGROCKMINI": {
+      "id": "MISSUNGROCKMINI",
+      "name": "Unguided Rocket (Mini)",
+      "price": 250,
+      "rarity": 4,
+      "restricted": false,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 3,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 1
+          },
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "hired p.61"
+      },
+      "cite": "hired p.61",
+      "table": "Dangerous Covenants p.61 (Table 2-8)",
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MISSUNGROCKMINI",
+      "corrections": [
+        {
+          "field": "profile.range_value",
+          "from": "wrEngaged",
+          "to": "wrClose",
+          "cite": "hired p.61",
+          "why": "the page prints Range Close; OggDude Engaged, outside the ship range bands (DECISIONS D-320 @ 8d57c86ef)"
+        }
+      ]
+    },
+    "FLAKLT": {
+      "id": "FLAKLT",
+      "name": "Light Flak Cannon",
+      "price": 6000,
+      "rarity": 5,
+      "restricted": false,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          },
+          {
+            "key": "vicious",
+            "count": 3
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "collapse p.77"
+      },
+      "cite": "collapse p.77",
+      "table": "Collapse of the Republic p.77 (Table 2-9)",
+      "sources": [
+        "collapse_of_the_republic",
+        "stay_on_target",
+        "lead_by_example",
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "FLAKLT"
+    },
+    "FLAKMED": {
+      "id": "FLAKMED",
+      "name": "Medium Flak Cannon",
+      "price": 8000,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": {
+        "min": 5,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 5,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          },
+          {
+            "key": "vicious",
+            "count": 4
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "collapse p.77"
+      },
+      "cite": "collapse p.77",
+      "table": "Collapse of the Republic p.77 (Table 2-9)",
+      "sources": [
+        "collapse_of_the_republic",
+        "stay_on_target",
+        "lead_by_example",
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "FLAKMED"
+    },
+    "FLAKHVY": {
+      "id": "FLAKHVY",
+      "name": "Heavy Flak Cannon",
+      "price": 10000,
+      "rarity": 7,
+      "restricted": false,
+      "silhouette": {
+        "min": 6,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 6,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 5
+          },
+          {
+            "key": "slow_firing",
+            "count": 2
+          },
+          {
+            "key": "vicious",
+            "count": 5
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "collapse p.77"
+      },
+      "cite": "collapse p.77",
+      "table": "Collapse of the Republic p.77 (Table 2-9)",
+      "sources": [
+        "collapse_of_the_republic",
+        "stay_on_target",
+        "lead_by_example",
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "FLAKHVY"
+    },
+    "TOWCABLE": {
+      "id": "TOWCABLE",
+      "name": "Electromagnetic Tow Cable Launcher",
+      "price": 2000,
+      "rarity": 2,
+      "restricted": false,
+      "silhouette": {
+        "min": 2,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": null,
+        "crit": null,
+        "qualities": [
+          {
+            "key": "ensnare",
+            "count": 5
+          },
+          {
+            "key": "knockdown",
+            "count": null
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TOWCABLE"
+    },
+    "IONTORPLAUNCHER": {
+      "id": "IONTORPLAUNCHER",
+      "name": "Ion Torpedo Launcher",
+      "price": 6500,
+      "rarity": 7,
+      "restricted": false,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 10,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 5
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 2
+          },
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "limited_ammo",
+            "count": 4
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONTORPLAUNCHER"
+    },
+    "IONTORP": {
+      "id": "IONTORP",
+      "name": "Ion Torpedoes (set of four)",
+      "price": 400,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 10,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 5
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "guided",
+            "count": 2
+          },
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "IONTORP",
+      "corrections": [
+        {
+          "field": "price",
+          "from": 100,
+          "to": 400,
+          "cite": "engineer p.63",
+          "why": "the book prices additional ion torpedoes at 400 credits for a set of four; OggDude 100, one of the four"
+        }
+      ]
+    },
+    "REPIONCANNON": {
+      "id": "REPIONCANNON",
+      "name": "Repeating Ion Cannon",
+      "price": 6000,
+      "rarity": 6,
+      "restricted": false,
+      "silhouette": {
+        "min": 3,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrClose",
+        "range_label": "Close",
+        "damage": 4,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "linked",
+            "count": 4
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "REPIONCANNON"
+    },
+    "TERMITELAUNCH": {
+      "id": "TERMITELAUNCH",
+      "name": "Termite Torpedo Launcher",
+      "price": 10000,
+      "rarity": 8,
+      "restricted": true,
+      "silhouette": {
+        "min": 4,
+        "max": 10
+      },
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 3,
+        "crit": 5,
+        "qualities": [
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "limited_ammo",
+            "count": 3
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TERMITELAUNCH"
+    },
+    "TERMITETORP": {
+      "id": "TERMITETORP",
+      "name": "Termite Torpedoes (set of three)",
+      "price": 900,
+      "rarity": null,
+      "restricted": null,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 3,
+        "crit": 5,
+        "qualities": [
+          {
+            "key": "guided",
+            "count": 3
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          },
+          {
+            "key": "slow_firing",
+            "count": 1
+          }
+        ],
+        "skill": "GUNN",
+        "cite": "engineer p.63"
+      },
+      "cite": "engineer p.63",
+      "table": "Fully Operational p.63 (Table 2-12)",
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "TERMITETORP",
+      "corrections": [
+        {
+          "field": "price",
+          "from": 300,
+          "to": 900,
+          "cite": "engineer p.63",
+          "why": "the book prices additional termite torpedoes at 900 credits for a set of three; OggDude 300, one of the three"
+        }
+      ]
+    },
+    "MINECONC": {
+      "id": "MINECONC",
+      "name": "Concussion Mine",
+      "price": 500,
+      "rarity": 5,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 12,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 8
+          },
+          {
+            "key": "breach",
+            "count": 4
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINECONC"
+    },
+    "MINENET": {
+      "id": "MINENET",
+      "name": "Connor Net Mine",
+      "price": 1200,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 20,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINENET"
+    },
+    "MINEFIREC": {
+      "id": "MINEFIREC",
+      "name": "Firecracker Mine",
+      "price": 400,
+      "rarity": 4,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 1,
+        "crit": 0,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 8
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINEFIREC"
+    },
+    "MINEGRAV": {
+      "id": "MINEGRAV",
+      "name": "Gravity Mine",
+      "price": 1000,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 2,
+        "crit": 6,
+        "qualities": [
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINEGRAV",
+      "corrections": [
+        {
+          "field": "profile.crit",
+          "from": 4,
+          "to": 6,
+          "cite": "bounty p.64",
+          "why": "the book prints Crit 6; OggDude 4"
+        }
+      ]
+    },
+    "MINEION": {
+      "id": "MINEION",
+      "name": "Ion Mine",
+      "price": 600,
+      "rarity": 5,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 12,
+        "crit": 4,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 8
+          },
+          {
+            "key": "ion",
+            "count": null
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINEION"
+    },
+    "MINESEEK": {
+      "id": "MINESEEK",
+      "name": "Seeker Mine",
+      "price": 1300,
+      "rarity": 7,
+      "restricted": true,
+      "silhouette": null,
+      "profile": {
+        "range_value": "wrShort",
+        "range_label": "Short",
+        "damage": 16,
+        "crit": 3,
+        "qualities": [
+          {
+            "key": "blast",
+            "count": 4
+          },
+          {
+            "key": "breach",
+            "count": 2
+          },
+          {
+            "key": "vicious",
+            "count": 2
+          },
+          {
+            "key": "limited_ammo",
+            "count": 1
+          }
+        ],
+        "skill": "MECH",
+        "cite": "bounty p.64"
+      },
+      "cite": "bounty p.64",
+      "table": "No Disintegrations p.64 (Table 2-8)",
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_source_key": "MINESEEK"
+    }
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "id": "imperial_bureaucracy",
+  "name": "COMPNOR",
+  "formal_name": "Commission for the Preservation of the New Order",
+  "type": "galactic_power",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Dawn of Rebellion",
+    "Age of Rebellion Core Rulebook",
+    "Cyphers and Masks"
+  ],
+  "overview": "",
+  "short_descriptor": "The Empire's ideological enforcement arm. More dangerous than the military in occupied territory because they believe what they're doing is right. The true believers report their own families.",
+  "witness_statement": {
+    "text": "My neighbor's kid joined SAGroup at fourteen. Bright kid, good family. Within a year he was filing reports on his parents' dinner conversations. They found out when ISB showed up asking about a comment his father made about shipping tariffs. The kid didn't even understand what he'd done. He thought he was helping.",
+    "source": "Former SAGroup member's neighbor — dissident community, Chandrila",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "COMPNOR",
+      "text": "COMPNOR is the largest division of the Imperial bureaucracy, overseen by the Select Committee chaired by Crueya Vandron."
+    },
+    {
+      "heading": "SUBDIVISIONS",
+      "text": "It comprises several major subdivisions: SAGroup recruits and indoctrinates youth, producing both loyal Imperial citizens and active informants who report on their own families; the Coalition for Progress embeds monitors in every Imperial sector to track civilian sentiment in real time; CompForce fields paramilitary Observation and Assault units for direct enforcement; and the Imperial Security Bureau, technically a COMPNOR subsidiary, handles arrests, interrogation, and covert operations."
+    },
+    {
+      "heading": "ORIGINS",
+      "text": "Originally a social club for young Empire supporters, COMPNOR was secretly co-opted by the Emperor and transformed into his primary instrument of ideological control."
+    },
+    {
+      "heading": "CHAIN OF COMMAND",
+      "text": "The organizational chain runs from grassroots informants and SAGroup members through sector COMPNOR coordinators to ISB regional commanders and ultimately the Select Committee."
+    }
+  ],
+  "motivations": {
+    "primary": "Perpetuate the New Order",
+    "secondary": [
+      "Suppress anti-Imperial sentiment",
+      "Monitor and shape public opinion",
+      "Recruit loyal citizens into Imperial service",
+      "Identify and eliminate sedition"
+    ],
+    "notes": "COMPNOR operates on genuine ideological conviction at the grassroots level — many members sincerely believe in Imperial order and stability. At the leadership level, the organization serves as the Emperor's direct instrument for social control. This creates a structure where true believers do the work of cynical authoritarians without realizing it."
+  },
+  "goals": {
+    "strategic": [
+      "Ensure universal acceptance of the New Order's legitimacy across all Imperial worlds",
+      "Identify and neutralize all forms of political dissent before they can organize into active resistance",
+      "Shape galactic culture to support human high culture and Imperial superiority",
+      "Produce a generation of citizens whose loyalty to the Emperor is absolute and unquestioning"
+    ],
+    "operational": [
+      "Monitor civilian populations in every Imperial sector through Coalition for Progress personnel",
+      "Recruit enthusiastic young people through SAGroup and funnel the most dedicated into adult COMPNOR divisions",
+      "Counter Rebel propaganda with Imperial messaging that presents the Empire as civilization's guardian",
+      "Embed loyalty monitors in military units, government offices, and civilian institutions"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "propaganda",
+      "information_control",
+      "infiltration",
+      "legal_pressure",
+      "intimidation"
+    ],
+    "avoided": [
+      "Direct military operations — COMPNOR is a political and ideological organization, not a combat force (CompForce units excepted)",
+      "Negotiation with dissidents — COMPNOR does not legitimize opposition by engaging with it",
+      "Covert assassination — that falls to ISB or Imperial Intelligence, not COMPNOR proper"
+    ],
+    "notes": "COMPNOR's power lies in its pervasiveness rather than its firepower. Coalition for Progress monitors are embedded in every sector. SAGroup youth programs create informants who report on their own families. The ISB, technically a COMPNOR subsidiary, handles the violent enforcement that COMPNOR's intelligence gathering identifies as necessary."
+  },
+  "strengths": [
+    "Largest division of the Imperial bureaucracy with personnel in every Imperial sector",
+    "SAGroup youth pipeline produces a continuous supply of ideologically committed recruits",
+    "Coalition for Progress monitoring network provides real-time awareness of civilian sentiment across the galaxy",
+    "Controls the ISB — the Empire's most feared internal security agency — as a subsidiary organization",
+    "Ideological true believers at the operational level are highly motivated and difficult to corrupt or turn"
+  ],
+  "weaknesses": [
+    "COMPNOR's scale as the largest Imperial bureaucratic division produces interdivisional turf wars, duplicated effort, and coverage gaps that slow response times and fragment intelligence analysis.",
+    "Operatives with strong ideological conviction periodically escalate enforcement actions beyond leadership directives, producing outcomes more severe than intended and generating political complications for sector administrators.",
+    "Propaganda effectiveness is highly uneven across Imperial worlds; culturally independent populations such as Chandrila's show near-total resistance to COMPNOR messaging frameworks.",
+    "Jurisdictional conflicts with Imperial Intelligence and sector Moff power structures create persistent blind spots, as competing agencies withhold or redirect intelligence to protect their own operational authority.",
+    "SAGroup indoctrination curricula are recognizably propagandistic to educated and cosmopolitan populations, generating quiet resentment that undermines COMPNOR's stated goal of universal ideological alignment."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase Coalition for Progress monitoring frequency. Flag suspect individuals for ISB follow-up. Intensify local propaganda messaging.",
+    "medium": "Deploy CompForce Observation units to embed loyalty monitors in affected areas. ISB begins active investigations. SAGroup membership records are cross-referenced for suspect connections.",
+    "high": "ISB assumes direct operational control. Mass surveillance and loyalty screenings. Suspected sympathizers are detained for interrogation. Propaganda shifts to fear-based messaging about Rebel terrorism.",
+    "critical": "Full martial coordination with Imperial Military. COMPNOR intelligence assets are transferred to ISB command. All civilian movement restricted. Public loyalty oaths required. Collective punishment of populations harboring dissidents."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Coalition for Progress monitor or SAGroup informant",
+      "Sector COMPNOR coordinator",
+      "ISB regional commander",
+      "COMPNOR Select Committee"
+    ],
+    "notes": "COMPNOR's alert chain runs through civilian monitoring channels that are slower than military comms but more pervasive. A loyalty concern flagged by a SAGroup member or Coalition monitor is routed through COMPNOR bureaucracy before reaching ISB for action. In practice, sector Moffs sometimes intercept or redirect COMPNOR intelligence when it conflicts with their own interests."
+  },
+  "tension_patterns": [
+    "Field agents exhibit genuine ideological commitment that makes them resistant to bribery or persuasion but limits their analytical objectivity, producing investigations built on real evidence directed toward predetermined conclusions.",
+    "Coalition for Progress anomaly reports frequently identify irregular activity that originates from corrupt Imperial officials rather than Rebel operatives, creating jurisdictional complications when the flagged target holds Imperial rank.",
+    "SAGroup youth programs simultaneously generate authentic pro-Imperial loyalty and a network of family informants, as recruited members routinely report household conversations to handlers without understanding the security implications.",
+    "CompForce Observation personnel embedded as loyalty monitors within military units and ship crews are difficult to identify but produce measurable declines in unit morale and operational cohesion as suspicion spreads.",
+    "Propaganda campaigns calibrated for moderate populations occasionally produce radicalized supporter groups whose extremism exceeds COMPNOR's intended messaging parameters, generating localized instability that undermines Imperial administrative goals."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "patrol",
+    "transit": "patrol",
+    "economic": "patrol",
+    "command": "fortified",
+    "informational": "dominant",
+    "military": "patrol",
+    "hidden": "skeleton",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "medium",
+    "weapon": "low",
+    "person": "high",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "COMPNOR values intelligence data on dissidents and population sentiment above all. Persons of interest — suspected Rebels, influential civilians, potential defectors — are high priority. Contraband is relevant when it indicates smuggling networks that support the Rebellion. Weapons and artifacts are outside COMPNOR's primary operational scope."
+  },
+  "ally_factions": [
+    "imperial_military",
+    "imperial_security_bureau"
+  ],
+  "enemy_factions": [
+    "rebel_alliance",
+    "bothan_spynet"
+  ],
+  "relationship_notes": {
+    "imperial_military": "COMPNOR and the military cooperate but have friction — military commanders resent COMPNOR loyalty monitors embedded in their units, and sector Moffs sometimes obstruct COMPNOR operations that threaten their own power bases.",
+    "imperial_security_bureau": "The ISB is technically a COMPNOR subsidiary but operates with significant autonomy. ISB handles the enforcement actions that COMPNOR's intelligence gathering identifies as necessary.",
+    "rebel_alliance": "COMPNOR is the ideological arm of the Empire's war against the Rebellion. Its propaganda machine paints the Alliance as terrorists while its monitoring networks hunt Rebel sympathizers.",
+    "bothan_spynet": "COMPNOR suspects Bothan Space of Alliance cooperation but cannot prove it. The Bothans' Allied Region status provides diplomatic cover that frustrates COMPNOR investigators."
+  },
+  "regional_presence": {
+    "deep_core": "significant",
+    "core_worlds": "dominant",
+    "colonies": "significant",
+    "inner_rim": "significant",
+    "expansion_region": "moderate",
+    "mid_rim": "moderate",
+    "outer_rim": "minimal",
+    "hutt_space": "none",
+    "wild_space": "none",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Crueya Vandron",
+      "role": "Chairman of the Select Committee",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "Oversees COMPNOR's highest-level strategic decisions. One of the Emperor's most trusted civilian administrators. Coordinates between COMPNOR divisions and the Imperial Ruling Council.",
+      "network_assessment": "Direct line to the Emperor through the Ruling Council. Vandron does not make policy — he executes the Emperor's ideological agenda through the largest bureaucratic division in the Empire. Targeting him is targeting the Emperor's civilian infrastructure.",
+      "wants": "The permanent entrenchment of the New Order as the galaxy's sole political reality. Vandron is a true believer at the strategic level — he sees COMPNOR's mission as civilizational, not merely political.",
+      "secret": "His coordination between COMPNOR and the Ruling Council gives him visibility into Imperial power struggles that neither the military nor the ISB fully appreciate. He maintains leverage files on sector Moffs who obstruct COMPNOR operations.",
+      "behavior": {
+        "under_pressure": "Delegates to ISB and CompForce while positioning himself as the rational administrator above the crisis. Vandron does not panic — he escalates through proper channels with devastating bureaucratic efficiency.",
+        "when_losing": "Redirects blame to subordinate divisions and sector-level coordinators. The Select Committee structure exists partly to insulate Vandron from operational failures.",
+        "loyalty": "The Emperor personally. Vandron's loyalty to the New Order is genuine, but his loyalty to Palpatine specifically is what keeps him in the inner circle.",
+        "tells": "When COMPNOR messaging shifts from positive Imperial propaganda to fear-based counter-terrorism narratives, Vandron has received authorization to escalate. The propaganda tone change precedes the enforcement action."
+      },
+      "useful_to_players": [
+        "His leverage files on sector Moffs would be extraordinarily valuable to the Rebellion or to any Moff seeking to eliminate a rival",
+        "COMPNOR's bureaucratic scale means Vandron cannot personally oversee operations — local COMPNOR coordinators can be manipulated without alerting the Select Committee",
+        "His true-believer conviction makes him predictable — he will always prioritize ideological consistency over tactical flexibility"
+      ],
+      "hooks": [
+        "A COMPNOR sector coordinator on Chandrila just got reassigned to an Outer Rim posting — that's a demotion disguised as a transfer. Somebody on the Select Committee is cleaning house, and the coordinator might be willing to talk before they ship out.",
+        "Word is Vandron authorized a new loyalty screening protocol for military officers in three Core World systems. That's not routine — something spooked him. The screening criteria might tell us what the Empire just discovered."
+      ]
+    },
+    {
+      "name": "Soren Talis",
+      "role": "COMPNOR field agent",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "A COMPNOR agent known to travel aboard Imperial convoys like the Perlemian Haul, serving as counter-intelligence and loyalty monitoring during sensitive Imperial operations.",
+      "network_assessment": "Mid-level field operative embedded in convoy operations. Useful as an intelligence target because convoy loyalty monitors see crew manifests, cargo logs, and communication traffic that operational security is supposed to compartmentalize.",
+      "wants": "Career advancement within COMPNOR through successful identification of disloyal personnel. Talis treats every convoy assignment as an audition for a permanent sector coordinator posting.",
+      "secret": "His convoy monitoring reports are more detailed than COMPNOR requires — he files supplementary observations with a private contact outside the normal chain. Either he is building a personal intelligence portfolio for leverage, or he is reporting to a parallel authority.",
+      "behavior": {
+        "under_pressure": "Retreats behind Imperial authority. Talis will invoke COMPNOR credentials and demand military protection rather than handle threats personally.",
+        "when_losing": "Files reports. Talis's response to being outmaneuvered is to document everything and route the problem to someone with more authority. He is a bureaucrat, not a fighter.",
+        "loyalty": "COMPNOR as an institution, but primarily his own career within it. Talis is ideologically committed enough to be useful and ambitious enough to be compromised.",
+        "tells": "When Talis extends a convoy assignment beyond its scheduled duration, he has identified something worth investigating and is building a case. The extended stay is the tell."
+      },
+      "useful_to_players": [
+        "His convoy monitoring gives him access to shipping manifests and crew records that would reveal Imperial logistics patterns",
+        "His ambition makes him potentially recruitable or manipulable — offer him intelligence that advances his career and he may reciprocate",
+        "His supplementary reporting habit means he possesses off-books intelligence that COMPNOR itself may not have access to"
+      ],
+      "hooks": [
+        "Talis just boarded the Perlemian Haul for a second consecutive run on the same route. COMPNOR doesn't double up assignments without cause — he found something on the first trip and he's going back to confirm it.",
+        "A crew member from Talis's last convoy is looking for passage off-world in a hurry. Says the loyalty monitor started asking questions about cargo discrepancies that don't exist in the official manifest. Somebody's nervous."
+      ]
+    }
+  ],
+  "source_material_notes": "Dawn of Rebellion (pp.56-57) provides the most detailed breakdown of COMPNOR's organizational structure including SAGroup, Coalition for Progress, and other divisions. The Age of Rebellion Core Rulebook (pp.12, 353-354, 372, 377, 417, 437) covers COMPNOR's role in Imperial society, its agent stat block, and its operational presence across regions. Cyphers and Masks (pp.79-80, 92) details the ISB's relationship to COMPNOR and inter-agency rivalries.",
+  "field_sources": {
+    "motivations": "Dawn of Rebellion pp.54 (promoting New Order ethics, Emperor's co-option of the organization)",
+    "goals": "Dawn of Rebellion pp.54-55 (SAGroup recruitment, Coalition for Progress monitoring); AoR Core pp.353 (suppressing anti-Imperial sentiment), pp.372 (human high culture promotion)",
+    "methods": "Dawn of Rebellion pp.55 (SAGroup, Coalition for Progress divisions); AoR Core pp.354 (expanded activities, hunting Rebel sympathizers), pp.417 (COMPNOR agent operations)",
+    "strengths": "Dawn of Rebellion pp.54 (largest Imperial bureaucratic division); AoR Core pp.354 (expanded Core World activities); Cyphers and Masks pp.80 (ISB as COMPNOR subsidiary)",
+    "weaknesses": "AoR Core pp.377 (COMPNOR finds little support on Chandrila); Cyphers and Masks pp.92 (Moff-COMPNOR rivalry); inferred from bureaucratic structure",
+    "behavior_under_threat": "Inferred from COMPNOR's monitoring and ISB enforcement capabilities described in Dawn of Rebellion pp.54-55 and AoR Core pp.354, 417",
+    "tension_patterns": "Inferred from COMPNOR's organizational dynamics: true believer operatives, family informant networks, embedded loyalty monitors (Dawn of Rebellion pp.57, AoR Core pp.437)",
+    "regional_presence": "AoR Core pp.353-354 (Core Worlds dominance), pp.372 (Imperial stronghold presence), pp.377 (resistance on Chandrila)",
+    "mcguffin_interest": "Inferred from COMPNOR's focus on surveillance, loyalty enforcement, and dissident identification"
+  }
+}

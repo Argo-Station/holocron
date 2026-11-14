@@ -1,0 +1,238 @@
+{
+  "id": "pyke_syndicate",
+  "name": "Pyke Syndicate",
+  "type": "criminal_syndicate",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Collapse of the Republic",
+    "Lords of Nal Hutta",
+    "Edge of the Empire Core Rulebook",
+    "Fly Casual"
+  ],
+  "overview": "The Pyke Syndicate is the galaxy's dominant spice cartel, controlling the mining, refinement, and distribution of spice from key worlds including Kessel, Troiken, and Mon Gazza. Led from their homeworld of Oba Diah, the Pykes maintain their monopoly through a combination of enslaved labor, ruthless enforcement, and indispensable partnerships with the Hutt Kajidics who handle distribution outside Hutt Space. Their reach extends wherever spice flows, making them essential to the galactic underworld's economy.",
+  "short_descriptor": "The spice trade runs through them. If you need to move through their territory, budget for the toll and don't ask questions about the cargo next to yours.",
+  "witness_statement": {
+    "text": "Did a Kessel run for them once. Once. The loading bay smelled like ozone and sweat, and the workers moved like they'd forgotten what sleep was. A Pyke foreman counted my cargo pods three times, then told me if the weight at delivery didn't match the weight at pickup, he'd know exactly which airlock to space me from. Friendly people. Paid on time, though.",
+    "source": "Transport pilot, Kessel corridor, debriefed at Formos waystation",
+    "verification": "PARTIAL — DETAILS UNVERIFIABLE"
+  },
+  "how_they_operate": [
+    {
+      "heading": "THE SPICE TRADE",
+      "text": "The Pyke Syndicate controls the spice trade vertically, from mine to refinery to distribution handoff."
+    },
+    {
+      "heading": "MINING",
+      "text": "Mining operations on Kessel, Troiken, and Mon Gazza use enslaved labor overseen by Pyke foremen who report to regional enforcers, who in turn answer to the Syndicate leadership on Oba Diah under Lorn Pyke."
+    },
+    {
+      "heading": "SMUGGLING",
+      "text": "Refined spice is moved through dedicated smuggler crews bound to the Syndicate by debt leverage and exclusivity contracts — failure to deliver on weight triggers lethal enforcement."
+    },
+    {
+      "heading": "DISTRIBUTION",
+      "text": "Distribution outside Pyke-controlled space is handled through a symbiotic partnership with the Hutt Kajidics, who maintain the retail networks the Pykes cannot operate themselves."
+    },
+    {
+      "heading": "IMPERIAL BRIBERY",
+      "text": "Imperial interference along trade routes is managed through systematic bribery of customs officers and garrison commanders at key transit points."
+    },
+    {
+      "heading": "DISCIPLINE AND SECURITY",
+      "text": "The Syndicate employs ruthless interrogators to maintain discipline within its ranks and extract intelligence from rivals. When a supply chain link is compromised, the standard response is surgical — replace the personnel, reroute the shipment, eliminate witnesses — rather than broad military action that would disrupt the flow of product."
+    }
+  ],
+  "motivations": {
+    "primary": "Spice monopoly",
+    "secondary": [
+      "Maintain control of mining and refinery operations",
+      "Ensure distribution partnerships remain profitable and exclusive",
+      "Eliminate rival spice suppliers",
+      "Expand into new markets and supply chains"
+    ],
+    "notes": "The Pykes' power is entirely built on their stranglehold of the spice supply chain. Every motivation flows from protecting and expanding that monopoly. Their relationship with the Hutts is symbiotic but tense — the Hutts need Pyke spice, and the Pykes need Hutt distribution networks."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain absolute control over galactic spice production from mine to refinery",
+      "Ensure no rival cartel or independent operator can establish a competing supply chain",
+      "Preserve the partnership with Hutt distributors while preventing Hutt encroachment on production"
+    ],
+    "operational": [
+      "Keep enslaved mining workforces productive and controlled",
+      "Protect spice shipments in transit from pirates and rival syndicates",
+      "Maintain bribery networks with customs officials and Imperial officers along key trade routes",
+      "Enforce exclusivity contracts with smuggler crews through debt and intimidation"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "debt_leverage",
+      "hired_muscle",
+      "bribery",
+      "intimidation",
+      "assassination"
+    ],
+    "avoided": [
+      "Open warfare — the Pykes prefer targeted violence over prolonged conflict that disrupts the supply chain",
+      "Direct confrontation with the Empire — bribing customs officers is cheaper than fighting them",
+      "Operating without Hutt cooperation — the distribution network is too valuable to jeopardize"
+    ],
+    "notes": "The Pykes employ ruthless interrogators to maintain discipline and extract information. Their enforcement is surgical — they destroy competitors and traitors with precision rather than brute force, because collateral damage disrupts the spice trade they depend on."
+  },
+  "strengths": [
+    "Near-total monopoly on galactic spice production gives enormous economic leverage",
+    "Enslaved mining workforces on Kessel and other worlds provide cheap, controlled labor",
+    "Indispensable to the Hutts — the distribution partnership makes the Pykes politically protected within the underworld",
+    "Ruthless interrogation and enforcement apparatus deters betrayal and competition",
+    "Membership in the Shadow Collective during the Clone Wars demonstrated capacity for large-scale coordination"
+  ],
+  "weaknesses": [
+    "The entire organizational power structure depends on a single commodity; any sustained disruption to spice production threatens the Syndicate's existence.",
+    "Enslaved mining workforces require continuous suppression resources and represent a permanent internal security liability.",
+    "Transit routes between production and distribution points are vulnerable to piracy, with groups like the Veiled Sorority specifically targeting Pyke shipments.",
+    "Dependence on Hutt-controlled distribution networks gives the kajidics leverage over final pricing, territorial allocation, and market access.",
+    "Imperial anti-spice enforcement, when applied through ISB pressure or honest customs officials rather than bribed ones, can shut down entire smuggling corridors."
+  ],
+  "behavior_under_threat": {
+    "low": "Increase bribes along the affected route. Replace compromised intermediaries. The spice must flow uninterrupted.",
+    "medium": "Deploy enforcers to neutralize the threat. If the problem is an individual, the interrogators handle it. If it is a rival operation, cut their supply connections.",
+    "high": "Redirect shipments through alternate routes. Call in Hutt allies for muscle. Authorize assassinations of key figures threatening operations.",
+    "critical": "Burn compromised operations entirely — destroy evidence, eliminate witnesses, relocate refinery assets. Activate emergency Hutt cooperation protocols to maintain distribution during disruption."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Local mine overseer or refinery foreman",
+      "Regional Pyke enforcer",
+      "Syndicate lieutenant on Oba Diah",
+      "Lorn Pyke / Syndicate leadership"
+    ],
+    "notes": "The Pykes maintain tight communication along their supply chain — disruptions at any point must be reported quickly because delays cascade through production and delivery schedules. Enforcers stationed at key transit points can respond within hours. Escalation to Oba Diah leadership happens when local enforcers cannot resolve the issue or when the threat involves a rival syndicate."
+  },
+  "tension_patterns": [
+    "Spice shipment discrepancies between mine output and refinery intake are a recurring pattern, as smuggler crews and intermediaries exploit the handoff points in the supply chain.",
+    "Hutt distributors routinely adulterate product to increase margins, creating quality-control disputes that threaten the Pyke-Hutt distribution partnership.",
+    "Bribed Imperial customs officers occasionally revert to enforcement, typically because a rival organization or ISB has applied counter-pressure at the same post.",
+    "Enslaved mining workforces on Kessel and other worlds periodically organize production slowdowns, disrupting delivery schedules and triggering scrutiny from downstream Hutt partners.",
+    "Competing syndicates recruit Pyke-contracted smuggler crews by offering better rates, exploiting the debt-based loyalty model's vulnerability to higher bidders."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "fortified",
+    "transit": "patrol",
+    "economic": "dominant",
+    "command": "patrol",
+    "informational": "skeleton",
+    "military": "skeleton",
+    "hidden": "fortified",
+    "covert": "patrol"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "high",
+    "weapon": "low",
+    "person": "medium",
+    "artifact": "none",
+    "technology": "medium",
+    "notes": "The Pykes are overwhelmingly interested in contraband — specifically spice and the infrastructure to produce and move it. Data matters when it reveals rival operations or compromised routes. Persons of interest include skilled chemists, enslaved laborers, and smuggler captains. Technology that improves refinery efficiency or transit security is valued. Weapons and artifacts hold no special interest."
+  },
+  "ally_factions": [
+    "hutt_cartel"
+  ],
+  "enemy_factions": [
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "hutt_cartel": "Symbiotic but tense — the Pykes produce the spice and the Hutts distribute it outside Hutt Space. Neither can easily replace the other, but both constantly test the boundaries of the arrangement.",
+    "black_sun": "Competitive overlap in spice smuggling corridors. Black Sun's Vigos occasionally try to establish independent supply lines, which the Pykes view as existential threats.",
+    "rebel_alliance": "The Alliance opposes the slave labor that powers Pyke mining operations. Rebel interference at Kessel and other mining worlds is a persistent operational headache.",
+    "imperial_military": "Pragmatic non-interference maintained through systematic bribery of customs and garrison officers. When bribes fail, the Pykes reroute rather than fight."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "minimal",
+    "mid_rim": "moderate",
+    "outer_rim": "dominant",
+    "hutt_space": "significant",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Lorn Pyke",
+      "role": "Syndicate leader",
+      "suggested_tier": "nemesis",
+      "era": [
+        "prequel",
+        "imperial"
+      ],
+      "notes": "Head of the Pyke Syndicate operating from Oba Diah. Oversees the entire spice production and distribution empire. His leadership consolidated the Pykes from a regional spice operation into a galaxy-spanning cartel.",
+      "network_assessment": "Lorn Pyke built the spice cartel from a regional operation into a galactic monopoly. He runs it from Oba Diah like a factory floor — production quotas, delivery schedules, quality control. Cross him and the supply chain eats you.",
+      "wants": "Absolute control over galactic spice production from mine to refinery. No competitors, no independent suppliers, no alternatives.",
+      "secret": "His partnership with the Hutts is more dependent than it appears — without Hutt distribution networks, the Pykes would control a product they cannot sell at scale.",
+      "behavior": {
+        "under_pressure": "Tightens control over the supply chain. Increases enforcement, reduces intermediary autonomy, and demands more frequent status reports from regional enforcers.",
+        "when_losing": "Burns compromised operations entirely and rebuilds from secure positions. Spice infrastructure can be replaced; the monopoly cannot.",
+        "loyalty": "Loyal to the Syndicate as his personal creation. He built it, and he'll destroy anyone who threatens it — including his own lieutenants.",
+        "tells": "When Lorn Pyke sends enforcers to a mining operation that was meeting its quotas, he's received intelligence about a loyalty problem there, not a production one."
+      },
+      "useful_to_players": [
+        "His obsession with production quotas means disruptions to mining or refinery operations hit him harder than anything else — it's the pressure point",
+        "His dependence on Hutt distribution means the Hutt-Pyke relationship is a seam that outsiders can exploit from either side",
+        "His ruthlessness toward competitors means anyone challenging the spice monopoly becomes his priority — useful for redirecting his attention"
+      ],
+      "hooks": [
+        "Lorn Pyke just doubled the guard rotation at the Kessel processing facility. Either a shipment is coming through that's larger than usual, or someone tried something and failed.",
+        "A Pyke enforcer was found dead at a waystation between Oba Diah and Kessel. No witnesses, no cargo missing. That's a message, not a robbery."
+      ]
+    },
+    {
+      "name": "Marg Krim",
+      "role": "Senior Pyke lieutenant",
+      "suggested_tier": "rival",
+      "era": [
+        "prequel",
+        "imperial"
+      ],
+      "notes": "A high-ranking operative involved in the Syndicate's dealings with the Shadow Collective during the Clone Wars. Managed key relationships with external allies and rivals.",
+      "network_assessment": "Marg Krim is the Syndicate's external relations man — he handled the Shadow Collective partnership during the Clone Wars and manages key alliances now. If the Pykes need to talk to someone outside, Krim is the voice.",
+      "wants": "Stable external partnerships that protect the Syndicate's supply chain. He values reliable allies over profitable but volatile ones.",
+      "secret": "His Shadow Collective contacts from the Clone Wars era still exist in some form — relationships forged under Maul's coalition didn't all dissolve when the coalition did.",
+      "behavior": {
+        "under_pressure": "Reaches out to allies and negotiates aggressively for support. His instinct is coalition-building, not solo action.",
+        "when_losing": "Sacrifices the relationship to protect the Syndicate. He'll burn an ally to preserve Pyke operations without hesitation.",
+        "loyalty": "Loyal to the Syndicate and to Lorn Pyke specifically. His external relationships are professional tools, not personal bonds.",
+        "tells": "When Krim starts scheduling meetings with contacts he hasn't spoken to in months, the Syndicate is either expanding into new territory or preparing for a threat that requires outside help."
+      },
+      "useful_to_players": [
+        "His role as external relations means he's the most accessible point of contact for anyone wanting to deal with the Pyke Syndicate",
+        "His Clone Wars-era connections span organizations that no longer officially exist, giving him a contact network with unusual reach",
+        "His willingness to negotiate makes him the Syndicate figure most likely to make a deal rather than issue a threat"
+      ],
+      "hooks": [
+        "Krim was spotted at a neutral waystation meeting with representatives from two different syndicates in the same day. When the Pykes' diplomat works overtime, something is shifting in the underworld balance.",
+        "A smuggler crew that used to run Pyke spice just switched to an independent supplier. Krim sent them a polite message. In Pyke terms, 'polite' is the last step before 'permanent.'"
+      ]
+    }
+  ],
+  "source_material_notes": "Collapse of the Republic provides the most detailed treatment of the Pyke Syndicate's organizational structure and Clone Wars-era activities. Lords of Nal Hutta covers their relationship with the Hutt Kajidics and spice distribution networks. The Edge of the Empire Core Rulebook references spice trade mechanics and Kessel operations. Fly Casual covers smuggler interactions with spice cartels.",
+  "field_sources": {
+    "motivations": "Collapse of the Republic, Pyke Syndicate section; Lords of Nal Hutta, spice trade networks",
+    "goals": "Collapse of the Republic, organizational goals; Lords of Nal Hutta, Hutt-Pyke distribution arrangements",
+    "methods": "Collapse of the Republic, Pyke enforcement and interrogation methods",
+    "strengths": "Collapse of the Republic, organizational scale; Lords of Nal Hutta, distribution monopoly",
+    "weaknesses": "Inferred from single-commodity dependence (Collapse of the Republic) and piracy vulnerability (Lords of Nal Hutta)",
+    "behavior_under_threat": "Inferred from Pyke enforcement methods and supply chain protection described in Collapse of the Republic",
+    "tension_patterns": "Inferred from faction operational friction — supply chain vulnerabilities, Hutt tensions, labor control, and bribery dependencies",
+    "regional_presence": "Collapse of the Republic, Oba Diah and Kessel operations; Lords of Nal Hutta, Hutt Space presence",
+    "mcguffin_interest": "Inferred from spice monopoly motivations and operational priorities"
+  }
+}

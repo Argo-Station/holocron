@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+  SYNTHESIZED fixture for B-225 (HANDOFF b225-import-ownership) — NOT a user's character.
+  Hand-written to carry, minimally, the three shapes the ownership rule must tell apart:
+    (a) a Force power with PURCHASED abilities            -> INFLUENCE, base + one upgrade
+    (b) a Force power merely ENUMERATED by the catalog    -> MOVE and SENSE, no Purchased anywhere
+    (c) a spec tree with PURCHASED **and** UNPURCHASED cells -> PILOT, 2 of 4 bought
+  Real files omit <Purchased> entirely when false (censused across all six shipped saves and the
+  B-225 repro file: every file's "has <Purchased>" count equals its "true" count), so the
+  unpurchased shape here is ABSENCE, not <Purchased>false</Purchased> — the shape the parser will
+  actually meet. One cell carries the explicit false form anyway, so both spellings are covered.
+-->
+<Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileName>SYNTH_ownership.xml</FileName>
+  <Key>SYNTHOWN</Key>
+  <Name>Ownership Fixture</Name>
+  <SpeciesKey>HUMAN</SpeciesKey>
+  <CareerKey>SMUG</CareerKey>
+  <StartingSpecKey>PILOT</StartingSpecKey>
+  <Specializations>
+    <CharSpecialization>
+      <Key>PILOT</Key>
+      <isStartingSpec>true</isStartingSpec>
+      <isCareerSpec>true</isCareerSpec>
+      <Talents>
+        <CharTalent><Key>FULLTH</Key><Col>0</Col><Row>0</Row><Purchased>true</Purchased></CharTalent>
+        <CharTalent><Key>SKJOCK</Key><Col>1</Col><Row>0</Row><Purchased>true</Purchased></CharTalent>
+        <CharTalent><Key>GALMAP</Key><Col>2</Col><Row>0</Row></CharTalent>
+        <CharTalent><Key>LETSRIDE</Key><Col>3</Col><Row>0</Row><Purchased>false</Purchased></CharTalent>
+      </Talents>
+    </CharSpecialization>
+  </Specializations>
+  <ForcePowers>
+    <CharForcePower>
+      <Key>INFLUENCE</Key>
+      <ForceAbilities>
+        <CharForceAbility><Key>INFLUENCEBASIC</Key><Col>0</Col><Row>0</Row><Span>4</Span><Cost>10</Cost><Purchased>true</Purchased></CharForceAbility>
+        <CharForceAbility><Key>INFLUENCESTR</Key><Col>1</Col><Row>1</Row><Span>1</Span><Cost>10</Cost><Purchased>true</Purchased></CharForceAbility>
+        <CharForceAbility><Key>INFLUENCERANGE</Key><Col>2</Col><Row>1</Row><Span>1</Span><Cost>5</Cost></CharForceAbility>
+      </ForceAbilities>
+    </CharForcePower>
+    <CharForcePower>
+      <Key>MOVE</Key>
+      <ForceAbilities>
+        <CharForceAbility><Key>MOVEBASIC</Key><Col>0</Col><Row>0</Row><Span>4</Span><Cost>10</Cost></CharForceAbility>
+        <CharForceAbility><Key>MOVERANGE</Key><Col>2</Col><Row>1</Row><Span>1</Span><Cost>5</Cost></CharForceAbility>
+      </ForceAbilities>
+    </CharForcePower>
+    <CharForcePower>
+      <Key>SENSE</Key>
+      <ForceAbilities>
+        <CharForceAbility><Key>SENSEBASIC</Key><Col>0</Col><Row>0</Row><Span>4</Span><Cost>10</Cost><Purchased>false</Purchased></CharForceAbility>
+      </ForceAbilities>
+    </CharForcePower>
+  </ForcePowers>
+</Character>

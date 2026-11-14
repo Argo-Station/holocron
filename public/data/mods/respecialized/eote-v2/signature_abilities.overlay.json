@@ -1,0 +1,1519 @@
+{
+  "signature_abilities": {
+    "ciaf": {
+      "id": "ciaf",
+      "_source_key": "CIAF",
+      "name": "Calling In A Favor",
+      "description": "Calling in a Favor is a nod to the Colonist’s history, and the assumption that they have a storied past filled with characters worth engaging with. It leverages the Colonist’s contacts for some sort of mechanical and narrative benefit.\n\n Once per session, may spend 2 Destiny Points and make a Hard ([DI][DI][DI]) Charm check. If successful, the character establishes a contact who owes them a favor, and will provide otherwise unobtainable information to the character. This information must be immediately relevant to the character's current challenge, but sharing it must not put the contact in immediate danger. For the remainder of the session, the character may suffer 2 strain to add [SU] to a check directly related to the information provided by the favor.",
+      "careers": [
+        "colonist"
+      ],
+      "attach": {
+        "columns": [
+          1,
+          2
+        ]
+      },
+      "abilities": {
+        "ciafbase": {
+          "name": "Calling In A Favor Base Ability",
+          "description": "Once per session, may spend 2 Destiny Points and make a Hard ([DI][DI][DI]) Charm check. If successful, the character establishes a contact who owes them a favor, and will provide otherwise unobtainable information to the character. This information must be immediately relevant to the character's current challenge, but sharing it must not put the contact in immediate danger. For the remainder of the session, the character may suffer 2 strain to add [SU] to a check directly related to the information provided by the favor.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 527,
+                "hash": "f24175d355a0"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFBASE"
+              }
+            }
+          ],
+          "activation_check": {
+            "difficulty": "Hard",
+            "skill": "Charm"
+          }
+        },
+        "ciafnegot": {
+          "name": "Change Skill: Negotiation",
+          "description": "When activating Calling In A Favor, the character may make a Negotiation check instead of a Charm check.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 104,
+                "hash": "3e4f5094cb73"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFNEGOT"
+              }
+            }
+          ]
+        },
+        "ciafffg": {
+          "name": "Favor For Goods",
+          "description": "The favor the character calls in may now come in the form of legal goods instead of information. The credit cost of the goods may not exceed 200 times the character’s Presence, and the rarity may not be higher than a number equal to the character’s Presence. The delivery or appearance of the equipment is up to GM discretion, but should directly aid the character in their current challenge. For the remainder of the session, the character may suffer 2 strain to add [SU] to a check to which the provided goods are relevant.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 525,
+                "hash": "cb5ec88033e1"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFFFG"
+              }
+            }
+          ]
+        },
+        "ciafrd": {
+          "name": "Reduce Difficulty",
+          "description": "Reduce the difficulty of the skill check to activate Calling In A Favor to Average ([DI][DI]).",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 94,
+                "hash": "8529a7496c26"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFRD"
+              }
+            }
+          ]
+        },
+        "ciafundstre": {
+          "name": "Change Skill: Knowledge (Society) or Streetwise",
+          "description": "When activating Calling In A Favor, the character may make a Knowledge (Society) or Streetwise check instead of a Charm check.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 126,
+                "hash": "ce9a90b8b843"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFUNDSTRE"
+              }
+            }
+          ]
+        },
+        "ciafsf": {
+          "name": "Supreme Favor",
+          "description": "The character may spend [AD][AD][AD] or [TR] from the check to activate Calling In A Favor to remove the restriction from the favor provided. If the favor is information, that information may put the contact in immediate peril, and be even more valuable or sought-after. If the favor is goods, the credit cost limit is doubled, and the rarity value limit is increased by 3, and the good may be restricted. If the favor is a service, the service may be illegal and/or incredibly dangerous.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 488,
+                "hash": "757e921b046d"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFSF"
+              }
+            }
+          ]
+        },
+        "ciafgf": {
+          "name": "Greater Favor",
+          "description": "After activating Calling In A Favor, the character may instead suffer 2 strain to add [SU][AD] to a check related to the favor.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 127,
+                "hash": "c0d234118c7e"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFGF"
+              }
+            }
+          ]
+        },
+        "ciafdestiny": {
+          "name": "Destiny",
+          "description": "Calling In A Favor costs 1 Destiny Point to activate instead of 2.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 66,
+                "hash": "642acf6ad191"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFDESTINY"
+              }
+            }
+          ]
+        },
+        "ciafffs": {
+          "name": "Favor For Services",
+          "description": "The favor the character calls in may now come in the form of legal services instead of information. The nature and scope of the service is up to the Game Master, but it should not be obviously suicidal or lead to immediate pursuit by authorities. The service should be able to be performed during this session, and should directly aid the character in their current challenge.  For the remainder of the session, the character may suffer 2 strain to add [SU] to a check to which the provided services are relevant.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 513,
+                "hash": "149bc3b1c4a5"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CIAFFFS"
+              }
+            }
+          ]
+        }
+      },
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "ciafbase",
+              "cost": 30,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ciafnegot",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafffg",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafrd",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafundstre",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "ciafsf",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafgf",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafdestiny",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "ciafffs",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "shadowlord": {
+      "id": "shadowlord",
+      "_source_key": "SHADOWLORD",
+      "name": "Shadow Lord",
+      "description": "",
+      "careers": [
+        "syndicate"
+      ],
+      "attach": {
+        "columns": [
+          1,
+          3
+        ]
+      },
+      "abilities": {
+        "shadowlordbase": {
+          "name": "Shadow Lord Base Ability",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 411,
+                "hash": "56f191471549"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:SHADOWLORDBASE"
+              }
+            }
+          ],
+          "activation_check": {
+            "difficulty": "Hard",
+            "skill": "Streetwise"
+          }
+        },
+        "changeskillcoer": {
+          "name": "Change Skill - Coercion",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 114,
+                "hash": "07d7e16e30fe"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CHANGESKILLCOER"
+              }
+            }
+          ]
+        },
+        "remsetbackshadow": {
+          "name": "Remove Setback",
+          "description": "Checks made by NPCs introduced by Shadow Lord remove [SE] per Remove Setback upgrade purchased.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 95,
+                "hash": "ec58ae285969"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:REMSETBACKSHADOW"
+              }
+            }
+          ]
+        },
+        "changeskillsociety": {
+          "name": "Change Skill - Knowledge (Underworld)",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 128,
+                "hash": "721ab89fd179"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:CHANGESKILLSOCIETY"
+              }
+            }
+          ]
+        },
+        "addboostshad": {
+          "name": "Add Boost",
+          "description": "Checks made by NPCs introduced by Shadow Lord add [BO] per Add Boost upgrade purchased.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 87,
+                "hash": "50d3c393d884"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:ADDBOOSTSHAD"
+              }
+            }
+          ]
+        },
+        "addminionsshad": {
+          "name": "Additional Minions",
+          "description": "An additional Minion group equal to the number of purchased Additional Minions upgrades appears in the scene to assist the character.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 133,
+                "hash": "2407e2cbe1e0"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:ADDMINIONSSHAD"
+              }
+            }
+          ]
+        },
+        "destshadow": {
+          "name": "Destiny",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 118,
+                "hash": "457619bd77b7"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:DESTSHADOW"
+              }
+            }
+          ]
+        },
+        "dramentryshadow": {
+          "name": "Dramatic Entry",
+          "description": "The characer may spend [TR] from a successful check to activate Shadow Lord to establish favorable or timely entry of the characters to the scene. The character may have the introduced NPCs act at the top of the next initiative round, after which their initiative is determined normally for the following rounds. Alternatively, the NPCs' arrival could remove a foe's resource or ally from the scene.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 399,
+                "hash": "3807a83fac59"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:DRAMENTRYSHADOW"
+              }
+            }
+          ]
+        },
+        "sumrivalshadow": {
+          "name": "Summon Rival",
+          "description": "Also introduce an allied Rival per purchased Summon Rival upgrade to the scene to assist the character.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 103,
+                "hash": "a32ebe498df2"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:SUMRIVALSHADOW"
+              }
+            }
+          ]
+        }
+      },
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "shadowlordbase",
+              "cost": 30,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "changeskillcoer",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "remsetbackshadow",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "changeskillsociety",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "addboostshad",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "addminionsshad",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "destshadow",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "dramentryshadow",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "sumrivalshadow",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "unmatchedamb": {
+      "id": "unmatchedamb",
+      "_source_key": "UNMATCHEDAMB",
+      "name": "Unmatched Ambition",
+      "description": "Only one word can describe those who dedicate their lives to criminal pursuits: ambitious. If they aren't in a constant struggle to realize their own rags to riches story, they are working to multiply the multitudes of their wealth and influence. Be it by cold ruthlessness, an expression of skill, or through sheer force of will, a career Syndicate won't allow anything to stand between them and their goals.\n\nOnce per session as an incidental, before rolling a check with a base difficulty of Average ([DI][DI]) or easier check, spend 2 Destiny Points to treat that check as if it was succeeded with a single [SU].",
+      "careers": [
+        "syndicate"
+      ],
+      "attach": {
+        "columns": [
+          3,
+          4
+        ]
+      },
+      "abilities": {
+        "unmatchedambba": {
+          "name": "Unmatched Ambition Base Ability",
+          "description": "Once per session as an incidental, before rolling a check with a base difficulty of Average ([DI][DI]) or easier check, spend 2 Destiny Points to treat that check as if it was succeeded with a single [SU].",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 205,
+                "hash": "59fe29ef940e"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDAMBBA"
+              }
+            }
+          ]
+        },
+        "frequnmam": {
+          "name": "Frequency",
+          "description": "Unmatched Ambition can be used an additional time per game session.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 67,
+                "hash": "b874d03909fd"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:FREQUNMAM"
+              }
+            }
+          ]
+        },
+        "increnumbunamb": {
+          "name": "Increase Number",
+          "description": "Unmatched Ambition may be used to succeed on the next applicable checks during the encounter it is activated per Increase Number upgrades purchased. If the character chooses not to use Unmatched Ambition on the next applicable check, the effect ends.",
+          "wording": "verified",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 250,
+                "hash": "a68bb8469e50"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:INCRENUMBUNAMB"
+              }
+            }
+          ]
+        },
+        "inceffunam": {
+          "name": "Increase Effect - Hard Checks",
+          "description": "Unmatched Ambition may now be used to succeed on Hard ([DI][DI][DI]) checks.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 76,
+                "hash": "57a7aa50ceaf"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:INCEFFUNAM"
+              }
+            }
+          ]
+        },
+        "destinyunam": {
+          "name": "Destiny",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 125,
+                "hash": "53b2926286e0"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:DESTINYUNAM"
+              }
+            }
+          ]
+        },
+        "incefdaunam": {
+          "name": "Increase Effect - Daunting Checks",
+          "description": "Once per encounter, Unmatched Ambition may be used to succeed on a Daunting ([DI][DI][DI][DI]) check.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 101,
+                "hash": "aa3d25846600"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:INCEFDAUNAM"
+              }
+            }
+          ]
+        },
+        "trueamb": {
+          "name": "True Ambition",
+          "description": "Once per encounter, Unmatched Ambition may instead treat a check as if a single [TR] had been rolled.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 101,
+                "hash": "8b6998c84e81"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:TRUEAMB"
+              }
+            }
+          ]
+        },
+        "fatefulambition": {
+          "name": "Fateful Ambition",
+          "description": "Unmatched Ambition may be activated immediately after failing a check, to instead treat it as if it had succeeded instead.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 122,
+                "hash": "9fdd95cbc1da"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:FATEFULAMBITION"
+              }
+            }
+          ]
+        }
+      },
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "unmatchedambba",
+              "cost": 30,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "frequnmam",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "increnumbunamb",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "inceffunam",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "destinyunam",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "increnumbunamb",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "incefdaunam",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "trueamb",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "fatefulambition",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "unmatchedteamwork": {
+      "id": "unmatchedteamwork",
+      "_source_key": "UNMATCHEDTEAMWORK",
+      "name": "Unmatched Teamwork",
+      "description": "",
+      "careers": [
+        "clone_soldier"
+      ],
+      "attach": {
+        "columns": [
+          1,
+          3
+        ]
+      },
+      "abilities": {
+        "unmatchedteamworkbase": {
+          "name": "Unmatched Teamwork Base Ability",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 239,
+                "hash": "50eef4ac9430"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKBASE"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkincreaseeffect2": {
+          "name": "Increase Effect",
+          "description": "The character's assistance instead adds [SU][AD].",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 49,
+                "hash": "74111210a8ac"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKINCREASEEFFECT2"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkincreaseeffect1": {
+          "name": "Increase Effect",
+          "description": "The character's assistance instead adds [SU].",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 45,
+                "hash": "fc70088e8de9"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKINCREASEEFFECT1"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkremovesetback": {
+          "name": "Remove Setback",
+          "description": "The character's assistance also removes [SE].",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 45,
+                "hash": "c406aef8e515"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKREMOVESETBACK"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkincreaserange": {
+          "name": "Increase Range",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 83,
+                "hash": "43bb9829bda3"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKINCREASERANGE"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkincreaseeffect3": {
+          "name": "Increase Effect",
+          "description": "The character's assistance instead adds [TR].",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 45,
+                "hash": "8287c458bcef"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKINCREASEEFFECT3"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkdestiny": {
+          "name": "Destiny",
+          "description": "Unmatched Teamwork costs 1 fewer Destiny Points to activate.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 60,
+                "hash": "a65f19d0ab54"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKDESTINY"
+              }
+            }
+          ]
+        },
+        "unmatchedteamworkcamaraderie": {
+          "name": "Camaraderie",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 73,
+                "hash": "2d73b8e2affb"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEDTEAMWORKCAMARADERIE"
+              }
+            }
+          ]
+        }
+      },
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "unmatchedteamworkbase",
+              "cost": 30,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "unmatchedteamworkincreaseeffect2",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkincreaseeffect1",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkremovesetback",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkincreaserange",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "unmatchedteamworkincreaseeffect3",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkdestiny",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkincreaserange",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchedteamworkcamaraderie",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    },
+    "unmatchexpert": {
+      "id": "unmatchexpert",
+      "_source_key": "UNMATCHEXPERT",
+      "name": "Unmatched Expertise",
+      "description": "",
+      "careers": [
+        "colonist"
+      ],
+      "attach": {
+        "columns": [
+          2,
+          3
+        ]
+      },
+      "abilities": {
+        "unmatchexpert": {
+          "name": "Unmatched Expertise Basic Ability",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 205,
+                "hash": "39445aa0ea63"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERT"
+              }
+            }
+          ]
+        },
+        "durationexp": {
+          "name": "Duration",
+          "description": "Increase the number of rounds that Unmatched Expertise is active by one round for each purchased Duration upgrade.",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 114,
+                "hash": "5dc3a008ac91"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:DURATIONEXP"
+              }
+            }
+          ]
+        },
+        "unmatchexpdestiny": {
+          "name": "Destiny",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 67,
+                "hash": "41cb134ba56f"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPDESTINY"
+              }
+            }
+          ]
+        },
+        "unmatchexpertredsetbk": {
+          "name": "Reduce Setback",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 81,
+                "hash": "c36d40729ec0"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERTREDSETBK"
+              }
+            }
+          ]
+        },
+        "unmatchexpertreddiff": {
+          "name": "Reduce Difficulty",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 63,
+                "hash": "88666f8a8291"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERTREDDIFF"
+              }
+            }
+          ]
+        },
+        "unmatchexpertsupred": {
+          "name": "Superior Reduction",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 107,
+                "hash": "c503584dd6d8"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERTSUPRED"
+              }
+            }
+          ]
+        },
+        "unmatchexpertact2": {
+          "name": "Activation",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 104,
+                "hash": "8e8ffc7478c8"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERTACT2"
+              }
+            }
+          ]
+        },
+        "unmatchexpertreddiff2": {
+          "name": "Remove Difficulty",
+          "description": "",
+          "told": [
+            {
+              "id": "told",
+              "words": {
+                "start": 0,
+                "end": 92,
+                "hash": "1f3eec50673a"
+              },
+              "cite": {
+                "unprinted": "pack",
+                "from": "respecialized@eote-v2:UNMATCHEXPERTREDDIFF2"
+              }
+            }
+          ]
+        }
+      },
+      "tree": [
+        {
+          "cells": [
+            {
+              "ability": "unmatchexpert",
+              "cost": 30,
+              "col": 0,
+              "span": 4,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "durationexp",
+              "cost": 10,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchexpdestiny",
+              "cost": 10,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "durationexp",
+              "cost": 10,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": true,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchexpertredsetbk",
+              "cost": 10,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": true,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "ability": "unmatchexpertreddiff",
+              "cost": 15,
+              "col": 0,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": true
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchexpertsupred",
+              "cost": 15,
+              "col": 1,
+              "span": 1,
+              "links": {
+                "up": false,
+                "down": false,
+                "left": true,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchexpertact2",
+              "cost": 15,
+              "col": 2,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            },
+            {
+              "ability": "unmatchexpertreddiff2",
+              "cost": 15,
+              "col": 3,
+              "span": 1,
+              "links": {
+                "up": true,
+                "down": false,
+                "left": false,
+                "right": false
+              },
+              "cost_status": "inferred"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "_provenance": "respecialized"
+    }
+  }
+}

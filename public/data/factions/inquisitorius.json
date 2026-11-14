@@ -1,0 +1,289 @@
+{
+  "id": "inquisitorius",
+  "name": "Inquisitorius",
+  "type": "force_order",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Force and Destiny Core Rulebook",
+    "Dawn of Rebellion",
+    "Nexus of Power"
+  ],
+  "overview": "The Inquisitorius is a secret order of dark side Force users founded by Emperor Palpatine and overseen by Darth Vader, tasked with hunting down surviving Jedi and capturing Force-sensitive individuals across the galaxy. Operating from the Citadel Inquisitorius in the Deep Core, Inquisitors are former Jedi or Force-sensitives broken through torture and dark side conditioning, wielding broad Imperial authority to requisition military assets including Star Destroyers. They function through a system of designated agents — the Grand Inquisitor, Fifth Brother, and others — who operate semi-autonomously but in constant rivalry with one another.",
+  "short_descriptor": "Don't run. Running confirms what they suspect. If one becomes interested in your network, normal protocols are insufficient. I've seen what happens. Plan accordingly.",
+  "witness_statement": {
+    "text": "We were on Thabeska when one came through. Didn't announce themselves — just walked into the market square and stood there. Within an hour, half the vendors had packed up and left. The ones who stayed wouldn't make eye contact. A kid knocked over a fruit stand running and the whole square went silent. I've seen people afraid of stormtroopers. This was different. This was the kind of quiet that happens when something is hunting.",
+    "source": "Survivor, civilian, medical debrief after Thabeska incident",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "CHAIN OF COMMAND",
+      "text": "The Inquisitorius operates on a parallel chain of command entirely outside normal Imperial military structure, reporting through the Grand Inquisitor directly to Darth Vader."
+    },
+    {
+      "heading": "THE INQUISITORS",
+      "text": "Individual Inquisitors — designated by ordinal titles such as Fifth Brother and Seventh Sister — are assigned vast regions of space and operate semi-autonomously, tracking Force-sensitive targets through ISB intelligence feeds, Imperial Intelligence reports, and informant networks."
+    },
+    {
+      "heading": "BROAD AUTHORITY",
+      "text": "Each Inquisitor carries broad authority to requisition Imperial military assets up to and including Star Destroyers, without disclosing mission objectives to garrison commanders."
+    },
+    {
+      "heading": "THE TRAP",
+      "text": "Their preferred method is the trap: a preserved Jedi artifact planted in a known smuggling channel, or a rumor of a Jedi sighting seeded through informants, drawing targets to prepared kill zones where purge troopers and conventional forces are already in position."
+    },
+    {
+      "heading": "ORIGINS AND RIVALRY",
+      "text": "All Inquisitors are former Jedi or Force-sensitives broken through torture and dark side conditioning at the Citadel Inquisitorius in the Deep Core. Internal rivalry is endemic — Inquisitors compete for Vader's approval and withhold intelligence from one another, knowing that failure means execution and that credit for a successful capture advances their standing."
+    }
+  ],
+  "motivations": {
+    "primary": "Eradication of Force users outside Imperial control",
+    "secondary": [
+      "Capturing Force-sensitive children through Project Harvester",
+      "Eliminating surviving Jedi",
+      "Recovering Jedi artifacts and holocrons",
+      "Expanding personal power within the order's internal hierarchy"
+    ],
+    "notes": "The Inquisitorius serves Palpatine's dual purpose: eliminating threats to Sith dominance and building a pool of dark side operatives. Individual Inquisitors are motivated by survival as much as ideology — failure means death or worse at Vader's hands. This creates agents who are ruthless but also self-serving, willing to sabotage peers to avoid being the one who reports failure."
+  },
+  "goals": {
+    "strategic": [
+      "Ensure no Force tradition outside the Sith can organize or grow",
+      "Capture Force-sensitive children before they can be trained by surviving Jedi",
+      "Recover or destroy all Jedi artifacts, temples, and knowledge repositories",
+      "Maintain the Emperor's monopoly on Force power within the galaxy"
+    ],
+    "operational": [
+      "Track and eliminate individual surviving Jedi reported by Imperial Intelligence or ISB",
+      "Set traps using Jedi artifacts and Force-related bait to lure targets into ambushes",
+      "Interrogate captured Force-sensitives to extract intelligence on other survivors",
+      "Requisition Imperial military assets for hunting operations without explaining objectives"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "infiltration",
+      "information_control",
+      "assassination",
+      "hired_muscle"
+    ],
+    "avoided": [
+      "Negotiation — Inquisitors do not bargain with targets; capture or kill are the only acceptable outcomes",
+      "Bribery — dark side authority and Imperial backing make financial incentives unnecessary and beneath the order"
+    ],
+    "notes": "Inquisitors strongly prefer traps over direct pursuit. A preserved Jedi artifact placed in a known smuggling channel, a rumor of a Jedi sighting seeded through informant networks — these lures draw targets to prepared kill zones. When direct confrontation is necessary, Inquisitors requisition stormtroopers, purge troopers, or even capital ships to overwhelm targets with conventional force before engaging personally. They avoid prolonged chases that risk public exposure of their nature."
+  },
+  "strengths": [
+    "Force abilities and lightsaber combat training make individual Inquisitors formidable against most opponents",
+    "Broad Imperial authority to commandeer military assets — up to and including Star Destroyers — without prior approval",
+    "Operational secrecy means targets rarely know an Inquisitor is hunting them until the trap closes",
+    "Access to Jedi Temple records and ISB intelligence networks for tracking Force-sensitives",
+    "Fear factor — the mere rumor of an Inquisitor's presence suppresses open Force use across entire sectors"
+  ],
+  "weaknesses": [
+    "Internal rivalry between Inquisitors produces systematic intelligence hoarding, creating coverage gaps that informed targets can identify and exploit.",
+    "Inquisitors are converted through torture and dark side conditioning rather than ideological conviction, resulting in psychological instability including overconfidence, hesitation, and erratic behavior under pressure.",
+    "The order's punishment structure makes failure reporting functionally equivalent to a death sentence, incentivizing concealment of setbacks until they escalate beyond individual recovery.",
+    "The small number of active Inquisitors relative to their galactic operational area means each agent covers vast territory, with response times measured in days rather than hours.",
+    "Dependence on conventional military assets for operations against non-Force opponents makes Inquisitors operationally vulnerable when garrison commanders provide only minimal cooperation."
+  ],
+  "behavior_under_threat": {
+    "low": "Monitor through ISB informant channels and Imperial Intelligence reports. No direct Inquisitor involvement — local forces handle initial assessment.",
+    "medium": "An Inquisitor is dispatched to investigate personally. Bait operations are prepared using Jedi artifacts or planted rumors. Local garrison is placed under the Inquisitor's operational authority.",
+    "high": "The Inquisitor requisitions significant military assets — purge troopers, additional stormtrooper companies, orbital support. The target area is cordoned. The Inquisitor engages directly.",
+    "critical": "Multiple Inquisitors may be deployed despite their mutual hostility. Vader himself may intervene. Entire sectors can be locked down. The target is deemed a priority threat to the Sith — survival of the order is at stake."
+  },
+  "alert_escalation": {
+    "communication_method": "direct",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Imperial informant or ISB report",
+      "Designated Inquisitor for the region",
+      "Grand Inquisitor",
+      "Darth Vader"
+    ],
+    "notes": "The Inquisitorius operates on a parallel chain entirely outside normal Imperial military communications. Reports of Force-user activity are flagged by ISB or Imperial Intelligence and routed directly to the nearest Inquisitor. Inquisitors report to the Grand Inquisitor, who reports to Vader. Escalation is slower than ISB because Inquisitors operate alone across vast territories and may be days away from the incident location. The chain also suffers from deliberate information hoarding — an Inquisitor who believes they can handle a target alone will delay reporting to avoid sharing credit."
+  },
+  "tension_patterns": [
+    "Internal competition between Inquisitors produces intelligence hoarding and parallel operations against the same targets, creating exploitable gaps in coverage.",
+    "Force-sensitives converted to Imperial service through torture carry unverifiable loyalty, and documented cases exist of turned agents maintaining contact with former allies.",
+    "The order's punishment-for-failure culture incentivizes Inquisitors to conceal operational setbacks rather than request reinforcement, allowing small failures to compound.",
+    "Bait operations using Jedi artifacts as lures occasionally attract Force users of significantly greater power than the assigned Inquisitor can handle alone.",
+    "Garrison commanders required to submit to Inquisitor authority routinely provide minimal cooperation, as the order's secrecy and arrogance generate institutional resentment across the military."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "skeleton",
+    "economic": "skeleton",
+    "command": "patrol",
+    "informational": "patrol",
+    "military": "patrol",
+    "hidden": "fortified",
+    "covert": "dominant"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "low",
+    "weapon": "medium",
+    "person": "high",
+    "artifact": "high",
+    "technology": "medium",
+    "notes": "The Inquisitorius prioritizes Force-sensitive persons above all else — surviving Jedi, untrained Force-sensitives, and Force-sensitive children (Project Harvester). Jedi artifacts (holocrons, lightsabers, temple records) are high priority both as intelligence sources and as bait for future operations. Weapons and technology interest them only when Force-related. General data matters when it contains leads on Force-user locations."
+  },
+  "ally_factions": [
+    "imperial_military",
+    "imperial_security_bureau"
+  ],
+  "enemy_factions": [
+    "rebel_alliance"
+  ],
+  "relationship_notes": {
+    "imperial_military": "Inquisitors can requisition military assets up to Star Destroyers, but garrison commanders resent being commandeered by secretive Force users who refuse to explain their objectives. Cooperation is mandatory but frequently reluctant.",
+    "imperial_security_bureau": "The ISB feeds intelligence on Force-user activity to the Inquisitorius and defers on Force-related matters, but resents the order's secrecy and its habit of requisitioning ISB resources without reciprocating information.",
+    "rebel_alliance": "The Rebellion harbors surviving Jedi and Force-sensitives, making it a primary target. Inquisitors view Rebel cells as potential leads to hidden Force users rather than as a military threat in their own right.",
+    "darth_vader": "Vader oversees the Inquisitorius directly and may personally train Inquisitors. His authority is absolute — failure to meet his standards means death. This relationship defines the order's culture of fear and internal competition."
+  },
+  "regional_presence": {
+    "deep_core": "dominant",
+    "core_worlds": "moderate",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "minimal",
+    "mid_rim": "moderate",
+    "outer_rim": "moderate",
+    "hutt_space": "minimal",
+    "wild_space": "minimal",
+    "unknown_regions": "minimal"
+  },
+  "prominent_figures": [
+    {
+      "name": "The Grand Inquisitor",
+      "role": "Operational leader of the Inquisitorius",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "GRAND_INQUISITOR",
+      "era": [
+        "imperial"
+      ],
+      "notes": "A Pau'an and former Jedi Temple Guard who turned to the dark side. Commands all other Inquisitors in the field and reports directly to Darth Vader. His knowledge of the Jedi Temple archives makes him uniquely effective at tracking survivors.",
+      "network_assessment": "The Grand Inquisitor is a former Jedi who knows where the Jedi hid, how they trained, and what they valued. He uses that knowledge to hunt them. He is methodical, patient, and carries the Temple's own records as his weapon.",
+      "wants": "Successful elimination of all surviving Jedi. His position depends on delivering results to Vader, and failure is not survivable.",
+      "secret": "His knowledge of the Jedi Temple archives is comprehensive — he knows about hidden enclaves, artifact caches, and emergency protocols that the Jedi established before Order 66.",
+      "behavior": {
+        "under_pressure": "Calm and analytical. His Temple Guard training instilled discipline that his dark side conversion did not erase.",
+        "when_losing": "Refuses to report failure to Vader until he has exhausted every option. The punishment for failure incentivizes escalation to dangerous extremes.",
+        "loyalty": "Bound to Vader through fear and dark side conditioning. His loyalty is maintained by the certainty that disloyalty means death.",
+        "tells": "When the Grand Inquisitor requests Jedi Temple archive access for a specific era or location, he's narrowing his search — a target has been partially identified."
+      },
+      "useful_to_players": [
+        "His focus on Jedi targets means non-Force operations can sometimes proceed in his vicinity without drawing attention",
+        "His rivalry management of other Inquisitors means the order's internal competition can be exploited to create delays and gaps",
+        "His Temple Guard background means he follows patterns — his investigative methods are systematic and therefore predictable to someone who understands Jedi protocols"
+      ],
+      "hooks": [
+        "The Grand Inquisitor just requisitioned a Star Destroyer for a mission in the Outer Rim — no explanation given to the sector Moff. When he brings capital ships, the target is confirmed, not suspected.",
+        "An Inquisitor communications intercept mentioned 'archive discrepancy' in relation to a specific system. The Grand Inquisitor is cross-referencing Temple records against current intelligence — someone left a trail."
+      ]
+    },
+    {
+      "name": "The Fifth Brother",
+      "role": "Designated Inquisitor",
+      "suggested_tier": "rival",
+      "stat_block_ref": "FIFTH_BROTHER",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "A brutish and aggressive Inquisitor who favors direct confrontation over subtlety. His rivalry with other Inquisitors — particularly the Seventh Sister — exemplifies the order's internal competition.",
+      "network_assessment": "The Fifth Brother is the blunt instrument of the Inquisitorius. He hits hard and doesn't stop. What he lacks in subtlety he compensates for with raw aggression and Force-enhanced brutality. Do not engage him in a straight fight.",
+      "wants": "Credit for high-profile kills that elevate his standing with Vader. His rivalry with the Seventh Sister is as much about internal ranking as it is about the targets.",
+      "secret": "His aggressive approach has resulted in lost targets that he has not reported to the Grand Inquisitor — the order's punishment culture ensures these failures remain hidden until they compound.",
+      "behavior": {
+        "under_pressure": "Escalates force immediately. The Fifth Brother's response to any obstacle is to apply more power, which works until the obstacle is beyond his capability.",
+        "when_losing": "Becomes enraged, which increases his combat lethality but destroys his tactical judgment. A losing Fifth Brother is more dangerous and more exploitable simultaneously.",
+        "loyalty": "Loyal to Vader through fear. His ambition within the order is his primary motivator — he wants to be the favored Inquisitor.",
+        "tells": "When the Fifth Brother arrives in a sector without the Seventh Sister, he's operating on intelligence he hasn't shared. When they arrive together, the Grand Inquisitor assigned them — and they'll undermine each other."
+      },
+      "useful_to_players": [
+        "His aggression makes him predictable — he will choose the direct approach every time, which means ambush and misdirection work against him",
+        "His rivalry with the Seventh Sister means information about her movements can be used to redirect him or delay his response",
+        "His unreported failures are a vulnerability — evidence of his hidden losses could be leveraged if delivered to the right Imperial authority"
+      ],
+      "hooks": [
+        "The Fifth Brother destroyed an entire marketplace on Lothal during a pursuit last month. The garrison commander filed a complaint — which was ignored. That's Inquisitor authority in action.",
+        "Local informants report the Fifth Brother and the Seventh Sister were assigned to the same target and arrived in the same system at the same time. Neither knew the other was coming. The rivalry just got physical."
+      ]
+    },
+    {
+      "name": "Blaise Zirkonn",
+      "role": "Inquisitor operative",
+      "suggested_tier": "rival",
+      "era": [
+        "imperial"
+      ],
+      "notes": "An Inquisitor referenced in Force and Destiny sourcebooks as an example of the order's reach into remote sectors. Represents the individual agents who operate far from oversight and with significant autonomy.",
+      "network_assessment": "Blaise Zirkonn operates in remote sectors far from oversight. That distance gives him autonomy but also means his operations go unsupported. He's dangerous alone, but alone is how he usually operates.",
+      "wants": "Successful completion of hunting assignments in his designated territory. Remote postings mean fewer targets but also fewer resources.",
+      "secret": "His isolation from the Citadel Inquisitorius means his reports are delayed and sometimes edited — he has more freedom to pursue personal interests than the order intends.",
+      "behavior": {
+        "under_pressure": "Self-reliant. Without backup Inquisitors or easy access to garrison reinforcements, he's accustomed to handling situations with whatever resources are locally available.",
+        "when_losing": "Withdraws and reassesses. Unlike the more aggressive Inquisitors, his isolation has taught him patience — he can't afford to lose a fight he can't walk away from.",
+        "loyalty": "Compliant rather than zealous. Distance from Vader's direct oversight reduces the fear that drives other Inquisitors' loyalty.",
+        "tells": "When Zirkonn requisitions garrison support in a remote sector, the situation has exceeded his solo capabilities — which means the target is significant."
+      },
+      "useful_to_players": [
+        "His isolation means his operations are undersupported — engaging him in remote sectors removes the Inquisitor's usual advantage of Imperial military backing",
+        "His delayed reporting to the Citadel creates a window where his actions are unknown to the order's leadership",
+        "His self-reliance means he can be negotiated with in ways that Inquisitors closer to Vader's oversight cannot — desperation and pragmatism override ideology at the frontier"
+      ],
+      "hooks": [
+        "Zirkonn's been active in a sector with no reported Force-user sightings. Either his intelligence is better than the local ISB's, or he's pursuing something that isn't on the official target list.",
+        "A remote garrison commander reported an Inquisitor requisitioned his entire scout platoon for three days and returned them without explanation. That's Zirkonn's operational pattern."
+      ]
+    },
+    {
+      "name": "Darth Vader",
+      "role": "Supreme authority over the Inquisitorius",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "DARTH_VADER",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "notes": "The most senior member of the Inquisitorius by rank, though he operates above and outside the order's day-to-day hierarchy. Trains Inquisitors personally and executes those who fail. His shadow defines the order's culture.",
+      "network_assessment": "Within the Inquisitorius, Vader is not leadership — he's the weather. He arrives, things change, and someone usually dies. Every Inquisitor's operating calculus starts with the question: will Vader find out?",
+      "wants": "Eradication of all Force-sensitive threats and the complete execution of the Emperor's mandate through the Inquisitorius. Personal hunting of high-value targets.",
+      "secret": "His personal interest in certain Force-sensitive targets — particularly Luke Skywalker — goes beyond operational mandate. The Inquisitors suspect this but cannot ask.",
+      "behavior": {
+        "under_pressure": "Vader does not experience operational pressure within the Inquisitorius context. He is the pressure that others experience.",
+        "when_losing": "Eliminates the Inquisitor responsible. Vader's response to failure within the order is always personnel replacement, never systemic reform.",
+        "loyalty": "The Inquisitors serve him out of terror. He serves the Emperor out of a bond that is more complex than loyalty — it is dependency, ambition, and dark side entanglement.",
+        "tells": "When Vader takes personal command of a hunting operation rather than delegating to an Inquisitor, the target has significance that transcends the order's standard mission parameters."
+      },
+      "useful_to_players": [
+        "His punishment culture creates Inquisitors who conceal failures — those concealed failures are intelligence gaps that can be exploited",
+        "His personal interest in specific targets means the Inquisitorius sometimes redirects resources away from routine operations, creating windows of reduced coverage",
+        "His terror-based leadership means Inquisitors operating far from his oversight behave differently than those under direct scrutiny"
+      ],
+      "hooks": [
+        "Vader recalled two Inquisitors from active hunts to the Citadel last month. Neither has been seen since. The remaining Inquisitors are working harder and reporting more frequently.",
+        "An Inquisitor was given a target file marked with Vader's personal cipher. The Inquisitor abandoned their current operation immediately. Whatever's in that file overrides everything else."
+      ]
+    }
+  ],
+  "source_material_notes": "The Inquisitorius is covered primarily in Force and Destiny Core Rulebook (dark side antagonists and Force-user threats), Dawn of Rebellion (Order 66 aftermath and early Inquisitor operations), and Nexus of Power (Jedi temples and artifact sites that Inquisitors target). The Spire on Stygeon Prime appears in Dawn of Rebellion as a notorious Imperial prison. No single sourcebook provides a comprehensive organizational breakdown — the order is deliberately shrouded in secrecy even within the game materials.",
+  "field_sources": {
+    "motivations": "Force and Destiny Core Rulebook, dark side antagonists; Dawn of Rebellion, Order 66 aftermath",
+    "goals": "Force and Destiny Core Rulebook, Inquisitor mission parameters; Dawn of Rebellion, Project Harvester",
+    "methods": "Dawn of Rebellion, Inquisitor operational methods; Nexus of Power, artifact-based lure operations",
+    "strengths": "Force and Destiny Core Rulebook, Inquisitor authority and capabilities; Dawn of Rebellion, military requisition powers",
+    "weaknesses": "Inferred from internal rivalry dynamics described in Force and Destiny Core Rulebook and Dawn of Rebellion",
+    "behavior_under_threat": "Inferred from Inquisitor escalation patterns in Dawn of Rebellion and Force and Destiny Core Rulebook",
+    "tension_patterns": "Inferred from faction behavior — internal rivalry, concealed failures, garrison friction described across sources",
+    "regional_presence": "Dawn of Rebellion, Citadel Inquisitorius location; Nexus of Power, Jedi temple sites; inferred from operational range",
+    "mcguffin_interest": "Inferred from Inquisitor mission priorities — Force-sensitives and Jedi artifacts as primary targets"
+  }
+}

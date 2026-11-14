@@ -1,0 +1,226 @@
+{
+  "id": "imperial_military",
+  "name": "Imperial Military",
+  "type": "military_force",
+  "era_active": [
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    {
+      "source": "Edge of the Empire Core Rulebook",
+      "pages": "378-379",
+      "content": "The Imperial Military section: Navy as backbone, Army surface ops, Stormtrooper Corps as a separate branch answering to the Emperor via Stormtrooper Command; Tarkin Doctrine; combined-arms after Yavin; Carida indoctrination."
+    },
+    {
+      "source": "Edge of the Empire Core Rulebook",
+      "pages": "375",
+      "content": "Pyramidal Imperial structure, Palpatine at the apex; Tarkin Doctrine and the Grand Moff concept attributed to the late commander of the Death Star."
+    },
+    {
+      "source": "Age of Rebellion Core Rulebook",
+      "pages": "419-422",
+      "content": "The Galactic Empire (Military) adversaries section: the military is many arms with bitter rivalries, not one entity; Army surface ops + Vehicle/Gunnery Corps; Stormtrooper Corps an independent branch that can overrule Army/Navy officers; numbers-without-care doctrine; rank opacity ('commander')."
+    },
+    {
+      "source": "Star Wars: Dawn of Rebellion",
+      "pages": "59-60",
+      "content": "Detailed org breakdown: Army (Armor/Artillery, Special Forces, Maritime, Air, Engineering, MP) HQ Coruscant; Navy + Admiralty + Fleet Command, fleets backboned by ~half a dozen Star Destroyers; Starfighter Corps almost all TIEs, numerical not vehicle superiority (3:1 sortie threshold)."
+    },
+    {
+      "source": "Star Wars: Dawn of Rebellion",
+      "pages": "62",
+      "content": "Imperial academy system: indoctrination via psychological technique and pharmaceuticals; cadets isolated from support networks; lower-qualified cadets enlist directly as stormtroopers."
+    }
+  ],
+  "overview": "The Imperial Military is the armed fist of the New Order — the Army, the Navy, and the Stormtrooper Corps that conquer, blockade, garrison, and pacify on the Emperor's behalf. It is not a single monolith but several rivalrous arms: the Navy is the backbone, its massive fleets backboned by Star Destroyers and administered by the Admiralty and Fleet Command; the Army owns everything that happens on a planet's surface, from walker columns to garrison troops; and the Stormtrooper Corps is a separate branch answering to the Emperor through Stormtrooper Command, the implacable face of Imperial power. (Excludes the political and intelligence organizations — ISB, Imperial Intelligence, and COMPNOR — which are their own branches of the Empire.)",
+  "short_descriptor": "Overwhelming, doctrinaire, and predictable at scale: it wins by numbers and materiel, not finesse. Individual units are beatable; the system behind them is not.",
+  "witness_statement": {
+    "text": "You don't fight the Imperial Military, you survive it. They blockade from orbit, drop stormtroopers to take the ground, and bury mistakes under more hardware. The trick isn't beating a squad — it's being somewhere else when the Star Destroyer arrives.",
+    "source": "Rebel cell quartermaster, Outer Rim",
+    "verification": "in-world GM-voice; mechanics grounded in cited pages"
+  },
+  "history": [
+    {
+      "heading": "ORIGINS",
+      "text": "Forged from the clone armies and starfleet of the Old Republic and re-tooled for occupation, the military became the instrument of the Tarkin Doctrine — rule through fear of overwhelming military might — attributed to the late commander of the Death Star."
+    },
+    {
+      "heading": "STORMTROOPERS",
+      "text": "Stormtroopers, once clones, are now recruited and conditioned at facilities such as Carida to recreate the loyalty bred into the originals."
+    },
+    {
+      "heading": "INTEGRATION",
+      "text": "After the Death Star's loss at Yavin the Army and Navy integrated into a combined-arms force, every fleet carrying significant ground assets so the Empire can project power to any world."
+    }
+  ],
+  "how_they_operate": [
+    {
+      "heading": "THE BLOCKADE PATTERN",
+      "text": "The operational pattern is constant: the Navy blockades a world with the firepower of its Star Destroyers, then the Stormtrooper Corps and Army forces invade, establish a beachhead, and occupy."
+    },
+    {
+      "heading": "CHAIN OF COMMAND",
+      "text": ""
+    },
+    {
+      "heading": "GARRISONS AND STARFIGHTERS",
+      "text": "The Army garrisons surfaces under sector Moffs; the Starfighter Corps (almost entirely TIE-series craft) commits only when it outnumbers the enemy heavily, trading pilots and hulls freely."
+    },
+    {
+      "heading": "DOCTRINE",
+      "text": "Doctrine prizes numbers and materiel over individual skill: stormtroopers advance without regard for losses, and the mere arrival of the Corps can end a fight before it starts."
+    }
+  ],
+  "motivations": {
+    "primary": "Impose and maintain the Emperor's order through overwhelming, visible force.",
+    "secondary": "Out-compete rival Imperial arms for budget, prestige, and command authority.",
+    "notes": "The branches' bitter rivalries (Army vs Navy vs Stormtrooper Command) are an exploitable seam."
+  },
+  "goals": {
+    "strategic": "Total pacification of the galaxy: blockade, invade, garrison, hold.",
+    "operational": "Project decisive force to any system faster than resistance can organize."
+  },
+  "methods": {
+    "preferred": "Orbital blockade then ground invasion; overwhelming numbers; spectacle of force (the Tarkin Doctrine).",
+    "avoided": "Finesse, attrition it cannot replace cheaply, and operations that don't read as a show of strength.",
+    "notes": "Combined-arms since Yavin — fleets carry the Army; the Stormtrooper Corps spearheads."
+  },
+  "strengths": [
+    "Effectively limitless personnel and materiel",
+    "Orbital supremacy via Star Destroyer fleets",
+    "Rapid galaxy-wide power projection (combined-arms)",
+    "Stormtrooper Corps shock troops that can take and hold nearly any world",
+    "Doctrine of fear that often ends conflicts without combat"
+  ],
+  "weaknesses": [
+    "Predictable, escalate-by-force doctrine — slow to recognize non-military threats",
+    "Bitter inter-branch rivalries create command seams",
+    "Numbers over skill: individual troopers are beatable",
+    "Reliance on materiel makes losses politically costly (the Death Star)",
+    "Rigid top-down chain — local commanders can't improvise when cut off"
+  ],
+  "behavior_under_threat": {
+    "low": "Standard garrison response; a patrol or squad investigates.",
+    "medium": "Escalate force; lock down transit; call in armor.",
+    "high": "Commit a fleet element; blockade; deploy stormtrooper legions.",
+    "critical": "Overwhelming force without regard for collateral or losses; the Tarkin Doctrine in full."
+  },
+  "alert_escalation": {
+    "communication_method": "HoloNet and fleet comms up the Moff/High Command chain.",
+    "escalation_speed": "Fast once a Star Destroyer is in-system; slow to recognize the threat in the first place.",
+    "chain_of_command": "Emperor → Imperial High Command → Grand Moffs → Moffs → local garrison; Stormtrooper Command runs parallel.",
+    "notes": "Governors request, they do not command, the Navy."
+  },
+  "tension_patterns": [
+    "Army resents Stormtrooper Corps autonomy to overrule its officers",
+    "Navy and Army compete for credit and command of joint operations",
+    "Ambitious officers spend lives for visible victories (doctrine of spectacle)",
+    "Garrison boredom vs sudden brutal crackdown",
+    "Outer Rim deployments stretched thin while the Core stays lightly policed"
+  ],
+  "mcguffin_interest": {
+    "data": "Fleet movements, garrison rosters, blockade schedules.",
+    "contraband": "Anything arming a resistance.",
+    "weapon": "Superweapon components and capital-ship ordnance.",
+    "person": "Deserters, rebel officers, and slicers.",
+    "artifact": "Low — deferred to the Inquisitorius/ISB.",
+    "technology": "Starship and walker hardware; captured rebel craft.",
+    "notes": "Military interest is operational, not ideological — that's ISB/COMPNOR's lane."
+  },
+  "presence_by_location_type": {
+    "infrastructure": "Garrisons, depots, shipyards.",
+    "transit": "Checkpoints, blockades, customs interdiction.",
+    "economic": "Resource-world occupation and convoy escort.",
+    "command": "Sector HQs, Star Destroyer command decks.",
+    "informational": "Deferred to Imperial Intelligence/ISB.",
+    "military": "Bases, fleets, training academies (Carida).",
+    "hidden": "Black-site weapons programs.",
+    "covert": "Army Special Forces — deniable infiltrators and saboteurs."
+  },
+  "regional_presence": {
+    "deep_core": "Heavy — the secure heart.",
+    "core_worlds": "Light visible policing (assuaging Core citizens).",
+    "colonies": "Moderate garrisons.",
+    "inner_rim": "Moderate-to-heavy.",
+    "expansion_region": "Heavy on resource worlds.",
+    "mid_rim": "Heavy where loyalty is suspect.",
+    "outer_rim": "Heaviest and most brutal — the frontier of pacification.",
+    "hutt_space": "Contested — pressure, not control.",
+    "wild_space": "Expeditionary.",
+    "unknown_regions": "Sparse — Thrawn's Seventh Fleet a notable exception."
+  },
+  "relationship_notes": {
+    "galactic_empire": "The Empire's armed instrument; subordinate to the Emperor and High Command.",
+    "imperial_security_bureau": "Watched by the ISB for loyalty; resentment runs both ways.",
+    "inquisitorius": "Provides muscle for Inquisitor operations; defers on Force matters.",
+    "rebel_alliance": "Primary military adversary."
+  },
+  "field_sources": {
+    "motivations": "eote p.378; aor p.419",
+    "goals": "eote p.378",
+    "methods": "eote p.378; dawn p.59",
+    "strengths": "dawn pp.59-60; aor p.421",
+    "weaknesses": "eote p.375; aor p.419",
+    "behavior_under_threat": "eote p.378",
+    "tension_patterns": "aor pp.419-421",
+    "regional_presence": "dawn p.59",
+    "mcguffin_interest": "GM-derived from doctrine (eote p.378)"
+  },
+  "prominent_figures": [
+    {
+      "name": "General Maximilian Veers",
+      "role": "Army general, Armor Corps",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "GENERAL_VEERS",
+      "era": "rebellion",
+      "notes": "Commander of the Blizzard Force walker assault at Hoth — the Army's hammer, the AT-AT made personal.",
+      "network_assessment": "A competent, results-driven Army officer in a service full of ideologues. If Veers is running the ground operation, expect armor, method, and no wasted motion.",
+      "wants": "Decisive ground victories that prove the Army's worth against a Navy that hogs the credit.",
+      "secret": "His professional pride chafes against political officers second-guessing field decisions.",
+      "behavior": {
+        "under_pressure": "Methodical escalation — commits armor and presses.",
+        "when_losing": "Preserves his force; withdraws rather than waste it on doctrine.",
+        "loyalty": "To the Army and to competence; the New Order is the employer.",
+        "tells": "Plans around terrain and materiel, not spectacle — unusually pragmatic for an Imperial."
+      },
+      "useful_to_players": [
+        "A pragmatic foe — he respects competent resistance and won't throw lives away chasing a symbol"
+      ],
+      "hooks": [
+        "An Armor Corps column is mustering for an assault — Veers doesn't deploy walkers for a patrol."
+      ]
+    },
+    {
+      "name": "Admiral Firmus Piett",
+      "role": "Navy admiral",
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "ADMIRAL_PIETT",
+      "era": "rebellion",
+      "notes": "Rose by surviving where others failed under Vader — a cautious, capable fleet officer who manages risk in a service where failure is fatal.",
+      "network_assessment": "Piett climbed by not being the one blamed. He runs a tight fleet and avoids the mistakes that get admirals executed — which also makes him cautious and exploitable.",
+      "wants": "To survive command under Vader and hold his fleet together.",
+      "secret": "He manages the chain of blame as carefully as he manages the fleet.",
+      "behavior": {
+        "under_pressure": "Cautious; defers visibly, covers himself.",
+        "when_losing": "Protects the fleet and his own position over bold gambits.",
+        "loyalty": "To self-preservation within the Navy's lethal hierarchy.",
+        "tells": "Hesitates to deliver bad news; hedges commitments."
+      },
+      "useful_to_players": [
+        "His caution can be weaponized — a credible bigger threat will make him redeploy defensively"
+      ],
+      "hooks": [
+        "A Star Destroyer is holding position instead of pursuing — its admiral is waiting for someone else to take the risk."
+      ]
+    }
+  ],
+  "source_material_notes": "Military-branch profile (Army/Navy/Stormtrooper Corps) split out of the former galactic_empire content (which was mislabeled imperial_military). Empire-wide lore now lives in galactic_empire.json. Grounded in EotE Core pp.375-379, AoR Core pp.419-422, Dawn of Rebellion pp.59-62 (oracle pass 2026-06-17).",
+  "ally_factions": [
+    "imperial_security_bureau",
+    "inquisitorius"
+  ],
+  "enemy_factions": [
+    "rebel_alliance"
+  ]
+}

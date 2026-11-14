@@ -1,0 +1,201 @@
+{
+  "id": "bothan_spynet",
+  "name": "Bothan Spynet",
+  "type": "cultural_group",
+  "era_active": [
+    "prequel",
+    "imperial",
+    "rebellion"
+  ],
+  "source_refs": [
+    "Age of Rebellion Core Rulebook",
+    "Edge of the Empire Core Rulebook",
+    "Strongholds of Resistance"
+  ],
+  "overview": "The Bothan Spynet is a galaxy-spanning intelligence network operated by the Bothan species from their Allied Region of over 150 systems in the Mid Rim. Officially neutral in the Galactic Civil War, the Spynet secretly funnels critical intelligence to the Rebel Alliance while simultaneously selling information to the Empire and other buyers, maintaining plausible deniability through the Bothan Council and clan structure.",
+  "short_descriptor": "Information is their currency and their weapon. Bothan networks are layered — what you see is what they want you to see. Useful allies if your interests align. Dangerous if they don't, because they'll know about it before you do.",
+  "witness_statement": {
+    "text": "I spent two years as a diplomatic aide on Bothawui. Thought I was building genuine relationships. Found out after I transferred that three of my 'colleagues' had been filing reports on my communications the entire time. Not for the Empire — for their own clan archives. They weren't hostile. They just collected everything, on everyone, all the time. It's not personal. That's what makes it unsettling.",
+    "source": "Former diplomatic aide, Bothawui consular office — voluntary deposition",
+    "verification": "CONFIRMED — MULTIPLE CORROBORATING ACCOUNTS"
+  },
+  "how_they_operate": [
+    {
+      "heading": "CLAN CELLS",
+      "text": "The Bothan Spynet is structured around clan-based intelligence cells operating across over 150 systems in the Bothan Allied Region of the Mid Rim, with agents embedded in virtually every major galactic institution. Field agents report to cell handlers, who report to clan spymasters, who coordinate through the Bothan Council intelligence liaison on Bothawui."
+    },
+    {
+      "heading": "TRADECRAFT",
+      "text": "Intelligence flows through blind drops, coded fur-ripple patterns unreadable by other species, and trusted intermediaries — a deliberately slow chain designed to prevent exposure."
+    },
+    {
+      "heading": "THE INTELLIGENCE MARKET",
+      "text": "The Spynet sells intelligence to multiple buyers simultaneously, maintaining plausible deniability through layered intermediaries while secretly funneling critical data to the Rebel Alliance."
+    },
+    {
+      "heading": "DIVIDED LOYALTIES",
+      "text": "Individual Bothans routinely play both sides of a conflict for personal or clan advantage, which the Spynet tolerates because it provides cover for the network's actual allegiances."
+    }
+  ],
+  "motivations": {
+    "primary": "Information dominance",
+    "secondary": [
+      "Clan advancement",
+      "Preservation of Bothan Space autonomy",
+      "Profit from intelligence brokerage",
+      "Political leverage over galactic powers"
+    ],
+    "notes": "The Spynet's motivations blend species-wide cultural imperatives with individual clan interests. Every Bothan understands that information is the ultimate currency, but clans compete fiercely over who controls which streams. The Alliance alignment is genuine at the leadership level but instrumentalized by individual clans for positioning."
+  },
+  "goals": {
+    "strategic": [
+      "Maintain Bothan Space as an autonomous Allied Region regardless of who wins the Galactic Civil War",
+      "Ensure the Bothan Spynet remains the galaxy's premier intelligence network, indispensable to all major powers",
+      "Position Bothan clans for maximum political influence in whatever government succeeds the Empire"
+    ],
+    "operational": [
+      "Recruit and maintain agents across every major galactic faction and institution",
+      "Sell intelligence at prices that ensure continued access — the relationship matters more than the credits",
+      "Conceal the depth of Bothan cooperation with the Rebel Alliance from Imperial monitors",
+      "Balance inter-clan rivalries to prevent intelligence operations from being compromised by internal politics"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "information_control",
+      "infiltration",
+      "bribery",
+      "negotiation",
+      "blackmail"
+    ],
+    "avoided": [
+      "Direct military force — Bothans are physically small and culturally averse to open combat",
+      "Public political declarations — neutrality is the Spynet's greatest asset",
+      "Assassination — too visible, too traceable, and it destroys potential information sources"
+    ],
+    "notes": "Bothans communicate covertly through fur-ripple patterns unreadable by other species. The Spynet operates through layered intermediaries, making it nearly impossible to trace intelligence back to Bothawui. Individual Bothans frequently play both sides of a conflict for personal gain, which the Spynet tolerates because it provides cover for the network's actual allegiances."
+  },
+  "strengths": [
+    "Galaxy-spanning intelligence network with agents embedded in virtually every major institution",
+    "Bothan fur-ripple communication provides a species-exclusive covert signaling channel",
+    "Allied Region status grants legitimate political cover and diplomatic immunity for operatives",
+    "Cultural predisposition toward information gathering means every Bothan is a potential asset",
+    "Over 150 inhabited systems provide safe harbor, logistics, and fallback positions"
+  ],
+  "weaknesses": [
+    "Competing clan interests regularly override network-wide operational security, as individual clans prioritize their own intelligence advantages over collective compartmentalization protocols.",
+    "The Bothan species' established reputation for duplicity causes non-Bothan contacts to limit the depth and specificity of information they share, reducing the quality of incoming intelligence.",
+    "The multi-buyer sales model exposes the Spynet's own operational details to every client, as each buyer can cross-reference purchased intelligence to deduce the network's sources and methods.",
+    "Bothans are physically small and culturally oriented toward information work rather than combat, leaving agents highly vulnerable when cover identities fail and situations turn violent.",
+    "Imperial Intelligence monitors Bothan Space traffic and communications continuously; any detectable increase in Alliance cooperation would provide grounds for revoking the Allied Region's autonomous status."
+  ],
+  "behavior_under_threat": {
+    "low": "Redirect attention through disinformation. Feed the threatening party low-value intelligence to build false trust.",
+    "medium": "Activate cutout protocols to sever traceable connections. Relocate compromised agents. Begin building leverage against the threat source.",
+    "high": "Burn compromised networks entirely. Clan leadership retreats to Bothan Space. Deploy accumulated blackmail material against key threat actors.",
+    "critical": "Full network compartmentalization. All inter-clan cooperation suspended to prevent cascade compromise. Bothan Council invokes Allied Region diplomatic protections. Prepare to sell the threatening party's secrets to their enemies at cost."
+  },
+  "alert_escalation": {
+    "communication_method": "informant",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Field agent or informant",
+      "Cell handler",
+      "Clan spymaster",
+      "Bothan Council intelligence liaison"
+    ],
+    "notes": "The Spynet's alert chain is deliberately slow by design — speed risks exposure. Information flows through blind drops, coded fur-ripple messages, and trusted intermediaries. In emergencies, Bothans can bypass the chain through species-exclusive communication, but this is reserved for existential threats to Bothan Space itself."
+  },
+  "tension_patterns": [
+    "Spynet operatives routinely possess time-sensitive intelligence whose dissemination would compromise the source asset, forcing a recurring trade-off between immediate tactical value and long-term network integrity.",
+    "Inter-clan compartmentalization means multiple Bothan clans frequently maintain uncoordinated agents within the same target organization, producing contradictory intelligence reports that neither clan can reconcile without revealing their parallel operations.",
+    "The Spynet's practice of selling intelligence to multiple buyers simultaneously means the same data regularly reaches both the Alliance and the Empire, and individual agents exploit this ambiguity for personal or clan enrichment.",
+    "Deep-cover agents whose embedded identities have accrued independent operational value present a withdrawal cost that often exceeds the original intelligence mission's priority, delaying or preventing extraction.",
+    "Intelligence release timing within the Spynet is influenced by clan political calculations, and data delivery schedules frequently align with clan positioning needs rather than the recipient's operational timeline."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "patrol",
+    "economic": "patrol",
+    "command": "skeleton",
+    "informational": "dominant",
+    "military": "skeleton",
+    "hidden": "patrol",
+    "covert": "fortified"
+  },
+  "mcguffin_interest": {
+    "data": "high",
+    "contraband": "low",
+    "weapon": "low",
+    "person": "high",
+    "artifact": "low",
+    "technology": "medium",
+    "notes": "The Spynet values data and persons above all else — intelligence and the people who generate it are the core currency. Technology is valued when it enhances surveillance or encryption. Weapons and contraband are beneath the Spynet's operational focus unless they can be leveraged as trade goods for better intelligence."
+  },
+  "ally_factions": [
+    "rebel_alliance"
+  ],
+  "enemy_factions": [
+    "imperial_security_bureau"
+  ],
+  "relationship_notes": {
+    "rebel_alliance": "The upper echelons of the Alliance know the Spynet actively furthers Alliance interests, but the intelligence comes at high cost in credits and the knowledge that Bothans sell to whoever pays most.",
+    "imperial_security_bureau": "The ISB monitors Bothan Space closely and suspects Alliance cooperation. The Spynet feeds the ISB enough legitimate intelligence to maintain the relationship while concealing the depth of Rebel support.",
+    "imperial_military": "The Empire tolerates Bothan Space's Allied Region status because the Spynet provides useful intelligence. This tolerance would evaporate instantly if the full extent of Alliance cooperation were revealed.",
+    "hutt_cartel": "The Hutts and Bothans have a pragmatic relationship — both trade in information, and neither fully trusts the other. Bothan agents operate in Hutt Space with relative freedom because the Hutts value Spynet intelligence."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "moderate",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "minimal",
+    "mid_rim": "dominant",
+    "outer_rim": "moderate",
+    "hutt_space": "moderate",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Arkhan Brem'tu",
+      "role": "Bothan Alliance Commander",
+      "era": [
+        "imperial",
+        "rebellion"
+      ],
+      "suggested_tier": "rival",
+      "notes": "Former lieutenant in the Bothawui Defense Corps who recognized the Empire's threat early. Enlisted during the Clone Wars and deployed in peacekeeping and counter-intelligence operations on Bothawui before joining the Rebellion.",
+      "network_assessment": "Military background makes him more operationally direct than typical Bothan intelligence officers. Useful contact if you need Spynet cooperation without the usual three layers of intermediaries.",
+      "wants": "A Rebel Alliance victory that positions Bothan Space for maximum political influence in the post-Imperial order. Balances genuine idealism with clan-level strategic calculation.",
+      "secret": "His early defection to the Rebellion was partially motivated by a clan rivalry on Bothawui — the faction that controlled Bothawui Defense Corps promotions blocked his advancement, and the Alliance offered a path around them.",
+      "behavior": {
+        "under_pressure": "Falls back on military training rather than Bothan instinct for misdirection. More likely to fight or withdraw cleanly than to deceive his way out.",
+        "when_losing": "Prioritizes extraction of intelligence assets over personal safety. Will sacrifice his own position to preserve a network.",
+        "loyalty": "Split between the Rebel Alliance cause and Bothan clan obligations. The Alliance comes first in the field, but clan politics shape his long-term decisions.",
+        "tells": "When he stops sharing intelligence freely with non-Bothan allies, his clan spymaster has given him new instructions. The information wall goes up before the policy shift."
+      },
+      "useful_to_players": [
+        "His military directness makes him easier to negotiate with than most Bothan contacts — he respects competence over manipulation",
+        "His clan rivalry means he has enemies on Bothawui who might trade information about his operations for leverage",
+        "He genuinely believes in the Rebellion, which makes him reliable for anti-Imperial operations even when the Spynet's institutional interests diverge"
+      ],
+      "hooks": [
+        "Brem'tu put out a quiet request for a crew to extract someone from an Imperial convoy — not a prisoner, a data courier. The courier doesn't know they're carrying anything. That's Bothan ops for you.",
+        "Heard Brem'tu's been cut off from his usual clan channels. Either he's in trouble with the Spynet or running something so sensitive even his own people can't know. Either way, he's exposed right now."
+      ]
+    }
+  ],
+  "source_material_notes": "The Age of Rebellion Core Rulebook (pp.52-53, 324, 362, 373) provides the most detailed treatment of Bothan society, the Spynet, and Bothan Space's political position. The Edge of the Empire Core Rulebook (pp.52-53, 350, 363) covers Bothan species traits and Bothan Space geography. The Strongholds of Resistance sourcebook references Bothan Space in the context of Alliance supply lines.",
+  "field_sources": {
+    "motivations": "AoR Core pp.52-53 (Bothan species and Spynet description), pp.373 (Bothan Space political position)",
+    "goals": "AoR Core pp.53 (playing both sides), pp.373 (Allied Region status and Rebel support); EotE Core pp.363 (Bothan Space autonomy)",
+    "methods": "AoR Core pp.52-53 (manipulation, data collection, fur-ripple communication), pp.324 (Spynet intelligence brokerage)",
+    "strengths": "AoR Core pp.53 (galaxy-spanning network), pp.362 (stability report), pp.373 (Allied Region protections); EotE Core pp.363 (150+ systems)",
+    "weaknesses": "AoR Core pp.53 (Bothans playing both sides for personal gain), pp.324 (high cost of Bothan intelligence); inferred from species cultural traits",
+    "behavior_under_threat": "Inferred from Bothan operational methods described in AoR Core pp.53, 324, 373",
+    "tension_patterns": "Inferred from inter-clan rivalry, dual-allegiance dynamics, and intelligence brokerage practices in AoR Core pp.52-53, 324",
+    "regional_presence": "AoR Core pp.362 (Mid Rim stability), pp.373 (Bothan Space location); EotE Core pp.350 (Bothawui), pp.363 (Allied Region geography)",
+    "mcguffin_interest": "Inferred from Spynet's core function as intelligence network (AoR Core pp.324)"
+  }
+}

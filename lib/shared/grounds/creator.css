@@ -1,0 +1,168 @@
+/* creator.css — THE CREATOR'S DOCUMENT GROUND (surface one; R-VS1-2/3/4, R-PAT-4, R-CGF)
+
+   ITS OWN FILE ON PURPOSE. `lib/shared/tokens.css` holds the ground-set CONTRACT and no palette;
+   keeping every declared ground out of it makes that claim true BY CONSTRUCTION rather than by a
+   test assertion (ruling `creator-ground-file-fork`, fork (b)). Surface two gets a sibling here;
+   `test/ground_token_contract.cjs` finds them BY PATTERN across `lib/shared/grounds/*.css`, never
+   by a hardcoded path, so a new ground is covered the moment it lands.
+   Values from the lab's PUBLICATION, LAB_NOTES §2026-08-28 @ `3da42023` on `lab/ui-playground`,
+   read as a carried-out reference (R-VS1-3). The tree itself was never entered (R-LAB-3).
+   Named `creator`, cited here, and inherited by nothing (R-VR-1). The chrome around it is
+   untouched: the instrument stays the instrument (R-PAT-6). */
+[data-doc-ground="creator"] {
+  --doc-paper:          #DEDCD4;   /* pp-page — the worn page */
+  --doc-row-band:       color-mix(in srgb, var(--doc-paper) 50%, var(--doc-paper-raised));   /* R-SST-1: list stripes; same expression in tokens.css :root */
+  --doc-paper-raised:   #F2F1EC;   /* pp-plate — clean card stock. 1.2:1 against page is CORRECT:
+                                      on paper a card separates by hairline and shadow, not tone. */
+  --doc-paper-sunk:     #BCB7AB;   /* the worst wear pixel — the darkest ground anywhere. Every
+                                      ink below is solved against it, not just against the page. */
+  --doc-mat:            #EDEBE4;   /* pp-mat — the uniform image mat */
+  --doc-ink:            #17161B;   /* 13.1:1 page · 15.9:1 plate · 9.0:1 on worst wear */
+  --doc-ink-muted:      #403D38;   /* 7.9:1 · 9.5:1 · 5.4:1 */
+  --doc-ink-structural: #7A766D;   /* 3.30:1 page — STRUCTURAL ONLY, never a readable mark */
+  --doc-rule:           rgba(23,22,27,.28);
+  /* R-CGG-2: the PAGE-SOLVED ochre — 6.7:1 on the page, 4.6:1 on the worst wear pixel.
+     NOT `#826700`, which the publication solves against the PLATE only. A page-level token
+     carrying a plate-solved value is the placement-law class in disguise: it reads correct
+     wherever it happens to sit on card stock and fails on the page it is actually declared for.
+     The MARK gold stays deliberately unmodeled — a fill accent, if one is ever needed, earns its
+     own contract name at its own gate rather than being smuggled in as "the accent". */
+  --doc-accent:         #5E4316;
+
+  /* ── THE SEMANTIC FILLS — the publication's §3 and §4, entered on R-CGG-2's terms.
+     "A fill accent earns its own contract name at its own gate, never smuggled in as the
+     accent" — this is that gate, and these are those names. Every value below is MEASURED in
+     the publication, not chosen here; the contrast figures are its, re-stated at the site so a
+     later reader can check one without opening another document.
+
+     THE DISTINCTION IS THE POINT, and it is the publication's own sentence:
+         RED    = a thing the character DOES — action, spend, commit, choice.
+         INDIGO = a thing that simply IS     — standing state, label, heading.
+     On the app's near-black ground this red measured 2.3:1 and was demoted to a rule. On paper
+     it takes its place as the headline. That is what the ground change bought, and it is why a
+     surface may not reach for the action fill just because it wants the strong one. */
+  /* B-434 — THE TRUE FIGURES. This read "parchment on it 9.3:1 · it on page 7.7:1", which
+     names ONE pair twice: contrast is SYMMETRIC, so parchment-on-red and red-on-parchment
+     cannot differ. 7.66:1 is that pair. 9.30:1 is `--doc-paper-raised` #F2F1EC — the PLATE —
+     on this red, i.e. a plate-solved figure written onto a token whose ink name paints PAGE
+     parchment: the placement-law class `--doc-accent` warns about eight lines above,
+     recurring in the next token down. Both still clear the 4.5:1 floor. */
+  --doc-action:         #7E1414;   /* parchment ink on it 7.66:1 · the plate on it 9.30:1 ·
+                                      it on the worst wear 5.26:1 */
+  --doc-action-lift:    #96201C;   /* HOVER ONLY — never a resting state */
+  --doc-action-ink:     #DEDCD4;   /* the page's own parchment, read back onto the fill */
+  --doc-state:          #241E30;   /* parchment on it 14.3:1 · it on page 11.7:1 */
+  --doc-state-ink:      #DEDCD4;
+
+  /* THE MARK — FILL ONLY, and the ban is the load-bearing half. 1.7:1 on the page: as type it
+     is invisible. It was briefly the capsule default and six saturated capsules turned the
+     quietest page in the app into a headline, so it now keeps only the job that means
+     something — a raised characteristic, a live tick. A thing pointed AT, never a thing read. */
+  --doc-mark:           #E0951A;
+  --doc-mark-ink:       #17161B;   /* ink on gold 7.27:1 */
+
+  /* The capsule's plate (EotE p.52). `--doc-ink` on it measures 5.5:1, which is why the plate
+     needs no ink name of its own: the document's own ink already reads on it. Its LABEL takes
+     `--doc-state` — the maroon the page samples there measures 13.1:1 against parchment and the
+     indigo 14.3:1, so the modeled token is the better of the two and the maroon stays
+     deliberately unmodeled, exactly as the MARK gold was until this increment needed it. */
+  --doc-plate:          #9C8C7C;
+
+  /* ── THE STATUS INKS — the sheet's, from the books (Jason 2026-09-15, "we need status colors";
+     "Agree with 1": the five below). The publication modeled no status scale; the sheet's
+     thresholds, encumbrance vital and refusals need one. These are NOT chosen: they are SAMPLED
+     from the Beginner Game character folios (Star Wars Roleplaying/Beginner Games/Beginner Game
+     Character Folios — Lowhhrick EotE, Cael AoR, Kaveri FaD; `Docs/SHEET_REOPENING_CENSUS.md` §4),
+     the one colour vocabulary all three lines print the same way: the DICE, the threshold box
+     heads, the XP chip. A player already knows what each means from the table.
+       good     = the ABILITY die's green (AoR's print, the one that clears 4.5:1 on the page)
+       caution  = the DIFFICULTY die's purple
+       critical = the WOUNDS / STRAIN box head — the threshold red; beside --doc-action, not it
+       live     = the "CURRENT" box beside it — a FILL, like the mark: as type it is invisible
+       spend    = the XP COST chip's tan — chips and rules, not body text
+     Proficiency yellow stays a die glyph: 1.1:1 on paper, no status can wear it.
+     Figures: page · plate · worst wear · ink on it · parchment on it. */
+  --doc-good:           #436F34;   /* 4.29:1 · 5.21:1 · 2.95:1 · 3.05:1 · 4.29:1 */
+  --doc-caution:        #431F4C;   /* 9.94:1 · 12.07:1 · 6.82:1 · 1.32:1 · 9.94:1 */
+  --doc-critical:       #7F2A14;   /* 6.82:1 · 8.28:1 · 4.68:1 · 1.92:1 · 6.82:1 */
+  --doc-live:           #7EA9C4;   /* 1.83:1 · 2.22:1 · 1.26:1 · 7.16:1 · 1.83:1 — FILL ONLY */
+  --doc-spend:          #A07E5A;   /* 2.72:1 · 3.30:1 · 1.87:1 · 4.82:1 · 2.72:1 — chips and rules only */
+
+  /* ── THE SECTION HEADER, keyed by ground (Addendum 2, A2-2) ──────────────────────────────
+     The approved board's sechead treatment, verified at `97226bf1`: the QUIET-LABEL register —
+     mono face, ~12px, tracked, uppercase — in the ochre, with a thin red-tinted rule beside it.
+     What is deliberately ABSENT is the point of the whole clause: no game-line hue (on paper the
+     header's WORDS carry the line's identity, and the colour was only decorating them), no glow
+     (a glow on paper is a Law 3 violation on its face, not a taste question), and no gradient
+     wash (a printed page does not fade).
+
+     These names are not part of the ground-set CONTRACT and must not become part of it: their
+     FALLBACKS are load-bearing. `fcSectionHeaderStyle` is also called from outside any declared
+     ground, and there the fallback IS the shipped game-line style, unchanged byte for byte until
+     those surfaces reach their own cards. A required name would have no fallback to fall back to. */
+  --doc-sechead-face:   var(--font-mono);
+  --doc-sechead-weight: 400;
+  --doc-sechead-size:   12px;
+  --doc-sechead-track:  0.18em;
+  --doc-sechead-ink:    var(--doc-accent);
+  --doc-sechead-shadow: none;
+  --doc-sechead-rule:   2px solid var(--doc-action);
+  --doc-sechead-wash:   none;
+
+  /* ── THE PLATE'S GEOMETRY AND MATERIAL (increment (ii), board §3) ────────────────────────
+     Three values the palette did not carry because they are not colours — they are how a
+     printed card is CUT and how it sits on the page. Carried verbatim from the board.
+
+     Like the sechead keys these are deliberately NOT in the ground-set contract: `paper.css`
+     is scoped under this ground, so a surface that adopts the stylesheet declares them with
+     its own ground or gets no plates at all — which is a loud failure, not a silent wrong one. */
+  --doc-cut:            12px;                  /* the chamfer, top-left and bottom-right */
+  --doc-cut-sm:         6px;                   /* the same cut on objects too small for 12 */
+  --doc-point:          14px;                  /* the chevron head's point depth */
+  --doc-unit-max:       430px;                 /* the phone unit's measure */
+  --doc-lead-max:       640px;                 /* the board's LEAD measure — not our prose cap */
+  --doc-lift:           0 1px 2px rgba(23,22,27,.16), 0 6px 16px rgba(23,22,27,.11);
+  --doc-rule-fine:      rgba(23,22,27,.17);    /* the lighter hairline; .12 read as a smudge */
+
+  /* ── THE ART PLATE'S TWO, and they are DEFAULTS rather than values ────────────────────────
+     The species register entry sets both INLINE, per entry: the wash is that species' own
+     portrait and the band is the frame's height. They are declared here because a name nothing
+     defines renders UNSET, and the wash had no fallback at its use — an undefined name in a
+     background-image makes the whole declaration invalid, which is indistinguishable from "this
+     species has no portrait" in a screenshot. `test/doc_token_spelling.cjs` says so and is right.
+     (Its sweep reads COMMENTS too, so this one deliberately does not spell the bare reference.)
+     NEUTRAL BY DESIGN: `none` draws no image, which is exactly what a species without a portrait
+     (or COMMERCIAL_MODE, where `speciesImgPath` returns null by contract) should draw. Like the
+     sechead keys above, these are NOT part of the ground-set contract. */
+  --doc-wash:           none;
+  /* THE DEFAULT WASH (A1-1). `--doc-wash` is the per-species backdrop and stays `none` until one
+     clears provenance; this is the floor under it, so a plate is never bare. It is the WEAR, and
+     as of R-SPS-A1-1 it is the CLEAN-ROOM one at `art/wear.webp` (`wear_gen.py` @ lab `020fb64d`)
+     rather than the CSG-derived blob this line used to name — same role, retirable upstream.
+     Nothing new crosses to make every plate carry texture. */
+  --doc-wash-default:   url("/art/wear.webp");
+  --doc-band:           340px;                 /* the board's own fallback at its use site */
+
+  /* THE SEVENTEEN SYMBOL INKS — the paper set, all >=4.5:1 on BOTH reading stocks (plate + mat).
+     Token spellings are extracted from `diceUI.jsx`'s var() expressions and must match them
+     STRING-EQUAL (R-PAT-2). The hazard is real and has THREE spellings in three documents: the
+     publication keys it `destiny point`, the JS key is `destiny_point`, the token is
+     `--doc-sym-destiny-point`. Only the last is correct here. */
+  --doc-sym-ability:       #2E7931;
+  --doc-sym-proficiency:   #755D00;
+  --doc-sym-boost:         #33756D;
+  --doc-sym-difficulty:    #6B4A8F;
+  --doc-sym-challenge:     #A32626;
+  --doc-sym-setback:       #5A5A5A;
+  --doc-sym-force:         #2B2B2B;
+  --doc-sym-success:       #2D7830;
+  --doc-sym-failure:       #5A5A5A;
+  --doc-sym-advantage:     #2D7830;
+  --doc-sym-threat:        #5A5A5A;
+  --doc-sym-triumph:       #755D00;
+  --doc-sym-despair:       #A32626;
+  --doc-sym-light:         #2B2B2B;
+  --doc-sym-dark:          #6D6A62;
+  --doc-sym-forcepip:      #2B2B2B;
+  --doc-sym-destiny-point: #7C5A24;
+}

@@ -1,0 +1,205 @@
+{
+  "steps": [
+    {
+      "id": "minion",
+      "label": "Minion Generator",
+      "defaultView": "archetype-browser",
+      "views": {
+        "archetype-browser": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "list": {
+              "type": "ArchetypeList",
+              "slot": "content",
+              "props": { "tier": "minion" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "close" },
+                  { "label": "CUSTOM BUILD ›", "action": "navigate", "target": "custom-builder" }
+                ]
+              }
+            }
+          }
+        },
+        "archetype-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "statblock": {
+              "type": "NpcStatBlock",
+              "slot": "content",
+              "props": { "editable": true }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "SAVE NPC", "action": "confirm" }
+                ]
+              }
+            }
+          }
+        },
+        "custom-builder": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "editor": {
+              "type": "NpcCharacteristicEditor",
+              "slot": "content",
+              "props": { "tier": "minion" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "REVIEW ›", "action": "navigate", "target": "archetype-detail" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "rival",
+      "label": "Rival Generator",
+      "defaultView": "archetype-browser",
+      "views": {
+        "archetype-browser": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "list": {
+              "type": "ArchetypeList",
+              "slot": "content",
+              "props": { "tier": "rival" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "close" },
+                  { "label": "CUSTOM BUILD ›", "action": "navigate", "target": "custom-builder" }
+                ]
+              }
+            }
+          }
+        },
+        "archetype-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "statblock": {
+              "type": "NpcStatBlock",
+              "slot": "content",
+              "props": { "editable": true }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "SAVE NPC", "action": "confirm" }
+                ]
+              }
+            }
+          }
+        },
+        "custom-builder": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "editor": {
+              "type": "NpcCharacteristicEditor",
+              "slot": "content",
+              "props": { "tier": "rival" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "REVIEW ›", "action": "navigate", "target": "archetype-detail" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "nemesis",
+      "label": "Nemesis Generator",
+      "defaultView": "archetype-browser",
+      "views": {
+        "archetype-browser": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "list": {
+              "type": "ArchetypeList",
+              "slot": "content",
+              "props": { "tier": "nemesis" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "close" },
+                  { "label": "CUSTOM BUILD ›", "action": "navigate", "target": "custom-builder" }
+                ]
+              }
+            }
+          }
+        },
+        "archetype-detail": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "statblock": {
+              "type": "NpcStatBlock",
+              "slot": "content",
+              "props": { "editable": true }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "SAVE NPC", "action": "confirm" }
+                ]
+              }
+            }
+          }
+        },
+        "custom-builder": {
+          "layoutId": "content-nav",
+          "widgets": {
+            "editor": {
+              "type": "NpcCharacteristicEditor",
+              "slot": "content",
+              "props": { "tier": "nemesis" }
+            },
+            "nav": {
+              "type": "StepperNav",
+              "slot": "nav",
+              "props": {
+                "actions": [
+                  { "label": "‹ BACK", "action": "navigate", "target": "archetype-browser" },
+                  { "label": "REVIEW ›", "action": "navigate", "target": "archetype-detail" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

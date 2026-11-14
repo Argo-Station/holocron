@@ -1,0 +1,929 @@
+{
+  "id": "rodia",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Rodia",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim Territories",
+    "sector": "Savareen Sector",
+    "system": "Tyrius System",
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Rodia is a world defined by the hunt. Every aspect of Rodian civilization traces back to a species that clawed its way to the top of one of the galaxy's most hostile food chains and then turned its predatory instincts inward. The cities hide behind environmental shields while the jungles outside them remain untamed killing grounds. Clan warfare is the default political state. Violence is not a breakdown of order here — it is the order. The galaxy sees Rodians as bounty hunters and killers. Rodia is where those instincts were forged.",
+    "atmosphere": "Hot, humid, oppressive. Tropical jungle presses against the edges of shielded cities. The air outside the shields is alive with predator calls and the constant drone of insects. Inside, urban corridors mix industrial grime with the smell of exotic street food and blaster oil. Everything is green — the architecture, the people, the jungle canopy visible through the shield barriers. Rain is constant.",
+    "reputation": "Homeworld of the galaxy's most notorious bounty hunters. Outsiders know two things about Rodia: the hunting culture that produces some of the deadliest trackers in the galaxy, and the clan feuds that make the planet's politics lethal. The Empire considers it a backwater not worth the trouble of direct control. The Hutts consider it a reliable source of enforcers and mercenaries. Everyone else considers it a place you leave as soon as your business is done."
+  },
+  "compendium": {
+    "background": "",
+    "government": "Clan-based oligarchy dominated by the Chattza clan",
+    "population": null,
+    "languages": "Rodese, Basic (spoken with difficulty due to mouth structure)",
+    "terrain": "Jungles, rainforests, swamps, islands, urban zones protected by environmental shields",
+    "major_cities": "Iskaayuma (capital)",
+    "areas_of_interest": "",
+    "exports": "Bounty hunters, mercenaries, weapons (Rheshalva Interstellar Armaments), drama performances",
+    "imports": null,
+    "trade_routes": "",
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": "",
+    "astronavigation_data": ""
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Senator Onaconda Farr brokers a deal with Count Dooku, exchanging intelligence on fellow senators and exploitation rights to worlds like Christophsis, Neivaan, and Zaadja in exchange for Trade Federation food shipments to combat mass starvation caused by piracy. The arrangement continues for nearly a year before Farr sees the error of his ways and returns to the Republic. Farr is later assassinated over a Republic military budget vote. Rodia changes sides early in the conflict, having been cut off from Republic resources and supplies."
+    },
+    {
+      "era": "post_empire",
+      "delta": "With Imperial disinterest removed entirely, clan warfare escalates without any external pressure for restraint. The Chattza clan's grip on power may loosen as rival clans test boundaries. Hutt influence over Rodian mercenary labor may diminish as the kajidics fracture in the post-Jabba era."
+    }
+  ],
+  "geography": {
+    "structure_type": "jungle_world_shielded_cities",
+    "structure_notes": "Vast tropical jungle and island chains cover the planet. Major population centers are protected by environmental shields that separate urban areas from the hostile wilderness. The An'yettu Islands form a distant archipelago chain controlled by the isolationist An'yettu clan.",
+    "districts": [
+      {
+        "id": "iskaayuma",
+        "name": "Iskaayuma",
+        "character": "The capital city and seat of Chattza clan power. Shield-protected urban center where offworld visitors are directed to land. Government functions, interstellar commerce, and clan politics concentrate here.",
+        "authority": "Chattza clan (ruling clan)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "economic"
+        ],
+        "notes": "All offworld arrivals are directed here by Rodian authorities. The Chattza clan uses bureaucratic control of the capital to maintain dominance over rival clans."
+      },
+      {
+        "id": "jungle_reserves",
+        "name": "Jungle Hunting Reserves",
+        "character": "Tracts of untouched rainforest outside the environmental shields. Preserved as proving grounds for Rodian youths to test their hunting skills. Dangerous predatory wildlife persists here.",
+        "authority": "None — wilderness",
+        "crime_index": "none",
+        "strategic_value": [
+          "cultural",
+          "military_training"
+        ],
+        "notes": "These reserves are culturally sacred. Rodian youths enter them as a rite of passage. The creatures here are genuinely lethal — this is not a controlled environment."
+      },
+      {
+        "id": "anyettu_islands",
+        "name": "An'yettu Islands",
+        "character": "A distant archipelago chain controlled by the isolationist An'yettu clan. The islands are the clan's homeland, defended by the Anyyon paramilitary force. The Rodian government actively prevents the An'yettu from expanding beyond their islands.",
+        "authority": "An'yettu clan / Anyyon Guardians",
+        "crime_index": "low",
+        "strategic_value": [
+          "military",
+          "political"
+        ],
+        "notes": ""
+      },
+      {
+        "id": "gladiatorial_districts",
+        "name": "Gladiatorial Arena Districts",
+        "character": "Urban zones centered around the famous Rodian gladiatorial arenas where hunting traditions are channeled into spectacle. Home to weapons manufacturers like Rheshalva Interstellar Armaments.",
+        "authority": "Various clans",
+        "crime_index": "high",
+        "strategic_value": [
+          "cultural",
+          "economic"
+        ],
+        "notes": "The arenas are where Rodian drama originated — theatrical re-enactments of legendary hunts. Modern arenas combine bloodsport with cultural performance. Weapons like the repulsor throwing razor and cryogen whip originate here."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Rodian",
+      "population_level": "dominant",
+      "social_role": "Native species. Every social stratum from clan leaders to laborers. Clan affiliation defines social standing, employment, and survival prospects. The Chattza are the ruling clan; the An'yettu are the most prominent opposition.",
+      "districts": [
+        "iskaayuma",
+        "anyettu_islands",
+        "gladiatorial_districts",
+        "jungle_reserves"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "minority",
+      "social_role": "Traders, corporate representatives, offworld workers. Humans on Rodia are transient — here for business, not settlement. They stay within shielded cities.",
+      "districts": [
+        "iskaayuma"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "chattza_clan",
+      "name": "Chattza Clan",
+      "type": "governmental",
+      "control_type": [
+        "political",
+        "military"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Chattza are firmly entrenched as the ruling clan. Imperial pressure has little effect because the Empire has minimal interest in Rodia. Financial leverage works — the Chattza maintain power partly through economic control. Dark side influence is irrelevant to clan politics."
+      },
+      "motivation": "Maintaining political dominance over Rodia and suppressing rival clans, particularly the An'yettu. The Chattza use government authority, bureaucratic control of the capital, and when necessary, covert operations including bioweapons to eliminate opposition.",
+      "assets": [
+        "Control of Iskaayuma and the planetary government",
+        "Clan military forces and bounty hunters",
+        "Bureaucratic authority over offworld access and landing permissions",
+        "Covert bioweapons capability (the Nurosk plague was a Chattza operation)",
+        "Political alliances with smaller clans"
+      ],
+      "relationships": [
+        {
+          "faction_id": "anyettu_clan",
+          "type": "enemy",
+          "notes": "Never-ending feud. The Chattza use government authority to constrain An'yettu expansion and have been granted An'yettu islands by the government they control. Open military conflict between the clans is ongoing."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "type": "transactional",
+          "notes": "The Hutts recruit Rodian mercenaries and bounty hunters — including the Bomu Rodian clan, which works as Anjiliac kajidic enforcers. The Chattza tolerate Hutt recruitment because it provides an outlet for violent Rodians and brings credits back to Rodia."
+        },
+        {
+          "faction_id": "imperial_garrison",
+          "type": "neutral",
+          "notes": ""
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Food and supplies. Rodia has historically faced starvation from supply disruptions — Senator Farr's deal with Dooku was driven by famine. Any resource that secures food supply is a strategic priority."
+        },
+        {
+          "type": "person",
+          "reason": "Rival clan leaders, bounty targets, political enemies. The Chattza will pay well for the capture or elimination of An'yettu leadership."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence on rival clan operations, offworld alliances, or smuggling routes that bypass Chattza-controlled ports."
+        }
+      ]
+    },
+    {
+      "id": "anyettu_clan",
+      "name": "An'yettu Clan",
+      "type": "paramilitary",
+      "control_type": [
+        "military",
+        "territorial"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The An'yettu are isolationist and resource-constrained. They have little contact with the Empire and no interest in dark side mysticism. Financial aid or weapons supply could dramatically shift their military capability."
+      },
+      "motivation": "Defending their island homeland from Chattza aggression and expanding their territorial claims. The An'yettu want independence from the Chattza-dominated government and protection of their people — including the city of Nurosk on Irninbar island.",
+      "assets": [
+        "Anyyon Guardians paramilitary force (air and ground forces)",
+        "Defensive positions across the An'yettu island chain",
+        "Willingness to hire offworld mercenary specialists",
+        "Knowledge of island terrain and jungle warfare"
+      ],
+      "relationships": [
+        {
+          "faction_id": "chattza_clan",
+          "type": "enemy",
+          "notes": "Locked in a never-ending feud. The Chattza use government power to grant themselves An'yettu islands, prompting military responses. The An'yettu launch tit-for-tat raids and revenge attacks."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "type": "neutral",
+          "notes": "The An'yettu are too isolationist to have significant Hutt dealings. Individual An'yettu mercenaries may work for Hutts, but the clan as a whole stays focused on their island chain."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Weapons and military supplies. The Anyyon Guardians are always seeking an edge — they hire offworld mercenary specialists and would value advanced weaponry."
+        },
+        {
+          "type": "person",
+          "reason": "Offworld allies and mercenary specialists willing to join the Anyyon or train their forces."
+        },
+        {
+          "type": "data",
+          "reason": "Intelligence on Chattza military operations, particularly planned incursions into An'yettu territory."
+        }
+      ]
+    },
+    {
+      "id": "hutt_cartel",
+      "name": "Hutt Cartel",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "minor",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The Hutts operate on Rodia through recruitment and economic leverage, not direct territorial control. Their presence is transactional — they recruit mercenaries and bounty hunters."
+      },
+      "motivation": "Maintaining a reliable pipeline of Rodian enforcers, bounty hunters, and mercenaries for Hutt operations across the galaxy. The Bomu Rodian clan serves as Anjiliac kajidic muscle. Rodia is a labor source, not a conquest target.",
+      "assets": [
+        "Recruitment networks among Rodian clans",
+        "The Bomu Rodian clan as dedicated Anjiliac enforcers",
+        "Economic leverage through offworld employment offers",
+        "Contacts in Iskaayuma spaceport"
+      ],
+      "relationships": [
+        {
+          "faction_id": "chattza_clan",
+          "type": "transactional",
+          "notes": "The Hutts pay for Rodian talent. The Chattza tolerate Hutt recruitment as it provides an economic outlet."
+        },
+        {
+          "faction_id": "imperial_garrison",
+          "type": "neutral",
+          "notes": "Neither side has enough presence on Rodia for meaningful friction."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "person",
+          "reason": "Talented hunters and fighters worth recruiting. Bounty targets passing through Rodia."
+        },
+        {
+          "type": "resource",
+          "reason": "Exotic jungle creatures or Rodian weapons for Hutt arenas and collections."
+        }
+      ]
+    },
+    {
+      "id": "imperial_garrison",
+      "name": "Imperial Garrison",
+      "type": "imperial",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "token",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial presence on Rodia is minimal. The Empire does not consider Rodia strategically important enough for significant investment. The garrison exists to maintain nominal authority along the Corellian Run."
+      },
+      "motivation": "Maintaining a nominal Imperial presence on a Corellian Run world. The garrison is not here to govern Rodia — Rodian internal politics are considered a local problem. The Empire monitors trade route traffic and maintains the legal fiction of Imperial authority.",
+      "assets": [
+        "Small garrison contingent",
+        "Spaceport monitoring capability",
+        "Communication links to sector fleet"
+      ],
+      "relationships": [
+        {
+          "faction_id": "chattza_clan",
+          "type": "neutral",
+          "notes": "The Chattza ignore the Empire and the Empire ignores Rodian clan politics. A mutually convenient arrangement."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "type": "neutral",
+          "notes": "Hutt recruitment operations on Rodia are beneath Imperial notice."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Trade route security. Any intelligence about piracy or smuggling on the Corellian Run is worth reporting up the chain."
+        },
+        {
+          "type": "person",
+          "reason": "Rebel operatives or wanted fugitives. Standard Imperial watchlist enforcement."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "iskaayuma_spaceport",
+      "name": "Iskaayuma Spaceport",
+      "district_id": "iskaayuma",
+      "type": [
+        "economic",
+        "political"
+      ],
+      "controlling_faction_id": "chattza_clan",
+      "controlling_faction_notes": "The Chattza control all offworld access through the capital. Visitors are required to land here and submit to questioning before being allowed to proceed.",
+      "strategic_value": "The only legitimate point of entry for offworld traffic. Controls who enters and leaves Rodia. The Chattza use this chokepoint to restrict rival clans' access to offworld allies and resources.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "rodian_customs_official",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Chattza-aligned officials. They question arrivals, impound ships on pretexts, and restrict travel to contested areas like the An'yettu Islands."
+        },
+        {
+          "archetype_ref": "rodian_clan_guard",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Chattza clan security. Armed and suspicious of outsiders."
+        },
+        {
+          "archetype_ref": "imperial_stormtrooper",
+          "tier": "minion",
+          "count": "0-2",
+          "notes": "Token Imperial presence. May or may not be present depending on current garrison staffing."
+        }
+      ]
+    },
+    {
+      "id": "nurosk",
+      "name": "Nurosk",
+      "district_id": "anyettu_islands",
+      "type": [
+        "civilian",
+        "political"
+      ],
+      "controlling_faction_id": "anyettu_clan",
+      "controlling_faction_notes": "An'yettu clan city on the island of Irninbar. Defended by Anyyon Guardians but vulnerable to Chattza covert operations.",
+      "strategic_value": "The largest An'yettu population center and a symbol of clan independence. Was targeted by a Chattza bioweapon attack (the Nurosk Plague). Controlling or destroying Nurosk would break An'yettu resistance.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "anyyon_guardian",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": "Anyyon paramilitary defenders. Well-trained in jungle and island warfare. Will hire offworld specialists."
+        },
+        {
+          "archetype_ref": "rodian_medic",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Medical staff dealing with plague aftermath or ongoing health crises. Good source of information about Chattza covert operations."
+        },
+        {
+          "archetype_ref": "rodian_civilian",
+          "tier": "minion",
+          "count": "3-5",
+          "notes": "An'yettu civilians. Resilient, suspicious of outsiders, fiercely loyal to their clan."
+        }
+      ]
+    },
+    {
+      "id": "gladiatorial_arena",
+      "name": "Grand Hunting Arena",
+      "district_id": "gladiatorial_districts",
+      "type": [
+        "cultural",
+        "economic"
+      ],
+      "controlling_faction_id": "chattza_clan",
+      "controlling_faction_notes": "The major arenas are controlled by the ruling clan, though smaller operations run under various clan banners.",
+      "strategic_value": "Cultural heart of Rodian society. Where hunting traditions are performed as drama and bloodsport. Weapons manufacturers like Rheshalva Interstellar Armaments showcase products here. A hub for recruiting bounty hunters and mercenaries.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "rodian_gladiator",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Arena champions. Skilled fighters with reputations to protect. Potential allies or deadly opponents."
+        },
+        {
+          "archetype_ref": "weapons_dealer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Rheshalva or independent arms dealer. Sells repulsor throwing razors, cryogen whips, and other Rodian-made weapons."
+        },
+        {
+          "archetype_ref": "rodian_clan_guard",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Arena security. Maintaining order among armed, competitive Rodians is a full-time job."
+        }
+      ]
+    },
+    {
+      "id": "jungle_hunting_grounds",
+      "name": "Deep Jungle Hunting Grounds",
+      "district_id": "jungle_reserves",
+      "type": [
+        "exploration",
+        "military_training"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "No faction controls the jungle. It is neutral ground by tradition — all clans have the right to hunt here. In practice, clan skirmishes occur when rival hunting parties cross paths.",
+      "strategic_value": "Where Rodian youths prove themselves. The jungle provides cover for covert operations, clan ambushes, and smuggling routes that bypass the capital's controlled spaceport. The wildlife is genuinely dangerous.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "rodian_hunter",
+          "tier": "rival",
+          "count": "1-3",
+          "notes": "Experienced Rodian hunters. May be on a rite-of-passage hunt, tracking prey, or running a clan-sanctioned patrol."
+        },
+        {
+          "archetype_ref": "jungle_predator",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Rodia's remaining apex predators. The species that survived Rodian hunting pressure are the most dangerous ones."
+        },
+        {
+          "archetype_ref": "jungle_creature",
+          "tier": "minion",
+          "count": "3-6",
+          "notes": "Lesser jungle wildlife. Individually manageable but agitated by combat noise — fighting in the jungle draws more creatures."
+        }
+      ]
+    },
+    {
+      "id": "contested_island",
+      "name": "Contested Southern Island",
+      "district_id": "anyettu_islands",
+      "type": [
+        "military",
+        "political"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Granted to the Chattza by the Rodian government over An'yettu protests. Both clans claim it. Active military conflict zone.",
+      "strategic_value": "The flashpoint of Chattza-An'yettu warfare. Whoever holds this island controls the southern approach to the An'yettu chain. Both sides commit significant military resources to take or defend it.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "anyyon_guardian",
+          "tier": "rival",
+          "count": "3-5",
+          "notes": "An'yettu defenders in prepared positions. Fighting to hold territory they consider rightfully theirs."
+        },
+        {
+          "archetype_ref": "chattza_raider",
+          "tier": "rival",
+          "count": "3-5",
+          "notes": "Chattza clan assault forces arriving by airspeeder fleet. Determined to capture the island."
+        },
+        {
+          "archetype_ref": "jungle_creature",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Jungle creatures agitated by the fighting. Unwelcome opponents for both sides."
+        }
+      ]
+    }
+  ],
+  "influences": [],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "coruscant",
+        "destination": "Coruscant",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Corellian Run. Major hyperspace lane connecting the Core to the Outer Rim. Rodia sits on this route between Christophsis and Tatooine."
+      },
+      {
+        "id": "tatooine",
+        "destination": "Tatooine",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Corellian Run. Neighboring Outer Rim world on the same trade route. Frequent traffic."
+      },
+      {
+        "id": "christophsis",
+        "destination": "Christophsis",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Corellian Run. The next major system Coreward along the route."
+      },
+      {
+        "id": "geonosis",
+        "destination": "Geonosis",
+        "travel_time": null,
+        "route_quality": "well-established",
+        "notes": "Via the Triellus Trade Route. Rodia sits at the intersection of the Corellian Run and Triellus Trade Route."
+      },
+      {
+        "id": "nar_shaddaa",
+        "destination": "Nar Shaddaa",
+        "travel_time": "8-10 hours",
+        "route_quality": "well-established",
+        "notes": "Frequent Rodian traffic. The route is safe and well-maintained. Rodian clans use it for both legitimate trade and bounty hunting logistics."
+      }
+    ],
+    "anomalies": []
+  },
+  "encounter_population": [
+    {
+      "faction_id": "chattza_clan",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Chattza presence reduced to a handful of bureaucrats and a token guard. Something has pulled clan resources elsewhere — an internal dispute, a major offensive against the An'yettu, or a crisis offworld.",
+          "presence_reason": "Clan forces redeployed. The capital's defenses are at minimum while the Chattza focus their strength on a more pressing concern.",
+          "roles": [
+            {
+              "role": "Chattza bureaucrat",
+              "archetype_ref": "rodian_customs_official",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining the appearance of government authority. Cannot back up demands with force."
+            },
+            {
+              "role": "Clan guard",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 2,
+              "notes": "Skeleton security detail. Nervous and undermanned."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Chattza governance. Customs officials control the spaceport, clan guards patrol the capital, bounty hunters come and go on clan business. The machinery of Rodian politics operating as intended.",
+          "presence_reason": "Business as usual. The Chattza are running the government and maintaining order — their version of order.",
+          "roles": [
+            {
+              "role": "Customs enforcement",
+              "archetype_ref": "rodian_customs_official",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Controlling offworld access. Questioning arrivals. Impounding suspicious ships."
+            },
+            {
+              "role": "Clan guard patrol",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Regular patrols through Iskaayuma. Armed and authoritative."
+            },
+            {
+              "role": "Clan bounty hunter",
+              "archetype_ref": "rodian_bounty_hunter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "On clan business — tracking a target, returning from a job, or awaiting assignment."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The Chattza are mobilizing. Clan warriors fill the streets, checkpoints appear on major routes, and offworld travel is restricted. Something has threatened Chattza dominance — a rival clan making moves, an external threat, or a political crisis.",
+          "presence_reason": "A direct threat to Chattza authority has been identified. Rival clan aggression, exposure of covert operations, or outside interference in Rodian politics.",
+          "roles": [
+            {
+              "role": "Clan guard detachment",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Full military deployment within the capital. Checkpoints on all routes."
+            },
+            {
+              "role": "Clan bounty hunters",
+              "archetype_ref": "rodian_bounty_hunter",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Hunting specific targets. The Chattza have activated their best trackers."
+            },
+            {
+              "role": "Chattza clan leader",
+              "archetype_ref": "rodian_clan_leader",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "A senior Chattza figure directing operations personally. This signals the threat is existential to clan dominance."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Total Chattza military control. The government has declared martial authority. All rival clan representatives expelled from the capital. Offworld traffic halted. The Chattza are fighting for survival or executing a final offensive against a rival.",
+          "presence_reason": "Existential crisis for Chattza rule. Either they are about to lose power or they are about to destroy a rival permanently. No middle ground.",
+          "roles": [
+            {
+              "role": "Clan warrior force",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Every available Chattza fighter mobilized. The capital is a military camp."
+            },
+            {
+              "role": "Elite bounty hunter squad",
+              "archetype_ref": "rodian_bounty_hunter",
+              "tier": "rival",
+              "count": 5,
+              "notes": "The best hunters the Chattza can field or hire. Each one is a lethal tracker."
+            },
+            {
+              "role": "Chattza clan leaders",
+              "archetype_ref": "rodian_clan_leader",
+              "tier": "nemesis",
+              "count": 2,
+              "notes": "Senior clan leadership directing the war effort. They will not negotiate — this ends with victory or destruction."
+            },
+            {
+              "role": "Chattza bioengineer",
+              "archetype_ref": "rodian_scientist",
+              "tier": "rival",
+              "count": 1,
+              "notes": "If the Chattza are desperate enough, their bioweapons capability may be deployed again. This is the person who makes it happen."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Customs inspections become thorough. Ships are delayed. Questions become pointed. Clan guards are more visible and less tolerant of outsiders lingering.",
+        "targeted": "The Chattza have identified specific individuals. Bounty hunters are dispatched. The target's ship may be impounded at the spaceport. Rival clans are warned not to harbor the targets.",
+        "manhunt": "Full clan mobilization against specific targets. Every hunter on Rodia knows the faces. Travel between cities is monitored. The jungle is seeded with hunting parties. There is no safe ground."
+      }
+    },
+    {
+      "faction_id": "anyettu_clan",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Anyyon Guardians stretched thin. Minimal defensive positions held, most forces pulled to defend a critical island or recover from a Chattza offensive.",
+          "presence_reason": "The An'yettu have suffered losses or are concentrating forces for a counterattack.",
+          "roles": [
+            {
+              "role": "Anyyon sentry",
+              "archetype_ref": "anyyon_guardian",
+              "tier": "rival",
+              "count": 1,
+              "notes": "A single watchman holding a position. Tired and undermanned but refusing to abandon post."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Anyyon defensive operations. Patrols across the island chain, observation posts monitoring for Chattza air incursions, training operations for new recruits.",
+          "presence_reason": "Normal defensive posture. The An'yettu are maintaining their perimeter and training their forces.",
+          "roles": [
+            {
+              "role": "Anyyon patrol",
+              "archetype_ref": "anyyon_guardian",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Island patrol teams. Experienced in jungle and coastal operations."
+            },
+            {
+              "role": "An'yettu militia",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Clan militia supplementing the Anyyon. Less trained but motivated."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Full defensive mobilization. The Anyyon have detected an incoming Chattza assault and are preparing to repel it. Airspeeder squadrons scrambled, ground positions reinforced, offworld mercenaries activated.",
+          "presence_reason": "Chattza assault imminent or underway. The An'yettu are fighting for their islands.",
+          "roles": [
+            {
+              "role": "Anyyon strike force",
+              "archetype_ref": "anyyon_guardian",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Full Anyyon deployment. Air and ground forces coordinated for island defense."
+            },
+            {
+              "role": "An'yettu militia",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Every able-bodied An'yettu armed and in position."
+            },
+            {
+              "role": "Offworld mercenary specialist",
+              "archetype_ref": "mercenary",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Hired help. The Anyyon recruit offworld specialists for capabilities they lack."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The An'yettu are on the offensive. Anyyon forces launching coordinated strikes against Chattza positions, attempting to reclaim lost islands or break the blockade on their expansion.",
+          "presence_reason": "A shift in the balance of power. The An'yettu have gained an advantage — new allies, new weapons, or a Chattza weakness to exploit.",
+          "roles": [
+            {
+              "role": "Anyyon assault force",
+              "archetype_ref": "anyyon_guardian",
+              "tier": "rival",
+              "count": 10,
+              "notes": "Full offensive capability. Coordinated air and ground assault operations."
+            },
+            {
+              "role": "An'yettu warrior levies",
+              "archetype_ref": "rodian_clan_guard",
+              "tier": "minion",
+              "count": 15,
+              "notes": "Mass mobilization. The entire clan is at war."
+            },
+            {
+              "role": "An'yettu clan elder",
+              "archetype_ref": "rodian_clan_leader",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Clan leadership directing offensive operations. This is unprecedented — the An'yettu are usually defensive."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Anyyon patrols increase frequency. Outsiders approaching the island chain are challenged and escorted. Observation posts go to high alert.",
+        "targeted": "The Anyyon have identified a specific threat. Scout teams dispatched. The clan's best hunters are sent to find the target before it reaches the islands.",
+        "manhunt": "The entire island chain is locked down. Every approach is watched. Airspeeder patrols sweep the surrounding waters. The An'yettu are protecting their homeland with everything they have."
+      }
+    },
+    {
+      "faction_id": "imperial_garrison",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A single Imperial officer and a communications array. The Empire's claim to authority on Rodia is entirely theoretical at this level.",
+          "presence_reason": "The Empire has deprioritized Rodia. Resources have been pulled to more strategically important systems.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining the legal fiction of Imperial authority. Files reports that nobody reads."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Small garrison at the spaceport. A handful of stormtroopers, a customs checkpoint, and a bored officer. The Empire is present but not invested.",
+          "presence_reason": "Standard Outer Rim garrison duty. Nobody wants this posting.",
+          "roles": [
+            {
+              "role": "Stormtrooper detail",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Spaceport security. Checking manifests and running standard Imperial watchlist queries."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Running the garrison. Knows the Rodians ignore him and has made peace with it."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced Imperial presence. Something on the Corellian Run has drawn sector command's attention to Rodia — piracy, a rebel lead, or strategic redeployment. The Chattza are watching warily.",
+          "presence_reason": "External orders from sector command. The local garrison commander didn't ask for reinforcements and isn't sure what to do with them.",
+          "roles": [
+            {
+              "role": "Stormtrooper platoon",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 10,
+              "notes": "A real military presence. The Rodians notice and don't like it."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Arrived with the reinforcements. Looking for something specific. Not sharing what it is with the garrison commander."
+            },
+            {
+              "role": "Garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Now outranked or sidelined by whoever sent the reinforcements. Uncomfortable."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial military intervention on Rodia. This is extraordinary — the Empire has decided something on this planet is worth the political cost of alienating every Rodian clan simultaneously. The Chattza are furious. The An'yettu see an opportunity.",
+          "presence_reason": "Something of enormous value to the Empire has been located on Rodia. A high-value fugitive, a rebel cell, or a strategic asset that changes the calculus.",
+          "roles": [
+            {
+              "role": "Stormtrooper company",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Full military deployment. Checkpoints, patrols, and active search operations."
+            },
+            {
+              "role": "ISB team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Running the operation. The military is here to support ISB objectives."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior officer with authority over the entire operation. Answering to someone above sector level."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Stormtroopers check IDs more carefully. Ships are scanned before departure. The garrison commander is actually paying attention for once.",
+        "targeted": "Imperial forces are looking for specific individuals. Holos distributed. Spaceport locked for departures. The Chattza are asked to cooperate — and are deciding whether they will.",
+        "manhunt": "Full Imperial lockdown of the spaceport. No departures without Imperial authorization. Stormtroopers conducting searches in the capital. The Rodian clans are watching to see how far the Empire will push — and whether this is an opportunity to settle scores under cover of chaos."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [],
+    "presets": {
+      "EotE_clan_warfare": {
+        "label": "Edge of the Empire — Clan Warfare",
+        "description": "The Chattza-An'yettu feud has escalated. The Chattza have deployed a bioweapon against the An'yettu city of Nurosk, and the An'yettu are hiring offworld mercenaries to fight back. Players are drawn into the clan war as hired help, investigators, or smugglers caught in the crossfire. The Chattza are trying to suppress evidence of the plague while the An'yettu are desperate for outside aid.",
+        "controlling_factions": [
+          {
+            "location_id": "iskaayuma_spaceport",
+            "faction_id": "chattza_clan",
+            "presence_level": "fortified",
+            "notes": "The Chattza are restricting travel to the An'yettu Islands. Ships are impounded on pretexts. The Chattza bioengineer Olon has fled but the clan is trying to prevent anyone from discovering his connection to the plague."
+          },
+          {
+            "location_id": "nurosk",
+            "faction_id": "anyettu_clan",
+            "presence_level": "fortified",
+            "notes": "Nurosk is under quarantine. The An'yettu suspect the Chattza but need proof. Medical supplies are desperately needed."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "chattza_clan",
+            "level": "suspicious",
+            "reason": "The Chattza are watching all offworld arrivals for anyone who might investigate the plague or aid the An'yettu."
+          }
+        ],
+        "flags": [
+          "The Chattza bioengineer Olon has fled Nurosk after creating the plague. His airspeeder crashed on an uninhabited island. Both the PCs and Chattza bounty hunters are searching for him — the PCs want him alive for a cure, the bounty hunters want him silenced.",
+          "Medical supply deliveries to Nurosk are being ambushed by pirates — possibly Chattza-funded — to keep the An'yettu weakened.",
+          "",
+          "Competing Rodian clans in the capital are quietly offering political aid to anyone willing to embarrass the Chattza by exposing the bioweapon operation."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "Edge of the Empire Core Rulebook",
+      "alias": "eote",
+      "pages": "58-59",
+      "notes": "Rodian species entry: physiology, society, homeworld description, cultural history, hunting traditions, Rodian drama, language"
+    },
+    {
+      "book": "Age of Rebellion Core Rulebook",
+      "alias": "aor",
+      "pages": "347, 367",
+      "notes": "Rodia on the Corellian Run (p347); Rodia planet entry: Tyrius system, jungle-covered, environmental shields, clan politics, Imperial disinterest (p367)"
+    },
+    {
+      "book": "Rise of the Separatists",
+      "alias": "separatists",
+      "pages": "106",
+      "notes": "Rodia in Clone Wars: Savareen sector, Corellian Run / Triellus Trade Route intersection, Senator Onaconda Farr's deal with Dooku, mass starvation, piracy crisis"
+    },
+    {
+      "book": "Collapse of the Republic",
+      "alias": "collapse",
+      "pages": "83",
+      "notes": "Assassination of Senator Onaconda Farr over Republic military budget vote"
+    },
+    {
+      "book": "Dangerous Covenants (Hired Gun Sourcebook)",
+      "alias": "hired",
+      "pages": "85-86",
+      "notes": "Anyyon Guardians of An'yettu: paramilitary defenders, An'yettu Islands, Chattza feud, clan warfare campaign outline, jungle creatures"
+    },
+    {
+      "book": "Keeping the Peace (Guardian Sourcebook)",
+      "alias": "guardian",
+      "pages": "91",
+      "notes": "The Nurosk Plague: Chattza bioweapon, An'yettu clan city on Irninbar island, bioengineer Olon, Iskaayuma capital, full campaign outline"
+    },
+    {
+      "book": "Knights of Fate (Warrior Sourcebook)",
+      "alias": "warrior",
+      "pages": "43",
+      "notes": "Repulsor throwing razor: weapon originating in gladiatorial arenas of Rodia, Rheshalva Interstellar Armaments"
+    },
+    {
+      "book": "Keeping the Peace (Guardian Sourcebook)",
+      "alias": "guardian",
+      "pages": "46-47",
+      "notes": "Rodian Cryogen Whip: weapon developed by Rodian hunters"
+    },
+    {
+      "book": "Lords of Nal Hutta (Hutt Space Sourcebook)",
+      "alias": "hutt",
+      "pages": "27",
+      "notes": "Bomu Rodian clan as Anjiliac kajidic enforcers and mercenaries"
+    }
+  ]
+}

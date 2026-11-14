@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/gear.schema.json",
+  "title": "Gear",
+  "description": "Canonical, app-owned gear record for the FFG Star Wars RPG. Ingested ONCE from OggDude's `gear` category (606 entries). Mostly descriptive (Type + economics + readable base_mods); no combat stats, no Qualities (verified 0/606). Replaces the runtime SWItems.normalizeGear decode. Per-instance ATTACHMENTS are a separate deferred entity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "type"
+  ],
+  "$comment": "INGEST CONTRACT — numeric values arrive as STRINGS and coerce to int; Categories rare (6/606) list|scalar; Source scalar OR Sources.Source list -> sources[]; Description markup decoded; Short (13/606) is a one-line blurb; BaseMods.Mod readable MiscDesc -> base_mods (coded mod-keys deferred). Type present on all 606 (required).",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "_source_key": {
+      "type": "string",
+      "description": "OggDude Key (e.g. 'COMLINKH'). Traceability only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Decoded from OggDude Description markup."
+    },
+    "short": {
+      "type": "string",
+      "description": "One-line blurb from OggDude Short (13/606)."
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Gear classification from OggDude Type (e.g. 'Communications', 'Tools'). Required (all 606)."
+    },
+    "encumbrance": {
+      "$ref": "item-common.schema.json#/$defs/encumbrance"
+    },
+    "hardpoints": {
+      "$ref": "item-common.schema.json#/$defs/hardpoints"
+    },
+    "price": {
+      "$ref": "item-common.schema.json#/$defs/price"
+    },
+    "rarity": {
+      "$ref": "item-common.schema.json#/$defs/rarity"
+    },
+    "restricted": {
+      "$ref": "item-common.schema.json#/$defs/restricted"
+    },
+    "store_hidden": {
+      "$ref": "item-common.schema.json#/$defs/store_hidden"
+    },
+    "categories": {
+      "$ref": "item-common.schema.json#/$defs/categories"
+    },
+    "sources": {
+      "$ref": "item-common.schema.json#/$defs/sources"
+    },
+    "_book_page": {
+      "$ref": "item-common.schema.json#/$defs/book_page"
+    },
+    "availability": {
+      "$ref": "item-common.schema.json#/$defs/availability"
+    },
+    "base_mods": {
+      "$ref": "item-common.schema.json#/$defs/base_mods"
+    },
+    "pool_mods": {
+      "type": "array",
+      "items": { "allOf": [{ "$ref": "item-common.schema.json#/$defs/pool_mod_entry" }, { "$ref": "item-common.schema.json#/$defs/pool_mod_species_members_refused" }] },
+      "description": "Extracted dice-pool modifiers at row level (R-DPS-1). Each entry traces back to its source mod object via from."
+    },
+    "_provenance": {
+      "type": "string",
+      "default": "oggdude"
+    },
+    "encumbrance_threshold_bonus": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Bonus to the wearer's personal encumbrance threshold (e.g. Backpack +4, Utility Belt +1). Stated by the printed page."
+    },
+    "threshold_bonus_requires": {
+      "type": "string",
+      "enum": ["worn", "carried"],
+      "description": "Minimum item state for the encumbrance_threshold_bonus to apply. 'worn' = only when state is worn; 'carried' = when state is worn or carried (not stowed). Adjudicated per-item from the printed page (C-LIM-3)."
+    },
+    "character_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "oneOf": [ { "$ref": "item-common.schema.json#/$defs/cybernetic_effect" }, { "$ref": "item-common.schema.json#/$defs/item_career_skill" } ] },
+      "description": "Ruling `release-r6-companions-d365` R-R6CD-6 (ADDENDUM 2; D-365, D-378): a CYBERNETIC implant's own effects, page-cited, written by scripts/canonical/apply_cybernetic_effects.py. Only a `type: \"Cybernetics\"` record carries a cybernetic_effect line (the allOf below); an `item_career_skill` row (`op: \"career_skill\"`, ruling `release-r7-bug-burndown` ADDENDUM 314 C1/C2) rides any gear type, read by CharResolve.careerSkillStatus while the item is owned. A player reads an in-use implant's lines through CharResolve.itemCharacterEffects (R-R6CD-8; only the four item ops move a player number, under the cybernetic cap R-R6CD-4); companions.js droidOf's cybernetic_add applies all nine to a droid."
+    }
+  },
+  "allOf": [
+    { "if": { "required": ["character_effects"], "not": { "required": ["type"], "properties": { "type": { "const": "Cybernetics" } } } }, "then": { "properties": { "character_effects": { "items": { "$ref": "item-common.schema.json#/$defs/item_career_skill" } } } } }
+  ]
+}

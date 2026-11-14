@@ -1,0 +1,438 @@
+# swrpg_index canonical eval query set.
+#
+# One YAML file, consumed by both the fast retrieval eval
+# (swrpg_index/eval/retrieval.py — zero API cost, runs in ms) and the
+# slow agent-in-loop eval (grades Sonnet's final answers + citations).
+#
+# Adding a case:
+#   1. Pick a real rulebook question with a known answer.
+#   2. Verify the target alias+pages by running `python3 swrpg_index.py
+#      search "<query>"` or `chapter <alias> "<section>"`.
+#   3. Write a `query` a GM/vet would actually type.
+#   4. Mark `difficulty` honestly — if the current index gets it right
+#      immediately, it's `easy`; if it requires semantic retrieval or
+#      topic shortcuts, it's `medium`; if it's paraphrased or abstract,
+#      `hard`; if it uses non-FFG vocabulary, `adversarial`; negative
+#      tests go in `negative` with a `must_not_cite` list.
+#   5. At least one expected_ref must be `required: true`.
+#
+# Fields:
+#   id               — unique string, snake_case
+#   query            — natural query text (or topic name if tool: topic)
+#   tool             — 'search' (default) | 'topic'
+#   mode             — 'hybrid' (default) | 'bm25' | 'semantic'   [search only]
+#   tier             — 'beginner' | 'mid' | 'late'                [optional]
+#   k                — top-K to check (default 5)
+#   difficulty       — easy | medium | hard | adversarial | negative
+#   expected_refs    — list of {alias, page_range: [start,end], required}
+#   must_not_cite    — list of {alias?, section_contains?, reason}
+#   notes            — free text
+
+version: 1
+
+cases:
+  # ── EASY — direct term matches; trivial recall ─────────────────────────
+  - id: soak_definition
+    query: "soak value reduces incoming damage"
+    tool: search_expanded
+    variants:
+      - "what is soak attribute"
+      - "how does soak reduce damage derived attributes"
+      - "soak Brawn plus armor rules"
+    difficulty: easy
+    expected_refs:
+      - any_of:
+          - {alias: eote,           page_range: [216, 216]}
+          - {alias: aor,            page_range: [222, 222]}
+          - {alias: fad,            page_range: [216, 216]}
+          - {alias: fad-beginner,   page_range: [108, 108]}
+          - {alias: folio-kaveri-ra, page_range: [3, 3]}
+        required: true
+    notes: |
+      Vocabulary-gap case. "Soak" alone outranks to adversary stat blocks
+      (every NPC has a Soak value). Expansion across 3 reformulations
+      surfaces the actual definitions. Accepts the CRB Soak sections AND
+      the player-reference boxes in Beginner Game + folios (functionally
+      equivalent definitions, consensus 3/3 across variants).
+
+  - id: maneuvers_action
+    query: "maneuvers in combat"
+    difficulty: easy
+    expected_refs:
+      - {alias: eote, page_range: [209, 211], required: true}
+    notes: "EotE Maneuvers section — direct title match."
+
+  - id: critical_injury_table
+    query: "critical injury result d100 roll table"
+    difficulty: easy
+    expected_refs:
+      - any_of:
+          - {alias: eote, page_range: [226, 230]}
+          - {alias: aor,  page_range: [232, 235]}
+          - {alias: fad,  page_range: [228, 231]}
+        required: true
+    notes: "6-10: Critical Injury Result table — present in all three CRBs at slightly different pages. Range padded ±2 to include Medical Check adjacency."
+
+  - id: range_bands
+    query: "range bands short medium long extreme"
+    difficulty: easy
+    expected_refs:
+      - any_of:
+          - {alias: eote,     page_range: [217, 218]}
+          - {alias: aor,      page_range: [222, 223]}
+          - {alias: fad,      page_range: [216, 219]}
+          - {alias: fad-ocr,  page_range: [216, 219]}
+          - {alias: fad-lite, page_range: [216, 219]}
+        required: true
+    notes: |
+      Range Bands — all three CRBs have this section. fad-ocr/fad-lite
+      are OCR-variant reingests of the same book; accept any of them
+      since they're semantically the same content.
+
+  - id: adversaries_chapter
+    query: "adversaries nemesis rival minion"
+    difficulty: easy
+    expected_refs:
+      - any_of:
+          - {alias: eote, page_range: [398, 425]}
+          - {alias: aor,  page_range: [410, 435]}
+          - {alias: fad,  page_range: [402, 425]}
+        required: true
+    notes: "12: Adversaries — chapter present in all three CRBs. BM25 on 'nemesis rival minion' should land on any of them."
+
+  - id: obligation_mechanic
+    query: "obligation mechanics starting value"
+    difficulty: easy
+    tier: mid
+    expected_refs:
+      - {alias: eote, page_range: [38, 52], required: true}
+    notes: "Obligation lives in EotE, not AoR/FaD."
+
+  # ── MEDIUM — requires right tool or right rulebook ─────────────────────
+  - id: nemesis_how_to_run
+    query: "how do I run a nemesis at the table"
+    difficulty: medium
+    expected_refs:
+      - {alias: eote-gm, page_range: [26, 32], required: true}
+    notes: "The canonical hybrid win — GM's Kit 'A GM's Guide to the Nemesis'."
+
+  - id: duty_mechanic_aor
+    query: "duty mechanic rebel cell starting value"
+    difficulty: medium
+    tier: mid
+    expected_refs:
+      - {alias: aor, page_range: [47, 51], required: true}
+    notes: "Duty is AoR-specific (not EotE/FaD). Tier filter scoped to mid."
+
+  - id: morality_conflict_fad
+    query: "morality conflict points force user"
+    difficulty: medium
+    expected_refs:
+      - {alias: fad, page_range: [51, 56], required: true}
+    notes: "Morality is F&D-specific."
+
+  - id: lightsaber_stats
+    query: "lightsaber base weapon profile damage crit stats"
+    difficulty: medium
+    expected_refs:
+      - any_of:
+          # CRB Table 5-7 is authoritative but the numeric columns were MIA
+          # in default-PSM OCR. Re-OCR'd with --psm 4 --dpi 600 recovered
+          # the stats (Dam 6 Crit 2 now in the p.180 chunk text), but the
+          # page still doesn't rank top-5 globally because reprint sources
+          # dominate the hybrid ranking. All of the below are legitimate
+          # lightsaber-profile citations.
+          - {alias: fad,          page_range: [179, 181]}  # CRB 5-7/5-8 Lightsabers (authoritative)
+          - {alias: fad-gm,       page_range: [39, 41]}    # GM Screen lightsaber profile
+          - {alias: fad-beginner, page_range: [70, 72]}    # Beginner weapons table
+          - {alias: holocron,     page_range: [45, 50]}    # Compiled quick-ref
+          - {alias: guardian,     page_range: [1, 100]}    # Career sourcebook
+        required: true
+    notes: |
+      Lightsaber is F&D-specific. The authoritative Table 5-7 is on fad
+      pp.180-181 but is reprinted in the GM Kit screen, Beginner game,
+      and Holocron — all valid answers. Ranking-limit finding (2026-04-22):
+      even after re-OCR at --psm 4 --dpi 600 recovered Dam/Crit columns,
+      the CRB table-chunk doesn't outrank prose reprints on hybrid search
+      — table cells are sparse, prose is dense. Worth investigating a
+      content_type='table' BM25 boost for table-oriented queries.
+
+  - id: creating_encounters
+    query: "how to design a combat encounter"
+    difficulty: medium
+    expected_refs:
+      - {alias: aor, page_range: [330, 341], required: true}
+      - {alias: fad, page_range: [333, 340], required: false}
+    notes: "Creating Encounters, Adventures, and Campaigns — present in AoR + FaD, not EotE with that exact title."
+
+  - id: force_rating_progression
+    query: "increase force rating talent specialization"
+    tool: search_expanded
+    variants:
+      - "the force chapter force rating introduction"
+      - "force sensitivity rules for new force users"
+      - "how to become force sensitive force rating 1"
+    difficulty: medium
+    expected_refs:
+      - any_of:
+          - {alias: fad,          page_range: [280, 295]}
+          - {alias: fad-ocr,      page_range: [280, 295]}
+          - {alias: fad-lite,     page_range: [280, 295]}
+          - {alias: talent-index, page_range: [1, 185]}
+        required: true
+    notes: |
+      Vocabulary-gap case. "Progression" isn't FFG terminology; the book
+      says "Force Rating" in the Force chapter and "increasing Force
+      Rating" via talents. Expansion with concrete terms ("force
+      sensitivity," "become force sensitive," "force chapter") lands
+      fad p.282 — The Force in Force and Destiny — with 3/3 consensus.
+
+  - id: starship_critical_hit
+    query: "starship vehicle critical hit result damage table"
+    difficulty: medium
+    expected_refs:
+      - any_of:
+          - {alias: eote, page_range: [253, 253]}
+          - {alias: aor,  page_range: [259, 259]}
+          - {alias: fad,  page_range: [253, 253]}
+        required: true
+    notes: "7-9: Critical Hit Result table — all three CRBs."
+
+  # ── HARD / ABSTRACT — paraphrased, needs semantic retrieval ────────────
+  - id: encounter_balance_abstract
+    query: "guidance for designing balanced encounters not too lethal"
+    difficulty: hard
+    expected_refs:
+      - {alias: aor, page_range: [330, 341], required: true}
+      - {alias: fad, page_range: [333, 340], required: false}
+    must_not_cite:
+      - {alias: diplomat, section_contains: "Social Encounters",
+         reason: "Career sourcebook 'Social Encounters' is the wrong neighborhood — known phase 2 drift"}
+    notes: "Known drift case. Hybrid should lift the correct CRB GM chapter above the Diplomat sourcebook noise."
+
+  - id: villain_scarier
+    query: "making a villain feel dangerous a threat to the heroes"
+    tool: search_expanded
+    variants:
+      - "how to develop a nemesis GM advice"
+      - "running the nemesis as a GM"
+      - "making an iconic nemesis character"
+    difficulty: hard
+    k: 10
+    expected_refs:
+      - any_of:
+          - {alias: eote-gm, page_range: [26, 32]}
+          - {alias: eote,    page_range: [398, 425]}
+          - {alias: aor,     page_range: [410, 435]}
+        required: true
+    notes: |
+      Canonical vocabulary-gap case. "Villain" is not an FFG term — the
+      book uses "nemesis." Three nemesis-focused variants converge on
+      eote-gm pp.26-32 ("A GM's Guide to the Nemesis") with 3/3
+      consensus. This is the exemplar query for why search_expanded
+      exists; regression here = expansion layer broken.
+
+  - id: rewarding_roleplay
+    query: "when to award experience bonuses for roleplay story contributions"
+    difficulty: hard
+    k: 10
+    expected_refs:
+      - any_of:
+          - {alias: aor, page_range: [318, 330]}
+          - {alias: fad, page_range: [323, 330]}
+          - {alias: eote, page_range: [296, 333]}
+        required: true
+    notes: |
+      'Spending Experience' + 'The Game Master' chapters discuss XP awards.
+      Paraphrased: uses 'award', 'bonus', 'story contributions' rather than
+      'experience' / 'spending' vocabulary.
+
+  - id: chase_scene
+    query: "running a chase sequence pursuit structured encounter"
+    difficulty: hard
+    k: 10
+    expected_refs:
+      - any_of:
+          - {alias: eote,     page_range: [206, 231]}
+          - {alias: aor,      page_range: [210, 235]}
+          - {alias: fad,      page_range: [206, 231]}
+          - {alias: holocron, page_range: [1, 111]}
+        required: true
+    notes: |
+      Chases are covered in Conflict and Combat chapters. Holocron compiles
+      GM quick-ref for chases too.
+
+  # ── ADVERSARIAL — non-FFG vocabulary, pure vocab-gap cases ─────────────
+  - id: bodyguards_mooks
+    query: "one villain plus bodyguards and mook soldiers"
+    difficulty: adversarial
+    mode: hybrid
+    k: 10
+    expected_refs:
+      - {alias: eote-gm, page_range: [26, 32], required: false}
+      - {alias: eote,    page_range: [398, 425], required: false}
+    notes: |
+      Pure vocabulary gap: 'villain / mook / bodyguard' aren't FFG terms.
+      BM25 returns zero on this. Test passes if ANY FFG-appropriate
+      adversary content appears in top-10 — proves the semantic leg
+      is pulling weight. Neither ref is required (semantic may
+      legitimately surface either one or something adjacent).
+
+  - id: boss_fight_colloquial
+    query: "boss fight rules for climactic battle"
+    difficulty: adversarial
+    mode: hybrid
+    k: 10
+    expected_refs:
+      - {alias: eote-gm, page_range: [26, 32], required: false}
+      - {alias: eote,    page_range: [398, 425], required: false}
+    notes: |
+      'Boss fight' is D&D vocabulary. FFG calls them 'nemesis encounters.'
+      Hybrid should bridge via semantic. Both refs optional — vocab-gap
+      queries are inherently fuzzy on which adjacent page wins.
+
+  - id: gm_combat_cheatsheet
+    query: "quick reference card for running combat at the table"
+    difficulty: adversarial
+    mode: hybrid
+    expected_refs:
+      - {alias: holocron, page_range: [1, 111], required: true}
+    k: 10
+    notes: |
+      'Cheat sheet' → holocron is the compiled quick-reference. Any page
+      of holocron is fine; holocron has no embedded TOC so we accept
+      the whole book range.
+
+  # ── NEGATIVE — tier enforcement + known-drift avoidance ────────────────
+  - id: beginner_lightsaber_must_not_cite_advanced
+    query: "lightsaber rules"
+    difficulty: negative
+    tier: beginner
+    must_not_cite:
+      - {alias: fad, reason: "F&D CRB is mid/late tier, not beginner"}
+      - {alias: guardian, reason: "Guardian sourcebook is advanced tier"}
+      - {alias: consular, reason: "Consular sourcebook is advanced tier"}
+    expected_refs:
+      - {alias: fad-beginner, page_range: [1, 130], required: true}
+    notes: "Tier filter must mechanically restrict advanced rulebooks. fad-beginner covers the beginner lightsaber rules."
+
+  - id: beginner_force_must_not_cite_late
+    query: "force powers and force rating"
+    difficulty: negative
+    tier: beginner
+    must_not_cite:
+      - {alias: fad, reason: "Advanced F&D CRB at beginner tier"}
+      - {alias: mystic, reason: "Mystic sourcebook is advanced"}
+      - {alias: seeker, reason: "Seeker sourcebook is advanced"}
+    expected_refs:
+      - {alias: fad-beginner, page_range: [1, 130], required: true}
+    notes: "Beginner force content must come from the Beginner Game, not CRB or career books."
+
+  - id: any_query_no_cover_pages
+    query: "introduction to the game"
+    difficulty: negative
+    mode: hybrid
+    k: 5
+    must_not_cite:
+      - {section_contains: "Table of Contents", reason: "TOC pages are thin — cover/TOC content_type should be filtered out of rule-bearing hits"}
+    notes: |
+      Phase 2.5 drift detector should keep TOC pages from being the
+      top result on generic 'introduction' queries. Not a hard fail if
+      one sneaks in (we don't exclude content_type=toc from search),
+      but tracked as quality signal.
+
+  # ── TOPIC RESOLUTION — exercise the topic-shortcut path ────────────────
+  - id: topic_encounter_building
+    tool: topic
+    query: "encounter building"
+    difficulty: medium
+    expected_refs:
+      - {alias: aor, page_range: [330, 341], required: true}
+      - {alias: fad, page_range: [333, 340], required: true}
+      - {alias: eote, page_range: [296, 333], required: false}
+    notes: "Topic must resolve to ≥2 TOC-verified sources."
+
+  - id: topic_crit_table
+    tool: topic
+    query: "crit table"
+    difficulty: easy
+    expected_refs:
+      - {alias: eote, page_range: [226, 228], required: true}
+      - {alias: aor, page_range: [232, 233], required: true}
+      - {alias: fad, page_range: [228, 228], required: true}
+    notes: "All three CRBs have a 6-10: Critical Injury Result table at different pages."
+
+  - id: topic_gm_guide_nemesis
+    tool: topic
+    query: "gm guide nemesis"
+    difficulty: easy
+    expected_refs:
+      - {alias: eote-gm, page_range: [26, 32], required: true}
+    notes: "Topic shortcut to the GM Kit essay — the canonical nemesis-running reference."
+
+  # ── MUST_MISS — out-of-corpus queries graded through the CASCADE ────────
+  # Audit `oracle-audit-2026-09-22` F3: the eval had no out-of-corpus case, so
+  # it could not see that the cascade's miss detector never fired (0 in 38).
+  # These eight come from the audit's probe instrument
+  # (Docs/audit_artifacts/oracle_cascade_probe.py). `tool: cascade` runs
+  # `cascade.retrieve_rule_for_query`; a case PASSES iff the result reads
+  # `is_weak` or `is_miss` — the corpus holds no answer, and the cascade
+  # must say so rather than return a happy path. No expected_refs: the
+  # grade is the flag, not a page. (The 26 cases above are untouched —
+  # R-EBD-3.) Guarded by swrpg_index/tests/cascade_weak.py (a).
+  - id: must_miss_sourdough
+    tool: cascade
+    query: "how to bake sourdough bread"
+    difficulty: must_miss
+    notes: "Probe `cooking`. Read `search` before WP2 (top hit uabs, 5/5 single-leg)."
+
+  - id: must_miss_xyzzy
+    tool: cascade
+    query: "xyzzy plugh"
+    difficulty: must_miss
+    notes: "Probe `blank_glyph`. Nonsense tokens; semantic leg only."
+
+  - id: must_miss_purple_elephant
+    tool: cascade
+    query: "purple elephant quarterly invoice"
+    difficulty: must_miss
+    notes: "Probe `random_words`."
+
+  - id: must_miss_wow_enrage
+    tool: cascade
+    query: "world of warcraft raid boss enrage timer"
+    difficulty: must_miss
+    notes: "Probe `wow`. Another game's mechanic."
+
+  - id: must_miss_pathfinder_aoo
+    tool: cascade
+    query: "pathfinder attack of opportunity rules"
+    difficulty: must_miss
+    notes: |
+      Probe `pathfinder`. FFG has no attacks of opportunity. Carries the FFG
+      keyword "attack", so the keyword-distilled expansion ("attack",
+      "attack rules") finds generic two-leg attack pages — the case that
+      requires the expanded path's ≥2-variant agreement.
+
+  - id: must_miss_lorem_ipsum
+    tool: cascade
+    query: "lorem ipsum dolor sit amet"
+    difficulty: must_miss
+    notes: "Probe `empty_mech`. Placeholder text."
+
+  - id: must_miss_dnd_boss_hp
+    tool: cascade
+    query: "how many hit points does a boss have"
+    difficulty: must_miss
+    notes: "Probe `dnd_hp_boss`. D&D vocabulary (hit points); the D&D firewall's class."
+
+  - id: must_miss_dnd_lockpick_dc
+    tool: cascade
+    query: "what DC is a lock picking check"
+    difficulty: must_miss
+    notes: |
+      Probe `dnd_dc`. D&D vocabulary (DC). Carries the FFG keyword "check";
+      like the pathfinder case it is held to weak by the expanded path's
+      ≥2-variant agreement. (Probe `dnd_ac`, "what is the armor class of a
+      stormtrooper", was NOT taken: a stormtrooper stat block is a genuine
+      two-leg hit, so it reads `search` — the firewall there is the prompt's.)

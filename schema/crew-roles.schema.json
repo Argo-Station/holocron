@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/crew-roles.schema.json",
+  "title": "Crew Roles",
+  "description": "The whole crew roles registry, public/data/canonical/crew_roles.json (RELEASE 1.0 R5 row 7; card release-r5-crew §2, R-R5C-1, on paper before code per R-Y2-1). The eight roles THE SHIP's CREW tab draws, in drawn order. Written by scripts/canonical/build_crew_roles.py; read by lib/shared/vesselView.jsx (CrewTab, CrewActions) on both hosts. RAW prints no stations: any crew member may try any action that is not Pilot Only (AoR Core p.248), so a role is a display grouping, never a gate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "cite", "roles"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "cite": { "type": "string", "minLength": 1, "description": "The printed pages the roles' actions and the two declines are read from." },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "line", "actions", "ogg_keys"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z]+$", "description": "The role a crew entry's `role` names (rec.crew[].role). Unchanged vocabulary: pilot, copilot, gunner, engineer, astrogator, sensors, commander, crew." },
+          "label": { "type": "string", "minLength": 1, "description": "The role's heading on the CREW tab and its CREW ACTIONS group. The copy sweep's words (R-CVS-14)." },
+          "line": { "type": "string", "minLength": 1, "description": "The role's one line under its heading on the CREW tab. The copy sweep's words (R-CVS-14)." },
+          "actions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+            "description": "maneuvers_actions.json starship row ids this role's CREW ACTIONS group shows first, in drawn order: its Maneuver rows as names, its Action rows as cards. A DISPLAY GROUPING, NEVER A GATE: no resolver reads it to allow or refuse (R-F54C-1's tripwire). Pilot Only, read from the row, stays the only restriction."
+          },
+          "ogg_keys": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^[A-Z]+$" },
+            "description": "OggDude VehPositions.xml Keys this role answers to (card release-r5-crew §2's table). ASTRO and MOUNT are declined in Docs/RELEASE_1_0_DECLINED.json, registry crew_roles."
+          }
+        }
+      }
+    }
+  }
+}

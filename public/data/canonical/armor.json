@@ -1,0 +1,4687 @@
+{
+  "schema": "armor.schema.json",
+  "schema_version": 2,
+  "generated_from": "oggdude_merged.json",
+  "generated_by": "scripts/canonical/run_phase3.py (ADR 0003)",
+  "count": 113,
+  "armor": {
+    "a_kt_mountaineer_armor": {
+      "id": "a_kt_mountaineer_armor",
+      "_source_key": "MOUNTARMOR",
+      "name": "A/KT Mountaineer Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 1800,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "athletics"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "enter_the_unknown",
+        "page": 45
+      }
+    },
+    "a_kt_shockrider_crash_suit": {
+      "id": "a_kt_shockrider_crash_suit",
+      "_source_key": "CRASHSUIT",
+      "name": "A/KT Shockrider Crash Suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 3000,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Resistant"
+      ],
+      "sources": [
+        "enter_the_unknown",
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Reduces strain received from Critical Hits to the wearer's vehicle by 1 (min 1).",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "enter_the_unknown",
+        "page": 45
+      }
+    },
+    "a_kt_tracker_utility_vest": {
+      "id": "a_kt_tracker_utility_vest",
+      "_source_key": "UTILITYVEST",
+      "name": "A/KT Tracker Utility Vest",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 0,
+      "hardpoints": 1,
+      "price": 100,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 2,
+      "threshold_bonus_requires": "worn",
+      "_book_page": {
+        "book": "enter_the_unknown",
+        "page": 45
+      }
+    },
+    "a_kt_wing_commander_armored_flight_suit": {
+      "id": "a_kt_wing_commander_armored_flight_suit",
+      "_source_key": "WINGCOMMANDER",
+      "name": "A/KT Wing Commander Armored Flight Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 1,
+      "price": 1500,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Heavy"
+      ],
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "Reduces strain received from Critical Hits to the wearer's vehicle by 1 (min 1).",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "stay_on_target",
+        "page": 42
+      }
+    },
+    "adverse_environmental_gear": {
+      "id": "adverse_environmental_gear",
+      "_source_key": "AEG",
+      "name": "Adverse Environmental Gear",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 500,
+      "rarity": 1,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer may ignore [SE] imposed by the environment",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "eote",
+        "page": 169
+      }
+    },
+    "alliance_engineer_s_helmet_and_vest": {
+      "id": "alliance_engineer_s_helmet_and_vest",
+      "_source_key": "ALLENGHELVEST",
+      "name": "Alliance Engineer's Helmet and Vest",
+      "description": "",
+      "soak": 1,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 75,
+      "rarity": 1,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fully_operational",
+        "page": 42
+      }
+    },
+    "alliance_light_stealth_armor": {
+      "id": "alliance_light_stealth_armor",
+      "_source_key": "ALLIANCELTSTEALTH",
+      "name": "Alliance Light Stealth Armor",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 2200,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Resistant"
+      ],
+      "sources": [
+        "forged_in_battle"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds [BO] to the wearer's Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "forged_in_battle",
+        "page": 49
+      }
+    },
+    "ancient_battle_armor": {
+      "id": "ancient_battle_armor",
+      "_source_key": "ANCBATARM",
+      "name": "Ancient Battle Armor",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 6,
+      "hardpoints": 1,
+      "price": 3750,
+      "rarity": 9,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Heavy"
+      ],
+      "sources": [
+        "knights_of_fate"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "knights_of_fate",
+        "page": 47
+      }
+    },
+    "anipro_layered_beast_armor": {
+      "id": "anipro_layered_beast_armor",
+      "_source_key": "ANIPRO",
+      "name": "AniPro Layered Beast Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 0,
+      "price": 2500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Half Body"
+      ],
+      "sources": [
+        "savage_spirits"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a beast.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "May ride a beast without suffering bareback penalty.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude"
+    },
+    "armored_clothing": {
+      "id": "armored_clothing",
+      "_source_key": "AC",
+      "name": "Armored Clothing",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 1,
+      "price": 1000,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "An Average ([DI][DI]) Perception check detects that the wearer's clothing is armored",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 169
+      }
+    },
+    "armored_drop_suit": {
+      "id": "armored_drop_suit",
+      "_source_key": "ARMDROPSUIT",
+      "name": "Armored Drop Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 6,
+      "hardpoints": 2,
+      "price": 7500,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Powered",
+        "Resistant",
+        "Sealable",
+        "Heavy"
+      ],
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "While conscious and flight systems are engaged, wearer cannot suffer falling damage.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "no_disintegrations",
+        "page": 49
+      }
+    },
+    "armored_robes": {
+      "id": "armored_robes",
+      "_source_key": "ARMROBE",
+      "name": "Armored Robes",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 2,
+      "price": 4500,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fad",
+        "page": 179
+      }
+    },
+    "banal_apparel": {
+      "id": "banal_apparel",
+      "_source_key": "BANAL",
+      "name": "Banal Apparel",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 0,
+      "hardpoints": 0,
+      "price": 25,
+      "rarity": 0,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Opposing characters upgrade the difficulty of checks to identify wearer once.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 47
+      }
+    },
+    "beast_hide_armor": {
+      "id": "beast_hide_armor",
+      "_source_key": "BEASTHIDE",
+      "name": "Beast-Hide Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 300,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "dangerous_covenants",
+        "savage_spirits"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [AD] to Coercion checks and [TH] to Charm checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 49
+      }
+    },
+    "biogel_suit": {
+      "id": "biogel_suit",
+      "_source_key": "BIOGELSUIT",
+      "name": "Biogel Suit",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 6,
+      "price": 350,
+      "rarity": 1,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer gains +1 soak when hit by Brawl or bludgeoning Melee weapons.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Adds [SE] to any Brawn- or Agility-based skill checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "characteristic",
+              "value": "brawn"
+            },
+            {
+              "scope": "characteristic",
+              "value": "agility"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "disciples_of_harmony",
+        "page": 45
+      }
+    },
+    "blast_vest": {
+      "id": "blast_vest",
+      "_source_key": "BLASTVEST",
+      "name": "Blast Vest",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 1,
+      "price": 200,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fly_casual",
+        "page": 47
+      }
+    },
+    "caballerin_series_riding_tack": {
+      "id": "caballerin_series_riding_tack",
+      "_source_key": "RIDINGTACK",
+      "name": "Caballerin-Series Riding Tack",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 250,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a beast.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "May ride a beast without suffering bareback penalty.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "stay_on_target",
+        "page": 42
+      }
+    },
+    "capari_series_padded_beast_armor": {
+      "id": "capari_series_padded_beast_armor",
+      "_source_key": "CAPARIBEAST",
+      "name": "Capari-Series Padded Beast Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 0,
+      "price": 2500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a beast.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "May ride a beast without suffering bareback penalty.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "stay_on_target",
+        "page": 43
+      }
+    },
+    "cargo_clothing": {
+      "id": "cargo_clothing",
+      "_source_key": "CARGOCL",
+      "name": "Cargo Clothing",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 30,
+      "rarity": 0,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 47
+      }
+    },
+    "catch_vest": {
+      "id": "catch_vest",
+      "_source_key": "CATCHVEST",
+      "name": "Catch Vest",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 300,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "base_mods": [
+        {
+          "description": "Has soak value of 2 against all energy-based weapons",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "suns_of_fortune",
+        "page": 99
+      }
+    },
+    "cf_9_naval_flight_suit": {
+      "id": "cf_9_naval_flight_suit",
+      "_source_key": "FLIGHTCF9",
+      "name": "CF-9 Naval Flight Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 1200,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Full Body"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Includes a built-in respirator.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Remove up to [SE] from Piloting checks added due to physical stress.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "piloting_planetary"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 56
+      }
+    },
+    "chitin_armor": {
+      "id": "chitin_armor",
+      "_source_key": "CHITIN",
+      "name": "Chitin Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 1,
+      "price": 600,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Hard"
+      ],
+      "sources": [
+        "savage_spirits"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [AD] to Coercion checks and [TH] to Charm checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "savage_spirits",
+        "page": 45
+      }
+    },
+    "climbsuit": {
+      "id": "climbsuit",
+      "_source_key": "CLIMBSUIT",
+      "name": "Climbsuit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 2,
+      "price": 1450,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrades the ability of checks to climb or rappel down a surface once.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Reduces damage and strain suffered from falling by 5.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Reduces Critical Injury results due to falling by 10..",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "cyphers_and_masks",
+        "page": 41
+      }
+    },
+    "cloaking_coat": {
+      "id": "cloaking_coat",
+      "_source_key": "CLOAKCOAT",
+      "name": "Cloaking Coat",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 1,
+      "price": 550,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrade difficulty of checks to detect an individual wearing a cloaking coat using sensors or electronics twice.  Droids with Intellect less than wearer's ranks in Computers are similarly affected.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "special_modifications",
+        "page": 47
+      }
+    },
+    "clone_dive_armor": {
+      "id": "clone_dive_armor",
+      "_source_key": "CLONEDIVE",
+      "name": "Clone Dive Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 4500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer does not suffer movement penalties for traveling through water.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Wearer removes [SE] from Perception checks due to underwater conditions.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        }
+      ]
+    },
+    "clone_reconnaissance_armor": {
+      "id": "clone_reconnaissance_armor",
+      "_source_key": "CLONERECON",
+      "name": "Clone Reconnaissance Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 4000,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer adds [BO] to Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Remove [SE] from visual Perception checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        },
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        }
+      ]
+    },
+    "concealing_robes": {
+      "id": "concealing_robes",
+      "_source_key": "CONROBE",
+      "name": "Concealing Robes",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 150,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "fad"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [SE] to checks to notice or recognize an individual wearing concealing robes.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "fad",
+        "page": 179
+      }
+    },
+    "crash_gear": {
+      "id": "crash_gear",
+      "_source_key": "CRASHGEAR",
+      "name": "Crash Gear",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 1,
+      "price": 550,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Resistant",
+        "Light"
+      ],
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "endless_vigil",
+        "page": 43
+      }
+    },
+    "cresh_luck_armor": {
+      "id": "cresh_luck_armor",
+      "_source_key": "CRESHARMOR",
+      "name": "Cresh \"Luck\" Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 1,
+      "price": 1000,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "Add automatic [AD] to Vigilance checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 47
+      }
+    },
+    "destri_series_laminated_beast_armor": {
+      "id": "destri_series_laminated_beast_armor",
+      "_source_key": "DESTRIBEAST",
+      "name": "Destri-Series Laminated Beast Armor",
+      "description": "",
+      "soak": 4,
+      "defense": 0,
+      "encumbrance": 7,
+      "hardpoints": 1,
+      "price": 8500,
+      "rarity": 7,
+      "restricted": false,
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a beast.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "May ride a beast without suffering bareback penalty.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "categories": [
+        "Heavy",
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "_book_page": {
+        "book": "stay_on_target",
+        "page": 43
+      }
+    },
+    "diplomat_s_robes": {
+      "id": "diplomat_s_robes",
+      "_source_key": "DIPROBE",
+      "name": "Diplomat's Robes",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 400,
+      "rarity": 6,
+      "restricted": false,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [BO] to social checks claiming diplomatic authority, accessing classified data, and bypassing normal protocol.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "group",
+              "value": "social"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "categories": [
+        "Light",
+        "Half Body"
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 47
+      }
+    },
+    "enviro_suit": {
+      "id": "enviro_suit",
+      "_source_key": "ENVIROSUIT",
+      "name": "Enviro-suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 750,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Resistant"
+      ],
+      "sources": [
+        "enter_the_unknown"
+      ],
+      "base_mods": [
+        {
+          "description": "Suffer [SE] to any Agility- or Perception-based checks",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "characteristic",
+              "value": "agility"
+            },
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "enter_the_unknown",
+        "page": 44
+      }
+    },
+    "eod_mk_ii_armor": {
+      "id": "eod_mk_ii_armor",
+      "_source_key": "EODMKII",
+      "name": "EOD-Mk II Armor",
+      "description": "",
+      "soak": 4,
+      "encumbrance": 8,
+      "hardpoints": 0,
+      "price": 5300,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy"
+      ],
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Characters wearing this armor lose their free movement.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fully_operational",
+        "page": 42
+      }
+    },
+    "fabricator_s_protective_gear": {
+      "id": "fabricator_s_protective_gear",
+      "_source_key": "FABPROT",
+      "name": "Fabricator's Protective Gear",
+      "description": "",
+      "soak": 1,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 450,
+      "rarity": 1,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Has soak 3 against damage from Blast quality.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fully_operational",
+        "page": 43
+      }
+    },
+    "flare_jacket": {
+      "id": "flare_jacket",
+      "_source_key": "FLAREJACK",
+      "name": "Flare Jacket",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 1500,
+      "rarity": 8,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Once per encounter, can trigger flare charge. Everyone in short range makes Hard ([DI][DI][DI]) Vigilance check. Fail means staggered for 1 round, plus 1 round per [TH][TH][TH].",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 48
+      }
+    },
+    "formal_council_armor": {
+      "id": "formal_council_armor",
+      "_source_key": "FORMCOUNARM",
+      "name": "Formal Council Armor",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 5,
+      "hardpoints": 2,
+      "price": 8000,
+      "rarity": 10,
+      "restricted": true,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "base_mods": [
+        {
+          "description": "When wearing, add [AD][AD] to negotiation checks against people who hold Jedi in high regard.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Optionally, when wearing, add [AD][AD] to Coercion checks against people who hate or fear the Jedi.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "disciples_of_harmony",
+        "page": 45
+      }
+    },
+    "g_suit": {
+      "id": "g_suit",
+      "_source_key": "GSUIT",
+      "name": "G-Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 2000,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Resistant",
+        "Light"
+      ],
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer reduces strain cost to perform a second Pilot Only maneuver by 1.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "endless_vigil",
+        "page": 44
+      }
+    },
+    "gundark_scav_suit": {
+      "id": "gundark_scav_suit",
+      "_source_key": "GUNDSCAV",
+      "name": "\"Gundark\" Scav-Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 2,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Sealed",
+        "Full Body"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds [BO] to Perception checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Adds [BO][BO] to checks to avoid adverse effects of cold temperatures.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Removes [SE] imposed by cold-weather conditions on Perception checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        },
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        },
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 2
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 56
+      }
+    },
+    "h_series_megafauna_carriage": {
+      "id": "h_series_megafauna_carriage",
+      "_source_key": "MEGAFAUNA",
+      "name": "H-Series Megafauna Carriage",
+      "description": "",
+      "soak": 0,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 2,
+      "price": 5500,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Heavy"
+      ],
+      "sources": [
+        "stay_on_target"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a beast.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Requires silhouette 3+ and Brawn 5+.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "May ride a beast without suffering bareback penalty.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "stay_on_target",
+        "page": 43
+      }
+    },
+    "hauling_harness": {
+      "id": "hauling_harness",
+      "_source_key": "HAULHARN",
+      "name": "Hauling Harness",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 1000,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Heavy"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrade difficulty of combat checks twice.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 6,
+      "threshold_bonus_requires": "worn",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 48
+      }
+    },
+    "heavy_battle_armor": {
+      "id": "heavy_battle_armor",
+      "_source_key": "HBA",
+      "name": "Heavy Battle Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 6,
+      "hardpoints": 4,
+      "price": 5000,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "eote",
+        "aor",
+        "keeping_the_peace"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 170
+      }
+    },
+    "heavy_clothing": {
+      "id": "heavy_clothing",
+      "_source_key": "HC",
+      "name": "Heavy Clothing",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 50,
+      "rarity": 0,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 169
+      }
+    },
+    "heavy_robes": {
+      "id": "heavy_robes",
+      "_source_key": "HVYROBES",
+      "name": "Heavy Robes",
+      "description": "",
+      "soak": 0,
+      "defense": 1,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 150,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 56
+      }
+    },
+    "holographic_costume": {
+      "id": "holographic_costume",
+      "_source_key": "HOLOCOST",
+      "name": "Holographic Costume",
+      "description": "",
+      "soak": 0,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 750,
+      "rarity": 8,
+      "restricted": false,
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Easy ([DI]) Computers check to record new garment, Daunting ([DI][DI][DI][DI]) Computers check to record facsimile of garment.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "categories": [
+        "Full Body"
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 48
+      }
+    },
+    "ht_77_cold_assault_armor": {
+      "id": "ht_77_cold_assault_armor",
+      "_source_key": "HT77COLDARM",
+      "name": "HT-77 Cold Assault Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 6,
+      "hardpoints": 2,
+      "price": 4000,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Comes with built-in comlink.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Adds [BO][BO] to checks to avoid adverse effects of cold temperatures.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Removes [SE] imposed by cold-weather conditions on Perception checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        },
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 2
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 57
+      }
+    },
+    "hunter_s_trophy_armor": {
+      "id": "hunter_s_trophy_armor",
+      "_source_key": "HUNTTROPHARM",
+      "name": "Hunter's Trophy Armor",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 4,
+      "hardpoints": 1,
+      "price": 2000,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Half Body"
+      ],
+      "sources": [
+        "no_disintegrations"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer suffers [SE] to Charm checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Wearer gains [BO][BO] to Coercion checks due to armor's intimidating appearance.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "charm"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        },
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "coercion"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "no_disintegrations",
+        "page": 49
+      }
+    },
+    "hutt_shell_armor": {
+      "id": "hutt_shell_armor",
+      "_source_key": "HUTTSHELLARMOR",
+      "name": "Hutt Shell Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 2,
+      "encumbrance": 6,
+      "hardpoints": 4,
+      "price": 25000,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Powered",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "lords_of_nal_hutta"
+      ],
+      "base_mods": [
+        {
+          "description": "May only be worn by a Hutt.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Allows wearer to ignore the effects of Awkward and Ponderous abilities.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "lords_of_nal_hutta",
+        "page": 104
+      }
+    },
+    "imperial_hazard_trooper_armor": {
+      "id": "imperial_hazard_trooper_armor",
+      "_source_key": "IMPHAZARD",
+      "name": "Imperial Hazard Trooper Armor",
+      "description": "",
+      "soak": 3,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 18000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Powered",
+        "Sealed",
+        "Resistant"
+      ],
+      "sources": [
+        "forged_in_battle"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            },
+            {
+              "scope": "group",
+              "value": "combat"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "forged_in_battle",
+        "page": 49
+      }
+    },
+    "imperial_storm_commando_armor": {
+      "id": "imperial_storm_commando_armor",
+      "_source_key": "IMPSTORMCOMM",
+      "name": "Imperial Storm Commando Armor",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 4,
+      "hardpoints": 4,
+      "price": 5000,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "forged_in_battle"
+      ],
+      "base_mods": [
+        {
+          "description": "Helmet is equipped with macrobinoculars, scanner goggles, and a comlink.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Adds [SE] to other characters' Perception checks to detect the wearer.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        },
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 2
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "forged_in_battle",
+        "page": 49
+      }
+    },
+    "individual_field_disruptor": {
+      "id": "individual_field_disruptor",
+      "_source_key": "INDFLDDISR",
+      "name": "Individual Field Disruptor",
+      "description": "",
+      "defense": 1,
+      "price": 9500,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "base_mods": [
+        {
+          "description": "When in contact with another energy field, the field ceases to offer any defense.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "When entering engaged range with an electronic device, the device becomes inactive for the rest of the encounter.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "disciples_of_harmony",
+        "page": 45
+      }
+    },
+    "jedi_battle_armor": {
+      "id": "jedi_battle_armor",
+      "_source_key": "JEDIBA",
+      "name": "Jedi Battle Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 5,
+      "price": 7500,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Hard Full Body",
+        "Hard",
+        "Full Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearing Jedi Battle Armor fitted for someone else adds [SE][SE] to all combat checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Fitting to new wearer requires a Hard ([DI][DI][DI]) Mechanics check and an hour to complete.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "group",
+              "value": "combat"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 47
+      }
+    },
+    "jedi_commander_armor": {
+      "id": "jedi_commander_armor",
+      "_source_key": "JEDICOMM",
+      "name": "Jedi Commander Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 3,
+      "price": 5000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Resistant"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 57
+      }
+    },
+    "jedi_reconnaissance_armor": {
+      "id": "jedi_reconnaissance_armor",
+      "_source_key": "JEDIRECON",
+      "name": "Jedi Reconnaissance Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 2,
+      "price": 4000,
+      "rarity": 8,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer adds [BO] to Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "collapse_of_the_republic",
+        "page": 57
+      }
+    },
+    "jedi_temple_guard_armor": {
+      "id": "jedi_temple_guard_armor",
+      "_source_key": "JEDITEMGUAARM",
+      "name": "Jedi Temple Guard Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 2,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 12000,
+      "rarity": 10,
+      "restricted": true,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "Contains helmet comlink.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Contains integrated scanner.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 48
+      }
+    },
+    "jedi_training_suit_unweighted": {
+      "id": "jedi_training_suit_unweighted",
+      "_source_key": "JEDITRAINSUIT",
+      "name": "Jedi Training Suit (Unweighted)",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 0,
+      "price": 400,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Half Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 48
+      }
+    },
+    "jedi_training_suit_weighted": {
+      "id": "jedi_training_suit_weighted",
+      "_source_key": "JEDITRAINSUITW",
+      "name": "Jedi Training Suit (Weighted)",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 6,
+      "hardpoints": 0,
+      "price": 400,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Half Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "Removing weights requires an Easy ([DI]) Mechanics check.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 48
+      }
+    },
+    "karflo_thinsuit": {
+      "id": "karflo_thinsuit",
+      "_source_key": "THINSUIT",
+      "name": "Karflo Thinsuit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "price": 1200,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Resistant",
+        "Light"
+      ],
+      "sources": [
+        "forged_in_battle"
+      ],
+      "base_mods": [
+        {
+          "description": "Remove [SE][SE] from checks imposed by environment in which the user is currently operating.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "forged_in_battle",
+        "page": 50
+      }
+    },
+    "katarn_class_commando_armor": {
+      "id": "katarn_class_commando_armor",
+      "_source_key": "KATARNCOMM",
+      "name": "Katarn-Class Commando Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 6500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Sealed"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "_provenance": "oggdude"
+    },
+    "kav_dann_power_armor": {
+      "id": "kav_dann_power_armor",
+      "_source_key": "KAVDANNPA",
+      "name": "Kav-Dann Power Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 2,
+      "encumbrance": 4,
+      "hardpoints": 6,
+      "price": 13500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Hard Full Body",
+        "Hard",
+        "Full Body",
+        "Powered",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Gain [BO] to resist the effects of radiation.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            },
+            {
+              "scope": "group",
+              "value": "combat"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        },
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 48
+      }
+    },
+    "koromondian_half_vest": {
+      "id": "koromondian_half_vest",
+      "_source_key": "KOROHALFVEST",
+      "name": "Koromondian Half-Vest",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Heavy"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "base_mods": [
+        {
+          "description": "When wearer suffers Critical Injury, armor suffers minor damage, or increases current damage by one step.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 49
+      }
+    },
+    "laminate": {
+      "id": "laminate",
+      "_source_key": "LAM",
+      "name": "Laminate",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 2500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "eote",
+        "aor"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 169
+      }
+    },
+    "lector_s_outfit": {
+      "id": "lector_s_outfit",
+      "_source_key": "LECOUT",
+      "name": "Lector's Outfit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 525,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [BO] to social checks involving large groups of listeners.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Can be heard clearly at considerable range.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "group",
+              "value": "social"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 48
+      }
+    },
+    "leviathan_power_armor": {
+      "id": "leviathan_power_armor",
+      "_source_key": "LEVPOWARM",
+      "name": "Leviathan Power Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 2,
+      "encumbrance": 8,
+      "hardpoints": 1,
+      "price": 15000,
+      "rarity": 8,
+      "restricted": false,
+      "categories": [
+        "Sealed",
+        "Hard Full Body",
+        "Hard",
+        "Full Body",
+        "Powered",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "Includes a built-in respirator",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Includes a built-in Mini-Torpedo Launcher",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Includes a built-in DF-D1 Duo-Flechette Rifle",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "resilience"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 3
+          },
+          "direction": "remove"
+        },
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 4
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "strongholds_of_resistance",
+        "page": 109
+      }
+    },
+    "mandalorian_armor": {
+      "id": "mandalorian_armor",
+      "_source_key": "MANDOARM",
+      "name": "Mandalorian Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 6,
+      "hardpoints": 5,
+      "price": 6000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard Full Body",
+        "Heavy",
+        "Sealable",
+        "Hard"
+      ],
+      "sources": [
+        "no_disintegrations"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "no_disintegrations",
+        "page": 50
+      }
+    },
+    "mechanic_s_utility_suit": {
+      "id": "mechanic_s_utility_suit",
+      "_source_key": "MECHUTILSUIT",
+      "name": "Mechanic's Utility Suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 5,
+      "hardpoints": 1,
+      "price": 1175,
+      "rarity": 3,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Counts as having a tool kit.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "special_modifications",
+        "page": 48
+      }
+    },
+    "mimetic_suit": {
+      "id": "mimetic_suit",
+      "_source_key": "MIMETICSUIT",
+      "name": "Mimetic Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 2,
+      "price": 8000,
+      "rarity": 8,
+      "restricted": true,
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Upgrade the ability of Stealth checks twice while suit is active.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "categories": [
+        "Full Body"
+      ],
+      "_book_page": {
+        "book": "fly_casual",
+        "page": 47
+      }
+    },
+    "mk_i_katarn_class_commando_armor": {
+      "id": "mk_i_katarn_class_commando_armor",
+      "_source_key": "MK1KATARN",
+      "name": "Mk I Katarn-Class Commando Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 6500,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Heavy",
+        "Sealed"
+      ],
+      "sources": [
+        "knights_of_fate"
+      ],
+      "base_mods": [
+        {
+          "description": "Suit provides all benefits of a combat scanner",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Suit provides all benefits of a breath mask",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Removes [SE] from Perception and Survival checks",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 3,
+      "threshold_bonus_requires": "worn",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "survival"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 2
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "knights_of_fate",
+        "page": 47
+      }
+    },
+    "mk_i_nightstalker_suit": {
+      "id": "mk_i_nightstalker_suit",
+      "_source_key": "MKINIGHTSTALK",
+      "name": "Mk I Nightstalker Suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 4800,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer adds automatic [SU] to Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Wearer adds automatic [TH] to social skill checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "cyphers_and_masks",
+        "page": 41
+      }
+    },
+    "mk_ii_hotspot_insulated_armor": {
+      "id": "mk_ii_hotspot_insulated_armor",
+      "_source_key": "MKIIINSARM",
+      "name": "Mk II \"Hotspot\" Insulated Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 6,
+      "hardpoints": 2,
+      "price": 5500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Comes with built-in comlink.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Adds [BO][BO] to checks to avoid adverse effects of extreme heat or toxic gas.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Attackers must spend one additional [AD] to activate Burn quality and treat rating as one less.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 57
+      }
+    },
+    "mk_ii_steelskin_anti_concussive_armor": {
+      "id": "mk_ii_steelskin_anti_concussive_armor",
+      "_source_key": "STEELSKIN",
+      "name": "Mk.II \"Steelskin\" Anti-Concussive Armor",
+      "description": "",
+      "soak": 3,
+      "defense": 0,
+      "encumbrance": 8,
+      "hardpoints": 1,
+      "price": 6500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Adds [SE] to any Brawn- or Agility-based skill checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Reduce the duration of disoriented or staggered condition by 1 round.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "characteristic",
+              "value": "brawn"
+            },
+            {
+              "scope": "characteristic",
+              "value": "agility"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 51
+      }
+    },
+    "mk_iii_flak_vest": {
+      "id": "mk_iii_flak_vest",
+      "_source_key": "FLAKVEST",
+      "name": "Mk. III Flak Vest",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 1,
+      "price": 300,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Add +1 Soak against damage from the Blast quality.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 50
+      }
+    },
+    "mk_iv_riot_armor": {
+      "id": "mk_iv_riot_armor",
+      "_source_key": "RIOTARMOR",
+      "name": "Mk.IV Riot Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 1,
+      "price": 1850,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Heavy"
+      ],
+      "sources": [
+        "far_horizons"
+      ],
+      "base_mods": [
+        {
+          "description": "Built-in breath mask",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Reduce duration of disoriented or staggered results by one round (minimum of one round).",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "far_horizons",
+        "page": 44
+      }
+    },
+    "mk_ix_personal_mimetic_concealment_suit": {
+      "id": "mk_ix_personal_mimetic_concealment_suit",
+      "_source_key": "MKIXMIM",
+      "name": "Mk IX Personal Mimetic Concealment Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 8000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "cyphers_and_masks"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer upgrades ability of all Stealth checks twice.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "GM may spend [TH][TH][TH] or [DE] to cause the power pack to run out.",
+          "never_modelled": "gm_discretion"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "cyphers_and_masks",
+        "page": 42
+      }
+    },
+    "n_57_armor": {
+      "id": "n_57_armor",
+      "_source_key": "N57",
+      "name": "N-57 Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 5,
+      "hardpoints": 5,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Sealable",
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Heavy",
+        "Resistant",
+        "Powered"
+      ],
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "As a maneuver, may recharge energy weapon that has run out of ammo.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "special_modifications",
+        "page": 48
+      }
+    },
+    "noble_regalia": {
+      "id": "noble_regalia",
+      "_source_key": "NOBREG",
+      "name": "Noble Regalia",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 3,
+      "price": 750,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Downgrade difficulty of social checks to interact with nobility or subordinates once.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 49
+      }
+    },
+    "nomad_greatcoat": {
+      "id": "nomad_greatcoat",
+      "_source_key": "NOMADCOAT",
+      "name": "Nomad Greatcoat",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 100,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Removes [SE] added to checks due to extreme cold",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "suns_of_fortune",
+        "page": 99
+      }
+    },
+    "p_14_hazardous_industry_suit": {
+      "id": "p_14_hazardous_industry_suit",
+      "_source_key": "P14",
+      "name": "P-14 Hazardous Industry Suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 7,
+      "hardpoints": 2,
+      "price": 1000,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Heavy",
+        "Resistant",
+        "Sealed"
+      ],
+      "sources": [
+        "special_modifications"
+      ],
+      "base_mods": [
+        {
+          "description": "Counts as wearing a breath mask.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Add [BO][BO] to Resilience checks to resist heat, cold, radiation, or other hostile environmental conditions.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Wearer does not suffer effects of Burn or Disorient qualities.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "When suffering strain to take an extra maneuver, suffer 1 additional strain.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "resilience"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "special_modifications",
+        "page": 48
+      }
+    },
+    "padded_armor": {
+      "id": "padded_armor",
+      "_source_key": "PAD",
+      "name": "Padded Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 500,
+      "rarity": 1,
+      "restricted": false,
+      "categories": [
+        "Resistant"
+      ],
+      "sources": [
+        "eote",
+        "aor",
+        "fad"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 169
+      }
+    },
+    "performer_s_attire": {
+      "id": "performer_s_attire",
+      "_source_key": "PERFATT",
+      "name": "Performer's Attire",
+      "description": "",
+      "soak": 0,
+      "defense": 0,
+      "encumbrance": 0,
+      "hardpoints": 0,
+      "price": 50,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [BO] to checks to perform or attract attention.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 49
+      }
+    },
+    "personal_deflector_shield": {
+      "id": "personal_deflector_shield",
+      "_source_key": "PDS",
+      "name": "Personal Deflector Shield",
+      "description": "",
+      "soak": 0,
+      "defense": 2,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 10000,
+      "rarity": 8,
+      "restricted": false,
+      "categories": [
+        "Heavy"
+      ],
+      "sources": [
+        "eote",
+        "aor"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "gm_discretion"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "eote",
+        "page": 170
+      }
+    },
+    "phase_i_arc_trooper_armor": {
+      "id": "phase_i_arc_trooper_armor",
+      "_source_key": "PHASEIARC",
+      "name": "Phase I ARC Trooper Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 2,
+      "price": 5000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "knights_of_fate",
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Provides all benefits of a hardened comlink",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Removes [SE] from all Perception checks",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 3,
+      "threshold_bonus_requires": "worn",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "knights_of_fate",
+        "page": 48
+      }
+    },
+    "phase_i_arc_trooper_armor_rise_of_the_separatists": {
+      "id": "phase_i_arc_trooper_armor_rise_of_the_separatists",
+      "_source_key": "ARC",
+      "name": "Phase I ARC Trooper Armor (Rise of the Separatists)",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 4,
+      "price": 6000,
+      "rarity": 7,
+      "restricted": true,
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 3,
+      "threshold_bonus_requires": "worn",
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 58
+      }
+    },
+    "phase_i_clone_trooper_armor": {
+      "id": "phase_i_clone_trooper_armor",
+      "_source_key": "PHASEICLONE",
+      "name": "Phase I Clone Trooper Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 2000,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Provides all benefits of a comlink",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Wearer suffers [SE] to Coordination checks until acclimated to armor.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "coordination"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 58
+      }
+    },
+    "phase_ii_arc_trooper_armor": {
+      "id": "phase_ii_arc_trooper_armor",
+      "_source_key": "PHASEIIARC",
+      "name": "Phase II ARC Trooper Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 2,
+      "price": 5500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "base_mods": [
+        {
+          "description": "Includes an integrated comlink with scrambler.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Incorporates emergency rations, water filtration, microfiber line, and distress beacon.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "collapse_of_the_republic",
+        "page": 57
+      }
+    },
+    "phase_ii_clone_trooper_armor": {
+      "id": "phase_ii_clone_trooper_armor",
+      "_source_key": "PHASEIICLONE",
+      "name": "Phase II Clone Trooper Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 4,
+      "hardpoints": 4,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "base_mods": [
+        {
+          "description": "Includes an integrated comlink with scrambler.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "collapse_of_the_republic",
+        "page": 57
+      }
+    },
+    "pioneer_armor": {
+      "id": "pioneer_armor",
+      "_source_key": "PIONEER",
+      "name": "Pioneer Armor",
+      "description": "",
+      "soak": 1,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 200,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "fully_operational"
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 3,
+      "threshold_bonus_requires": "worn",
+      "_book_page": {
+        "book": "fully_operational",
+        "page": 43
+      }
+    },
+    "pit_crew_coveralls": {
+      "id": "pit_crew_coveralls",
+      "_source_key": "PITCREWCOV",
+      "name": "Pit Crew Coveralls",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 1,
+      "price": 150,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 1,
+      "threshold_bonus_requires": "worn",
+      "_book_page": {
+        "book": "endless_vigil",
+        "page": 44
+      }
+    },
+    "polis_massan_bodysuit": {
+      "id": "polis_massan_bodysuit",
+      "_source_key": "BODYSUIT",
+      "name": "Polis Massan Bodysuit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 1,
+      "price": 300,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "Includes a head-mounted multidirectional glow rod.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "strongholds_of_resistance",
+        "page": 109
+      }
+    },
+    "powered_capacitive_armor": {
+      "id": "powered_capacitive_armor",
+      "_source_key": "POWCAPARM",
+      "name": "Powered Capacitive Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 2,
+      "price": 3000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Powered",
+        "Heavy"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "As maneuver, power up and add +1 defense and +1 soak, but lose free maneuver.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 49
+      }
+    },
+    "protector_1_combat_armor": {
+      "id": "protector_1_combat_armor",
+      "_source_key": "PROTECTOR",
+      "name": "Protector 1 Combat Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 3,
+      "price": 5500,
+      "rarity": 7,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 51
+      }
+    },
+    "px_11_battlement_powered_armor": {
+      "id": "px_11_battlement_powered_armor",
+      "_source_key": "POWARMOR",
+      "name": "PX-11 \"Battlement\" Powered Armor",
+      "description": "",
+      "soak": 3,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 3,
+      "price": 9000,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Hard",
+        "Hard Full Body",
+        "Powered",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "Remove [SE][SE] from Perception, Vigilance, and combat checks imposed by darkness, smoke, or similar environmental factors that obscure vision.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        }
+      ],
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 51
+      }
+    },
+    "rebel_heavy_battle_armor": {
+      "id": "rebel_heavy_battle_armor",
+      "_source_key": "REBELHEAVY",
+      "name": "Rebel Heavy Battle Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 5,
+      "hardpoints": 5,
+      "price": 6000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard Full Body",
+        "Hard",
+        "Resistant"
+      ],
+      "sources": [
+        "forged_in_battle"
+      ],
+      "base_mods": [
+        {
+          "description": "Equipped with a helmet-fitted breath mask and respirator.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "forged_in_battle",
+        "page": 50
+      }
+    },
+    "reflect_body_glove": {
+      "id": "reflect_body_glove",
+      "_source_key": "REFBODYGL",
+      "name": "Reflect Body Glove",
+      "description": "",
+      "soak": 3,
+      "encumbrance": 2,
+      "price": 2500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [SE][SE] to Vigilance and Perception checks to notice the body glove.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "After each successful combat check against wearer is resolved, reduce Soak by 1, to a minimum of 0.",
+          "effect": {
+            "type": "soak_delta",
+            "value": -1
+          }
+        },
+        {
+          "description": "Original Soak value may be restored by making a successful Average ([DI][DI]) Mechanics check.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "vigilance"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "disciples_of_harmony",
+        "page": 46
+      }
+    },
+    "reinforced_environment_gear": {
+      "id": "reinforced_environment_gear",
+      "_source_key": "REINFENVIRO",
+      "name": "Reinforced Environment Gear",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 2,
+      "price": 850,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "far_horizons"
+      ],
+      "base_mods": [
+        {
+          "description": "Removes [SE] imposed by environmental conditions.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "all"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "remove"
+        },
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "resilience"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "far_horizons",
+        "page": 44
+      }
+    },
+    "resplendent_robes": {
+      "id": "resplendent_robes",
+      "_source_key": "RESPROBES",
+      "name": "Resplendent Robes",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Light"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "If wearer draws attention to himself, allies in medium range add [BO] to Perception, Skulduggery, and Stealth checks.",
+          "never_modelled": "conditional_triggered",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            },
+            {
+              "scope": "skill",
+              "value": "skulduggery"
+            },
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 49
+      }
+    },
+    "riot_armor": {
+      "id": "riot_armor",
+      "_source_key": "RIOTARM",
+      "name": "Riot Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 950,
+      "rarity": 4,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "keeping_the_peace"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "keeping_the_peace",
+        "page": 49
+      }
+    },
+    "sakiyan_shadowsuit": {
+      "id": "sakiyan_shadowsuit",
+      "_source_key": "SAKSHADOW",
+      "name": "Sakiyan Shadowsuit",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 1,
+      "price": 2500,
+      "rarity": 8,
+      "restricted": false,
+      "sources": [
+        "lords_of_nal_hutta"
+      ],
+      "base_mods": [
+        {
+          "description": "Grants [BO][BO] to Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "boost",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "_book_page": {
+        "book": "lords_of_nal_hutta",
+        "page": 105
+      }
+    },
+    "scavenged_clone_armor": {
+      "id": "scavenged_clone_armor",
+      "_source_key": "SCAVCLONE",
+      "name": "Scavenged Clone Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 5,
+      "hardpoints": 2,
+      "price": 1000,
+      "rarity": 4,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard",
+        "Hard Full Body"
+      ],
+      "sources": [
+        "rise_of_the_separatists"
+      ],
+      "base_mods": [
+        {
+          "description": "Suffer [SE] on Coordination and Stealth checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        },
+        {
+          "description": "Wearer may suffer [SE] or more on interactions with Republic officials and representatives.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "coordination"
+            },
+            {
+              "scope": "skill",
+              "value": "stealth"
+            }
+          ],
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        },
+        {
+          "die": "setback",
+          "count": 1,
+          "applies_to": null,
+          "condition": null,
+          "from": {
+            "channel": "base_mods",
+            "index": 1
+          },
+          "direction": null
+        }
+      ],
+      "_book_page": {
+        "book": "rise_of_the_separatists",
+        "page": 58
+      }
+    },
+    "seascape_diving_suit": {
+      "id": "seascape_diving_suit",
+      "_source_key": "DIVESUIT",
+      "name": "SeaScape Diving Suit",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 400,
+      "rarity": 2,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Sealed"
+      ],
+      "sources": [
+        "disciples_of_harmony"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer does not suffer movement penalties for traveling through water.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "disciples_of_harmony",
+        "page": 46
+      }
+    },
+    "second_skin_armor": {
+      "id": "second_skin_armor",
+      "_source_key": "SECSKIN",
+      "name": "Second Skin Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 2000,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "desperate_allies"
+      ],
+      "base_mods": [
+        {
+          "description": "",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "pool_mods": [
+        {
+          "die": "setback",
+          "count": 2,
+          "applies_to": [
+            {
+              "scope": "skill",
+              "value": "perception"
+            }
+          ],
+          "condition": "",
+          "from": {
+            "channel": "base_mods",
+            "index": 0
+          },
+          "direction": "add"
+        }
+      ],
+      "_book_page": {
+        "book": "desperate_allies",
+        "page": 49
+      }
+    },
+    "sith_pain_harness": {
+      "id": "sith_pain_harness",
+      "_source_key": "SITHPAIN",
+      "name": "Sith Pain Harness",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 2,
+      "hardpoints": 0,
+      "price": 3500,
+      "rarity": 9,
+      "restricted": true,
+      "categories": [
+        "Half Body"
+      ],
+      "sources": [
+        "unlimited_power"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer may suffer 1 wound as incidental to add [SU] to next Discipline check that round.  Must suffer 1 Conflict.",
+          "effect": {
+            "type": "dicepool"
+          },
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "unlimited_power",
+        "page": 51
+      }
+    },
+    "skakoan_pressure_suit": {
+      "id": "skakoan_pressure_suit",
+      "_source_key": "SKAKPRESS",
+      "name": "Skakoan Pressure Suit",
+      "description": "",
+      "soak": 2,
+      "encumbrance": 3,
+      "hardpoints": 3,
+      "price": 2500,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Sealed"
+      ],
+      "sources": [
+        "fully_operational"
+      ],
+      "base_mods": [
+        {
+          "description": "Allows Skakoans to breath in non-methane atmospheres.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "Cannot acquire unless on Skako.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fully_operational",
+        "page": 23
+      }
+    },
+    "smuggler_s_trenchcoat": {
+      "id": "smuggler_s_trenchcoat",
+      "_source_key": "SMUGGLERSTRENCHCOAT",
+      "name": "Smuggler's Trenchcoat",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 1650,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Half Body",
+        "Heavy"
+      ],
+      "sources": [
+        "fly_casual"
+      ],
+      "base_mods": [
+        {
+          "description": "Checks to find anything hidden within a smuggler's trenchcoat are opposed by the Skulduggery of the wearer.",
+          "never_modelled": "narrative"
+        },
+        {
+          "description": "The coat can conceal up to 2 encumbrance worth of items.",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "fly_casual",
+        "page": 47
+      }
+    },
+    "storm_charge_suit": {
+      "id": "storm_charge_suit",
+      "_source_key": "CHARGESUIT",
+      "name": "\"Storm\" Charge Suit",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 0,
+      "price": 2000,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Heavy",
+        "Resistant"
+      ],
+      "sources": [
+        "dangerous_covenants"
+      ],
+      "base_mods": [
+        {
+          "description": "If attack against armor generates [TH][TH], attacker is disoriented for 1 round.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "If attack against armor generates [DE], attacker is automatically hit for 8 damage.",
+          "never_modelled": "conditional_triggered"
+        },
+        {
+          "description": "Counts as being equipped with shock gloves",
+          "never_modelled": "narrative"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "dangerous_covenants",
+        "page": 50
+      }
+    },
+    "survivalist_armor": {
+      "id": "survivalist_armor",
+      "_source_key": "SURVIVALARMOR",
+      "name": "Survivalist Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 350,
+      "rarity": 6,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "savage_spirits"
+      ],
+      "_provenance": "oggdude",
+      "encumbrance_threshold_bonus": 1,
+      "threshold_bonus_requires": "worn",
+      "_book_page": {
+        "book": "savage_spirits",
+        "page": 45
+      }
+    },
+    "tailored_armored_jacket": {
+      "id": "tailored_armored_jacket",
+      "_source_key": "TAILOREDJACKET",
+      "name": "Tailored Armored Jacket",
+      "description": "",
+      "soak": 2,
+      "defense": 0,
+      "encumbrance": 1,
+      "hardpoints": 0,
+      "price": 6200,
+      "rarity": 7,
+      "restricted": false,
+      "categories": [
+        "Resistant"
+      ],
+      "sources": [
+        "far_horizons"
+      ],
+      "base_mods": [
+        {
+          "description": "Add [AD] to any successful Charm, Deception, or Negotiation checks.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "far_horizons",
+        "page": 44
+      }
+    },
+    "timber_cuirass": {
+      "id": "timber_cuirass",
+      "_source_key": "TIMBERCUIR",
+      "name": "Timber Cuirass",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 1,
+      "price": 4000,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Half Body"
+      ],
+      "sources": [
+        "unlimited_power"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "unlimited_power",
+        "page": 51
+      }
+    },
+    "tx_3_combat_flight_suit": {
+      "id": "tx_3_combat_flight_suit",
+      "_source_key": "FLIGHTTX3",
+      "name": "TX-3 Combat Flight Suit",
+      "description": "",
+      "soak": 0,
+      "defense": 1,
+      "encumbrance": 4,
+      "hardpoints": 2,
+      "price": 3000,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Sealed",
+        "Full Body",
+        "Heavy"
+      ],
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "base_mods": [
+        {
+          "description": "May survive up to 24 hours in a vacuum",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "suns_of_fortune",
+        "page": 99
+      }
+    },
+    "type_iii_berethron_personal_modular_armor": {
+      "id": "type_iii_berethron_personal_modular_armor",
+      "_source_key": "MODARMORIII",
+      "name": "Type III \"Berethron\" Personal Modular Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 3,
+      "hardpoints": 3,
+      "price": 1250,
+      "rarity": 6,
+      "restricted": true,
+      "categories": [
+        "Half Body"
+      ],
+      "sources": [
+        "suns_of_fortune"
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "suns_of_fortune",
+        "page": 99
+      }
+    },
+    "verpine_fiber_ultramesh_armor": {
+      "id": "verpine_fiber_ultramesh_armor",
+      "_source_key": "VERPFIBUARM",
+      "name": "Verpine Fiber Ultramesh Armor",
+      "description": "",
+      "soak": 1,
+      "defense": 0,
+      "encumbrance": 3,
+      "hardpoints": 2,
+      "price": 3000,
+      "rarity": 5,
+      "restricted": false,
+      "categories": [
+        "Full Body",
+        "Light"
+      ],
+      "sources": [
+        "strongholds_of_resistance"
+      ],
+      "base_mods": [
+        {
+          "description": "Armor may be powered up/down as a maneuver.  While powered up, gain +2 defenses. [AD][AD] or [TR] from hostile Combat check can cause armor to run out of power.  Cannot be powered up again until end of encounter.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "strongholds_of_resistance",
+        "page": 109
+      }
+    },
+    "waterweave": {
+      "id": "waterweave",
+      "_source_key": "WATERWEAVE",
+      "name": "Waterweave",
+      "description": "",
+      "soak": 1,
+      "defense": 2,
+      "encumbrance": 7,
+      "hardpoints": 1,
+      "price": 6500,
+      "rarity": 9,
+      "restricted": false,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "unlimited_power"
+      ],
+      "base_mods": [
+        {
+          "description": "When submerged, encumbrance changes to 0.",
+          "never_modelled": "conditional_triggered"
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "unlimited_power",
+        "page": 51
+      }
+    },
+    "zephyr_stealth_suit": {
+      "id": "zephyr_stealth_suit",
+      "_source_key": "ZEPHYRSTEALTH",
+      "name": "Zephyr Stealth Suit",
+      "description": "",
+      "soak": 1,
+      "defense": 1,
+      "encumbrance": 2,
+      "hardpoints": 1,
+      "price": 5500,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body"
+      ],
+      "sources": [
+        "endless_vigil"
+      ],
+      "base_mods": [
+        {
+          "description": "Wearer upgrades the ability of any Stealth check once.",
+          "effect": {
+            "type": "dicepool"
+          }
+        }
+      ],
+      "_provenance": "oggdude",
+      "_book_page": {
+        "book": "endless_vigil",
+        "page": 44
+      }
+    },
+    "mandalorian_armor_cotr": {
+      "id": "mandalorian_armor_cotr",
+      "name": "Mandalorian Armor",
+      "description": "",
+      "soak": 2,
+      "defense": 1,
+      "encumbrance": 6,
+      "hardpoints": 5,
+      "price": 6000,
+      "rarity": 8,
+      "restricted": true,
+      "categories": [
+        "Full Body",
+        "Hard Full Body",
+        "Heavy",
+        "Sealed",
+        "Hard"
+      ],
+      "sources": [
+        "collapse_of_the_republic"
+      ],
+      "_provenance": "book",
+      "_book_page": {
+        "book": "collapse_of_the_republic",
+        "page": 57
+      }
+    }
+  }
+}

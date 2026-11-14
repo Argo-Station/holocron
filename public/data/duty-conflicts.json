@@ -1,0 +1,102 @@
+{
+  "table": "AoR Table 2-3 Duty",
+  "roll": "d100",
+  "results": [
+    {
+      "range": [
+        1,
+        8
+      ],
+      "type": "Combat Victory"
+    },
+    {
+      "range": [
+        9,
+        16
+      ],
+      "type": "Counter-Intelligence"
+    },
+    {
+      "range": [
+        17,
+        24
+      ],
+      "type": "Intelligence"
+    },
+    {
+      "range": [
+        25,
+        32
+      ],
+      "type": "Internal Security"
+    },
+    {
+      "range": [
+        33,
+        40
+      ],
+      "type": "Personnel"
+    },
+    {
+      "range": [
+        41,
+        48
+      ],
+      "type": "Political Support"
+    },
+    {
+      "range": [
+        49,
+        56
+      ],
+      "type": "Recruiting"
+    },
+    {
+      "range": [
+        57,
+        64
+      ],
+      "type": "Resource Acquisition"
+    },
+    {
+      "range": [
+        65,
+        72
+      ],
+      "type": "Sabotage"
+    },
+    {
+      "range": [
+        73,
+        80
+      ],
+      "type": "Space Superiority"
+    },
+    {
+      "range": [
+        81,
+        88
+      ],
+      "type": "Tech Procurement"
+    },
+    {
+      "range": [
+        89,
+        96
+      ],
+      "type": "Support"
+    },
+    {
+      "range": [
+        97,
+        100
+      ],
+      "special": "split_focus",
+      "note": "Roll twice. Duty is split equally between two focuses."
+    }
+  ],
+  "notes": [
+    "Range mapping is from the printed Duty table (your screenshot).",
+    "If a roll hits 97–100, roll twice and split starting Duty equally between the two results."
+  ]
+}

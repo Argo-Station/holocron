@@ -1,0 +1,264 @@
+{
+  "id": "crimson_dawn",
+  "name": "Crimson Dawn",
+  "type": "criminal_syndicate",
+  "era_active": [
+    "imperial"
+  ],
+  "source_refs": [
+    "Collapse of the Republic p.132 — Crimson Dawn listed among criminal cartels receiving Imperial favors through bribery",
+    "Gadgets and Gear p.21 — Qi'ra's customized Monitzer S-195 blaster pistol, gift from Dryden Vos celebrating her promotion to lieutenant within Crimson Dawn",
+    "Starships and Speeders p.89 — Crimson Dawn agents contact PCs aboard the luxury yacht First Light; adventure seed involving elimination of Zann Consortium rivals",
+    "Starships and Speeders p.89 — Dryden Vos's night-black plated yacht First Light referenced as Kalevalan-class luxury vessel"
+  ],
+  "overview": "A ruthless criminal syndicate operating during the Imperial era, Crimson Dawn maintains a veneer of sophistication over brutal enforcement. Led publicly by Dryden Vos from his luxury yacht First Light, the organization is secretly controlled by the former Sith Lord Maul. Crimson Dawn specializes in high-value criminal operations including coaxium smuggling, extortion, and leveraging Imperial corruption for preferential treatment.",
+  "short_descriptor": "In flux. Leadership changed and the organization changed with it. What you knew about them six months ago may not apply. Treat existing intelligence as provisional until confirmed.",
+  "witness_statement": {
+    "text": "I was mid-level. Ran a coaxium relay on the Kessel corridor for two standard years. Then the leadership shifted and my handler vanished overnight — no warning, no handoff. Found out later three people above me were dead within the same rotation. That's how transitions work there. You don't get a memo. You get silence, and silence means run.",
+    "source": "Former Crimson Dawn associate — debriefed after defection, Ord Mantell safehouse",
+    "verification": "CONFIRMED — SINGLE SOURCE"
+  },
+  "how_they_operate": [
+    {
+      "heading": "DUAL COMMAND",
+      "text": "Crimson Dawn is organized around a dual command structure that most of its own members do not fully understand."
+    },
+    {
+      "heading": "DRYDEN VOS, THE PUBLIC FACE",
+      "text": "Publicly, Dryden Vos directs operations from his luxury yacht First Light, cultivating an image of refined inevitability — invitations to the yacht function simultaneously as business proposals and threats."
+    },
+    {
+      "heading": "SECTOR LIEUTENANTS",
+      "text": "Sector lieutenants like Qi'ra manage regional operations with significant autonomy, overseeing front businesses that provide cover for coaxium smuggling, extortion, and high-value criminal logistics."
+    },
+    {
+      "heading": "MAUL, THE HIDDEN HAND",
+      "text": "Behind Vos, the former Sith Lord Maul controls the organization's strategic direction through channels that lieutenants cannot trace; his orders arrive without attribution and override normal priorities without explanation."
+    },
+    {
+      "heading": "IMPERIAL LEVERAGE",
+      "text": "Imperial bureaucrats are maintained on consistent bribery payrolls, providing preferential treatment in customs enforcement and territorial disputes."
+    },
+    {
+      "heading": "ADVANCEMENT AND SUCCESSION",
+      "text": "Internal advancement is merit-based in the narrowest sense — results earn promotion, failure earns death, and ambition is encouraged right up to the point it threatens someone above. Leadership transitions are abrupt and lethal; when command changes, entire tiers of the organization may be eliminated overnight with no warning and no handoff."
+    }
+  ],
+  "motivations": {
+    "primary": "Criminal empire expansion",
+    "secondary": [
+      "Control of high-value commodities like coaxium",
+      "Cultivating Imperial corruption for operational cover",
+      "Maul's hidden agenda of vengeance and power accumulation",
+      "Maintaining an image of sophistication and inevitability"
+    ],
+    "notes": "Crimson Dawn's visible motivations — profit and territorial control — mask Maul's deeper agenda. Dryden Vos pursues wealth and influence believing himself the true leader, while serving as Maul's proxy. This dual-layer command structure means lieutenants serve goals they don't fully understand."
+  },
+  "goals": {
+    "strategic": [
+      "Establish dominance in high-value smuggling corridors, particularly hyperfuel and coaxium routes",
+      "Build a network of corrupted Imperial bureaucrats who provide preferential treatment in exchange for consistent bribes",
+      "Expand territorial control by absorbing or eliminating rival syndicates",
+      "Advance Maul's hidden agenda of accumulating power outside both Imperial and Rebel awareness"
+    ],
+    "operational": [
+      "Complete high-stakes deliveries on impossible timelines to maintain reputation",
+      "Maintain front businesses that provide cover for criminal operations",
+      "Recruit and promote ambitious operatives who demonstrate ruthless effectiveness",
+      "Eliminate anyone who discovers the true chain of command leading to Maul"
+    ]
+  },
+  "methods": {
+    "preferred": [
+      "debt_leverage",
+      "bribery",
+      "hired_muscle",
+      "assassination",
+      "intimidation",
+      "infiltration"
+    ],
+    "avoided": [
+      "Open warfare with the Empire — Crimson Dawn relies on Imperial corruption, not confrontation",
+      "Democratic or consensus-based decision making — authority flows strictly downward",
+      "Operations that draw prolonged public attention — they prefer swift, decisive action in the shadows"
+    ],
+    "notes": "Crimson Dawn operates through a combination of sophistication and savagery. Front businesses and legitimate-seeming enterprises provide cover, while enforcement is swift and lethal. Imperial bureaucrats are bribed with consistent payments for preferential treatment. The organization values results above all — failure is punished with death, success with advancement."
+  },
+  "strengths": [
+    "Sophisticated front operations that blend criminal enterprise with legitimate business",
+    "Established bribery networks within Imperial bureaucracy providing preferential treatment",
+    "Access to high-value commodities like coaxium that other syndicates cannot reliably obtain",
+    "Fear-based loyalty enforced by Dryden Vos's reputation for lethal punishment of failure",
+    "Hidden Force-sensitive leadership (Maul) providing strategic advantages invisible to rivals"
+  ],
+  "weaknesses": [
+    "The organization's public-facing command structure centers entirely on Dryden Vos; his removal would sever the visible chain of command and trigger succession conflicts among lieutenants.",
+    "The dual command layer — Vos as public leader, Maul as hidden authority — produces information gaps between tiers, and lieutenants with partial visibility into the structure can exploit those gaps for personal advantage.",
+    "Bribed Imperial officials maintain transactional relationships with no ideological loyalty to Crimson Dawn; sufficient Imperial pressure on any individual contact can reverse their cooperation.",
+    "Operational timelines are consistently set at the minimum viable margin, leaving no contingency for delays, interdiction, or supply chain disruption.",
+    "The promotion model selects for ruthless ambition, producing a lieutenant class whose demonstrated willingness to eliminate rivals extends naturally to their own superiors."
+  ],
+  "behavior_under_threat": {
+    "low": "Deploy intermediaries to resolve the issue through bribery or veiled threats. No direct involvement from leadership.",
+    "medium": "Dryden Vos takes personal interest. The threat receives an invitation to the First Light — a meeting that is simultaneously an offer and a warning.",
+    "high": "Enforcement teams are deployed with lethal authority. Front businesses are burned to deny evidence. Compromised Imperial contacts are activated to redirect official attention.",
+    "critical": "Maul's influence becomes felt through cryptic orders that override normal command structure. Assets are sacrificed without explanation. Entire operations are abandoned if they threaten to expose the true leadership."
+  },
+  "alert_escalation": {
+    "communication_method": "comlink",
+    "escalation_speed": "hours",
+    "chain_of_command": [
+      "Local operatives and enforcers",
+      "Sector lieutenant (e.g., Qi'ra)",
+      "Dryden Vos aboard the First Light",
+      "Maul (hidden; contacted only in extremis)"
+    ],
+    "notes": "Crimson Dawn's escalation is fast but filtered. Local operatives handle problems independently or die trying. Only verified threats reach Vos. Maul is never contacted directly — his orders arrive through channels that lieutenants cannot trace."
+  },
+  "tension_patterns": [
+    "Crimson Dawn operations routinely run on timelines that leave no margin for complications, and the organization's lethal punishment for failure discourages operatives from reporting delays or shortfalls.",
+    "Front businesses that successfully attract legitimate clientele create operational conflicts, as criminal logistics must be conducted around civilian activity without arousing suspicion.",
+    "The merit-based promotion system rewards ambition in lieutenants up to a threshold, after which further network-building is interpreted as a threat to superiors and triggers preemptive elimination.",
+    "Coaxium supply chains depend on multiple independent parties with no contractual enforcement; delays at any point cascade into losses that the organization assigns to whichever intermediary is most expendable.",
+    "Strategic directives from Maul arrive without attribution or explanation, overriding normal operational priorities and leaving lieutenants unable to assess the rationale behind their orders."
+  ],
+  "presence_by_location_type": {
+    "infrastructure": "skeleton",
+    "transit": "patrol",
+    "economic": "fortified",
+    "command": "fortified",
+    "informational": "skeleton",
+    "military": "skeleton",
+    "hidden": "fortified",
+    "covert": "dominant"
+  },
+  "mcguffin_interest": {
+    "data": "medium",
+    "contraband": "high",
+    "weapon": "medium",
+    "person": "medium",
+    "artifact": "low",
+    "technology": "high",
+    "notes": "Crimson Dawn prioritizes high-value contraband — particularly coaxium and hyperfuel — and technology that provides operational advantages. Persons of interest are typically targets for recruitment or elimination rather than trade. Maul's hidden interest in Force artifacts is unknown to most of the organization."
+  },
+  "ally_factions": [],
+  "enemy_factions": [
+    "zann_consortium",
+    "pyke_syndicate"
+  ],
+  "relationship_notes": {
+    "zann_consortium": "Direct rivals — Crimson Dawn agents have been known to hire outsiders to eliminate Zann Consortium operatives on contested worlds like Cardooine.",
+    "pyke_syndicate": "Competitors in the spice trade corridors, though Crimson Dawn focuses more on coaxium than spice.",
+    "imperial_military": "Not allied but entangled — Crimson Dawn maintains bribery relationships with Imperial bureaucrats for preferential treatment.",
+    "black_sun": "Fellow criminal syndicate operating in overlapping territory; relations range from wary coexistence to open conflict depending on the sector.",
+    "hutt_cartel": "Cautious mutual avoidance in most sectors, with occasional friction over smuggling routes and territory."
+  },
+  "regional_presence": {
+    "deep_core": "none",
+    "core_worlds": "minimal",
+    "colonies": "minimal",
+    "inner_rim": "moderate",
+    "expansion_region": "minimal",
+    "mid_rim": "moderate",
+    "outer_rim": "significant",
+    "hutt_space": "minimal",
+    "wild_space": "minimal",
+    "unknown_regions": "none"
+  },
+  "prominent_figures": [
+    {
+      "name": "Dryden Vos",
+      "role": "Public leader of Crimson Dawn",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "Near-human crime lord who operates from his luxury yacht First Light. Cultivates an image of refined sophistication that masks extreme brutality. Gifts like Qi'ra's chrome-plated S-195 blaster demonstrate how he rewards loyalty while binding lieutenants to him.",
+      "network_assessment": "Public face of Crimson Dawn but not the actual authority. Removing Vos disrupts operations but does not decapitate the organization. The real command structure survives him.",
+      "wants": "Total control of Crimson Dawn's visible operations and the fear-respect of everyone who deals with the syndicate. Vos craves the performance of power — the yacht, the art collection, the lethal reputation.",
+      "secret": "He answers to Maul and knows it. His sophisticated public persona is partly compensatory — he performs authority because he does not fully possess it.",
+      "behavior": {
+        "under_pressure": "The sophistication drops. Vos's refined demeanor is a veneer over extreme violence, and threats cause the violence to surface rapidly. The transition from charm to lethality is his most dangerous quality.",
+        "when_losing": "Escalates to personal violence. Vos does not delegate punishment when he feels threatened — he inflicts it himself, publicly, to reassert dominance.",
+        "loyalty": "Fear of Maul, primarily. Vos is loyal to Crimson Dawn because the alternative — Maul's displeasure — is worse than any external threat.",
+        "tells": "When Vos extends a personal invitation to the First Light, the recipient is already in danger. The invitation is the threat assessment, not the meeting."
+      },
+      "useful_to_players": [
+        "His need to perform sophistication can be exploited — flattery and the appearance of submission buy time and access",
+        "His ignorance of Maul's full agenda means he can be fed information about the hidden command layer to destabilize his confidence",
+        "The First Light is his headquarters, his ego, and his vulnerability — it's a known location that moves on a trackable schedule"
+      ],
+      "hooks": [
+        "Vos sent a gift — a Kalevalan crystal decanter — to a shipping magnate on Vandor who hasn't done business with Crimson Dawn before. That's a recruitment overture. The magnate is deciding whether to accept, and he's asking around about what happens to people who say no.",
+        "A lieutenant who missed a delivery deadline hasn't been seen in six days. His crew is still operating, which means Vos hasn't dissolved the cell — he dissolved the person. The crew is available and very motivated to find a new employer."
+      ]
+    },
+    {
+      "name": "Qi'ra",
+      "role": "Lieutenant, later leader of Crimson Dawn",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "notes": "Rose from the streets of Corellia to become Dryden Vos's most trusted lieutenant. Her customized Monitzer S-195 double-barreled blaster pistol was a gift from Vos celebrating her ascension. Carries herself with an air of nobility despite humble origins.",
+      "network_assessment": "The most operationally capable person in Crimson Dawn's visible hierarchy. Qi'ra understands the organization from the street level up. If Vos falls, she is the succession plan whether anyone acknowledges it or not.",
+      "wants": "Power and autonomy within Crimson Dawn, earned through demonstrated competence. Qi'ra is building her own network of loyal contacts independent of Vos's infrastructure.",
+      "secret": "She is aware that Crimson Dawn has a hidden authority above Vos but does not know Maul's identity. Her independent network-building is partly preparation for whatever that hidden authority might demand.",
+      "behavior": {
+        "under_pressure": "Adapts. Qi'ra's survival instinct is social rather than violent — she reads the room, identifies the most powerful person present, and positions herself as an asset rather than a threat.",
+        "when_losing": "Pivots allegiance. Qi'ra's loyalty is to her own survival and advancement. She will change sides with precision if the calculation supports it, and she will not hesitate.",
+        "loyalty": "Herself first, always. Qi'ra performs loyalty to Vos convincingly, but her actual commitment is to whoever offers the best path to power and safety.",
+        "tells": "When Qi'ra begins delegating operations she normally handles personally, she is freeing herself for something more important. The delegation is the preparation phase."
+      },
+      "useful_to_players": [
+        "Her Corellian street background means she can be approached through channels Vos would never see — she still has contacts from before Crimson Dawn",
+        "Her awareness of the hidden command layer makes her a potential intelligence source if properly motivated",
+        "Her independent network represents a faction within Crimson Dawn that could be turned or leveraged separately from Vos's operations"
+      ],
+      "hooks": [
+        "Qi'ra was seen meeting someone on Corellia who doesn't match any known Crimson Dawn associate. Old friend, new contact, or something else — but she went alone and didn't tell Vos's people.",
+        "One of Qi'ra's regional operators just rerouted a coaxium shipment through a non-standard corridor that bypasses Vos's usual tracking. Either Qi'ra authorized it and is skimming, or someone in her network is going freelance."
+      ]
+    },
+    {
+      "name": "Maul",
+      "role": "Hidden true leader of Crimson Dawn",
+      "era": [
+        "imperial"
+      ],
+      "suggested_tier": "nemesis",
+      "stat_block_ref": "MAUL",
+      "notes": "Former Sith Lord who secretly controls Crimson Dawn through Dryden Vos. His existence as the organization's true power is known to virtually no one within it. Consumed by vengeance against Darth Sidious and those who wronged him.",
+      "network_assessment": "The actual authority behind Crimson Dawn. His existence in this role is unknown to virtually everyone in the organization. Any intelligence operation that discovers this connection changes the strategic picture completely.",
+      "wants": "Vengeance against Darth Sidious and the accumulation of power sufficient to act on that vengeance. Crimson Dawn is a tool — its profits and territory are means to an end that no one in the syndicate understands.",
+      "secret": "His control of Crimson Dawn is itself the secret. Beyond that, his Force sensitivity and former Sith training make him a strategic-level threat that no conventional criminal syndicate should possess.",
+      "behavior": {
+        "under_pressure": "Issues orders through untraceable channels that override normal operations without explanation. Assets are sacrificed, operations abandoned, and personnel eliminated to protect his anonymity.",
+        "when_losing": "Abandons the compromised operation entirely. Maul treats Crimson Dawn as expendable infrastructure — if the organization is threatened, he severs his connection and rebuilds through a different proxy.",
+        "loyalty": "None to Crimson Dawn as an organization. Maul's only loyalty is to his vendetta against Sidious. Everyone and everything else is a resource to be used and discarded.",
+        "tells": "When Crimson Dawn operations begin making decisions that sacrifice profit for no visible strategic reason, Maul has redirected the organization toward his personal agenda. The irrational-looking moves are the signature."
+      },
+      "useful_to_players": [
+        "His existence as Crimson Dawn's hidden leader is intelligence of extraordinary value to the Empire, the Rebellion, and every rival syndicate",
+        "His obsession with Sidious means he can be indirectly manipulated through information about Imperial Force-related operations",
+        "Crimson Dawn lieutenants who receive inexplicable orders are potential intelligence targets — they know something is wrong but not what, making them receptive to outside approaches"
+      ],
+      "hooks": [
+        "A Crimson Dawn operation on the Kessel Run just got pulled mid-delivery with no explanation. The crew was told to dump the cargo and return. That's a loss of two hundred thousand credits for no visible reason. Someone above Vos made that call.",
+        "An information broker on Nar Shaddaa claims to have evidence that Crimson Dawn's command structure has a hidden tier. He's asking an absurd price and he looks terrified. He might be telling the truth, which means he's also about to be dead."
+      ]
+    }
+  ],
+  "source_material_notes": "Crimson Dawn has minimal direct coverage in FFG sourcebooks. It appears in Collapse of the Republic p.134 as one of the criminal cartels bribing Imperial bureaucrats, in Gadgets and Gear p.21 with Qi'ra's blaster, and in Starships and Speeders pp.89 with Dryden Vos's yacht and a Crimson Dawn adventure seed. Most faction details are inferred from Solo: A Star Wars Story canon and the organization's established behavior patterns.",
+  "field_sources": {
+    "motivations": "Inferred from Collapse of the Republic p.134 (Imperial bribery), Starships and Speeders p.89 (criminal operations), and established Solo canon",
+    "goals": "Inferred from Collapse of the Republic p.132 (Imperial corruption network) and established canon behavior",
+    "methods": "Collapse of the Republic p.132 (consistent bribes for preferential treatment), Starships and Speeders p.89 (using intermediaries, eliminating rivals)",
+    "strengths": "Inferred from Gadgets and Gear p.21 (sophisticated leadership culture), Starships and Speeders p.89 (luxury yacht operations), Collapse of the Republic p.134 (Imperial bribery networks)",
+    "weaknesses": "Inferred from organizational structure and Solo canon — no direct FFG source",
+    "behavior_under_threat": "Inferred from Starships and Speeders p.89 (summoning PCs to First Light, leveraging threats) and established faction behavior",
+    "tension_patterns": "Inferred from faction behavior patterns across Collapse of the Republic, Starships and Speeders, and Solo canon",
+    "regional_presence": "Inferred from Starships and Speeders p.89 (Cardooine operations in Outer Rim) and general syndicate operating patterns",
+    "mcguffin_interest": "Inferred from motivations and methods — coaxium focus from Solo canon, technology interest from operational patterns"
+  }
+}

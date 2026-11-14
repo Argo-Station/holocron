@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/castgroup.schema.json",
+  "title": "CastGroup",
+  "description": "A canonical encounter INSTANCE — one NPC group placed in an encounter, plus its mutable combat state. Distinct from the NPC definition (npc.schema.json): a CastGroup is EITHER a pure reference to a library NPC (source='library', npc_ref) OR a complete inline canonical NPC (source='custom', npc) — never a hybrid. The referenced target and the inline embed are the SAME canonical NPC shape, so the combat surface loads an NPC with a single deref-or-read and NO field merge — which is what lets deriveNpc be deleted outright rather than relocated. Any per-instance tweak MATERIALIZES the group to source='custom' (resolve the base, apply the tweak, freeze) instead of patching a ref at runtime. Validated via TESTS (migrate a corpus of v3 fixtures + createCastGroup output, assert each validates here), not at runtime — the buildless JS can't validate live; it conforms by construction.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source",
+    "group_size"
+  ],
+  "$comment": "MIGRATION v3 -> v4 (encounter.cast.groups[]; bump schema_version 3 -> 4). This CHANGES shape (v2->v3 was additive, so it is NOT the template) -> NON-DESTRUCTIVE: back up / keep the v3 blob and write v4 alongside; validate the result against this schema before it replaces anything. v3 stored `source` + either `library_key` (by-ref) OR inline field-overrides, and deriveNpc merged them per-field at runtime. v4 ENDS that merge: a group is EITHER a pure ref OR a complete inline NPC. (1) source='library' with NO inline stat/skill/weapon override -> npc_ref: map library_key -> the canonical NPC id and VALIDATE it resolves in the NPC registry (a dangling key -> materialize from any inline data, else flag the group); drop the duplicated `tier` (read from the definition). (2) source='library' WITH inline overrides, AND every seed-test group (which denormalizes the full block) -> MATERIALIZE to source='custom': resolve the registry base, apply the v3 inline values, emit a complete inline canonical NPC using the SAME transform Phase 2b applies to library records (reuse it, do NOT fork); set _derived_from to the base npc_ref for provenance. Snapshot semantics are intended. (3) source='custom' (already inline) -> run the Phase-2b transform on the inline block. Normalize ONCE at migration (not at every runtime read, which is what deriveNpc did): library_key->npc_ref, vehicle_key->vehicle_ref, wounds||woundThreshold, key capitalization, and the flat stat keys meleeDefense/rangedDefense/wounds/strain -> derived.melee_defense/ranged_defense/wounds/strain (the Phase-2b derived split; strain per the tier/null rule). wounds_current/strain_current/defeated stay FLAT (recon-confirmed: combat reads/writes them via shallow Object.assign + g[field]; nesting breaks every call site) — preserve the v3 saved values.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Instance id (was generateGroupId()). Unique within the encounter."
+    },
+    "source": {
+      "enum": [
+        "library",
+        "custom"
+      ],
+      "description": "Discriminator. 'library' = npc_ref points at a canonical NPC in the registry (pure reference, no stat overrides). 'custom' = npc holds a complete inline canonical NPC. A per-instance tweak does not patch a 'library' group — it materializes the group to 'custom'."
+    },
+    "npc_ref": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "source='library' ONLY. Canonical NPC id, resolved against the NPC registry at load (replaces library_key, which held a raw stoogoff key). MUST resolve to a registry NPC id (referential check). Tier, characteristics, derived thresholds, skills, weapons ALL come from the resolved definition — never duplicated or overridden here; a group needing any override is 'custom' instead."
+    },
+    "npc": {
+      "$ref": "npc.schema.json",
+      "description": "source='custom' ONLY. A complete inline canonical NPC — the SAME schema a library entry conforms to. Holds both genuinely-custom NPCs and MATERIALIZED library NPCs (a library ref + a tweak, frozen). See _derived_from for the latter's provenance."
+    },
+    "group_size": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bodies in the group (minions default 4, others 1; default derived from the definition's tier, overridable). A stored instance decision, not a definition property."
+    },
+    "display_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional instance-level DISPLAY name (was top-level `name`). Presentation only — the renderer prefers it over the definition's name; it is not a stat override and triggers no materialization (e.g. 'Sergeant Vatok' shown over 'Stormtrooper')."
+    },
+    "faction_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference to a canonical Faction id (was faction_id, sourced from libraryNpc.affiliation)."
+    },
+    "vehicle_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference to a canonical Vehicle id if this group crews/pilots one (was vehicle_key)."
+    },
+    "wounds_current": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "MUTABLE combat state. Current wounds; null until combat initializes it from the definition's wound THRESHOLD. (Definition holds the threshold; the instance holds the current value.)"
+    },
+    "strain_current": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "MUTABLE combat state. Current strain; null until initialized from the definition's strain threshold."
+    },
+    "defeated": {
+      "type": "boolean",
+      "default": false,
+      "description": "MUTABLE combat state."
+    },
+    "notes": {
+      "type": "string",
+      "default": "",
+      "description": "GM notes for this instance."
+    },
+    "_derived_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-z0-9_]+$",
+      "description": "source='custom' only, optional. When this custom NPC was MATERIALIZED from a library NPC (a ref + a tweak, frozen), the base npc_ref it came from — provenance only, never re-merged at runtime. null/absent for a from-scratch custom NPC."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "library"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "then": {
+        "required": [
+          "npc_ref"
+        ],
+        "not": {
+          "required": [
+            "npc"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "custom"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "then": {
+        "required": [
+          "npc"
+        ],
+        "not": {
+          "required": [
+            "npc_ref"
+          ]
+        }
+      }
+    }
+  ]
+}

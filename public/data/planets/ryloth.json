@@ -1,0 +1,1234 @@
+{
+  "id": "ryloth",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Ryloth",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim",
+    "sector": "Gaulus Sector",
+    "system": "Ryloth",
+    "grid": "R-17",
+    "era": "galactic_civil_war",
+    "essence": "A world built on two commodities the galaxy can never stop wanting: slaves and spice. The Twi'leks of Ryloth have survived millennia by being better negotiators than anyone who came to exploit them. Now the Empire has replaced negotiation with occupation, and Ryloth's ancient clan politics have fractured into resistance, collaboration, and survival. Heat storms scour the surface. The ryll mines run deep. Underground cities carved from living rock shelter a population that has learned to endure anything the galaxy throws at them. Above ground, Imperial patrols enforce order. Below ground, the Free Ryloth Movement fights to tear that order apart.",
+    "atmosphere": "Blinding sun on barren rock. Tremendous heat storms rolling across the surface without warning, scouring everything in their path. The temperate equatorial band where most settlements huddle, caught between scorching desert and frozen wastes. Underground, the cave cities are cool and dim, lit by bioluminescent fungi and imported technology. The air in the ryll mines carries a faint sweet chemical smell that veteran miners learn to ignore. Kala'uun's caverns echo with trade negotiations in three languages. Lessu's plasma bridge hums over a chasm that swallows sound.",
+    "reputation": "A planet everyone has heard of and nobody envies. The galaxy knows Ryloth for two things: Twi'lek slaves and ryll spice. Both reputations are deserved. The clans have built an economy on gray-area exports and the willingness of supposedly civilized cultures to look the other way. Under the Empire, the situation has worsened — Imperial officials exploit Twi'lek indentured servitude while publicly condemning it. Spacers know Ryloth as a profitable but dangerous stop on the Corellian Run. The Hutts know it as a critical node in their spice distribution network. The Rebellion knows it as a world with a resistance movement too proud and too paranoid to easily work with."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": ""
+    },
+    {
+      "era": "post_empire",
+      "delta": "The Free Ryloth Movement's decades of guerrilla warfare positioned it to lead liberation efforts as Imperial control weakened. Hera Syndulla's prominence in the Rebel Alliance created political bridges her father Cham never would have built. The spice trade continues — the clans' economic engine does not depend on which government claims authority. The question is whether Ryloth can achieve genuine independence or simply trade one set of outside interests for another."
+    }
+  ],
+  "geography": {
+    "structure_type": "tidally_locked_equatorial_band",
+    "structure_notes": "Ryloth's harsh conditions divide the surface into zones: sun-blasted wastelands, frozen dark-side regions, and a narrow temperate equatorial band where most settlements are located. Much of the terrain is rocky and barren. Tremendous heat storms roll across the surface without warning. Most Twi'lek cities are built underground in natural cave systems or shielded behind mountain rock. The ryll spice deposits lie in blooms below the surface, requiring extensive mining operations.",
+    "districts": [
+      {
+        "id": "lessu",
+        "name": "Lessu",
+        "character": "The capital city of Ryloth. Built on a plateau surrounded by sheer drops, accessed via a retractable plasma bridge. The seat of Twi'lek clan government and the primary target of Imperial administrative control.",
+        "authority": "Galactic Empire (occupation), Twi'lek head clans (nominal governance)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "military"
+        ],
+        "notes": "Control of Lessu means control of Ryloth's political infrastructure. The plasma bridge is both the city's greatest defense and its most critical vulnerability. During the Clone Wars, control of the bridge determined the outcome of the battle for Ryloth. The Empire maintains its strongest presence here."
+      },
+      {
+        "id": "kalauun",
+        "name": "Kala'uun",
+        "character": "A cavernous city built deep inside mountain rock. Major trade hub and the heart of Ryloth's commercial activity. Sienar Fleet Systems maintains corporate offices in the caves. A warren of trade corridors, clan estates, and spice processing facilities.",
+        "authority": "Twi'lek clans (commercial), Imperial corporate liaisons",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "informational"
+        ],
+        "notes": "Kala'uun is where Ryloth's real economy operates. The presence of Sienar Fleet Systems offices indicates the level of corporate interest in the planet. The cave network makes surveillance difficult and provides natural cover for black market operations. One Sienar executive visits so frequently he built permanent offices here."
+      },
+      {
+        "id": "roancu",
+        "name": "Roancu",
+        "character": "Another cavern city shielded behind mountain rock. Less commercially prominent than Kala'uun but important for its proximity to major ryll spice deposits.",
+        "authority": "Twi'lek clans",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "economic"
+        ],
+        "notes": "Mining operations in the surrounding cavern systems feed ryll spice into the trade network. Less Imperial oversight than Lessu, making it a potential staging area for resistance operations."
+      },
+      {
+        "id": "nabat",
+        "name": "Nabat",
+        "character": "Surface settlement near the equatorial band. Historically significant as a site of Clone Wars combat. More exposed than the cavern cities and more vulnerable to heat storms.",
+        "authority": "Twi'lek clans (nominal), Imperial patrols",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "military"
+        ],
+        "notes": "Nabat's surface position makes it strategically important for controlling overland and aerial approaches. During the Clone Wars, Separatist forces used the civilian population as living shields here."
+      },
+      {
+        "id": "ryll_mines",
+        "name": "Ryll Spice Mines",
+        "character": "Extensive underground mining operations spread across multiple locations beneath the surface. The mines follow ryll blooms — natural deposits of the mineral that serves as both pharmaceutical agent and narcotic. Clan-controlled and heavily guarded.",
+        "authority": "Twi'lek clans (operational control), Hutt Cartel interests (distribution agreements)",
+        "crime_index": "high",
+        "strategic_value": [
+          "economic",
+          "high_hidden"
+        ],
+        "notes": "The clans claim they mine ryll exclusively for legally licensed pharmaceutical companies, but millions of shipments go missing every year. The mines are the economic engine of Ryloth and the reason every outside power — Imperial, Hutt, or otherwise — maintains interest in the planet. The clans keep pharmaceutical companies happy by offering cut-rate prices or adding extra to the orders."
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Twi'lek",
+      "population_level": "dominant",
+      "social_role": "Native population making up 76% of the world. Organized into hereditary clans led by head clans of five males. The Twi'leks are expert negotiators and traders who have built their civilization around spice mining, indentured servitude contracts, and interstellar commerce. Their rainbow of skin tones indicates clan and regional ancestry. They communicate through both spoken Ryl and nonverbal lekku sign language. Family is everything — a family's five most important Twi'leks lead their head-clan, with power radiating down the bloodline.",
+      "districts": [
+        "lessu",
+        "kalauun",
+        "roancu",
+        "nabat",
+        "ryll_mines"
+      ]
+    },
+    {
+      "name": "Human",
+      "population_level": "minority",
+      "social_role": "Imperial administrators, military personnel, corporate representatives (notably Sienar Fleet Systems), and transient traders. Part of the 24% non-Twi'lek population.",
+      "districts": [
+        "lessu",
+        "kalauun"
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "Traders, smugglers, Hutt agents, and spice buyers. The remaining portion of the 24% non-Twi'lek population drawn by the ryll trade and slave markets.",
+      "districts": [
+        "kalauun",
+        "lessu"
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_occupation",
+      "name": "Imperial Military Occupation",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "The Empire controls Ryloth through military force. When the Republic transformed into the Empire, Ryloth's reluctant wartime allies became occupiers who treated the Twi'leks much the same as the Separatists had. The Empire encourages the deplorable practice of Twi'lek slavery through neglect and is happy to exploit indentured servitude contracts. Imperial officials are susceptible to Twi'lek ingratiation — the Twi'leks dilute anti-alien prejudice by ingratiating themselves with officials."
+      },
+      "motivation": "Resource extraction (ryll spice for licensed pharmaceutical use), labor exploitation (Twi'lek indentured servitude), and suppression of the Free Ryloth Movement. The Empire views Ryloth as an asset to be controlled, not a world to be developed. Anti-alien prejudice grows in the galaxy but the Twi'leks' similarity to humans helps them navigate Imperial bureaucracy better than most non-human species.",
+      "assets": [
+        "Garrison forces in Lessu and other population centers",
+        "Orbital patrol capabilities",
+        "Administrative control of planetary government",
+        "Corporate alliances (Sienar Fleet Systems offices in Kala'uun)",
+        "Intelligence networks monitoring resistance activity"
+      ],
+      "relationships": [
+        {
+          "faction_id": "free_ryloth_movement",
+          "type": "hostile",
+          "notes": "The Free Ryloth Movement is the Empire's primary security problem on the planet. Cham Syndulla's highly visible strikes against Imperial forces are designed to inspire the population and humiliate the occupiers. The Empire deploys counter-insurgency operations but the underground cave networks make the resistance extremely difficult to root out."
+        },
+        {
+          "faction_id": "twilek_clans",
+          "type": "coercive",
+          "notes": "The Empire works through the existing clan structure where convenient, co-opting head clan leaders willing to collaborate. Imperial officials accept Twi'lek hospitality and cultural ingratiation. The relationship is exploitative but functionally stable — the clans maintain some autonomy in exchange for compliance."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "type": "transactional",
+          "notes": "The Empire officially restricts spice trade and slavery but enforces these restrictions selectively. Hutt spice operations continue through bribery, misdirection, and the practical reality that completely shutting down the ryll trade would destroy Ryloth's economy and create more unrest than it prevents."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Intelligence on Free Ryloth Movement operations, weapons caches, and leadership locations. Resistance cell communications and safe house networks."
+        },
+        {
+          "type": "person",
+          "reason": "Cham Syndulla is a high-value target. Any resistance leader or operative is worth capturing for interrogation. Force-sensitives are reported to ISB per standing orders."
+        },
+        {
+          "type": "resource",
+          "reason": "Control of ryll spice production and distribution. Ensuring licensed pharmaceutical supply chains remain intact while suppressing unauthorized trade."
+        },
+        {
+          "type": "artifact",
+          "reason": "Standing ISB orders to report Force-related artifacts. No particular local interest beyond standard Imperial protocols."
+        }
+      ]
+    },
+    {
+      "id": "free_ryloth_movement",
+      "name": "Free Ryloth Movement",
+      "type": "resistance",
+      "control_type": [
+        "territorial",
+        "ideological"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "none",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "Cham Syndulla is utterly committed to Ryloth's freedom and distrusts all outsiders. He has been betrayed too many times — by the Republic, by the Empire, and by supposed allies. The Free Ryloth Movement is willing to use morally questionable tactics including betraying temporary allies if it furthers their cause. This makes assistance from the movement a dangerous arrangement, but its members' knowledge of military tactics, Imperial procedures, and sheer survival skill make many rebel cells willing to take the risk."
+      },
+      "motivation": "Complete independence for Ryloth from all outside government. Preservation of Twi'lek culture and heritage. Cham believes Ryloth has suffered disproportionately under the Republic, the Confederacy, and now the Empire, and that only complete autonomy can protect his people. He performs highly visible strikes against Imperial forces to inspire the population with spectacular displays showing how a few dedicated Twi'leks can defeat seemingly endless Imperial soldiers.",
+      "assets": [
+        "Cham Syndulla — 'The Hammer of Ryloth,' military genius whose strategies are taught in Imperial academies",
+        "Numa — explosives expert and one of Cham's most trusted agents",
+        "Intimate knowledge of underground cave networks and terrain",
+        "Popular support among the Twi'lek population",
+        "Expertise in unorthodox urban warfare",
+        "Weapons caches hidden in cave systems",
+        "Intelligence networks within the civilian population"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_occupation",
+          "type": "hostile",
+          "notes": "Total war. The Free Ryloth Movement exists to expel the Empire from Ryloth. Cham nearly assassinated both Emperor Palpatine and Darth Vader. Every operation is designed to humiliate Imperial forces and inspire Twi'lek resistance."
+        },
+        {
+          "faction_id": "rebel_alliance_support",
+          "type": "uneasy_alliance",
+          "notes": ""
+        },
+        {
+          "faction_id": "twilek_clans",
+          "type": "complicated",
+          "notes": "The movement draws recruits from the clans but some clan leaders collaborate with the Empire for economic survival. The resistance must navigate Twi'lek internal politics while fighting the occupation."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Weapons, explosives, medical supplies — anything that sustains the guerrilla campaign. The movement is perpetually under-resourced compared to the Empire."
+        },
+        {
+          "type": "data",
+          "reason": "Imperial patrol schedules, garrison strength reports, troop movement plans. Intelligence is the movement's primary force multiplier."
+        },
+        {
+          "type": "person",
+          "reason": "Potential recruits, especially those with military training or technical skills. Former clone troopers who served on Ryloth during the Clone Wars would be of particular interest — and particular suspicion."
+        },
+        {
+          "type": "artifact",
+          "reason": "No inherent interest unless it can be weaponized or traded for supplies."
+        }
+      ]
+    },
+    {
+      "id": "hutt_cartel",
+      "name": "Hutt Cartel Spice Trade",
+      "type": "criminal",
+      "control_type": [
+        "economic"
+      ],
+      "control_strength": "significant",
+      "susceptibility": {
+        "imperial": "low",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "Multiple Hutt clans have spheres of influence on Ryloth. Clan Desilijic (Jabba's clan), Clan Besadii, Clan Qunaalac, and Clan Anjiliac all list Ryloth among their spheres of influence. The Hutts control ryll distribution networks and maintain secret hyperspace routes to move spice to market. Their interest in Ryloth is purely economic — they do not care about Twi'lek politics except insofar as instability disrupts supply."
+      },
+      "motivation": "Control of ryll spice distribution from source to market. The Hutts dominated Twi'lek society for millennia after discovering the medicinal and recreational value of ryll. They seized control of mining and production, which directly led to the Twi'lek involvement in the slave trade. Multiple clans compete for ryll distribution rights, using secret hyperspace routes to avoid Imperial patrols.",
+      "assets": [
+        "Established distribution networks through Hutt Space and beyond",
+        "Secret hyperspace routes: Corellian Skip Run (Ryloth-Tatooine), Ryloth Road (Ryloth-Socorro)",
+        "Agreements with Twi'lek mining clans",
+        "Agents and intermediaries on planet",
+        "Connection to Llanic Spice Run distribution network via Socorro"
+      ],
+      "relationships": [
+        {
+          "faction_id": "twilek_clans",
+          "type": "employer",
+          "notes": "The Hutts purchase ryll from the clans who mine it. The relationship is ancient, exploitative, and mutually profitable. The clans mine; the Hutts distribute. Both sides understand the arrangement and its limits."
+        },
+        {
+          "faction_id": "imperial_occupation",
+          "type": "transactional",
+          "notes": "The Empire restricts ryll to licensed pharmaceutical use. The Hutts ignore these restrictions through bribery and misdirection. Individual Imperial officials on Ryloth may be on Hutt payrolls."
+        },
+        {
+          "faction_id": "free_ryloth_movement",
+          "type": "neutral",
+          "notes": "The Hutts have no ideological position on Ryloth's political status. They will deal with whoever controls the mines. Resistance activity that disrupts spice shipments is bad for business."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Ryll spice is the commodity. Control of mining output, processing facilities, and shipment schedules is the Hutts' entire interest on Ryloth."
+        },
+        {
+          "type": "data",
+          "reason": "Rival clan distribution routes, Imperial patrol schedules along the Corellian Run, and information about competing spice operations (glitterstim from Kessel, etc.)."
+        },
+        {
+          "type": "person",
+          "reason": "Reliable smugglers, corruptible Imperial officials, and anyone who threatens Hutt distribution networks."
+        },
+        {
+          "type": "artifact",
+          "reason": "No interest. Valuable only as trade goods."
+        }
+      ]
+    },
+    {
+      "id": "twilek_clans",
+      "name": "Twi'lek Head Clans",
+      "type": "indigenous",
+      "control_type": [
+        "political",
+        "economic"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "high",
+        "note": "The clan system is Ryloth's indigenous governance. Each city is ruled by a head clan of five Twi'lek males, born to assume their roles. When a member dies, the surviving members are deposed and the next generation takes over. Strong rivalries surround each appointment. The clans are pragmatic survivors who have outlasted Hutt domination, Republic involvement, Separatist occupation, and Imperial control by adapting to each new reality."
+      },
+      "motivation": "Clan survival, economic prosperity, and cultural continuity. The clans navigate the gray areas of galactic law, structuring their economy around indentured servitude contracts (slavery in all but name) and spice mining. They skirt anti-slavery legislation and keep pharmaceutical companies happy with cut-rate prices. Their strategy is ingratiation, negotiation, and exploitation of whatever power structure currently dominates — not confrontation.",
+      "assets": [
+        "Control of ryll spice mining operations",
+        "Hereditary political authority in all major cities",
+        "Trade relationships with Hutt distribution networks",
+        "Cultural influence over the Twi'lek population",
+        "Knowledge of underground cave networks and mining infrastructure",
+        "Established relationships with Imperial officials through cultural ingratiation"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_occupation",
+          "type": "subordinate",
+          "notes": "The clans maintain nominal governance under Imperial oversight. They dilute anti-alien prejudice by ingratiating themselves with Imperial officials, exploiting their physical similarity to humans."
+        },
+        {
+          "faction_id": "hutt_cartel",
+          "type": "supplier",
+          "notes": "The clans mine ryll; the Hutts distribute it. An ancient arrangement predating the Republic."
+        },
+        {
+          "faction_id": "free_ryloth_movement",
+          "type": "divided",
+          "notes": "Some clan members support the resistance. Others view it as a threat to the stable — if oppressive — arrangement that keeps Ryloth's economy functioning. The clans are not unified on the question of armed resistance versus pragmatic collaboration."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "resource",
+          "reason": "Anything that affects ryll production — mining equipment, labor supply, processing technology."
+        },
+        {
+          "type": "data",
+          "reason": "Trade route information, competitor intelligence, Imperial regulatory plans affecting the spice trade."
+        },
+        {
+          "type": "person",
+          "reason": "Skilled negotiators, potential indentured servants, and anyone whose capture or release could serve as a bargaining chip with the Empire or the Hutts."
+        },
+        {
+          "type": "artifact",
+          "reason": "Cultural artifacts are valued for heritage preservation. Otherwise, commodified for trade value."
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "lessu_plasma_bridge",
+      "name": "Lessu Plasma Bridge",
+      "district_id": "lessu",
+      "type": [
+        "military",
+        "infrastructure"
+      ],
+      "controlling_faction_id": "imperial_occupation",
+      "controlling_faction_notes": "The Empire controls the plasma bridge as the single chokepoint for all ground access to Lessu. During the Clone Wars, control of this bridge determined the outcome of the battle for the capital. The Empire is acutely aware of its strategic importance.",
+      "strategic_value": "The only ground approach to the capital city. Whoever controls the bridge controls access to Ryloth's political center. Disabling it isolates Lessu entirely from ground assault but also traps anyone inside.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "6-8",
+          "notes": "Bridge garrison. Checkpoint security with authority to deny passage."
+        },
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Bridge commander. Controls activation and deactivation of the plasma bridge."
+        }
+      ]
+    },
+    {
+      "id": "kalauun_trade_warrens",
+      "name": "Kala'uun Trade Warrens",
+      "district_id": "kalauun",
+      "type": [
+        "economic",
+        "informational"
+      ],
+      "controlling_faction_id": "twilek_clans",
+      "controlling_faction_notes": "The clan-controlled commercial district operates with limited Imperial oversight. The cave network makes surveillance difficult. Sienar Fleet Systems maintains corporate offices here, indicating the level of outside commercial interest.",
+      "strategic_value": "The primary commercial hub on Ryloth. Trade negotiations, spice deals, equipment procurement, and information brokering all happen in these warrens. Controlling Kala'uun means controlling Ryloth's economy.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "twilek_merchant",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Clan traders conducting legitimate and semi-legitimate business. Expert negotiators."
+        },
+        {
+          "archetype_ref": "hutt_agent",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Hutt cartel representative managing spice distribution agreements."
+        },
+        {
+          "archetype_ref": "corporate_agent",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Sienar Fleet Systems or other corporate representative. Here for business, not politics."
+        },
+        {
+          "archetype_ref": "thug",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Clan enforcers and hired muscle protecting trade interests."
+        }
+      ]
+    },
+    {
+      "id": "ryll_mine_complex",
+      "name": "Ryll Spice Mine Complex",
+      "district_id": "ryll_mines",
+      "type": [
+        "economic",
+        "hidden"
+      ],
+      "controlling_faction_id": "twilek_clans",
+      "controlling_faction_notes": "The clans control mining operations and guard the entrances. Hutt distribution agents have access by agreement. Imperial inspectors are given guided tours of licensed operations while the real output volume remains concealed.",
+      "strategic_value": "The source of Ryloth's primary export. Ryll blooms are mined from below the surface and processed into both pharmaceutical-grade and narcotic-grade product. Controlling the mines controls the planet's economic engine. Millions of shipments 'go missing' every year — the gap between licensed output and actual production is the black market.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "twilek_miner",
+          "tier": "minion",
+          "count": "6-10",
+          "notes": "Mine workers. Some are indentured servants — slaves in all but name under 'free-will' contracts."
+        },
+        {
+          "archetype_ref": "twilek_clan_guard",
+          "tier": "rival",
+          "count": "2-3",
+          "notes": "Armed clan security protecting the operation from theft, interference, and Imperial scrutiny."
+        },
+        {
+          "archetype_ref": "spice_runner",
+          "tier": "rival",
+          "count": "1",
+          "notes": "Smuggler handling the off-books shipments. Knows the Death Wind Corridor and secret Hutt routes."
+        }
+      ]
+    },
+    {
+      "id": "resistance_caves",
+      "name": "Free Ryloth Movement Hidden Base",
+      "district_id": null,
+      "type": [
+        "military",
+        "hidden"
+      ],
+      "controlling_faction_id": "free_ryloth_movement",
+      "controlling_faction_notes": "Location unknown to the Empire. The movement uses Ryloth's extensive natural cave systems to maintain hidden bases that shift periodically to avoid detection. Cham Syndulla's intimate knowledge of the terrain makes these positions extremely difficult to locate.",
+      "strategic_value": "The operational headquarters of the Free Ryloth Movement. Weapons caches, communications equipment, planning facilities, and refuge for wounded fighters. The cave networks provide natural concealment from orbital sensors and make ground assault costly. Multiple entrances and exits allow rapid dispersal.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "resistance_fighter",
+          "tier": "rival",
+          "count": "4-6",
+          "notes": "Experienced guerrilla fighters. Well-armed by resistance standards. Deeply loyal to Cham Syndulla."
+        },
+        {
+          "archetype_ref": "resistance_leader",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Cham Syndulla or one of his trusted lieutenants (e.g., Numa). Military genius with deep tactical knowledge."
+        }
+      ]
+    },
+    {
+      "id": "floating_rock_gardens",
+      "name": "Floating Rock Gardens",
+      "district_id": null,
+      "type": [
+        "exploration",
+        "cultural"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Natural phenomenon. Not controlled by any faction. Culturally significant to the Twi'lek people.",
+      "strategic_value": "A natural wonder of Ryloth with cultural importance to the Twi'leks. Potential meeting point for clandestine exchanges — remote, memorable, and difficult to surveil. Not militarily significant.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "twilek_guide",
+          "tier": "minion",
+          "count": "1",
+          "notes": "Local who knows the terrain and can navigate to the gardens safely."
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_occupation_influence",
+      "type": "imperial",
+      "source_faction_id": "imperial_occupation",
+      "source_description": "The Empire controls Ryloth through military occupation, replacing the Republic's wartime alliance with direct rule. Imperial governance works through a mix of garrison force and co-option of the existing clan structure. Anti-alien prejudice is diluted by the Twi'leks' ingratiation efforts, but Imperial policy treats the Twi'lek population as a labor resource to be managed.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "twilek_clans",
+          "description": "Clan leaders collaborate with Imperial officials to maintain economic operations. Some are genuine collaborators; others cooperate under duress. The line between the two is deliberately blurred."
+        },
+        {
+          "faction_id": "free_ryloth_movement",
+          "description": "Imperial occupation is the catalyst for the resistance. Every crackdown creates new recruits. Every act of exploitation deepens popular support for the movement."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Imperial authority is the default power on Ryloth's surface. Stormtrooper patrols in settlements, checkpoints at cave city entrances, and orbital monitoring are standard. Moving freely requires either Imperial authorization or knowledge of underground routes."
+        }
+      ]
+    },
+    {
+      "id": "spice_trade_influence",
+      "type": "criminal",
+      "source_faction_id": "hutt_cartel",
+      "source_description": "The ryll spice trade is Ryloth's economic foundation and the Hutts' primary interest. Multiple Hutt clans compete for distribution rights. The trade creates a permanent criminal economy that predates the Republic and will likely outlast the Empire. Every faction on Ryloth is affected by the flow of spice credits.",
+      "strength_default": "significant",
+      "strength_FaD_preset": null,
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "twilek_clans",
+          "description": "The clans' economy is built on ryll. Mining clans control production. Trade clans manage distribution agreements. The spice trade defines clan wealth, power, and political influence."
+        },
+        {
+          "faction_id": "imperial_occupation",
+          "description": "The Empire officially restricts ryll to pharmaceutical use. Unofficially, Imperial officials benefit from the trade through bribes and ingratiation. Complete suppression of the spice economy would create more problems than it solves."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "significant",
+          "modifier": "Ryll spice is everywhere on Ryloth in some form. Conversations about trade are conversations about spice. Credits flow through spice-connected channels. Asking the wrong questions about spice shipments draws attention from both clan enforcers and Imperial inspectors."
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "corellian_run",
+        "destination": "Corellian Run (major hyperspace lane)",
+        "travel_time": "variable — Ryloth sits directly on the route",
+        "route_quality": "well-established",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "EotE Core Rulebook",
+            "page": 336,
+            "detail": "Corellian Run described as extending from the Deep Core through Core Worlds to Corellia, then to Ryloth and beyond. Ryloth listed as notable location."
+          },
+          {
+            "book": "FaD Core Rulebook",
+            "page": 349,
+            "detail": "Corellian Run trail blazed southeast to Ryloth and beyond into Wild Space."
+          }
+        ]
+      },
+      {
+        "id": "death_wind_corridor",
+        "destination": "Death Wind Corridor (spice running route)",
+        "travel_time": null,
+        "route_quality": "dangerous",
+        "notes": "A route used specifically for spice runs. Named in the EotE planet entry for Ryloth as a trade route alongside the Corellian Run. Details on exact endpoints and hazards are not provided in the core rulebooks.",
+        "source_refs": [
+          {
+            "book": "EotE Core Rulebook",
+            "page": 371,
+            "detail": "Listed as Ryloth trade route: 'Death Wind Corridor (for spice runs)'"
+          }
+        ]
+      },
+      {
+        "id": "corellian_skip_run",
+        "destination": "Tatooine",
+        "travel_time": "comparable to Old Corellian Run — no significant time savings",
+        "route_quality": "secret",
+        "notes": "",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 33,
+            "detail": "Corellian Skip Run: Ryloth-Tatooine secret route described in Hutt Space hyperspace routes section."
+          }
+        ]
+      },
+      {
+        "id": "ryloth_road",
+        "destination": "Socorro",
+        "travel_time": "eliminates 24-48 hours from standard route",
+        "route_quality": "secret",
+        "notes": "A secret Hutt hyperspace route providing a more direct path from Ryloth to Socorro and the Llanic Spice Run distribution network. Primarily used by Clan Desilijic and Clan Besadii, though a few other clans have the astrogation data.",
+        "source_refs": [
+          {
+            "book": "Lords of Nal Hutta",
+            "page": 33,
+            "detail": "Ryloth Road: Ryloth-Socorro secret route, eliminates 24-48 hours, connects to Llanic Spice Run distribution."
+          }
+        ]
+      }
+    ],
+    "anomalies": null
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_occupation",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Token Imperial presence. A handful of administrators in Lessu, a communication relay to sector command. The Empire's claim to Ryloth exists on paper but is not enforced on the ground. Clan governance operates freely.",
+          "presence_reason": "Imperial resources have been diverted elsewhere — a major fleet operation, a crisis on another Outer Rim world, or political reassignment of the garrison commander. Temporary state that the Free Ryloth Movement would exploit immediately.",
+          "roles": [
+            {
+              "role": "Imperial administrator",
+              "archetype_ref": "imperial_bureaucrat",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Filing reports to sector command. No enforcement capability."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard occupation posture. Stormtrooper patrols in Lessu and periodic sweeps through Kala'uun and Roancu. Checkpoints at major cave city entrances. Orbital monitoring for unauthorized shipping traffic. The Free Ryloth Movement operates in the margins but avoids direct confrontation.",
+          "presence_reason": "Default Imperial occupation state. Enough force to maintain control of population centers while the resistance operates in the hinterlands.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Paired patrols through Lessu streets and cave city checkpoints."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Monitoring spice shipments at spaceport. Distinguishing licensed pharmaceutical exports from black market output."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages the occupation. Balances counter-insurgency with maintaining the economic stability that keeps sector command satisfied."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced occupation. The Free Ryloth Movement has conducted a major strike — possibly an assassination attempt or destruction of a military asset. Additional troops deployed. Cave city checkpoints tightened. Active counter-insurgency operations in progress. Orbital patrols intensified.",
+          "presence_reason": "Cham Syndulla or the resistance has done something that cannot be ignored. Sector command has authorized reinforcements. The political cost of appearing weak on Ryloth outweighs the cost of additional deployment.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 14,
+              "notes": "Heavy patrols in all population centers. Active search-and-cordon operations in cave networks."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Both spaceports locked down. All cargo inspected. Spice shipments halted pending review."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Sent from sector command to investigate the resistance cell structure. Operates independently of the garrison commander."
+            },
+            {
+              "role": "Imperial garrison commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Under pressure to produce results. Career is on the line."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full military crackdown. Star Destroyer in orbit. Martial law declared in all population centers. Cave city entrances sealed and controlled. Active military operations in the underground networks. The Empire is attempting to break the Free Ryloth Movement permanently. Civilian movement severely restricted. Clan leaders detained for questioning.",
+          "presence_reason": "Catastrophic Imperial loss — Cham Syndulla nearly assassinated the Emperor and Darth Vader, or equivalent event. The Empire has committed the resources to make an example of Ryloth. This level of response is unsustainable but devastating while it lasts.",
+          "roles": [
+            {
+              "role": "Stormtrooper assault teams",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 24,
+              "notes": "Cave-by-cave clearance operations. Multiple squads operating simultaneously across the planet."
+            },
+            {
+              "role": "ISB investigation team",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full ISB cell dedicated to dismantling the resistance network. Interrogating detained clan leaders and suspected sympathizers."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior command on site. Authority over both garrison and ISB operations."
+            },
+            {
+              "role": "Inquisitor",
+              "archetype_ref": "imperial_inquisitor",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Only if Force-sensitive activity detected. The Twi'lek lekku's possible Force connection could draw Inquisitorial interest under the right circumstances."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Stormtrooper patrols increase frequency. Checkpoints ask more questions. Clan leaders are summoned for 'routine consultations' with the garrison commander. Informant networks activated.",
+        "targeted": "The Empire is looking for specific resistance operatives. Holos distributed to all checkpoints. Cave city entrances monitored with facial recognition. Clan leaders pressured to provide information or face consequences.",
+        "manhunt": "Full lockdown of all cave cities. No one enters or leaves without Imperial authorization. Orbital traffic halted. The Empire is willing to choke Ryloth's economy to find its targets. Ryll shipments are impounded as leverage against the clans."
+      }
+    },
+    {
+      "faction_id": "free_ryloth_movement",
+      "presence_levels": {
+        "skeleton": {
+          "description": "The movement is in hiding after a major setback. Cells are isolated. Communication is minimal. Cham Syndulla is regrouping. The population knows the resistance exists but visible activity has ceased.",
+          "presence_reason": "A failed operation or Imperial crackdown has forced the movement underground. Casualties or betrayals have reduced operational capacity.",
+          "roles": [
+            {
+              "role": "Resistance courier",
+              "archetype_ref": "resistance_fighter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining minimal communication between isolated cells. Traveling through cave networks to avoid detection."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard resistance operations. Small teams conduct reconnaissance, gather intelligence, and maintain weapon caches. Propaganda appears on cave city walls. The population is aware of the resistance and generally sympathetic. The movement picks its battles carefully.",
+          "presence_reason": "Normal operating state. The Free Ryloth Movement cannot match the Empire's military strength so it operates as a guerrilla force — hitting targets of opportunity and disappearing into the cave networks.",
+          "roles": [
+            {
+              "role": "Resistance reconnaissance team",
+              "archetype_ref": "resistance_fighter",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Monitoring Imperial patrol patterns and identifying targets for future operations."
+            },
+            {
+              "role": "Resistance sympathizer",
+              "archetype_ref": "twilek_civilian",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Civilians providing information, shelter, and supplies to the movement. Not armed combatants."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The movement is preparing a major operation. Cells are being activated. Weapons distributed from caches. Cham Syndulla is personally involved in planning. The population senses something is coming. Imperial informants may detect increased activity.",
+          "presence_reason": "A high-value target has been identified — an Imperial convoy, a garrison commander, a symbolic strike that will demonstrate the movement's capability and inspire the population.",
+          "roles": [
+            {
+              "role": "Resistance strike team",
+              "archetype_ref": "resistance_fighter",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Armed and equipped for a coordinated assault. Trained in Cham Syndulla's unorthodox urban warfare tactics."
+            },
+            {
+              "role": "Numa — explosives specialist",
+              "archetype_ref": "demolitions_expert",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Numa's natural aptitude with explosive devices makes her critical to any major operation. Distrustful of outsiders."
+            },
+            {
+              "role": "Resistance sympathizers",
+              "archetype_ref": "twilek_civilian",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Active support network providing logistics, diversions, and safe passage."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full uprising. Cham Syndulla has called the population to arms. This is the moment the movement has been building toward — a coordinated, planet-wide assault on Imperial positions. The plasma bridge at Lessu is a primary objective. Every Twi'lek who can carry a weapon is fighting or supporting those who are.",
+          "presence_reason": "A catalyst event — the Empire has overreached (mass detention, atrocity against civilians), or the broader Rebellion has created an opening that Cham believes will not come again. This is Ryloth's moment of liberation or destruction.",
+          "roles": [
+            {
+              "role": "Resistance assault force",
+              "archetype_ref": "resistance_fighter",
+              "tier": "rival",
+              "count": 12,
+              "notes": "Coordinated teams hitting Imperial positions simultaneously across multiple cities."
+            },
+            {
+              "role": "Cham Syndulla",
+              "archetype_ref": "resistance_leader",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The Hammer of Ryloth personally leading the assault. His presence on the battlefield multiplies the effectiveness of every Twi'lek fighter. Cool 4, Knowledge (Warfare) 5, Leadership 2, Resilience 4."
+            },
+            {
+              "role": "Numa",
+              "archetype_ref": "demolitions_expert",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Leading demolitions operations against Imperial hardpoints. Mechanics 4, three frag grenades (Damage 8, Blast 8), three armor-piercing grenades (Damage 13, Pierce 3)."
+            },
+            {
+              "role": "Armed civilians",
+              "archetype_ref": "twilek_civilian",
+              "tier": "minion",
+              "count": 20,
+              "notes": "The population rising. Poorly equipped but determined. Cham's 'For Ryloth!' ability to reroll failed Leadership checks when leading Twi'leks is at its most powerful here."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Resistance couriers increase movement. Weapons are moved between caches. Sympathizers in the civilian population become more guarded around outsiders.",
+        "targeted": "The movement has identified a specific target or threat. Reconnaissance intensifies around the target. Cells begin coordinating. Outsiders approaching the target area will be watched and potentially confronted.",
+        "manhunt": "The movement is hunting an Imperial informant, a traitor within their ranks, or someone who has threatened Ryloth's interests. Cave network knowledge makes the movement extremely effective at finding people who think they are hidden. Those who betray the movement do not survive long."
+      }
+    },
+    {
+      "faction_id": "hutt_cartel",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Hutt interests are represented by a single local agent maintaining trade agreements with the mining clans. Spice moves through established channels without active Hutt supervision.",
+          "presence_reason": "Business as usual. The spice trade is sufficiently established that it runs on inertia. Active Hutt presence is only needed when something disrupts the supply chain.",
+          "roles": [
+            {
+              "role": "Hutt trade agent",
+              "archetype_ref": "hutt_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Manages distribution agreements. Reports to the controlling Hutt clan (varies — Desilijic, Besadii, Qunaalac, or Anjiliac depending on current clan politics)."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Active Hutt presence managing spice distribution. Multiple agents across Kala'uun and the mining districts. Smuggler crews staging in the spaceports. Secret hyperspace route coordinates being distributed to trusted pilots.",
+          "presence_reason": "A major shipment is being organized or a new distribution agreement is being negotiated. The Hutts are investing attention in Ryloth to protect or expand their market share.",
+          "roles": [
+            {
+              "role": "Hutt trade agent",
+              "archetype_ref": "hutt_agent",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Negotiating with clan leaders. Competing with agents from rival Hutt clans."
+            },
+            {
+              "role": "Smuggler crew",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Pilots with astrogation data for the Corellian Skip Run or Ryloth Road. Loading spice for off-world distribution."
+            },
+            {
+              "role": "Hired muscle",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Protecting the shipment and the agents. Species varies — Nikto, Weequay, Klatooinian."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Multiple Hutt clans competing aggressively for Ryloth distribution rights. Armed confrontations between rival clan agents are possible. Smuggler traffic intensifies. The clans are spending real credits to secure their position.",
+          "presence_reason": "A major shift in spice market dynamics — a rival spice source (Kessel glitterstim) has been disrupted, or a competing Hutt clan is attempting to muscle in on established distribution agreements.",
+          "roles": [
+            {
+              "role": "Hutt trade agent",
+              "archetype_ref": "hutt_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Representatives from competing Hutt clans. Each backed by their own security."
+            },
+            {
+              "role": "Smuggler crews",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Multiple ships staging for a large-scale spice run. Tension between crews working for rival clans."
+            },
+            {
+              "role": "Hutt enforcer squad",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 8,
+              "notes": "Armed security for trade negotiations that may turn violent."
+            },
+            {
+              "role": "Bounty hunter",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Hired to track down a smuggler who ran with a shipment or a rival agent who needs to be eliminated."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "A Hutt kajidic is making a power play for total control of Ryloth's ryll output. This level of Hutt investment means a senior Hutt has taken personal interest. The economic pressure on the Twi'lek clans is immense. The Empire may be paid to look the other way — or may intervene to prevent a single criminal organization from monopolizing a strategically important resource.",
+          "presence_reason": "A Hutt crime lord has decided that controlling the source is more profitable than competing for distribution. This is a rare escalation that threatens to destabilize the existing balance of power on Ryloth.",
+          "roles": [
+            {
+              "role": "Hutt lieutenant",
+              "archetype_ref": "hutt_lieutenant",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Senior operatives with authority to negotiate, threaten, or buy out entire clan operations."
+            },
+            {
+              "role": "Smuggler fleet",
+              "archetype_ref": "smuggler",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Enough ships to move the entire ryll output off-planet. Operating on multiple secret routes simultaneously."
+            },
+            {
+              "role": "Mercenary company",
+              "archetype_ref": "nikto_guard",
+              "tier": "minion",
+              "count": 12,
+              "notes": "Private army securing mining operations and intimidating rival interests."
+            },
+            {
+              "role": "Bounty hunters",
+              "archetype_ref": "bounty_hunter",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Hunting anyone who threatens the operation — rival agents, resistance fighters who target shipments, or Imperial inspectors who can't be bribed."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Hutt agents ask more questions about shipment security. Smuggler crews are told to vary their departure schedules. Someone has been sampling the product or skimming credits.",
+        "targeted": "A specific threat to the spice supply chain has been identified. Hutt enforcers are deployed to the affected location. Anyone interfering with shipments is marked for elimination.",
+        "manhunt": "A major theft or betrayal. A smuggler ran with an entire shipment, or a rival clan agent has compromised distribution routes. The Hutts are spending bounty-level credits to find the responsible party. The clans are pressured to cooperate."
+      }
+    },
+    {
+      "faction_id": "twilek_clans",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Clan authority is nominal. A single head clan member maintains the appearance of governance while real power rests with whoever else is asserting control — Imperial, Hutt, or resistance.",
+          "presence_reason": "A crisis has disrupted normal clan governance — a head clan member has died (triggering a generational leadership transition), or external pressure has neutralized clan authority.",
+          "roles": [
+            {
+              "role": "Clan elder",
+              "archetype_ref": "twilek_merchant",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Maintaining clan dignity and economic continuity under extreme pressure."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Normal clan governance. Head clan leadership manages city affairs, trade agreements, and spice mining operations. Clan enforcers maintain order in commercial districts. The balance between Imperial compliance, Hutt business, and resistance sympathy is carefully managed.",
+          "presence_reason": "Default state. Ryloth's indigenous governance operating within the constraints of Imperial occupation.",
+          "roles": [
+            {
+              "role": "Head clan leaders",
+              "archetype_ref": "twilek_merchant",
+              "tier": "rival",
+              "count": 3,
+              "notes": "The ruling five. Expert negotiators who have survived by reading every power dynamic in the room."
+            },
+            {
+              "role": "Clan enforcers",
+              "archetype_ref": "twilek_clan_guard",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Security for trade warrens and mining operations. Loyal to their clan above all else."
+            },
+            {
+              "role": "Indentured servants",
+              "archetype_ref": "twilek_civilian",
+              "tier": "minion",
+              "count": 6,
+              "notes": "Lower-caste Twi'leks bound by 'free-will' contracts. Slavery in all but name. The moral foundation of Ryloth's economy that the galaxy prefers not to examine."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "A clan succession crisis or external threat has mobilized clan resources. Armed enforcers guard clan estates. Negotiations with the Empire or the Hutts have taken on urgency. Trade routes are being renegotiated under pressure.",
+          "presence_reason": "A head clan member has died, triggering the constitutional mechanism that deposes the surviving members and installs the next generation. The transition period is politically dangerous. Rival clans may attempt to exploit the instability.",
+          "roles": [
+            {
+              "role": "Head clan leaders",
+              "archetype_ref": "twilek_merchant",
+              "tier": "rival",
+              "count": 5,
+              "notes": "Full ruling council assembled. Internal rivalries are intense during transitions."
+            },
+            {
+              "role": "Clan enforcers",
+              "archetype_ref": "twilek_clan_guard",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Upgraded security. Protecting clan leadership during a vulnerable period."
+            },
+            {
+              "role": "Clan negotiator",
+              "archetype_ref": "twilek_diplomat",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Dispatched to negotiate with Imperial officials, Hutt agents, or rival clans. Twi'lek diplomatic skills at their sharpest."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The clans have unified — an event rare enough to qualify as historic. Whether driven by an existential threat (Imperial atrocity, Hutt overreach) or an opportunity (Imperial withdrawal, resistance victory), the clans are acting as a single political body. This is Ryloth's government asserting sovereignty.",
+          "presence_reason": "Something has forced the clans to set aside their rivalries. The threat or opportunity is large enough that individual clan interests are temporarily subordinated to collective survival.",
+          "roles": [
+            {
+              "role": "Unified clan council",
+              "archetype_ref": "twilek_merchant",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The combined leadership of multiple head clans acting with a single voice. Their negotiating power is formidable."
+            },
+            {
+              "role": "Clan militia",
+              "archetype_ref": "twilek_clan_guard",
+              "tier": "minion",
+              "count": 15,
+              "notes": "Combined clan security forces. Better organized than the resistance but less experienced in guerrilla warfare."
+            },
+            {
+              "role": "Trade delegation",
+              "archetype_ref": "twilek_diplomat",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Senior negotiators deployed to every interested party simultaneously — Empire, Hutts, Rebellion — playing all sides."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Clan enforcers increase patrols around trade warrens. Outsiders find negotiations becoming more difficult. Prices for ryll and other goods fluctuate without explanation.",
+        "targeted": "The clans have identified a specific threat to their economic interests. Enforcers are deployed. Trade partners are warned. The threat may be handled through violence, negotiation, or by tipping off whichever external power is most useful.",
+        "manhunt": "Someone has stolen from the clans or threatened their leadership. Twi'lek information networks — both spoken and lekku-signed — activate across every settlement. The target will be found. What happens next depends on clan justice, which is pragmatic and rarely merciful."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Hera Syndulla and the Spectres (intermittent support)",
+      "Rebel Alliance: Phoenix Cell coordination capabilities",
+      "Rebel Alliance: Offworld supply lines and intelligence sharing",
+      "Rebel Alliance: Political legitimacy as part of the Alliance to Restore the Republic",
+      "Rebel Alliance on this planet: Supporting Ryloth's resistance as part of the broader galactic struggle against the Empire. Hera Syndulla serves as the primary bridge between the Free Ryloth Movement and the wider Rebellion, though ",
+      "Rebel Alliance asset: Phoenix Cell coordination capabilities"
+    ],
+    "presets": {
+      "EotE_spice_trade": {
+        "label": "Edge of the Empire — Ryll Spice Trade",
+        "description": "Players are involved in the ryll spice trade — as smugglers running product off-world, traders negotiating with the clans, or independent operators looking to cut themselves into the most profitable commodity in the Outer Rim. The Empire's restrictions create opportunity. The Hutts' distribution networks create infrastructure. The clans' willingness to deal creates supply. Millions of shipments go missing every year — there is room for more.",
+        "controlling_factions": [
+          {
+            "location_id": "kalauun_trade_warrens",
+            "faction_id": "twilek_clans",
+            "presence_level": "patrol",
+            "notes": "Normal clan commercial operations. The trade warrens are open for business. Negotiations for ryll are conducted through established channels."
+          },
+          {
+            "location_id": "ryll_mine_complex",
+            "faction_id": "twilek_clans",
+            "presence_level": "patrol",
+            "notes": "Mining operations running. Licensed pharmaceutical output tracked. Off-books production available through the right contacts."
+          },
+          {
+            "location_id": "lessu_plasma_bridge",
+            "faction_id": "imperial_occupation",
+            "presence_level": "patrol",
+            "notes": "Standard Imperial checkpoint. Spice leaving through official channels requires documentation. Spice leaving through unofficial channels requires knowing the Death Wind Corridor or a Hutt secret route."
+          }
+        ],
+        "faction_relationship_overrides": [],
+        "active_heat": [],
+        "flags": [
+          "A Twi'lek clan lord in Kala'uun needs a crew to move a shipment of ryll to Socorro — off the books, no questions. The usual smuggler disappeared mid-route. The Ryloth Road astrogation data is included in the price.",
+          "An Imperial customs inspector is getting too thorough. The clans want the problem solved discreetly — not violently. A bribe, a blackmail, or a transfer to another posting. The clans will pay well for elegant solutions.",
+          "A Besadii Hutt agent is undercutting Desilijic distribution prices. The competition is driving down profit margins for the mining clans. Someone needs to find out what route the Besadii are using and who their contacts are.",
+          "The pharmaceutical companies are demanding higher quality ryll than the clans can deliver at current prices. A new bloom has been discovered deeper in the mines — but the tunnels are unstable and something is living down there."
+        ]
+      },
+      "AoR_resistance_support": {
+        "label": "Age of Rebellion — Supporting the Free Ryloth Movement",
+        "description": "Players are Rebel Alliance operatives sent to coordinate with the Free Ryloth Movement. The mission is delicate — Cham Syndulla distrusts outsiders, and the movement has been known to betray temporary allies when it serves Ryloth's interests. The potential reward is access to the movement's exceptional intelligence on Imperial operations and their military expertise. The risk is being used as expendable assets in Cham's exclusively local war.",
+        "controlling_factions": [
+          {
+            "location_id": "resistance_caves",
+            "faction_id": "free_ryloth_movement",
+            "presence_level": "patrol",
+            "notes": "The movement is operating normally. Cham is willing to meet with Alliance representatives but on his terms and on his ground."
+          },
+          {
+            "location_id": "lessu_plasma_bridge",
+            "faction_id": "imperial_occupation",
+            "presence_level": "fortified",
+            "notes": "Imperial presence is elevated following a recent resistance strike. Getting into or out of Lessu undetected requires help from the movement's underground networks."
+          }
+        ],
+        "faction_relationship_overrides": [
+          {
+            "faction_id": "free_ryloth_movement",
+            "override": "Initial hostility toward the players regardless of Alliance credentials. Trust must be earned through action, not words. Cham evaluates potential allies by testing them — possibly by sending them on a dangerous mission with incomplete information."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_occupation",
+            "level": "targeted",
+            "notes": "The Empire is actively hunting resistance operatives after a recent strike. Any outsiders arriving on Ryloth during this period draw immediate suspicion."
+          }
+        ],
+        "flags": [
+          "Cham Syndulla wants proof of commitment before sharing intelligence. He asks the players to destroy an Imperial communications relay deep in the cave network — a mission his own people could handle, suggesting he is testing the players' capability and loyalty rather than requesting genuine assistance.",
+          "Numa has identified a collaborating clan leader who is feeding information to the Imperial garrison. She wants the collaborator exposed publicly to discourage others — not assassinated. The political dynamics of Twi'lek clan loyalty make this more complicated than it sounds.",
+          "Hera Syndulla has sent a coded message asking the players to deliver a personal item to her father. The item may be an olive branch or a warning. Father and daughter disagree on everything except the need for Ryloth to be free.",
+          "An Imperial prisoner convoy is moving through the cave networks near Roancu. The prisoners include resistance fighters and possibly civilians detained during a sweep. Cham wants a rescue operation — but he also wants the Imperial escort eliminated as a message. The Alliance's rules of engagement may conflict with Cham's methods."
+        ]
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "371",
+      "detail": "Primary planet entry — astronavigation data, population (1.5 billion, 76% Twi'lek), government (feudalism), terrain, cities (Lessu, Kala'uun, Roancu), exports (slaves, ryll spice), imports, trade routes (Corellian Run, Death Wind Corridor), background text, ryll spice sidebar"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "60-61",
+      "detail": "Twi'lek species entry — clan governance (head clans of five), head-tail communication, skin tone as clan/region indicator, Life on the Fringe (entrepreneurial clan members leaving Ryloth)"
+    },
+    {
+      "book": "EotE Core Rulebook",
+      "pages": "336",
+      "detail": "Corellian Run hyperspace route — extends from Core through Corellia to Ryloth and beyond. Ryloth listed as notable location."
+    },
+    {
+      "book": "FaD Core Rulebook",
+      "pages": "64-65",
+      "detail": "Twi'lek species entry — Ryloth as Outer Rim world on Corellian Run, violent seasons, extreme environments, snowy wastelands to scorching deserts, temperate band, slavery as chief export, clan structure, lekku possible Force sensitivity"
+    },
+    {
+      "book": "FaD Core Rulebook",
+      "pages": "349",
+      "detail": "Corellian Run — trail blazed southeast to Ryloth and beyond into Wild Space"
+    },
+    {
+      "book": "FaD Core Rulebook",
+      "pages": "364",
+      "detail": "Brief planet entry — recurrent heat storms, harsh terrain, slave trade, cave-dwelling Twi'leks, clan-based slavery"
+    },
+    {
+      "book": "AoR Core Rulebook",
+      "pages": "367",
+      "detail": "Brief planet entry — radical weather and rotational patterns, heat storms, many citizens live underground, Empire controls Ryloth"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "pages": "86-87",
+      "detail": "Free Ryloth Movement — full organization entry, Cham Syndulla (Nemesis stat block: Cool 4, Knowledge (Warfare) 5, Leadership 2, Mechanics 3, Negotiation 3, Resilience 4; Adversary 2, Command 2, Field Commander, Inspiring Rhetoric; 'For Ryloth!' ability), Numa (Nemesis stat block: Mechanics 4, explosives specialist; Adversary 1, Powerful Blast 2; 'Hope for Ryloth' ability)"
+    },
+    {
+      "book": "Dawn of the Rebellion",
+      "pages": "78",
+      "detail": "Hera Syndulla entry — daughter of Cham Syndulla, mother died during Empire's rise, left father to join wider Rebellion when he became devoted to fighting only for Ryloth"
+    },
+    {
+      "book": "Lords of Nal Hutta",
+      "pages": "19, 22-23, 27",
+      "detail": "Multiple Hutt clans list Ryloth in spheres of influence — Clan Desilijic (Jabba), Clan Besadii (Durga/Gardulla), Clan Qunaalac (Marlo), Clan Anjiliac"
+    },
+    {
+      "book": "Lords of Nal Hutta",
+      "pages": "33",
+      "detail": "Secret Hutt hyperspace routes — Corellian Skip Run (Ryloth-Tatooine, avoids patrols), Ryloth Road (Ryloth-Socorro, saves 24-48 hours, connects to Llanic Spice Run)"
+    }
+  ]
+}

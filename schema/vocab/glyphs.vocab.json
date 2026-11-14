@@ -1,0 +1,160 @@
+{
+  "vocabulary": "glyphs",
+  "_doc": "FFG dice-glyph tokens \u2014 the SEMANTIC bracket tokens canonical descriptions preserve (D-CB3). Canonical form is the uppercase token in `token`, written [SU], [AD], ... in description text; `aliases` lists the verbose source variants the ingest normalizes ([SETBACK]->[SE], [REMSETBACK]->[SE] adjudicated 'remove up to [SE][SE]' reads correctly, ...). Structural markup ([H#], [B]/[b], [I]/[i], [P], [BR]) is decoded away at ingest and is NOT in this vocabulary. The ingest decoder fails LOUD on any bracket token that is neither structural nor listed here (the legacy renderDescription silently stripped unknowns \u2014 player/index.html:4489). Render: FFG_SYMBOL map (player/index.html:4439) covers all but ABILITY and DESTINY_POINT \u2014 extend it in sub-step 3a. Authority for glyph meanings: eote p.12-13 (dice & symbols).",
+  "entries": [
+    {
+      "id": "success",
+      "label": "Success",
+      "token": "SU",
+      "aliases": [
+        "SU",
+        "SUCCESS"
+      ]
+    },
+    {
+      "id": "advantage",
+      "label": "Advantage",
+      "token": "AD",
+      "aliases": [
+        "AD",
+        "ADVANTAGE"
+      ]
+    },
+    {
+      "id": "triumph",
+      "label": "Triumph",
+      "token": "TR",
+      "aliases": [
+        "TR",
+        "TRIUMPH"
+      ]
+    },
+    {
+      "id": "failure",
+      "label": "Failure",
+      "token": "FA",
+      "aliases": [
+        "FA",
+        "FAILURE"
+      ]
+    },
+    {
+      "id": "threat",
+      "label": "Threat",
+      "token": "TH",
+      "aliases": [
+        "TH",
+        "THREAT"
+      ]
+    },
+    {
+      "id": "despair",
+      "label": "Despair",
+      "token": "DE",
+      "aliases": [
+        "DE",
+        "DESPAIR"
+      ]
+    },
+    {
+      "id": "force",
+      "label": "Force",
+      "token": "FO",
+      "aliases": [
+        "FO",
+        "FORCE"
+      ]
+    },
+    {
+      "id": "force_pip",
+      "label": "Force pip",
+      "token": "FP",
+      "aliases": [
+        "FP",
+        "FORCEPOINT"
+      ]
+    },
+    {
+      "id": "light_side",
+      "label": "Light side",
+      "token": "LI",
+      "aliases": [
+        "LI",
+        "LIGHT"
+      ]
+    },
+    {
+      "id": "dark_side",
+      "label": "Dark side",
+      "token": "DA",
+      "aliases": [
+        "DA",
+        "DARK"
+      ]
+    },
+    {
+      "id": "boost",
+      "label": "Boost die",
+      "token": "BO",
+      "aliases": [
+        "BO",
+        "BOOST"
+      ]
+    },
+    {
+      "id": "setback",
+      "label": "Setback die",
+      "token": "SE",
+      "aliases": [
+        "SE",
+        "SETBACK",
+        "REMSETBACK"
+      ]
+    },
+    {
+      "id": "ability",
+      "label": "Ability die",
+      "token": "AB",
+      "aliases": [
+        "AB",
+        "ABILITY"
+      ]
+    },
+    {
+      "id": "proficiency",
+      "label": "Proficiency die",
+      "token": "PR",
+      "aliases": [
+        "PR",
+        "PROFICIENCY"
+      ]
+    },
+    {
+      "id": "difficulty",
+      "label": "Difficulty die",
+      "token": "DI",
+      "aliases": [
+        "DI",
+        "DIFFICULTY"
+      ]
+    },
+    {
+      "id": "challenge",
+      "label": "Challenge die",
+      "token": "CH",
+      "aliases": [
+        "CH",
+        "CHALLENGE"
+      ]
+    },
+    {
+      "id": "destiny_point",
+      "label": "Destiny Point",
+      "token": "DP",
+      "aliases": [
+        "DP",
+        "DESTINY"
+      ]
+    }
+  ]
+}

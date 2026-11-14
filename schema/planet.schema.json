@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/planet.schema.json",
+  "title": "Planet",
+  "description": "Planet record (public/data/planets/*.json) — APP-OWNED World Model Schema v2.0 content (hand-authored GM toolkit + Planet Compendium extractions). This schema is a CAPTURE of the existing contract (world-links D-WL1: schema + integrity only, no ingest, no shape change). Corrected census (world-links-recon ruling): 80 records — 27 record_depth 'full' + 53 'identity'; NO 'nav' depth exists (lightweight nav entries live in planets_nav.json, which is NOT a planet record and is out of this schema). Both depth tiers carry the SAME 15 top-level sections (verified on all 80) — depth describes CONTENT richness, not structure.",
+  "$comment": "Companion files disposition (D-WL1 condition 3, stated): *_gaps.json + gap_report.json are AUDIT ARTIFACTS, not planet records — scoped OUT of this schema; the validate_registries world-links layer checks only that every *_gaps.json id resolves to a planet record. planets_nav.json is a separate nav index, also out. Value-level constraints minimal by design (capture, not authoring standards). ARCHITECTURAL RULE preserved (DATA_INVENTORY §5): the Rebel Alliance does NOT appear in planet factions[] — rebel presence is campaign_state presets + the galaxy faction file.",
+  "type": "object",
+  "required": [
+    "id",
+    "schema_version",
+    "record_depth",
+    "identity",
+    "compendium",
+    "era_variants",
+    "geography",
+    "species",
+    "factions",
+    "strategic_locations",
+    "influences",
+    "navigation",
+    "encounter_population",
+    "campaign_state",
+    "source_refs"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "schema_version": { "const": "2.0" },
+    "record_depth": {
+      "enum": ["full", "identity"],
+      "description": "full = all GM-toolkit sections populated (27 records); identity = compendium-extracted lookup depth (53 records). Same section list either way."
+    },
+    "identity": {},
+    "compendium": {},
+    "era_variants": {},
+    "geography": {},
+    "species": {},
+    "factions": {
+      "type": "array",
+      "description": "Planet-LOCAL faction instances (e.g. imperial_garrison_jedha) — ids are local by design and deliberately do NOT need to match the galaxy faction registry. The registry link is galaxy_faction_ref.",
+      "items": { "$ref": "#/$defs/planet_faction" }
+    },
+    "strategic_locations": {},
+    "influences": {},
+    "navigation": {},
+    "encounter_population": {},
+    "campaign_state": {},
+    "source_refs": {}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "planet_faction": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": { "type": "string", "description": "Planet-local instance id (NOT a registry id)." },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "control_type": {},
+        "control_strength": {},
+        "susceptibility": {},
+        "motivation": {},
+        "assets": {},
+        "relationships": {},
+        "mcguffin_interest": {},
+        "galaxy_faction_ref": {
+          "type": ["string", "null"],
+          "$comment": "THE planet->galaxy-faction link (world-links R-WL2): when non-null, MUST resolve to a faction registry id — enforced by validate_registries with adjudicated exceptions ledgered in scripts/canonical/planet_faction_gaps.json (never waived silently). null = explicitly link-unknown (24 entries today); absent = local-only faction (60 entries today); non-null = 17 entries, of which 2 are pending adjudication (D-WL5: mining_guild, church_of_the_force)."
+        },
+        "alignment": { "$comment": "straggler (1 entry)" },
+        "description": { "$comment": "straggler (2 entries)" },
+        "notable_npcs": { "$comment": "straggler (1 entry)" },
+        "source_refs": { "$comment": "straggler (5 entries)" },
+        "hq_district_id": { "$comment": "straggler (1 entry)" },
+        "leader": { "$comment": "straggler (1 entry)" },
+        "attitude_toward_players": { "$comment": "straggler (1 entry)" },
+        "inferred": { "$comment": "inference-engine provenance flag (1 entry)" },
+        "inference_note": { "$comment": "inference-engine provenance note (1 entry)" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

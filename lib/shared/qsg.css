@@ -1,0 +1,278 @@
+/* qsg.css — QUICK START AND GUIDED BUILD'S OWN LAYER (the paper shelf and the paper step).
+   Ruling `quickstart-guided-paper-concept` R-QSG-1..6; mockup `lab/holocron/qsg.html` @ lab
+   `284f9929` (Jason 2026-09-19: "Approved" + "B" — fork (b), frames P–Y). B-719 lands it.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/qsg_build.py`'s `BOARD_CSS` at that pin — 132 lines, every rule and
+   every comment, in the board's own order. The comments ARE the design record: they say why each
+   rule exists and what it cost to find out (the phone step's 1,437px of eaten review is the one
+   this file would be incomplete without). The board's page chrome (`CSS`, the frame furniture and
+   `holocron.css` itself) is NOT ported — `lib/shared/paper.css` is the app's copy of that kit.
+
+   ── THE THREE MECHANICAL CHANGES ──────────────────────────────────────────────────────────────
+   1. THE TOKEN NAMES. `--pp-*` is the lab's vocabulary; the app's contract is `--doc-*`
+      (`lib/shared/grounds/creator.css`) — the sheet's map, applied, and it is a SHORT map because
+      this board reuses the kit for almost everything it draws:
+      `--pp-ink   → --doc-ink` (5)
+      `--pp-red   → --doc-action` (4)
+      `--pp-hair-2 → --doc-rule-fine` (3)
+      `--pp-ink-2 → --doc-ink-muted` (2)
+      14 substitutions, 0 `--pp-*` left. NO OTHER `--pp-*` NAME APPEARS IN THIS STYLESHEET, so no
+      new token and no new colour is owed — the store's `--pp-maroon` problem does not arise here.
+      (`--pp-lead-max` appears in the board's INLINE styles, not in `BOARD_CSS`; the app's own
+      `hp-plate` reading width carries that job and the port needs no name for it.)
+   2. EVERY RULE GAINS `[data-qsg-shell] ` AS AN ANCESTOR — 51 ported rules, 52 selectors, and the
+      four rules this file ADDS at the foot wear it too, so the fence has no hole (55 / 56).
+      B-750/B-752 PORT §D of the board's CSS and the count is remeasured rather than estimated:
+      56 rules / 57 selectors → **62 / 63**, six rules added (the picker's wrap, counter, grid, row and
+      row body; the note's cap), and 0 selectors without the fence. One board rule was NOT ported
+      because the kit already carries it — see §D's own paragraph below, which is the record of it.
+      NOT `[data-doc-ground="creator"]`, which every transplanted surface already wears: the
+      reason is the NAMESPACE. `.qs-*` and `.gb-*` are two of the shortest prefixes in the repo and
+      neither is this surface's alone by construction — `.gb-card`, `.gb-t`, `.gb-grid` are the
+      names a GM board or a group builder would reach for on sight, and `.qs-*` is two letters from
+      a dozen things. The store's fence is the precedent and its second payment applies here too:
+      `[data-qsg-shell] .hp-skill.qs-sk` is (0,3,0) against paper.css's `.hpw-shell .hp-skill`
+      (0,3,0) and wins on ORDER (this file is linked after paper.css) — which is exactly what the
+      board's own comment on that rule says it is relying on.
+   3. TWO RULES ARE NOT PORTED, and dropping them is a FIX rather than an omission. The board's
+      header calls `.hp-wide` and `.hpw-bar` a ⚠ FINDING — two rules it had to copy out of the
+      creator board's own `BOARD_CSS` because `holocron.css` does not carry them. IN THE APP THAT
+      FINDING IS ALREADY CLOSED: `paper.css` carries both under the ground (`.hp-wide` and
+      `.hpw-bar`), and its `.hpw-bar` adds `padding-top:env(safe-area-inset-top,0px)` — which the
+      lab's copy does not have. Porting the board's two would have SHADOWED the app's and silently
+      dropped the notch inset on every Guided desk page. So the kit's own two rules stand and this
+      file says so here.
+
+   ── WHAT IS NOT THE BOARD'S, AND SAYS SO IN PLACE ─────────────────────────────────────────────
+   One block at the end. `.qsg-surface` (the board's frames are fixed-size cells; the app's two
+   doors are absolutely-positioned screens inside `PlayerApp`'s wipe wrapper, so the shell needs the
+   one rule the frame gave it for free — the store's `.st-surface` for the same reason). The interim
+   islands' block left with the old faces (B-1688).
+
+   ── SIX RULES REACH NO APP SURFACE YET, and they are carried on purpose ───────────────────────
+   `.qs-clash` is the board's B-717 disclosure table and `.qs-ways` / `.qs-way` are its §C seam —
+   the three CREATE doors as the APPROVED LANDING draws them, which in production is the landing's
+   own `ld-wayband` and not this surface's. They are the board's delta, so the port is the board's
+   whole delta; they are named here so a later row either reaches them or deletes them rather than
+   finding them by accident.
+
+   ── THE BANDS ARE A CLASS AND A CONTAINER, not a media query ───────────────────────────────────
+   There is not one `@media` in `BOARD_CSS`. The shelf resolves from its OWN box (`container-name:
+   qsurface` on `.qs`, declared in the port), Guided's desk rungs answer to `surface` — the name
+   paper.css already declares on `.hpw-shell` — and the phone/desk fork arrives from JS
+   (`useLayoutMode()`, as the landing and the sheet take it) and lands as `data-band` on the shell.
+   Left as the board wrote it. */
+
+
+/* ── THE QUICK START + GUIDED BOARD — a DELTA over holocron.css, which is NOT TOUCHED. ──────────
+ * The precedent is the store's and the landing's, and it is ruled: a board's own vocabulary lives
+ * inside its generator, reusing an `hp-` primitive for every concept the paper already owns and
+ * growing an own-prefix class only where this board has a concept the vocabulary lacks.
+ * `holocron.css` is source for five generators; a class added there ages four boards that had no
+ * reason to move.
+ *
+ * ADOPTED WHOLE, not restated: hp-sheet · hp-phonesheet/hp-phonebody/hp-phoneact (the phone) ·
+ * hpw-shell + hp-onecol* (the creator's desk step) · hp-runhead + hp-folio · hp-wave (the step
+ * rule) · hp-desig + hp-desig-rule + hp-maker + hp-slash (the designation) · hp-plate · hp-rail +
+ * hp-char* (the capsule strip) · hp-status* (the vitals) · hp-skill* + hp-pool (a roll) · hp-index
+ * + hp-row* (a list of doors) · hp-ledger + hp-lkey/hp-lval (the equipment) · hp-track* (the
+ * campaign mechanic) · hp-line* (the three core cards) · hp-commit / hp-quiet / hp-door ·
+ * hp-sechead · hp-cite · hp-lead · hp-none · hp-teach · hp-hr · hp-xp.
+ *
+ * ⚠ TWO CLASSES ARE COPIED, AND THEY ARE A FINDING RATHER THAN A CHOICE. The creator's desk step
+ * shell needs `.hp-wide` and `.hpw-bar`, and those two live in `build.py`'s OWN BOARD_CSS, not in
+ * `holocron.css` — so the whole creator step vocabulary is shared except the two rules that make a
+ * step a PAGE. Any second board drawing a creator step must copy them, which is what this one has
+ * done; the fix belongs in the kit and the kit is read-only this lap. Reported, not edited. */
+
+/* THE SURFACE IS THE SCREEN. Both doors are IMMERSIVE in the app (`body.holo-immersive` takes the
+ * SuiteBar and the BottomNav off), so the sheet is the whole viewport and only its own zones scroll
+ * (AS-4). `container-type` makes the card grid resolve from the SHELF's width rather than from a
+ * band attribute a caller supplies — a flag a caller supplies is a claim the data cannot
+ * contradict, and a container query cannot disagree with the box it is measuring. */
+[data-qsg-shell] .qs{height:100%;display:flex;flex-direction:column;overflow:hidden;
+  container-type:inline-size;container-name:qsurface}
+[data-qsg-shell] .qs-top{flex:none;padding:14px 15px 0}
+[data-qsg-shell] .qs-shelf{flex:1;min-height:0;overflow-y:auto;padding:0 15px 16px}
+[data-qsg-shell] .qs-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;margin-top:10px}
+@container qsurface (min-width:900px){ [data-qsg-shell] .qs-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px} }
+@container qsurface (min-width:1240px){ [data-qsg-shell] .qs-cards{grid-template-columns:repeat(3,minmax(0,1fr))} }
+[data-qsg-shell] .qs-top .hp-desig{font-size:26px}
+@container qsurface (min-width:900px){ [data-qsg-shell] .qs-top .hp-desig{font-size:34px} }
+
+/* THE REGISTER TABS — state is a MARK, not a hue (LAB_PRACTICE §21). The standing register takes
+ * the selection ink AND a rule under it, so which register you are reading survives a photocopy,
+ * a colour-blind reader and the printed page. */
+[data-qsg-shell] .qs-regs{display:flex;gap:2px;margin-top:11px;border-bottom:1px solid var(--doc-rule-fine)}
+[data-qsg-shell] .qs-reg{flex:1;min-height:44px;padding:6px 8px 7px;background:transparent;border:0;cursor:pointer;
+  font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--doc-ink-muted);border-bottom:3px solid transparent;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+[data-qsg-shell] .qs-reg b{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:11px;
+  letter-spacing:.06em;color:inherit}
+[data-qsg-shell] .qs-reg[data-now="1"]{color:var(--doc-action);border-bottom-color:var(--doc-action)}
+[data-qsg-shell] .qs-reg i{font-style:normal;font-variant-numeric:tabular-nums;font-size:10px}
+
+/* THE FRONTISPIECE CARD — the landing's frontispiece is a character on paper and a pregen IS a
+ * whole character, so a shelf card is that drawing at card size. Nothing here is a new concept:
+ * the strip, the vitals and the roll are the same three objects the landing's stage carries. */
+[data-qsg-shell] .qs-card{display:flex;flex-direction:column;gap:8px;text-align:left;width:100%;cursor:pointer;
+  border:0;font:inherit;color:inherit}
+[data-qsg-shell] .qs-card .hp-rail{margin-top:1px}
+[data-qsg-shell] .qs-chead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+[data-qsg-shell] .qs-name{display:block;font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:17px;
+  line-height:1.06;letter-spacing:.02em;color:var(--doc-ink);margin:0;text-transform:uppercase;
+  overflow-wrap:anywhere}
+[data-qsg-shell] .qs-sub{display:block;margin:2px 0 0;white-space:normal}
+[data-qsg-shell] .qs-tag{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.44;
+  font-style:italic;color:var(--doc-ink-muted);margin:0}
+[data-qsg-shell] .qs-prov{display:block;margin-top:2px}
+
+/* THE SKILL ROW'S SUBJECT IS THE NAME. See `skill_row`'s docstring: three columns put 103px of
+ * "Piloting (Space)" into a 63px cell inside a shelf card, because the kit's name column is the
+ * flexible one and flexible is what yields. Two columns, the annotation under the name, the name
+ * allowed to wrap. Written as `.hp-skill.qs-sk` so it outranks `.hpw-shell .hp-skill`'s wide-rung
+ * template on specificity AND on order — the delta is appended after the kit, never into it. */
+[data-qsg-shell] .hp-skill.qs-sk{grid-template-columns:minmax(0,1fr) max-content;gap:10px}
+[data-qsg-shell] .qs-skn{display:flex;flex-direction:column;gap:2px;min-width:0}
+[data-qsg-shell] .qs-sk .hp-skill-name{white-space:normal;overflow:visible;text-overflow:clip}
+[data-qsg-shell] .qs-sk .hp-skill-char{text-align:left}
+[data-qsg-shell] .qs-open{padding:0}
+[data-qsg-shell] .qs-open .hp-sechead{margin:16px 0 8px}
+[data-qsg-shell] .qs-desc{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.56;
+  color:var(--doc-ink);margin:0}
+[data-qsg-shell] .qs-dim{opacity:.34}
+[data-qsg-shell] .qs-clash{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+
+/* GUIDED — the step body's own two shapes, and nothing else. Both forks use the SAME classes here,
+ * because the fork is a question about CHROME and VOICE and not about what a role card is. */
+[data-qsg-shell] .gb-cards{display:flex;flex-direction:column;gap:10px;margin-top:11px}
+[data-qsg-shell] .gb-card{display:flex;flex-direction:column;gap:5px;text-align:left;width:100%;cursor:pointer;
+  border:0;font:inherit;color:inherit}
+/* B-1661: a loadout card is a plate, not a button. Its head is the toggle and wears the card's own look; the open card's
+ * Take this loadout (hp-commit) sits under the money line, left, as the approved page draws it. */
+[data-qsg-shell] div.gb-card{cursor:default}
+[data-qsg-shell] .gb-card-head{display:flex;flex-direction:column;gap:5px;width:100%;min-height:44px;padding:0;margin:0;background:none;
+  border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+[data-qsg-shell] .gb-card > .hp-commit{align-self:flex-start;margin-top:6px}
+[data-qsg-shell] .gb-t{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:15px;
+  letter-spacing:.04em;color:var(--doc-ink);text-transform:uppercase}
+[data-qsg-shell] .gb-card[data-now="1"] .gb-t,[data-qsg-shell] .gb-sp[data-now="1"] .gb-spn{color:var(--doc-action)}
+[data-qsg-shell] .gb-d{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.5;
+  color:var(--doc-ink);margin:0}
+[data-qsg-shell] .gb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:11px}
+@container surface (min-width:900px){ [data-qsg-shell] .gb-grid{grid-template-columns:repeat(4,minmax(0,1fr))} }
+[data-qsg-shell] .gb-sp{display:flex;flex-direction:column;gap:6px;text-align:center;cursor:pointer;border:0;
+  font:inherit;color:inherit;width:100%}
+[data-qsg-shell] .gb-spn{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:700;font-size:12px;
+  letter-spacing:.05em;color:var(--doc-ink);text-transform:uppercase}
+[data-qsg-shell] .gb-money{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:9px;
+  padding-top:8px;border-top:1px solid var(--doc-rule-fine)}
+[data-qsg-shell] .gb-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@container surface (min-width:900px){ [data-qsg-shell] .gb-cols{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)} }
+[data-qsg-shell] .gb-scroll{flex:1;min-height:0;overflow-y:auto}
+[data-qsg-shell] .hp-onecol > div.gb-scroll{flex:1 1 auto;min-height:0;overflow-y:auto}
+
+/* ── THE GUIDED PHONE STEP SCROLLS ITS BODY, NOT ITS PAGE — a defect the fit guard found on its
+ * first run, and the reason that guard exists. `hp-phonesheet` is `min-height:100%`, so a step
+ * taller than the screen grows the SHEET and the frame's `overflow:hidden` eats the remainder:
+ * measured at 22px past the frame on the role step and **1,437px** on the review, which is most of
+ * the character. Nothing on a screenshot says so — what fell off the bottom leaves no trace in the
+ * picture, in the markup or in `audit.py`, whose TRAPPED check asks about a zone that cannot scroll
+ * and not about a page that is not supposed to.
+ *
+ * THE CURE IS THE APP'S OWN ARRANGEMENT: QuickBuild wraps its step content in
+ * `{flex:1, overflowY:'auto'}` under a fixed-height shell, so the header and the act hold still and
+ * the step moves. Here that is a fixed-height sheet with the body as the scroller — AS-4's rule
+ * exactly: the instrument surface never scrolls the page, the zones scroll inside themselves.
+ * Written with both classes so it outranks the kit's own `min-height` without touching it. */
+[data-qsg-shell] .hp-sheet.hp-phonesheet.gb{height:100%}
+[data-qsg-shell] .hp-phonesheet.gb > .hp-phonebody{min-height:0;overflow-y:auto}
+[data-qsg-shell] .hp-phonesheet.gb > .hp-phoneact{flex:none}
+
+/* §D — THE SPECIES GRANT PICK (B-750; frames AC · AD · AE at lab `18301f1f`, Jason-approved
+ * 2026-09-21). Three rules, and every one of them is the APP'S OWN rule expressed in the kit's own
+ * tokens rather than a shape chosen here.
+ *
+ * THE COLUMN COUNT IS A CONSEQUENCE OF THE READING MEASURE. `FCSkillPicker` grids its list
+ * `repeat(auto-fit, minmax(min(var(--desk-prose-max), 100%), 1fr))` — two columns appear exactly
+ * when the container can hold two AT THE MEASURE and one when it cannot — and caps the picker ROOT
+ * at two measures plus a gutter so the counter and the act sit inside the same column block (the
+ * app's C10 note: furniture that stretches past the content it belongs to re-commits the fault the
+ * measure exists to prevent). Both tokens are `tokens.css`'s; nothing here is new and nothing is a
+ * breakpoint. The +30px is the BLEED PLATE'S own 15px insets — the paper's equivalent of the app's
+ * "+24px is this list's own 12px gutters", derived from the furniture that is actually there rather
+ * than copied from the furniture that is not.
+ *
+ * ⚠ AND THE `min()` IS THE WHOLE FINDING, not a safety belt. With the picker's own cap alone the
+ * list lands on exactly 770px — two measures and a gutter — and composes a SECOND COLUMN. IN GUIDED
+ * IT CANNOT: every step is wrapped in `CenterColumn max=QB_STEP_COLUMN_MAX`, which is
+ * `var(--desk-read-max)` = 720px, and 720 < 770. So a paper picker capped only by its own rule would
+ * draw a composition the product does not have. The step column is the outer term, the ruled cap the
+ * inner one, and `min()` says in CSS exactly what the app says in two nested components. The day
+ * `--desk-read-max` passes 770px the second column appears by itself — which is what deriving a
+ * composition rather than typing it means — and `smoke_qsg_transplant` recomputes the arithmetic from
+ * the three tokens on every run, so frame AD's caption is re-read instead of left false.
+ * THE SIX PIXELS THAT FOUND THIS, on the lab side: with the app's `+24px` term the desk list measured
+ * 764px and composed one column; the bleed plate's real insets made it 770 and TWO appeared on a
+ * frame whose caption said one. The caption was right about the product, the CSS was right about the
+ * token, and only rendering both told them apart.
+ *
+ * ONE BOARD RULE IS NOT PORTED, and dropping it is a FIX rather than an omission — the same shape as
+ * the two in §3 of this file's header. The board writes `.gb-pickrow .hp-row-desig{white-space:normal;
+ * overflow:visible;text-overflow:clip}` because `hp-row-desig` is `nowrap` + ellipsis in the kit,
+ * which is right for a register of names in a rail and wrong for a list of skills (under pressure the
+ * flexible element collapses and the rigid one keeps its width, so the NAME is what the row would
+ * eat). IN THE APP THAT IS ALREADY DONE: `paper.css` carries
+ * `.hp-row[data-noplate="1"] .hp-row-desig` with those three exact declarations, and every picker row
+ * is a `data-noplate="1"` row. Porting the board's copy would have shadowed the kit's with an
+ * identical rule at lower specificity — dead weight that looks like coverage. So the kit's rule
+ * stands and this paragraph is the record of it.
+ *
+ * TWO RULES WEAR `.hp-row` AS WELL AS THEIR OWN CLASS, and it is specificity rather than style: the
+ * kit's `.hp-row[data-noplate="1"] .hp-row-body` is four class-level terms and `[data-qsg-shell]
+ * .gb-pickrow .hp-row-body` is three, so the padding would LOSE. `.hp-row.gb-pickrow` ties it and
+ * this file's later link position wins — the same second payment `.hp-skill.qs-sk` makes in §2. */
+[data-qsg-shell] .gb-pickwrap{width:100%;margin:11px auto 0;
+  max-width:min(var(--desk-read-max),
+                calc(2 * var(--desk-prose-max) + var(--desk-gutter) + 30px))}
+[data-qsg-shell] .gb-pickcount{display:block;margin:0 0 8px;padding:0 2px}
+[data-qsg-shell] .gb-pick{display:grid;align-items:start;
+  grid-template-columns:repeat(auto-fit,minmax(min(var(--desk-prose-max),100%),1fr));
+  column-gap:var(--desk-gutter)}
+[data-qsg-shell] .hp-row.gb-pickrow{align-items:flex-start}
+[data-qsg-shell] .hp-row.gb-pickrow .hp-row-body{gap:3px;padding:11px 12px}
+/* THE NOTE IS THE KIT'S PRINTED SIDEBAR, UNCHANGED (B-752; frames AF · AG) — one cut corner, the
+ * passive indigo fill, the title set right. Only its position in the step is this board's: the app
+ * puts it above the cards inside the same scroller, so the margin below is the gap the card list
+ * would have had anyway.
+ *
+ * ⚠ THE BOX IS CAPPED BECAUSE ITS PROSE ALREADY IS, and the first cut was a real defect the desk
+ * frame photographed: `.hp-note p` is `max-width:var(--desk-prose-max)` while `.hp-note` itself is
+ * not, so at the wide rung the note ran the full column with a 373px paragraph inside it and the gold
+ * title stranded hundreds of pixels right of the words it names. The paragraph's cap is the right one
+ * — a two-sentence aside at 1,090px is ~180 characters a line, four times the band the token was
+ * calibrated over — so the BOX follows the prose rather than the prose following the box. +30px is the
+ * note's own 15px left and right padding, the same derive as the picker's plate above. */
+[data-qsg-shell] .gb-note{margin-bottom:12px;max-width:calc(var(--desk-prose-max) + 30px)}
+
+/* §C — THE THREE CREATE DOORS. One column on the phone, three abreast from the mid rung up, which
+ * is the approved landing's own arrangement (`ld-wayband` from 1024 up). The class is this board's
+ * because the landing's is the landing's: a board's vocabulary is a delta inside its own generator. */
+[data-qsg-shell] .qs-ways{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;margin-top:6px}
+@container qsurface (min-width:900px){ [data-qsg-shell] .qs-ways{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px} }
+[data-qsg-shell] .qs-way{display:flex;flex-direction:column;text-align:left;width:100%;cursor:pointer;border:0;
+  font:inherit;color:inherit}
+[data-qsg-shell] .qs-way[data-first="1"] .gb-t{color:var(--doc-action)}
+[data-qsg-shell] .qs-way .hp-status-k{margin:0}
+
+/* ── THE APP'S SCREEN, which the board's fixed cell gave it for free ──────────────────────────────
+ * Both doors mount inside `PlayerApp`'s wipe wrapper (`position:absolute; inset:0; zIndex:20`), and
+ * the dark bodies they replace each carried their own `position:absolute; inset:0` root. The paper
+ * root takes exactly that geometry and nothing more, so the switch changes the FACE and not where
+ * the screen sits. `overflow:hidden` is the board's own claim about this surface — AS-4: the page
+ * never scrolls, the zones scroll inside themselves. */
+[data-qsg-shell].qsg-surface { position:absolute; inset:0; display:flex; flex-direction:column;
+  overflow:hidden; }
+

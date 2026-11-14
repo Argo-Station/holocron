@@ -1,0 +1,586 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/signature-ability.schema.json",
+  "title": "SignatureAbility",
+  "description": "F-100 M12 (ruling f100-m12-census-card R-M12C-38, a sibling of force-power.schema.json; f100-m12-build-card step 3/5): one career's signature ability — its nodes (`abilities{}`, the base and every upgrade, in the Force-power ability's own row grammar), the purchase tree, the careers it belongs to and the bottom-row columns it attaches under. Written by ONE applier (scripts/canonical/apply_signature_abilities.py) from its committed instrument input. Nothing is charged in M12 (R-M12C-36, D-150): costs are shown with their `cost_status`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "careers",
+    "attach",
+    "abilities",
+    "tree"
+  ],
+  "$comment": "R-M12C-38's fields and no others: `import_aliases` is NOT adopted (ERRATUM on R-M12C-19 (b)); OggDude's own spellings live in `fills[].note` (provenance), never as a field. The owned shape is the sheet's, not this record's: sheet.signatureAbilities [{id, tree, owned: ['row-col', …]}] (R-M12C-39).",
+  "properties": {
+    "id": {
+      "$ref": "charbuild-common.schema.json#/$defs/id"
+    },
+    "_source_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "OggDude Key (e.g. 'UNMATCHEDTRADECRAFT'): the import's match key, as every registry's."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The PRINTED name, read on its page (R-M12C-19 (b), R-M12C-30): 'Unmatched Negotiation', not OggDude's 'Unmatched Negotiations'."
+    },
+    "description": {
+      "$ref": "charbuild-common.schema.json#/$defs/description"
+    },
+    "careers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Career ids that may take it (V1: 'A character can only acquire a signature ability from his career', all 19 career books)."
+    },
+    "attach": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "columns"
+      ],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "description": "OggDude MatchingNodes' active nodes, 1-based: the bottom-row talent columns of the attached tree the owner must hold (V3)."
+        }
+      }
+    },
+    "abilities": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "$ref": "charbuild-common.schema.json#/$defs/description"
+          },
+          "wording": {
+            "oneOf": [
+              {
+                "const": "verified"
+              },
+              {
+                "const": "residual"
+              },
+              {
+                "type": "string",
+                "pattern": "^mechanical:[a-z0-9_]+(\\+[a-z0-9_]+)*$"
+              }
+            ],
+            "description": "F-100 M12 (f100-m12-build-card R-M12B-7, R-M12B-11, R-M12B-26/-28): how the description stands. `verified` = Jason's bound read of the box (D-159, Docs/rulings/f100-m12-build-card.text-reads.json; the applier refuses drift from it); `mechanical:<rule>[+<rule>…]` = fixed by the text sweep's named rules (scripts/f100_m12_text_sweep.py), never `verified`; `residual` = text no rule settles, awaiting Jason's page check. ABSENT = the census's read of the printed page carried no hit."
+          },
+          "activation_base": {
+            "type": "object",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "uses_per_session": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "range": {
+                "enum": [
+                  "engaged",
+                  "short",
+                  "medium",
+                  "long",
+                  "extreme"
+                ]
+              },
+              "duration_rounds": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "description": "R-M12B-25: the BASE node only (validator), beside use_cost: the activation's own terms, each set only where the base box's printed words state it, under the record's cite. The fold returns base + Σ deltas (clamped at a `floor`), or the `*_set` value; a mod on a term the base does not state folds as the modification alone, `base: unstated`. \"Until the end of the encounter\" and other non-round durations are not a `duration_rounds`: they stay in the words (QUALITATIVE)."
+          },
+          "use_cost": {
+            "$ref": "charbuild-common.schema.json#/$defs/use_cost",
+            "description": "The BASE node only (validator): the activation's printed price, e.g. {destiny: 2} (SV3, R-M12C-16), shown and never charged."
+          },
+          "quality_grant": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "except",
+              "rating",
+              "item",
+              "cite"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "charbuild-common.schema.json#/$defs/row_id"
+              },
+              "except": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*$"
+                },
+                "description": "the quality ids the activation may NOT add (Unmatched Ingenuity: breach, concussive); any other vocabulary quality may be picked."
+              },
+              "rating": {
+                "type": "integer",
+                "minimum": 1,
+                "description": ""
+              },
+              "item": {
+                "const": "held",
+                "description": "a weapon or item the character is holding or operating, picked at the activation (session state, never saved)."
+              },
+              "cite": {
+                "$ref": "charbuild-common.schema.json#/$defs/cite"
+              }
+            },
+            "description": "F-100 M12 QG1 (f100-m12-census-card R-M12C-26/-95; gate table §5): the BASE node only (validator): the activation adds ONE quality, picked then, to a held item for the activation's duration (`activation_base.duration_rounds`). OFFERED at the activation, never applied by itself and never saved. The base's further spends ([TR]: one more quality; [AD]: +1 rating) stay in the words."
+          },
+          "quality_grant_allow": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "description": "F-100 M12 QG1: an UPGRADE node only (validator): owned, these qualities leave the base's `except` list (Unmatched Ingenuity's Quality (Breach) and Quality (Concussive) boxes, Fully Operational p.35)."
+          },
+          "activation_mods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/activation_mod"
+            },
+            "description": "An UPGRADE node only (validator): its change to the owned ability's activation terms (R-M12C-97 as corrected by R-M12C-105, R-M12B-6), folded over the base and shown at the activation, never charged. A `*_set` op appears at most once per (ability, op), counted per BOX; a `*_delta` sums over the boxes bought (SV2's count)."
+          },
+          "pool_mods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/sig_pool_mod"
+            }
+          },
+          "activation_check": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "difficulty",
+              "skill"
+            ],
+            "properties": {
+              "difficulty": {
+                "type": "string",
+                "enum": [
+                  "Simple",
+                  "Easy",
+                  "Average",
+                  "Hard",
+                  "Daunting",
+                  "Formidable"
+                ]
+              },
+              "skill": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "description": "The base ability's activation check, verbatim from its description. R-AAC-27 (b), ruling argo-a1-export-fields D3: derived from the description by scripts/canonical/apply_text_encodings.py; the app reads it, else today's parse (D4)."
+          },
+          "told": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "force-power.schema.json#/$defs/power_told"
+            }
+          }
+        }
+      },
+      "description": "The ability's nodes, keyed by node id (OggDude's node Key, lower-case): the base (the tree's row 0) and every upgrade. Rows are the Force-power ability's own grammar (no new row grammar, R-M12C-38); their `words`/`condition` spans index the NODE's own description."
+    },
+    "tree": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Purchase grid, top row first (row 0 = the base, one cell of span 4). V5: an upgrade needs the base; V6: each upgrade links to the base or an owned cell.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cells"
+        ],
+        "properties": {
+          "cells": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ability",
+                "cost",
+                "col",
+                "span",
+                "links",
+                "cost_status"
+              ],
+              "properties": {
+                "ability": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_]+$",
+                  "description": "Key into this record's abilities map (validator)."
+                },
+                "cost": {
+                  "$ref": "charbuild-common.schema.json#/$defs/xp_cost"
+                },
+                "col": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "span": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                },
+                "links": {
+                  "$ref": "charbuild-common.schema.json#/$defs/tree_links"
+                },
+                "cost_status": {
+                  "enum": [
+                    "verified",
+                    "inferred",
+                    "authored"
+                  ],
+                  "description": "R-M12C-36 as amended by f100-surfacing-creator-concept ADDENDUM 10 (R-SCD-1): `verified` where every box of the tree was read against the printed page — by a human (DECISIONS D-229 @ 3adb14d96 for 32 trees) or by the census's complete text-layer read (AGREES, 6 trees); the record's `cost_read` says whose; `inferred` otherwise (B-1243)."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "row",
+          "col",
+          "ability",
+          "replaces",
+          "wording",
+          "placement",
+          "cite"
+        ],
+        "properties": {
+          "row": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "A placement fill is never row 0 (the base is OggDude's own); a WORDS fill (`replaces` = the node itself: R-M12B-23, R-M12B-30) may sit on the base."
+          },
+          "col": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "ability": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "replaces": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "The node id OggDude's data puts in that cell."
+          },
+          "wording": {
+            "enum": [
+              "verified",
+              "inferred"
+            ]
+          },
+          "placement": {
+            "enum": [
+              "verified",
+              "inferred"
+            ]
+          },
+          "cite": {
+            "$ref": "charbuild-common.schema.json#/$defs/cite"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Provenance: what the OggDude data holds and why the page wins (R-RRD-1)."
+          }
+        }
+      },
+      "description": "R-M12C-19 (c): a named fill where OggDude's tree disagrees with the printed page — never an edit to the OggDude copy. The tree already carries the fill; this records it. A WORDS fill (`replaces` = the cell's own node; R-M12B-23, R-M12B-30, D-159) records where the shipped words differ from what the census captured: the other printing quoted, a wrong capture, or the page the words were read on — one per cell of the node."
+    },
+    "sources": {
+      "$ref": "charbuild-common.schema.json#/$defs/sources"
+    },
+    "cite": {
+      "$ref": "charbuild-common.schema.json#/$defs/cite",
+      "description": "F-100 M12 (f100-m12-build-card ADDENDUM 37, R-M12B-125; D-M12E2 (a)): the record's printing — {book: its sources[0], page: OggDude's Source Page, the PRINTED page}, census-read (sig-nodes `printed_page_data`) and written by apply_signature_abilities.py. Optional here, so a user record without one validates; the SHIPPED registry requires it (validate_registries L1cb.sig). The editor prints it as \"· P. n\"."
+    },
+    "cost_read": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "ref"
+      ],
+      "properties": {
+        "source": {
+          "enum": [
+            "jason",
+            "census"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "strip": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        }
+      },
+      "description": "F-100 (ruling f100-surfacing-creator-concept ADDENDUM 10, R-SCD-2): whose complete read of the printed page the tree's `verified` cells rest on. `jason` = DECISIONS D-229 @ 3adb14d96, `strip` its #n on the inspection sheet (Docs/briefs/f100-sig-cost-pages.json @ 057c7dfb0; the reads are Docs/rulings/f100-surfacing-creator-concept.cost-reads.json); `census` = the attach census's complete text-layer read (AGREES, Docs/briefs/f100-m12-attach.json). Optional here (a user record validates without it); required on the shipped registry (validate_registries L1cb.sig)."
+    },
+    "tree_page": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "F-100 (ruling f100-surfacing-creator-concept ADDENDUM 10, R-SCD-3): the PRINTED page the purchase grid sits on (the attach census's `printed`). `cite.page` stays the record's printing; four shipped trees differ (diplomaticsol 38/39, unins 40/41, rousor 38/39, unmatchedauth 40/41). Optional here; required on the shipped registry (validate_registries L1cb.sig)."
+    },
+    "_provenance": {
+      "$ref": "charbuild-common.schema.json#/$defs/provenance"
+    }
+  },
+  "$defs": {
+    "sig_pool_mod": {
+      "allOf": [
+        {
+          "$ref": "item-common.schema.json#/$defs/pool_mod_entry"
+        },
+        {
+          "$ref": "force-power.schema.json#/$defs/power_row_refusals"
+        },
+        {
+          "properties": {
+            "applies_to": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "not": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "chosen"
+                          ]
+                        },
+                        {
+                          "properties": {
+                            "scope": {
+                              "const": "force_power"
+                            }
+                          },
+                          "required": [
+                            "scope"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "count_of": {
+              "properties": {
+                "of": {
+                  "const": "sig_upgrades"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "description": "F-100 M12 (R-M12C-14/15/20): a signature node's dice row — item-common's pool_mod_entry as a Force-power upgrade's (power_row_refusals: no per_rank, no pick); anchored on the ability's activation check (SV1) or the owner's career skills (SV5) or a skill; `count_of` reads SV2's boxes bought only."
+    },
+    "activation_mod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "op",
+        "value"
+      ],
+      "properties": {
+        "op": {
+          "enum": [
+            "destiny_cost_set",
+            "uses_per_session_delta",
+            "range_set",
+            "range_delta",
+            "duration_delta",
+            "strain_cost_delta",
+            "target_silhouette_delta",
+            "activation_add"
+          ]
+        },
+        "value": {},
+        "cite": {
+          "$ref": "charbuild-common.schema.json#/$defs/cite"
+        },
+        "floor": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "R-M12B-21: a `*_delta` op only (refused on a `*_set` op, here and by the validator): the fold clamps the summed result at it. First user: Unmatched Authority's Endurance, \"to a minimum of 1\". The schema's existing `floor` idiom (a talent's difficulty floor, R-M8K-29)."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "destiny_cost_set"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "range_set"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "enum": [
+                  "engaged",
+                  "short",
+                  "medium",
+                  "long",
+                  "extreme"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "activation_add"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "enum": [
+                  "action",
+                  "maneuver"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "uses_per_session_delta",
+                  "range_delta",
+                  "duration_delta",
+                  "strain_cost_delta",
+                  "target_silhouette_delta"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "integer",
+                "not": {
+                  "const": 0
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "floor"
+            ]
+          },
+          "then": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "uses_per_session_delta",
+                  "range_delta",
+                  "duration_delta",
+                  "strain_cost_delta",
+                  "target_silhouette_delta"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "description": "R-M12C-97 / R-M12C-105 (R-M12B-6): one PLAIN change to the owned ability's activation terms. destiny_cost_set 0..2 (0 = no Destiny cost, e.g. Prophecy; the base's use_cost keeps minimum 1); uses_per_session_delta +1 per box; range_set a band of ranges.vocab.json's personal scale; range_delta +1 band per box, capped at the last band; duration_delta in the base's own unit; strain_cost_delta; target_silhouette_delta; activation_add action | maneuver. A QUALITATIVE change stays TOLD."
+    }
+  }
+}

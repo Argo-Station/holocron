@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+  <!-- PWA / standalone install (Addendum 1 web-app-manifest lap): full-screen "Add to Home Screen". -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Holocron" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
+  <!-- Base href anchors all relative URLs (fetch, @font-face, etc.) to
+       the site root. Required because pushState routing places the
+       browser at deep URLs like /gm/npc, where relative fetches like
+       fetch('public/data/...') would otherwise resolve to /gm/public/...
+       and 404. See Docs/PLAN_URL_ROUTING.md. -->
+  <base href="/" />
+  <script>var COMMERCIAL_MODE = false;</script><!-- R-S4PP-4 (ruling `shipyard-s4-ship-pool-path`): the player's flag (player/index.html), mirrored — the species portraits this app's Yard shows (R-S4CO-7, lib/shared/portraits.js) read it at call time; test/commercial_mode_parity.cjs pins the two literals equal. Inline, so the boot pays no request for it (R-S4PP-8). -->
+  <script src="/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the room client (R-AAC-19) -->
+  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <title>Star Wars RPG — GM Holocron</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/tokens.css" rel="stylesheet" />
+  <link href="/lib/shared/corpus.css" rel="stylesheet" /><!-- Corpus & Instrument visual language (DESIGN_IDENTITY) -->
+  <link href="/lib/shared/yard.css" rel="stylesheet" /><!-- SHIP YARD S4 (m1): the Yard's own paper layer, fenced to its room root `.yd` (the S4 Yard, the only Yard since the S5 flip) -->
+  <link href="/lib/shared/grounds/creator.css" rel="stylesheet" /><!-- B-862 + F-100 C2 (R-FISF-2, the homebrew editor's ground too): the document ground, for the NPC library's paper face (the GM Holocron's first paper screen; its only face since B-871). Every rule is fenced to [data-doc-ground="creator"], so no dark GM screen can match it. -->
+  <link href="/lib/shared/paper.css" rel="stylesheet" /><!-- B-862 + F-100 C2 (R-FISF-2): the paper kit (hp-*), fenced to the ground like the file above — 945 preludes, 0 unfenced (measured at the B-862 gate). -->
+  <link href="/lib/shared/files.css" rel="stylesheet" /><!-- RELEASE R3 (D-258): the whole-save backup screen is drawn in the Character files shell (cf-surface, hp-phonesheet, cf-col), which this file carries; every rule is fenced to the paper ground. -->
+  <link href="/lib/shared/backup.css" rel="stylesheet" /><!-- RELEASE R3 (D-258): the whole-save backup screen's .bk-* layer, after files.css. -->
+  <link href="/lib/shared/gm.css" rel="stylesheet" /><!-- PAPER N5 wave A (B-1107, R-GOS-4): the toolbox's own paper layer, the board's gm-* parts, fenced to [data-gm-shell]; after paper.css (one attribute each side keeps the board's ties). -->
+  <link href="/lib/shared/sheet.css" rel="stylesheet" /><!-- B-865: the sheet's stat-block parts (sb-*) the NPC stat block is drawn in (R-NPC-6: "the sb-* parts come from the sheet's stylesheet, not a copy"). Its sb-* rules match only elements a paper branch draws; the dark GM wears none. -->
+  <link href="/lib/shared/store.css" rel="stylesheet" /><!-- B-1123 (R-GOS-28 b, PAPER N5 wave A2): the store's paper layer, for the GM store's paper face (its one face since the deletion lap, ruling `paper-n5-deletion`). Every rule is fenced to [data-store-shell]. After paper.css and directly before chrome.css — player/index.html's order. -->
+  <link href="/lib/shared/chrome.css" rel="stylesheet" /><!-- B-881: the two BARS' paper layer ([data-paper-chrome]), its own file. The bars wear it on the NPC screen (frames D1–D3), the paper toolbox (B-1110) and the paper store (B-1123). -->
+  <link href="/lib/shared/map.css" rel="stylesheet" /><!-- B-1149 (R-UMP-1, PAPER N5 wave B): the Universe Map's paper chrome (the map's one face since the deletion lap, ruling `paper-n5-deletion`). Every rule is fenced to [data-map-shell]. After paper.css and AFTER chrome.css: the board drew its rules after chrome.css's, so a tie between the two resolves to the board's. -->
+  <link href="/lib/editor/editor.css" rel="stylesheet" /><!-- F-100 C2: the editor's own layer. Scoped to the paper ground as above, so no dark GM screen matches it; the NPC library's paper face declares that ground too, so its rules over the shared kit (hp-quiet, hp-commit) are fenced to the editor's own roots (R-NFLL-5; paper-prepass R-PPR-2) -->
+  <link href="/lib/shared/npc.css" rel="stylesheet" /><!-- B-862: the NPC library's paper layer, fenced to [data-npc-shell]; AFTER paper.css (it ties the kit on specificity). NOT store.css: the bars' paper rules are chrome.css's (B-881). -->
+  <link href="/lib/shared/encounters.css" rel="stylesheet" /><!-- ENCOUNTERS E3 lap B (ruling `encounters-e3-screens` ADDENDUM 9): the encounter manager's own layer, fenced to [data-npc-shell] on enc- parts, GM only; AFTER npc.css (a tie goes to the drawn value). test/encounters_css_fence.cjs. -->
+  <style>
+    @font-face {
+      font-family: 'Genesys';
+      src: url('public/fonts/genesysglyphsanddice.woff2') format('woff2'),
+           url('public/fonts/genesysglyphsanddice.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SWRPGIcons';
+      src: url('public/fonts/sw-rpg-icons.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* F-46 Desktop Curation (G10): the shell-cap release, mirrored across all three shells for
+       symmetry (GM has no .app-shell today — inert until the GM desktop adoption in D3). */
+    :root[data-layout="desktop"] .app-shell {
+      max-width: none;
+      border-left: none;
+      border-right: none;
+      box-shadow: none;
+    }
+  </style>
+  <script src="lib/items.js"></script>
+
+
+  <!-- ── NPC domain (extracted to lib/, shared with index.html) ── -->
+  <script src="lib/npc/createEmptyNpc.js"></script>
+  <script src="lib/npc/NpcGeneratorController.js"></script>
+
+  <!-- ── Vehicle library (sharded from oggdude_merged.json by build_vehicle_library.py) ── -->
+  <script src="lib/vehicles/VehicleLibraryController.js"></script>
+
+  <!-- ── Universe Map: Leaflet (vendored 1.9.4 — no CDN runtime dep) + pure-logic helpers + GalaxyMapView ── -->
+  <link rel="stylesheet" href="public/vendor/leaflet/leaflet.min.css" />
+  <script src="public/vendor/leaflet/leaflet.min.js"></script>
+  <script src="lib/gm/gridRef.js"></script>
+  <script src="lib/gm/mapPins.js"></script><!-- F-5: window.GmMapPins (swrpg_map_pins store + THE planet-id identity fn); before GalaxyMapView + app.js, which both read it -->
+  <script src="lib/shared/itemResolve.js"></script>
+  <script src="lib/shared/textHash.js"></script><!-- R-SPF-4: window.SWRPGTextHash — the ONE span hash (the editor, packValidate, charResolve's species reader); before charResolve [mirrors player/index.html] -->
+  <script src="lib/shared/companions.js"></script><!-- release-r6-companions: window.SWRPGCompanions — a character's companions: the normalizer, the young/mount transforms, droidOf and profileOf (droidOf lives here, not in craftStore, which this host does not load: ruling release-r6-companions-c0 rider 2); needs textHash.js at call time [mirrors player/index.html] -->
+  <script src="lib/shared/charResolve.js"></script>
+  <script src="lib/gm/pathfinding.js"></script>
+  <script src="lib/gm/travelTime.js"></script>
+  <script src="lib/gm/GalaxyMapView.js"></script>
+  <!-- ── Hyperspace Run mini-game (rules engine + content; UI overlay below) ── -->
+  <script src="lib/game/hyperspaceRun/data.js"></script>
+  <script src="lib/game/hyperspaceRun/rules.js"></script>
+  <script src="lib/shared/diceEngine.js"></script>
+  <script src="lib/shared/qualityRows.js"></script><!-- B-1296 (ruling f100-surfacing-hub-concept R-SHC-12, ADDENDUM 7): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows (spend, target, mode), so the GM's Yard core and NPC bench pool as the player shell does; pure, no deps [mirrors player/index.html; guard test/b1296_shell_cores.cjs] -->
+  <script src="lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
+  <script src="lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps). F-100 UD-1f: loaded for the user-pack fold; the GAME VARIANTS card is withheld GM-face by `variants: false` (ruling f100-ud1-gm-variants-card) [mirrors player/index.html] -->
+  <script src="lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
+  <script src="lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
+  <script src="lib/shared/userData.js"></script><!-- F-100 UD-1e: window.SWRPGUserData (the user-pack store, IndexedDB swrpg_user_packs; needs baseRef, packValidate, mods, versionGuard at call time) -->
+  <script src="lib/shared/effectClass.js"></script><!-- F-100 D (R-FIEC-1): window.SWRPGEffectClass — the one chip rule the editor's shelves and forms read (pure; no deps) [mirrors player/index.html] -->
+  <script src="lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
+  <script src="lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
+  <script src="/lib/shared/scrollCue.js"></script><!-- R-PN3-4: window.SWRPGScrollCue — THE scroll cue's one driver (data-more / data-more-above); the NPC bench's zones watch through it; before the NPC module and /gm/app.js; no deps [mirrors player/index.html] -->
+  <script src="/lib/shared/versionGuard.js"></script><!-- F-54 sentinel, one implementation (C-B-6): window.SWRPGVersionGuard; no deps, must precede any versioned store -->
+  <script src="/lib/shared/recordPortrait.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRecordPortrait — the roster write's B-931 fold reads it; no deps [mirrors player/index.html] -->
+  <script src="/lib/shared/roster.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRoster — the saved-character roster, the player's own write (writeEquipment for LOAD FROM/UNLOAD); reads versionGuard, charResolve, recordPortrait at call time [mirrors player/index.html] -->
+  <script src="/lib/shared/baseDerive.js"></script><!-- R6 lane D (release-r6-bases-registry): window.SWRPGBaseDerive — S4's derived base numbers, pure; charResolve's group read calls it [mirrors player/index.html] -->
+  <script src="/lib/shared/partyStore.js"></script><!-- R6 lane A (R-R4S-4/5): window.SWRPGParty — the group record swrpg_party_v1, its one writer, both apps; reads versionGuard and roster at call time [mirrors player/index.html] -->
+  <script src="/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
+  <script src="/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
+  <script src="/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
+  <script src="/lib/shared/heldStore.js"></script><!-- B-1732: window.SWRPGHeldStore (a surface reads its store at the act; a landing redraws) -->
+  <script src="/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
+  <script src="/lib/shared/backup.js"></script><!-- RELEASE R3 (D-258): the whole-save backup (window.SWRPGBackup), after syncMerge.js, which it reads. -->
+  <!-- HOLOTABLE Stage B wiring — the substrate, dark behind SWRPGHolotable.enabled === false.
+       Order note: roomFeed and roomClient resolve their dependencies AT CALL TIME, not at load,
+       so they are order-tolerant by construction; they sit after diceEngine anyway so the file
+       order reads the way the dependency graph does. NONE of these is bundled — lib/shared/*.js
+       ships RAW (PRAXIS §4), so each needs its own tag. -->
+  <script src="/lib/shared/roomState.js"></script><!-- HOLOTABLE: window.SWRPGRoomState (schema v1, the eight-type fence, joinDecision, the two event constructors); no deps -->
+  <script src="/lib/shared/holotable.js"></script><!-- HOLOTABLE: window.SWRPGHolotable + SWRPGHolotableEnabled (the OFF flag, reconnect policy, event ids, the room code — R-WRC-1); no deps -->
+  <script src="/lib/shared/roomFeed.js"></script><!-- HOLOTABLE: window.SWRPGRoomFeed (the ONE feed projection; reaches roomState + diceEngine lazily) -->
+  <script src="/lib/shared/roomClient.js"></script><!-- HOLOTABLE: window.SWRPGRoomClient (the socket, R-WRC-2's host; reaches its deps lazily) -->
+  <script src="/vendor.js"></script>
+  <script src="/lib/shared/treeView.js"></script><!-- F-100 M5 C7: window.SWRPGTree — the ONE talent/Force tree; after vendor.js (React), before /lib/editor/view.js [mirrors player/index.html] -->
+  <script src="/lib/shared/talentView.js"></script><!-- F-100 M5 C4 (A3-1/A3-2): window.SWRPGTalentView — the sheet's stamp view, at BOOT (not with the Yard's lazy core); after userData.js and versionGuard.js; gm/app.js registers it at its module top [mirrors player/index.html] -->
+  <script src="/lib/shared/diceHub.js"></script><!-- ENCOUNTERS (D-507, encounters-e3-screens ADDENDUM 15): window.SWRPGDiceHub — the dice window, lifted from player/app.jsx; after /vendor.js (React, SWRPGUI) and talentView.js. Its sheet-less `given` window needs nothing more; its sheet paths bind lib/shared/sheetPool.js when the Yard's character core brings it (ensureYardCharCore). Nothing on this page mounts it yet [the player loads it with its 'sheet' part, PLAYER_PARTS; guard test/b1296_shell_cores.cjs] -->
+  <script src="/lib/shared/desktopLayout.js"></script><!-- F-46 D3: window.SWRPGDesktop (layout primitives + useLayoutMode; needs React) -->
+  <script src="/lib/shared/holotableView.js"></script><!-- HOLOTABLE Stage B: window.SWRPGHolotableView (the five approved components); needs React -->
+  <script src="/lib/shared/holotableCompose.js"></script><!-- HOLOTABLE Stage B: window.SWRPGHolotableCompose (the three narrow compositions); needs holotableView -->
+  <script src="/lib/shared/roomSession.js"></script><!-- HOLOTABLE Stage B: window.SWRPGRoomSession (the ONE React binding for roomClient); needs React + roomClient -->
+  <!-- STORE-UNIFY: the ONE shared store kernel, mounted GM-face (retired lib/shopGenerator.js).
+       AFTER /vendor.js — view.js captures React.createElement at load. [mirrors player/index.html] -->
+  <script src="/lib/shared/itemRegistries.js"></script><!-- F-100 UD-1f: window.SWRPGItemRegistries (THE ONE items loader the store below reads; before userArt/view) -->
+  <script src="/lib/editor/switch.js"></script><!-- F-100 C2 (R-FIEC-5): window.SWRPGEditor — the one switch both apps read + the route grammar [mirrors player/index.html] -->
+  <script src="/lib/store/glyphs.js"></script><!-- THE item glyph library (window.SWRPGGlyphs); before rarity/view -->
+  <script src="/lib/store/rarity.js"></script><!-- shared RAW find-difficulty (Table 5-1/5-2) -->
+  <script defer src="/lib/shared/picture.js"></script><!-- B-1258 (ruled A, ADDENDUM 248): window.SWRPGPicture.check, the one image check the store's pickers call (it also arrives with the Yard core) -->
+  <script src="/lib/store/userArt.js"></script><!-- BYOA (GM inherits it; degrades to glyphs) -->
+  <script src="/lib/store/shelfStore.js"></script><!-- THE SHELVES + the planet/lane location resolver -->
+  <script src="/lib/store/view.js"></script><!-- window.SWRPGStore.Store (face='gm') -->
+  <script src="/lib/editor/view.js"></script><!-- F-100 C2: window.SWRPGEditorView (the editor, GM face = the paper frames, R-FISF-2) -->
+  <script src="/lib/shared/shipSchematic.js"></script><!-- SHIPYARD Y1: window.SWRPGShipSchematic (arcs+shields diagram) -->
+  <script src="/lib/shared/corpusUI.js"></script><!-- Corpus & Instrument primitives (window.SWRPGCorpus) -->
+  <script src="/lib/shared/vesselStore.js"></script><!-- SHIPYARD Y2: window.SWRPGVessels (vessel records) -->
+  <script src="/lib/shared/vesselResolve.js"></script><!-- SHIP YARD S3: window.SWRPGVesselResolve (the one resolver) -->
+  <script src="/lib/shared/vesselView.js"></script><!-- SHIPYARD Y2: window.SWRPGVesselView (the Yard's faces and parts); after /vendor.js (needs React) -->
+  <script src="/lib/shared/yardView.js"></script><!-- SHIPYARD R-Y2-2: window.SWRPGYard (the shared browse, MATRIX's; its entry was deleted at the S5 flip); after corpus/schematic/vesselView -->
+  <script src="/lib/game/hyperspaceRun/ui.js"></script>
+  <!-- NPC bench persistence core (window.NpcBenchStore). Before view.js, which reads it at module top. -->
+  <script src="/lib/library/npc/benchStore.js"></script>
+  <!-- ENCOUNTERS E3 lap B (ruling encounters-e3-screens R-E3S-1; brief encounters-e3-screens-roll-path Q2): the door's switch and the
+       encounter's life (lap A's pure ops). Inert while the switch is off; the pool paths and the dice surface are injected on
+       first use (gm/app.jsx ensureEncounterCore, the Yard's idiom), so the boot pays nothing for them. -->
+  <script src="/lib/library/npc/encountersDoor.js"></script>
+  <script src="/lib/library/npc/encounterLife.js"></script>
+  <script src="/lib/library/npc/castStore.js"></script>
+  <script src="/lib/library/npc/dispositionStore.js"></script><!-- B-863 · R-NPC-3: window.NpcDispositionStore — swrpg_npc_disposition, one word per NPC; before view.js, which reads it at module top (needs versionGuard.js, above) -->
+  <script src="/lib/library/npc/npcRoute.js"></script><!-- B-863 · R-NPC-4: window.NpcRoute — the library's URL grammar (pure); before view.js -->
+  <script src="/lib/library/npc/refData.js"></script><!-- ruling release-r6-companions-lifts Q1 (a): window.SWRPGNpcRefData — the library's reference data, one memoized loader for both hosts; before view.js, which calls it [mirrors player/index.html] -->
+  <!-- NPC library section module (window.SWRPGLibrary.NPC). After /vendor.js (needs React +
+       window.SWRPGUI); before /gm/app.js (which destructures it). [NPC exemplar Step 0] -->
+  <script src="/lib/library/npc/view.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body, #root {
+      height: 100%; width: 100%;
+      overflow: hidden; background: #000;
+      touch-action: none;
+    }
+    body {
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* — Portrait lock —
+       Only trigger on touch devices in landscape with a small viewport
+       (i.e. phones held sideways). Desktop browsers always report
+       landscape and would otherwise be blocked entirely; tablets in
+       landscape are usable. Matches player/index.html:62 convention. */
+    @media (orientation: landscape) and (pointer: coarse) and (max-height: 600px) {
+      body::after {
+        content: ''; position: fixed; inset: 0;
+        background: #000; z-index: 9999;
+      }
+      body::before {
+        content: 'Rotate to portrait to continue';
+        position: fixed; inset: 0; z-index: 10000;
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--font-display); font-size: 13px;
+        letter-spacing: 0.15em; color: rgba(78,170,255,0.6);
+        text-align: center; padding: 32px;
+      }
+    }
+
+    /* — Ken Burns pans — */
+    @keyframes kb1 {
+      0%   { transform: scale(1.08) translate(0%, 0%); }
+      100% { transform: scale(1.35) translate(-9%, 5%); }
+    }
+    @keyframes kb2 {
+      0%   { transform: scale(1.30) translate(-7%, -4%); }
+      100% { transform: scale(1.08) translate(12%, 4%); }
+    }
+    @keyframes kb3 {
+      0%   { transform: scale(1.10) translate(8%, 3%); }
+      100% { transform: scale(1.35) translate(-7%, -5%); }
+    }
+    @keyframes kb4 {
+      0%   { transform: scale(1.28) translate(-4%, 3%); }
+      100% { transform: scale(1.10) translate(5%, -4%); }
+    }
+
+    /* — Wipe transitions — */
+    @keyframes wipeHorizontal {
+      from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+      to   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    }
+    @keyframes wipeDiagonal {
+      from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+      to   { clip-path: polygon(0 0, 100% 0, 160% 100%, 0 100%); }
+    }
+    @keyframes wipeIris {
+      from { clip-path: circle(0% at 50% 50%); }
+      to   { clip-path: circle(150% at 50% 50%); }
+    }
+
+    /* — Misc — */
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scanline {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(200%); }
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.55; } 50% { opacity: 0.85; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(0);    opacity: 1; }
+      to   { transform: translateY(100%); opacity: 0; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; } to { opacity: 0; }
+    }
+    @keyframes intelEmber {
+      0%   { opacity: 0.35; filter: blur(3px); transform: translateX(-2%) translateY(0); }
+      15%  { opacity: 0.7;  filter: blur(5px); transform: translateX(1%)  translateY(-3px); }
+      30%  { opacity: 0.5;  filter: blur(3px); transform: translateX(-1%) translateY(-1px); }
+      45%  { opacity: 0.9;  filter: blur(6px); transform: translateX(0%)  translateY(-4px); }
+      60%  { opacity: 0.6;  filter: blur(4px); transform: translateX(2%)  translateY(-2px); }
+      75%  { opacity: 0.8;  filter: blur(6px); transform: translateX(-1%) translateY(-3px); }
+      90%  { opacity: 0.45; filter: blur(4px); transform: translateX(1%)  translateY(-1px); }
+      100% { opacity: 0.35; filter: blur(3px); transform: translateX(-2%) translateY(0); }
+    }
+    @keyframes slotGlow {
+      0%, 100% { box-shadow: 0 0 0 0 transparent; }
+      50% { box-shadow: 0 0 12px 2px var(--slot-glow-color, rgba(176,128,255,0.3)); }
+    }
+    @keyframes slotSwapPulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(255,210,74,0.55), inset 0 0 8px rgba(255,210,74,0.18); }
+      50%      { box-shadow: 0 0 18px rgba(255,210,74,0.95), inset 0 0 12px rgba(255,210,74,0.35); }
+    }
+    /* A3 — WCAG 2.4.7 Focus Visible. Every inline-styled button declares
+       outline:none; without this rule, keyboard users have no focus signal. */
+    button:focus-visible,
+    a:focus-visible,
+    [role="button"]:focus-visible,
+    [tabindex]:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid currentColor !important;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(78,170,255,0.28);
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="/gm/app.js"></script>
+</body>
+</html>

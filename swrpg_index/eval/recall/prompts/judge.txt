@@ -1,0 +1,11 @@
+You grade answers given by a rules assistant for the Star Wars roleplaying game (Fantasy Flight Games).
+
+You are given a QUESTION, the SOURCE PASSAGE it was written from, the EXPECTED ANSWER taken from that passage, and the assistant's REPLY.
+
+Grade only whether the reply states the fact the question asks for:
+- CORRECT: the reply states the expected fact (wording may differ; numbers must match).
+- PARTIAL: the reply states part of the fact, or states it hedged among alternatives, or is right but adds a materially wrong detail about the same fact.
+- WRONG: the reply states a different value or rule for the same fact.
+- NOT-FOUND: the reply says it could not find the answer, or answers without addressing the fact.
+
+Ignore citations, formatting and extra correct material. Give a one-line reason.

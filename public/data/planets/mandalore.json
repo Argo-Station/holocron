@@ -1,0 +1,897 @@
+{
+  "id": "mandalore",
+  "schema_version": "2.0",
+  "record_depth": "full",
+  "identity": {
+    "name": "Mandalore",
+    "type": "planet",
+    "parent_body": null,
+    "region": "Outer Rim Territories",
+    "sector": "Mandalore Sector",
+    "system": null,
+    "grid": null,
+    "era": "galactic_civil_war",
+    "essence": "Mandalore is a world defined by what it destroyed in itself. Centuries of warfare between clans and against the galaxy turned a once-forested planet into a hostile desert wasteland. The survivors built sealed bio-dome cities on the scarred surface and tried to become something different. By the time of the Empire, the pacifist New Mandalorian movement has been violently dismantled, the warrior traditionalists have fractured into competing factions, and the Empire rules through a puppet viceroy. The planet's four million inhabitants live under a dome of glass and a dome of Imperial authority, and both feel like they could crack at any moment.",
+    "atmosphere": "Outside the bio-domes: howling desert winds across a blasted, barren surface. The environment is actively harmful to unprotected beings. Inside Sundari's massive dome: a shimmering multilevel city of translucent architecture, geometric glass panels forming walls, floors, and bridges you can see through. The aesthetic is clean, geometric, almost crystalline. It feels like living inside a jewel that someone broke and carefully reassembled. Lightweight open speeders move between towering translucent structures. The beauty is real but fragile, and everyone knows what lies outside the glass.",
+    "reputation": "The warrior world that chose peace, and then had that choice taken from it. The galaxy remembers Mandalorian armor and the T-shaped visor. Boba Fett is the most recognized face of Mandalorian culture to most beings. The reality is more complicated: most Mandalorians alive today grew up under pacifist ideals, and the warrior reputation belongs to a minority that the majority tried to leave behind. Under the Empire, Mandalore is nominally loyal but internally fractured between Imperial collaborators, traditionalist holdouts, and a population that just wants to survive."
+  },
+  "compendium": {
+    "background": null,
+    "government": null,
+    "population": null,
+    "languages": null,
+    "terrain": null,
+    "major_cities": null,
+    "areas_of_interest": null,
+    "exports": null,
+    "imports": null,
+    "trade_routes": null,
+    "orbital_metrics": null,
+    "rarity_modifier": null,
+    "special_conditions": null,
+    "astronavigation_data": null
+  },
+  "era_variants": [
+    {
+      "era": "clone_wars",
+      "delta": "Duchess Satine Kryze rules as a pacifist monarch. Mandalore leads the Council of Neutral Systems representing over 1,500 worlds. Death Watch operates from Concordia under Pre Vizsla, building forces and staging terrorist attacks. Republic neutrality cuts off trade, creating food shortages and black markets. The Shadow Collective coup is imminent or underway, depending on exact timing. No Imperial presence. Republic presence is minimal and contested.",
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "116-118"
+        }
+      ]
+    },
+    {
+      "era": "post_empire",
+      "delta": "Imperial Viceroy Gar Saxon is dead. Power vacuum. Clan rivalries resurface. Sabine Wren possesses the Darksaber, a symbol of Mandalorian leadership. The question of who rules Mandalore and what Mandalore becomes is wide open. Rebel-aligned Mandalorians and Imperial loyalist clans are in active conflict.",
+      "inferred": true,
+      "source_refs": [
+        {
+          "book": "Dawn of the Rebellion",
+          "pages": "81, 87-88",
+          "note": "Inferred from Rebels-era political situation described in these pages"
+        }
+      ]
+    }
+  ],
+  "geography": {
+    "structure_type": "bio-dome_cities_on_wasteland",
+    "structure_notes": "Centuries of warfare destroyed the planet's surface. The terrain is now hostile desert wasteland harmful to unprotected beings. All habitation is within sealed bio-domes, bio-cubes, or hardened enclosed structures. The planet once had jungles, seas, and forests, all devastated by mining and civil war.",
+    "districts": [
+      {
+        "id": "sundari",
+        "name": "Sundari",
+        "character": "",
+        "authority": "Imperial Viceroy (galactic civil war era); Duchess Kryze (clone wars era)",
+        "crime_index": "moderate",
+        "strategic_value": [
+          "political",
+          "economic",
+          "cultural"
+        ],
+        "notes": "Contains the Royal Palace, Peace Park, and the primary starport. Black markets operate within the city when trade is restricted. Death Watch has staged attacks here. The translucent architecture means visibility is high inside the dome, making covert operations challenging.",
+        "source_refs": [
+          {
+            "book": "Collapse of the Republic",
+            "pages": "117-118"
+          }
+        ]
+      },
+      {
+        "id": "concordia",
+        "name": "Concordia",
+        "character": "Mandalore's moon. A separate province with semi-autonomous governance. Once heavily forested, damaged by mining during the civil war. Forests have partially recovered. The traditional exile ground for warriors who rejected pacifism, and the birthplace of the Death Watch.",
+        "authority": "contested — nominally under Mandalore's government, historically semi-autonomous",
+        "crime_index": "high",
+        "strategic_value": [
+          "military",
+          "industrial"
+        ],
+        "notes": "Death Watch secretly restarted mines and forges here to produce arms and armor. Pre Vizsla governed Concordia while secretly leading Death Watch. The moon's forests and mines provide cover for clandestine operations that the main dome cities cannot.",
+        "source_refs": [
+          {
+            "book": "Collapse of the Republic",
+            "pages": "117"
+          }
+        ]
+      },
+      {
+        "id": "outlying_biodomes",
+        "name": "Outlying Bio-domes",
+        "character": "Small-town bio-domes scattered across the wasteland surface. Places like Ronion. Isolated, resource-poor, dependent on supply shipments. These communities suffer the most during trade disruptions and food shortages.",
+        "authority": "local governance under Mandalorian central authority",
+        "crime_index": "low",
+        "strategic_value": [
+          "none_conventional"
+        ],
+        "notes": "These are the communities that black market smuggling operations serve. Food shortages hit here first and hardest. Death Watch has targeted smugglers supplying these communities to worsen the crisis and undermine the government.",
+        "source_refs": [
+          {
+            "book": "Collapse of the Republic",
+            "pages": "119"
+          }
+        ]
+      }
+    ],
+    "source_refs": [
+      {
+        "book": "Collapse of the Republic",
+        "pages": "116-117"
+      }
+    ]
+  },
+  "species": [
+    {
+      "name": "Human",
+      "population_level": "dominant",
+      "social_role": "The overwhelming majority of Mandalore's population. Mandalorian culture is multi-species in principle, but humans make up 81% of the population. Clan identity matters far more than species on Mandalore. Humans fill every role from government to warrior to civilian.",
+      "districts": [
+        "sundari",
+        "concordia",
+        "outlying_biodomes"
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "116",
+          "note": "Population: 4 million, 81% human"
+        }
+      ]
+    },
+    {
+      "name": "Other species",
+      "population_level": "minority",
+      "social_role": "19% of the population. Mandalorian culture accepts non-humans who adopt Mandalorian ways. Non-human Mandalorians have carved out impressive reputations throughout history. Species identity is secondary to clan identity.",
+      "districts": [
+        "sundari",
+        "concordia",
+        "outlying_biodomes"
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "116"
+        },
+        {
+          "book": "Edge of the Empire Core Rulebook",
+          "pages": "385",
+          "note": "Most Mandalorians are human, but many non-human Mandalorians exist"
+        }
+      ]
+    }
+  ],
+  "factions": [
+    {
+      "id": "imperial_military",
+      "name": "Imperial Military / Imperial Viceroy",
+      "type": "imperial",
+      "control_type": [
+        "military",
+        "political"
+      ],
+      "control_strength": "heavy",
+      "susceptibility": {
+        "criminal": "low",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Imperial presence on Mandalore is backed by the full authority of the Empire. Gar Saxon serves as Imperial Viceroy. The Protectors of Concord Dawn help enforce Imperial authority across the sector. Imperial control is maintained through political co-option of Mandalorian power structures rather than brute military occupation, though the threat of force is implicit."
+      },
+      "motivation": "Maintaining control over the Mandalore sector and its strategic position on the Hydian Way between the Core and the Outer Rim. Preventing Mandalorian military capability from being turned against the Empire. The Imperial Academy on Mandalore produces loyal soldiers and pilots from a culture with exceptional warrior traditions.",
+      "assets": [
+        "Imperial Viceroy Gar Saxon as political figurehead",
+        "Imperial Academy of Mandalore (formerly Royal Academy of Government)",
+        "Protectors of Concord Dawn enforcing sector security",
+        "Political leverage over clan loyalties through patronage and threat"
+      ],
+      "relationships": [
+        {
+          "faction_id": "mandalorian_clans",
+          "type": "dominance",
+          "notes": "The Empire rules through co-opted Mandalorian power structures. Gar Saxon is both Mandalorian and Imperial Viceroy. The relationship is one of nominal Mandalorian loyalty to the Empire in exchange for limited autonomy. Many Mandalorians resent Imperial control but see no viable alternative."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "type": "enemy",
+          "notes": "Mandalorians with rebel sympathies, such as Sabine Wren's associates, are enemies of the Imperial order on Mandalore. The Empire uses the Academy and the Protectors to identify and suppress anti-Imperial sentiment."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "Mandalore's position on the Hydian Way makes it strategically relevant. Imperial military logistics passing through the sector would be of interest to protect."
+        },
+        {
+          "type": "artifact",
+          "reason": "The Darksaber is an item of enormous political significance. Whoever holds it can claim Mandalorian leadership. The Empire would want it controlled or destroyed."
+        },
+        {
+          "type": "person",
+          "reason": "Mandalorian warriors who defect to the Rebellion represent both a military threat and a propaganda disaster. ISB maintains watch lists for anti-Imperial Mandalorians."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Dawn of the Rebellion",
+          "pages": "62, 87-88"
+        },
+        {
+          "book": "Age of Rebellion Core Rulebook",
+          "pages": "367, 374"
+        }
+      ]
+    },
+    {
+      "id": "mandalorian_clans",
+      "name": "Mandalorian Clans",
+      "type": "local_political",
+      "control_type": [
+        "cultural",
+        "political"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "moderate",
+        "note": "Clan loyalty is the strongest social bond on Mandalore. Imperial pressure works through co-opting clan leaders. Financial pressure works because Mandalore imports raw materials and depends on outside trade. Dark side influence is largely irrelevant to Mandalorian culture, which values honor and martial prowess over mysticism."
+      },
+      "motivation": "Survival of their clans and the Mandalorian way of life, however they define it. Some clans have allied with the Empire for pragmatic reasons. Others cling to warrior traditions in secret. Most are trying to navigate between Imperial authority and their own cultural identity.",
+      "assets": [
+        "Centuries of warrior tradition and training",
+        "Mandalorian armor and weapons technology, including beskar",
+        "Clan-based loyalty networks that predate and may outlast the Empire",
+        "Control of Concordia's mines and forges"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "subordinate",
+          "notes": "Most clans maintain at least the appearance of Imperial loyalty. Some, like Clan Saxon, are genuine collaborators. Others comply out of pragmatism."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "type": "mixed",
+          "notes": "Clan loyalties cut across political lines. Some clans have members on both sides. The question of whether to resist the Empire divides clans internally."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "artifact",
+          "reason": "The Darksaber is the supreme symbol of Mandalorian leadership. Clans have unified and fractured over it for centuries. Its holder can claim the title of Mand'alor."
+        },
+        {
+          "type": "person",
+          "reason": "Clan members in danger trigger loyalty obligations. A captured clan member demands response regardless of political calculation."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "116-117"
+        },
+        {
+          "book": "Edge of the Empire Core Rulebook",
+          "pages": "385"
+        }
+      ]
+    },
+    {
+      "id": "protectors_concord_dawn",
+      "name": "Protectors of Concord Dawn",
+      "type": "mandalorian_military",
+      "control_type": [
+        "military"
+      ],
+      "control_strength": "moderate",
+      "susceptibility": {
+        "imperial": "moderate",
+        "dark_side": "low",
+        "financial": "low",
+        "note": "The Protectors serve the Empire publicly but their true loyalty is to Mandalore and Mandalorian traditions. They maintain compliance to avoid heavy-handed Imperial control. Appeals must come from proven warriors — they respect combat prowess above all else. They will not provide weapons to outsiders under any circumstances."
+      },
+      "motivation": "Guarding the Concord Dawn system and the hyperspace passage across the Outer Rim. Maintaining Mandalorian autonomy through pragmatic cooperation with the Empire. Preserving warrior traditions while avoiding Imperial conscription or branding as traitors.",
+      "assets": [
+        "Elite Mandalorian warriors with extensive combat experience",
+        "Fang fighter squadron (Skull Squadron under Fenn Rau)",
+        "Heavily encrypted Imperial transmission intercepts and security codes",
+        "Intelligence on safe hyperspace lanes through surrounding systems",
+        "Mandalorian battle armor and jetpacks"
+      ],
+      "relationships": [
+        {
+          "faction_id": "imperial_military",
+          "type": "transactional",
+          "notes": "The Protectors enforce Imperial authority over the Concord Dawn passage in exchange for being left alone. The arrangement benefits both sides but is based on pragmatism, not loyalty. The Protectors would turn on the Empire if the cost-benefit calculus changed."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "type": "hostile_conditional",
+          "notes": "Anyone openly proclaiming rebel allegiance is met with Fang fighters. However, proven warriors who earn Mandalorian respect may negotiate passage or limited aid. Secrecy must be maintained and respect must be earned."
+        }
+      ],
+      "mcguffin_interest": [
+        {
+          "type": "data",
+          "reason": "The Protectors already possess extensive Imperial transmission intercepts and security codes. Additional intelligence would be evaluated for its usefulness in maintaining their position."
+        },
+        {
+          "type": "person",
+          "reason": "Mandalorian warriors in distress may trigger a response based on shared cultural identity, though the Protectors will not risk their arrangement with the Empire lightly."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Dawn of the Rebellion",
+          "pages": "87-88"
+        }
+      ]
+    }
+  ],
+  "strategic_locations": [
+    {
+      "id": "sundari_royal_palace",
+      "name": "Sundari Royal Palace",
+      "district_id": "sundari",
+      "type": [
+        "command",
+        "political"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "The seat of political power on Mandalore. Under the Empire, the Imperial Viceroy operates from here. The palace features a large open balcony over a plaza for public addresses and a Grand Salon serving as throne room and council chamber.",
+      "strategic_value": "Controls the political apparatus of Mandalore. Whoever holds the palace holds the legitimate claim to governance. The Grand Salon has hosted peace negotiations, coronations, and coups.",
+      "takeover_priority": 1,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "nemesis",
+          "count": "1",
+          "notes": "Imperial Viceroy or senior representative. The political authority on Mandalore."
+        },
+        {
+          "archetype_ref": "mandalorian_super_commando",
+          "tier": "rival",
+          "count": "2-4",
+          "notes": "Imperial-aligned Mandalorian warriors serving as palace guard. Better equipped and more dangerous than standard stormtroopers."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "4-6",
+          "notes": "Standard Imperial garrison presence within the palace complex."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "118"
+        }
+      ]
+    },
+    {
+      "id": "imperial_academy",
+      "name": "Imperial Academy of Mandalore",
+      "district_id": "sundari",
+      "type": [
+        "military",
+        "informational"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Formerly the Royal Academy of Government, converted to Imperial service. Uses indoctrination, psychological techniques, and pharmaceuticals to produce loyal Imperial soldiers and pilots from Mandalorian stock. Not always successfully.",
+      "strategic_value": "The primary Imperial indoctrination tool on Mandalore. Produces trained soldiers from a culture with exceptional warrior aptitude. Also serves as a surveillance and control mechanism — families with cadets in the Academy are less likely to resist Imperial authority.",
+      "takeover_priority": 2,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_officer",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Academy instructors and administrators. Focused on identifying leadership potential and maintaining discipline."
+        },
+        {
+          "archetype_ref": "imperial_cadet",
+          "tier": "minion",
+          "count": "4-8",
+          "notes": "Cadets in various stages of training and indoctrination. Some may be disillusioned, like Sabine Wren was."
+        },
+        {
+          "archetype_ref": "stormtrooper",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Garrison security for the Academy complex."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Dawn of the Rebellion",
+          "pages": "62"
+        }
+      ]
+    },
+    {
+      "id": "peace_park",
+      "name": "Peace Park",
+      "district_id": "sundari",
+      "type": [
+        "cultural",
+        "political"
+      ],
+      "controlling_faction_id": "mandalorian_clans",
+      "controlling_faction_notes": "A public space with symbolic significance to the pacifist movement. Transparent rooftop panels representing water, sculpted trees, a tall spire. A target for Death Watch bombing during the Clone Wars and a symbol of what Mandalore tried to become.",
+      "strategic_value": "Symbolic rather than military. A gathering place and a statement about Mandalorian identity. Attacks here are political statements. Controlling the narrative around Peace Park means shaping what Mandalore means to its people.",
+      "takeover_priority": null,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mandalorian_civilian",
+          "tier": "minion",
+          "count": "3-6",
+          "notes": "Citizens. Some remember the pacifist era with nostalgia. Some resent it. All are careful about what they say in public."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "118"
+        }
+      ]
+    },
+    {
+      "id": "sundari_starport",
+      "name": "Sundari Starport",
+      "district_id": "sundari",
+      "type": [
+        "military",
+        "economic"
+      ],
+      "controlling_faction_id": "imperial_military",
+      "controlling_faction_notes": "Access to the dome's interior is through boxlike structures high on the curve of the dome housing large hangars. The starport is the primary entry point to Sundari and Mandalore's main chokepoint for smuggling and surveillance.",
+      "strategic_value": "Controls who enters and leaves the capital. During trade restrictions, this is where the black market operates. Imperial customs and Mandalorian law enforcement both monitor traffic.",
+      "takeover_priority": 3,
+      "encounter_roles": [
+        {
+          "archetype_ref": "imperial_customs_inspector",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Inspecting incoming and outgoing shipments. Thoroughness varies with current alert level."
+        },
+        {
+          "archetype_ref": "mandalorian_guard",
+          "tier": "rival",
+          "count": "2",
+          "notes": "Mandalorian law enforcement working alongside Imperial personnel. Divided loyalties."
+        },
+        {
+          "archetype_ref": "dock_worker",
+          "tier": "minion",
+          "count": "2-4",
+          "notes": "Civilian workers. Some are connected to black market operations."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "117-119"
+        }
+      ]
+    },
+    {
+      "id": "concordia_mines",
+      "name": "Concordia Mines and Forges",
+      "district_id": "concordia",
+      "type": [
+        "military",
+        "industrial"
+      ],
+      "controlling_faction_id": null,
+      "controlling_faction_notes": "Officially shut down after the civil war. Death Watch secretly restarted some operations to produce arms and beskar armor. Current status under the Empire is unclear, but the infrastructure remains and could be reactivated by any faction with the knowledge and resources.",
+      "strategic_value": "The capacity to produce Mandalorian weapons and beskar armor. Whoever controls the mines and forges controls the material basis of Mandalorian military power. The forested terrain of Concordia provides natural concealment for clandestine operations.",
+      "takeover_priority": 4,
+      "encounter_roles": [
+        {
+          "archetype_ref": "mandalorian_warrior",
+          "tier": "rival",
+          "count": "1-2",
+          "notes": "Traditionalist warriors guarding or operating the forges. Hostile to outsiders and Imperial agents alike."
+        },
+        {
+          "archetype_ref": "mandalorian_armorer",
+          "tier": "rival",
+          "count": "1",
+          "notes": "A specialist in beskar forging. Invaluable and knows it. Loyalty is to Mandalorian tradition, not any political faction.",
+          "inferred": true
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Collapse of the Republic",
+          "pages": "117"
+        }
+      ]
+    }
+  ],
+  "influences": [
+    {
+      "id": "imperial_indoctrination",
+      "type": "political",
+      "source_faction_id": "imperial_military",
+      "source_description": "The Empire's primary tool on Mandalore is not military force but cultural co-option. The Imperial Academy converts Mandalorian warrior traditions into Imperial military service. The Viceroy system uses Mandalorian political structures to enforce Imperial will. The goal is to make Mandalore police itself.",
+      "strength_default": "significant",
+      "known_to_players_default": true,
+      "expressions": [
+        {
+          "faction_id": "mandalorian_clans",
+          "description": "Families are divided between those who see the Academy as opportunity and those who see it as indoctrination. Young Mandalorians are pulled between clan traditions and Imperial careers. The Empire exploits this division deliberately."
+        },
+        {
+          "faction_id": "rebel_sympathizers",
+          "description": "Sabine Wren's story is the template: a talented Mandalorian who entered the Academy, discovered her creations were being used against her people, and fled. The Empire's indoctrination does not always work, and its failures become some of the Rebellion's most dangerous operatives."
+        }
+      ],
+      "encounter_modifiers": [
+        {
+          "threshold": "standard",
+          "modifier": "Mandalorian NPCs may be pulled in multiple directions. Social checks involving Imperial authority or Mandalorian tradition may be upgraded or downgraded depending on the NPC's loyalties. The GM should determine each NPC's clan affiliation and where that clan stands."
+        }
+      ],
+      "source_refs": [
+        {
+          "book": "Dawn of the Rebellion",
+          "pages": "62, 81"
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "hyperspace_routes": [
+      {
+        "id": "hydian_way",
+        "destination": "Hydian Way (galactic trade route)",
+        "travel_time": "varies by destination",
+        "route_quality": "major galactic route nearby",
+        "notes": "Mandalore sector sits in a key position between Coruscant and the Outer Rim via the Hydian Way. This strategic position is why the sector has been coveted and contested throughout history. No major galactic routes pass directly through Mandalore itself, but the Hydian Way runs through the sector.",
+        "source_refs": [
+          {
+            "book": "Rise of the Separatists",
+            "pages": "87"
+          }
+        ]
+      },
+      {
+        "id": "concord_dawn",
+        "destination": "Concord Dawn",
+        "travel_time": "short — in-sector",
+        "route_quality": "controlled",
+        "notes": "The Protectors of Concord Dawn guard a critical hyperspace passage across the Outer Rim. Passage requires either Imperial authorization or earning the Protectors' respect through demonstrated combat prowess. Unauthorized ships are met with Fang fighters.",
+        "source_refs": [
+          {
+            "book": "Dawn of the Rebellion",
+            "pages": "87-88"
+          }
+        ]
+      }
+    ],
+    "anomalies": []
+  },
+  "encounter_population": [
+    {
+      "faction_id": "imperial_military",
+      "presence_levels": {
+        "skeleton": {
+          "description": "Imperial presence reduced to a political liaison and minimal administrative staff. The Viceroy is absent or recalled. Day-to-day control delegated to Mandalorian clan authorities. The Empire trusts its co-opted structures to hold without direct oversight.",
+          "presence_reason": "Imperial resources pulled elsewhere. Mandalore is considered stable enough to self-police through the clan system the Empire has co-opted.",
+          "roles": [
+            {
+              "role": "Imperial liaison officer",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Political representative maintaining minimum Imperial visibility. Filing reports, not giving orders."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard Imperial governance. Viceroy in residence. Academy operating. Stormtrooper patrols in Sundari supplement Mandalorian law enforcement. Imperial customs at the starport. The Empire is present but rules through Mandalorian intermediaries.",
+          "presence_reason": "Routine Imperial control. The system works as designed — Mandalorians enforce Imperial order on Mandalorians.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 4,
+              "notes": "Paired patrols within Sundari. Professional but aware they are outsiders in a warrior culture."
+            },
+            {
+              "role": "Imperial Viceroy's staff",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Senior Imperial administrator. Works through Mandalorian clan leaders rather than issuing direct orders."
+            },
+            {
+              "role": "Imperial customs inspector",
+              "archetype_ref": "imperial_customs_inspector",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Starport checkpoint authority. Monitors imports for weapons and rebel contraband."
+            },
+            {
+              "role": "Academy instructor",
+              "archetype_ref": "imperial_officer",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Identifies leadership potential among cadets. Reports to Imperial command on promising recruits and potential dissidents."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "Reinforced Imperial presence. Additional stormtroopers deployed. Mandalorian collaborator forces mobilized. The Academy is placed on heightened alert. The Viceroy is exercising direct authority rather than governing through intermediaries.",
+          "presence_reason": "Anti-Imperial activity detected. A rebel cell identified, a clan defecting, or an assassination attempt on the Viceroy. The Empire is reminding Mandalore who holds real power.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 10,
+              "notes": "Multiple squads covering Sundari's major transit points and the starport."
+            },
+            {
+              "role": "Mandalorian super commando",
+              "archetype_ref": "mandalorian_super_commando",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Imperial-aligned Mandalorian warriors. More dangerous than stormtroopers and know the local terrain and culture."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Intelligence operative investigating the specific threat. Running informants within the clans."
+            },
+            {
+              "role": "Imperial Viceroy",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "The Viceroy taking personal command. Every decision is political as much as military."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "Full Imperial occupation. The pretense of Mandalorian self-governance is suspended. Star Destroyers in orbit. Stormtroopers enforcing martial law inside the bio-domes. The Academy is locked down. Clan leaders are detained or placed under surveillance. This is the Empire treating Mandalore like a conquered world rather than a nominal ally.",
+          "presence_reason": "Open rebellion, the Darksaber surfacing publicly, or a catastrophic failure of the Viceroy system. The Empire has decided the cost of heavy-handed control is less than the cost of losing Mandalore.",
+          "roles": [
+            {
+              "role": "Stormtrooper patrol",
+              "archetype_ref": "stormtrooper",
+              "tier": "minion",
+              "count": 20,
+              "notes": "Dome-wide martial law enforcement. Bio-dome exits sealed without Imperial authorization."
+            },
+            {
+              "role": "Mandalorian super commando",
+              "archetype_ref": "mandalorian_super_commando",
+              "tier": "rival",
+              "count": 6,
+              "notes": "Imperial-loyal Mandalorians hunting their own people. The ugliest face of collaboration."
+            },
+            {
+              "role": "ISB agent",
+              "archetype_ref": "isb_agent",
+              "tier": "rival",
+              "count": 3,
+              "notes": "Full intelligence operation. Clan leaders being interrogated. Communication networks monitored."
+            },
+            {
+              "role": "Imperial sector commander",
+              "archetype_ref": "imperial_officer",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior military command overriding the Viceroy's political approach. This is no longer politics — it's a military operation."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Imperial patrols increase. Mandalorian collaborators are quietly asked to report on their own clans. The Academy conducts loyalty assessments. The starport tightens inspections.",
+        "targeted": "The Empire is looking for specific individuals. Clan leaders are pressured to cooperate. Protectors of Concord Dawn are asked to watch outbound traffic. The target's known clan affiliations are leveraged to flush them out.",
+        "manhunt": "Full dome lockdown. No one leaves Sundari without Imperial authorization. Mandalorian super commandos deployed for building-by-building searches. Clan leaders given ultimatums: produce the target or face collective consequences."
+      }
+    },
+    {
+      "faction_id": "mandalorian_clans",
+      "presence_levels": {
+        "skeleton": {
+          "description": "A single clan representative maintaining a presence. The clan's main strength is elsewhere — at their own holdings, on Concordia, or scattered. This location is claimed but not actively defended.",
+          "presence_reason": "The clan has pulled back. Internal politics, Imperial pressure, or simply a lack of resources.",
+          "roles": [
+            {
+              "role": "Clan sentinel",
+              "archetype_ref": "mandalorian_warrior",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Watching and reporting. Not equipped for a fight but trained for one."
+            }
+          ]
+        },
+        "patrol": {
+          "description": "Standard clan presence. Warriors in traditional armor on clan business. Clan-controlled commerce and social activity. The visible face of Mandalorian culture operating within Imperial constraints.",
+          "presence_reason": "Normal operations. The clan is conducting its affairs — trade, clan politics, training — within the bounds the Empire allows.",
+          "roles": [
+            {
+              "role": "Mandalorian warrior",
+              "archetype_ref": "mandalorian_warrior",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Armed and armored warriors. Respecting Imperial authority publicly while maintaining clan pride."
+            },
+            {
+              "role": "Clan elder or representative",
+              "archetype_ref": "mandalorian_elder",
+              "tier": "rival",
+              "count": 1,
+              "notes": "Political figure navigating between Imperial demands and clan traditions. Knows more than they say."
+            },
+            {
+              "role": "Mandalorian civilian",
+              "archetype_ref": "mandalorian_civilian",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Workers, artisans, family members. The majority of Mandalore's population."
+            }
+          ]
+        },
+        "fortified": {
+          "description": "The clan is mobilizing. Warriors in full battle armor. Clan holdings locked down. Something has threatened the clan's honor, territory, or survival and the response is traditional Mandalorian preparedness.",
+          "presence_reason": "A rival clan is making moves. The Empire has overstepped. A clan member has been harmed. Mandalorian honor demands a response.",
+          "roles": [
+            {
+              "role": "Mandalorian warrior",
+              "archetype_ref": "mandalorian_warrior",
+              "tier": "rival",
+              "count": 4,
+              "notes": "Full combat readiness. Jetpacks, beskar armor, clan weapons."
+            },
+            {
+              "role": "Clan war leader",
+              "archetype_ref": "mandalorian_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Senior warrior directing clan forces. Commands absolute loyalty from clan members."
+            },
+            {
+              "role": "Mandalorian cadet",
+              "archetype_ref": "mandalorian_warrior",
+              "tier": "minion",
+              "count": 3,
+              "notes": "Young warriors pressed into service. Eager but inexperienced."
+            }
+          ]
+        },
+        "dominant": {
+          "description": "The clan is asserting total control over a location. This is a statement of Mandalorian power that openly challenges or ignores Imperial authority. Full clan strength deployed with ancestral weapons and armor. The Darksaber may be in play.",
+          "presence_reason": "A unifying event — someone has claimed the Darksaber, a Mand'alor has been declared, or the Empire has pushed too far. The clans are acting as a military force, not a political constituency.",
+          "roles": [
+            {
+              "role": "Mandalorian warrior",
+              "archetype_ref": "mandalorian_warrior",
+              "tier": "rival",
+              "count": 8,
+              "notes": "Elite warriors in full Mandalorian battle armor with jetpacks. Coordinated, disciplined, and extremely dangerous."
+            },
+            {
+              "role": "Mandalorian commander",
+              "archetype_ref": "mandalorian_commander",
+              "tier": "nemesis",
+              "count": 1,
+              "notes": "Clan leader or Mand'alor claimant. This individual commands the loyalty of every warrior present."
+            },
+            {
+              "role": "Mandalorian heavy weapons",
+              "archetype_ref": "mandalorian_heavy",
+              "tier": "rival",
+              "count": 2,
+              "notes": "Specialists with heavy repeating blasters, rocket launchers, or vehicle-mounted weapons. The military core of clan warfare."
+            }
+          ]
+        }
+      },
+      "alert_modifiers": {
+        "suspicious": "Clan warriors become more visible in their armor. Conversations with outsiders become shorter and more guarded. Clan symbols are displayed more prominently — a quiet assertion of identity.",
+        "targeted": "The clan has identified a specific threat. Warriors are deployed with clear objectives. Clan intelligence networks — based on loyalty and obligation rather than technology — activate. Everyone with clan ties is watching.",
+        "manhunt": "The full weight of Mandalorian warrior tradition brought to bear on finding one person. Jetpack-equipped warriors covering the wastelands outside the domes. Every clan contact, every obligation, every favor called in simultaneously. Mandalorians do not forget and they do not stop."
+      }
+    }
+  ],
+  "campaign_state": {
+    "controlling_factions": [],
+    "player_history": [],
+    "active_heat": [],
+    "flags": [
+      "Rebel Alliance: Mandalorian combat training and equipment",
+      "Rebel Alliance: Connections to Phoenix Cell and the broader Rebel Alliance",
+      "Rebel Alliance: The Darksaber (in Sabine Wren's possession)",
+      "Rebel Alliance: Knowledge of Mandalorian culture and clan politics from the inside",
+      "Rebel Alliance on this planet: Freeing Mandalore from Imperial control and restoring Mandalorian self-determination. Some want a return to warrior traditions; others want to build something new. Sabine Wren's possession of the Dark",
+      "Rebel Alliance asset: Connections to Phoenix Cell and the broader Rebel Alliance"
+    ],
+    "presets": {
+      "EotE_black_market_smuggling": {
+        "label": "Edge of the Empire — Black Market Smuggling",
+        "description": "Mandalore's trade restrictions have created a thriving black market. Food shortages in outlying bio-domes drive demand for smuggled goods. The players are hired to run supplies to isolated communities, navigating Imperial customs, Mandalorian law enforcement, and factions that want the crisis to continue. Based on the modular encounter in Collapse of the Republic.",
+        "controlling_factions": [
+          {
+            "location_id": "sundari_starport",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Standard customs inspections. Smuggling is known to occur but enforcement is inconsistent."
+          },
+          {
+            "location_id": "outlying_biodomes",
+            "faction_id": "mandalorian_clans",
+            "presence_level": "skeleton",
+            "notes": "Isolated communities desperate for supplies. Landing pad directors may offer competing deals."
+          }
+        ],
+        "active_heat": [],
+        "flags": [
+          "Counterfeit food supplies are circulating. Someone is selling goods that look legitimate but provide no nutrition. The food crisis is partially manufactured.",
+          "Death Watch (or their successors) are actively disrupting smuggling operations to worsen the crisis and undermine the government. They will confront smugglers and destroy cargo.",
+          "The original patron expects delivery to a specific customs officer at a remote bio-dome. Other parties will try to redirect the cargo to Sundari for higher prices.",
+          "Imperial customs at Sundari starport may or may not be thorough depending on current alert status. A Hard Deception check is needed to pass counterfeit goods."
+        ],
+        "source_refs": [
+          {
+            "book": "Collapse of the Republic",
+            "pages": "119"
+          }
+        ]
+      },
+      "AoR_liberation_cell": {
+        "label": "Age of Rebellion — Mandalorian Liberation",
+        "description": "A Rebel-aligned cell of Mandalorian warriors is working to undermine Imperial control of Mandalore from within. The players must navigate clan politics, earn the trust of warrior traditionalists, and avoid the Imperial Viceroy's collaborator networks. The Darksaber exists as a potential game-changer if the right person claims it.",
+        "controlling_factions": [
+          {
+            "location_id": "sundari_royal_palace",
+            "faction_id": "imperial_military",
+            "presence_level": "patrol",
+            "notes": "Imperial Viceroy in residence. Mandalorian super commandos serving as palace guard."
+          },
+          {
+            "location_id": "concordia_mines",
+            "faction_id": "rebel_sympathizers",
+            "presence_level": "skeleton",
+            "notes": "Anti-Imperial Mandalorians using abandoned mine infrastructure for clandestine meetings and weapons caches."
+          }
+        ],
+        "faction_relationship_overrides": [
+          {
+            "faction_id": "protectors_concord_dawn",
+            "target_faction_id": "rebel_sympathizers",
+            "type": "cautious_neutral",
+            "notes": "The Protectors will not openly aid rebels but may turn a blind eye to Mandalorian warriors they respect. A proven warrior who earns Fenn Rau's personal respect changes the equation."
+          }
+        ],
+        "active_heat": [
+          {
+            "faction_id": "imperial_military",
+            "level": "suspicious",
+            "reason": "ISB is aware of anti-Imperial sentiment among some clans. Surveillance is active but not targeted."
+          }
+        ],
+        "flags": [
+          "The Darksaber's location is known to a handful of people. If it surfaces publicly, every faction on Mandalore reacts. The Empire wants it destroyed or secured. The clans see it as a symbol of legitimate leadership.",
+          "One clan leader who publicly supports the Viceroy is privately disgusted by Imperial rule. He needs a credible alternative before he will risk his clan's safety.",
+          "The Imperial Academy has a handful of disillusioned cadets who have seen through the indoctrination. They are isolated from each other and don't know who to trust.",
+          "The Protectors of Concord Dawn possess Imperial security codes and hyperspace lane data that would be invaluable to the Rebellion. Getting this information requires earning Fenn Rau's respect — which means proving yourself as a warrior, not a spy."
+        ],
+        "source_refs": [
+          {
+            "book": "Dawn of the Rebellion",
+            "pages": "62, 81, 87-88"
+          }
+        ]
+      }
+    }
+  },
+  "source_refs": []
+}

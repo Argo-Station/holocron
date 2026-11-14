@@ -1,0 +1,2894 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/charbuild-common.schema.json",
+  "title": "CharBuildCommon",
+  "description": "Shared field $defs for character-build entities (species, career, specialization, talent, force-power). Defined ONCE so identity/provenance/description/tree conventions can't drift between registries. Referenced via $ref by the five entity schemas. Not an entity itself — a $def library, mirroring item-common.schema.json.",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable app id, slugify(Name) — snake_case, same convention as the item registries."
+    },
+    "description": {
+      "type": "string",
+      "description": "Display-ready text decoded at INGEST: structural markup removed ([H#]title[h#] dropped, [P]/[BR] -> newline, [B]/[b]/[I]/[i] tags dropped keeping text); FFG dice-glyph tokens PRESERVED as canonical [XX] tokens per schema/vocab/glyphs.vocab.json (semantic game content, rendered as glyphs at display). Unknown bracket tokens fail the ingest loud — see Docs/RULES_FOUNDATION_CHARBUILD.md §9.",
+      "$comment": "D-CB3: structural markup is presentation (decode at ingest); glyph tokens are semantics (keep). The render-time glyph map is the ONLY decode left at runtime."
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Books defining the entity, from OggDude Sources.Source (list) OR the scalar Source. Mapped onto rules-index pdfs.alias where the seed map covers it; an unmapped name keeps the raw string (no data loss) and is reported for reconciliation — same policy as the weapon/item ingests."
+    },
+    "skill_ref": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Canonical skill id resolved against schema/vocab/skills.vocab.json at ingest (fail-loud VocabMiss). Never a raw OggDude key."
+    },
+    "career_skill_choice_grants": {
+      "type": "array",
+      "description": "PLAYER-CHOSEN career skills: the player picks `count` skills from `pool`, and each becomes a CAREER SKILL for the PC (it does NOT grant a rank). ONE definition, three carriers by $ref — the specialization, the talent and the species (root and option) — moved here from the specialization's and the talent's identical inline copies by ruling `f100-cerean-intellectuals-card` R-CI-1 (one definition, three carriers). Each carrier keeps its own description beside the $ref (the talent's per-rank `count`, the species' no-rank sentence). validate_registries L1cb.6 pins this enum to skills.vocab.json in both directions and asserts every carrier $refs this definition.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "count",
+          "pool"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "pool": {
+            "oneOf": [
+              {
+                "enum": [
+                  "any",
+                  "non_career",
+                  "combat",
+                  "general",
+                  "knowledge",
+                  "social"
+                ],
+                "description": "'any' and 'non_career' are the broad pools. Every other value is a CATEGORY pool: a group id defined in schema/vocab/skills.vocab.json, resolved against that group at render. R-ENUM-1: THE VOCAB IS THE SOURCE OF TRUTH FOR THIS LIST — a group added, renamed, or removed there updates this enum in the SAME change; validate_registries L1cb.6 asserts the vocab's group set is covered here, in both directions. Identical to the species `skill_choice_grants` enum by construction, not by copy-intent: the two are pinned to one vocabulary."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "description": "An explicit canonical skill-id list — 'one of THESE skills of your choice'."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "talent_ref": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Canonical talent id (talents registry). Referential integrity enforced by validate_registries Layer 1."
+    },
+    "characteristic_ref": {
+      "type": "string",
+      "enum": [
+        "brawn",
+        "agility",
+        "intellect",
+        "cunning",
+        "willpower",
+        "presence"
+      ],
+      "description": "Canonical characteristic id per schema/vocab/characteristics.vocab.json."
+    },
+    "tree_links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "up": {
+          "type": "boolean",
+          "default": false
+        },
+        "down": {
+          "type": "boolean",
+          "default": false
+        },
+        "left": {
+          "type": "boolean",
+          "default": false
+        },
+        "right": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "Connector lines from this tree cell. RAW: purchase eligibility = top row OR link-connected to an already-purchased cell (eote p.102; fad p.286 for force trees). Coerced from OggDude Directions.Direction string 'true'/'false'."
+    },
+    "xp_cost": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Printed XP cost; coerced from OggDude string."
+    },
+    "force_rating": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Inherent Force Rating granted by this entity (species trait, F&D career grant fad p.282, or Force-sensitive universal spec). 0 = none."
+    },
+    "career_power_pair": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "description": "F-100 M12 Career Powers (ruling f100-m12-census-card R-M12C-86, shape (b) ADOPTED; Docs/briefs/f100-m12-career-powers.md §2): the TWO Force-power ids a career (`career_powers`) or a specialization (`bonus_career_powers`) lists, as the reSpecialized Force and Destiny primer prints them (p.5, CAREER + SPECIALIZATION POWERS). Each id resolves in force_powers.json (validate_registries L1cp). The books print no such rule, so the field rides a reSpecialized pack overlay and is ABSENT with the switch off (D-146). Read by CharResolve.careerPowersOf ONLY."
+    },
+    "career_power_choice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "choose",
+        "count",
+        "upgrade_if_owned"
+      ],
+      "properties": {
+        "choose": {
+          "const": "any",
+          "description": "The pick is any Force power (the primer's Padawan and Master rows: \"power of your choice\")."
+        },
+        "count": {
+          "enum": [
+            1,
+            2
+          ],
+          "description": "How many powers are chosen: Padawan 1, Master 2 (\"Two powers of your choice, plus the basic power of each at no cost\")."
+        },
+        "upgrade_if_owned": {
+          "const": "non_mastery",
+          "description": "Their own words: \"Gain one non-Mastery upgrade if you already have the chosen power.\" The upgrade is the player's pick (R-M12C-87); never invented by the engine."
+        }
+      },
+      "description": "F-100 M12 (R-M12C-86): the CHOICE form of `bonus_career_powers`, for the two trees whose row names no powers (primer p.5, JEDI: Padawan, Master). Read by CharResolve.careerPowersOf, which returns it as a CHOICE, never as a list."
+    },
+    "career_attribute_effect": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/effect"
+        },
+        {
+          "required": [
+            "op",
+            "amount"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "wound_threshold_delta",
+                "strain_threshold_delta",
+                "soak_delta",
+                "defense_delta"
+              ]
+            },
+            "per_rank": {
+              "const": false
+            }
+          },
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "skills"
+                ]
+              },
+              {
+                "required": [
+                  "cost"
+                ]
+              },
+              {
+                "required": [
+                  "characteristic"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "description": "F-100 M12 career Attributes (ruling f100-m12-census-card R-M12C-79 shape B, R-M12C-100; Docs/briefs/f100-m12-gate-table.md §4): ONE OggDude career Attributes key as an effect row in an EXISTING op — WoundThreshold → wound_threshold_delta, StrainThreshold → strain_threshold_delta, SoakValue → soak_delta, DefenseMelee / DefenseRanged → defense_delta target melee / ranged — with the Requirement as the row's `when` (WearingArmor → armored; SoakAtLeast 2 → armor_soak_2, the only value the closed enum holds). A career has no ranks, so `per_rank` is false or absent. No new row grammar. Every shipped career's Attributes are 0, so no shipped record carries a row; a homebrew career may. Read by CharResolve.careerEffectBonuses ONLY."
+    },
+    "provenance": {
+      "type": "string",
+      "enum": [
+        "oggdude",
+        "community",
+        "authored"
+      ],
+      "default": "oggdude",
+      "description": "WHERE THE RECORD'S DATA CAME FROM — not who wrote its prose. Ruled by `f-eds-6-species-lap-plan` §3.3 (R-SY4 paper) after 7 hand-authored species were found claiming 'oggdude' (B-46). 'oggdude' = ingested from the OggDude dataset (stats and original text alike). 'community' = ingested from a community compilation (e.g. the Unofficial Species Menagerie). 'authored' = created whole by this project from printed sources — stats transcribed by hand, text ours. THE BOUNDARY, so the field stays truthful in both directions: the F-EDS-6 prose replacements do NOT change this value. A record whose statline came from OggDude stays 'oggdude' after its description is rewritten; prose provenance is the replacements file's ledger, not this field's. Verification metadata (who checked it, when) lives in the inspection ledger and `_provenance_note`. The previous free-string form named a 'custom' value that appears in no registry."
+    },
+    "dataset": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "description": "WHICH community data set the record came from — a NEW OPTIONAL SIBLING of `_provenance`, authorized by ruling `f96-respec-carry-recon` R-FRC-1, and explicitly NOT a change to that field's enum. `_provenance` answers WHO authored the data (oggdude | community | authored); this answers WHICH SET, because a reader who is told only 'community content' has not been told what to install. Known values today: 'csg' (Complete Species Guide), 'tor' (the Old Republic set), 'respec' (reSpecialized). DELIBERATELY OPEN rather than a closed enum: a second closed vocabulary is a durable contract of its own and R-FRC-1 authorized a field, not an enum — a new data set must not require a schema ruling to be nameable. DERIVED FROM THE ID PREFIX by scripts/backfill_dataset_field.py, never hand-assigned; OPTIONAL because 30 community records carry no prefix to derive from, and the export receipt falls back to honest generic wording for them rather than guessing an install instruction."
+    },
+    "row_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$",
+      "description": "F-100 M8 (R-M8R-9(f); R-M8K-1): an effect row's STABLE id, unique within its record across EVERY row array — effects[], pool_mods[], told[] (C5), item_effects[] (C7), vehicle_effects[] (C8) and roll_numbers[] (C11). Authored once, never reused for another meaning, never renumbered; an overlay twin that INHERITS (identical text hash) keeps its base's ids. A later per-character layer (M13) keys one row by it. OPTIONAL in the schema so a user pack written before M8 still loads (R-FPA-3); REQUIRED on canonical talent rows by the validator (L1cb.id); the editor mints one at the next save."
+    },
+    "dark_key": {
+      "enum": [
+        "roll_options"
+      ],
+      "description": "F-100 THE SURFACING MISSION (roll-options card ADDENDUM 13, ruled ADDENDUM 14 F1/F2): the data set that added the row. `roll_options` = the five roll-options data laps (5c–5g). Its key is deleted (release-r7-bug-burndown ADDENDUM 638): every reader reads the row, and charResolve reads the marker only to drop a told line the row's words overlap. A TALENT row of pool_mods, roll_numbers, effects, spend or target only, and it carries `words` (validate_registries L1cb.dark: refused on every other carrier, every pack overlay and every told row)."
+    },
+    "words": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "hash"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{12}$"
+        }
+      },
+      "description": "F-100 M8 (R-M8K-5, R-M8K-9 (ii)): a span of the OWNING record's own description and its normalized sha1[:12]. A guard recomputes the hash, so an edited description fails loudly. No second copy of the text."
+    },
+    "who": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "span"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "span": {
+          "$ref": "#/$defs/words"
+        }
+      },
+      "description": "F-100 THE SURFACING MISSION (roll-options card ADDENDUM 60/62; brief f100-surfacing-roll-options-f §5): WHO an offered talent row lands on. `label` = the plain words drawn after the row's cost chips (D-348), sentence case; \"\" is legal and draws NO tag. `span` = the book's phrase in the talent's OWN description (a words span, hashed). A TALENT row of pool_mods, roll_numbers, spend or target only (validate_registries L1cb.dark D5: refused on items, every other registry and every pack overlay). Read by ui.jsx offerWho (the label) and offerInfo (the span) only."
+    },
+    "unless": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ability",
+        "words"
+      ],
+      "properties": {
+        "ability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "words": {
+          "$ref": "#/$defs/words"
+        }
+      },
+      "description": "F-100 THE SURFACING MISSION (ruling f100-surfacing-preflip-species-card R-SPF-1, R-SPF-10; a vocabulary member under D-215): a SPECIES-ABILITY row's negation by a SIBLING ability on the same species — `ability` names the sibling (top level or any option), `words` is the span of the SIBLING's description that negates this row (Lugubraa's Unique Senses: 'negating the effects of the Blind ability in most cases'). A row carrying it is NEVER applied and is OFFERED at the roll as a condition row is (poolMods.appliesNow false, reason 'unless'; offer text 'unless <Sibling>: <the span's words>'). Species-ability pool_mods and roll_numbers ONLY: refused on every other owner by validate_registries (L1cb.unless) and packValidate. Editing the sibling's text makes the span stale (R-SPF-4), which holds the row."
+    },
+    "cite": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "book",
+            "page"
+          ],
+          "properties": {
+            "book": {
+              "type": "string"
+            },
+            "page": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/cite_unprinted"
+        }
+      ],
+      "description": "F-100 M8 (R-M8K-9 (i); f100-m8-batches R-M8BG-141/144, ADDENDUM 40 R-M8BG-151, ADDENDUM 41 R-M8BG-160): the printing this row stands on — {book, page}, book ∈ the owning talent's sources (or, for an inheriting overlay twin, its base's), page PRINTED (R-RRD-1); or, for a record NO book prints, cite_unprinted. It selects a printing; it is never a second answer."
+    },
+    "cite_unprinted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unprinted",
+        "from"
+      ],
+      "properties": {
+        "unprinted": {
+          "enum": [
+            "pack",
+            "user_data"
+          ]
+        },
+        "from": {
+          "type": "string",
+          "pattern": "^[a-z0-9_@.-]+:[A-Z0-9_&]+$"
+        }
+      },
+      "description": "F-100 M8 (f100-m8-batches ADDENDUM 40, R-M8BG-151/152; ADDENDUM 41 R-M8BG-160 retired a third class): a row whose record no printed page carries. `unprinted` names the class and must match the record (validator L1cb.cite): pack = an overlay entry of a GAME VARIANTS pack; user_data = sources [\"user_data\"]. A record whose named book seems not to print it is briefed as its own case, never given a class here. `from` = where the words came from: `<stamp>:<_source_key>` for a pack (e.g. respecialized@aor-v1:ACALLAID), or `user_data:<_source_key>`. No page, ever."
+    },
+    "difficulty_floor": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1,
+      "description": "F-100 M8 JOB 4 step 0 (f100-m8-contracts ADDENDUM 5, R-M8K-29/30; brief ADDENDUM 2, member F): a talent's printed 'to a minimum of Easy' on a decrease of difficulty. The difficulty LEVEL the decrease never takes the check below, as a COUNT of Difficulty dice, Challenge dice included: upgrading changes a die, never the level (EotE p.22; AoR p.29). Easy = 1; 'to a minimum of Simple' is 0, which every remove already keeps, so it is never written. A floor binds only its OWN row's decrease, and floored decreases apply before plain ones (R-M8K-30, order (β); RAW silent, reported). Higher levels enter with their first user (R-F100-9)."
+    },
+    "use_cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "strain": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "conflict": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "F-100 THE SURFACING MISSION (roll-options card ADDENDUM 14 F9): the Conflict a use takes, shown with the row and never charged, as destiny is. Per unit under the row's multiplier when `strain_per_rank` is set (one row, one multiplier: Questionable Ethics' strain AND conflict up to ranks, The Old Republic p.30). A TALENT row's member only (L1cb.dark)."
+        },
+        "strain_per_rank": {
+          "type": "boolean",
+          "description": "The strain is paid per unit of the row's multiplier: the owned ranks for a ranked row, the resolved source value for a `count_of` row (f100-m8-batches R-M8BG-224; offerTags prices it as the reminder's count over the row's own, R-M8BG-208)."
+        },
+        "destiny": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2,
+          "description": "F-100 M12 (ruling f100-m12-census-card R-M12C-16, SV3, a WIDENING): the Destiny Points a use flips — 1 for every stored talent row, 2 for a signature ability's printed \"2 Destiny Points\" (each user cites its page). Shown and never charged (R-M8K-4). Never 0: an upgrade that removes the cost carries it on its `destiny_cost_set` activation mod (R-M12C-97)."
+        },
+        "commit_force": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "force_points": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "F-100 M10 (ruling f100-m10-shapes-card R-M10S-4, V2): the Force points a FORCE-POWER row's use spends ([FP] per spend), shown with the row and never charged, like every member. A Force-power row's member only: a talent, species or item row carrying it is refused (validator L1cb.fp)."
+        }
+      },
+      "description": "F-100 M8 C4 (R-M8K-4): a price paid at each use, SHOWN with the row and never charged by the app (R-M7K-4; R-M8R-4). The book prints it; the app is not a legality engine. A member enters with its first authored user (R-F100-9); `wounds` waits for its (ruling f100-m8-build R-M8G-10); `conflict` entered with Questionable Ethics (roll-options card ADDENDUM 14 F9). `force_points` entered at F-100 M10 with the Force powers' dials (R-M10S-4)."
+    },
+    "dial_limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first",
+        "per"
+      ],
+      "properties": {
+        "first": {
+          "const": 1
+        },
+        "per": {
+          "enum": [
+            "check",
+            "round",
+            "turn"
+          ]
+        }
+      },
+      "description": "F-100 M11 (D-M11C1 (a) @ b668d62f): a power_dial row's limit, ONLY beside `replaces_step_of` — the replaced step applies to the FIRST activation per check, round or turn (\"Once per Foresee power check …\", \"The first time … each round\", Commune's \"Once per turn\"); later activations take the sibling's own step. Shown, never tracked (R-M7K-4)."
+    },
+    "use_limit": {
+      "enum": [
+        "once_per_round",
+        "once_per_encounter",
+        "once_per_session"
+      ],
+      "description": "F-100 M8 C4 (R-M8K-4): shown, never tracked (R-M7K-4). There is no used mark, no used state and no reset control (f100-m8-build-card R-M8B-12 (b)). `once_per_game` has no user — every census user prints \"once per game session\", which is once_per_session — so it is not a member (R-M8G-10)."
+    },
+    "moment": {
+      "enum": [
+        "check",
+        "critical_injury",
+        "buy",
+        "critical_inflicted"
+      ],
+      "description": "F-100 M8 (R-M8R-2): WHERE an OFFERED or TOLD row shows. A member enters only where a screen reaches it — check (any pool the character rolls; the anchors say which), critical_injury (recording one: the d100 and its modifier), buy (the talent bought: the pick is asked). Absent on a TOLD row = the talent's own entry. A book trigger no screen reaches is the talent's own words on its entry until a screen exists (a new screen is a shape: R-MU1). critical_inflicted (B-219, ruling f100-b219-card ADDENDUM 1 R-B219C-10, which admits it with NO screen: engine first, R-M9E-7) = the Critical roll the wielder INFLICTS with a weapon; its one user is Vicious's quality row (qualities.vocab.json), answered by SWRPGPoolMods.rollNumbersAt's critical_inflicted arm off the weapon's own rows (lib/shared/qualityRows.js), never off the owner's talents."
+    },
+    "pick": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,23}$"
+        },
+        "kind": {
+          "enum": [
+            "skill",
+            "characteristic",
+            "item",
+            "option"
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "words"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,23}$"
+              },
+              "words": {
+                "$ref": "#/$defs/words"
+              },
+              "categories": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "weapon",
+                    "armor",
+                    "gear"
+                  ]
+                }
+              }
+            }
+          },
+          "description": "kind option ONLY, required there: the fixed values the player chooses among. Each value's LABEL is a span of the talent's own description (`words`; no second copy, no new book text). `categories`: the value is offered, and its rows apply, only when the item named by `for_item` is in one of these categories; absent = any."
+        },
+        "for_item": {
+          "type": "string",
+          "description": "kind option ONLY, optional: the id of the SAME talent's kind-item pick whose marked entry the option's `categories` are tested against, at the SAME owned instance (spec + cell). The picker asks the item first and then filters the options; if the item changes category (lost, re-chosen), a value that no longer fits reads as UNPICKED (fail closed) and the prompt shows again."
+        },
+        "pool": {
+          "description": "skill: the career_skill_choice_grants pool vocabulary, reused (any | non_career | a group | an id list); characteristic: an id list or absent (all six); item: {categories: [weapon|armor|gear]} (the owned lists the picker offers)"
+        },
+        "per": {
+          "enum": [
+            "rank",
+            "talent"
+          ]
+        },
+        "distinct": {
+          "type": "boolean"
+        },
+        "words": {
+          "$ref": "#/$defs/words",
+          "description": ""
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "option"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "options"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "options"
+                  ]
+                },
+                {
+                  "required": [
+                    "for_item"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "const": "item"
+                }
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "words"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "item"
+              }
+            },
+            "required": [
+              "kind",
+              "pool"
+            ]
+          },
+          "then": {
+            "properties": {
+              "pool": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "categories"
+                ],
+                "properties": {
+                  "categories": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "weapon",
+                        "armor",
+                        "gear"
+                      ]
+                    }
+                  },
+                  "kind": {
+                    "$ref": "#/$defs/item_kind"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "description": "F-100 M8 C6 (R-M8K-6): a choice the row needs. FAIL CLOSED: unmade = the row gives nothing and the talent shows its prompt (R-M8R-6(i)). per: rank = each owned rank picks its own, stored at the owned CELL talentChoices[<specId>]['<row>-<col>'] (Deadly Accuracy, EotE p.134); talent = one pick all ranks share, stored at the owned TALENT talentChoices._talent[<talentId>] and gone with its last owned rank (R-M8K-6 (b); Knowledge Specialization, EotE p.138). distinct: no two ranks may pick the same value (Deadly Accuracy, Tinkerer). kind `item` (ruling f100-m8-build R-M8G-12/13 as amended by R-M8G-21): the pick is a MARK ON THE OWNED ENTRY, never a value in talentChoices — the equipment entry (a weapons[]/gear[] element or the worn armor object) carries `talentMarks: [{talent, spec, cell}]`, the same two-level address talentChoices[<spec>][<cell>] uses; CharResolve.pickOf resolves it by scanning the three lists; a mark whose cell is no longer owned is ignored, never deleted; a TREELESS rank takes no item pick (R-M8G-21). Kind `vehicle` enters with its first seed (B3). Kind `option` entered with its first seed, Jury Rigged (f100-m8-contracts ADDENDUM 3 A3.2 (1), ruled by ADDENDUM 6 R-M8K-35): a value from the pick's own `options`, stored in talentChoices like a skill pick; validator: `for_item` names a kind-item pick of the same record, option ids are unique, and an option no row's `option.is` names is allowed only when its words are TOLD on the entry (R-M8K-35 (iii)). Every OTHER M8 pick is written to talentChoices only; the legacy maps keep their meanings (R-M8K-6 (c), amended for kind item by R-M8G-13). A row says `chosen: \"<pick id>\"` wherever it means the picked value."
+    },
+    "told_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "words"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/row_id"
+        },
+        "moment": {
+          "$ref": "#/$defs/moment"
+        },
+        "applies_to": {
+          "$ref": "item-common.schema.json#/$defs/pool_mod_entry/properties/applies_to"
+        },
+        "words": {
+          "$ref": "#/$defs/words"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "cost": {
+          "$ref": "#/$defs/use_cost"
+        },
+        "limit": {
+          "$ref": "#/$defs/use_limit"
+        },
+        "pick": {
+          "$ref": "#/$defs/pick"
+        }
+      },
+      "description": "F-100 M8 (R-M8R-1, R-M8R-5; R-M8K-5): an effect the app SHOWS and never computes — the talent's OWN words (a span of its description; no second copy, no new book text), placed at its moment when a screen reaches one, else on the talent's entry. `pick` is C6's declaration (a TOLD row may need the choice its words name: Knowledge Specialization)."
+    },
+    "item_kind": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "skills": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": "the weapon's `skill` is one of these skills.vocab.json ids (Ichor Blade: melee, brawl)."
+        },
+        "categories_any": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "the record's `categories` hold at least one of these (OggDude's weapon categories: Explosive, Grenade, Mine, …)."
+        },
+        "categories_none": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "the record's `categories` hold none of these (Ichor Blade's \"no electronic or high-tech parts\": not Powered Melee / Powered Brawl)."
+        },
+        "marked_by": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_:]*$",
+          "description": "the entry carries this talent's mark (\"each item benefiting from the character's Tinkerer\")."
+        },
+        "improvised": {
+          "const": true,
+          "description": "the entry carries the PLAYER's improvised mark (`sheet.equipment.weapons[i].improvised === true`, R-SSC-5, D-229 sheet Q2 (a)); written only by the sheet's tick, read only by `_kindFits`; a talent's mark is `marked_by`, never this. Admitted by ruling f100-surfacing-sheet-concept ADDENDUM 10 C2 (a) (D-215)."
+        },
+        "attest": {
+          "$ref": "#/$defs/words",
+          "description": "a span of the talent's own description the PLAYER confirms when picking, for a kind no record field answers (\"no electronic or high-tech parts\"). A pick's only."
+        }
+      },
+      "description": "F-100 M12 QK1 (f100-m12-census-card R-M12C-95; gate table §2): a KIND of item, the test a pick's pool or an {all} row applies on top of its categories. Every listed test must hold (AND)."
+    },
+    "item_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "op",
+        "item"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/row_id"
+        },
+        "op": {
+          "enum": [
+            "hard_points_delta",
+            "damage_delta",
+            "crit_delta",
+            "encumbrance_delta",
+            "defense_delta",
+            "qualities_reduce",
+            "quality_grant",
+            "spend_effect_set"
+          ]
+        },
+        "item": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "chosen"
+              ],
+              "properties": {
+                "chosen": {
+                  "type": "string"
+                },
+                "talent": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_:]*$",
+                  "description": "F-100 M12 (QG1 paper): the pick is ANOTHER talent's (Ichor Blade (Improved), Collapse of the Republic p.40: \"The weapon affected by your Ichor Blade\"): the mark of that talent's `chosen` pick names the entry, read through the same pickOf. Absent = this talent's own pick."
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "all"
+              ],
+              "properties": {
+                "all": {
+                  "enum": [
+                    "weapons"
+                  ]
+                },
+                "kind": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/item_kind"
+                    },
+                    {
+                      "not": {
+                        "required": [
+                          "attest"
+                        ]
+                      }
+                    }
+                  ],
+                  "description": "F-100 M12 QK1: only the weapons in use that are of this KIND (Acklay's Scything Strike: Brawl attacks; Powerful Blast: explosives and grenades). No pick, so no attestation: `attest` is a pick's."
+                }
+              }
+            }
+          ],
+          "description": "the pick id (C6, kind item) whose MARK names the owned entry (R-M8G-12/21); or F-100 M12 (f100-m12-build-card ADDENDUM 14, R-M12B-40) {all: \"weapons\"}: EVERY weapons[] entry in use, no pick (Burly, Dangerous Covenants p.32) — `all`'s enum is [\"weapons\"] alone (a second value needs its own paper), and such a row REQUIRES in_use: true"
+        },
+        "option": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "chosen",
+            "is"
+          ],
+          "properties": {
+            "chosen": {
+              "type": "string"
+            },
+            "is": {
+              "type": "string"
+            }
+          },
+          "description": "F-100 M8 (f100-m8-contracts ADDENDUM 3): the row applies only at an owned instance whose kind-option pick `chosen` holds the value `is` — the SAME instance (spec + cell) as the item mark `item.chosen` names. Unpicked, or another value = the row gives nothing (FAIL CLOSED). `is` must be one of that pick's `options[].id` (validator). Required on every item_effect of a record that declares a kind-option pick (R-M8K-35 (ii), validator)."
+        },
+        "target": {
+          "enum": [
+            "melee",
+            "ranged"
+          ],
+          "description": "defense_delta ONLY, required there: which of the ARMOR's two defenses the row raises."
+        },
+        "in_use": {
+          "const": true,
+          "description": "F-100 M8 (ADDENDUM 3): the row applies only while the marked entry is IN USE — a weapons[] or gear[] entry whose state is not `stowed`; the worn-armor slot only when its state is `worn` (a spare suit in gear[] is never in use). The mark is kept either way. Absent = the change stays with the item whatever its state (Tinkerer's hard point)."
+        },
+        "in_use_words": {
+          "$ref": "#/$defs/words",
+          "description": "F-100 M8 (R-M8BG-65/67): the span of the talent's own description that this row's `in_use` gate carries (Jury Rigged, EotE p.138: \"The bonus only applies while the character is using the item.\"). Requires `in_use` (validator). Counted APPLIED by the fate listing; never displayed as a second copy."
+        },
+        "key": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "floor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pick": {
+          "$ref": "#/$defs/pick"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "words": {
+          "$ref": "#/$defs/words"
+        },
+        "mode": {
+          "enum": [
+            "grant_or_raise",
+            "raise_only"
+          ],
+          "description": "F-100 M12 QG1 (f100-m12-census-card R-M12C-95; gate table §2): quality_grant ONLY, required there. grant_or_raise: the item gains the quality `key` at the rating, or an existing rating rises by it (Acklay's Scything Strike, Knights of Fate p.30). raise_only: an existing rating rises, and an item without the quality gains nothing (Powerful Blast, AoR p.154)."
+        },
+        "count_of": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "of"
+          ],
+          "properties": {
+            "of": {
+              "enum": [
+                "force_rating"
+              ]
+            }
+          },
+          "description": "F-100 M12 QG1: quality_grant ONLY, instead of `amount`: the rating is the owner's Force rating (Acklay's Scything Strike). `of`'s enum holds that one reading; a second needs its own paper."
+        },
+        "field": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "F-100 M12 QS3: spend_effect_set ONLY, required there: the name in the quality's QS1 row `values` that this row sets to `amount` (Sunder (Improved), Disciples of Harmony p.30: Sunder's {steps} → 2)."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "defense_delta"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "target"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "target"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "crit_delta",
+                  "encumbrance_delta",
+                  "qualities_reduce"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "floor"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "qualities_reduce"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "key",
+              "amount"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "quality_grant"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "key",
+              "mode"
+            ],
+            "not": {
+              "required": [
+                "amount",
+                "count_of"
+              ]
+            }
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "mode"
+                  ]
+                },
+                {
+                  "required": [
+                    "count_of"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "spend_effect_set"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "key",
+              "field",
+              "amount"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "field"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "item": {
+                "required": [
+                  "all"
+                ]
+              }
+            },
+            "required": [
+              "item"
+            ]
+          },
+          "then": {
+            "required": [
+              "in_use"
+            ]
+          }
+        }
+      ],
+      "description": "F-100 M8 C7 (R-M8R-7; R-M8K-7; ruling f100-m8-build R-M8G-16, R-M8G-22): a talent's change to ONE owned item, PROJECTED at render by resolveSheetEquipment → ItemResolve.applyCharacterEffects(display, rows); never written into the item record; removing the talent (or its cell) removes it; a lost item fails the pick closed. Ops reuse base_mods' effect names; a member enters with its first authored user (R-F100-9): hard_points_delta with Tinkerer (EotE p.145); damage_delta, crit_delta, encumbrance_delta and defense_delta with Jury Rigged (EotE p.138), each gated by its option value and `in_use`. quality_add has no user and is not a member."
+    },
+    "roll_number": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "op",
+        "amount",
+        "moment"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/row_id"
+        },
+        "dark": {
+          "$ref": "#/$defs/dark_key"
+        },
+        "who": {
+          "$ref": "#/$defs/who",
+          "description": "TALENT rows only (talent_roll_number; refused elsewhere, L1cb.dark D5)."
+        },
+        "op": {
+          "enum": [
+            "damage_delta",
+            "crit_rating_delta",
+            "crit_roll_delta",
+            "crit_rating_set",
+            "power_dial"
+          ],
+          "description": "F-100 M9 (ruling f100-m9-shapes-card R-M9S-4, D-M9C1): crit_rating_set REPLACES the attack's printed Critical rating with `amount` (an integer ≥ 1, the printed rating); `moment` check; its anchor is the unarmed attack only ([{scope: weapon_record, value: unarmed}]). Order (an ENCODING of a RAW-silent combination, reported): the SET first, then every crit_rating_delta, then the floor (min 1) — poolMods.critRatingWith, the one reader. A SPECIES-ABILITY member: a talent row is refused (talent_roll_number); two SETs on one attack are refused by the validator (L1cb.sp)."
+        },
+        "moment": {
+          "$ref": "#/$defs/moment"
+        },
+        "applies_to": {
+          "$ref": "item-common.schema.json#/$defs/pool_mod_entry/properties/applies_to"
+        },
+        "amount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "of"
+              ],
+              "properties": {
+                "of": {
+                  "enum": [
+                    "characteristic",
+                    "skill_ranks",
+                    "force_rating"
+                  ]
+                },
+                "key": {
+                  "type": "string"
+                },
+                "chosen": {
+                  "type": "string"
+                },
+                "half_round_up": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "per_rank": {
+          "type": "boolean"
+        },
+        "floor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "range_band": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "engaged",
+              "short",
+              "medium",
+              "long",
+              "extreme"
+            ]
+          },
+          "description": "F-100 M8 (f100-m8-contracts ADDENDUM 3, R-M8K-26): the row applies only when the weapon row's band — the SAME band computeWeaponPool prices the difficulty from (chosen at the table, else the weapon's printed range) — is one of these. Never a second range input. Machine-checked, so it is not a fate input: a row with range_band and no condition, cost or limit is APPLIED at a matching band and absent at any other."
+        },
+        "condition": {
+          "$ref": "#/$defs/words"
+        },
+        "cost": {
+          "$ref": "#/$defs/use_cost"
+        },
+        "limit": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/use_limit"
+            },
+            {
+              "$ref": "#/$defs/dial_limit"
+            }
+          ]
+        },
+        "pick": {
+          "$ref": "#/$defs/pick"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "words": {
+          "$ref": "#/$defs/words"
+        },
+        "unless": {
+          "$ref": "#/$defs/unless",
+          "description": "SPECIES-ABILITY rows only (R-SPF-1, R-SPF-10; refused elsewhere, L1cb.unless)."
+        },
+        "replaces_step_of": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$",
+          "description": "power_dial ONLY (F-100 M11, D-M11C1 (a) @ b668d62f; R-M11C-13 (i) STEP REPLACED): `<sibling ability key>.<row id>` — a power_dial row of ANOTHER upgrade of the SAME power, whose step this row offers in place of, under `limit` when it carries one (first activation per check, round or turn). Same `unit` as that row. Never folded into a sheet number (C11). A value naming no sibling power_dial row is refused (validate_registries L1cb.fp, packValidate)."
+        },
+        "unit": {
+          "enum": [
+            "range_band",
+            "target",
+            "silhouette",
+            "round",
+            "minute",
+            "day",
+            "detail",
+            "encumbrance",
+            "severity",
+            "wound",
+            "strain",
+            "conjuration",
+            "damage",
+            "illusion"
+          ],
+          "description": "power_dial ONLY, required there (F-100 M10, ruling f100-m10-shapes-card R-M10S-4): what the dial counts, the census's closed list. A unit enters with its first user (R-M10S-4): conjuration (Conjure's Number, R-M10S-12), damage (Protect/Unleash's Strength) and illusion (Seek's Strength) entered with theirs at the M10 build lap."
+        },
+        "count_of": {
+          "$ref": "item-common.schema.json#/$defs/pool_mod_entry/properties/count_of",
+          "description": "power_dial ONLY (F-100 M10, R-M10S-2, V1): `{of: power_upgrades, key: '<power id>.<ability key>'}` — the ranks of that upgrade the owner bought; the dial's number is `amount` × that count (CharResolve's one count reader). Absent = a flat dial (Conjure's Range: +1 per spend)."
+        },
+        "repeatable": {
+          "type": "boolean",
+          "description": "power_dial ONLY (R-M10S-4): the page's 'the user may [not] activate this multiple times'. Absent = the page says neither."
+        },
+        "when": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ticked"
+          ],
+          "properties": {
+            "ticked": {
+              "$ref": "#/$defs/row_id"
+            }
+          },
+          "description": "F-100 THE SURFACING MISSION (card f100-surfacing-roll-options-card R-SRO-4; brief f100-surfacing-roll-options-vocab §3 V4, ruled ADDENDUM 8 F1/F5/F6): `{ticked: <row id>}` names a TARGET row of the SAME talent (talent.schema.json $defs/target_row); this number rides that row's ONE tick and draws no tick of its own (Pressure Point's '+ ranks in Medicine' beside its damage-as-strain). It also carries the target row's `condition`, so it stays OFFERED by the existing rule (effectClass.classOfRollNumber). Read by SWRPGPoolMods.rollNumbersAt (`tickedBy` on its line); fenced by validate_registries L1cb.sro (the named row exists on the same talent and is a target row)."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "power_dial"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "applies_to",
+              "unit"
+            ],
+            "properties": {
+              "moment": {
+                "const": "check"
+              },
+              "amount": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "of",
+                      "key"
+                    ],
+                    "properties": {
+                      "of": {
+                        "const": "characteristic"
+                      }
+                    },
+                    "not": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "chosen"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "half_round_up"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "of"
+                    ],
+                    "properties": {
+                      "of": {
+                        "const": "force_rating"
+                      }
+                    },
+                    "not": {
+                      "anyOf": [
+                        {
+                          "required": [
+                            "key"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "chosen"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "half_round_up"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "applies_to": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "scope",
+                    "value"
+                  ],
+                  "properties": {
+                    "scope": {
+                      "const": "force_power"
+                    }
+                  }
+                }
+              },
+              "count_of": {
+                "properties": {
+                  "of": {
+                    "const": "power_upgrades"
+                  }
+                }
+              },
+              "cost": {
+                "propertyNames": {
+                  "const": "force_points"
+                }
+              },
+              "limit": {
+                "$ref": "#/$defs/dial_limit"
+              }
+            },
+            "if": {
+              "required": [
+                "limit"
+              ]
+            },
+            "then": {
+              "required": [
+                "replaces_step_of"
+              ]
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "per_rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "floor"
+                  ]
+                },
+                {
+                  "required": [
+                    "range_band"
+                  ]
+                },
+                {
+                  "required": [
+                    "pick"
+                  ]
+                },
+                {
+                  "required": [
+                    "condition"
+                  ]
+                }
+              ]
+            }
+          },
+          "else": {
+            "properties": {
+              "limit": {
+                "$ref": "#/$defs/use_limit"
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "unit"
+                  ]
+                },
+                {
+                  "required": [
+                    "count_of"
+                  ]
+                },
+                {
+                  "required": [
+                    "repeatable"
+                  ]
+                },
+                {
+                  "required": [
+                    "replaces_step_of"
+                  ]
+                },
+                {
+                  "required": [
+                    "amount"
+                  ],
+                  "properties": {
+                    "amount": {
+                      "type": "object",
+                      "required": [
+                        "of"
+                      ],
+                      "properties": {
+                        "of": {
+                          "const": "force_rating"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "crit_rating_set"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "applies_to"
+            ],
+            "properties": {
+              "amount": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "moment": {
+                "const": "check"
+              },
+              "applies_to": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "scope",
+                    "value"
+                  ],
+                  "properties": {
+                    "scope": {
+                      "const": "weapon_record"
+                    },
+                    "value": {
+                      "const": "unarmed"
+                    }
+                  }
+                }
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "per_rank"
+                  ]
+                },
+                {
+                  "required": [
+                    "floor"
+                  ]
+                },
+                {
+                  "required": [
+                    "range_band"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "description": "F-100 M8 C11 (R-M8K-11, R-M8K-16): a number the app works out AT A ROLL, changed by the owner's talent. damage_delta: damage added to ONE hit of a SUCCESSFUL attack (EotE p.135, p.141), shown BESIDE the weapon's printed damage and never folded into it (soak is per hit, EotE p.207). crit_rating_delta: the attack's Critical rating, never below its floor (minimum 1 as printed); entered at B2 with Iron Body and the `weapon_record` anchor (f100-m8-build-card R-M8B-23, restored from c0e03b56; R-M8K-25). crit_roll_delta: the d100 of a Critical Injury the OWNER suffers (EotE p.135, p.218), never below its floor; every +10 first, then the reductions, then the floor (R-M8K-19). A row with no condition, cost or limit is APPLIED; with any of them it is OFFERED (effectClass.classOfRollNumber, the one rule). `condition` is a SPAN of the owner's description, never a verbatim string (R-M8K-17 (a)). A member enters with its users, its resolver arm and its guard row (R-F100-9). power_dial (F-100 M10, ruling f100-m10-shapes-card R-M10S-4, V2): a number worked out AT ONE POWER'S CHECK — `unit`, `amount` per rank (an integer, or a characteristic: Presence × Magnitude), `count_of` V1, its `cost` in Force points, `repeatable`; anchored by V4 (`{scope: force_power, value: <power id>}`) only; ALWAYS OFFERED beside that power's roll and never folded into a sheet number (C11's discipline; SWRPGPoolMods.powerDialsAt, the one reader). A Force-power row's member only (talent_roll_number refuses it)."
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "op"
+      ],
+      "description": "ONE machine-applied effect of a talent on a CHARACTER-SHEET NUMBER (ruling f100-editor-engine-data-scope R-F100-2/3/4; f100-effects-census R-FEC-1; f100-effects-grammar-contracts R-FEGC-1). The op enum IS the editor's palette (R-F100-9): a member enters only by an engine lap landing enum + resolver arm + guard row + one canonical row together. Dice effects are NOT here — they are `pool_mods` (item-common pool_mod_entry, reused verbatim). Anything a human must judge is never a `when`; it is prose (PRINTS) or a pool_mods condition (REMINDER). F-100 M7 (ruling f100-m7-contracts C1, R-M7K-1/2) adds two SKILL ops that move no number: career_skill (the listed skills become career skills; folded as OR by CharResolve.careerSkillStatus) and skill_characteristic (a skill may roll with another characteristic; read by CharResolve.skillCharacteristic). They carry `skills` and never `amount`/`per_rank`/`target`/`when`; the number ops never carry a skill key (schema-enforced, `allOf`).",
+      "properties": {
+        "dark": {
+          "$ref": "#/$defs/dark_key"
+        },
+        "op": {
+          "enum": [
+            "soak_delta",
+            "wound_threshold_delta",
+            "strain_threshold_delta",
+            "defense_delta",
+            "force_rating_delta",
+            "force_rating_floor",
+            "characteristic_delta",
+            "career_skill",
+            "skill_characteristic",
+            "skill_substitute",
+            "encumbrance_threshold_delta",
+            "starting_credits_delta",
+            "skill_rank_delta"
+          ],
+          "description": "soak_delta / wound_threshold_delta / strain_threshold_delta: add `amount` to the derived number. defense_delta: add `amount` to the defense named by `target` (DEF-1 cap 4 still applies in computeDerived). force_rating_delta: add `amount` to Force rating (R-FR1). force_rating_floor: forceRating = max(forceRatingBase, amount) BEFORE deltas are added (R-FEC-1; `_floor`, never `_set`). characteristic_delta: +amount to the characteristic named at purchase, applied AT BUY into `characteristics` (Mode S), cap 6 (eote p.134); never recomputed at render. career_skill: every id in `skills` is a career skill while the talent is owned (R-M7K-1; choose-N grants stay `career_skill_choice_grants`). skill_characteristic: the listed skills may use `to` instead of their linked characteristic (R-M7K-2); `to: chosen` reads the pick map `talentCharacteristicChoices` (R-M7K-3); an entry with `applies: reminder` is never applied — the roll offers it (R-M7K-4). skill_substitute (F-100 M8 M2, f100-m8-batches R-M8BG-233, approved D-81): on the listed `skills`' rows, the check may roll the RANKS of a skill in `use` instead, for one roll; always `applies: reminder` (offered, never applied). encumbrance_threshold_delta / starting_credits_delta (F-100 M9, ruling f100-m9-shapes-card R-M9S-5, D-M9C3): SPECIES-ABILITY members — add `amount`, a NON-ZERO integer (a reduction prints negative: −2, −4; an increase positive: +5, +1,000), to the encumbrance threshold (CharResolve.computeEncumbrance's species input, its one reader) or to the starting credits (CharResolve.startingCredits, the one reader); never `per_rank`, `target`, `when` or a skill key. A talent row carrying either is refused (talent_effect). skill_rank_delta (F-100 M10, ruling f100-m10-shapes-card R-M10S-6, V5): the ranks of `skill` + `amount`, to at most `max` — only behind a commit (`cost: {commit_force: n}`, R-M10S-5), read at the roll by CharResolve's one committed-effects reader; never a saved rank. characteristic_delta BEHIND A COMMIT (R-M10S-5, V3): `characteristic` (a fixed characteristic, never `target`) + `amount`, cap 6, held only while the session's committed set holds the upgrade — the Force-power form; the talent form (`target: chosen`, applied at buy) is unchanged. Both are Force-power members: a talent row is refused (talent_effect), a species row by the validator (L1cb.fp)."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "melee",
+            "ranged",
+            "chosen"
+          ],
+          "description": "REQUIRED for defense_delta (melee | ranged) and characteristic_delta (chosen); FORBIDDEN on every other op (schema-enforced, `allOf`)."
+        },
+        "amount": {
+          "type": "integer",
+          "description": "An integer ≥ 1 on every op but the two M9 deltas, whose amount is a NON-ZERO integer (allOf; R-M9S-5)."
+        },
+        "per_rank": {
+          "type": "boolean",
+          "description": "true: the effect is applied once per owned rank (R-CS4b ranked stacking, across sources per R-CS4e's dedupe of UNRANKED talents). false: once, however many times the id appears (sixth_sense ×2 → 1). `true` on an UNRANKED talent is REFUSED (meaningless: ranks_owned is 1). `false` on a ranked talent is legal (a once-only effect) — no v1 row uses it; the ten v1 rows all carry `per_rank` equal to the talent's `ranked` (validator row, HARVEST 10)."
+        },
+        "when": {
+          "enum": [
+            "armored",
+            "armor_soak_2"
+          ],
+          "description": "OPTIONAL. A CLOSED ENGINE CONDITION evaluable from persisted state (R-F100-3): armored = any armor worn (R-CS4d armor_master); armor_soak_2 = worn armor's resolved soak ≥ 2 (armor_master_improved). Absent = always. The enum is closed at two (f100-effects-census §6 CONTRACT); a third value is a contract halt."
+        },
+        "skills": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "const": "any"
+            }
+          ],
+          "description": "career_skill / skill_characteristic / skill_substitute ONLY: skills.vocab ids (membership checked by the validator, L1cb.m7), or `any` (skill_characteristic with `limit` only — SWAP_ONCE_ANY, R-M7K-2). For skill_substitute: the rows the swap appears on."
+        },
+        "use": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/skill_ref"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "group"
+                ],
+                "properties": {
+                  "group": {
+                    "enum": [
+                      "knowledge"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "description": "skill_substitute ONLY, required there (F-100 M8 M2; contracts f100-m8-contracts ADDENDUM 5 A5.4; ruled f100-m8-batches R-M8BG-233, approved D-81): the skill(s) whose RANKS the check may use instead of the row's own; each is one \"Use <skill> this roll\" toggle (M7HubLine). A skill id always shows its toggle; a group reference `{group: knowledge}` (M-4 (ii), Voice of Reason) is one toggle per skill of that skills.vocab group the character has ranks in, none at 0. The characteristic is `to` when given, else the substitute skill's own linked characteristic (R-M8BG-230). A difficulty add rides as a sibling pool_mods row with the same condition, taken with the swap. `use` is refused on every other op."
+        },
+        "from": {
+          "enum": [
+            "brawn",
+            "agility",
+            "intellect",
+            "cunning",
+            "willpower",
+            "presence"
+          ],
+          "description": "skill_characteristic ONLY, optional: the characteristic the swap replaces. When given it MUST equal every listed skill's characteristic in skills.vocab.json (validator L1cb.m7, R-M7K-2 — refuses B-1040's quirks)."
+        },
+        "to": {
+          "enum": [
+            "brawn",
+            "agility",
+            "intellect",
+            "cunning",
+            "willpower",
+            "presence",
+            "chosen"
+          ],
+          "description": "skill_characteristic ONLY, required: the characteristic the skill may roll with, or `chosen` (picked when the talent is bought: Renegade Form, R-M7K-3). Never a listed skill's own characteristic — a no-op swap is refused (L1cb.m7, B-1040). skill_substitute, optional: the characteristic the substitute rolls with (never `chosen`); absent = the substitute's own."
+        },
+        "cost": {
+          "$ref": "#/$defs/use_cost",
+          "description": "skill_characteristic ONLY: a price paid at each use (Cunning Persona: 2 strain). Requires `applies: reminder`. F-100 M8 C4 (R-M8K-4): lifted to the shared `use_cost` — a widening, so every M7 row stays valid."
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1,
+          "description": "skill_characteristic ONLY: the PRINTED words of the one situation the swap holds in, verbatim from the talent's description (R-DPS-5). Requires `applies: reminder`."
+        },
+        "limit": {
+          "$ref": "#/$defs/use_limit",
+          "description": "skill_characteristic ONLY: a use limit the app SHOWS and never tracks (R-M7K-4: not a legality engine). Requires `applies: reminder`. F-100 M8 C4 (R-M8K-4): M7's one member widens to `use_limit`'s four."
+        },
+        "id": {
+          "$ref": "#/$defs/row_id"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "words": {
+          "$ref": "#/$defs/words"
+        },
+        "characteristic": {
+          "enum": [
+            "brawn",
+            "agility",
+            "intellect",
+            "cunning",
+            "willpower",
+            "presence"
+          ],
+          "description": "characteristic_delta BEHIND A COMMIT ONLY, required there (F-100 M10, R-M10S-5): the characteristic the committed upgrade raises (Enhance's Brawn, Agility)."
+        },
+        "skill": {
+          "type": "string",
+          "minLength": 1,
+          "description": "skill_rank_delta ONLY, required there (R-M10S-6): a skills.vocab id (validator L1cb.fp)."
+        },
+        "each_time": {
+          "type": "boolean",
+          "default": false,
+          "description": "A COMMIT-COSTED row ONLY (characteristic_delta or skill_rank_delta with `cost: {commit_force: n}`; ruling f100-surfacing-force-flip-card ADDENDUM 10, on paper in its brief @ dc8312919 §2.5): true = the effect applies once per COMMIT of its key, so the key may be committed again while dice and the row's cap allow (D-300 (3): Savage Spirits p.37's \"each time this is performed, to a maximum of 5\", Farsight's Control: Perception). Absent / false = one commit holds the effect. Read by CharResolve.commitStacks and committedForceEffects' `times`; never saved (the committed set is session state)."
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "skill_rank_delta ONLY, required there (R-M10S-6): the printed maximum the ranks reach (Farsight: 5)."
+        },
+        "timing": {
+          "enum": [
+            "after_creation"
+          ],
+          "description": "starting_credits_delta ONLY (F-100 B-1315; card f100-career-powers-data R-CPD-7, ADDENDUM 2 F4): `after_creation` = the credits arrive after character creation and may not be spent during it (Endless Vigil p.21, the Muun's Deep Pockets). Absent = spendable at creation. Written by scripts/f100_m9_contracts.py's after-creation text rule, never by hand."
+        },
+        "applies": {
+          "enum": [
+            "reminder"
+          ],
+          "description": "skill_characteristic / skill_substitute ONLY: `reminder` = never applied by the fold; the roll offers it (R-M7K-4). REQUIRED whenever `cost`, `condition` or `limit` is present (L1cb.m7 + this schema), and always on skill_substitute."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "each_time"
+            ]
+          },
+          "then": {
+            "required": [
+              "op",
+              "cost"
+            ],
+            "properties": {
+              "op": {
+                "enum": [
+                  "characteristic_delta",
+                  "skill_rank_delta"
+                ]
+              },
+              "cost": {
+                "required": [
+                  "commit_force"
+                ],
+                "propertyNames": {
+                  "const": "commit_force"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "defense_delta"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "target"
+            ],
+            "properties": {
+              "target": {
+                "enum": [
+                  "melee",
+                  "ranged"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "characteristic_delta"
+              }
+            },
+            "required": [
+              "op"
+            ],
+            "not": {
+              "required": [
+                "cost"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "target"
+            ],
+            "properties": {
+              "target": {
+                "const": "chosen"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "characteristic_delta"
+              }
+            },
+            "required": [
+              "op",
+              "cost"
+            ]
+          },
+          "then": {
+            "allOf": [
+              {
+                "properties": {
+                  "cost": {
+                    "required": [
+                      "commit_force"
+                    ],
+                    "propertyNames": {
+                      "const": "commit_force"
+                    }
+                  }
+                },
+                "required": [
+                  "cost"
+                ]
+              },
+              {
+                "required": [
+                  "characteristic",
+                  "amount"
+                ]
+              },
+              {
+                "properties": {
+                  "amount": {
+                    "minimum": 1
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "skills"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "to"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "condition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "limit"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "characteristic"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "skill_rank_delta"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "allOf": [
+              {
+                "properties": {
+                  "cost": {
+                    "required": [
+                      "commit_force"
+                    ],
+                    "propertyNames": {
+                      "const": "commit_force"
+                    }
+                  }
+                },
+                "required": [
+                  "cost"
+                ]
+              },
+              {
+                "required": [
+                  "skill",
+                  "amount",
+                  "max"
+                ]
+              },
+              {
+                "properties": {
+                  "amount": {
+                    "minimum": 1
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "skills"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "use"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "to"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "condition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "limit"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "skill"
+                  ]
+                },
+                {
+                  "required": [
+                    "max"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "soak_delta",
+                  "wound_threshold_delta",
+                  "strain_threshold_delta",
+                  "force_rating_delta",
+                  "force_rating_floor"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "target"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "properties": {
+                  "op": {
+                    "enum": [
+                      "soak_delta",
+                      "wound_threshold_delta",
+                      "strain_threshold_delta",
+                      "defense_delta",
+                      "force_rating_delta",
+                      "force_rating_floor"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "op": {
+                    "const": "characteristic_delta"
+                  }
+                },
+                "not": {
+                  "required": [
+                    "cost"
+                  ]
+                }
+              }
+            ]
+          },
+          "then": {
+            "allOf": [
+              {
+                "required": [
+                  "amount"
+                ]
+              },
+              {
+                "properties": {
+                  "amount": {
+                    "minimum": 1
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "skills"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "to"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "cost"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "condition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "limit"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "career_skill"
+              }
+            }
+          },
+          "then": {
+            "allOf": [
+              {
+                "required": [
+                  "skills"
+                ]
+              },
+              {
+                "properties": {
+                  "skills": {
+                    "type": "array"
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "to"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "cost"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "condition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "limit"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "skill_characteristic"
+              }
+            }
+          },
+          "then": {
+            "allOf": [
+              {
+                "required": [
+                  "skills",
+                  "to"
+                ]
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "skill_substitute"
+              }
+            }
+          },
+          "then": {
+            "allOf": [
+              {
+                "required": [
+                  "skills",
+                  "use",
+                  "applies"
+                ]
+              },
+              {
+                "properties": {
+                  "skills": {
+                    "type": "array"
+                  },
+                  "to": {
+                    "not": {
+                      "const": "chosen"
+                    }
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "use"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "timing"
+            ]
+          },
+          "then": {
+            "properties": {
+              "op": {
+                "const": "starting_credits_delta"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "encumbrance_threshold_delta",
+                  "starting_credits_delta"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "allOf": [
+              {
+                "required": [
+                  "amount"
+                ]
+              },
+              {
+                "properties": {
+                  "amount": {
+                    "not": {
+                      "const": 0
+                    }
+                  }
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "per_rank"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "target"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "when"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "skills"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "use"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "from"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "to"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "cost"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "condition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "limit"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "applies"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "required": [
+                  "cost"
+                ]
+              },
+              {
+                "required": [
+                  "condition"
+                ]
+              },
+              {
+                "required": [
+                  "limit"
+                ]
+              }
+            ],
+            "not": {
+              "properties": {
+                "op": {
+                  "enum": [
+                    "characteristic_delta",
+                    "skill_rank_delta"
+                  ]
+                }
+              },
+              "required": [
+                "op",
+                "cost"
+              ]
+            }
+          },
+          "then": {
+            "required": [
+              "applies"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "skills"
+            ],
+            "properties": {
+              "skills": {
+                "const": "any"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "limit"
+            ]
+          }
+        }
+      ]
+    },
+    "talent_effect": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/effect"
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "soak_delta",
+                  "wound_threshold_delta",
+                  "strain_threshold_delta",
+                  "defense_delta",
+                  "force_rating_delta",
+                  "force_rating_floor",
+                  "characteristic_delta"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "required": [
+              "per_rank"
+            ]
+          }
+        },
+        {
+          "not": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "encumbrance_threshold_delta",
+                  "starting_credits_delta",
+                  "skill_rank_delta"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          }
+        },
+        {
+          "not": {
+            "properties": {
+              "op": {
+                "const": "characteristic_delta"
+              }
+            },
+            "required": [
+              "op",
+              "cost"
+            ]
+          }
+        }
+      ],
+      "description": "F-100 M10 (R-M10S-5/6): skill_rank_delta and a characteristic_delta behind a commit are Force-power members, refused here. F-100 M9 (ruling f100-m9-shapes-card R-M9S-2/5): a TALENT's effect row — $defs/effect plus the talent-only rules: the seven number ops REQUIRE `per_rank` (moved here from $defs/effect, which a species-ability row also uses and where `per_rank` is refused), and the two species-ability deltas (encumbrance_threshold_delta, starting_credits_delta) are refused."
+    },
+    "talent_roll_number": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/roll_number"
+        },
+        {
+          "not": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "crit_rating_set",
+                  "power_dial"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ]
+          }
+        }
+      ],
+      "description": "F-100 M9 (R-M9S-4): a TALENT's roll number — $defs/roll_number with the species-ability member crit_rating_set refused; F-100 M10 (R-M10S-4): power_dial, a Force-power member, refused too."
+    },
+    "vehicle_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "op",
+        "amount"
+      ],
+      "description": "ONE machine-applied effect of a vehicle attachment on a SHIP'S number (SHIP YARD S3, ruling shipyard-s3-contracts R-S3K-4; brief §2 K3). Beside `effect` (a talent on a character) and under the same entry rule (R-F100-9): a member enters only with its resolver arm (lib/shared/vesselResolve.js), guard row (test/vessel_resolve.cjs) and canonical row together. Attachments change the HULL; a dice change is the part's `pool_mods` (C3's family, R-M8C8-2) on the roll (R-S1RJ-5), never an op here. Applied only by SWRPGVesselResolve.resolve, whose callers are a vessel's resolution and `craftStore.fortificationOf` (ruling `release-r5-crafting-fib-c0` Q2: a fortification's passengers_delta / armor_delta, the fortification's numbers handed in as the hull and its spend rows as installed parts), and which records every contribution in `because`.",
+      "properties": {
+        "op": {
+          "enum": [
+            "hull_threshold_delta",
+            "strain_threshold_delta",
+            "armor_delta",
+            "speed_delta",
+            "handling_delta",
+            "defense_delta",
+            "hard_points_delta",
+            "hyperdrive_class_delta",
+            "passengers_delta",
+            "encumbrance_delta",
+            "sensor_range_step",
+            "massive_delta",
+            "hidden_capacity_delta",
+            "weapon_damage_delta",
+            "weapon_quality_delta",
+            "hyperdrive_class_set",
+            "speed_set",
+            "handling_set",
+            "armor_set",
+            "defense_set",
+            "strain_threshold_set",
+            "weapon_add"
+          ],
+          "description": "The concept's twelve plus the two R-S3K-4 added: hidden_capacity_delta (a smuggling compartment's capacity, which still counts toward the total — V-RAW-161; SMUGENC) and weapon_damage_delta (+amount to every weapon's damage; DAMWEAPSYSADD). *_delta: add `amount` to the number. defense_delta: to the zone named by `target`. hyperdrive_class_delta: to the class named by `target`, never below `floor`. sensor_range_step: `amount` range bands. F-100 M8 × SHIP YARD adds weapon_quality_delta (ruling f100-m8-c8-signature-vehicle R-M8C8-3): TALENT-only (the part schema refuses it); +amount to `quality`'s rating on every weapon that already carries it. SHIP YARD S7 adds five SETs (ruling shipyard-s7-contracts R-S7V-3, one op per stat): hyperdrive_class_set (`amount` the class; `target` primary | backup, required), speed_set, handling_set, armor_set, defense_set (`target` a zone or chosen, required). A SET replaces the hull's printed number; on any one ship every SET on a number applies BEFORE every delta on that number, whatever the install order, and is credited in `because` as {set, from}. SHIP YARD S8 (ruling f100-s8-vocabulary R-S8V-1, R-S8V-6) adds two: strain_threshold_set, the sixth SET (`amount` the printed per-silhouette base with `per_silhouette` true: \"system strain threshold to N × silhouette\", Fully Operational pp.81-82); and weapon_add, which APPENDS one weapon row (`amount` its count ≥ 1; `weapon` a vehicle-weapons.json id; `firing_arcs` the six arcs; `linked`, `turret` optional) in the SET pass, so every appended row exists before a weapon delta walks the weapons. It is not a SET (it replaces nothing), and `weapon`, `firing_arcs`, `linked` and `turret` are forbidden on every other op."
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Signed; never 0 on a delta or step; a SET's `amount` is the printed number — the page prints 0 and negatives (SHIP YARD S8, ruling f100-s8-vocabulary R-S8V-2 as amended by its ADDENDUM 1; the arm is the if/then/else below). For a base effect it is the printed SIZE; for an added option it is ONE install's amount (the option's `max` is how many times it installs — EotE p.187)."
+        },
+        "target": {
+          "enum": [
+            "fore",
+            "aft",
+            "port",
+            "starboard",
+            "chosen",
+            "primary",
+            "backup"
+          ],
+          "description": "defense_delta and defense_set: fore | aft | port | starboard | chosen (the owner picks the zone). hyperdrive_class_delta and hyperdrive_class_set: primary | backup. Forbidden on every other op."
+        },
+        "per_silhouette": {
+          "type": "boolean",
+          "description": "true: amount × the hull's silhouette (OggDude's *SIL keys)."
+        },
+        "floor": {
+          "enum": [
+            0.5,
+            1
+          ],
+          "description": "hyperdrive_class_delta only: the class never goes below it (.5 or 1)."
+        },
+        "ceiling": {
+          "type": "integer",
+          "description": "SHIP YARD S7 (ruling shipyard-s7-contracts R-S7V-4): a *_delta op only, where the page prints a cap (\"to a maximum of 6\", Fully Operational pp.81-82; Endless Vigil p.58). Bounds THIS effect's result and NEVER lowers a number already at or above it: next = min(cur + amount, max(cur, ceiling)); credited in `because` as `ceiling`, as `floor` is. A SET or a step never carries one."
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "TALENT rows only: the row's stable id (C1). SHIP YARD × F-100 M8 (ruling f100-m8-c8-signature-vehicle R-M8C8-1); a part's base_effects and added_options[].effects REFUSE it (vehicle-attachment.schema.json)."
+        },
+        "per_rank": {
+          "type": "boolean",
+          "description": "TALENT rows only: amount × the holder's ranks of the talent (R-M8C8-1)."
+        },
+        "cite": {
+          "$ref": "#/$defs/cite",
+          "description": "TALENT rows only (R-M8K-9 (i), R-M8C8-1)."
+        },
+        "words": {
+          "$ref": "#/$defs/words",
+          "description": "TALENT rows only (R-M8K-9 (ii), R-M8C8-1)."
+        },
+        "quality": {
+          "type": "string",
+          "minLength": 1,
+          "description": "weapon_quality_delta only: a qualities.vocab.json id (validator membership). Adds `amount` (× ranks when per_rank) to that quality's rating on EVERY weapon of the vessel that already carries it; a weapon without it is untouched (Stay on Target p.33, Overstocked Ammo). Ruling f100-m8-c8-signature-vehicle R-M8C8-3."
+        },
+        "weapon": {
+          "type": "string",
+          "minLength": 1,
+          "description": "weapon_add only (R-S8V-6): a vehicle-weapons.json id — validate_registries refuses an id the registry does not hold (cross-reference at Layer 1); never the library's OggDude weapon keys (R-S8V-7: one weapon vocabulary)."
+        },
+        "firing_arcs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fore",
+            "aft",
+            "port",
+            "starboard",
+            "dorsal",
+            "ventral"
+          ],
+          "properties": {
+            "fore": {
+              "type": "boolean"
+            },
+            "aft": {
+              "type": "boolean"
+            },
+            "port": {
+              "type": "boolean"
+            },
+            "starboard": {
+              "type": "boolean"
+            },
+            "dorsal": {
+              "type": "boolean"
+            },
+            "ventral": {
+              "type": "boolean"
+            }
+          },
+          "description": ""
+        },
+        "linked": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "weapon_add only (R-S8V-6): the appended row gains the Linked quality at this rating when > 0 (DC p.71: a \"twin\" weapon has Linked 1)."
+        },
+        "turret": {
+          "type": "boolean",
+          "description": "weapon_add only (R-S8V-6): the appended row's `turret`."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "defense_delta",
+                  "defense_set"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "target"
+            ],
+            "properties": {
+              "target": {
+                "enum": [
+                  "fore",
+                  "aft",
+                  "port",
+                  "starboard",
+                  "chosen"
+                ]
+              }
+            },
+            "not": {
+              "required": [
+                "floor"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "hyperdrive_class_delta",
+                  "hyperdrive_class_set"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "target"
+            ],
+            "properties": {
+              "target": {
+                "enum": [
+                  "primary",
+                  "backup"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "not": {
+                  "enum": [
+                    "defense_delta",
+                    "hyperdrive_class_delta",
+                    "defense_set",
+                    "hyperdrive_class_set"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "target"
+                  ]
+                },
+                {
+                  "required": [
+                    "floor"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "weapon_quality_delta"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "quality"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "target"
+                  ]
+                },
+                {
+                  "required": [
+                    "floor"
+                  ]
+                },
+                {
+                  "required": [
+                    "per_silhouette"
+                  ]
+                }
+              ]
+            }
+          },
+          "$comment": "R-M8C8-3: weapon_quality_delta requires quality; target, floor and per_silhouette are forbidden."
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "not": {
+                  "const": "weapon_quality_delta"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "quality"
+              ]
+            }
+          },
+          "$comment": "R-M8C8-3: quality is forbidden on every other op."
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "hyperdrive_class_set"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "floor"
+              ]
+            }
+          },
+          "$comment": "R-S7V-3: a SET carries no floor (floor is hyperdrive_class_delta's)."
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "not": {
+                  "enum": [
+                    "hull_threshold_delta",
+                    "strain_threshold_delta",
+                    "armor_delta",
+                    "speed_delta",
+                    "handling_delta",
+                    "defense_delta",
+                    "hard_points_delta",
+                    "hyperdrive_class_delta",
+                    "passengers_delta",
+                    "encumbrance_delta",
+                    "massive_delta",
+                    "hidden_capacity_delta",
+                    "weapon_damage_delta",
+                    "weapon_quality_delta"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "ceiling"
+              ]
+            }
+          },
+          "$comment": "R-S7V-4: ceiling sits on a *_delta op only; a SET or a step never carries one."
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "weapon_add"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "weapon",
+              "firing_arcs"
+            ],
+            "properties": {
+              "amount": {
+                "minimum": 1
+              }
+            },
+            "not": {
+              "required": [
+                "per_silhouette"
+              ]
+            }
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "weapon"
+                  ]
+                },
+                {
+                  "required": [
+                    "firing_arcs"
+                  ]
+                },
+                {
+                  "required": [
+                    "linked"
+                  ]
+                },
+                {
+                  "required": [
+                    "turret"
+                  ]
+                }
+              ]
+            }
+          },
+          "$comment": "R-S8V-6: weapon_add requires weapon and firing_arcs, counts at least 1 and is never per silhouette; weapon, firing_arcs, linked and turret are forbidden on every other op (the target idiom)."
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "hyperdrive_class_set",
+                  "speed_set",
+                  "handling_set",
+                  "armor_set",
+                  "defense_set",
+                  "strain_threshold_set"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "amount": {
+                "type": "integer"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "amount": {
+                "not": {
+                  "const": 0
+                }
+              }
+            }
+          },
+          "$comment": "R-S8V-2 (as amended, f100-s8-vocabulary ADDENDUM 1): a SET's amount is any integer, 0 and negatives included; every other op's amount is never 0."
+        }
+      ]
+    }
+  }
+}

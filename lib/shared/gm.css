@@ -1,0 +1,73 @@
+/* gm.css — THE GM TOOLBOX'S OWN LAYER (PAPER N5 wave A; ruling `gm-own-screens-concept` R-GOS-4, rows B-1107…B-1109).
+   Mockup `lab/holocron/gm.html` @ lab `11c96675`, frames A3 (390) · A7 (1440) — DECISIONS D-74 @ `f2ff6b15`
+   ("B: Paper bars, warp dropped"). The template is `landing.css` / `LandingPaper` (UI_REVISION_WORKFLOW §4).
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of the board's §"THE TOOLBOX" rules at that pin, in the board's own order, for the parts the
+   approved frames draw: gm-main · gm-land · gm-mast · gm-word · gm-tag · gm-land-doors · gm-tiles ·
+   gm-tile (-eye · -name · -sub) · gm-chev · gm-foot · gm-kofi (-a) · gm-fine, and the desk band.
+   NOT ported: the warp (dropped by D-74; the dark toolbox's own warp CSS left `gm/index.html` with that
+   toolbox, ruling `paper-n5-deletion` R-N5D-1), the
+   board's bars (`gm-top`/`gm-bot`/`gm-bword`/`gm-dot` — the product's bars are SuiteBar/BottomNav with
+   chrome.css's `[data-paper-chrome]`, R-GOS-6), the photographs, B-1069's thumb panes (B-1112's), and
+   the board's page chrome.
+
+   ── THE THREE MECHANICAL CHANGES ──────────────────────────────────────────────────────────────
+   1. THE TOKEN NAMES — landing.css's map: `--pp-ink`→`--doc-ink`, `--pp-ink-2`→`--doc-ink-muted`,
+      `--pp-red`→`--doc-action`, `--pp-ochre`→`--doc-accent`, `--pp-hair-2`→`--doc-rule-fine`.
+      `--pp-page` (the board's `.gm-app` ground) is the `.hp-sheet`'s own paper here, so it has no use.
+   2. THE FENCE — every rule sits under `[data-gm-shell]` (the paper arm's root, which also carries
+      `data-doc-ground="creator"`). The board writes the kit UNPREFIXED and its own rules unprefixed;
+      paper.css nests the kit under the ground attribute and this file nests the toolbox under the shell
+      attribute — ONE attribute each side, so every tie between a kit rule and a board rule resolves as
+      it did on the board (this file is linked after paper.css, as the board's rules follow its kit).
+      Two consequences the frames carry and this port keeps, not corrects: `.hp-plate[data-pad="data"]`
+      still out-specifies `.gm-tile`'s padding at every width (the desk's 17/19/19 never applies on
+      the board either), and `.gm-chev` still wins `.hp-plate > *`'s position.
+   3. THE CONTAINER — the board names `.gm-app` (the frame, bars included) as the `gm` size container.
+      The product's bars are GmApp's, outside this tree, so the paper root `.gm-main` is the named
+      container; it spans the same width the board's `.gm-app` does. */
+
+[data-gm-shell].gm-main{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+  container-type:inline-size;container-name:gm}
+[data-gm-shell].gm-main > *{position:relative;z-index:1}
+
+/* ── THE TOOLBOX ── the player's paper landing's sibling: the wordmark printed in the page's red over the double rule,
+ * the doors as plates, the furniture in mono. (The board's warp window is dropped — D-74: the masthead is the wordmark
+ * alone.) */
+[data-gm-shell] .gm-land{display:flex;flex-direction:column;min-height:100%;box-sizing:border-box;padding:14px 16px 0}
+[data-gm-shell] .gm-mast{position:relative;padding:0 0 4px}
+[data-gm-shell] .gm-mast[data-warp="0"]{padding-top:10px}
+[data-gm-shell] .hp-desig.gm-word{font-size:27px;line-height:1.02;margin:0}
+[data-gm-shell] .gm-tag{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:11px;letter-spacing:.3em;color:var(--doc-accent);margin-top:9px}
+[data-gm-shell] .gm-land-doors{padding:16px 0 8px}
+[data-gm-shell] .gm-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+[data-gm-shell] .gm-tile{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;cursor:pointer;border:0;
+  min-height:104px;padding:11px 12px 12px;color:var(--doc-ink)}
+[data-gm-shell] .gm-tile:last-child:nth-child(odd){grid-column:1 / -1;min-height:0}
+[data-gm-shell] .gm-tile-eye{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.22em;color:var(--doc-accent)}
+[data-gm-shell] .gm-tile-name{font-family:var(--font-display,'Orbitron',sans-serif);font-weight:900;font-size:16px;letter-spacing:.03em;
+  line-height:1.08;color:var(--doc-action);text-transform:uppercase;padding-right:14px}
+[data-gm-shell] .gm-tile-sub{font-family:var(--font-body,'Rajdhani',sans-serif);font-size:16px;line-height:1.25;color:var(--doc-ink-muted)}
+[data-gm-shell] .gm-chev{position:absolute;right:11px;top:7px;font-size:22px;line-height:1;color:var(--doc-action)}
+/* THE FOOTER: the Ko-fi line (moved here from the deleted hub, R-WA-4) beside the notice. The stock Ko-fi image becomes
+ * a paper link wearing the image's own alt words; its href and its label are the product's. */
+[data-gm-shell] .gm-foot{margin-top:auto;padding:14px 0 16px;border-top:1px solid var(--doc-rule-fine)}
+[data-gm-shell] .gm-kofi{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0 0 14px}
+[data-gm-shell] .gm-kofi p{font-family:var(--font-body,'Rajdhani',sans-serif);font-weight:600;font-size:16px;line-height:1.45;color:var(--doc-ink);margin:0;max-width:520px}
+[data-gm-shell] .gm-kofi-a{text-decoration:none;color:var(--doc-action);border-color:var(--doc-action)}
+[data-gm-shell] .gm-fine{font-family:var(--font-mono,'Share Tech Mono',monospace);font-size:10.5px;letter-spacing:.04em;line-height:1.5;
+  color:var(--doc-ink-muted);margin:0 0 6px;max-width:520px}
+@container gm (min-width:1024px){
+  [data-gm-shell] .gm-land{display:grid;grid-template-columns:minmax(380px,460px) 1fr;grid-template-rows:auto 1fr;column-gap:64px;
+    align-content:center;padding:36px 56px 28px;max-width:1320px;margin:0 auto}
+  [data-gm-shell] .gm-mast{grid-column:1;grid-row:1;align-self:start}
+  [data-gm-shell] .gm-mast[data-warp="0"]{padding-top:0}
+  [data-gm-shell] .hp-desig.gm-word{font-size:46px}
+  [data-gm-shell] .gm-land-doors{grid-column:2;grid-row:1 / span 2;padding:0;align-self:center}
+  [data-gm-shell] .gm-tiles{gap:14px}
+  [data-gm-shell] .gm-tile{min-height:150px;padding:17px 19px 19px;gap:5px}
+  [data-gm-shell] .gm-tile-name{font-size:22px}
+  [data-gm-shell] .gm-tile-sub{font-size:17px}
+  [data-gm-shell] .gm-foot{grid-column:1;grid-row:2;align-self:start;margin-top:26px}
+}

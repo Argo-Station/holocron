@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holocron.work/schema/vehicle-weapon.schema.json",
+  "title": "Vehicle Weapon",
+  "description": "Canonical vehicle-weapon record (SHIP YARD S4 JOB 3b, ruling shipyard-s4-workbench-contracts R-S4WC-5; the brief's ADDENDUM 1 A1.1 as ratified with B1-B3). One record per Table 7-17 row (EotE p.271): its price, rarity, (R) and silhouette range, and Table 7-1's profile for its type (EotE p.230; verified via FaD p.234). Produced by scripts/canonical/build_vehicle_weapons.py from OggDude's weapons; every value is checked against the printed tables by test/vehicle_weapons_book.cjs (0 deviations). The book's '—' is null, never 0 (B3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "price", "rarity", "restricted", "silhouette", "profile", "cite", "table", "sources", "_provenance", "_source_key"],
+  "allOf": [{ "if": { "properties": { "table": { "const": "EotE Table 7-17" } }, "required": ["table"] },
+              "then": { "properties": { "price": { "type": "integer" }, "rarity": { "type": "integer" }, "restricted": { "type": "boolean" }, "silhouette": { "type": "object" } } },
+              "$comment": "ADDENDUM 4 H-2: a Table 7-17 row carries every Table 7-17 value; the four may be null only outside it." }],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[A-Z0-9_]+$", "description": "OggDude's key: the vocabulary the hulls' embedded weapon rows already use (LASERMED, LASERQUAD, ...). S8 (card shipyard-s8-build ADDENDUM 4 H-2): a row outside Table 7-17 takes an id of its own (BLASTLTREP_VEH), kept apart from OggDude's personal-weapon keys by its suffix." },
+    "_source_key": { "type": "string", "description": "OggDude Key. Traceability only (B1)." },
+    "_provenance": { "const": "oggdude", "description": "The source axis (B1, charter §8)." },
+    "name": { "type": "string", "minLength": 1, "description": "Table 7-17's row name, e.g. 'Laser Cannon (Medium)'." },
+    "price": { "anyOf": [{ "$ref": "item-common.schema.json#/$defs/price" }, { "type": "null" }], "description": "null ONLY on a row outside Table 7-17 (`table`): the book prints no ship-weapon value for it, so it is never sold or priced (card shipyard-s8-build ADDENDUM 4 H-2)." },
+    "rarity": { "anyOf": [{ "$ref": "item-common.schema.json#/$defs/rarity" }, { "type": "null" }], "description": "null ONLY on a row outside Table 7-17 (`table`): the book prints no ship-weapon value for it, so it is never sold or priced (card shipyard-s8-build ADDENDUM 4 H-2)." },
+    "restricted": { "anyOf": [{ "$ref": "item-common.schema.json#/$defs/restricted" }, { "type": "null" }], "description": "null ONLY on a row outside Table 7-17 (`table`): the book prints no ship-weapon value for it, so it is never sold or priced (card shipyard-s8-build ADDENDUM 4 H-2)." },
+    "silhouette": {
+      "type": ["object", "null"], "additionalProperties": false, "required": ["min", "max"],
+      "description": "Table 7-17's 'Silhouette that can mount it'. A hull within the range FITS; the verdict is information, never a gate (p.271: 'guidelines').",
+      "properties": { "min": { "type": "integer", "minimum": 0 }, "max": { "type": "integer", "minimum": 0 } }
+    },
+    "profile": {
+      "type": "object", "additionalProperties": false, "required": ["range_value", "range_label", "damage", "crit", "qualities", "skill", "cite"],
+      "description": "Table 7-1's row for the weapon's type (R-S4WC-4): a swapped-in weapon prints this, as one weapon.",
+      "properties": {
+        "range_value": { "enum": ["wrClose", "wrShort", "wrMedium", "wrLong", "wrExtreme"] },
+        "range_label": { "type": "string", "minLength": 1 },
+        "damage": { "type": ["integer", "null"], "minimum": 0, "description": "null = the book prints '—' (B3)." },
+        "crit": { "type": ["integer", "null"], "minimum": 0, "description": "null = the book prints '—' (B3)." },
+        "qualities": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": false, "required": ["key", "count"],
+                     "properties": { "key": { "type": "string", "pattern": "^[a-z_]+$", "description": "A qualities.vocab.json id." },
+                                     "count": { "type": ["integer", "null"], "minimum": 1 } } }
+        },
+        "skill": { "type": ["string", "null"] },
+        "cite": { "type": "string", "minLength": 1, "description": "The printed page the profile's table sits on (B2: 'eote p.230')." }
+      }
+    },
+    "cite": { "type": "string", "minLength": 1, "description": "The printed page Table 7-17 sits on (B2: 'eote p.271'); outside Table 7-17, the page that prints the row ('eote p.250')." },
+    "table": { "type": "string", "minLength": 1, "description": "SHIP YARD S8 (card shipyard-s8-build ADDENDUM 4 H-2): the printed table the row comes from — \"EotE Table 7-17\" on the 18, \"EotE p.250 (Aratech 74-Z)\" on the light repeating blaster a conversion adds (R-S8C-12 G-2)." },
+    "scale_note": { "type": "string", "minLength": 1, "description": "TOLD: a printed note on the profile's scale (EotE p.250's \"uses personal scale\"), until B-216's scale field." },
+    "sources": { "$ref": "item-common.schema.json#/$defs/sources" },
+    "corrections": {
+      "type": "array", "description": "B3: a value where the book and OggDude differ, corrected to the book and citing it. The guard passes one only when the book's value equals `to` and OggDude's `from`.",
+      "items": { "type": "object", "additionalProperties": false, "required": ["field", "from", "to", "cite", "why"],
+                 "properties": { "field": { "type": "string" }, "from": {}, "to": {}, "cite": { "type": "string" }, "why": { "type": "string" } } }
+    },
+    "inferred": {
+      "type": "array", "minItems": 1,
+      "description": "RELEASE 1.0 R5 (card release-r5-data ADDENDUM 6 Q1, R-Y2-1 on paper there): a value the printed page does not read cleanly, so it carries OggDude's value until Jason reads the page strip. `field` is the dotted path, as in `corrections`; `value` EQUALS the record's value at `field`; `cite` is the unreadable printed page; `why` names what the page lost. No field sits in both `inferred` and `corrections`. The OCR inspection list is GENERATED from these entries (scripts/canonical/vehicle_weapons_ocr_list.py), never hand-kept. When the strip is read, an entry becomes a `corrections` row (book ≠ OggDude) or leaves (book = OggDude). This registry's vocabulary only; another registry adopting it is a later ruling.",
+      "items": { "type": "object", "additionalProperties": false, "required": ["field", "value", "from", "cite", "why"],
+                 "properties": { "field": { "type": "string", "minLength": 1 }, "value": {}, "from": { "const": "oggdude" },
+                                 "cite": { "type": "string", "minLength": 1 }, "why": { "type": "string", "minLength": 1 } } }
+    }
+  }
+}

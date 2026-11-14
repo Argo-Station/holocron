@@ -1,0 +1,2019 @@
+{
+  "version": "1.0",
+  "description": "",
+  "characters": [
+    {
+      "id": "smuggler",
+      "name": "Kael Voss",
+      "species": "Weequay",
+      "career": "Smuggler",
+      "specialization": "Pilot",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 3,
+        "intellect": 1,
+        "cunning": 4,
+        "willpower": 2,
+        "presence": 1
+      },
+      "derived": {
+        "soak": 4,
+        "woundThreshold": 13,
+        "strainThreshold": 11,
+        "forceRating": 0
+      },
+      "skills": {
+        "COORD": 1,
+        "DECEP": 1,
+        "PILSP": 1,
+        "VIGIL": 1,
+        "GUNN": 1,
+        "PILPLAN": 1
+      },
+      "talents": [
+        {
+          "id": "full_throttle",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "emergency_medpac",
+            "qty": 1
+          },
+          {
+            "id": "utility_belt",
+            "qty": 1
+          }
+        ],
+        "credits": 950
+      },
+      "backstory": "A Weequay freighter captain who owes money to the wrong people and has a talent for making bad situations worse — then somehow walking away from them. Tough as leather, sharp as a vibroblade, and fights only when the exit is blocked.",
+      "obligation": {
+        "type": "Debt",
+        "value": 15,
+        "description": "Owes a significant sum to a Hutt crime lord for a ship that was supposed to be a one-time loan."
+      },
+      "mechanicTradeIds": [
+        "eote_obl_plus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "A haul big enough to pay off every debt at once",
+        "fear": "Being known - Weequay pirates travel quieter",
+        "strength": "Cool head in a hot situation",
+        "flaw": "Greed - always one more score"
+      },
+      "specializationIds": [
+        "pilot"
+      ],
+      "woundBase": 10,
+      "strainBase": 9,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "pilot",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "weequay"
+    },
+    {
+      "id": "bounty_hunter",
+      "name": "Ryn Kessig",
+      "species": "Human",
+      "career": "Bounty Hunter",
+      "specialization": "Gadgeteer",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 3,
+        "intellect": 2,
+        "cunning": 3,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 4,
+        "woundThreshold": 14,
+        "strainThreshold": 12,
+        "forceRating": 0
+      },
+      "skills": {
+        "ATHL": 1,
+        "PERCEP": 1,
+        "PILSP": 1,
+        "VIGIL": 1,
+        "MECH": 1,
+        "RANGLT": 1
+      },
+      "talents": [
+        {
+          "id": "toughened",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "padded_armor",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "binders",
+            "qty": 1
+          },
+          {
+            "id": "extra_reload",
+            "qty": 1
+          },
+          {
+            "id": "scanner_goggles",
+            "qty": 1
+          }
+        ],
+        "credits": 500
+      },
+      "backstory": "A Human hunter who follows the Guild code — most of the time. Prefers to bring targets in alive because dead acquisitions pay less. The armor is ancestral, the weapons are personal, and the reputation is built on patience, not violence.",
+      "obligation": {
+        "type": "Bounty",
+        "value": 15,
+        "description": "A former target turned the tables — now Ryn has a price on his own head from a rival guild."
+      },
+      "mechanicTradeIds": [
+        "eote_obl_plus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "A famous mark - the bounty that makes his name",
+        "fear": "Dying forgotten",
+        "strength": "Patience - will stalk a target for weeks",
+        "flaw": "Pride - refuses jobs below his reputation"
+      },
+      "specializationIds": [
+        "gadgeteer"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 2,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "gadgeteer",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 65,
+        "spent": 65,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    },
+    {
+      "id": "colonist",
+      "name": "Maro Jinx",
+      "species": "Human",
+      "career": "Colonist",
+      "specialization": "Marshal",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 3,
+        "willpower": 2,
+        "presence": 3
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 12,
+        "strainThreshold": 13,
+        "forceRating": 0
+      },
+      "skills": {
+        "CHARM": 1,
+        "DECEP": 1,
+        "LEAD": 1,
+        "STREET": 1,
+        "COERC": 1,
+        "RANGLT": 1
+      },
+      "talents": [
+        {
+          "id": "grit",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          }
+        ],
+        "credits": 0
+      },
+      "backstory": "A frontier drifter with a cybernetic arm and a talent for being in the wrong place at the right time. Operates in the space between factions — brokering deals, running odd jobs, and occasionally getting caught in the crossfire. His real talent is surviving what should have killed him.",
+      "obligation": {
+        "type": "Favor",
+        "value": 10,
+        "description": "Owes a powerful information broker who provided the cybernetic arm — and expects repayment in kind."
+      },
+      "mechanicTradeIds": [],
+      "motivations": {
+        "desire": "Knowledge - every corner of the Outer Rim catalogued",
+        "fear": "Wasting his life on trivial things",
+        "strength": "Meticulousness - misses no detail",
+        "flaw": "Obsessive - drops relationships to chase curiosity"
+      },
+      "specializationIds": [
+        "marshal"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 1,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "marshal",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 65,
+        "spent": 65,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    },
+    {
+      "id": "explorer",
+      "name": "Tarak Nol",
+      "species": "Duros",
+      "career": "Explorer",
+      "specialization": "Scout",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 1,
+        "agility": 2,
+        "intellect": 4,
+        "cunning": 3,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 2,
+        "woundThreshold": 12,
+        "strainThreshold": 12,
+        "forceRating": 0
+      },
+      "skills": {
+        "ASTRO": 2,
+        "COOL": 1,
+        "PERCEP": 1,
+        "SURV": 1,
+        "ATHL": 1,
+        "MED": 1
+      },
+      "talents": [
+        {
+          "id": "shortcut",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "electrobinoculars",
+            "qty": 1
+          },
+          {
+            "id": "emergency_medpac",
+            "qty": 1
+          },
+          {
+            "id": "backpack",
+            "qty": 1
+          }
+        ],
+        "credits": 675
+      },
+      "backstory": "A Duros pathfinder who charts routes through uncharted space and forgotten worlds. Carries a blaster and a medkit because the frontier is equally likely to shoot at you or collapse under you. Quiet, methodical, and impossible to lose in a crowd.",
+      "obligation": {
+        "type": "Obsession",
+        "value": 15,
+        "description": "Cannot stay in one place for long — always chasing the next uncharted route, sometimes at the cost of commitments."
+      },
+      "mechanicTradeIds": [
+        "eote_obl_plus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "The horizon - what lies beyond the next jump",
+        "fear": "Settling - rooted to one world",
+        "strength": "Adaptability - at home anywhere",
+        "flaw": "Rootlessness - no one to turn to when it matters"
+      },
+      "specializationIds": [
+        "scout"
+      ],
+      "woundBase": 11,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "scout",
+          "owned": [
+            "0-3"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "duros"
+    },
+    {
+      "id": "hired_gun",
+      "name": "Gron Torrek",
+      "species": "Weequay",
+      "career": "Hired Gun",
+      "specialization": "Marauder",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 4,
+        "agility": 2,
+        "intellect": 1,
+        "cunning": 3,
+        "willpower": 3,
+        "presence": 1
+      },
+      "derived": {
+        "soak": 5,
+        "woundThreshold": 14,
+        "strainThreshold": 12,
+        "forceRating": 0
+      },
+      "skills": {
+        "ATHL": 1,
+        "DISC": 1,
+        "MELEE": 1,
+        "RESIL": 1,
+        "COERC": 1,
+        "SURV": 1
+      },
+      "talents": [
+        {
+          "id": "feral_strength",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "force_pike"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "military_belt_pouch",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 3
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          }
+        ],
+        "credits": 840
+      },
+      "backstory": "A Weequay mercenary who has fought for every faction with credits to spend. Carries more firepower than most squads and has the armor scars to prove every paycheck was earned. Loyalty lasts exactly as long as the contract.",
+      "obligation": {
+        "type": "Contract",
+        "value": 15,
+        "description": "Bound by a blood contract to a mercenary company — desertion carries a death sentence."
+      },
+      "mechanicTradeIds": [
+        "eote_obl_plus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "Respect - earned through strength",
+        "fear": "Being seen as weak",
+        "strength": "Physical courage - wades into any fight",
+        "flaw": "Temper - picks fights he should avoid"
+      },
+      "specializationIds": [
+        "marauder"
+      ],
+      "woundBase": 10,
+      "strainBase": 9,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "marauder",
+          "owned": [
+            "0-2"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "weequay"
+    },
+    {
+      "id": "technician",
+      "name": "Patch",
+      "species": "Human",
+      "career": "Technician",
+      "specialization": "Mechanic",
+      "book": "eote",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 3,
+        "cunning": 3,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 12,
+        "strainThreshold": 12,
+        "forceRating": 0
+      },
+      "skills": {
+        "COMP": 1,
+        "DISC": 1,
+        "MECH": 1,
+        "PERCEP": 1,
+        "SKULL": 1,
+        "PILSP": 1
+      },
+      "talents": [
+        {
+          "id": "gearhead",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "holdout_blaster"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "tool_kit",
+            "qty": 1
+          },
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "emergency_medpac",
+            "qty": 1
+          },
+          {
+            "id": "slicer_gear",
+            "qty": 1
+          },
+          {
+            "id": "backpack",
+            "qty": 1
+          }
+        ],
+        "credits": 175
+      },
+      "backstory": "A grease-stained mechanical genius who grew up in the underbelly of a shipyard and speaks more fluently to droids than to people. Can repair anything, build improvised devices from scrap, and slice systems that are supposed to be unsliceable. Underestimated by everyone who has never watched him work.",
+      "obligation": {
+        "type": "Obsession",
+        "value": 15,
+        "description": "Compulsively takes apart and rebuilds technology — sometimes other people's property, without asking."
+      },
+      "mechanicTradeIds": [
+        "eote_obl_plus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "To build the one machine that fixes everything",
+        "fear": "A problem he cannot wrench his way out of",
+        "strength": "Ingenuity - can jury-rig anything",
+        "flaw": "Trusts machines more than people"
+      },
+      "specializationIds": [
+        "mechanic"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "mechanic",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 65,
+        "spent": 65,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    },
+    {
+      "id": "ace",
+      "name": "Vex Rin",
+      "species": "Rodian",
+      "career": "Ace",
+      "specialization": "Pilot",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 4,
+        "intellect": 3,
+        "cunning": 2,
+        "willpower": 1,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 12,
+        "strainThreshold": 11,
+        "forceRating": 0
+      },
+      "skills": {
+        "ASTRO": 2,
+        "COOL": 1,
+        "MECH": 1,
+        "PILSP": 1,
+        "GUNN": 1,
+        "PILPLAN": 1
+      },
+      "talents": [
+        {
+          "id": "skilled_jockey",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          },
+          {
+            "id": "tool_kit",
+            "qty": 1
+          }
+        ],
+        "credits": 725
+      },
+      "backstory": "A Rodian pilot with an instinct for machines that borders on supernatural. Can coax performance out of ships that should be scrap and navigate routes that astrogation computers say are impossible. On the ground, restless. In the cockpit, home.",
+      "duty": {
+        "type": "Space Superiority",
+        "value": 5,
+        "description": "Driven to dominate the skies and prove Rebel starfighters can outfly anything the Empire fields."
+      },
+      "mechanicTradeIds": [
+        "aor_duty_minus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "The fastest ship, the sharpest approach",
+        "fear": "Seeing a better pilot fly past him",
+        "strength": "Reflexes - inhuman response time",
+        "flaw": "Ego - underestimates slower pilots"
+      },
+      "specializationIds": [
+        "pilot"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "pilot",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "rodian"
+    },
+    {
+      "id": "commander",
+      "name": "Kaelen Dray",
+      "species": "Kel Dor",
+      "career": "Commander",
+      "specialization": "Tactician",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 1,
+        "agility": 2,
+        "intellect": 3,
+        "cunning": 2,
+        "willpower": 4,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 11,
+        "strainThreshold": 14,
+        "forceRating": 0
+      },
+      "skills": {
+        "COOL": 1,
+        "DISC": 1,
+        "LEAD": 1,
+        "VIGIL": 1,
+        "RANGHVY": 1,
+        "BRAWL": 2
+      },
+      "talents": [
+        {
+          "id": "commanding_presence",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "padded_armor",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "military_field_manual",
+            "qty": 1
+          },
+          {
+            "id": "comlink_long_range",
+            "qty": 1
+          },
+          {
+            "id": "macrobinoculars",
+            "qty": 1
+          }
+        ],
+        "credits": 400
+      },
+      "backstory": "A Kel Dor officer who earned his command by keeping people alive when the odds said otherwise. Reads a battlefield the way others read a datapad — patterns, gaps, opportunities. Speaks rarely, but when he does, his squad listens.",
+      "duty": {
+        "type": "Personnel",
+        "value": 5,
+        "description": "Dedicated to bringing every member of his unit home alive — failure is not an option he can accept."
+      },
+      "mechanicTradeIds": [
+        "aor_duty_minus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "A squad that follows him into fire and back",
+        "fear": "Losing troops he could have saved",
+        "strength": "Command presence - troops trust his calls",
+        "flaw": "Duty-bound - sacrifices himself before his squad"
+      },
+      "specializationIds": [
+        "tactician"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "tactician",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "kel_dor"
+    },
+    {
+      "id": "diplomat",
+      "name": "Silas Venn",
+      "species": "Falleen",
+      "career": "Diplomat",
+      "specialization": "Ambassador",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 1,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 3,
+        "willpower": 2,
+        "presence": 4
+      },
+      "derived": {
+        "soak": 2,
+        "woundThreshold": 11,
+        "strainThreshold": 14,
+        "forceRating": 0
+      },
+      "skills": {
+        "CHARM": 2,
+        "DECEP": 1,
+        "LEAD": 1,
+        "NEGOT": 1,
+        "DISC": 1,
+        "KNOWCORE": 1
+      },
+      "talents": [
+        {
+          "id": "kill_with_kindness",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "holdout_blaster"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "fine_clothing",
+            "qty": 1
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          }
+        ],
+        "credits": 150
+      },
+      "backstory": "A Falleen political operator whose natural pheromones are the least dangerous weapon in his arsenal. Moves through Senate corridors and cantina back rooms with equal ease. Every conversation is a negotiation, and he has never lost one that mattered.",
+      "duty": {
+        "type": "Political Support",
+        "value": 10,
+        "description": "Works to recruit new systems to the Rebel cause through charm, persuasion, and strategic promises."
+      },
+      "mechanicTradeIds": [],
+      "motivations": {
+        "desire": "Peace brokered, not imposed",
+        "fear": "Diplomacy failing when lives depend on it",
+        "strength": "Silver tongue - can find words for anyone",
+        "flaw": "Vanity - loves the sound of his own reasoning"
+      },
+      "specializationIds": [
+        "ambassador"
+      ],
+      "woundBase": 10,
+      "strainBase": 12,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "ambassador",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "falleen"
+    },
+    {
+      "id": "engineer",
+      "name": "Wicket",
+      "species": "Ewok",
+      "career": "Engineer",
+      "specialization": "Mechanic",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 1,
+        "agility": 2,
+        "intellect": 3,
+        "cunning": 4,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 2,
+        "woundThreshold": 10,
+        "strainThreshold": 13,
+        "forceRating": 0
+      },
+      "skills": {
+        "COMP": 1,
+        "MECH": 1,
+        "PERCEP": 1,
+        "RANGLT": 1,
+        "SKULL": 1,
+        "PILSP": 1
+      },
+      "talents": [
+        {
+          "id": "gearhead",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "tool_kit",
+            "qty": 1
+          },
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "backpack",
+            "qty": 1
+          },
+          {
+            "id": "salvage_parts",
+            "qty": 1
+          }
+        ],
+        "credits": 675
+      },
+      "backstory": "An Ewok mechanical prodigy who reverse-engineered Imperial tech from battlefield salvage. Pilots a custom walker cobbled together from AT-ST parts and Rebellion surplus. Small in stature, enormous in ingenuity, and absolutely fearless.",
+      "duty": {
+        "type": "Tech Procurement",
+        "value": 5,
+        "description": "Obsessed with acquiring and reverse-engineering Imperial technology to give the Rebellion a technological edge."
+      },
+      "mechanicTradeIds": [
+        "aor_duty_minus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "To protect the Endor forests - wherever he is",
+        "fear": "Forgetting where he came from",
+        "strength": "Resilience - small does not mean weak",
+        "flaw": "Trusts his gut over instruments"
+      },
+      "specializationIds": [
+        "mechanic"
+      ],
+      "woundBase": 9,
+      "strainBase": 11,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "mechanic",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 95,
+        "spent": 95,
+        "remaining": 0
+      },
+      "speciesId": "ewok_aaa"
+    },
+    {
+      "id": "soldier",
+      "name": "Dorn Reva",
+      "species": "Human",
+      "career": "Soldier",
+      "specialization": "Commando",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 3,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 5,
+        "woundThreshold": 15,
+        "strainThreshold": 13,
+        "forceRating": 0
+      },
+      "skills": {
+        "ATHL": 1,
+        "BRAWL": 1,
+        "RANGHVY": 1,
+        "SURV": 1,
+        "MELEE": 1,
+        "RESIL": 1
+      },
+      "talents": [
+        {
+          "id": "toughened",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "light_blaster_pistol"
+          },
+          {
+            "id": "frag_grenade"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "padded_armor",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "military_belt_pouch",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 3
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          }
+        ],
+        "credits": 540
+      },
+      "backstory": "A former Alliance infantry sergeant who has seen too many good people die for a cause that keeps asking for more. Still fights because the alternative is worse. Steady under fire, practical in a crisis, and the person everyone looks to when the plan falls apart.",
+      "duty": {
+        "type": "Combat Victory",
+        "value": 5,
+        "description": "Measures the war in ground taken and enemies defeated — every Imperial loss is one step closer to freedom."
+      },
+      "mechanicTradeIds": [
+        "aor_duty_minus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "The Empires end, by any means",
+        "fear": "The war outliving him before victory",
+        "strength": "Grit - endures what others cannot",
+        "flaw": "Ruthlessness - willing to cross lines"
+      },
+      "specializationIds": [
+        "commando"
+      ],
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 2,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "commando",
+          "owned": [
+            "0-2"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 65,
+        "spent": 65,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    },
+    {
+      "id": "spy",
+      "name": "Lyra Kess",
+      "species": "Bothan",
+      "career": "Spy",
+      "specialization": "Infiltrator",
+      "book": "aor",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 1,
+        "agility": 3,
+        "intellect": 2,
+        "cunning": 4,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 2,
+        "woundThreshold": 11,
+        "strainThreshold": 13,
+        "forceRating": 0
+      },
+      "skills": {
+        "COMP": 2,
+        "DECEP": 1,
+        "PERCEP": 1,
+        "STEAL": 1,
+        "SKULL": 1,
+        "MELEE": 1
+      },
+      "talents": [
+        {
+          "id": "dodge",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "holdout_blaster"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "disguise_kit",
+            "qty": 1
+          },
+          {
+            "id": "slicer_gear",
+            "qty": 1
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          }
+        ],
+        "credits": 575
+      },
+      "backstory": "A Bothan intelligence operative who moves through Imperial space under a dozen different identities. Patient, observant, and utterly ruthless when the mission requires it. The information she gathers saves more lives than any blaster.",
+      "duty": {
+        "type": "Intelligence",
+        "value": 5,
+        "description": "Lives behind enemy lines, collecting information that keeps Rebel operations one step ahead of the ISB."
+      },
+      "mechanicTradeIds": [
+        "aor_duty_minus5_for_cr1000"
+      ],
+      "motivations": {
+        "desire": "Intelligence that tips a campaign",
+        "fear": "A mistake that compromises her network",
+        "strength": "Stealth - slips through any patrol",
+        "flaw": "Distrust - even of her handlers"
+      },
+      "specializationIds": [
+        "infiltrator"
+      ],
+      "woundBase": 10,
+      "strainBase": 11,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "infiltrator",
+          "owned": [
+            "0-1"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 75,
+        "spent": 75,
+        "remaining": 0
+      },
+      "speciesId": "bothan"
+    },
+    {
+      "id": "consular",
+      "name": "Kora Sul",
+      "species": "Mon Calamari",
+      "career": "Consular",
+      "specialization": "Healer",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 4,
+        "cunning": 1,
+        "willpower": 3,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 12,
+        "strainThreshold": 13,
+        "forceRating": 1
+      },
+      "skills": {
+        "COOL": 1,
+        "DISC": 1,
+        "LEAD": 1,
+        "NEGOT": 1,
+        "MED": 1,
+        "KNOWED": 1
+      },
+      "talents": [
+        {
+          "id": "surgeon",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "training_lightsaber"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 3
+          },
+          {
+            "id": "emergency_medpac",
+            "qty": 1
+          }
+        ],
+        "credits": 800
+      },
+      "backstory": "A Mon Calamari diplomat-healer who carries a lightsaber she has never ignited in anger. Uses the Force to sense emotions, mediate disputes, and heal wounds that bacta cannot reach. In a galaxy at war, she chose a different kind of fight.",
+      "morality": {
+        "type": "Compassion / Cruelty",
+        "value": 50,
+        "description": "Feels every wounded soul through the Force — the temptation is to harden her heart against the pain."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "Harmony between Force-sensitives and the galaxy",
+        "fear": "The dark side finding her people",
+        "strength": "Serenity - calm in chaos",
+        "flaw": "Detachment - can feel too distant from others"
+      },
+      "forcePowers": [
+        {
+          "id": "heal_harm",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "healer"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "healer",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 90,
+        "spent": 90,
+        "remaining": 0
+      },
+      "speciesId": "mon_calamari"
+    },
+    {
+      "id": "guardian",
+      "name": "Kiran Sol",
+      "species": "Human",
+      "career": "Guardian",
+      "specialization": "Soresu Defender",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 3,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 5,
+        "woundThreshold": 13,
+        "strainThreshold": 13,
+        "forceRating": 1
+      },
+      "skills": {
+        "BRAWL": 1,
+        "COOL": 1,
+        "DISC": 1,
+        "VIGIL": 1,
+        "LTSAB": 1,
+        "KNOWLORE": 1
+      },
+      "talents": [
+        {
+          "id": "parry",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "training_lightsaber"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "padded_armor",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          },
+          {
+            "id": "utility_belt",
+            "qty": 1
+          }
+        ],
+        "credits": 500
+      },
+      "backstory": "A Human warrior in heavy armor who carries a lightsaber with the same purpose a soldier carries a shield — to protect. Trained in the old ways by a master who did not survive the Purge. Fights with discipline, defends without hesitation.",
+      "morality": {
+        "type": "Bravery / Anger",
+        "value": 50,
+        "description": "Stands between the innocent and harm without hesitation — but each death he witnesses feeds a quiet fury."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "A galaxy where the innocent can sleep unafraid",
+        "fear": "Arriving one moment too late",
+        "strength": "Selflessness - puts others first every time",
+        "flaw": "Self-sacrifice - rarely protects himself"
+      },
+      "forcePowers": [
+        {
+          "id": "enhance",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "soresu_defender"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "soresu_defender",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 80,
+        "spent": 80,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    },
+    {
+      "id": "mystic",
+      "name": "Zara Koth",
+      "species": "Zabrak",
+      "career": "Mystic",
+      "specialization": "Seer",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 3,
+        "willpower": 4,
+        "presence": 1
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 12,
+        "strainThreshold": 14,
+        "forceRating": 1
+      },
+      "skills": {
+        "CHARM": 1,
+        "KNOWLORE": 1,
+        "PERCEP": 1,
+        "VIGIL": 1,
+        "DISC": 1,
+        "SURV": 1
+      },
+      "talents": [
+        {
+          "id": "forager",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "staff_of_office"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "datapad",
+            "qty": 1
+          },
+          {
+            "id": "holo_messenger",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          }
+        ],
+        "credits": 725
+      },
+      "backstory": "A Zabrak seer who channels the Force through ritual and meditation. Carries a staff of office and speaks with an authority that transcends rank. Sees patterns in the Force that others miss — connections between events, people, and places that shape the future.",
+      "morality": {
+        "type": "Curiosity / Obsession",
+        "value": 50,
+        "description": "Sees threads in the Force others cannot — and risks losing herself following them into darkness."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "Mastery of the Forces subtler currents",
+        "fear": "Her visions deceiving her",
+        "strength": "Attunement - feels the Force clearly",
+        "flaw": "Doubt - second-guesses what the Force shows"
+      },
+      "forcePowers": [
+        {
+          "id": "sense",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "seer"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "seer",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 85,
+        "spent": 85,
+        "remaining": 0
+      },
+      "speciesId": "zabrak"
+    },
+    {
+      "id": "seeker",
+      "name": "Renna Tide",
+      "species": "Selkath",
+      "career": "Seeker",
+      "specialization": "Pathfinder",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 2,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 3,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 4,
+        "woundThreshold": 13,
+        "strainThreshold": 13,
+        "forceRating": 1
+      },
+      "skills": {
+        "PILPLAN": 1,
+        "RANGHVY": 1,
+        "SURV": 1,
+        "VIGIL": 1,
+        "RANGLT": 1,
+        "RESIL": 1
+      },
+      "talents": [
+        {
+          "id": "swift",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "training_lightsaber"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "backpack",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 3
+          },
+          {
+            "id": "utility_belt",
+            "qty": 1
+          },
+          {
+            "id": "electrobinoculars",
+            "qty": 1
+          }
+        ],
+        "credits": 650
+      },
+      "backstory": "A Selkath survivalist who learned to fight in the wilderness before learning to speak Basic. Carries twin lightsabers and moves with the fluid grace of a deep-ocean predator. The Force is not a philosophy to her — it is the current she swims in.",
+      "morality": {
+        "type": "Independence / Coldness",
+        "value": 50,
+        "description": "The wild is her sanctuary — but solitude can become isolation, and isolation can become indifference."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "To find a lost Jedi enclave rumored in her dreams",
+        "fear": "That the enclave was destroyed before she arrives",
+        "strength": "Tenacity - will cross the galaxy for a lead",
+        "flaw": "Tunnel vision - misses what is right in front of her"
+      },
+      "forcePowers": [
+        {
+          "id": "foresee",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "pathfinder"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "pathfinder",
+          "owned": [
+            "0-3"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 80,
+        "spent": 80,
+        "remaining": 0
+      },
+      "speciesId": "selkath"
+    },
+    {
+      "id": "sentinel",
+      "name": "Orin Vael",
+      "species": "Muun",
+      "career": "Sentinel",
+      "specialization": "Shadow",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 2,
+        "agility": 2,
+        "intellect": 4,
+        "cunning": 4,
+        "willpower": 1,
+        "presence": 1
+      },
+      "derived": {
+        "soak": 3,
+        "woundThreshold": 11,
+        "strainThreshold": 10,
+        "forceRating": 1
+      },
+      "skills": {
+        "COMP": 2,
+        "DECEP": 1,
+        "PERCEP": 1,
+        "SKULL": 1,
+        "STEAL": 1,
+        "STREET": 1
+      },
+      "talents": [
+        {
+          "id": "sleight_of_mind",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "training_lightsaber"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "heavy_clothing",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "slicer_gear",
+            "qty": 1
+          },
+          {
+            "id": "disguise_kit",
+            "qty": 1
+          },
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 2
+          }
+        ],
+        "credits": 375
+      },
+      "backstory": "A Muun operative who survived the Purge by being useful to the wrong people. Trained in the shadows between the Jedi and the underworld, he uses the Force with surgical precision — never flashy, always effective. The scars are from the lessons that stuck.",
+      "morality": {
+        "type": "Caution / Fear",
+        "value": 50,
+        "description": "Survived the Purge by hiding in plain sight — now the instinct to disappear wars with the call to act."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "To judge wisely - the right call, no matter the cost",
+        "fear": "Choosing wrong and living with it",
+        "strength": "Discernment - sees motive beneath action",
+        "flaw": "Paralysis - weighs too long before deciding"
+      },
+      "forcePowers": [
+        {
+          "id": "influence",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "shadow"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 9,
+      "strainBase": 9,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "shadow",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 95,
+        "spent": 95,
+        "remaining": 0
+      },
+      "speciesId": "muun"
+    },
+    {
+      "id": "warrior",
+      "name": "Tovan Kade",
+      "species": "Human",
+      "career": "Warrior",
+      "specialization": "Shii-Cho Knight",
+      "book": "fad",
+      "source": "Original",
+      "characteristics": {
+        "brawn": 3,
+        "agility": 3,
+        "intellect": 2,
+        "cunning": 2,
+        "willpower": 2,
+        "presence": 2
+      },
+      "derived": {
+        "soak": 5,
+        "woundThreshold": 13,
+        "strainThreshold": 12,
+        "forceRating": 1
+      },
+      "skills": {
+        "ATHL": 1,
+        "BRAWL": 1,
+        "COOL": 1,
+        "MELEE": 1,
+        "LTSAB": 1,
+        "COORD": 1
+      },
+      "talents": [
+        {
+          "id": "parry",
+          "rank": 1
+        }
+      ],
+      "equipment": {
+        "weapons": [
+          {
+            "id": "training_lightsaber"
+          },
+          {
+            "id": "unarmed"
+          }
+        ],
+        "armor": {
+          "id": "padded_armor",
+          "state": "worn"
+        },
+        "gear": [
+          {
+            "id": "comlink_handheld",
+            "qty": 1
+          },
+          {
+            "id": "stimpack",
+            "qty": 3
+          },
+          {
+            "id": "utility_belt",
+            "qty": 1
+          }
+        ],
+        "credits": 475
+      },
+      "backstory": "A Human lightsaber duelist who learned his craft from holocrons and hard experience. Fights with a green blade and the aggressive forms of a bygone era. The Force flows through his strikes like water through a canyon — relentless and unstoppable.",
+      "morality": {
+        "type": "Justice / Cruelty",
+        "value": 50,
+        "description": "Fights with the aggressive forms of a lost era — and must guard against letting righteous fury become vengeance."
+      },
+      "mechanicTradeIds": [
+        "fad_raw_xp5_cr1000"
+      ],
+      "motivations": {
+        "desire": "A worthy opponent - a fight that tests him",
+        "fear": "Combat becoming routine, meaningless",
+        "strength": "Courage - meets danger head-on",
+        "flaw": "Impatience - acts before considering"
+      },
+      "forcePowers": [
+        {
+          "id": "move",
+          "basic": true
+        }
+      ],
+      "specializationIds": [
+        "shii_cho_knight"
+      ],
+      "forceRatingBase": 1,
+      "woundBase": 10,
+      "strainBase": 10,
+      "derivedBonuses": {
+        "soakBonus": 0,
+        "woundThresholdBonus": 0,
+        "strainThresholdBonus": 0,
+        "meleeDefenseBonus": 0,
+        "rangedDefenseBonus": 0,
+        "forceRatingBonus": 0
+      },
+      "specializations": [
+        {
+          "id": "shii_cho_knight",
+          "owned": [
+            "0-0"
+          ]
+        }
+      ],
+      "xp": {
+        "total": 80,
+        "spent": 80,
+        "remaining": 0
+      },
+      "speciesId": "human"
+    }
+  ]
+}

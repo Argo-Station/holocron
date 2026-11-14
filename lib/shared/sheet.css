@@ -1,0 +1,1612 @@
+/* sheet.css — THE PAPER SHEET'S OWN LAYER (surface two). Ruling `sheet-paper-concept` R-PSC-1..7;
+   mockup `lab/holocron/sheet.html` @ lab `dffcd72b` (Jason 2026-09-15: "Approved"). B-609 lands it.
+
+   ── WHAT THIS FILE IS ─────────────────────────────────────────────────────────────────────────
+   A PORT of `lab/holocron/sheet.css` at that pin — the board's own arrangement layer, which sits on
+   the plate kit (`paper.css` here, `holocron.css` there) and adds ARRANGEMENT and the four objects
+   the kit never drew: the pinned unit as a column, the live tracker, the skill row with an assembled
+   pool, and the unfilled form. Every rule below is the lab's, with ONE mechanical change: the token
+   names. `--pp-*` is the lab's vocabulary and the app's contract is `--doc-*` (paper.css's own
+   derivation note 2), so `--pp-page`→`--doc-paper`, `--pp-plate`→`--doc-paper-raised`,
+   `--pp-ink-2`→`--doc-ink-muted`, `--pp-ink-3`→`--doc-ink-structural`, `--pp-hair`→`--doc-rule`,
+   `--pp-hair-2`→`--doc-rule-fine`, `--pp-red`→`--doc-action` (`-lift` likewise; `-deep`, a comment's
+   word only, →`--doc-action-ink`), `--pp-indigo`→`--doc-state`, `--pp-gold`→`--doc-mark`,
+   `--pp-ochre`→`--doc-accent`, `--pp-lead-max`→`--doc-lead-max`, and the five status inks by name.
+   Values identical (grounds/creator.css carries the publication's numbers).
+
+   ── WHY IT IS NOT SCOPED THE WAY paper.css IS ─────────────────────────────────────────────────
+   paper.css nests everything under `[data-doc-ground="creator"]` because `.hp-plate` is a generic
+   name that must not become every surface's default. Everything here is `.sb-*` — the sheet's own
+   namespace, used by no other surface — and the few `.hp-*` overrides are already nested under an
+   `.sb-*` ancestor. The shell root carries BOTH `data-doc-ground="creator"` (the paper, the kit) and
+   `data-sheet-shell` (this surface), so the kit reaches it and this layer cannot reach anything else.
+
+   ── THE ROWS ──────────────────────────────────────────────────────────────────────────────────
+   The whole layer lands with row 1 (B-609) so the later rows are JSX only; a rule with no consumer
+   yet is inert. What each row consumes: B-609 the shell (§0 §1 §7 §11 §12 the runhead) · B-610 the
+   spine (§2–§5) · B-611 the stage (§6 §17 §18) · B-612 the stack (§8–§10) · B-613/614 the rooms
+   (§13) · B-615 the growth room (§14 §16 §17) · B-616 the phone (§11 §12 §18). The interim
+   `.sb-legacy` islands that held the legacy components until each row landed are deleted with the
+   old face (N-post, lap paper-sheet-delete). */
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+ * sheet.css — THE BOARD, on paper. Surface two's own layer.
+ *
+ * Sits ON TOP of holocron.css and adds NO tokens, NO faces and NO scale. Every colour below is a
+ * `--pp-*` from the plate layer's §1; if a value appears here as a literal, that is a defect.
+ * The primitives are the kit's: .hp-plate .hp-head .hp-rail .hp-box .hp-tab .hp-commit .hp-quiet
+ * .hp-ledger .hp-artplate .hp-row .hp-sym. This file adds ARRANGEMENT and four objects the kit
+ * has never had to draw — the pinned unit as a column, the live tracker, the skill row with an
+ * assembled pool, and the unfilled form (the loading state).
+ *
+ * THE SHAPE, and it is `SHEET_SHAPE.md` §3 in CSS:
+ *
+ *     SPINE      INSTRUMENT   never scrolls           fixed 340px
+ *     STAGE      INSTRUMENT   scrolls inside itself   flexible, fixed-height panel
+ *     STACK      READING      one open unit           flexible, heads always visible
+ *
+ * The board itself never scrolls at any band. That is not a preference; it is R-DC3-1(a) already
+ * ruled on this surface, and AS-4 at 1024.
+ * ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+/* ── §0 THE BOX MODEL — the audit's root cause, and it was one line ──────────────────────────────
+ * `.hp-head` is `width:100%` with `padding:6px 26px 6px 11px`. Under content-box that is 37px of
+ * overflow, every time, and 37px is exactly what `sheet_audit.py` measured spilling out of the
+ * spine. The kit was authored inside an app that sets this globally; the board is a standalone page
+ * and never did. Declared here rather than in `holocron.css`, because the plate layer is shared and
+ * a board's page shell is not its business. */
+.sb-board, .sb-board *, .sb-board *::before, .sb-board *::after,
+.sb-runhead, .sb-runhead *{ box-sizing:border-box; }
+
+/* ── §0b THE RANK BOX ON LIGHT STOCK ─────────────────────────────────────────────────────────────
+ * `.hp-box` is authored for the CHEVRON HEAD, whose ground is indigo — its border is
+ * `rgba(242,241,236,.6)`, near-parchment, and on the head that is correct. Anywhere else on this
+ * document it is INVISIBLE: the hard-point pips on the pack's item panel rendered as three boxes
+ * nobody could see, and the only reason it was caught is that a count two lines away disagreed.
+ * A box outside a head takes structural ink; a filled one takes ink proper. Scoped rather than
+ * changed in `holocron.css`, because the head's own box is right as it is. */
+.sb-board :not(.hp-head) > .hp-box,
+.sb-board :not(.hp-head) .hp-box,
+.sb-over :not(.hp-head) .hp-box{ border-color:var(--doc-ink-structural); }
+.sb-board :not(.hp-head) .hp-box[data-on="1"],
+.sb-over :not(.hp-head) .hp-box[data-on="1"]{ background:var(--doc-ink); border-color:var(--doc-ink); }
+
+/* ── §0c THE WIDTH LADDER — the suite's, not this file's ─────────────────────────────────────────
+ * TWO VOCABULARIES, AND THEY ARE NOT THE SAME THING.
+ *
+ * AS-2 IS THE PRODUCT'S LAW AND IT HAS THREE BANDS — MOBILE < 1024, MID-TIER 1024-1366,
+ * WIDE >= 1367 — plus: "a surface may not invent a fourth band or shift a threshold locally; if a
+ * surface genuinely needs a different breakpoint, that is a RULING, not a constant."
+ *
+ * BROAD and ROOM below are `TEMPLATE.md` §10's DENSITY LADDER, which is the LAB'S and describes
+ * what extra width buys once you are past WIDE: not columns, SIZE. They are not a fourth and fifth
+ * product band, and an earlier version of this comment presented them as one.
+ *
+ * The container is `surface`, the same one the plate layer's own band rules name. Getting that
+ * wrong is not cosmetic: an unnamed `@container` resolves against the nearest size-container
+ * ancestor, and a query that matches the wrong container does not fail — it never fires.
+ *
+ *     MID-TIER  1024–1366   AS-2 · the board stops being a board and becomes a page
+ *     WIDE      1367+       AS-2 · spine · stage · stack, the shape at rest
+ *     BROAD     2300–2999   LAB  · ~1.3x type, and the measure moves with it
+ *     ROOM      3000+       LAB  · ~1.8x type. Column count does NOT increase.
+ *
+ * AS-9's PROOF GEOMETRY is a third thing again — 1024/1194/1280/1366/1440/1920, the widths a gate
+ * may claim behaviour at. The board renders all six.
+ *
+ * THE UNIT, AND WHY IT IS A UNIT. §10 states its own debt: "ROOM's type sizes are an override
+ * block… the override list will drift the moment someone adds a size." So this layer declares its
+ * type in `calc(N * var(--u))` from the start and the whole ladder is two lines. A size added
+ * without the unit is visibly wrong at BROAD, which is the point — the drift becomes loud.
+ *
+ * The measure scales with the type because 66 characters is the rule, not 373 pixels. */
+.sb-surface{ container-type:inline-size; container-name:surface; height:100%; }
+/* THE UNIT LIVES ON A CHILD, NOT ON THE CONTAINER. A `@container` rule can never style the element
+ * it queries — the container is the thing being measured, so a rule targeting it is ignored. The
+ * first cut set `--u` on `.sb-surface` itself and nothing scaled at BROAD or ROOM: the frames grew,
+ * the type did not, and a 3840px board rendered as a 1920px board with more margin. It did not
+ * error, which is the whole hazard with this family of mistakes. */
+/* `--u-k` is `--u`'s unitless TWIN, beside every `--u` with the equal number (PAPER's consent to the Ship Yard, ruling
+ * `shipyard-s4-catalogue-card` R-S4CC-12/16): the Yard's VESSELS unit zooms by it so it grows ONCE, with this page. `--u`
+ * stays a literal (smoke_paper_hotfix reads it as a string). Guard: test/vessel_sheet_u_twin.cjs, derived from this file. */
+.sbwrap{ --u:1px; --u-k:1; --sb-spine:372px; }
+/* THE MEASURE MOVES WITH THE TYPE, and the numbers are the publication's, not a multiplication.
+ * `holocron.css` sets 373 -> 486 -> 655 on `.hpw-shell .hpw-grid` — the CREATOR's grid, which this
+ * board does not use, so it inherited none of it and every band read 373. Type without measure is
+ * the failure §10 names by hand: it drops a 66-character line to 43. */
+@container surface (min-width:2300px){
+  .sbwrap{ --u:1.3px; --u-k:1.3; --sb-spine:470px; --desk-prose-max:486px; --doc-lead-max:833px; } }
+@container surface (min-width:3000px){
+  .sbwrap{ --u:1.8px; --u-k:1.8; --sb-spine:640px; --desk-prose-max:655px; --doc-lead-max:1111px; } }
+
+/* ── §1 THE BOARD ────────────────────────────────────────────────────────────────────────────────
+ * Three columns, one document. The spine is fixed because an instrument that reflows is not an
+ * instrument; the other two take what is left. */
+.sb-board{
+  display:grid; gap:22px; align-items:stretch; min-height:0;
+  /* 372, not 340. MEASURED, not chosen: the rail needs 326px for six full words (the plate layer's
+     own arithmetic — INTELLECT and WILLPOWER are 9 characters at 5.4px of advance), plus 20px of
+     snug plate padding and 2px of keyline. At 340 the labels truncated, and a truncated label IS an
+     abbreviation — ban item 8 has no small print. */
+  grid-template-columns:var(--sb-spine) minmax(0,1.12fr) minmax(370px,0.95fr);
+  grid-template-areas:"spine stage stack";
+}
+.sb-spine{ grid-area:spine; display:flex; flex-direction:column; gap:14px; min-height:0; }
+/* The instrument is a real box in BOTH bands — `display:contents` was tried and reverted: it gives
+ * the element no box at all, which means it cannot be made sticky later and cannot be measured now.
+ * A nested flex column with the spine's own gap is visually identical and actually exists. */
+/* THE INSTRUMENT NEVER SHRINKS (§164.6). With `min-height:0` this flex item gave way under pressure and
+ * the injuries plate below it PAINTED OVER the vitals — Jason saw wounds and strain disappear behind
+ * CRITICAL INJURIES on the iPad. Now the instrument keeps its height and anything that cannot fit clips
+ * at the spine's bottom, where `sheet_audit` counts it. An overflow may be a finding; an overlap of the
+ * instrument is never an acceptable way to show one. */
+.sb-instr{ display:flex; flex-direction:column; gap:14px; flex:none; }
+.sb-stage{ grid-area:stage; display:flex; flex-direction:column; gap:12px; min-height:0; }
+.sb-stack{ grid-area:stack; display:flex; flex-direction:column; gap:7px; min-height:0; }
+
+/* ── §2 THE RUNNING HEAD — the furniture that says WHOSE SHEET, never WHERE YOU ARE ──────────────
+ * The creator's step map says "you are at 4 of 12". A board has no 4 of 12. So this line carries
+ * the character and the folio and nothing else, and that difference is the whole of `SHEET_SHAPE`
+ * §4 made visible: the walk has a step map, the board has a running head. */
+.sb-runhead{
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  border-bottom:1px solid var(--doc-rule); padding-bottom:9px; margin-bottom:18px;
+}
+.sb-runhead-t{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.26em; text-transform:uppercase; color:var(--doc-accent); }
+.sb-runhead-s{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.16em; text-transform:uppercase; color:var(--doc-ink-muted); margin-left:auto; }
+
+/* ── §3 THE IDENTITY PLATE ───────────────────────────────────────────────────────────────────────
+ * The designation sets straight onto the paper — 46px display measures 5.3:1 over the worst wear
+ * pixel where large text needs 3:1, so the page is legal behind it and the printed page does
+ * exactly this. Everything below it that is READ takes stock. */
+.sb-ident{ display:flex; gap:13px; align-items:flex-start; }
+.sb-ident .hp-artplate{ width:96px; flex:none; }
+.sb-ident-b{ min-width:0; flex:1; padding-top:2px; }
+.sb-desig{
+  font-family:var(--font-display,'Orbitron',sans-serif); font-weight:900; font-size:calc(27 * var(--u));
+  line-height:1.03; letter-spacing:.01em; text-transform:uppercase; color:var(--doc-ink);
+  margin:0 0 7px; word-break:break-word;
+}
+.sb-desig::after{ content:""; display:block; width:44px; height:3px; background:var(--doc-action);
+  margin-top:8px; }
+.sb-sub{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.13em; text-transform:uppercase; color:var(--doc-ink-muted); line-height:1.75; }
+/* THE GAME LINE, on the identity block. It is the player's declared choice at step 1 (not a
+ * derivation from the career), so it stands with the species and the career rather than under
+ * them — furniture voice, because it names the campaign this character is played in. */
+.sb-line{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.18em; text-transform:uppercase; color:var(--doc-accent); }
+
+.sb-sub b{ color:var(--doc-ink); font-weight:400; }
+
+/* ── §4 THE VITALS LEDGER, and the LIVE TRACKER ──────────────────────────────────────────────────
+ * The kit's ledger with one addition: two of these rows move at the table, and only those two get
+ * a control. Wounds and Strain. Everything else on the spine is derived and is therefore READ.
+ *
+ * THE TRACKER IS THE FIRST THING IN THIS LAYER THAT ANIMATES, and it is the only one. A board whose
+ * numbers move is an instrument; a board whose PANELS move is a toy. The value transitions, the
+ * furniture does not.
+ *
+ * PROXIMITY TO THRESHOLD IS CARRIED BY A FILLED RUN, NOT BY HUE. The status palette on paper is
+ * unmodeled — green, amber and red as STATE have no published values and the page-solved red is
+ * spoken for by the action fill. A run of filled rank boxes says "eleven of twelve" without
+ * borrowing a colour that has not been measured. When the publication supplies a status scale this
+ * is where it lands; until then the sheet does not invent one. */
+.sb-vit{ display:grid; gap:2px; }
+.sb-vit{ align-content:start; }
+.sb-vitrow{
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:10px;
+  padding:7px 0; border-bottom:1px solid var(--doc-rule-fine);
+}
+.sb-vitrow > :first-child{ min-width:0; }
+.sb-vitrow:last-child{ border-bottom:0; }
+.sb-vitkey{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u));
+  letter-spacing:.09em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-vitval{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(19 * var(--u));
+  color:var(--doc-ink); font-variant-numeric:tabular-nums; line-height:1; }
+.sb-vitval .sb-of{ color:var(--doc-ink-muted); font-size:calc(15 * var(--u)); }   /* READ: "4 / 11" is one value, and the slash is part of it */
+
+/* The tracker. Production draws WOUNDS and STRAIN as `PlayerTrackerBox` — a label, a threshold, a
+ * current and a control — and the board's job is to draw THAT OBJECT on paper, not to invent one.
+ * The first draft invented a run of one rank box per point: sixteen boxes for a strain threshold of
+ * 16, which measured 72px wider than the spine and pushed every value on the ledger out of its own
+ * plate. It was wrong twice over — too wide, and not the shipped object.
+ *
+ * What replaces it is a PRINTED RULE: a hairline track with an ink fill. It is width-independent,
+ * it costs six pixels, it uses only tokens the palette already publishes, and a printed form is
+ * exactly where a ruled meter belongs. It carries no hue, which is deliberate: the status scale on
+ * paper is unmodeled and the board does not invent one. */
+.sb-trk{ display:flex; align-items:center; gap:4px; }
+.sb-trk-btn{
+  width:max(44px, calc(44 * var(--u))); height:max(44px, calc(44 * var(--u))); flex:none; cursor:pointer; background:transparent;   /* AS-6, both axes */
+  border:1px solid var(--doc-rule); color:var(--doc-ink-muted);
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(19 * var(--u)); line-height:1;
+  box-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+.sb-trk-btn:hover{ border-color:var(--doc-action); color:var(--doc-ink); }
+.sb-trk-btn:focus-visible{ outline:2px solid var(--doc-action); outline-offset:2px; }
+.sb-trk-val{ min-width:calc(56 * var(--u)); text-align:right; padding-right:2px; }
+.sb-meter{ height:3px; background:var(--doc-rule-fine); margin-top:5px; }
+.sb-meter i{ display:block; height:100%; background:var(--doc-ink); }
+
+/* ── §5 CRITICAL INJURIES — pulled to the spine off the printed reference page ───────────────────
+ * FFG put a live combat state on page two. This is the fold's clearest substantive win, and it
+ * costs one plate. THE LITURGY BINDS: a character with none prints the absence and holds the slot,
+ * because a row that vanishes when empty is a row nobody ever notices is missing. */
+.sb-crit{ display:grid; gap:7px; }
+.sb-critrow{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:9px;
+  align-items:center; min-height:max(44px, calc(44 * var(--u))); }
+/* the status line production draws above the list, and the door it draws instead of one */
+.sb-critstat{ display:flex; align-items:baseline; gap:9px; padding:2px 0 9px;
+  border-bottom:1px solid var(--doc-rule-fine); margin-bottom:4px; }
+.sb-critstat > b{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700;
+  font-size:calc(17 * var(--u)); color:var(--doc-ink); line-height:1; }
+.sb-critstat span{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u));
+  color:var(--doc-ink-muted); }
+.sb-critstat span b{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(12 * var(--u));
+  letter-spacing:.08em; color:var(--doc-ink); font-variant-numeric:tabular-nums; }
+.sb-crittreat, .sb-critdoor{ min-height:max(44px, calc(44 * var(--u))); padding:0 14px; cursor:pointer; background:transparent;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u)); letter-spacing:.14em;
+  text-transform:uppercase; color:var(--doc-ink-muted); border:1px solid var(--doc-rule); }
+.sb-critdoor{ width:100%; border-style:dashed; color:var(--doc-ink-muted); }   /* the DASH is structural; the words are not */
+.sb-crittreat:hover, .sb-critdoor:hover{ border-color:var(--doc-action); color:var(--doc-ink); }
+.sb-critsev{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u));
+  letter-spacing:.1em; color:var(--doc-paper-raised); background:var(--doc-state); padding:2px 7px;
+  font-variant-numeric:tabular-nums; }
+.sb-critname{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(16 * var(--u));
+  color:var(--doc-ink); line-height:1.3; }
+.sb-critroll{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u));
+  color:var(--doc-ink-muted); font-variant-numeric:tabular-nums; }   /* the item's KIND, read */
+
+/* ── §6 THE STAGE — the segmented control and the skill row ──────────────────────────────────────
+ * ONE SLOT, SWAP THE BODY, STAY MOUNTED. The panel is fixed to the character's tallest set so
+ * switching never reflows, and rows do NOT stretch to fill — content-dispersion is named and
+ * banned. The segmented control is a FILTER OVER ONE LIST, which is what keeps it clear of
+ * R-NAV1 Q1: it never claims a location, so it is not a second tab row. */
+.sb-sk{ display:grid; grid-template-columns:minmax(0,1fr) auto auto auto; gap:12px; align-items:center;
+  padding:6px 0; border-bottom:1px solid var(--doc-rule-fine); min-height:max(44px, calc(44 * var(--u))); }
+.sb-sk:last-child{ border-bottom:0; }
+[data-run]:not(:last-child) > .sb-sk:last-child{ border-bottom:1px solid var(--doc-rule-fine); }   /* R-SAP-3 (D-463) */
+.sb-sk-n{ min-width:0; }
+.sb-sk-name{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(16 * var(--u));
+  color:var(--doc-ink); line-height:1.2; }
+.sb-sk-char{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.13em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-sk-boxes{ display:flex; gap:2px; }
+.sb-sk-boxes .hp-box{ border-color:var(--doc-ink-structural); }
+.sb-sk-boxes .hp-box[data-on="1"]{ background:var(--doc-ink); border-color:var(--doc-ink); }
+/* THE GOLD MARKS WHAT A DECISION RAISED. On the creator that was a variant's lift; here it is an
+ * XP advance. A box filled by the species or the career is ink; a box the player BOUGHT is gold.
+ * That is the whole of the sheet's relationship with this colour, and it is why it still works. */
+.sb-sk-boxes .hp-box[data-on="1"][data-bought="1"]{ background:var(--doc-mark);
+  border-color:var(--doc-mark); }
+.sb-pool{ display:inline-flex; gap:3px; align-items:center; padding:5px 9px; background:var(--doc-paper-raised);
+  box-shadow:0 1px 0 rgba(255,255,255,.55); min-height:30px; }
+.sb-pool .hp-sym{ font-size:calc(16 * var(--u)); }
+.sb-roll{
+  min-height:max(44px, calc(44 * var(--u))); min-width:44px; padding:0 15px; cursor:pointer; border:0;
+  background:var(--doc-action); color:var(--doc-paper-raised); box-shadow:var(--doc-lift);
+  font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:calc(11 * var(--u));
+  letter-spacing:.14em; text-transform:uppercase;
+  clip-path:polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%);
+}
+.sb-roll:hover{ background:var(--doc-action-lift); }
+.sb-roll:focus-visible{ outline:2px solid var(--doc-ink); outline-offset:3px; }
+
+/* THE BUY LIVES ON THE ROW IT BUYS. 34 skills render twice today — roll rows on OVERVIEW, buy rows
+ * on ADVANCEMENT, 68 rows per character. This is the one definition that serves both, and it is
+ * required by AS-1 whether or not the sheet folds. */
+/* FIVE children, five columns. The first draft emitted the cost and the step control as two
+ * siblings into a five-column grid holding six things, so every spend row wrapped a partial row —
+ * 152 of them, which `sheet_audit.py`'s arity check found by counting rather than by looking.
+ * They are one object (a price and its button), so they share one cell. */
+.sb-sk[data-spend="1"]{ grid-template-columns:minmax(0,1fr) auto auto auto auto; }
+.sb-sk-spend{ display:flex; align-items:center; gap:8px; }
+.sb-sk-cost{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u));
+  letter-spacing:.1em; color:var(--doc-ink-muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.sb-sk-buy{ width:max(44px, calc(44 * var(--u))); height:max(44px, calc(44 * var(--u))); cursor:pointer; background:transparent;
+  border:1px solid var(--doc-rule); color:var(--doc-ink-muted);
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(19 * var(--u)); line-height:1; }
+.sb-sk-buy:hover:not(:disabled){ border-color:var(--doc-action); color:var(--doc-ink); }
+/* THE REFUSAL. XP GATES; CREDITS INFORM. Two economies, and one treatment across both would be
+ * wrong in one of them — so the disabled edge is structural ink and the reason is stated in words,
+ * never in a colour the palette has not measured. */
+.sb-sk-buy:disabled{ cursor:not-allowed; border-color:var(--doc-rule-fine); color:var(--doc-ink-muted); }   /* a disabled EDGE may be structural; its label is still read */
+/* B-855 THE HOLD — a HELD control, WAY 1 (ruling f100-editor-drc-census-gate R-EDG-2; frames H1–H3, approved
+ * census-gate ADDENDUM 1 @ d6497032): the kit's own disabled edge on EVERY held control. The commit's edge follows
+ * its chevron — a rule-fine ground with the raised face inset 1px inside the same polygon, so the point's outline
+ * is closed (rider R-EDG-R2). The held "+" takes structural ink at 700 so it no longer reads as the live "+". */
+.sb-sk-buy[data-held="1"]{ border-color:var(--doc-rule-fine); color:var(--doc-ink-structural); font-weight:700; }
+[data-doc-ground="creator"] .hp-commit[data-held="1"]{ background:var(--doc-rule-fine); color:var(--doc-ink-muted); box-shadow:none;
+  position:relative; isolation:isolate; cursor:not-allowed; }
+[data-doc-ground="creator"] .hp-commit[data-held="1"]::after{ content:""; position:absolute; inset:1px; z-index:0; background:var(--doc-paper-raised);
+  clip-path:polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%); }
+[data-doc-ground="creator"] .hp-commit[data-held="1"] > span{ position:relative; z-index:1; }
+[data-doc-ground="creator"] .hp-quiet[data-held="1"]{ border-color:var(--doc-rule-fine); color:var(--doc-ink-muted); background:var(--doc-paper-raised); cursor:not-allowed; }
+.sb-hold-door{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+
+/* ── §7 THE STACK — the pinned unit ──────────────────────────────────────────────────────────────
+ * `rSec`, Jason-ruled 2026-07-20, shipped twice. Permanent visible header, one open at a time,
+ * siblings collapse to their heads and STAY PRESSABLE. Nothing unmounts; only the allocation of
+ * space changes — which is precisely why it never says "where you are" a second time and
+ * TWO-RAILS holds with the tab strip deleted.
+ *
+ * It is a DISCLOSURE device, not a NAVIGATION device. That sentence is the load-bearing one. */
+.sb-unit{ display:flex; flex-direction:column; min-height:0; flex:0 0 auto; }
+.sb-unit[data-open="1"]{ flex:1 1 auto; min-height:0; }
+.sb-unit > .hp-head{ flex:none; }
+.sb-unit-body{
+  flex:1; min-height:0; overflow-y:auto; overflow-x:hidden;
+  background:var(--doc-paper-raised); box-shadow:var(--doc-lift); padding:14px 15px 15px;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - var(--doc-cut)),
+                    calc(100% - var(--doc-cut)) 100%, 0 100%);
+}
+.sb-unit-body[data-scroll="1"]{ scrollbar-width:thin; }
+/* The head's own count is the recognition affordance — you can see how many talents you have
+ * without opening the talents. A closed unit is not an empty one. */
+.hp-head .sb-grow{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u));
+  color:rgba(242,241,236,.66); line-height:1; margin-left:2px; }
+
+/* ── §8 THE READING ROWS inside a unit ───────────────────────────────────────────────────────────
+ * Ruled rows, not cards. Ban item 4 is not a style preference: a column of separate cards is the
+ * form the ban exists to prevent, and "a restyle of a banned form is the form." */
+.sb-e{ padding:11px 0; border-bottom:1px solid var(--doc-rule-fine); }
+.sb-e:first-child{ padding-top:0; }
+.sb-e:last-child{ border-bottom:0; padding-bottom:0; }
+/* R-SAP-3 (D-463): a run's wrapper (`data-run`) must not cost a row its hairline or padding */
+[data-run]:not(:first-child) > .sb-e:first-child{ padding-top:11px; }
+[data-run]:not(:last-child) > .sb-e:last-child{ border-bottom:1px solid var(--doc-rule-fine); padding-bottom:11px; }
+.sb-e-h{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.sb-e-n{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:calc(13 * var(--u));
+  letter-spacing:.05em; text-transform:uppercase; color:var(--doc-ink); }
+.sb-e-m{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.11em; text-transform:uppercase; color:var(--doc-ink-muted); margin-left:auto;
+  font-variant-numeric:tabular-nums; }
+.sb-e-t{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(16 * var(--u)); line-height:1.56;
+  color:var(--doc-ink); max-width:var(--desk-prose-max,373px); margin:6px 0 0; }
+.sb-e-l{ display:flex; gap:7px 16px; flex-wrap:wrap; margin-top:6px; }
+.sb-e-l div{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.1em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-e-l b{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(15 * var(--u));
+  letter-spacing:0; text-transform:none; color:var(--doc-ink); font-variant-numeric:tabular-nums; }
+.sb-qual{ display:inline-block; font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:calc(10 * var(--u)); letter-spacing:.1em; text-transform:uppercase; color:var(--doc-ink-muted);
+  border:1px solid var(--doc-rule-fine); padding:2px 7px; margin:5px 5px 0 0; }
+
+/* ── §9 THE UNFILLED FORM — the loading state the kit has never had ──────────────────────────────
+ * The layer has no spinner and will not get one: the page has no rotating parts. A form waiting
+ * for its data is a RULED BUT UNFILLED ROW, which is what an unfilled printed sheet actually looks
+ * like, and it holds the exact height its filled state will take so nothing jumps when it lands.
+ *
+ * IT DOES NOT HIDE TEXT — it declines to write any. The first cut set `color:transparent` on the
+ * values, which the conformance audit read as 1.00:1 and was right to: invisible text is still
+ * TEXT. A screen reader would have announced a wound total the sighted user could not see, and
+ * "the value is transparent" is a worse answer than "there is no value yet" in every direction.
+ * The rule is gone; the generator emits the bar INSTEAD OF the number. */
+.sb-wait{ display:block; height:.75em; background:var(--doc-rule-fine); width:var(--sb-w,4em);
+  margin-left:auto; }
+
+/* ── §10 THE TAKEOVER — three rooms that do not fold ─────────────────────────────────────────────
+ * MOUNT, NEVER REDRAW. A takeover that re-implements a surface it could mount is a
+ * no-compromise-mirror violation before it is anything else. Drawn here only as its edge and its
+ * return, because its interior is a shared component and this file must not own one. */
+.sb-over{ position:relative; background:var(--doc-paper); box-shadow:var(--doc-lift);
+  border-top:3px solid var(--doc-action); padding:16px 18px 18px; }
+.sb-over-h{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.sb-over-t{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:900; font-size:calc(15 * var(--u));
+  letter-spacing:.1em; text-transform:uppercase; color:var(--doc-ink); }
+.sb-over-r{ margin-left:auto; }
+
+/* ── §11 THE NARROW ARRANGEMENT — the same sections, arranged ────────────────────────────────────
+ * NOT the uniform fold. Fork A1 — "mobile grows to match desktop" — was ruled and rejected on this
+ * exact surface, and it failed by DUPLICATING; this is A2, one content definition with a thin
+ * composition seam. The spine becomes a pinned band that does not scroll, the stage becomes the
+ * first unit and opens by default, and the section heads ARE the navigation. No tab strip, no
+ * dots, no swipe — three separate claims about where you are, on a surface with nothing to claim.
+ *
+ * TABLE MODE's toggle loses its host when the strip goes. Its new home is the band's folio slot,
+ * named here so it is not discovered missing at a gate. */
+@container surface (max-width:1023px){
+  /* THE BOARD STOPS BEING A BOARD AND BECOMES A PAGE, and the shape document already said so: below
+   * 1367 the stack is READING, and reading "scrolls honestly, depth is welcome". The first draft
+   * kept the wide band's no-scroll physics here and set every zone to `flex:none` inside a
+   * fixed-height hidden-overflow column — so the grid rows collapsed and the spine, the stage and
+   * the first unit painted on top of one another. That is not a fold failing; it is a fold that
+   * forgot to change physics when it changed kind. */
+  .sb-board{ grid-template-columns:minmax(0,1fr); grid-template-areas:"spine" "stage" "stack";
+             grid-auto-rows:auto; gap:16px; flex:none !important; }
+  .sb-spine, .sb-stage, .sb-stack{ flex:none; min-height:0; }
+  /* THE INSTRUMENT PINS — and only the instrument. The first fix pinned the WHOLE spine, which at
+   * 390x844 was 840px tall: a sticky element taller than the viewport does not stick, it simply
+   * occupies the screen and pushes everything else past the fold. So the sticky object is
+   * `.sb-instr` — identity, rail, wounds and strain, the four things the two-second test actually
+   * demands — and critical injuries, defences and encumbrance scroll with the page inside the same
+   * spine. One DOM, one content definition; only the pinning changes. Measured target: under 40%
+   * of an 844px viewport. */
+  .sb-instr{ display:flex; flex-direction:column; gap:10px; }   /* the PIN itself is the handheld's — B-616's block at the tail */
+  /* identity collapses to one line: the portrait stops being a plate and becomes a stamp */
+  .sb-ident{ align-items:center; gap:11px; }
+  .sb-ident .hp-artplate{ width:52px; }
+  .sb-desig{ font-size:calc(20 * var(--u)); margin-bottom:4px; }
+  .sb-desig::after{ width:32px; height:2px; margin-top:5px; }
+  .sb-sub{ font-size:calc(10 * var(--u)); line-height:1.5; }
+  /* the derived rows pair up; the two that MOVE keep their own full-width row and their controls */
+  .sb-vit{ grid-template-columns:1fr 1fr; column-gap:16px; }
+  .sb-vitrow{ grid-column:auto; }
+  .sb-vitrow:has(.sb-trk){ grid-column:1 / -1; }
+  /* a unit's body is bounded so eight open-able units cannot become one endless page */
+  .sb-unit[data-open="1"]{ flex:none; }
+  .sb-unit-body{ max-height:62vh; }
+  .sb-stage .hp-plate{ overflow:auto !important; max-height:62vh; }   /* the grouped list scrolls inside itself, as the units do (§165) */
+}
+@container surface (max-width:560px){
+  .sb-sk{ grid-template-columns:1fr auto auto; row-gap:8px; }
+  .sb-sk .sb-pool{ grid-column:1 / -1; justify-content:flex-start; }
+  .sb-sk[data-spend="1"]{ grid-template-columns:1fr auto auto; }
+  .sb-vitrow{ padding:9px 0; }
+}
+
+/* ── §12 THE NARROW SHELL ────────────────────────────────────────────────────────────────────────
+ * Applied by the page to any frame below the wide band. The wide band keeps `overflow:hidden` and
+ * its no-scroll promise (R-DC3-1(a), AS-4 at 1024); the narrow band scrolls, which is the honest
+ * physics for a reading surface and the only way eight units fit a phone. */
+/* Keyed on the LADDER'S band names, not on a private word. The first cut said `narrow`, which
+ * stopped matching the moment the frames took the suite's own names — and the failure was silent:
+ * the mid-tier frames kept the wide band's no-scroll physics and clipped 1398px of content, which
+ * is a whole board below the fold. A selector naming a vocabulary that no longer exists does not
+ * error, it simply never applies. */
+/* MOVED OFF THE ROOT'S ATTRIBUTES 2026-09-05, and the reason is the addressing contract rather
+ * than tidiness. `data-gen` is hoisted onto this same root, so anything band-dependent written ON
+ * the root makes ONE CALL PUBLISH TWO DRAWINGS: `board()` differed across five rungs by its inline
+ * padding, and `takeover(title=The pack, …)` differed by `data-band` alone with identical padding.
+ * A container query says the same thing about the same widths without putting the width in the
+ * markup — which is what the landing board already does, and what the audit reads bands from
+ * anyway (the ladder is authored in container queries so a fixed-width frame resolves its rung from
+ * its own width).
+ *
+ * THE THRESHOLD IS THE SUITE'S: handheld is < 1024 and mid-tier is 1024–1366, so the pair is
+ * `max-width:1366px`. The warning above still stands and is why this change was VERIFIED on the
+ * render rather than assumed — a selector naming a vocabulary that no longer exists does not
+ * error, it simply never applies. */
+/* WRITTEN AT (0,2,0), AND THAT IS LOAD-BEARING. The board's PAGE_CSS carries
+ * `.sbwrap{display:flex;overflow:hidden}` and is emitted AFTER this file, so a (0,1,0) rule here
+ * loses to it at equal specificity — which is exactly what the first cut of this change did: the
+ * padding moved correctly and the OVERFLOW did not, putting mid-tier back to `overflow:hidden` over
+ * a 2,106px board. The attribute selector this replaces was `.sbwrap[data-band="…"]`, also (0,2,0),
+ * which is why it had never been noticed. `.sb-surface` is this element's own container, so naming
+ * it is a fact rather than a specificity trick.
+ *
+ * CAUGHT BY MEASURING BOTH RENDERS, not by the change looking right — the warning above says a
+ * selector that stops matching does not error, it simply never applies, and it was right twice. */
+@container surface (max-width:1023px){
+  .sb-surface .sbwrap{ overflow-y:auto; overflow-x:hidden; display:block; }
+  .sb-surface .sbwrap .sb-board{ height:auto; }
+}
+/* The reading padding is the band's too, and for the same reason it is not inline. */
+.sb-surface .sbwrap{ padding:20px 22px; }
+@container surface (max-width:1023px){ .sb-surface .sbwrap{ padding:14px 15px; } }
+
+/* ── §13 THE PACK — GEAR's one room ──────────────────────────────────────────────────────────────
+ * Production's O2 arrangement: ONE list left, the panel right, full height. The list is a single
+ * scroller on purpose — "so a long pack scrolls as ONE thing rather than three independent zones
+ * the eye has to reconcile" — and the rows carry a chevron, a name and a state tag and nothing
+ * else. No roll chips: a 44px dice target inside a 44px row is two tap targets fighting for one
+ * thumb (D-GMC-5). */
+.sb-pack{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:14px; align-items:stretch;
+  min-height:0; height:560px; }
+.sb-pk-list, .sb-pk-panel{ min-height:0; }
+.sb-pk-h{ display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  padding:12px 2px 5px; border-bottom:1px solid var(--doc-rule);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u)); letter-spacing:.2em;
+  text-transform:uppercase; color:var(--doc-accent); }
+.sb-pk-h:first-child{ padding-top:0; }
+.sb-pk-h span{ letter-spacing:.1em; color:var(--doc-ink-muted); font-variant-numeric:tabular-nums; }
+.sb-pk-r{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:9px; align-items:center;
+  min-height:max(44px, calc(44 * var(--u))); padding:0 6px; cursor:pointer; border-bottom:1px solid var(--doc-rule-fine); }
+/* THE ABILITIES ROOM'S INDEX IS A REGISTER, NOT A READING — forty rows at THE PACK's row height
+ * showed 28% of themselves at 1920 (generality: BURIED). Register rows: the name and its tag on one
+ * 30px line, so forty talents show more than half at once and a list of a dozen needs no scroll. */
+.sb-pack[data-room="abilities"] .sb-pk-list > .hp-plate{ display:grid; grid-template-columns:1fr; column-gap:14px; align-content:start; }
+.sb-pack[data-room="abilities"] .sb-pk-h{ grid-column:1 / -1; }
+/* AT WIDE THE INDEX RUNS TWO-UP. A pick row keeps AS-6's 44px (it is a press target on a tablet), so
+ * the register cannot get shorter — it gets wider: two columns of rows at ≥1367, the group heads
+ * spanning both, so forty talents show two thirds of themselves at 1920 instead of a third. */
+@container surface (min-width:1024px){
+  .sb-pack[data-room="abilities"] .sb-pk-list > .hp-plate{ grid-template-columns:1fr 1fr; }
+}
+
+.sb-pk-r:hover{ background:var(--doc-mat); }
+/* ── THE SELECTED ROW IS RED, AND IT IS THE SAME RED THE CREATOR USES ────────────────────────────
+ * Three states, in order: --doc-state (inherited from THE PACK), then --doc-action-ink #520C0C, then
+ * this. Jason ruled the two boards must match and match on the LIGHTER red, so the sheet adopts
+ * --doc-action — one selection ink across the suite rather than two locally-coherent ones.
+ *
+ * THE COST, MEASURED AND ACCEPTED. On this board every other red FILL is a control: the roll, the
+ * confirm, the live unit head. A selected row now wears the same fill they do, so it can read as a
+ * button somebody already pushed. That risk is real and it is why the deep shade existed; it is
+ * outweighed by one selection colour across two boards a reader moves between. Recorded so nobody
+ * re-derives the deep red later without knowing it was tried and set aside.
+ *
+ * Parchment on --doc-action is 9.30:1 — down from the deep red's 13.11 and the indigo's 14.25, and
+ * still comfortably over the 4.5 floor. */
+.sb-pk-r[data-selected="true"]{ background:var(--doc-action); }
+.sb-pk-r[data-selected="true"] .sb-pk-n{ color:var(--doc-paper-raised); }
+.sb-pk-r[data-selected="true"] .sb-pk-t,
+.sb-pk-r[data-selected="true"] .sb-pk-c{ color:rgba(242,241,236,.72); }
+.sb-pk-c{ color:var(--doc-ink-muted); font-size:calc(15 * var(--u)); line-height:1; }   /* the chevron says "this row opens" — an arrow is a mark */
+.sb-pk-n{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(16 * var(--u));
+  color:var(--doc-ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.sb-pk-t{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.12em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-pk-verbs{ display:flex; gap:9px; flex-wrap:wrap; margin-top:14px;
+  padding-top:14px; border-top:1px solid var(--doc-rule); }
+
+/* the derivation block — the arithmetic behind a number the spine already carries */
+.sb-enc{ display:grid; gap:0; margin-top:7px; }
+.sb-encrow{ display:grid; grid-template-columns:74px minmax(0,1fr) auto; gap:10px; align-items:baseline;
+  padding:4px 0; border-bottom:1px solid var(--doc-rule-fine); }
+.sb-encrow > :first-child{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.13em; text-transform:uppercase; color:var(--doc-ink-muted); }
+  /* the sixth. "ARMOUR / WEAPON / GEAR" names which KIND of thing costs you the weight — the one
+     column of this row a reader scans. Structural ink was wrong here for the same reason it was
+     wrong in the other five, and it took the audit to say so. */
+.sb-encrow > :nth-child(2){ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u));
+  color:var(--doc-ink); overflow:visible; white-space:normal;   /* §165: a 46-character name wraps; it never abbreviates */ }
+.sb-encrow > b{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(15 * var(--u));
+  color:var(--doc-ink); font-variant-numeric:tabular-nums; }
+@container surface (max-width:1023px){ .sb-pack{ grid-template-columns:minmax(0,1fr); height:auto; } }
+
+/* ── §14 THE GROWTH ROOM ─────────────────────────────────────────────────────────────────────────
+ * The board's own grammar, pointed at a different subject. It reuses `.sb-board` wholesale — which
+ * is the point: if the growth room needed its own layout language it would be a second surface, and
+ * "ADVANCEMENT keeps its page whole" would be a slogan rather than a shape. */
+.sb-xp{ display:flex; gap:26px; align-items:baseline; flex-wrap:wrap; padding:0 0 14px; margin-bottom:14px;
+  border-bottom:1px solid var(--doc-rule); font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:calc(10.5 * var(--u)); letter-spacing:.16em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-xp b{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(18 * var(--u));
+  letter-spacing:0; color:var(--doc-ink); margin-left:7px; font-variant-numeric:tabular-nums; }
+.sb-xp-hero b{ font-size:calc(23 * var(--u)); }
+/* the buy row. It is the SKILL ROW with a price — one component, two arrangements (AS-1), not a
+ * second implementation. What the sheet's stage does with it is ROLL; what this room does is BUY. */
+.sb-buy{ display:grid; grid-template-columns:minmax(0,1fr) auto auto auto; gap:11px;
+  align-items:center; min-height:max(44px, calc(44 * var(--u))); padding:5px 0; border-bottom:1px solid var(--doc-rule-fine); }
+.sb-buy:last-child{ border-bottom:0; }
+[data-run]:not(:last-child) > .sb-buy:last-child{ border-bottom:1px solid var(--doc-rule-fine); }   /* R-SAP-3 (D-463) */
+/* ── §15 THE WALK — the OTHER anatomy, and the only place on this surface it appears ─────────────
+ * A step map and a forward chevron. The sheet has neither, deliberately (SHEET_SHAPE §4): a board
+ * has no "4 of 12" and nothing on it means forward. Crafting does, so crafting gets them. */
+.sb-steps{ display:flex; gap:0; margin-bottom:16px; flex-wrap:wrap; }
+.sb-step{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.17em; text-transform:uppercase; padding:9px 22px 9px 14px; color:var(--doc-ink-muted);
+  background:var(--doc-mat); margin-right:-8px;
+  clip-path:polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%); }
+.sb-step[data-state="now"]{ background:var(--doc-state); color:var(--doc-paper-raised); }
+.sb-step[data-state="done"]{ background:var(--doc-paper-raised); color:var(--doc-ink-muted); }   /* a completed step is still a step you read */
+.sb-walkfoot{ display:flex; align-items:center; gap:14px; margin-top:18px; }
+.sb-walkfoot .hp-commit{ margin-left:auto; }
+
+/* ── §16 THE FIELD LITURGY, THE NOTICE, AND THE ARMED ROW ────────────────────────────────────────
+ * A row the record cannot fill states the absence and keeps its place. On a document that is READ
+ * rather than built, that is not pedantry: the empty rows are the ones a player most wants to fill,
+ * and a row that vanishes when empty is one nobody notices is missing. */
+.sb-fld{ display:grid; grid-template-columns:104px minmax(0,1fr); gap:12px; align-items:baseline;
+  padding:5px 0; border-bottom:1px solid var(--doc-rule-fine); }
+.sb-fld:last-child{ border-bottom:0; }
+.sb-fld > span{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.14em; text-transform:uppercase; color:var(--doc-ink-muted); }
+.sb-fld > b{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(16 * var(--u));
+  color:var(--doc-ink); }
+/* the absence takes the same size as the value it stands in for, so the row does not change shape
+   when it is filled in — and it is ink-2, never structural, because it is READ (R-PAT-4c) */
+.sb-fld > i{ font-family:var(--font-body,'Rajdhani',sans-serif); font-style:italic; font-size:calc(16 * var(--u));
+  color:var(--doc-ink-muted); }
+/* B-1001 — THE GROUP HEAD IS THE SHEET'S (ruling f100-m6-pack R-M6G-4, R-M6G-28). Bare, these five rules dressed every `.sb-grp`
+   in the app, the creator's sources box included. `:where()` fences them to the shell at their own 0,1,0, so the cascade inside
+   is exactly today's; `.sb-dh` is the dice hub, portalled to <body> and outside the shell, which wears them too (re-homed);
+   `.sb-ref` is B-1208's reference window, portalled the same way. */
+:where([data-sheet-shell], .sb-dh, .sb-ref) .sb-grp{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.22em; text-transform:uppercase; color:var(--doc-accent);
+  padding:13px 0 5px; border-bottom:1px solid var(--doc-rule); margin-bottom:5px; }
+:where([data-sheet-shell], .sb-dh, .sb-ref) .sb-grp:first-child{ padding-top:0; }
+/* the mechanic card's reconciliation state — it names WHICH number is authoritative rather than
+   only flagging that two disagree, which is what production's sentence does */
+.sb-conflict{ margin-top:9px; padding:8px 11px; background:var(--doc-mat);
+  border-left:3px solid var(--doc-action, var(--doc-action));
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u)); color:var(--doc-ink); }
+/* AMMUNITION — a count, not a meter. It is spent one shot at a time and read at a glance. */
+.sb-ammo{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.13em; text-transform:uppercase; color:var(--doc-ink-muted);
+  font-variant-numeric:tabular-nums; }
+/* THE NOTICE — the app speaking about itself. Not content, not a refusal: something failed to load
+ * or something was repaired. The layer has never drawn one. It takes the page's own stock and a
+ * keyline, never a fill, because it is not a thing the character does. */
+.sb-notice{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:11px;
+  padding:9px 12px; background:var(--doc-paper-raised); border-left:3px solid var(--doc-ink-structural); }
+.sb-notice[data-kind="warn"]{ border-left-color:var(--doc-action); }
+.sb-notice[data-kind="ok"]{ border-left-color:var(--doc-state); }
+.sb-notice-a{ display:flex; gap:9px; flex-wrap:wrap; flex:none; }
+.sb-notice-t{ flex:1; min-width:180px; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:calc(15 * var(--u)); color:var(--doc-ink); }
+/* THE ARMED ROW — production's buy is a two-tap confirm, not a plus button (:17611). A mockup that
+ * draws a one-tap purchase is drawing a different product. */
+.sb-buy[data-armed="1"]{ background:var(--doc-mat); }
+.sb-confirm{ min-height:max(44px, calc(44 * var(--u))); padding:0 14px; cursor:pointer; border:0; background:var(--doc-action);
+  color:var(--doc-paper-raised); font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u));
+  letter-spacing:.13em; text-transform:uppercase; box-shadow:var(--doc-lift);
+  clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); }
+.sb-confirm:hover{ background:var(--doc-action-lift); }
+
+/* ── §17 THE SURPLUS ABOVE WIDE IS VERTICAL, AND IT IS SPENT ON THE PORTRAIT ─────────────────────
+ * §10 settled this on the creator and the reasoning transfers whole: above 1920 the screen keeps
+ * growing and the content does not. Splitting into a fifth column was tried there and rejected —
+ * it filled the width and emptied the height, "dispersal wearing density's clothes." What the
+ * surplus buys instead is the picture.
+ *
+ * So at BROAD the identity block turns vertical and the portrait takes the spine's full width. It
+ * is the one element on this surface that is better bigger and costs nothing to enlarge: a face at
+ * 96px is an avatar, a face at 470 is a character. The rail, the vitals and the injuries keep their
+ * size, because a number does not get truer larger — it only moves further from the number beside
+ * it, which is the opposite of what a vitals ledger is for. */
+@container surface (min-width:2300px){
+  /* NO `order`. A first cut set `order:1` on the identity to "put the picture last" and it did
+   * exactly that — the designation and the portrait dropped BELOW the vitals ledger, so the sheet
+   * opened on a stat block belonging to a character it had not named yet. Reading order on this
+   * surface is who, then what: it is the first thing §3.2 fixes and not a thing a band may reorder.
+   * The identity absorbs the surplus by GROWING in place, not by moving. */
+  .sb-ident{ flex-direction:column; align-items:stretch; gap:calc(14 * var(--u));
+             flex:1 1 auto; min-height:0; }
+  /* the instrument must grow too, or its child has no leftover to take */
+  .sb-instr{ flex:1 1 auto; min-height:0; }
+  /* SIZED BY THE HEIGHT THAT IS LEFT, not by the width available. Driving it from width and an
+   * aspect ratio overflowed the spine by 71px — the portrait pushed the ledger past the bottom of
+   * a zone that is not allowed to scroll. It takes the leftover vertical instead, so it can only
+   * ever be as tall as the surplus actually is. */
+  .sb-ident .hp-artplate{ width:100%; flex:1 1 auto; min-height:0; display:flex; }
+  .sb-ident .hp-artplate-in{ flex:1; min-height:0; aspect-ratio:auto !important;
+    background-size:contain !important; background-repeat:no-repeat !important;
+    background-position:center !important; }
+  /* CONTAIN, NOT COVER. The mat law: the index crops for density, the entry never does. A plate
+   * with a picture on it, not a picture with no plate around it. */
+  .sb-ident-b{ padding-top:0; flex:0 0 auto; }
+}
+
+/* ── §18 THE REFUSAL WORD ────────────────────────────────────────────────────────────────────────
+ * A disabled control is a refusal with its reason deleted. Production says why in words — MAX,
+ * CAPPED, UNAVAILABLE, NEED n XP, REQUIRES FORCE RATING n — and the board says the same words. It
+ * takes structural ink and a keyline, never a fill and never a hue: the status scale on paper is
+ * unmodeled, and a refusal is the last place to start guessing at one. */
+.sb-refuse{ font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:calc(10 * var(--u)); letter-spacing:.13em; text-transform:uppercase;
+  color:var(--doc-caution); border:1px solid var(--doc-caution); padding:3px 8px; white-space:nowrap; }   /* §163: the caution ink, on top of the word */
+.sb-buy[data-refused="1"] .sb-sk-name{ color:var(--doc-ink-muted); }
+/* An UNRESOLVED RECORD keeps its row and states what happened — same muted refusal chip the buy
+   rows use, never the accent: it is not active, not owned-and-working, and not an error either. */
+.sb-e[data-refused="1"] .sb-e-n{ color:var(--doc-ink-muted); }
+/* THE CRIT NUDGE informs. It is not a notice and not a refusal, so it takes neither the notice's
+   rule nor the refusal's box — body type, one shade back, above the rows it is about. */
+.sb-critnudge{ margin:0 0 8px; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:calc(14 * var(--u)); line-height:1.35; color:var(--doc-ink-muted); }
+
+/* ── §19 PHASE 3 · WHAT THE RANGE FOUND ──────────────────────────────────────────────────────────
+ * THE DERIVATION ROW TRUNCATED A REAL ITEM NAME. At 390 the encumbrance ledger gave its name
+ * column ~180px; the registry holds a 62-character weapon ("Vac Attack Mk-127 Concealable Disc
+ * Launcher (Single-Line Mode)") and an 8-weapon mid-campaign load carries names near it. Measured
+ * loss: 153px and 214px of name, behind an ellipsis.
+ *
+ * A weight ledger exists to tell you WHICH item costs you the encumbrance. A row that hides the
+ * name and keeps the number has kept the half you cannot act on. So the name WRAPS at the narrow
+ * band — two lines of a real name beats one line of half a name, and the row has the height. */
+@container surface (max-width:1023px){
+  .sb-encrow{ grid-template-columns:64px minmax(0,1fr) auto; align-items:start; }
+  .sb-encrow > :nth-child(2){ overflow:visible; text-overflow:clip; white-space:normal;
+                              line-height:1.35; }
+}
+
+/* THE GROUP HEAD PINS. With 42 entries the abilities unit is a 5,852px scroller showing 10% — you
+ * read four of forty-two and the group you are inside scrolls off above you. Pinning the head is
+ * the same law the stack itself is built on, one level down: a set of choices that scrolls its own
+ * labels away has become a queue. It does NOT make 42 entries browsable — see PHASE3 §4, which
+ * records that as an open design finding rather than pretending this closed it. */
+:where([data-sheet-shell], .sb-dh, .sb-ref) .sb-grp{ position:sticky; top:0; z-index:2; background:var(--doc-paper-raised); }
+:where([data-sheet-shell], .sb-dh, .sb-ref) .sb-grp{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+:where([data-sheet-shell], .sb-dh, .sb-ref) .sb-grp span{ letter-spacing:.1em; color:var(--doc-ink-muted); font-variant-numeric:tabular-nums; }
+
+/* ── §20 PHASE 2 · THE RAIL IS A BLOCK, NOT A BAR ────────────────────────────────────────────────
+ * At mid-tier the one-column board gave the rail 1,336px and its beads filled 20% of their cells.
+ * A plate is sized to what it carries (§4 of the template), and the rail carries six capsules: it
+ * takes the width six capsules need and stops. 560px keeps every label a full word at the 326px
+ * floor with room over, and puts the bead back above 40% of its cell. */
+@container surface (max-width:1023px){
+  .sb-instr .hp-railwrap{ max-width:560px; }
+}
+
+/* ── §21 THE ABILITIES INDEX — the at-table list above the threshold ─────────────────────────────
+ * A row here is a NAME and its activation, and it exists so a character with forty abilities can
+ * still SCAN. Measured: the prose entry is 126px, this row is ~30px, and the unit's body is 461px —
+ * so 42 abilities go from 11.5 viewports of reading to 2.7 of scanning. The prose did not move to a
+ * worse place; it moved to the room, which is a better place for it. */
+/* A ROW IS TEXT, NOT A CONTROL. As a button it takes AS-6's 44px floor and renders at 49px, which
+ * puts 42 entries at 4.5 viewports and fails the BURIED check at 22%. As text it is 30px: 2.7
+ * viewports, 37%, clear. The door is the control; a name here is information. */
+.sb-ax{ display:flex; align-items:baseline; gap:12px; width:100%; padding:5px 2px;
+  border-top:1px solid var(--doc-rule-fine); }
+.sb-ax:first-of-type{ border-top:0; }
+/* THE NAME WRAPS. At 390px "Armor Master (Supreme)" lost 46px to an ellipsis, and a list whose
+ * whole job is naming what you have must not eat the names. Height is cheap here; the name is not. */
+.sb-ax-n{ flex:1; min-width:0; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:calc(17 * var(--u)); color:var(--doc-ink); }
+/* --doc-ink-muted, NOT --doc-ink-structural. The activation is text a reader makes out to tell an action from a
+ * passive; ink-3 is 4.00:1 and would be this token's documented seventh misuse. */
+.sb-ax-m{ flex:none; font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:calc(12 * var(--u)); letter-spacing:.05em; color:var(--doc-ink-muted); white-space:nowrap; }
+
+/* THE ROOM'S FILTER. Production's ABILITIES is an index-and-reading pair WITH A FILTER; leaving it
+ * out is what makes a 42-row index a 1,978px scroller you can only thumb through. */
+.sb-filter{ flex:none; width:100%; min-height:44px; margin-bottom:10px; padding:10px 12px;
+  background:transparent; border:1px solid var(--doc-rule-fine); color:var(--doc-ink);
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(16 * var(--u)); }
+.sb-filter::placeholder{ color:var(--doc-ink-muted); }
+
+/* ── §22 CHARACTER STATE ON THE VITALS — the model from LAB_NOTES §21, applied ───────────────────
+ * Three states, carried by MARK and VALUE, never by hue:
+ *   clear    below half        no mark at all — the absence is the statement
+ *   pressed  half to threshold a printed rule under the value
+ *   down     at or past it     the value cell reverses, and the WORD ships with it
+ *
+ * Wounds reverse SOLID, strain reverses as an OUTLINE: strain comes back on its own and wounds do
+ * not, so the heavier mark goes to the heavier condition. That distinction is value, not hue.
+ *
+ * NO NEW COLOUR ENTERS THE PALETTE. --doc-action already means press this and --doc-state already means
+ * this is your standing state; a third meaning on red would break both. Indigo is right here on the
+ * palette's own rule — being wounded is a thing that simply IS. */
+/* THE STATUS INKS ARRIVE (§163, Jason's answer 1) — ON TOP OF THE MARKS, never instead. PRESSED
+ * keeps its printed rule and takes the caution purple; DOWN keeps its reversed cell and takes the
+ * critical red (wounds) or its outline (strain); the meter's fill is the live blue at CLEAR, the
+ * caution at PRESSED, the critical at DOWN. Everything a photocopy could read before, it still can. */
+.sb-vitrow[data-state="pressed"] .sb-vitval{ border-bottom:2px solid var(--doc-caution); color:var(--doc-caution); }
+.sb-vitrow[data-state="down"] .sb-vitval{ background:var(--doc-critical); color:var(--doc-paper-raised);
+  padding:2px 8px; }                                   /* parchment on the critical red: 8.28:1 */
+.sb-meter i{ background:var(--doc-live); }
+.sb-vitrow[data-state="pressed"] .sb-meter i{ background:var(--doc-caution); }
+.sb-vitrow[data-state="down"] .sb-meter i{ background:var(--doc-critical); }
+/* THE VITAL PAST ITS LINE — encumbrance over the threshold: production's sentence in the critical ink. */
+.sb-vitrow[data-state="over"] .sb-vitval{ color:var(--doc-critical); font-weight:700; }
+.sb-vitover{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u));
+  letter-spacing:.1em; text-transform:uppercase; color:var(--doc-critical); margin-top:4px; line-height:1.4; }
+.sb-vitrow[data-state="down"] .sb-vitval .sb-of{ color:rgba(242,241,236,.74); }
+/* STRAIN IS AN OUTLINE, NOT A FILL — it recovers on its own and wounds do not, so the heavier mark
+ * goes to the heavier condition. The first attempt tried to tell the two apart with
+ * `:has(.sb-vitkey:not(:only-child))`, which distinguishes nothing: both rows have the same shape.
+ * The row now SAYS which track it is, and the CSS reads that instead of guessing at structure. */
+.sb-vitrow[data-track="strain"][data-state="down"] .sb-vitval{ background:transparent;
+  color:var(--doc-critical); box-shadow:inset 0 0 0 2px var(--doc-critical); }
+.sb-vitrow[data-track="strain"][data-state="down"] .sb-vitval .sb-of{ color:var(--doc-ink-muted); }
+.sb-vitword{ font-family:var(--font-mono,'Share Tech Mono',monospace);
+  font-size:calc(11 * var(--u)); letter-spacing:.13em; text-transform:uppercase;
+  color:var(--doc-state); margin-top:6px; font-weight:600; }
+
+/* ── §23 THE DISCLOSURE HEAD'S HEIGHT — the board rules it, and rules it by its own ladder ───────
+ * Production promoted the disclosure idiom to `window.SWRPGUI.DisclosureSection` and DELIBERATELY
+ * preserved two site drifts rather than picking between them: minHeight 50 in the cockpit, 46 in
+ * advancement. Their ruling hands the choice here — the board governs those surfaces' values at the
+ * transplant, so the spec must STATE one rather than inherit whichever site is copied first.
+ *
+ * THE BOARD ALREADY HAD THE ANSWER AND WAS NOT APPLYING IT TO ITSELF. `max(44px, calc(44 * var(--u)))`
+ * is this board's tap-target rule and it is used in TEN places — the pack row, the confirm, the buy,
+ * the tracker, the crit door, the segment, the skill row. The unit head — EIGHT of them, the most
+ * pressed control on the surface — inherited a flat `min-height:44px` from holocron.css and never
+ * scaled. So at ROOM every other control grew and the thing you press most did not.
+ *
+ * RULED: the head takes the same scaled floor as everything else. It resolves to
+ *     MID-TIER / WIDE   --u 1px    44px
+ *     BROAD             --u 1.3px  57px
+ *     ROOM              --u 1.8px  79px
+ *
+ * TWO CONSEQUENCES, STATED SO THE TRANSPLANT DOES NOT READ THEM AS ACCIDENTS:
+ * · At the band production lives at this is 44, DOWN from the cockpit's 50. That is a deliberate
+ *   move to the board's own standard, not a regression — 50 and 46 were two sites' fixed guesses at
+ *   one width, and neither was derived from anything.
+ * · The rule is a FLOOR, not a target. A surface that needs more may raise it, but it must say why;
+ *   what it may not do is inherit a number because a file it was copied from happened to hold one.
+ *
+ * The board does not special-case its most-used control. Consistency inside its own vocabulary
+ * beats matching either site. */
+.sb-board .sb-unit > .hp-head,
+.sb-over .sb-unit > .hp-head{ min-height:max(44px, calc(44 * var(--u))); }
+
+/* ── §24 THE HEAD'S TYPE SCALES WITH ITS BOX ─────────────────────────────────────────────────────
+ * §23 gave the head a scaled floor and left the type at a fixed 11.5px, so at ROOM it was a 79px
+ * bar around 11.5px text — a box-to-type ratio of 6.9 against 3.8 at the working bands. Growing a
+ * control without growing what it says is not scaling, it is padding. Jason caught it in the
+ * artifact before it was committed. */
+.sb-board .sb-unit > .hp-head, .sb-over .sb-unit > .hp-head{
+  font-size:calc(11.5 * var(--u)); }
+
+/* ── §25 THE HEAD PAIR INVERSION — PROPOSED, RENDERED, AND CLOSED AGAINST ────────────────────────
+ * RULED BY JASON, 2026-09-02, from the creator board's A/B renders: "Use A, original design" —
+ * INDIGO AT REST, RED WHEN OPEN, system-wide. So the three rules that used to live here are gone
+ * rather than commented out, and the sheet inherits the pairing from holocron.css like every other
+ * surface. The switcher's active state returns to the base at :234 with them; it had been pushed to
+ * red only to follow the flip.
+ *
+ * WHAT STOOD HERE, kept because a closed question's history is worth more than a clean file. From
+ * 2026-09-01 the sheet rendered its unit heads red at rest and indigo when open, scoped to itself
+ * on purpose, with this block's own comment saying: "if the two should match, that is a second
+ * decision and it should be looked at on the creator's own frames." That is exactly how it closed —
+ * the creator board rendered both pairings side by side (build.py, the #headpair section, which
+ * KEEPS frame B as the drawn record) and Jason ruled from the renders, which is how every fork in
+ * this lab closes.
+ *
+ * ONE MEASURED FACT THE COMPARISON PRODUCED, worth keeping even though the branch lost: the gold
+ * open-marker chevron on a RED resting head measures 4.25:1 against a 4.5 floor, so the inverted
+ * pairing could not have kept both the flip and the gold marker. Any future proposal to invert
+ * these heads inherits that cost and should not rediscover it. */
+
+/* ── §17 THE REARRANGEMENT (LAB_NOTES §164) — APPROVED by Jason 2026-09-15 (§165): these are the board's shapes now
+ * Jason 2026-09-15: "The room seems like so much wasted space. Looks like the sheet has space wasted
+ * as well. How would you rearrange?" Drawn first as scoped alternatives beside the old frames; on his
+ * approval the scopes came off: the grouped stage IS the stage, two-up IS the register, the group read
+ * IS the room, and the growth room is the creator's tree. */
+
+/* THE STAGE WITH EVERY SKILL. The segmented control goes; three groups under the sticky `.sb-grp`
+ * heads; the row is the same `.sb-sk` on ONE line (name, then its characteristic and CAREER inline);
+ * at wide the rows run two-up. The stack gives up width it was not using: 670px held 44px heads. */
+@container surface (min-width:1024px){
+  /* 1.35 : 0.85, not 1.5 : 0.7 — at 0.7 the stack was 465px at 1920 and the registry's longest names
+   * truncated in its lists (generality: TRUNCATED 3) and a notice's two buttons spilled 26px in WebKit.
+   * At 0.85 it is 564px; the stage keeps 896, which is still two-up (the row wants 390, two want 800). */
+  .sb-board{ grid-template-columns:var(--sb-spine) minmax(0,1.35fr) minmax(370px,0.85fr); } }
+/* TWO-UP WHEN THE STAGE IS WIDE ENOUGH, measured on the STAGE: a one-line row needs ~390px, so two of
+ * them want 800. That is a fact about the stage's width, not the surface's — at 1440 the stage is 610
+ * and runs one-up; at 1920 it is 995 and runs two-up; at 1366 the board is one column and it is 1286. */
+.sb-stage{ container-type:inline-size; container-name:stage; }
+.sb-stage2{ display:grid; grid-template-columns:minmax(0,1fr); column-gap:24px; align-content:start; }
+.sb-stage2 .sb-grp{ grid-column:1 / -1; }
+@container stage (min-width:800px){ .sb-stage2{ grid-template-columns:1fr 1fr; } .sb-stage2 > .hp-bands2{ --hp-band-2:transparent; --hp-band-3:var(--doc-row-band); } }   /* R-SAP-4: the flip goes with the columns */
+.sb-sk[data-compact="1"]{ padding:0; min-height:max(44px, calc(44 * var(--u))); gap:10px; }
+.sb-sk[data-compact="1"] .sb-sk-n{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-width:0; }
+.sb-sk[data-compact="1"] .sb-sk-char{ margin-top:0; }
+
+/* THE PACK'S INDEX TWO-UP AT WIDE — the ABILITIES room's register rule, applied to every room's list. */
+.sb-pack .sb-pk-list > .hp-plate{ display:grid; grid-template-columns:1fr; column-gap:14px; align-content:start; }
+.sb-pack .sb-pk-h{ grid-column:1 / -1; }
+@container surface (min-width:1024px){ .sb-pack .sb-pk-list > .hp-plate{ grid-template-columns:1fr 1fr; } }
+/* A NAME WRAPS IN A HALF-WIDTH ROW. Two-up halves the row, and "Vac Attack Mk-127 Concealable Disc Launcher"
+ * lost 56px behind an ellipsis — a truncated label is an abbreviation (ban 8). The row grows instead. */
+.sb-pack .sb-pk-n{ white-space:normal; overflow:visible; text-overflow:clip; }
+
+/* THE GROUP READ. The selected GROUP head takes the selection ink (the creator's red, as the pick row
+ * does); the rows are jump targets and carry no selection of their own. */
+.sb-pk-h[data-selected="true"]{ color:var(--doc-action); border-bottom-color:var(--doc-action); }
+.sb-pk-h[data-selected="true"] span{ color:var(--doc-action); }
+
+/* THE GROWTH ROOM ON THE CREATOR'S TREE. Two zones: a 680px spine (skills two-up, specializations,
+ * Force powers — one open) and the stage, which the tree fills. The takeover fills the sheet's
+ * height (`data-fill`) instead of §14's fixed 600px, so the tree is not capped at half the window. */
+.sb-over[data-fill="1"]{ flex:1; min-height:0; display:flex; flex-direction:column; }
+.sb-growth{ flex:1; min-height:0; grid-template-columns:680px minmax(0,1fr); grid-template-areas:"spine stage"; }
+.sb-growth .sb-buy2{ display:grid; grid-template-columns:1fr 1fr; column-gap:24px; align-content:start; --hp-band-2:transparent; --hp-band-3:var(--doc-row-band); }   /* R-SAP-4: the flip goes with the columns */
+.sb-growth .sb-buy[data-armed="1"]{ grid-column:1 / -1; }
+.sb-growth .sb-stage .hp-plate{ overflow:auto; }
+.sb-growth .hp-treescroll{ overflow:visible; padding-bottom:0; }
+.sb-growth .hp-sechead h2{ margin:0; }
+@container surface (max-width:1023px){
+  /* 350, not 372: the creator's tree wants 4 x 215 + 3 x 20 = 920px, and 1286 - 16 - 920 = 350 */
+  .sb-board.sb-growth{ grid-template-columns:350px minmax(0,1fr); grid-template-areas:"spine stage"; height:auto; gap:16px; }
+  /* the grouped stage scrolls inside itself at this band, as the units do — 35 rows are not a page */
+  .sb-board[data-skills="grouped"] .sb-stage .hp-plate{ overflow:auto !important; max-height:62vh; }
+  .sb-growth .sb-buy2{ grid-template-columns:minmax(0,1fr); --hp-band-2:var(--doc-row-band); --hp-band-3:transparent; }
+  .sb-growth .sb-stage .hp-plate{ overflow:visible !important; max-height:none !important; }   /* the tree is the page here, not a 62vh window */
+  /* the creator's 215px column floor is for its own pane; here the tree takes the stage it has
+   * (878px at 1366 → 205px cells, against the creator's 218 at the same band) so nothing spills */
+  .sb-growth .hp-treescroll .hp-tree{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+
+/* ── §18 THE PHONE'S SKILL ROW (§165) — after §17 on purpose: it must beat the compact row's rules ────
+ * The one-line row is two lines on a phone: the name over its characteristic in the first column,
+ * boxes and ROLL beside it, the pool on its own line beneath (the ≤560 rule §6 already had). Measured
+ * before this block: 114px rows, three lines, the stage showing 18% of itself. */
+@container surface (max-width:560px){
+  /* ONE LINE, FOUR CELLS, the name stacked over its characteristic inside the first. Measured: the
+   * three-column shape put the pool on a row of its own and ROLL on a third (131px rows, 16% shown);
+   * this is 45–56px a row and the stage shows 44% of itself at 390 — a list you can thumb. */
+  .sb-sk[data-compact="1"]{ grid-template-columns:minmax(0,1fr) auto auto auto; padding:4px 0; gap:8px; }
+  .sb-sk[data-compact="1"] .sb-sk-n{ display:block; }
+  .sb-sk[data-compact="1"] .sb-sk-char{ display:block; margin-top:1px; letter-spacing:.08em; }
+  .sb-sk[data-compact="1"] .sb-pool{ grid-column:auto; padding:4px 6px; }
+  .sb-sk[data-compact="1"] .sb-roll{ padding:0 10px; }
+}
+
+
+/* THE RUNNING HEAD'S ACTIONS: between-session verbs as quiet buttons, the hub as the one commit.
+ * The lab's runhead carried "Table mode" as a static slot; here it is the toggle (ruling FORK 2/3:
+ * enter and exit from the same control), and TABLE MODE hides the between-session verbs. */
+[data-sheet-shell] .sb-runhead{ flex-wrap:wrap; }
+[data-sheet-shell] .sb-runhead-r{ margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+[data-sheet-shell] .sb-runhead .hp-quiet, [data-sheet-shell] .sb-runhead .hp-commit{ min-height:max(44px, calc(44 * var(--u))); }
+[data-sheet-shell] .sb-runhead-name{ color:var(--doc-ink-muted); }
+/* S5 · BRING YOUR OWN SHEET (argo-a1-curation ADDENDUM 4; mockup F8, D-504) — the public copy only (the shell draws none of
+ * this on holocron.work). The panel sits under the running head in the notice's stock; at wide it is 380px against the
+ * right edge, under the PDF button. Change sheet is a link-weight verb beside PDF, its target the head's 44px. */
+[data-sheet-shell] .sb-link{ min-height:max(44px, calc(44 * var(--u))); padding:0 4px; border:0; background:none; cursor:pointer;
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(14 * var(--u)); color:var(--doc-action);
+  text-decoration:underline; }
+[data-sheet-shell] .sb-sheetask{ display:grid; gap:12px; margin-bottom:11px; padding:16px; background:var(--doc-paper-raised);
+  border:1px solid var(--doc-rule); }
+[data-sheet-shell] .sb-sheetask-h{ font-family:var(--font-display); font-weight:700; font-size:calc(13 * var(--u)); letter-spacing:.05em;
+  text-transform:uppercase; color:var(--doc-ink); }
+[data-sheet-shell] .sb-sheetask-t, [data-sheet-shell] .sb-sheetask-w{ margin:0; font-family:var(--font-body,'Rajdhani',sans-serif);
+  font-size:calc(16 * var(--u)); color:var(--doc-ink); }
+[data-sheet-shell] .sb-sheetask-w{ color:var(--doc-action); font-weight:600; }
+[data-sheet-shell] .sb-sheetask-a{ display:flex; gap:9px; flex-wrap:wrap; }
+[data-sheet-shell] .sb-sheetask .hp-commit{ min-height:max(44px, calc(44 * var(--u))); }
+@container surface (min-width:561px){
+  [data-sheet-shell] .sb-sheetask{ width:380px; max-width:100%; margin-left:auto; box-sizing:border-box; flex:none; }
+}
+/* THE BOARD'S PAGE PHYSICS at wide — from the lab board's own page CSS (sheet_core PAGE_CSS), not its
+ * sheet.css: the wrap is a column that fills the surface and never scrolls, the board takes the rest.
+ * Below wide, §12 above turns the wrap into a page (`overflow-y:auto; display:block`). */
+[data-sheet-shell] .sb-surface{ height:100%; }
+[data-sheet-shell] .sbwrap{ height:100%; box-sizing:border-box; }
+@container surface (min-width:1024px){
+  [data-sheet-shell] .sbwrap{ display:flex; flex-direction:column; overflow:hidden; }
+  [data-sheet-shell] .sbwrap .sb-board{ flex:1; min-height:0; }
+}
+/* THE PANE IS THE SURFACE, NOT THE WINDOW (measured B-609). On desktop the sheet sits beside the
+ * 336px characters rail, so a 1440 window gives the board a 1,080px pane — MID-TIER by the container,
+ * the page arrangement. TABLE MODE drops the rail (the shell's own rule: railWidth 0 when the rail is
+ * the roster), and the same window is then 1,440 wide — the three-column board. The at-table read is
+ * the board; the between-sessions read beside the roster is the page. That is the container query
+ * doing its job, not a fourth band. */
+/* THE PHONE'S RUNNING HEAD: the same head, tighter — the verbs wrap to a second line at 390. */
+@container surface (max-width:560px){
+  [data-sheet-shell] .sb-runhead{ gap:6px 8px; }
+  [data-sheet-shell] .sb-runhead .hp-quiet, [data-sheet-shell] .sb-runhead .hp-commit{ padding-left:10px; padding-right:10px; }
+  [data-sheet-shell] .sb-runhead-r{ width:100%; margin-left:0; }
+}
+/* the shell fills the screen; the paper is the ground; the surface is the container the bands read.
+ * B-616 · WRITTEN AT (0,3,0), AND THAT IS LOAD-BEARING: paper.css sets `position:relative` on
+ * `[data-doc-ground="creator"].hp-sheet` at (0,2,0), which beat the (0,1,0) attribute selector this
+ * rule first used — silently. The shell then grew to its content (2,158px inside a 735px pane) and
+ * NOTHING between it and the app shell's `overflow:hidden` scrolled: at 390 everything under the fold
+ * was unreachable, and the smoke's physics assert read computed styles (overflow-y:auto, sticky) that
+ * were true of a box that never overflowed. The assert now scrolls. */
+[data-doc-ground="creator"].hp-sheet[data-sheet-shell]{ position:absolute; inset:0; overflow:hidden; display:flex; flex-direction:column; background:var(--doc-paper); }
+[data-sheet-shell] > .sb-surface{ flex:1 1 auto; min-height:0; }
+
+/* ── B-610 · THE SPINE'S PRODUCTION-ONLY STATES — what the board did not draw, on the kit ──────────
+ * The board drew the crit ROW as severity · name · MEDICINE. Production's row also carries the injury's
+ * EFFECT text and a remove; and production has the RECORDING state — the crit table's attach, the
+ * manual entry, ADD / CANCEL — which the mockup never photographed (SHEET_STATE_CENSUS lists it; the
+ * board drew the door). Undrawn states follow production as they are, on the kit's own objects. */
+[data-sheet-shell] .sb-critname{ display:block; min-width:0; }
+[data-sheet-shell] .sb-critfx{ display:block; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:400; font-size:calc(14 * var(--u));
+  line-height:1.45; color:var(--doc-ink-muted); margin-top:2px; }
+[data-sheet-shell] .sb-critacts{ display:inline-flex; align-items:center; gap:6px; }
+[data-sheet-shell] .sb-critx{ min-width:max(44px, calc(44 * var(--u))); min-height:max(44px, calc(44 * var(--u))); cursor:pointer; background:transparent;
+  border:1px solid var(--doc-rule-fine); color:var(--doc-ink-muted); font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(19 * var(--u)); line-height:1; }
+[data-sheet-shell] .sb-critx:hover{ border-color:var(--doc-action); color:var(--doc-ink); }
+[data-sheet-shell] .sb-critform{ display:grid; gap:9px; padding:4px 0 2px; }
+[data-sheet-shell] .sb-critchips, .sb-ref .sb-critchips{ display:flex; gap:6px; flex-wrap:wrap; }
+[data-sheet-shell] .sb-critchips .hp-quiet[data-on="1"], .sb-ref .sb-critchips .hp-quiet[data-on="1"]{ background:var(--doc-state); color:var(--doc-paper-raised); border-color:var(--doc-state); }
+[data-sheet-shell] .sb-critform .sb-filter{ margin-bottom:0; }
+[data-sheet-shell] .sb-critverbs{ display:flex; gap:9px; flex-wrap:wrap; }
+[data-sheet-shell] .sb-critrecover{ width:100%; margin-top:7px; }
+[data-sheet-shell] .sb-crit > .sb-critdoor + .sb-critrecover{ margin-top:7px; }
+/* the trackers carry a testid hook and no other change; the crit plate's head is the kit's static head */
+
+/* ── B-612 · THE ROOMS — a takeover of the board; each room is drawn (B-613/614/615). */
+[data-sheet-shell] .sb-over[data-sheet-room]{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; }
+
+/* ── B-613 · THE PACK inside the takeover: the room fills the pane; the panel's mounted controls sit on
+ * their island beneath the paper head until B-623 draws them. */
+[data-sheet-shell] .sb-over .sb-pack{ height:auto; flex:1 1 auto; min-height:0; }
+[data-sheet-shell] .sb-pk-r{ outline:none; }
+[data-sheet-shell] .sb-pk-r:focus-visible{ box-shadow:inset 0 0 0 2px var(--doc-action); }
+
+/* ── B-614 · THE ABILITIES ROOM — the index register under its filter, two-up at wide (§13's rule on
+ * the `.sb-pack[data-room="abilities"]` list plate), the group heads spanning both columns. */
+[data-sheet-shell] .sb-pack[data-room="abilities"] .sb-pk-list > .hp-plate{ display:flex; flex-direction:column; }
+[data-sheet-shell] .sb-ab-index{ display:grid; grid-template-columns:1fr; column-gap:14px; align-content:start; }
+[data-sheet-shell] .sb-ab-index .sb-pk-h{ grid-column:1 / -1; cursor:pointer; }
+[data-sheet-shell] .sb-ab-index .sb-pk-h:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+/* B-1317 (ruling f100-surfacing-sheet-concept ADDENDUM 4 rider R5, ADDENDUM 8): a group head that is a press target meets
+ * AS-6's 44px — the room's four heads and the Signature head were 30px tall. */
+[data-sheet-shell] .sb-pk-h[role="button"]{ min-height:max(44px, calc(44 * var(--u))); box-sizing:border-box; align-items:center; }
+@container surface (min-width:1024px){ [data-sheet-shell] .sb-ab-index{ grid-template-columns:1fr 1fr; } }
+
+/* ── B-615 · THE GROWTH ROOM inside the takeover: the XP strip, then the two-zone board filling the pane;
+ * one column on a phone (the lab drew no handheld growth frame — the board's own narrow rule applies). */
+[data-sheet-shell] .sb-growth-room{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; }
+[data-sheet-shell] .sb-growth-room .sb-xp{ flex:none; }
+[data-sheet-shell] .sb-growth-room .sb-board.sb-growth{ flex:1 1 auto; min-height:0; }
+/* THE PANE IS THE SURFACE (B-609's measurement): beside the 336px roster rail a 1920 window gives the
+ * board 1,560px — "wide" by the mockup's 1367 line, but the two-up spine (680) plus the creator's tree
+ * floor (4 × 215 + 3 × 20 = 920) is 1,624 and the tree clipped at its fourth column. The two-up spine
+ * needs 1,700; below that the growth board keeps the mid-tier arrangement (350px spine, one-up rows,
+ * the tree taking the stage it has). TABLE MODE drops the rail and the 1920 frame is the mockup's. */
+@container surface (min-width:1024px) and (max-width:1699px){
+  [data-sheet-shell] .sb-board.sb-growth{ grid-template-columns:350px minmax(0,1fr); }
+  [data-sheet-shell] .sb-growth .sb-buy2{ grid-template-columns:minmax(0,1fr); --hp-band-2:var(--doc-row-band); --hp-band-3:transparent; }
+  [data-sheet-shell] .sb-growth .hp-treescroll .hp-tree{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@container surface (max-width:560px){
+  [data-sheet-shell] .sb-board.sb-growth{ grid-template-columns:minmax(0,1fr); grid-template-areas:"spine" "stage"; }
+  /* the phone's tree is the CREATOR's phone tree: four 215px columns in a sideways scroller (paper.css
+   * §hp-phonesheet), not four columns squeezed into 324px — measured as one word per line before this */
+  [data-sheet-shell] .sb-growth .hp-treescroll{ overflow-x:auto; overflow-y:hidden; padding-bottom:6px; -webkit-overflow-scrolling:touch; }
+  [data-sheet-shell] .sb-growth .hp-treescroll .hp-tree{ grid-template-columns:repeat(4,minmax(215px,1fr)); }
+  [data-sheet-shell] .sb-growth .hp-treescroll .hp-tree.hp-forcetree{ grid-template-columns:repeat(4,minmax(152px,1fr)); }
+}
+
+/* ── B-616 · THE PHONE ──────────────────────────────────────────────────────────────────────────────
+ * THE INSTRUMENT PINS FOR THE WHOLE PAGE, NOT FOR ITS SPINE. A sticky element pins inside its parent's
+ * box and no further: with `.sb-instr` a child of the 634px spine it held for the 165px between its own
+ * bottom and the spine's, then left with it — measured after the wrap first scrolled at all (see the
+ * shell rule above). Below wide the landing spine dissolves (`display:contents`) so the instrument, the
+ * injuries plate, the stage and the stack are the page's own children in DOM order, and the instrument's
+ * pinning box is the page. The growth room's spine is a different object and keeps its own. */
+/* JASON 2026-09-16 ("as recommended"): the pin is HANDHELD's (< 1024) and it is the FOUR things §11's text
+ * names — identity, rail, wounds, strain (the derived rows are their own plate on a handheld, SheetSpine);
+ * the mid-tier reads as a page. Measured before the answer: as drawn, 252px of reading at 390×844 and
+ * 185px at 1366×768; after it, 371px at 390 and the whole page at 1366.
+ * THE EDGE THE PAGE SCROLLS UNDER is one clean rule: the pinned block bleeds across the wrap's 15px
+ * gutters (nothing scrolls past it at the sides), carries the paper, and ends in a structural rule with
+ * 10px of paper beneath it — no fading shadow, no row half-cut under a soft edge. */
+@container surface (max-width:1023px){
+  [data-sheet-shell] .sb-board:not(.sb-growth){ display:flex; flex-direction:column; gap:16px; }
+  [data-sheet-shell] [data-sheet-zone="spine"]{ display:contents; }
+  /* `top:-14px` with 14px of its own padding: the wrap's top padding is inside the sticky view
+   * rectangle, so at `top:0` the block pinned 14px down and a strip of page scrolled past ABOVE it. */
+  [data-sheet-shell] .sb-instr{ position:sticky; top:-14px; z-index:3; background:var(--doc-paper);
+    margin:-14px -15px 0; padding:14px 15px 10px; border-bottom:1px solid var(--doc-ink-structural); }
+  [data-sheet-shell] .sb-instr + .hp-plate{ margin-top:2px; }
+  /* B-660 · AN OPEN ASK RELEASES THE PIN (Jason 2026-09-17: "B"). B-656 put the species ask INSIDE the
+   * instrument, after `.sb-ident` — so an ask OPENED ON A HANDHELD grew the pinned block from 422px to
+   * 671px of an 844px window and sheet_eyes read 46 controls of the stage occluded behind it. The pin
+   * exists so the four things the two-second test names stay in the window; it is not a reason for the
+   * offer to eat the window. While an ask is open the instrument is an ORDINARY BLOCK and the page
+   * scrolls it away; when the ask closes (CONFIRM or NOT NOW) the pin is back with nothing to restore.
+   * `:has()` is already this file's own vocabulary (`.sb-vitrow:has(.sb-trk)`, §the vitals row) and no
+   * repo floor forbids it. It reads through `.sb-asks`'s `display:contents` because `:has()` walks the
+   * DOM, not the box tree. The DESK bands are untouched — they never pin. */
+  [data-sheet-shell] .sb-instr:has(.sb-ask[data-state="open"]){ position:static; }
+}
+
+/* ── B-617 · THE WALK's instrument findings (sheet_eyes + the pane measure, 390 · 1194 · 1440) ───────────
+ * TREE CELL: a four-line body ran 5px under its cost tab (OVERLAP, growth-tree at 1194 and 1440) — the
+ * cell's default clearance is the creator's phone one (26px); the desk shell gives 36. The sheet's tree
+ * is drawn at the desk's cell, so it takes the desk's clearance. */
+[data-sheet-shell] .hp-tal-body{ padding-bottom:36px; }
+/* THE JOURNEY IS A LIST: below wide the growth stage is the page, and the new-specialization journey
+ * made it a 10,685px page at 1194. A list scrolls as a list, bounded, with the cue (the walk's LIST class).
+ * B-657 RETIRED THE ISLAND this rule bounded (R-R0-4: the lap that fixes a shim's upstream cause retires
+ * the shim in the same lap), and its STATED CAUSE went with it: 1194 is a BOARD now (B-627), so the walk
+ * bounds itself there — measured at 1194x810, the shelf plate scrolls 1,829 inside 392 and the page is over
+ * by 0, with the walk's foot in the window. NO SUCCESSOR IS WRITTEN FOR THE HANDHELD, and that is a
+ * reported finding rather than a silent one: at 390x844 the phone is a page by its own ruled physics
+ * (B-627: "only the phone is a page"), so the shelf grows to 2,823px, the page is over by 2,539 and the
+ * walk's foot sits at y=3,162 — the CHOOSE foot's Back and the PREVIEW foot's CONFIRM are reachable only
+ * by scrolling the whole shelf. The lab drew NO handheld frame for this walk (its four frames are wide and
+ * mid-tier), so bounding it here would be undrawn shape (R-MU1). */
+/* THE SCROLL CUE (the creator's B-586, the same signal): a bounded scroller with more below fades its
+ * last 48px; the fade lifts at the end. `data-more` is set by fcUpdateScrollCues on scroll/resize/render. */
+[data-sheet-shell] [data-more="1"]{
+  -webkit-mask-image:linear-gradient(to bottom, #000 calc(100% - 48px), rgba(0,0,0,.08) 100%);
+          mask-image:linear-gradient(to bottom, #000 calc(100% - 48px), rgba(0,0,0,.08) 100%); }
+
+/* ── B-627 · THE MID BAND IS A BOARD (Jason 2026-09-16: "mid band and wide band pages should be screenshot
+ * level with scrolling only limited to within a box") ───────────────────────────────────────────────────
+ * The board's physics used to change kind at 1367: below it the three zones stacked into a scrolling page
+ * (§11/§12). Jason's line moves that seam to the HANDHELD edge: from 1024 up the sheet is the three-column
+ * board that fits its pane and every column is a box that scrolls inside itself; only the phone is a page.
+ * MECHANICALLY: every `(max-width:1366px)` block above is now `(max-width:1023px)` and every
+ * `(min-width:1367px)` is `(min-width:1024px)` — the page rules are the phone's, the board rules are the
+ * mid band's too. What the mid band needs beyond the wide rules is below.
+ * MEASURED before: 1194×810 landing page over 1,321; growth room 983; journey 10,685. After: 0 at 1024,
+ * 1194, 1366 and 1440 (with the rail), every state; the spine box scrolls 230–274 (the injuries plate),
+ * the stage plate and the open unit's body scroll as they did at wide. */
+@container surface (min-width:1024px) and (max-width:1366px){
+  /* narrower columns for a narrower pane: 300 + 1.3fr + max(290, .8fr). At 1024 the stage is 362px, so
+   * its rows take the phone's one-line four-cell shape by the STAGE's own width (below). */
+  .sbwrap{ --sb-spine:300px; }
+  .sb-board{ grid-template-columns:var(--sb-spine) minmax(0,1.3fr) minmax(290px,0.8fr); gap:14px; }
+  .sb-instr .hp-railwrap{ max-width:none; }
+}
+@container surface (min-width:1024px){
+  /* THE ROW IS THE PANE'S HEIGHT, never the tallest column's content: with `grid-template-rows:auto` the
+   * spine's 753px (instrument + injuries) sized the row and the board overflowed its hidden wrap by 164px
+   * — reachable by nothing. Each column is a box; the spine scrolls when the pane is shorter than it. */
+  .sb-board, .sb-board.sb-growth{ grid-template-rows:minmax(0,1fr); }
+  .sb-spine{ overflow:auto; min-height:0; }
+  .sb-growth .sb-spine{ overflow:visible; }
+  .sb-growth .sb-stage > .hp-plate{ overflow:auto !important; max-height:none; }
+}
+/* the stage's rows take the compact shape by the stage's width, not the surface's — a 362px stage at 1024
+ * is the phone's problem with the phone's answer (§18) */
+@container stage (max-width:430px){
+  .sb-sk[data-compact="1"]{ grid-template-columns:minmax(0,1fr) auto auto auto; padding:4px 0; gap:8px; }
+  .sb-sk[data-compact="1"] .sb-sk-n{ display:block; }
+  .sb-sk[data-compact="1"] .sb-sk-char{ display:block; margin-top:1px; letter-spacing:.08em; }
+  .sb-sk[data-compact="1"] .sb-pool{ grid-column:auto; padding:4px 6px; }
+  .sb-sk[data-compact="1"] .sb-roll{ padding:0 10px; }
+}
+
+/* ── B-628 · THE SKILL GROUPS FOLD (Jason 2026-09-16: "Can the skill sections be collapsible? Keeping the
+ * search") — the group head is a button now (the walk's FOLD class, on the kit's own head): it keeps its
+ * sticky place, its count, and gains the fold glyph; a closed group hides its rows; the filter shows its
+ * matches through any fold. Nothing moves at rest: every group opens by default. */
+[data-sheet-shell] button.sb-grp{ appearance:none; -webkit-appearance:none; border:0; border-bottom:1px solid var(--doc-rule); width:100%; text-align:left; cursor:pointer;
+  color:var(--doc-accent); font:inherit; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u)); letter-spacing:.22em; text-transform:uppercase;
+  min-height:max(44px, calc(44 * var(--u))); }
+[data-sheet-shell] button.sb-grp:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-grp span, .sb-dh .sb-grp span{ margin-left:auto; }
+[data-sheet-shell] .sb-grp-glyph, .sb-dh .sb-grp-glyph, .sb-ref .sb-grp-glyph{ font-style:normal; font-size:calc(11 * var(--u)); color:var(--doc-ink-muted); transition:transform .15s ease; margin-left:2px; }
+[data-sheet-shell] .sb-grp[data-open="0"] .sb-grp-glyph{ transform:rotate(-90deg); }
+[data-sheet-shell] .sb-grp[data-open="0"]{ color:var(--doc-ink-muted); }
+
+/* ── B-623 · THE ITEM PANEL ON PAPER — the pack frame's panel, on production's own component ─────────────
+ * The verbs first (MODIFY · SELL · DROP, DROP armed → the confirm), STATE as the kit's chips, the ledger,
+ * the description, Attachments as entries with the hard points in the head; one island left (the owner block). */
+[data-sheet-shell] .sb-panel .sb-critchips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+[data-sheet-shell] .sb-panel .sb-critchips .hp-quiet[data-on="1"]{ background:var(--doc-state); color:var(--doc-paper-raised); border-color:var(--doc-state); }
+[data-sheet-shell] .sb-panel .sb-critchips .hp-quiet{ text-transform:capitalize; }
+[data-sheet-shell] .sb-att, .sb-ref .sb-att{ padding:8px 0 4px; border-top:1px solid var(--doc-rule-fine); }
+[data-sheet-shell] .sb-att .sb-e-h .hp-quiet{ margin-left:10px; min-height:44px; padding:0 10px; }   /* B-1008 · D-404 item 16: the R5 drawings' 36 → the 44 px floor (Take · Record · Remove · the journal's Delete) */
+[data-sheet-shell] .sb-att[data-uncosted="1"] .sb-e-m{ color:var(--doc-action); }
+[data-sheet-shell] .sb-att .sb-e-t, .sb-ref .sb-att .sb-e-t{ margin:2px 0; }
+[data-sheet-shell] .sb-att-add{ margin-top:8px; }
+[data-sheet-shell] .sb-att-opts{ max-height:240px; overflow:auto; border:1px solid var(--doc-rule-fine); }
+[data-sheet-shell] .sb-att-opts .sb-pk-r{ width:100%; appearance:none; border:0; border-bottom:1px solid var(--doc-rule-fine); background:transparent; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+[data-sheet-shell] .sb-panel .sb-pk-verbs .sb-confirm{ min-height:44px; }
+
+/* ── B-623 · A PLATE THAT SCROLLS KEEPS ITS PAPER. The kit paints a plate's paper on `::after` (absolute,
+ * inset 1px) over a keyline-coloured box — right for a plate that sits still, wrong for one that scrolls:
+ * the pseudo-element scrolls away with the content and the dark keyline ground shows where the paper
+ * should be (the pack's panel at 1920, the first time a panel was long enough to scroll). On the sheet
+ * the plate's own box is the paper and the keyline is an inset shadow, so nothing leaves as it scrolls. */
+[data-sheet-shell] .hp-plate, .sb-dh .hp-plate{ background:var(--doc-paper-raised); box-shadow:inset 0 0 0 1px var(--doc-rule), var(--doc-lift); }
+
+/* ── B-634 · THE PROSE FOLDS (Jason 2026-09-16) — a <details> on the kit's head: the summary is the entry head
+ * with a one-line teaser that ellipsises; open, the teaser goes and the paragraphs read in full. */
+[data-sheet-shell] .sb-fold, .sb-dh .sb-fold, .sb-ref .sb-fold{ border-bottom:1px solid var(--doc-rule-fine); padding:2px 0 6px; }
+[data-sheet-shell] .sb-fold > summary, .sb-dh .sb-fold > summary, .sb-ref .sb-fold > summary{ list-style:none; cursor:pointer; min-height:max(44px, calc(44 * var(--u))); align-items:center; gap:10px; }
+[data-sheet-shell] .sb-fold > summary::-webkit-details-marker, .sb-dh .sb-fold > summary::-webkit-details-marker, .sb-ref .sb-fold > summary::-webkit-details-marker{ display:none; }
+[data-sheet-shell] .sb-fold > summary .sb-e-n, .sb-dh .sb-fold > summary .sb-e-n, .sb-ref .sb-fold > summary .sb-e-n{ flex:none; }
+[data-sheet-shell] .sb-fold-teaser, .sb-dh .sb-fold-teaser, .sb-ref .sb-fold-teaser{ flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:left; letter-spacing:0; text-transform:none;
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(14 * var(--u)); color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-fold[open] > summary .sb-fold-teaser, .sb-dh .sb-fold[open] > summary .sb-fold-teaser, .sb-ref .sb-fold[open] > summary .sb-fold-teaser{ display:none; }
+/* B-1318 · A TEASER NEVER SIZES THE ROOM. Its nowrap line (min-width:0 lets it shrink, not stop counting) set the panel's
+ * min-content to the whole sentence — 686 px for a long item description — and an `fr` track floors at min-content, so
+ * the pack's 1.05fr / 0.95fr split became list 206 / panel 724 at 1024: the list's two-up rows went 84 px wide and every
+ * name ran out over its tag. Contained, the teaser counts 0 and ellipsises at whatever width the declared split gives. */
+.sb-pack .sb-pk-panel .sb-fold-teaser{ contain:inline-size; }
+/* B-1008 · THE TURNED ▾ IS A SQUARE BOX. Its line box was 7 wide × 15 tall; turned, it reached 4 px past the card's right
+ * edge (the craft tally spilled 4 px at every width). Now 7 × 7 with the line at 7 (the head centres it, so the ink keeps its
+ * place) and its 15 px content clipped to the box (the ink is 3 × 6, inside it); the 1 px nudge puts the turned ink back on the
+ * pixel it drew before. Frame-checked against the old rule in smoke_rail_reference_overlap: not one pixel moves, open or closed. */
+[data-sheet-shell] .sb-fold > summary .sb-grp-glyph, .sb-dh .sb-fold > summary .sb-grp-glyph, .sb-ref .sb-fold > summary .sb-grp-glyph{ flex:none;
+  width:calc(7 * var(--u)); height:calc(7 * var(--u)); line-height:calc(7 * var(--u)); overflow:hidden;
+  transform:translateX(calc(1 * var(--u))) rotate(-90deg); }
+[data-sheet-shell] .sb-fold[open] > summary .sb-grp-glyph, .sb-dh .sb-fold[open] > summary .sb-grp-glyph, .sb-ref .sb-fold[open] > summary .sb-grp-glyph{ transform:none; }
+[data-sheet-shell] .sb-fold > summary:focus-visible, .sb-dh .sb-fold > summary:focus-visible, .sb-ref .sb-fold > summary:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-fold > .sb-e-t, .sb-dh .sb-fold > .sb-e-t{ margin:4px 0 6px; }
+
+/* ── B-630 · THE PURSE ON PAPER — the balance is an entry, the value a press-to-edit field, ADD and SPEND
+ * the kit's chips, the delta pad inline beneath (no fixed dark modal on the board). */
+[data-sheet-shell] .sb-purse-val{ appearance:none; border:0; background:transparent; cursor:pointer; padding:0 6px; min-height:max(44px, calc(44 * var(--u)));
+  font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(22 * var(--u)); color:var(--doc-ink); }
+[data-sheet-shell] .sb-purse-val:hover{ text-decoration:underline; text-decoration-color:var(--doc-ink-structural); text-underline-offset:4px; }
+[data-sheet-shell] .sb-purse-val:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-purse-in{ width:140px; margin:0; text-align:right; }
+[data-sheet-shell] .sb-purse .sb-critchips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+[data-sheet-shell] .sb-purse .sb-critchips .hp-quiet[data-on="1"]{ background:var(--doc-state); color:var(--doc-paper-raised); border-color:var(--doc-state); }
+[data-sheet-shell] .sb-purse-pad{ margin-top:4px; }
+[data-sheet-shell] .sb-purse-pad .sb-critchips{ margin-top:6px; }
+[data-sheet-shell] .sb-purse-pad .hp-quiet{ min-width:64px; font-variant-numeric:tabular-nums; }
+
+/* Jason 2026-09-16: "The store and craft buttons are awkward shapes" — they sat in the two-up list's second
+ * column beside the purse and STRETCHED to its row. The purse and the doors each take the whole row now,
+ * and a door is its own height. */
+[data-sheet-shell] .sb-pk-list > .hp-plate > .sb-pk-purse,
+[data-sheet-shell] .sb-pk-list > .hp-plate > .sb-pk-verbs{ grid-column:1 / -1; }
+[data-sheet-shell] .sb-pk-list > .hp-plate > .sb-pk-verbs{ align-items:flex-start; }
+[data-sheet-shell] .sb-pk-list > .hp-plate > .sb-pk-verbs > *{ flex:none; align-self:flex-start; }
+
+/* ── B-626 · THE CRIT TABLE ON PAPER — the head line with ROLL d100, the rows as entries, the hit row marked ──*/
+[data-sheet-shell] .sb-crit-table .sb-grp{ display:flex; align-items:center; gap:10px; }
+[data-sheet-shell] .sb-crit-table .sb-grp .hp-quiet{ min-height:36px; padding:0 12px; letter-spacing:.1em; }
+[data-sheet-shell] .sb-crit-rows{ max-height:320px; overflow:auto; border:1px solid var(--doc-rule-fine); padding:0 10px; margin-top:6px; }
+/* the row's head is a small grid — the range in its own column, the name over the severity, ADD at the end —
+ * so a 300px spine does not wrap the four parts into three ragged lines (measured at 1194's spine) */
+[data-sheet-shell] .sb-crit-row .sb-e-h{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"range name add" "range sev add"; column-gap:10px; row-gap:2px; align-items:center; }
+[data-sheet-shell] .sb-crit-row .sb-e-h > .sb-e-m:first-child{ grid-area:range; min-width:0 !important; }
+[data-sheet-shell] .sb-crit-row .sb-e-h > .sb-e-n{ grid-area:name; }
+[data-sheet-shell] .sb-crit-row .sb-e-h > .sb-e-m:nth-child(3){ grid-area:sev; }
+[data-sheet-shell] .sb-crit-row .sb-e-h .hp-quiet, [data-sheet-shell] .sb-crit-row .sb-e-h .hp-commit{ grid-area:add; margin-left:0; min-height:36px; padding:0 12px; }
+[data-sheet-shell] .sb-crit-table > .sb-grp{ flex-wrap:wrap; }
+[data-sheet-shell] .sb-crit-row[data-hit="1"]{ background:var(--doc-mat); margin:0 -10px; padding-left:10px; padding-right:10px; }
+[data-sheet-shell] .sb-crit-row .sb-e-t{ margin:2px 0 6px; }
+/* ── B-625 · THE FORCE-POWER BUY LIST ON PAPER — an entry a power, the cost or the refusal in the head, LEARN ──*/
+[data-sheet-shell] .sb-fp .sb-e-h{ gap:10px; align-items:center; flex-wrap:wrap; }
+[data-sheet-shell] .sb-fp .sb-e-h .hp-commit, [data-sheet-shell] .sb-fp .sb-e-h .hp-quiet{ margin-left:auto; }
+[data-sheet-shell] .sb-fp .sb-fold{ border-bottom:0; padding:0; }
+[data-sheet-shell] .sb-fp .sb-refuse{ font-size:calc(11 * var(--u)); }
+
+/* ── B-620 · PROFILE ON PAPER — the liturgy's value is a press-to-edit field; the absence stays a row ───────*/
+[data-sheet-shell] .sb-fld-val{ appearance:none; border:0; background:transparent; padding:0; margin:0; cursor:pointer; text-align:left; font:inherit; color:inherit; min-height:max(44px, calc(44 * var(--u))); width:100%; }   /* AS-6 and the board's own `.sb-fld-val{min-height:44px}` (was 36, verify lap) */
+[data-sheet-shell] .sb-fld-val > b, [data-sheet-shell] .sb-fld-val > i{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(16 * var(--u)); }
+[data-sheet-shell] .sb-fld-val > b{ font-weight:600; }
+[data-sheet-shell] .sb-fld-val > i{ font-style:italic; color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-fld-val:hover > b, [data-sheet-shell] .sb-fld-val:hover > i{ text-decoration:underline; text-decoration-color:var(--doc-ink-structural); text-underline-offset:3px; }
+[data-sheet-shell] .sb-fld-val:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-fld-in{ margin:0; width:100%; }
+[data-sheet-shell] .sb-fld-area{ margin:6px 0 0; width:100%; min-height:120px; resize:vertical; font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u)); line-height:1.5; }
+[data-sheet-shell] .sb-profile .sb-fld{ grid-template-columns:96px minmax(0,1fr); }
+[data-sheet-shell] .sb-profile .sb-critchips .hp-quiet{ min-height:max(44px, calc(44 * var(--u))); min-width:44px; padding:0 8px; }   /* AS-6 (was 32; the board has no shrink rule, the kit's .hp-quiet is 44) */
+/* ── B-621 · VESSELS ON PAPER — the recognition row is a door ────────────────────────────────────────────*/
+[data-sheet-shell] .sb-vessel{ cursor:pointer; }
+[data-sheet-shell] .sb-vessel:hover .sb-e-n{ text-decoration:underline; text-decoration-color:var(--doc-ink-structural); text-underline-offset:3px; }
+[data-sheet-shell] .sb-vessel:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+
+/* ── B-622 · FORCE COMMITMENT on the unit — COMMIT / RELEASE as the kit's chip beside ROLL; the pool draws the
+ * available dice and says how many are held. */
+[data-sheet-shell] .sb-pool-held{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u)); letter-spacing:.1em; color:var(--doc-ink-muted); margin-left:6px; }
+[data-sheet-shell] [data-testid^="commit-force-"][data-on="1"]{ background:var(--doc-state); color:var(--doc-paper-raised); border-color:var(--doc-state); }
+[data-sheet-shell] [data-testid="force-meta"]{ display:flex; justify-content:space-between; }
+
+/* ── B-624 · THE CRAFT WALK ON PAPER — the step map, the plate, the walk foot; the template shelf as pick rows ─*/
+[data-sheet-shell] .sb-room-walk{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; }
+[data-sheet-shell] .sb-craft{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; }
+[data-sheet-shell] .sb-craft > .hp-plate{ flex:1 1 auto; min-height:0; overflow:auto; }
+[data-sheet-shell] .sb-craft .sb-walkfoot{ flex:none; }
+[data-sheet-shell] .sb-craft .sb-pk-list-inline{ border:1px solid var(--doc-rule-fine); margin-bottom:12px; }
+[data-sheet-shell] .sb-craft .sb-pk-list-inline .sb-pk-r{ width:100%; appearance:none; border:0; border-bottom:1px solid var(--doc-rule-fine); background:transparent; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+[data-sheet-shell] .sb-craft .sb-pk-list-inline .sb-pk-r[data-refused="1"] .sb-pk-t{ color:var(--doc-action); }
+[data-sheet-shell] .sb-craft .sb-pk-r{ width:100%; appearance:none; border:0; background:transparent; cursor:pointer; text-align:left; font:inherit; color:inherit; }
+@container surface (min-width:1024px){ [data-sheet-shell] .sb-craft{ max-width:960px; } }
+/* the picked template keeps the pick row's selection ink — the reset above had left white ink on paper */
+[data-sheet-shell] .sb-craft .sb-pk-list-inline .sb-pk-r[data-selected="true"]{ background:var(--doc-action); color:var(--doc-paper-raised); }
+[data-sheet-shell] .sb-craft .sb-pk-list-inline .sb-pk-r[data-selected="true"] .sb-pk-t,
+[data-sheet-shell] .sb-craft .sb-pk-list-inline .sb-pk-r[data-selected="true"] .sb-pk-c{ color:var(--doc-paper-raised); }
+
+/* ── B-637 · THE RESULTS REFERENCE ON PAPER — the tally as a ledger of symbols with − n + chips; the lists as entries ─*/
+/* B-1208: every kit rule the reference window's parts meet also names `.sb-ref` — the window is portalled to <body>, outside the
+ * sheet's shell, and never borrows it (R-RC-3 (3)); the B-638 hub's `.sb-dh` precedent. 26 selectors, measured by walking the
+ * stylesheets against the open windows (sb-critchips ×2, sb-att ×2, sb-grp-glyph, sb-fold ×9, this block's rules), plus the
+ * five `:where(…)` group-head rules (B-1001). */
+[data-sheet-shell] .sb-rr .sb-grp, .sb-ref .sb-rr .sb-grp{ display:flex; align-items:center; gap:10px; }
+[data-sheet-shell] .sb-rr-tally, .sb-ref .sb-rr-tally{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px 16px; margin:8px 0 4px; }
+@container surface (max-width:560px){ [data-sheet-shell] .sb-rr-tally, .sb-ref .sb-rr-tally{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+[data-sheet-shell] .sb-rr-sym, .sb-ref .sb-rr-sym{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:4px 0; border-bottom:1px solid var(--doc-rule-fine); }
+[data-sheet-shell] .sb-rr-lab, .sb-ref .sb-rr-lab{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u)); letter-spacing:.18em; text-transform:uppercase; color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-rr-sym[data-n]:not([data-n="0"]) .sb-rr-lab, .sb-ref .sb-rr-sym[data-n]:not([data-n="0"]) .sb-rr-lab{ color:var(--doc-ink); }
+[data-sheet-shell] .sb-rr-box, .sb-ref .sb-rr-box{ display:inline-flex; align-items:center; gap:4px; }
+[data-sheet-shell] .sb-rr-n, .sb-ref .sb-rr-n{ font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:calc(18 * var(--u)); min-width:22px; text-align:center; font-variant-numeric:tabular-nums; }
+[data-sheet-shell] .rr-step, .sb-ref .rr-step{ min-width:44px; min-height:44px; padding:0; justify-content:center; font-size:calc(16 * var(--u)); line-height:1; }   /* B-1208: at the floor (was 36), the glyph centred */
+[data-sheet-shell] .rr-row[data-afford="1"], .sb-ref .rr-row[data-afford="1"]{ background:var(--doc-mat); margin:0 -6px; padding-left:6px; padding-right:6px; }
+[data-sheet-shell] .rr-row[data-dim="1"] .sb-e-n, [data-sheet-shell] .rr-row[data-dim="1"] .sb-e-t, .sb-ref .rr-row[data-dim="1"] .sb-e-n, .sb-ref .rr-row[data-dim="1"] .sb-e-t{ color:var(--doc-ink-muted); }
+/* B-1208 · D-182 (Jason: "(b) Label above"): ON A PHONE each counter's label takes its own line above its − n +, both columns kept,
+ * in both mounts (the reference window and the craft tally). A cell at the floor needs ~191px (the label, 8, − 44 · n 22 · + 44);
+ * two of them and the 16px gap first fit a 398px surface, so from 400 down the label stacks (at 390: 69px clear in the window,
+ * 33px in the craft tally, measured). Wider, the drawing holds as approved (D-180). AFTER the face's rules on purpose: `.sb-rr-sym`'s
+ * `gap:8px` shorthand would reset this `row-gap` at the same specificity. */
+@container surface (max-width:400px){
+  [data-sheet-shell] .sb-rr-sym, .sb-ref .sb-rr-sym{ flex-wrap:wrap; row-gap:2px; }
+  [data-sheet-shell] .sb-rr-lab, .sb-ref .sb-rr-lab{ flex:1 0 100%; }
+}
+/* ── B-1208 · THE REFERENCE WINDOW ON PAPER — Help's three cards (D-180; lab `4b29e1c42` refcards.html) ───────────────
+ * ui.jsx `RefPaperWindow` draws the page, the head and the body; this places it. Below 1024 a bottom sheet (90vh, clear of
+ * the home indicator); from 1024 centred, at most 560 wide, 82vh. (0,2,0): the ground's own `position:relative` (paper.css)
+ * is (0,1,0), and the window keeps its inline `fixed` over it either way. */
+[data-doc-ground="creator"].sb-ref{ left:0; right:0; bottom:0; max-height:90vh; padding-bottom:env(safe-area-inset-bottom);
+  box-shadow:0 18px 44px rgba(0,0,0,.45), 0 0 0 1px var(--doc-rule); }   /* H1Window's lift and keyline (player/app.jsx) */
+@media (min-width:1024px){
+  [data-doc-ground="creator"].sb-ref{ left:50%; top:50%; right:auto; bottom:auto; transform:translate(-50%,-50%); width:min(560px, calc(100vw - 32px)); max-height:82vh; padding-bottom:0; }
+}
+.sb-ref .sb-ref-body > :first-child > .sb-e:first-of-type{ padding-top:6px; }
+/* the ladder's rung: the check sits on the line under the state, with no gap between them */
+.sb-ref .sb-hr .sb-att > .sb-e-t + .sb-e-t{ margin-top:0; }
+
+/* ── B-638 · THE DICE HUB ON PAPER — a WINDOW on the sheet, moved by its head ───────────────────────────────
+ * No scrim: the backdrop takes no pointer, the sheet stays readable beside the window. The window is the paper
+ * ground (`.hp-sheet` with the creator's ground token) so the kit's plate, entries, pool and ROLL draw as they do
+ * on the board. It lands at the top right, under the runhead, and goes where the pointer drags its head. */
+.sb-dh-backdrop{ position:fixed; inset:0; z-index:4000; pointer-events:none; }
+/* (0,3,0) on purpose: paper.css's `[data-doc-ground="creator"].hp-sheet{position:relative}` beat `.sb-dh` and the
+ * window rendered in the flow at the portal's top-left — the shell rule's lesson (B-616), met again */
+/* THE WINDOW CARRIES ITS OWN UNIT. The hub is PORTALLED to <body>, outside `.sbwrap` where `--u` lives, so every
+ * `calc(… * var(--u))` in it was invalid at computed time: `.sb-roll`'s `max(44px, calc(44 * var(--u)))` fell to
+ * `auto` and ROLL measured 90×20 under AS-6's floor (verify lap, smoke_dice_hub_as9). The base band's unit: the
+ * window is a fixed 560px plate at every band, so it draws at the board's 1px scale. The same portal misses every
+ * `[data-sheet-shell] …` rule, so the kit rules the hub draws with (the plate, the fold, the reference rows, the
+ * group count) also name `.sb-dh` — 16 selectors, measured by walking the stylesheets against the open hub. */
+.hp-sheet.sb-dh[data-doc-ground="creator"]{ --u:1px; --u-k:1; position:fixed; top:74px; right:26px; width:min(560px, calc(100vw - 28px)); max-height:min(82vh, calc(100vh - 100px)); pointer-events:auto;
+  display:flex; flex-direction:column; min-height:0; background:var(--doc-paper); box-shadow:0 18px 44px rgba(0,0,0,.45), 0 0 0 1px var(--doc-rule); }
+.sb-dh-head{ flex:none; display:flex; align-items:center; gap:10px; padding:8px 8px 8px 12px; border-bottom:1px solid var(--doc-rule); cursor:grab; user-select:none; touch-action:none; background:var(--doc-paper-raised); }
+.sb-dh-head:active{ cursor:grabbing; }
+.sb-dh-grip{ color:var(--doc-ink-muted); font-size:16px; line-height:1; }
+.sb-dh-title{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:calc(13 * var(--u)); letter-spacing:.16em; text-transform:uppercase; color:var(--doc-ink); }
+.sb-dh-name{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u)); letter-spacing:.1em; color:var(--doc-ink-muted); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.sb-dh-head .hp-quiet{ min-width:44px; min-height:44px; padding:0; justify-content:center; letter-spacing:0; }   /* B-1259: the ✕ centred, today's face kept (D-186, Jason "A · Just centre it") */
+.sb-dh-body{ flex:1 1 auto; min-height:0; overflow:auto; }
+.sb-dh-body .sb-grp{ display:flex; justify-content:space-between; gap:10px; }
+.sb-dh-row{ padding:8px 0; }
+[data-run]:not(:first-child) > .sb-dh-row:first-child{ padding-top:8px; }   /* R-SAP-3 (D-463) */
+[data-run]:not(:last-child) > .sb-dh-row:last-child{ padding-bottom:8px; }
+.sb-dh-row[data-rolled="1"]{ background:var(--doc-mat); margin:0 -8px; padding-left:8px; padding-right:8px; }
+.sb-dh-line{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.sb-dh-name{ flex:1 1 160px; min-width:0; }
+.sb-dh-result{ display:inline-flex; align-items:center; gap:3px; flex-wrap:wrap; min-height:44px; padding:4px 10px; border:1px solid var(--doc-ink-structural); background:var(--doc-paper-raised); }
+.sb-dh .dh-sl{ color:var(--doc-ink-muted) !important; font-family:var(--font-body,'Rajdhani',sans-serif); }
+/* post1-one-number-hub-build C2: a row's lines moved behind its press keep the hub's ink in the why-sheet (portalled to <body>) */
+[data-testid="dice-hub-why-sheet"] .dh-sl{ color:var(--doc-ink-muted) !important; font-family:var(--font-body,'Rajdhani',sans-serif); }
+.sb-dh .dh-rem{ color:var(--doc-ink-muted) !important; font-family:var(--font-body,'Rajdhani',sans-serif); }
+.sb-dh .dh-rem span span{ color:var(--doc-ink) !important; }
+.sb-dh [data-testid="dice-hub-band-chip"]{ background:transparent !important; border:1px solid var(--doc-ink-structural) !important; color:var(--doc-ink) !important; border-radius:0 !important; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; letter-spacing:.1em; }
+.sb-dh [data-testid="dice-hub-band-static"]{ color:var(--doc-ink) !important; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; }
+.sb-dh [data-testid="dice-hub-band-option"], .sb-dh [data-testid="dice-hub-band-inert"]{ background:transparent !important; border:1px solid var(--doc-rule) !important; color:var(--doc-ink) !important; border-radius:0 !important; min-height:40px; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; }
+.sb-dh [data-testid="dice-hub-band-option"][aria-pressed="true"]{ background:var(--doc-state) !important; color:var(--doc-paper-raised) !important; border-color:var(--doc-state) !important; }
+.sb-dh [data-testid="dice-hub-band-inert"]{ color:var(--doc-ink-muted) !important; border-style:dashed !important; }
+/* THE SURFACING HUB (f100-surfacing-hub-build; the approved frames Docs/mockups/f100-surfacing-hub.html @ 269d99205): the two
+   new chips and their strips take the band chip's ink (their OWN testids, so D2's one-band-chip pins hold); THE SPEND MENU's
+   rows (price · tick · words); the inert idiom (R5: dashed, muted ink, NO opacity); the carried-gear fold; the held count. */
+.sb-dh [data-testid="dice-hub-target-chip"], .sb-dh [data-testid="dice-hub-difficulty-chip"]{ background:transparent !important; border:1px solid var(--doc-ink-structural) !important; color:var(--doc-ink) !important; border-radius:0 !important; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; letter-spacing:.1em; }
+.sb-dh [data-testid="dice-hub-target-option"], .sb-dh [data-testid="dice-hub-difficulty-option"]{ background:transparent !important; border:1px solid var(--doc-rule) !important; color:var(--doc-ink) !important; border-radius:0 !important; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; }
+.sb-dh [data-testid="dice-hub-target-option"][aria-pressed="true"], .sb-dh [data-testid="dice-hub-difficulty-option"][aria-pressed="true"]{ background:var(--doc-state) !important; color:var(--doc-paper-raised) !important; border-color:var(--doc-state) !important; }
+.sb-dh .dh-spend{ margin-top:6px; }
+.sb-dh .dh-spend-head{ margin-top:10px; }
+.sb-dh .dh-spend-row{ display:flex; align-items:flex-start; gap:8px; margin-top:6px; }
+.sb-dh .dh-spend-price{ flex:0 0 auto; min-width:52px; padding-top:12px; display:inline-flex; gap:2px; align-items:center; justify-content:flex-end; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:var(--fs-sm); color:var(--doc-ink); }
+.sb-dh .dh-spend-body{ flex:1 1 auto; min-width:0; }
+.sb-dh .dh-spend-body > .m8-offer{ margin-top:0 !important; }
+.sb-dh .dh-spend-row[data-inert="1"] .dh-spend-price{ color:var(--doc-ink-muted); }
+.sb-dh [data-testid="dice-hub-gear-fold"]{ min-height:44px; margin-top:8px; display:flex; gap:7px; align-items:center; font-family:var(--font-body,'Rajdhani',sans-serif); font-size:15px; color:var(--doc-ink); background:transparent; border:1px solid var(--doc-rule); border-radius:0; padding:0 12px; cursor:pointer; text-align:left; touch-action:manipulation; }
+.sb-dh [data-testid="dice-hub-gear-fold"]:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+/* THE DICE ARE THE ROLL BUTTON (D-468, D-483; card dice-roll-button-build R-DRB3-3; approved page Docs/mockups/dice-roll-button.html @ ae10dfde9).
+ * Late in the file on purpose: `.sb-sk .sb-pool{justify-content:flex-start}` at phone widths has to lose to the centring (R-DRB2-9), and the skill
+ * row's three columns have to beat the four the compact rules above set. Pressed is --doc-paper, not --doc-rule: glyphs clear 3:1 on it (R-DRB2-14). */
+.sb-sk[data-compact="1"]{ grid-template-columns:minmax(0,1fr) auto auto; }
+.sb-pool.sb-pool-btn{ appearance:none; border:0; border-radius:0; margin:0; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; cursor:pointer; box-sizing:border-box;
+  min-width:max(44px, calc(44 * var(--u))); min-height:max(44px, calc(44 * var(--u))); justify-content:center; }
+.sb-pool-dice{ display:contents; }
+@media (hover:hover){ .sb-pool.sb-pool-btn:hover{ box-shadow:var(--doc-lift); transform:translateY(-1px); } }
+@media (hover:none){ .sb-pool.sb-pool-btn{ box-shadow:var(--doc-lift); transform:translateY(-1px); } }
+.sb-pool.sb-pool-btn:focus{ outline:0; }
+.sb-pool.sb-pool-btn:focus-visible{ box-shadow:var(--doc-lift); transform:translateY(-1px); outline:2px solid var(--doc-ink); outline-offset:3px; }
+.sb-pool.sb-pool-btn:active{ background:var(--doc-paper); box-shadow:none; transform:none; }
+.sb-dh .sb-pool-held{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10 * var(--u)); letter-spacing:.1em; color:var(--doc-ink-muted); margin-left:6px; }
+.sb-dh .sb-fold{ margin-top:8px; }
+/* B-1209 (R-B1209-1): the drawing's rows put the good and bad dice side by side — no `vs`, no `·` (lab c2f199914,
+ * `dice_hub()`). The shared pool marks its separators `dice-sep`; the hub's ground hides them here (ADR 0049). */
+.sb-dh .dh-pool .dice-sep{ display:none; }
+@media (max-width:560px){ .hp-sheet.sb-dh[data-doc-ground="creator"]{ top:60px; right:8px; left:8px; width:auto; } }
+
+/* ── B-631 · MODIFY on paper: the candidates beside the band (lab 6b9acfe9) ─────────────────── */
+[data-sheet-shell] .sb-mod{ display:grid; grid-template-columns:1.05fr .95fr; grid-template-rows:minmax(0,1fr); gap:14px; align-items:start; flex:1 1 auto; min-height:0; }
+[data-sheet-shell] .sb-mod-list{ max-height:100%; overflow:auto; min-height:0; }
+[data-sheet-shell] .sb-mod-band{ position:sticky; top:0; }
+[data-sheet-shell] .sb-mod-name{ font-size:calc(15 * var(--u)); }
+[data-sheet-shell] .sb-mod-socks{ display:flex; align-items:center; gap:4px; margin:10px 0 6px; }
+[data-sheet-shell] .sb-mod-socks .sb-e-m{ margin-left:8px; }
+[data-sheet-shell] .sb-sock{ display:inline-block; width:18px; height:18px; border:1px solid var(--doc-ink); background:var(--doc-paper); }
+[data-sheet-shell] .sb-sock[data-sock="full"]{ background:var(--doc-ink); }
+[data-sheet-shell] .sb-sock[data-sock="pend"]{ background:repeating-linear-gradient(45deg, var(--doc-ink) 0 2px, transparent 2px 5px); }
+[data-sheet-shell] .sb-mod-now{ color:var(--doc-action); }
+[data-sheet-shell] .sb-down{ color:var(--doc-caution); }
+[data-sheet-shell] .sb-mod-uncosted{ color:var(--doc-action); margin-bottom:6px; }
+[data-sheet-shell] .sb-cand{ padding:9px 0 10px; }
+[data-sheet-shell] .sb-cand[role="button"]{ cursor:pointer; }
+[data-sheet-shell] .sb-cand .sb-e-t{ margin:3px 0 4px; }
+[data-sheet-shell] .sb-cand[data-fits="false"] .sb-e-n, [data-sheet-shell] .sb-cand[data-fits="false"] .sb-e-t{ color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-cand[data-focus="1"]{ background:var(--doc-paper-raised); box-shadow:inset 3px 0 0 var(--doc-action); padding-left:8px; }
+[data-sheet-shell] .sb-cand:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-cand .sb-more{ min-height:44px; padding:0 8px; margin-left:6px; }   /* B-1008 · D-404 item 16: MODIFY's More, 36 → 44 */
+[data-sheet-shell] .sb-mod-cite{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:4px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u)); color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-mod .sb-fold{ margin-top:8px; }
+@container surface (max-width:1023px){
+  [data-sheet-shell] .sb-mod{ grid-template-columns:1fr; grid-template-rows:auto; }
+  [data-sheet-shell] .sb-mod-list{ max-height:none; overflow:visible; }
+  [data-sheet-shell] .sb-mod-band{ position:static; order:-1; }
+}
+
+/* ── B-632 · SELL on paper: an entry beneath the panel's verbs (lab frame "The pack · selling") ── */
+[data-sheet-shell] .sb-sell{ margin-top:12px; padding-top:10px; border-top:1px solid var(--doc-rule); }
+[data-sheet-shell] .sb-sell-tiers{ display:flex; gap:8px; flex-wrap:wrap; margin:8px 0; }
+[data-sheet-shell] .sb-sell-chip{ min-height:max(44px, calc(44 * var(--u))); padding:0 12px; cursor:pointer; border:1px solid var(--doc-ink-structural); background:var(--doc-paper-raised);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11.5 * var(--u)); letter-spacing:.06em; color:var(--doc-ink); }
+[data-sheet-shell] .sb-sell-chip[aria-pressed="true"]{ background:var(--doc-ink); color:var(--doc-paper); border-color:var(--doc-ink); }
+[data-sheet-shell] .sb-sell-chip:focus-visible{ outline:2px solid var(--doc-action); outline-offset:2px; }
+[data-sheet-shell] .sb-sell-price{ display:flex; align-items:center; gap:10px; margin:6px 0; }
+[data-sheet-shell] .sb-sell-price .sb-fld-in{ width:110px; flex:none; }
+
+/* ── B-636 · THE VESSEL'S SHEET on paper (lab frame "The vessel's sheet") ───────────────────── */
+[data-sheet-shell] .sb-vs{ max-width:760px; }
+[data-sheet-shell] .sb-vs .sb-e + .sb-e{ margin-top:12px; }
+[data-sheet-shell] .sb-vs-name{ font-size:calc(15 * var(--u)); }
+[data-sheet-shell] .sb-vs .sb-vs-row{ padding:6px 0; flex-wrap:wrap; }
+[data-sheet-shell] .sb-vs-warn{ color:var(--doc-caution); flex-basis:100%; }
+[data-sheet-shell] .sb-vs-diff{ color:var(--doc-caution); letter-spacing:2px; }
+[data-sheet-shell] .sb-vs .sb-fld{ display:flex; align-items:center; gap:10px; min-height:44px; }
+[data-sheet-shell] .sb-vs .sb-fld-k{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(10.5 * var(--u)); letter-spacing:.1em; text-transform:uppercase; color:var(--doc-ink-muted); flex:none; }
+[data-sheet-shell] .sb-vs .sb-fld-val{ width:auto; }
+[data-sheet-shell] .sb-vs .sb-sell-price{ flex:1 1 auto; }
+[data-sheet-shell] .sb-vs .sb-sell-price .sb-fld-in{ flex:1 1 auto; width:auto; min-width:0; }
+[data-sheet-shell] .sb-vs-picker{ margin-top:8px; padding-top:8px; border-top:1px solid var(--doc-rule); }
+[data-sheet-shell] .sb-vs-picker .sb-e-h .hp-quiet{ margin-left:10px; min-height:36px; padding:0 10px; }
+[data-sheet-shell] .sb-vs-cand[data-fits="false"] > summary .sb-e-n{ color:var(--doc-ink-muted); }
+[data-sheet-shell] .sb-vs-cand > summary .sb-e-n{ flex:1 1 auto; min-width:0; white-space:normal; }   /* a long catalog name wraps on the phone instead of clipping */
+[data-sheet-shell] .sb-vs-foot{ margin-top:16px; padding-top:12px; border-top:1px solid var(--doc-rule); }
+[data-sheet-shell] .sb-vs-room{ flex:1 1 auto; min-height:0; overflow:auto; }   /* the room scrolls as a box at the board's band (B-627) */
+[data-sheet-shell] .sb-vs-cand-meta{ flex:none; }   /* the HP · fit tag keeps its width; the mod line takes the rest */
+
+/* ── B-639 · the sheet's last islands on paper: the notes pad, the journal, the hub's reference ── */
+[data-sheet-shell] .sb-notes .sb-fld-area{ min-height:160px; }
+[data-sheet-shell] .sb-journal-draft{ min-height:88px; }
+[data-sheet-shell] .sb-journal-list{ margin-top:10px; }
+[data-sheet-shell] .sb-dref-row, .sb-dh .sb-dref-row{ display:grid; grid-template-columns:30px 110px 1fr; gap:9px; align-items:baseline; padding:5px 0; border-top:1px solid var(--doc-rule-fine); }
+[data-sheet-shell] .sb-dref-row .sb-e-t, .sb-dh .sb-dref-row .sb-e-t{ margin:0; }
+[data-sheet-shell] .sb-dref-glyph, .sb-dh .sb-dref-glyph{ font-size:calc(19 * var(--u)); line-height:1; }
+
+/* ── B-656 · THE SPECIES ASK ON PAPER — with the identity, red because it is a thing to press ──────
+   The lab's block (lab/holocron/sheet.css :940–962 @ lab 83bf1f2d, Jason 2026-09-17 "Approved"),
+   ported VERBATIM under this file's token map: --pp-red→--doc-action · --pp-plate→--doc-paper-raised
+   · --pp-page→--doc-paper · --pp-ink→--doc-ink · --pp-ink-2→--doc-ink-muted ·
+   --pp-ink-3→--doc-ink-structural · --pp-hair-2→--doc-rule-fine. Two rules are NOT the lab's and say
+   so: `.sb-asks` (display:contents — the surface's testid needs an element, the frame's geometry does
+   not want one) and the two :focus-visible rings (the a11y floor outranks a frame, C-MU-4; every other
+   pressable face in this file carries one). */
+[data-sheet-shell] .sb-asks{ display:contents; }
+[data-sheet-shell] .sb-ask{ border-left:3px solid var(--doc-action); background:var(--doc-paper-raised); padding:2px 12px 10px; }
+[data-sheet-shell] .sb-ask[data-state="closed"]{ padding-bottom:2px; }
+[data-sheet-shell] .sb-ask-h{ display:flex; align-items:center; gap:9px; width:100%; min-height:max(44px, calc(44 * var(--u)));
+  background:none; border:0; padding:0; text-align:left; cursor:pointer; color:var(--doc-ink); }
+[data-sheet-shell] div.sb-ask-h{ cursor:default; }
+[data-sheet-shell] button.sb-ask-h:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+[data-sheet-shell] .sb-ask-c{ color:var(--doc-action); font-size:calc(12 * var(--u)); flex:none; }
+[data-sheet-shell] .sb-ask-t{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u)); letter-spacing:.08em;
+  text-transform:uppercase; color:var(--doc-ink-muted); flex:1; min-width:0; }
+[data-sheet-shell] .sb-ask-t b{ color:var(--doc-action); font-weight:400; }
+[data-sheet-shell] .sb-ask-opts{ display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+[data-sheet-shell] .sb-opt{ display:flex; align-items:flex-start; gap:10px; width:100%; min-height:max(44px, calc(44 * var(--u)));
+  padding:9px 11px; text-align:left; cursor:pointer; background:var(--doc-paper); border:1px solid var(--doc-rule-fine); color:var(--doc-ink); }
+[data-sheet-shell] .sb-opt[aria-checked="true"]{ border-color:var(--doc-action); }
+[data-sheet-shell] .sb-opt:focus-visible{ outline:2px solid var(--doc-action); outline-offset:2px; }
+[data-sheet-shell] .sb-opt-pip{ width:14px; height:14px; flex:none; margin-top:3px; border:2px solid var(--doc-ink-structural); border-radius:50%; }
+[data-sheet-shell] .sb-opt-pip[data-many="1"]{ border-radius:3px; }
+[data-sheet-shell] .sb-opt[aria-checked="true"] .sb-opt-pip{ border-color:var(--doc-action); background:var(--doc-action); box-shadow:inset 0 0 0 3px var(--doc-paper); }
+[data-sheet-shell] .sb-opt-b{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+[data-sheet-shell] .sb-opt-n{ font-family:var(--font-display,'Orbitron',sans-serif); font-weight:700; font-size:calc(12 * var(--u)); letter-spacing:.04em; text-transform:uppercase; color:var(--doc-ink); }
+[data-sheet-shell] .sb-opt-t{ font-family:var(--font-body,'Rajdhani',sans-serif); font-size:calc(15 * var(--u)); line-height:1.4; color:var(--doc-ink-muted); }
+
+/* ── B-657 · THE NEW SPECIALIZATION WALK ON PAPER — the shelves' rows and the preview's chips ──────
+   The lab's block (lab/holocron/sheet.css :961–975 @ lab 83bf1f2d, Jason 2026-09-17 "Approved"), plus
+   `.sb-chip` from :916–918 which the port had never brought over (B-632 drew SELL's tiers with a
+   bespoke `.sb-sell-chip`, so the kit's own chip had no consumer here until the preview's career
+   skills). Ported VERBATIM under this file's token map: --pp-indigo→--doc-state ·
+   --pp-ink-3→--doc-ink-structural · --pp-plate→--doc-paper-raised · --pp-ink→--doc-ink ·
+   --pp-page→--doc-paper.
+
+   FIVE RULES ARE NOT THE LAB'S AND SAY SO:
+   (1) `.sb-jwalk` — the walk's root. The lab's walk is the takeover's own direct children, so its
+       bounded-room rules are `.sb-over[data-fill="1"] > .sb-steps` etc.; in production the walk sits
+       two boxes deeper (`.sb-growth-room > .sb-board.sb-growth > .sb-stage`), so the same three
+       declarations are re-pointed at a root of its own. The craft walk's `.sb-craft` (B-624) is the
+       shipped precedent for that shape, rule for rule.
+   (2) `.sb-board.sb-growth[data-journey="1"]` — one column while the walk is up (the spine steps
+       aside; see the JSX comment at the mount for why the frame's geometry requires it).
+   (3) the two :focus-visible rings on the walk's own pressables (the a11y floor outranks a frame,
+       C-MU-4; every other pressable face in this file carries one).
+   (4) `.sb-jprev` gets `min-height:0` as a flex child — the lab's walk is not inside a flex column,
+       production's is, and without it the two-zone grid grows past the bounded room instead of
+       scrolling inside its plates (B-627's physics: from 1024 up nothing but a box scrolls). */
+[data-sheet-shell] .sb-chip{ min-height:max(44px, calc(44 * var(--u))); padding:0 12px; cursor:pointer; border:1px solid var(--doc-ink-structural); background:var(--doc-paper-raised);
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11.5 * var(--u)); letter-spacing:.06em; color:var(--doc-ink); }
+[data-sheet-shell] .sb-chip[aria-pressed="true"]{ background:var(--doc-ink); color:var(--doc-paper); border-color:var(--doc-ink); }
+[data-sheet-shell] .sb-spec .sb-e-h{ align-items:center; }
+[data-sheet-shell] .sb-spec-r{ margin-left:auto; display:flex; align-items:center; gap:10px; flex:none; }
+[data-sheet-shell] .sb-fr{ color:var(--doc-state); }
+[data-sheet-shell] .sb-chips{ display:flex; flex-wrap:wrap; gap:6px; }
+[data-sheet-shell] .sb-chips .sb-chip{ cursor:default; display:inline-flex; align-items:center; }
+[data-sheet-shell] .sb-shelf > summary{ display:flex; }
+[data-sheet-shell] .sb-shelf .sb-filter{ margin:8px 0 6px; }
+/* the walk inside a bounded room: the rail and the foot keep their height, the shelf plate scrolls */
+[data-sheet-shell] .sb-jwalk{ flex:1 1 auto; min-height:0; display:flex; flex-direction:column; }
+[data-sheet-shell] .sb-jwalk > .sb-steps, [data-sheet-shell] .sb-jwalk > .sb-walkfoot{ flex:none; }
+[data-sheet-shell] .sb-jwalk > .sb-jshelf{ flex:1; min-height:0; overflow:auto; }
+[data-sheet-shell] .sb-spec .sb-e-n{ flex:0 0 250px; }
+[data-sheet-shell] .sb-spec > .sb-e-h > .sb-e-m{ flex:1 1 auto; }
+[data-sheet-shell] .sb-jprev{ flex:1 1 auto; min-height:0; }
+[data-sheet-shell] .sb-jprev .sb-spine .hp-plate{ flex:1; }
+[data-sheet-shell] .sb-walkfoot > .sb-e-t{ max-width:none; }
+[data-sheet-shell] .sb-board.sb-growth[data-journey="1"]{ grid-template-columns:minmax(0,1fr); grid-template-areas:"stage"; }
+[data-sheet-shell] .sb-jwalk .hp-quiet:focus-visible, [data-sheet-shell] .sb-jwalk .hp-commit:focus-visible{ outline:2px solid var(--doc-action); outline-offset:2px; }
+[data-sheet-shell] .sb-shelf > summary:focus-visible{ outline:2px solid var(--doc-action); outline-offset:-2px; }
+/* (5) AND A FIFTH, MEASURED RATHER THAN DRAWN. The tree plate's head cite — the frame's own words,
+   "Read it before you buy — nothing here is a control" — is `.hp-cite`, which the kit sets
+   `white-space:nowrap`. At 390x844 that pushed it 103px past the plate's right edge and gave the
+   plate 103px of horizontal scroll (measured; at 1194 and 1440 it fits with 12px to spare, so this is
+   the handheld only). The lab drew NO handheld frame for this walk, so there is no frame to correct
+   here and the standard is the only law in the room (C-MU-4): the SENTENCE IS VERBATIM, it is only
+   allowed to wrap. Scoped to this walk's preview so no other surface's cite changes. */
+@container surface (max-width:560px){
+  [data-sheet-shell] .sb-jprev .hp-sechead .hp-cite{ white-space:normal; }
+}
+/* ══ SHIP CARGO (card `shipyard-cargo-build` F-2; ADDENDUM 3, R-SCB-5): the GEAR row's Load onto ‹ship› and its open form, with
+   the frames' own values (v3 @ ui-lab 318935e2e, D-265). ══ */
+.sb-sc-act{margin-top:6px}
+.sb-sc-open{margin-top:8px;padding:10px 0 2px;border-top:1px dashed var(--doc-rule)}
+.sb-sc-onto{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}
+.sb-sc-onto .hp-quiet[data-on="1"]{border-color:var(--doc-state);color:var(--doc-ink);box-shadow:inset 0 0 0 1px var(--doc-state)}
+.sb-sc-trk{display:inline-flex}
+.sb-sc-verbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.sb-sc-overp{margin:6px 0 0}
+.sb-sc-overp .y-warn{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--doc-caution);border:1px solid var(--doc-caution);padding:4px 8px}
+.sb-sc-read{font-size:12px;letter-spacing:0;margin:8px 0 0}
+
+/* RELEASE R5 · F1 (D-291 D3, release-r5-f1): the Workshop's template list by kind. A row's name on its line, its meta
+   beneath (one line crushed the names at 390, measured on the board); a held schematic's mark beside the name. */
+[data-testid="craft-template-list"] .sb-pk-r{ grid-template-columns:auto minmax(0,1fr); row-gap:2px; }
+[data-testid="craft-template-list"] .sb-pk-r .sb-pk-n{ white-space:normal; overflow:visible; text-overflow:clip; }
+[data-testid="craft-template-list"] .sb-pk-r .sb-pk-t{ grid-column:2; white-space:normal; text-align:left; }
+.sb-mark{ display:inline-block; margin-left:8px; padding:1px 6px; border:1px solid var(--doc-accent, #7a1a12); border-radius:3px;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--doc-accent, #7a1a12); vertical-align:2px; }
+.sb-pk-r[data-selected="true"] .sb-mark{ color:var(--doc-paper-raised, #f2f1ec); border-color:var(--doc-paper-raised, #f2f1ec); }
+
+/* RELEASE R6 · ALLIES (card release-r6-ui; D-278 S1, D-389 S5): the companion card's own placings, built from the sheet's parts
+   (sb-e, sb-e-l, sb-grp, hp-commit). The YOUNG mark, the why press on a halved number, the mount line, the characteristics strip
+   (a press that opens the library's stat block) and the PICK room's box (the library mounts whole, `position:absolute`). */
+.sb-al-mark{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(11 * var(--u,1px)); letter-spacing:.04em; font-weight:700;
+  text-transform:uppercase; color:var(--doc-paper-raised); background:var(--doc-ink); padding:2px 6px; margin-left:auto; }
+.sb-al-cmp .sb-e-h .sb-e-m{ white-space:normal; }
+.sb-al-cmp > .sb-e-l{ align-items:center; }
+.sb-al-whyv{ display:inline-flex; align-items:center; gap:4px; }
+.sb-al-mount{ margin-top:4px; }
+.sb-al-trk{ margin-top:8px; }
+.sb-al-strip{ display:flex; width:100%; min-height:44px; align-items:center; justify-content:space-between; gap:10px; background:none; border:0;
+  border-top:1px solid var(--doc-rule-fine); padding:8px 0; margin-top:8px; cursor:pointer; text-align:left;
+  font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:calc(12 * var(--u,1px)); color:var(--doc-ink); }
+.sb-al-strip:focus-visible{ outline:2px solid var(--doc-ink); outline-offset:2px; }
+.sb-al-chev{ font-style:normal; color:var(--doc-ink-muted); }
+.sb-al-sb{ margin-top:8px; }
+.sb-al-rule{ color:var(--doc-ink-muted); margin:0; }
+.sb-al-pick{ position:relative; height:calc(100vh - 120px); min-height:520px; }
+/* R6 S2 · REWARDS in the growth room (card release-r6-ui §2.4; D-278 S2-growth-*, S2-give: the lab's r4-buy/-rowpress/-buybtn/-give/-inlpool) */
+.sb-rw-buy{ align-items:center; }
+.sb-rw-press{ background:none; border:0; padding:0; text-align:left; cursor:pointer; min-height:44px; min-width:0; }
+.sb-rw-buybtn{ min-width:64px; width:auto; padding:0 12px; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+.sb-rw-give .sb-fld{ display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; }
+.sb-rw-give select, .sb-rw-give input{ min-height:44px; margin:0; max-width:60%; }
+.sb-rw-rule{ font-family:var(--font-body); font-size:15px; line-height:1.4; color:var(--doc-ink-muted); margin:6px 0 0; }
+.sb-rw-inlpool{ display:inline-flex; vertical-align:middle; border:0; padding:0; margin:0 4px 0 0; min-height:0; background:none; }
+.sb-rw-inlpool .dice-sep{ display:none; }
+.sb-rw-hon{ padding:8px 0; border-top:1px solid var(--doc-rule-fine); }
+.sb-rw-hon-h{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 12px; font-family:var(--font-body); font-size:15px; color:var(--doc-ink); }
+.sb-rw-hon-h span{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:12px; color:var(--doc-ink-muted); }
+.sb-rw-hon .sb-rw-rule{ margin-top:2px; }
+.sb-rw-rollrow{ display:flex; align-items:center; gap:12px; margin-top:8px; flex-wrap:wrap; }
+/* R6 S3 + the controls pass (card ADDENDUM 7, D1–D8 as drawn on the R6 Artifact v3: the lab's r6ctl.css r6c-*, r4-seg, r4-extra) */
+.sb-rw-form{ display:grid; gap:10px; margin-top:8px; }
+.sb-rw-form .sb-fld{ display:grid; grid-template-columns:minmax(0,1fr); gap:4px; min-width:0; }
+.sb-rw-form .sb-fld > span{ font-size:11px; }
+.sb-rw-form .sb-filter{ width:100%; max-width:100%; box-sizing:border-box; min-height:44px; height:44px; margin:0; }
+.sb-rw-form input[type=number]{ font-size:16px; }
+.sb-rw-row{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.sb-rw-k{ min-width:84px; }
+.sb-rw-seg{ display:flex; flex-wrap:wrap; gap:6px; }
+.sb-rw-seg .hp-quiet{ min-height:44px; min-width:44px; }
+.sb-rw-seg .hp-quiet[data-on="1"]{ background:var(--doc-ink); color:var(--doc-paper-raised); }
+.sb-rw-chips{ display:flex; flex-wrap:wrap; gap:6px; overflow:visible; }
+.sb-rw-chips button{ min-height:44px; white-space:normal; text-align:left; max-width:100%; }
+.sb-rw-extra{ display:block; font-size:11px; color:var(--doc-ink-muted); letter-spacing:0; }
+.sb-rw-step{ min-width:44px; min-height:44px; }
+.sb-rw-max{ margin-left:10px; }
+.sb-rw-arms{ display:grid; gap:4px; margin-top:4px; }
+.sb-rw-or{ margin-right:4px; color:var(--doc-ink-muted); }
+.sb-al-edit{ margin-top:8px; }
+.sb-al-pick{ isolation:isolate; }
+.sb-al-pick .sb-al-own{ position:absolute; top:0; right:0; z-index:1000; width:min(440px, 100%); max-height:100%; overflow:auto; box-sizing:border-box; padding:16px;
+  background:var(--doc-paper-raised); border-top:3px solid var(--sb-accent, var(--doc-ink)); box-shadow:0 8px 28px rgba(0,0,0,.25); }
+.sb-al-owngrid{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; }

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Vet UI fix Phase 5b: viewport-fit=cover enables env(safe-area-inset-*) so the header
+       respects iPhone notch + home-indicator gesture areas. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+  <!-- PWA / standalone install (Addendum 1 web-app-manifest lap): full-screen "Add to Home Screen". -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Holocron" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
+  <!-- Base href anchors all relative URLs (fetch, @font-face, etc.) to
+       the site root. Required because pushState routing places the
+       browser at deep URLs like /player/sheet/abc, where relative
+       fetches like fetch('public/data/...') would otherwise resolve to
+       /player/sheet/public/... and 404. See Docs/PLAN_URL_ROUTING.md. -->
+  <base href="/" />
+  <script defer src="/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the room client (R-AAC-19); deferred, still before both: the player boot stays R-BDC-1's three undeferred exceptions -->
+  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <title>Star Wars RPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/tokens.css" rel="stylesheet" />
+  <link href="/lib/shared/grounds/creator.css" rel="stylesheet" />
+  <link href="/lib/shared/paper.css" rel="stylesheet" />
+  <link href="/lib/shared/sheet.css" rel="stylesheet" />
+  <link href="/lib/shared/landing.css" rel="stylesheet" /><!-- B-646: the front matter's layer (the paper landing) -->
+  <link href="/lib/shared/store.css" rel="stylesheet" /><!-- B-665: the paper catalog's layer. linked by gm/index.html too since PAPER N5 wave A2 (R-GOS-28 b); the GM door is paper, its one face since the deletion lap (ruling `paper-n5-deletion`). -->
+  <link href="/lib/shared/chrome.css" rel="stylesheet" /><!-- B-881: the two BARS' paper layer ([data-paper-chrome]), moved out of store.css. Directly AFTER store.css — the place its rules held — so the cascade order is unchanged. -->
+  <link href="/lib/shared/qsg.css" rel="stylesheet" /><!-- B-719: Quick Start + Guided Build's layer. AFTER paper.css and after the three sibling layers on purpose — the board's own `.hp-skill.qs-sk` rule ties paper.css on specificity and relies on order (qsg.css §2). NOT in gm/index.html: neither door exists in the GM app. -->
+  <link href="/lib/shared/files.css" rel="stylesheet" /><!-- B-770: the character files RECEIPT's layer. AFTER paper.css for the same cascade reason qsg.css is. The GM page loads it too since RELEASE R3 (D-258): the backup screen is drawn in this shell. -->
+  <link href="/lib/shared/backup.css" rel="stylesheet" /><!-- RELEASE R3 (D-258): the whole-save backup screen's .bk-* layer, after files.css. -->
+  <link href="/lib/modify/modify.css" rel="stylesheet" /><!-- F-100 M13 Lap B: the Modify page's own layer, fenced to [data-m13-page] -->
+  <link href="/lib/editor/editor.css" rel="stylesheet" /><!-- F-100 C2: the homebrew editor's layer. Its ed-* rules are scoped to the paper ground, which EVERY paper surface declares, so they are inert only because no other surface wears an ed-* class; its rules over the shared kit (hp-quiet, hp-commit) are fenced to the editor's own roots (R-NFLL-5; paper-prepass R-PPR-2, which moved the disabled cursor into paper.css) -->
+  <link href="/lib/shared/npc.css" rel="stylesheet" /><!-- B-862: the NPC library's paper layer (its only face since B-871); fenced to [data-npc-shell]. AFTER paper.css and sheet.css (it ties the kit on specificity and styles sb-* rows in place). -->
+  <link href="/lib/shared/corpus.css" rel="stylesheet" /><!-- SHIPYARD Y2: Corpus & Instrument (vessel sheet) -->
+  <link href="/lib/shared/yard.css" rel="stylesheet" /><!-- SHIP YARD S4 (m1): the Yard's own paper layer, fenced to its room root `.yd` (the S4 Yard, the only Yard since the S5 flip) -->
+  <link href="/lib/shared/diceRoll.css" rel="stylesheet" />
+  <script defer src="lib/items.js"></script>
+  <script defer src="lib/shared/itemResolve.js"></script>
+  <script defer src="lib/shared/textHash.js"></script><!-- R-SPF-4: window.SWRPGTextHash — the ONE span hash (the editor, packValidate, charResolve's species reader); before charResolve [mirrors gm/index.html] -->
+  <script defer src="lib/shared/charResolve.js"></script>
+  <script defer src="lib/shared/projectionDiff.js"></script><!-- F-100 M5 C4.5: window.SWRPGProjectionDiff — the automatic re-projection and its notice (useProjectionTelling); needs charResolve -->
+  <!-- B-139 (ruling release-r7-bug-burndown ADDENDUM 426 §1): lib/shared/oggImport.js + oggExport.js (window.SWRPGOggImport / SWRPGOggExport) are NOT loaded here — app.js loads them on first use (PLAYER_PARTS.ogg, ensurePlayerPart) -->
+  <script defer src="lib/shared/diceEngine.js"></script>
+  <script defer src="lib/shared/poolMods.js"></script><!-- R-PCA-2: window.SWRPGPoolMods — the ONE assembler folding certified item effects into a buildPool spec -->
+  <script defer src="lib/shared/qualityRows.js"></script><!-- B-219 (R-B219C-6): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows; computeWeaponPool joins them to its mods -->
+  <script defer src="lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
+  <script defer src="lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps) -->
+  <script defer src="lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
+  <script defer src="lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
+  <script defer src="lib/shared/userData.js"></script><!-- F-100 UD-1e: window.SWRPGUserData (the user-pack store, IndexedDB swrpg_user_packs; needs baseRef, packValidate, mods, versionGuard at call time) -->
+  <script defer src="lib/shared/effectClass.js"></script><!-- F-100 D (R-FIEC-1): window.SWRPGEffectClass — the one chip rule the editor's shelves and forms read (pure; no deps) [mirrors gm/index.html] -->
+  <script defer src="lib/shared/itemRegistries.js"></script><!-- F-100 UD-1f: window.SWRPGItemRegistries (THE ONE items loader — player, store and BYOA; discovery vs a sheet's stamp) -->
+  <script defer src="lib/shared/portraits.js"></script><!-- R-S4CO-7: window.SWRPGPortraits + speciesImgPath — the ONE species-portrait lookup both apps load (moved verbatim from the inline script below); deferred — its manifest fetch needs only qbFetchJson -->
+  <script defer src="lib/shared/recordPortrait.js"></script><!-- B-931 (ruling `paper-b931` R-PB9-4): window.SWRPGRecordPortrait — a saved character's own picture, stored once at sheetData.portrait, read through the ONE fold (recordPortraitOf); not species art (that is portraits.js); no deps -->
+  <script defer src="lib/shared/picture.js"></script><!-- R-S4G-16: window.SWRPGPicture — the ONE re-encode helper, two settings (the portrait's single rung; a ship's picture's ladder and cap) -->
+  <script defer src="lib/shared/sheetPool.js"></script><!-- R-S4PP-1: window.SWRPGSheetPool — the sheet's dice path (sheetPoolFor's closure + the charbuild loader), one unit both apps load; app.jsx binds its names -->
+  <script defer src="/lib/editor/switch.js"></script><!-- F-100 C2 (R-FIEC-5): window.SWRPGEditor — the swrpg_homebrew_editor switch (?homebrew=1|0 persisted here) + the /homebrew route grammar; both shells -->
+  <script defer src="lib/shared/crafting.js"></script><!-- F-56: window.SWRPGCrafting (the ONE spend-application point; needs itemResolve) -->
+  <script defer src="lib/shared/companions.js"></script><!-- release-r6-companions: window.SWRPGCompanions — a character's companions (sheetData.companions): the normalizer, the young/mount transforms, droidOf and profileOf, and the OggDude import's `mapped` hash; needs textHash.js at call time; before craftStore.js, whose droid landing calls it [mirrors gm/index.html] -->
+  <script defer src="lib/library/npc/refData.js"></script><!-- ruling release-r6-companions-lifts Q1 (a): window.SWRPGNpcRefData — the NPC library's reference data, one memoized loader for both hosts (R-R4D-3); reads CharResolve and SWItems at call time [mirrors gm/index.html] -->
+  <script defer src="lib/shared/rewardsStore.js"></script><!-- R6 (card release-r6-ui §2.4): window.SWRPGRewards — a character's Rewards and contact networks, their only writer; the growth room's REWARDS and CONTACTS and ALLIES' FOLLOWERS read it [rewards.json is fetched at render] -->
+  <script defer src="lib/shared/craftStore.js"></script><!-- F-56: window.SWRPGCraft (project store + grade derivation; needs crafting.js and itemResolve.js) -->
+  <!-- NO DEFER — layout.js stamps data-layout before first paint; :root[data-layout] in the shell
+       CSS reads it. Deferring this flashes the wrong layout on desktop. (R-BDC-1 exception) -->
+  <script src="lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
+  <script src="lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
+  <script defer src="/lib/shared/scrollCue.js"></script><!-- R-PN3-4: window.SWRPGScrollCue — THE scroll cue's one driver (data-more / data-more-above); the creator's fcUpdateScrollCues calls into it; before /player/app.js; no deps [mirrors gm/index.html] -->
+  <!-- NO DEFER — R-S4PP-7 (ruling `shipyard-s4-ship-pool-path`), R-BDC-1's third named exception: the inline script below
+       calls qbFetchJson while the page parses (the species-wash index), so its one home must run before that script. -->
+  <script src="lib/shared/fetchJson.js"></script><!-- R-S4PP-7: qbFetchJson, the apps' one JSON fetch (moved verbatim from the inline script) -->
+  <script defer src="lib/shared/journal.js"></script><!-- F-8: window.SWRPGJournal (sheet.journal transforms — append/remove/normalize; pure, no deps) -->
+  <script defer src="/lib/shared/versionGuard.js"></script><!-- F-54 sentinel, one implementation (C-B-6): window.SWRPGVersionGuard; no deps, must precede any versioned store -->
+  <script defer src="/lib/shared/roster.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRoster — the saved-character roster (storage, envelope, F-54 hold, tombstones, the record write), lifted verbatim from app.jsx; after recordPortrait, charResolve and versionGuard, before app.js, which aliases its names [mirrors gm/index.html] -->
+  <script defer src="/lib/shared/baseDerive.js"></script><!-- R6 lane D (release-r6-bases-registry): window.SWRPGBaseDerive — S4's derived base numbers, pure; charResolve's group read calls it [mirrors gm/index.html] -->
+  <script defer src="/lib/shared/mechTypeNames.js"></script><!-- B-1605: window.SWRPGMechTypeNames — an Obligation/Duty type's NAME at render (the sheet, the creator review, both PDFs); no deps -->
+  <script defer src="/lib/shared/partyStore.js"></script><!-- R6 lane A (R-R4S-4/5): window.SWRPGParty — the group record swrpg_party_v1, its one writer, both apps; reads versionGuard and roster at call time [mirrors gm/index.html] -->
+  <script defer src="/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
+  <script defer src="/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
+  <script defer src="/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
+  <script defer src="/lib/shared/heldStore.js"></script><!-- B-1732: window.SWRPGHeldStore (a surface reads its store at the act; a landing redraws) -->
+  <script defer src="/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
+  <script defer src="/lib/shared/backup.js"></script><!-- RELEASE R3 (D-258): the whole-save backup (window.SWRPGBackup), after syncMerge.js, which it reads. -->
+  <!-- HOLOTABLE Stage B wiring — the substrate, dark behind SWRPGHolotable.enabled === false.
+       Order note: roomFeed and roomClient resolve their dependencies AT CALL TIME, not at load,
+       so they are order-tolerant by construction; they sit after diceEngine anyway so the file
+       order reads the way the dependency graph does. NONE of these is bundled — lib/shared/*.js
+       ships RAW (PRAXIS §4), so each needs its own tag. -->
+  <script defer src="/lib/shared/roomState.js"></script><!-- HOLOTABLE: window.SWRPGRoomState (schema v1, the eight-type fence, joinDecision, the two event constructors); no deps -->
+  <script defer src="/lib/shared/holotable.js"></script><!-- HOLOTABLE: window.SWRPGHolotable + SWRPGHolotableEnabled (the OFF flag, reconnect policy, event ids, the room code — R-WRC-1); no deps -->
+  <script defer src="/lib/shared/roomFeed.js"></script><!-- HOLOTABLE: window.SWRPGRoomFeed (the ONE feed projection; reaches roomState + diceEngine lazily) -->
+  <script defer src="/lib/shared/roomClient.js"></script><!-- HOLOTABLE: window.SWRPGRoomClient (the socket, R-WRC-2's host; reaches its deps lazily) -->
+  <script defer src="/vendor.js"></script>
+  <script defer src="/lib/shared/treeView.js"></script><!-- F-100 M5 C7: window.SWRPGTree — the ONE talent/Force tree (lifted from player/app.jsx); after vendor.js (React), before the editor and app.js [mirrors gm/index.html] -->
+  <script defer src="/lib/shared/talentView.js"></script><!-- F-100 M5 C4 (A3-1/A3-2): window.SWRPGTalentView — the sheet's stamp view, the ONE wrapper both apps load; after userData.js and every script its ready() reads when called (baseRef, packValidate, mods, versionGuard); app.js registers it at its module top [mirrored in gm/index.html] -->
+  <script defer src="/lib/shared/packAttach.js"></script><!-- HOMEBREW H1 (card homebrew-h1-build-card R-H1B-5): window.SWRPGPackAttach — adding a collection to an existing character (pure; reads SWRPGUserData, SWRPGMods, CharResolve, SWRPGProjectionDiff, SWRPGSheetPool, SWRPGItemRegistries at call time); after every script it reads -->
+  <script defer src="lib/shared/desktopLayout.js"></script><!-- F-46: window.SWRPGDesktop (layout primitives; needs React from vendor.js) -->
+  <script defer src="/lib/shared/holotableView.js"></script><!-- HOLOTABLE Stage B: window.SWRPGHolotableView (the five approved components); needs React -->
+  <script defer src="/lib/shared/holotableCompose.js"></script><!-- HOLOTABLE Stage B: window.SWRPGHolotableCompose (the three narrow compositions); needs holotableView -->
+  <script defer src="/lib/shared/roomSession.js"></script><!-- HOLOTABLE Stage B: window.SWRPGRoomSession (the ONE React binding for roomClient); needs React + roomClient -->
+  <!-- NPC library (Step 2): the controller + empty-NPC factory (app-agnostic, canonical-data only).
+       After /vendor.js (needs React + window.SWRPGUI); all before /player/app.js (which mounts the
+       module). view.js (207 KB) is loaded on demand by ensureNpcLibrary() at first use. -->
+  <script defer src="lib/npc/createEmptyNpc.js"></script>
+  <script defer src="lib/npc/NpcGeneratorController.js"></script>
+  <!-- NPC bench persistence core (window.NpcBenchStore). Before view.js, which reads it at module top.
+       Loaded in both apps (shared-core, R-NBS3); the Groups UI is GM-only via capabilities. -->
+  <script defer src="/lib/library/npc/benchStore.js"></script>
+  <script defer src="/lib/library/npc/castStore.js"></script>
+  <script defer src="/lib/library/npc/dispositionStore.js"></script><!-- B-863 · R-NPC-3: window.NpcDispositionStore (both hosts write it); loaded before the lazily-injected view.js reads it -->
+  <script defer src="/lib/library/npc/npcRoute.js"></script><!-- B-863 · R-NPC-4: window.NpcRoute — the library's URL grammar (pure) -->
+  <script defer src="/lib/store/glyphs.js"></script><!-- THE item glyph library (window.SWRPGGlyphs); before rarity/view -->
+  <script defer src="/lib/store/rarity.js"></script>
+  <script defer src="/lib/store/userArt.js"></script>
+  <script defer src="/lib/store/view.js"></script>
+  <script defer src="/lib/editor/view.js"></script><!-- F-100 C2: window.SWRPGEditorView (the editor; mounts only while the switch is on) -->
+  <!-- SHIPYARD Y2 player mirror (R-SY5): the vehicle registry + the ONE shared vessel surface. After
+       /vendor.js (React) + before /player/app.js (which mounts it). No GM artifacts reach the player. -->
+  <script defer src="/lib/vehicles/VehicleLibraryController.js"></script>
+  <script defer src="/lib/shared/shipSchematic.js"></script>
+  <script defer src="/lib/shared/corpusUI.js"></script>
+  <!-- B-139 (ADDENDUM 426 §1, 428): lib/shared/vesselStore.js and vesselView.js (window.SWRPGVessels / SWRPGVesselView) are NOT loaded here — app.js loads them, in that order, on first use (PLAYER_PARTS.vessels) -->
+  <script defer src="/lib/shared/vesselResolve.js"></script>
+  <script defer src="/lib/shared/yardView.js"></script><!-- SHIPYARD R-Y2-2: window.SWRPGYard (the shared browse's state and vocabularies, which the S4 catalogue reads) -->
+  <style>
+    /* FFG dice symbol fonts — shared with gm.html */
+    @font-face {
+      font-family: 'Genesys';
+      src: url('public/fonts/genesysglyphsanddice.woff2') format('woff2'),
+           url('public/fonts/genesysglyphsanddice.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'SWRPGIcons';
+      src: url('public/fonts/sw-rpg-icons.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body, #root {
+      height: 100%; width: 100%;
+      overflow: hidden; background: #000;
+      touch-action: none;
+    }
+    body {
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* — Portrait lock (mobile only) — */
+    /* Only trigger on touch devices in landscape. Desktop browsers
+       (which use a mouse/trackpad) are always landscape and should
+       not be blocked. The (pointer: coarse) query targets touchscreens. */
+    @media (orientation: landscape) and (pointer: coarse) and (max-height: 600px) {
+      body::after {
+        content: ''; position: fixed; inset: 0;
+        background: #000; z-index: 9999;
+      }
+      body::before {
+        content: 'Rotate to portrait to continue';
+        position: fixed; inset: 0; z-index: 10000;
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--font-display); font-size: 13px;
+        letter-spacing: 0.15em; color: rgba(245,200,66,0.6);
+        text-align: center; padding: 32px;
+      }
+    }
+
+    /* — Ken Burns pans — */
+    @keyframes kb1 {
+      0%   { transform: scale(1.08) translate(0%, 0%); }
+      100% { transform: scale(1.35) translate(-9%, 5%); }
+    }
+    @keyframes kb2 {
+      0%   { transform: scale(1.30) translate(-7%, -4%); }
+      100% { transform: scale(1.08) translate(12%, 4%); }
+    }
+    @keyframes kb3 {
+      0%   { transform: scale(1.10) translate(8%, 3%); }
+      100% { transform: scale(1.35) translate(-7%, -5%); }
+    }
+    @keyframes kb4 {
+      0%   { transform: scale(1.28) translate(-4%, 3%); }
+      100% { transform: scale(1.10) translate(5%, -4%); }
+    }
+
+    /* — Starfield drift (Jason 2026-08-18): the landing's star background drifts slowly so the field
+       reads as living sky behind the solid cards. The field div is oversized (inset:-8% in app.jsx) so
+       the transform never uncovers a blank edge; `alternate` reverses instead of snapping back, so there
+       is no reset jump. Very slow (120s) and composited (transform only). Gated behind reduced-motion. */
+    @keyframes starDrift {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-9%, -7%, 0); }
+    }
+    .starfield-drift { animation: starDrift 72s linear infinite alternate; }
+    @media (prefers-reduced-motion: reduce) {
+      .starfield-drift { animation: none; }
+    }
+
+    /* — FORK B: the variant tile wipe (Jason 2026-08-11, approved mockup frame A) —
+       A hard gold edge crosses a tile and the value is different behind it: the saga's own scene
+       transition at tile scale. Staggered left to right by --fc-wipe-i so the grid reads as ONE
+       wipe crossing the card rather than nine separate flickers. Applied ONLY to tiles whose value
+       actually moved — motion that fires on everything carries no information, which is the
+       restraint that makes it informative. */
+    @keyframes fcTileWipe {
+      from { transform: translateX(-102%); }
+      to   { transform: translateX(102%); }
+    }
+    @keyframes fcTileValue {
+      0%, 54%   { opacity: 1; }
+      55%, 66%  { opacity: .22; }
+      100%      { opacity: 1; }
+    }
+    .fc-wipe { position: relative; overflow: hidden; }
+    .fc-wipe::after {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 100%; pointer-events: none;
+      background: linear-gradient(90deg, rgba(245,200,66,0) 0%, rgba(245,200,66,.07) 55%,
+                  rgba(245,200,66,.30) 86%, rgba(255,236,170,.92) 97%, #FFF3CE 99.4%, rgba(245,200,66,0) 100%);
+      animation: fcTileWipe 520ms cubic-bezier(.36,0,.12,1) both;
+      animation-delay: calc(var(--fc-wipe-i, 0) * 42ms);
+    }
+    .fc-wipe > * { animation: fcTileValue 520ms linear both; animation-delay: calc(var(--fc-wipe-i, 0) * 42ms); }
+    @media (prefers-reduced-motion: reduce) {
+      .fc-wipe::after { animation-duration: 1ms; }
+      .fc-wipe > * { animation: none; }
+    }
+
+    /* — Wipe transitions — */
+    @keyframes wipeHorizontal {
+      from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+      to   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    }
+    @keyframes wipeDiagonal {
+      from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+      to   { clip-path: polygon(0 0, 100% 0, 160% 100%, 0 100%); }
+    }
+    @keyframes wipeIris {
+      from { clip-path: circle(0% at 50% 50%); }
+      to   { clip-path: circle(150% at 50% 50%); }
+    }
+    @keyframes wipeClock {
+      0%    { clip-path: polygon(50% 50%, 50% 0%, 50% 0%); }
+      12.5% { clip-path: polygon(50% 50%, 50% 0%, 100% 0%); }
+      37.5% { clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%); }
+      62.5% { clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%); }
+      87.5% { clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+      100%  { clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 0%); }
+    }
+
+    /* — Misc — */
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scanline {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(200%); }
+    }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.55; } 50% { opacity: 0.85; }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px var(--glow-color, rgba(0,200,255,0.15)); }
+      50%      { box-shadow: 0 0 35px var(--glow-color, rgba(0,200,255,0.25)); }
+    }
+
+    /* ── Combat mode animations ────────────────────── */
+    @keyframes hitShake {
+      0%, 100% { transform: translateX(0); }
+      15% { transform: translateX(-4px); }
+      30% { transform: translateX(4px); }
+      45% { transform: translateX(-3px); }
+      60% { transform: translateX(3px); }
+      75% { transform: translateX(-1px); }
+    }
+    @keyframes hitFlash {
+      0% { box-shadow: inset 0 0 0 0 rgba(255,80,80,0); }
+      30% { box-shadow: inset 0 0 30px 5px rgba(255,80,80,0.3); }
+      100% { box-shadow: inset 0 0 0 0 rgba(255,80,80,0); }
+    }
+    @keyframes strainFlash {
+      0% { box-shadow: inset 0 0 0 0 rgba(255,200,87,0); }
+      30% { box-shadow: inset 0 0 30px 5px rgba(255,200,87,0.25); }
+      100% { box-shadow: inset 0 0 0 0 rgba(255,200,87,0); }
+    }
+    @keyframes healFlash {
+      0% { box-shadow: inset 0 0 0 0 rgba(78,203,113,0); }
+      30% { box-shadow: inset 0 0 30px 5px rgba(78,203,113,0.25); }
+      100% { box-shadow: inset 0 0 0 0 rgba(78,203,113,0); }
+    }
+    @keyframes floatDamage {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      70% { opacity: 1; transform: translateY(-30px) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-50px) scale(0.8); }
+    }
+    @keyframes floatHeal {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      70% { opacity: 1; transform: translateY(-25px) scale(1.1); }
+      100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+    }
+    @keyframes incapPulse {
+      0%, 100% { border-color: rgba(255,85,85,0.3); }
+      50% { border-color: rgba(255,85,85,0.7); }
+    }
+    @keyframes turnReset {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE LAYOUT — phone / tablet / desktop
+
+       On desktop, center the app in a max-width container so it
+       doesn't stretch edge-to-edge. Uses a named class (.app-shell)
+       instead of #root > div to avoid clobbering React internals.
+    ═══════════════════════════════════════════════════ */
+
+    @media (min-width: 480px) {
+      html, body, #root { touch-action: auto; }
+      body { user-select: auto; }
+      #root { display: flex; justify-content: center; }
+      .app-shell {
+        width: 100%; max-width: 500px;
+        border-left: 1px solid rgba(255,255,255,0.04);
+        border-right: 1px solid rgba(255,255,255,0.04);
+        box-shadow: 0 0 80px rgba(0,0,0,0.5);
+      }
+    }
+    @media (min-width: 768px)  { .app-shell { max-width: 540px; } }
+    @media (min-width: 1024px) { .app-shell { max-width: 580px; } }
+    @media (min-width: 1440px) {
+      .app-shell {
+        max-width: 620px;
+        border-left: 1px solid rgba(255,255,255,0.06);
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+    }
+    /* F-46 Desktop Curation (contract G10): in DESKTOP layout mode the phone-width shell cap is
+       released so screens can use the full width. Mobile is untouched by construction — below
+       1024px the resolved mode is `mobile`, the attribute is absent/`mobile`, and every cap above
+       applies verbatim. Width-only, driven by window.SWRPGLayout's data-layout stamp. */
+    :root[data-layout="desktop"] .app-shell {
+      max-width: none;
+      border-left: none;
+      border-right: none;
+      box-shadow: none;
+    }
+    /* S1 — WCAG 2.4.7 Focus Visible. Every inline-styled button sets
+       outline:none; this rule ensures keyboard focus is visible anyway. */
+    button:focus-visible,
+    a:focus-visible,
+    [role="button"]:focus-visible,
+    [tabindex]:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid currentColor !important;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(78,170,255,0.28);
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     DATA LAYER — embedded from src/ for QuickBuild + FullCreator
+     Sources: createEmptyCharacter.js, CharacterCreationController.js (reducer only), loaders.js (subset)
+══════════════════════════════════════════════════════ -->
+<script>
+// ── Character Factory ──────────────────────────────────────────────────────
+function createEmptyCharacter(gameLine) {
+  var gl  = gameLine || 'eote';
+  var now = new Date().toISOString();
+  var id  = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+  return {
+    id: id, meta: { schemaVersion: 1, createdAt: now, updatedAt: now }, gameLine: gl,
+    identity: { name: '', playerName: '' },
+    // F-60: backgroundId / hookId / motivationId REMOVED — declared here since the first build, written
+    // by no creator, carried by no assembly. `backstory` STAYS: the persisted sheet field is live (the
+    // sheet's PROFILE editor writes it, and B-58 ruled a pregen's is editable too) and normalizeCreated
+    // reads this slot to seed it.
+    // F-62 (Jason, 2026-07-30) — and creation DELIBERATELY never writes it. Asking for a backstory
+    // mid-creation "slows down the momentum of the process"; it is added on the sheet afterwards. So
+    // this slot being always-'' is the DESIGN, not a missing step — R0's census §2.2 classes backstory
+    // with the sheet-owned at-table fields. Before proposing a creator step, answer the same test:
+    // does this belong to the ten minutes before play, or the hours after?
+    narrative: { backstory: '' },
+    appearance: {},
+    species: null, career: null, specializations: [],
+    characteristics: { brawn: 2, agility: 2, intellect: 2, cunning: 2, willpower: 2, presence: 2 },
+    derived: { woundThresholdBonus: 0, strainThresholdBonus: 0, soakBonus: 0, meleeDefenseBonus: 0, rangedDefenseBonus: 0, forceRatingBonus: 0 },
+    // F-60: xpLedger REMOVED — its only writers were the dev test-bed's three pushes (gone with it), and
+    // `sheet.xpLedger` had 0 readers app-wide. Creation XP is audited by `sheet.xp` {total,spent,
+    // remaining}, which normalizeCreated computes from the per-entry stored costs (CR-RAW #2).
+    skills: {}, talents: {}, mechanic: null, forceSensitive: false,
+    gearLedger: { startingCredits: 500, credits: 500, inventory: [] },
+    // F-35: the book's closing d100 "pocket money" roll (Step 9). null = not yet offered/rolled;
+    // { value } once rolled. Additive + legacy-null-safe (SET_FIELD's default case sets it top-level;
+    // the draft carries it whole). Reads guard for null so old drafts show the ROLL offer, not a crash.
+    pocketMoney: null,
+    motivations: { strength: null, flaw: null, desire: null, fear: null },
+    notes: { personal: '', gm: '' },
+    // B-1055 MOUNT (ruling release-r7-bug-burndown ADDENDUM 108 C1): the re-entered Dedications whose point is already
+    // live. [] on every new creation, so presence means "this build"; absent (an older draft) reads as every record.
+    dedicationCarried: [],
+  };
+}
+
+// ── Character Reducer ──────────────────────────────────────────────────────
+function charReducer(state, action) {
+  switch (action.type) {
+    case 'SET_FIELD': {
+      switch (action.field) {
+        // F-60: the 'background' / 'hook' / 'motivation' branches are gone with their fields. They had
+        // NO dispatcher (0 call sites) and would now write keys that no longer exist. `backstory` below
+        // is KEPT deliberately — its field survives, so that branch stays coherent for a future step.
+        case 'name':       return Object.assign({}, state, { identity: Object.assign({}, state.identity, { name: action.value }) });
+        case 'backstory':  return Object.assign({}, state, { narrative: Object.assign({}, state.narrative, { backstory: action.value }) });
+        case 'mechanic':   return Object.assign({}, state, { mechanic: action.value });
+        case 'species':    return Object.assign({}, state, { species: action.value });
+        default: {
+          if (typeof action.field === 'string' && action.field.startsWith('appearance.')) {
+            var key = action.field.slice(11);
+            var ap = Object.assign({}, state.appearance); ap[key] = action.value;
+            return Object.assign({}, state, { appearance: ap });
+          }
+          var patch = {}; patch[action.field] = action.value;
+          return Object.assign({}, state, patch);
+        }
+      }
+    }
+    case 'SET_CAREER': {
+      // Preserve species-granted skill ranks (purchased > 0 with no free flags).
+      // CR-RAW #1: freeSpecies choice-picks are dropped/stripped here — a career change can flip
+      // a picked skill to career status (the non_career pool is career-relative), so the pick
+      // must be re-made in the skills step.
+      var preservedSkills = {};
+      Object.keys(state.skills).forEach(function(sk) {
+        var s = state.skills[sk];
+        if (s.purchased > 0 && !s.freeCareer && !s.freeSpec) {
+          // CR-RAW #2: bought ranks are stripped too — pricing is career-relative, so buys
+          // made under the old career auto-refund (spend derives from the entries).
+          preservedSkills[sk] = (s.freeSpecies || (s.bought && s.bought.length))
+            ? Object.assign({}, s, { freeSpecies: false, bought: [] }) : s;
+        }
+      });
+      return Object.assign({}, state, { career: action.value, specializations: [], skills: preservedSkills });
+    }
+    case 'SET_SPEC': {
+      var sp = action.value;
+      // B-314 / R-SPW-1: the wipe is TREE-SCOPED, not total.
+      //
+      // Discarding talent picks on a spec change is ruled and correct (`creator-hardening` gate:
+      // "talent picks on spec change -> REDUCER-OWNED"), because those picks belong to the tree
+      // you just left. It was written before treeless talents existed, and `talents: {}` took
+      // them with it -- so buying the Short Path and then selecting the specialization it
+      // unlocks destroyed the purchase, silently refunded 30 XP, and left a sheet that honestly
+      // reported Force rating 1. The feature's own causality is buy-THEN-select, so a wipe on
+      // select inverts it.
+      //
+      // THE PREDICATE IS `specKey`, NOT `source`. The intent being preserved is "keep what does
+      // not belong to a tree" -- `'__treeless__'` is the architecture's own marker for exactly
+      // that (R-SPP-9). Keying on `source === 'short_path'` would rescue this one feature and
+      // silently re-create the bug for the next treeless talent from any other source.
+      //
+      // The literal is duplicated from `SHORT_PATH_SPECKEY` in player/app.jsx because this shell
+      // loads before the bundle and cannot reference it. `test/b314_treeless_survives_set_spec.cjs`
+      // pins the two in agreement, so a rename there cannot silently restore the wipe here.
+      var kept = {};
+      var prevTalents = state.talents || {};
+      Object.keys(prevTalents).forEach(function(k) {
+        if (prevTalents[k] && prevTalents[k].specKey === '__treeless__') kept[k] = prevTalents[k];
+      });
+      return Object.assign({}, state, { specializations: sp ? [{ key: sp.key, name: sp.name, isStarting: true }] : [], talents: kept });
+    }
+    case 'SET_FREE_CAREER_SKILLS': {
+      var selected = {}; action.value.forEach(function(k) { selected[k] = true; });
+      var skills = Object.assign({}, state.skills);
+      Object.keys(skills).forEach(function(k) { if (skills[k].freeCareer) skills[k] = Object.assign({}, skills[k], { freeCareer: false }); });
+      action.value.forEach(function(k) { skills[k] = Object.assign({}, skills[k] || { freeCareer: false, freeSpec: false, purchased: 0 }, { freeCareer: true }); });
+      return Object.assign({}, state, { skills: skills });
+    }
+    case 'SET_FREE_SPEC_SKILLS': {
+      var skills2 = Object.assign({}, state.skills);
+      Object.keys(skills2).forEach(function(k) { if (skills2[k].freeSpec) skills2[k] = Object.assign({}, skills2[k], { freeSpec: false }); });
+      action.value.forEach(function(k) { skills2[k] = Object.assign({}, skills2[k] || { freeCareer: false, freeSpec: false, purchased: 0 }, { freeSpec: true }); });
+      return Object.assign({}, state, { skills: skills2 });
+    }
+    case 'SET_FREE_SPECIES_SKILLS': {
+      // CR-RAW #1: species free-choice skill grants (skill_choice_grants — Human/Geonosian/
+      // Klatooinian). One free rank per picked skill; markers cleared + re-set on every confirm,
+      // mirroring the career/spec cases. rank = freeCareer + freeSpec + freeSpecies + purchased.
+      var skills3 = Object.assign({}, state.skills);
+      Object.keys(skills3).forEach(function(k) { if (skills3[k].freeSpecies) skills3[k] = Object.assign({}, skills3[k], { freeSpecies: false }); });
+      action.value.forEach(function(k) { skills3[k] = Object.assign({}, skills3[k] || { freeCareer: false, freeSpec: false, purchased: 0 }, { freeSpecies: true }); });
+      return Object.assign({}, state, { skills: skills3 });
+    }
+    case 'TOGGLE_FREE_SKILL': {
+      // `skills-transplant`: ONE flag flipped INSIDE the reducer, where the state is always current.
+      // The transplanted sheet toggles a pick per press; three presses in one task (a driver, a
+      // double-tap) each computed "the set" from the same pre-render picks when the whole set was
+      // dispatched, and only the last survived. The flag is one of the three free-rank markers.
+      var fl = action.flag;
+      if (fl !== 'freeCareer' && fl !== 'freeSpec' && fl !== 'freeSpecies') return state;
+      var e6 = state.skills[action.skill] || { freeCareer: false, freeSpec: false, purchased: 0 };
+      var sk6 = Object.assign({}, state.skills);
+      var patch = {}; patch[fl] = !e6[fl];
+      sk6[action.skill] = Object.assign({}, e6, patch);
+      return Object.assign({}, state, { skills: sk6 });
+    }
+    case 'SET_SKILL_RANK': {
+      var entry = state.skills[action.skill] || { freeCareer: false, freeSpec: false, purchased: 0 };
+      var sk = Object.assign({}, state.skills); sk[action.skill] = Object.assign({}, entry, { purchased: action.rank });
+      return Object.assign({}, state, { skills: sk });
+    }
+    case 'BUY_SKILL_RANK': {
+      // CR-RAW #2: creation skill purchase (EotE p.35/p.102). Stores the PER-RANK paid cost on
+      // the entry (bought[]) — the D-CS4-2 one-source rule: the live budget bar and the saved
+      // sheet sum the SAME entries, so they agree by construction. Rank/cap/affordability are
+      // validated by the caller (the buy UI); the reducer is the pure commit.
+      var e4 = state.skills[action.skill] || { freeCareer: false, freeSpec: false, purchased: 0 };
+      var sk4 = Object.assign({}, state.skills);
+      sk4[action.skill] = Object.assign({}, e4, { bought: (e4.bought || []).concat([action.cost || 0]) });
+      return Object.assign({}, state, { skills: sk4 });
+    }
+    case 'REFUND_SKILL_RANK': {
+      // Pops the LAST bought rank (its stored cost returns to the pool via the summers).
+      var e5 = state.skills[action.skill];
+      if (!e5 || !(e5.bought || []).length) return state;
+      var sk5 = Object.assign({}, state.skills);
+      sk5[action.skill] = Object.assign({}, e5, { bought: e5.bought.slice(0, -1) });
+      return Object.assign({}, state, { skills: sk5 });
+    }
+    case 'ADD_ITEM': {
+      var inv = state.gearLedger.inventory;
+      var idx = -1; for (var ii = 0; ii < inv.length; ii++) { if (inv[ii].key === action.item.key) { idx = ii; break; } }
+      var newInv = idx >= 0
+        ? inv.map(function(item, n) { return n === idx ? Object.assign({}, item, { qty: item.qty + 1 }) : item; })
+        : inv.concat([Object.assign({}, action.item, { qty: 1 })]);
+      return Object.assign({}, state, { gearLedger: Object.assign({}, state.gearLedger, { inventory: newInv }) });
+    }
+    case 'REMOVE_ITEM': {
+      var inv2 = state.gearLedger.inventory;
+      var idx2 = -1; for (var jj = 0; jj < inv2.length; jj++) { if (inv2[jj].key === action.key) { idx2 = jj; break; } }
+      if (idx2 < 0) return state;
+      var newInv2 = inv2[idx2].qty <= 1
+        ? inv2.filter(function(_, n) { return n !== idx2; })
+        : inv2.map(function(item, n) { return n === idx2 ? Object.assign({}, item, { qty: item.qty - 1 }) : item; });
+      return Object.assign({}, state, { gearLedger: Object.assign({}, state.gearLedger, { inventory: newInv2 }) });
+    }
+    case 'RESET_INVENTORY':
+      return Object.assign({}, state, { gearLedger: Object.assign({}, state.gearLedger, { inventory: [] }) });
+    case 'ADD_TALENT': {
+      var posKey = action.specKey + '_r' + action.row + 'c' + action.col;
+      var newTalents = Object.assign({}, state.talents);
+      newTalents[posKey] = { talentKey: action.talentKey, specKey: action.specKey, row: action.row, col: action.col, cost: action.cost || 0 };
+      // R-SPP-9: a TREELESS purchase (Short Path) carries its provenance so normalizeCreated can
+      // persist it as sheet.treelessTalents. Additive — a normal tree buy passes no `source`.
+      if (action.source) newTalents[posKey].source = action.source;
+      return Object.assign({}, state, { talents: newTalents });
+    }
+    case 'REMOVE_TALENT': {
+      var newTalents2 = Object.assign({}, state.talents);
+      delete newTalents2[action.posKey];
+      return Object.assign({}, state, { talents: newTalents2 });
+    }
+    case 'SET_CREDITS':
+      return Object.assign({}, state, { gearLedger: Object.assign({}, state.gearLedger, { credits: action.value }) });
+    case 'RESET':
+      return createEmptyCharacter(state.gameLine || 'eote');
+    case 'HYDRATE':
+      return action.value;
+    default:
+      return state;
+  }
+}
+
+function dispatchBinding(field, value, dispatch) {
+  switch (field) {
+    case 'career':           dispatch({ type: 'SET_CAREER', value: value }); break;
+    case 'spec':             dispatch({ type: 'SET_SPEC',   value: value }); break;
+    case 'freeCareerSkills': dispatch({ type: 'SET_FREE_CAREER_SKILLS', value: value }); break;
+    case 'freeSpecSkills':   dispatch({ type: 'SET_FREE_SPEC_SKILLS',   value: value }); break;
+    case 'freeSpeciesSkills': dispatch({ type: 'SET_FREE_SPECIES_SKILLS', value: value }); break;
+    case 'skillRank':        dispatch({ type: 'SET_SKILL_RANK', skill: value.skill, rank: value.rank }); break;
+    default:                 dispatch({ type: 'SET_FIELD', field: field, value: value }); break;
+  }
+}
+
+// ── Commercial Mode ──────────────────────────────────────────────────────
+// This branch is the public-facing commercial version. Copyrighted images
+// (FFG character art, species portraits, atmosphere backgrounds) are
+// replaced with gradients/placeholders. Text and dice symbols stay.
+// The full Star Wars version lives on the main branch.
+var COMMERCIAL_MODE = false;
+
+// ── Data Loader ────────────────────────────────────────────────────────────
+var QB_DATA_BASE = 'public/data';
+
+function loadQuickBuildData() {
+  // Narrative-mechanics app-owned JSONs only. The raw oggdude_merged.json fetch is GONE
+  // (charbuild 3a): character-build data now comes from loadCanonicalCharacterBuild();
+  // SWItems.init's itemdescriptors blob fetch lives at App level (out of cluster).
+  return Promise.all([
+    qbFetchJson(QB_DATA_BASE + '/narrative-mechanics.json'),
+    qbFetchJson(QB_DATA_BASE + '/obligation-types.json'),
+    qbFetchJson(QB_DATA_BASE + '/obligation-conflicts.json'),
+    qbFetchJson(QB_DATA_BASE + '/duty-types.json'),
+    qbFetchJson(QB_DATA_BASE + '/duty-conflicts.json'),
+    qbFetchJson(QB_DATA_BASE + '/morality-pairs.json'),
+    qbFetchJson(QB_DATA_BASE + '/morality-conflicts.json'),
+  ]).then(function(results) {
+    // R-M13B-102: the Modify page reads the trade table from this stash; `ModifyHost` fills it through this loader.
+    window._narrativeMechConfig = results[0];
+    return {
+      narrativeMechanics: {
+        config: results[0], oblTypes: results[1], oblConflicts: results[2],
+        dutyTypes: results[3], dutyConflicts: results[4], morPairs: results[5], morConflicts: results[6],
+      },
+    };
+  });
+}
+
+// ── Data Normalizer (oggdude_merged.json → usable shapes) ──────────────────
+
+// ── THE SPECIES WASH INDEX (R-SPS-A1-1) ──────────────────────────────────────────────────────
+// The 413 crossed washes are the per-species backdrop behind the art plate. Same shape as the
+// portrait index directly above, and for the same reason: the browser cannot stat a directory, so
+// a resolver that COMPUTES a filename is guessing, and a wrong guess requests a file that is not
+// there — the layer paints nothing and the network log fills with 404s. The manifest is emitted
+// from the directory by `scripts/canonical/build_species_wash_manifest.py`; this consults it and
+// returns null when a species is absent, never a guess.
+//
+// FAILING CLOSED IS RIGHT HERE TOO, and it costs nothing visible: a null wash simply leaves
+// `--doc-wash` unset, and `--doc-wash-default` — the algorithmic wear — is already the floor under
+// it in `grounds/creator.css`. So a failed manifest means every plate wears the default rather
+// than its species' own, which is the designed fallback and not a hole.
+//
+// NOT GATED ON COMMERCIAL_MODE, unlike the portraits, and the distinction is the whole point of the
+// crossing. `speciesImgPath` returns null there because the portraits are the publisher's artists'
+// files. The washes are GENERATED-ART — ledger row 18, lab-original by construction, with the CSG's
+// own drawn splatters REFUSED by `lab_splatters()` — so they are not the class that distribution
+// exists to strip. The old comment on the species row's plate said baking washes into CSS "would
+// put species art into the one distribution built to have none"; that was true of the board's
+// embedded lab art and is not true of these.
+// ROOT-ABSOLUTE, and the leading slash is load-bearing. This path is handed to CSS as
+// `--doc-wash: url(...)`, and a relative url() inside a custom property resolves against the
+// STYLESHEET that consumes it — `lib/shared/paper.css` — not against the document. Written
+// relative it became `/lib/shared/art/washes/Bothan.webp`, which 404s; the layer then paints
+// nothing and `--doc-wash-default` shows through, so every plate looked plausible while no
+// species wash was ever displayed. The portrait dir beside this one is relative and correct,
+// because it is used in an `<img src>`, which resolves against the document. Two sinks, two rules.
+var SPECIES_WASH_DIR = '/art/washes/';
+var SPECIES_WASH_BY_ID = null;
+var SPECIES_WASH_DEFAULT = null;
+var speciesWashIndexReady = qbFetchJson(SPECIES_WASH_DIR.replace(/^\//, '') + 'manifest.json')
+  .then(function(m) {
+    SPECIES_WASH_BY_ID = m.by_id || {};
+    SPECIES_WASH_DEFAULT = m['default'] || null;
+    return SPECIES_WASH_BY_ID;
+  })
+  .catch(function(err) {
+    console.warn('[washes] manifest load failed — every plate falls to the algorithmic default:', err);
+    SPECIES_WASH_BY_ID = {};
+    SPECIES_WASH_DEFAULT = null;
+    return SPECIES_WASH_BY_ID;
+  });
+
+// BY RECORD ID, never by name. The washes were named from the CSG's species names and the register
+// holds both twins of several species; an id cannot be re-spelled by a source suffix or an
+// apostrophe, which is the whole reason the portrait side grew `by_id` as its rename-proof binding
+// (C-ART-6). Returns null for the five species the crossing has no wash for — named in the
+// manifest's own `unresolved` field — and they take the algorithmic default.
+function speciesWashPath(recOrName) {
+  var rec = (recOrName && typeof recOrName === 'object') ? recOrName : null;
+  if (!rec || !rec.id) return null;
+  if (!SPECIES_WASH_BY_ID) return null;              // not booted yet — the default, not a guess
+  var f = SPECIES_WASH_BY_ID[rec.id];
+  return f ? SPECIES_WASH_DIR + f : null;
+}
+
+// BOTH apostrophes are stripped. `sources.js:dedupeName` already treats the typographic ’ and the
+// ASCII ' as the same character when it decides that `Twi'lek` (ours) and `Twi’lek` (the guide's)
+// are one species — so the two spellings must resolve to one FILE too, or whichever spelling the
+// dedupe happens to surface decides whether the player sees art. Stripping only ' was the reason
+// `Twi’lek` and `Pau’an` looked portrait-less while `Twilek.webp` sat on disk.
+// The 413 crossed washes are the per-species backdrop behind the art plate. Same shape as the
+// portrait index directly above, and for the same reason: the browser cannot stat a directory, so
+// a resolver that COMPUTES a filename is guessing, and a wrong guess requests a file that is not
+// there — the layer paints nothing and the network log fills with 404s. The manifest is emitted
+// from the directory by `scripts/canonical/build_species_wash_manifest.py`; this consults it and
+// returns null when a species is absent, never a guess.
+//
+// FAILING CLOSED IS RIGHT HERE TOO, and it costs nothing visible: a null wash simply leaves
+// `--doc-wash` unset, and `--doc-wash-default` — the algorithmic wear — is already the floor under
+// it in `grounds/creator.css`. So a failed manifest means every plate wears the default rather
+// than its species' own, which is the designed fallback and not a hole.
+//
+// NOT GATED ON COMMERCIAL_MODE, unlike the portraits, and the distinction is the whole point of the
+// crossing. `speciesImgPath` returns null there because the portraits are the publisher's artists'
+// files. The washes are GENERATED-ART — ledger row 18, lab-original by construction, with the CSG's
+// own drawn splatters REFUSED by `lab_splatters()` — so they are not the class that distribution
+// exists to strip. The old comment on the species row's plate said baking washes into CSS "would
+// put species art into the one distribution built to have none"; that was true of the board's
+// embedded lab art and is not true of these.
+// ROOT-ABSOLUTE, and the leading slash is load-bearing. This path is handed to CSS as
+// `--doc-wash: url(...)`, and a relative url() inside a custom property resolves against the
+// STYLESHEET that consumes it — `lib/shared/paper.css` — not against the document. Written
+// relative it became `/lib/shared/art/washes/Bothan.webp`, which 404s; the layer then paints
+// nothing and `--doc-wash-default` shows through, so every plate looked plausible while no
+// species wash was ever displayed. The portrait dir beside this one is relative and correct,
+// because it is used in an `<img src>`, which resolves against the document. Two sinks, two rules.
+var SPECIES_WASH_DIR = '/art/washes/';
+var SPECIES_WASH_BY_ID = null;
+var SPECIES_WASH_DEFAULT = null;
+var speciesWashIndexReady = qbFetchJson(SPECIES_WASH_DIR.replace(/^\//, '') + 'manifest.json')
+  .then(function(m) {
+    SPECIES_WASH_BY_ID = m.by_id || {};
+    SPECIES_WASH_DEFAULT = m['default'] || null;
+    return SPECIES_WASH_BY_ID;
+  })
+  .catch(function(err) {
+    console.warn('[washes] manifest load failed — every plate falls to the algorithmic default:', err);
+    SPECIES_WASH_BY_ID = {};
+    SPECIES_WASH_DEFAULT = null;
+    return SPECIES_WASH_BY_ID;
+  });
+
+// BY RECORD ID, never by name. The washes were named from the CSG's species names and the register
+// holds both twins of several species; an id cannot be re-spelled by a source suffix or an
+// apostrophe, which is the whole reason the portrait side grew `by_id` as its rename-proof binding
+// (C-ART-6). Returns null for the five species the crossing has no wash for — named in the
+// manifest's own `unresolved` field — and they take the algorithmic default.
+function speciesWashPath(recOrName) {
+  var rec = (recOrName && typeof recOrName === 'object') ? recOrName : null;
+  if (!rec || !rec.id) return null;
+  if (!SPECIES_WASH_BY_ID) return null;              // not booted yet — the default, not a guess
+  var f = SPECIES_WASH_BY_ID[rec.id];
+  return f ? SPECIES_WASH_DIR + f : null;
+}
+
+// normalizeOggdude DELETED (charbuild 3a): the creator reads the canonical registries
+// via loadCanonicalCharacterBuild(); the species flat-list chunker lives on ONLY in the
+// Python ingest (scripts/canonical/charbuild.py) with its JS-parity fixture.
+// ── Narrative Mechanics Helpers ─────────────────────────────────────────────
+// inferRuleset / computeMechanic — MOVED to lib/shared/charResolve.js (the census's SHELL-RESIDENT
+// finding: an engine inline in the HTML shell is reachable by neither the GM app nor node). These
+// globals keep the names the bundle calls and forward to the core, which loads (deferred) before app.js.
+function inferRuleset(careerSource) { return window.CharResolve.inferRuleset(careerSource); }
+function computeMechanic(mechType, baseValue, descriptor, selectedTradeIds, config) {
+  return window.CharResolve.computeMechanic(mechType, baseValue, descriptor, selectedTradeIds, config);
+}
+</script>
+
+<script defer src="/player/app.js"></script>
+</body>
+</html>
