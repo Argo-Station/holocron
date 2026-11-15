@@ -100,7 +100,8 @@ const MUTANTS = {
   gmparty: ["add('party', 'Added to the party from the yard.');", "add(props.owner, 'Added to the party from the yard.');"],
   buildheld: ["held ? el(PartsWords, { err: attLoad.err }) : el(BuildPicker, { slot: 'engine'", "el(BuildPicker, { slot: 'engine'"],
   // card ADDENDUM 19 H-5 (b) · the drawn crew words
-  crewshort: ['function crewLine(vrow) { return vrow ? vrow.crew_short || vrow.crew || null : null; }', 'function crewLine(vrow) { return vrow ? vrow.crew || null : null; }'],
+  // A5 (argo-a5-import): the line now ends in the import's fill; the mutant still drops `crew_short`, and keeps the rest
+  crewshort: ["function crewLine(vrow) { return vrow ? vrow.crew_short || vrow.crew || vvRuleText('vehicles', vrow.key, 'crew') || null : null; }", "function crewLine(vrow) { return vrow ? vrow.crew || vvRuleText('vehicles', vrow.key, 'crew') || null : null; }"],
   // 6g · THE SHIP built
   builtword: ["if (builtWord(rec, vrow)) return builtWord(rec, vrow) + ' · ' + sil + u;", ''],
   builtcell: ["(builtWord(props.rec, vrow) || vrow.name", "(vrow.name"],

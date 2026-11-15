@@ -1,0 +1,16 @@
+{
+  "_doc": "THE one markup adjudication table (R-R3-3, B-136; ruling argo-a5-range-tags R-ART-1..5). Every OggDude bracket token that is not a clean glyph alias, decided by name and matched CASE-EXACT, BEFORE the glyph vocab. as: word = kept verbatim, bracketed, as the source carries it; glyph = becomes [glyph]; drop = removed (the page reader still counts it in its drop table). Read by scripts/canonical/item_markup.py (the item ingest and restore_item_glyphs.py) and by the A5 import (lib/shared/ruleTextLoad.js -> ruleText.js run(opts.markup)). A second copy of these entries anywhere in this repo is a bug (test/argo_a5_import.cjs T2).",
+  "entries": [
+    { "token": "Bo", "as": "glyph", "glyph": "BO", "reason": "miscased [BO]: INSTAMIST reads \"adds [Bo][BO][BO] to Stealth checks\"; its own two neighbours settle it" },
+    { "token": "R", "as": "drop", "reason": "FFG's \"Restricted\" price marker, not a die (HUNTTROPHARM: \"([R] 2,000/9)\"); the registry carries restriction as the restricted boolean" },
+    { "token": "Engaged", "as": "word", "reason": "range band inside an inline weapon profile (\"Range [Engaged]\"); once deleted as if a glyph, a content loss (B-136)" },
+    { "token": "Short", "as": "word", "reason": "range band inside an inline weapon profile (\"Range [Short]\"; B-136)" },
+    { "token": "Medium", "as": "word", "reason": "range band inside an inline weapon profile (\"Range [Medium]\"; B-136)" },
+    { "token": "Long", "as": "word", "reason": "range band; completes the band family so a future source row cannot reach the glyph vocab with one (B-136)" },
+    { "token": "Extreme", "as": "word", "reason": "range band; completes the band family so a future source row cannot reach the glyph vocab with one (B-136)" },
+    { "token": "Planetary", "as": "word", "reason": "range band (\"requires Piloting [Planetary]\"; B-136)" },
+    { "token": "Light", "as": "word", "reason": "THE TRAP: the skill \"Ranged [Light]\" (THERMDETMINI); the glyph vocab lists LIGHT as an alias of light_side, so an unadjudicated pass would inject a Force pip; the drawers match [A-Z]{2} only, so \"[Light]\" prints as text" },
+    { "token": "U", "as": "drop", "reason": "underline pair around a title; the words between stay (R-ART-3)" },
+    { "token": "u", "as": "drop", "reason": "underline pair around a title; the words between stay (R-ART-3)" }
+  ]
+}

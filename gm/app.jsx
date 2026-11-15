@@ -50,6 +50,11 @@ const CARDS = [
 // stays the conditional sixth.
 const ENCOUNTERS_CARD = { id: 'encounters', eyebrow: 'CONFLICT', label: 'ENCOUNTERS' };
 function encountersOn() { return !!(window.SWRPGEncountersDoor && window.SWRPGEncountersDoor.on()); }
+// ENCOUNTERS E6 frames (ruling `encounters-e6-frames` R-E6F-1/2, G1): the CAMPAIGNS plate (TABLE) joins after ENCOUNTERS
+// when that door is on, else after SHIPYARD, only while swrpg_campaigns_door is on (lib/shared/campaignsDoor.js).
+// OFF, /gm/campaigns[/<id>] parses as an unknown path does (the landing).
+const CAMPAIGNS_CARD = { id: 'campaigns', eyebrow: 'TABLE', label: 'CAMPAIGNS' };
+function campaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on() && window.SWRPGCampaignsView); }
 
 /* ══════════════════════════════════════════════════════
    SWIPE BACK HOOK — ported from player.html
@@ -75,7 +80,7 @@ function encountersOn() { return !!(window.SWRPGEncountersDoor && window.SWRPGEn
 function GmLanding({ onEnter }) {
   // F-100 C2 · the fifth door (F10-GM) joins only while swrpg_homebrew_editor is on;
   // five tiles make the last one span the row (gm.css `.gm-tile:last-child:nth-child(odd)`).
-  var doors = CARDS.concat(encountersOn() ? [ENCOUNTERS_CARD] : []).concat(window.SWRPGEditor && window.SWRPGEditor.on() && window.SWRPGEditorView
+  var doors = CARDS.concat(encountersOn() ? [ENCOUNTERS_CARD] : []).concat(campaignsOn() ? [CAMPAIGNS_CARD] : []).concat(window.SWRPGEditor && window.SWRPGEditor.on() && window.SWRPGEditorView
     ? [Object.assign({ id: 'homebrew' }, window.SWRPGEditorView.DOOR.gm)] : []);
   return (
     <main className="gm-main hp-sheet" data-doc-ground="creator" data-gm-shell="1">
@@ -234,6 +239,22 @@ function ensureEncounterCore() {
   return _encCore;
 }
 
+// ENCOUNTERS E6 frames — THIN HOST for the shared CAMPAIGNS screens (lib/shared/campaignsView.jsx), GM face.
+function GmCampaignsScreen({ campId, wipeType, onBack, go }) {
+  return h(window.SWRPGCampaignsView.Campaigns, {
+    role: 'gm', route: campId ? { id: campId } : {}, go: go, onBack: onBack,
+    wipeType: wipeType,
+    // the LOG's names (G3): a fight by its bench group (its label kept by the log if the group is gone: 'Encounter'),
+    // a crit by the bench's own table (SWRPGLibrary.NPC's loader and reader, one copy)
+    encounterName: function (gid) { var B = window.NpcBenchStore, g = B ? (B.load().groups || []).filter(function (x) { return x.id === gid; })[0] : null; return g ? g.name : ''; },
+    critName: function (roll) { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.critNameOf ? N.critNameOf(roll) : ''; },
+    loadCrits: function () { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.loadCritRows ? N.loadCritRows() : Promise.resolve(null); },
+    // D8 (D-543): the CAST's rows and its add search, through the library's one pool loader
+    loadCast: function () { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.loadCastPool ? N.loadCastPool() : Promise.resolve(null); },
+    npcOf: function (k) { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.castNpcOf ? N.castNpcOf(k) : null; },
+    npcSearch: function (q) { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.castSearch ? N.castSearch(q) : []; },
+  });
+}
 function NpcGeneratorScreen({ onBack, wipeType, location, onLocation, encounters }) {
   // NPC exemplar Step 1 — THIN HOST. The orchestrator (state machine + handlers + refData) lives in
   // window.SWRPGLibrary.NPC.Library (the headless core); the GM mounts it. Since the flip's deletion ledger
@@ -1890,6 +1911,7 @@ function pathForScreen(screenId, params) {
     case 'backup':        return '/gm/backup';   // RELEASE R3 (D-258): the whole-save backup
     case 'yard':          return '/gm/yard';   // the Yard's own rooms ride its tail (gmYardTail); navTo writes it
     case 'encounters':    return '/gm/encounters' + ((params && params.groupId) ? '/' + encodeURIComponent(params.groupId) : '');   // R-E3S-1 (on only)
+    case 'campaigns':     return '/gm/campaigns' + ((params && params.campId) ? '/' + encodeURIComponent(params.campId) : '');   // R-E6F-1 (on only)
     default:              return '/gm';
   }
 }
@@ -1915,6 +1937,9 @@ function parsePathToScreen(path) {
   // below) replaces this path before it is parsed while swrpg_encounters_door is off.
   var encMatch = p.match(/^\/gm\/encounters(?:\/([^/]+))?$/);
   if (encMatch) return { screen: 'encounters', groupId: encMatch[1] ? decodeURIComponent(encMatch[1]) : '' };
+  // ENCOUNTERS E6 frames (R-E6F-1): /gm/campaigns[/<campaignId>], only while swrpg_campaigns_door is on
+  var campMatch = campaignsOn() ? p.match(/^\/gm\/campaigns(?:\/([^/]+))?$/) : null;
+  if (campMatch) return { screen: 'campaigns', campId: campMatch[1] ? decodeURIComponent(campMatch[1]) : '' };
   switch (p) {
     case '/gm/npc':       return { screen: 'npc' };
     case '/gm/map':       return { screen: 'map' };
@@ -2050,6 +2075,15 @@ function GmApp() {
   const [yardPickerOpen, setYardPickerOpen] = useState(false);
   const [yardView, setYardView] = useState(function() { return /[?&]view=matrix\b/.test(window.location.search) ? 'matrix' : 'index'; });
   const [wipeType, setWipeType] = useState('wipeHorizontal');
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 6; mockup argo-a5-import.html M1 @ ad8cb3ac2, D-589): the ⚙
+  // "Fill in rule text…" panel, open copy only, the player's shared module; an import or a remove re-renders the app.
+  const [ruleTextOpen, setRuleTextOpen] = useState(false);
+  const [, setRuleTextTick] = useState(0);
+  useEffect(function() {
+    function on() { setRuleTextTick(function(n) { return n + 1; }); }
+    window.addEventListener('swrpg-rule-text-changed', on);
+    return function() { window.removeEventListener('swrpg-rule-text-changed', on); };
+  }, []);
 // B-863 · R-NPC-4 (ruling npc-library-paper-concept) — THE LIBRARY'S POSITION IS IN THE URL. This host
 // owns the router: it parses `/gm/npc/<tail>`, holds the tail, hands it to the shared module as
 // `location`, and answers the module's `onLocation(tail, opts)` — a MOVE pushes one history entry, a
@@ -2062,6 +2096,10 @@ function GmApp() {
   // ENCOUNTERS E3 lap B: the open encounter's id on /gm/encounters/<groupId> ('' = the list).
   const [encGroupId, setEncGroupId] = useState(function() {
     return parsePathToScreen(window.location.pathname).groupId || '';
+  });
+  // ENCOUNTERS E6 frames: the open campaign's id on /gm/campaigns/<campaignId> ('' = the list).
+  const [campId, setCampId] = useState(function() {
+    return parsePathToScreen(window.location.pathname).campId || '';
   });
   // STORE-UNIFY: the store's section tab lives here (like the player), so the bottom bar can BECOME
   // the store's contextual bar (Weapons · Armor · Gear · Shelves(n)) — the kernel renders only its
@@ -2087,6 +2125,7 @@ function GmApp() {
     if (screenId === 'homebrew') setHomebrewPath(pathForScreen('homebrew'));
     if (screenId === 'npc') setNpcPath((params && params.npcPath) || '');   // B-863: the NPCs door lands on the front
     if (screenId === 'encounters') setEncGroupId((params && params.groupId) || '');   // the plate lands on the list
+    if (screenId === 'campaigns') setCampId((params && params.campId) || '');   // the plate lands on the list
     var path = pathForScreen(screenId, params);
     // SHIP YARD S4 · U9: every door to the Yard (the bar's YARD, the hub's card) opens the HANGAR floor; a door that
     // names a hull opens its ENTRY.
@@ -2119,6 +2158,7 @@ function GmApp() {
       setYardFrom((_event && _event.state && _event.state.yardFrom) || null);   // R-S4CC-2: P1's origin rides its entry
       setNpcPath(parsed.npcPath || '');   // B-863: back/forward inside the library feeds the module its tail
       setEncGroupId(parsed.groupId || '');   // ENCOUNTERS: back/forward between the list and an open encounter
+      setCampId(parsed.campId || '');   // CAMPAIGNS: back/forward between the list and one campaign
     }
     window.addEventListener('popstate', handlePopState);
     return function() { window.removeEventListener('popstate', handlePopState); };
@@ -2225,6 +2265,7 @@ function GmApp() {
   // what they were. The rules are lib/shared/chrome.css's (the GM links the store's layer too since B-1123).
   const paperChrome = screen === 'npc'
     || screen === 'encounters'   // ENCOUNTERS E3 lap B: the manager is the bench's paper face on its own screen
+    || screen === 'campaigns'    // ENCOUNTERS E6 frames (F5-a): the campaigns screen wears the library shell's paper
     || screen === 'landing'   // B-1110 (R-GOS-6): the toolbox on paper wears the paper bars (D-74 "B")
     || screen === 'store'     // B-1123 (R-GOS-28 d): the store's paper face wears them too (D-76 "Paper bars")
     || screen === 'yard';   // SHIP YARD S4 · m1 (G2): the Yard declares the paper ground by name
@@ -2271,17 +2312,25 @@ function GmApp() {
         // RELEASE R3 (card release-r3-no-loss-card §4, D-258): the whole-save backup, FIRST in ⚙, above "Active sources" —
         // the GM app's first export.
         { label: 'Back up everything…', onSelect: () => handleEnter('backup') },
+        // A5 (D-589, mockup M1): the open copy's rule-text import, after "Back up everything…"; holocron.work draws no row
+        window.SWRPGSources && window.SWRPGSources.bookTextRemoved && window.SWRPGSources.bookTextRemoved()
+          ? { label: 'Fill in rule text…', onSelect: () => setRuleTextOpen(true) } : null,
         // BOOKS-1b — the ACTIVE SOURCES filter (shared with the player; one table, one shelf).
         // B-1711 (ADDENDA 607, 608): one face, paper; B-881's `paper: paperChrome` is retired with the dark face.
         { label: 'Active sources', onSelect: () => window.SWRPGUI && window.SWRPGUI.openActiveSources && window.SWRPGUI.openActiveSources({ accent: '#F5C842', variants: false }) },
         // F-46 D4 — LAYOUT pref (AUTO·MOBILE·DESKTOP), G10 setPref. Desktop engages ≥1024 on AUTO.
         { label: 'LAYOUT', kind: 'segment', value: layoutPref, onSelect: chooseLayout,
           options: [{ value: 'auto', label: 'AUTO' }, { value: 'mobile', label: 'MOBILE' }, { value: 'desktop', label: 'DESKTOP' }] },
-      ]} />
+      ].filter(Boolean)} />
 
       {/* Screen layer — flex:1 below the suite bar; the absolute-inset:0 screens resolve against this. */}
       <div id="suite-main" style={{ flex: 1, position: 'relative', minHeight: 0, zIndex: 1 }}>
 
+      {/* A5 — the ⚙ RULE TEXT panel, the player's shared module; the Yard's character core brings the records' loaders */}
+      {ruleTextOpen && window.SWRPGRuleTextPanel ? React.createElement(window.SWRPGRuleTextPanel.Panel, {
+        prepare: ensureYardCharCore,
+        onClose: function() { setRuleTextOpen(false); },
+      }) : null}
       <GmLanding onEnter={handleEnter} />
       {screen === 'npc' && (
         <NpcGeneratorScreen onBack={handleBack} wipeType={wipeType} location={npcPath} onLocation={handleNpcLocation}
@@ -2292,6 +2341,11 @@ function GmApp() {
       {screen === 'encounters' && encountersOn() && (
         <NpcGeneratorScreen onBack={handleBack} wipeType={wipeType} location={encountersTail(encGroupId)}
           onLocation={handleEncountersLocation} encounters="screen" />
+      )}
+      {/* ENCOUNTERS E6 frames (F5-a, R-E6F-1): CAMPAIGNS as its own host screen — G2 the list, G3 one campaign. */}
+      {screen === 'campaigns' && campaignsOn() && (
+        <GmCampaignsScreen campId={campId} wipeType={wipeType} onBack={handleBack}
+          go={function(r) { navTo('campaigns', { campId: (r && r.id) || '' }); }} />
       )}
       {screen === 'map' && (
         <MapErrorBoundary onBack={handleBack}>
@@ -2378,8 +2432,12 @@ function GmApp() {
 // sources index, so the GM loads it (SWRPGSources.ready(): the book vocabulary and the short labels) before the first
 // paint. holocron.work ('included') renders at once, exactly as before; ready() never rejects (a failed load is inert).
 (function () {
-  var SS = window.SWRPGSources;
+  // B-1874 (ADDENDUM 721): with swrpg_campaigns_door on, the campaign files (and the QR library) run first; load never rejects.
+  var SS = window.SWRPGSources, D = window.SWRPGCampaignsDoor;
   function mount() { ReactDOM.createRoot(document.getElementById('root')).render(<GmApp />); }
-  if (SS && SS.bookTextRemoved && SS.bookTextRemoved()) SS.ready().then(mount, mount);
-  else mount();
+  function boot() {
+    if (SS && SS.bookTextRemoved && SS.bookTextRemoved()) SS.ready().then(mount, mount);
+    else mount();
+  }
+  if (D && D.on()) D.load({ qr: true }).then(boot); else boot();
 })();

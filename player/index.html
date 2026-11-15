@@ -50,6 +50,7 @@
   <script defer src="lib/shared/poolMods.js"></script><!-- R-PCA-2: window.SWRPGPoolMods — the ONE assembler folding certified item effects into a buildPool spec -->
   <script defer src="lib/shared/qualityRows.js"></script><!-- B-219 (R-B219C-6): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows; computeWeaponPool joins them to its mods -->
   <script defer src="lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
+  <!-- A5's three files (ruleTextStore, ruleTextLoad, ruleTextPanel) are not tagged here: SWRPGSources.ready() runs them only in a copy whose book text is removed, before it resolves (B-1874; guard test/b1874_dark_scripts.cjs) [mirrors gm/index.html] -->
   <script defer src="lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps) -->
   <script defer src="lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
   <script defer src="lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
@@ -110,6 +111,14 @@
   <script defer src="lib/npc/NpcGeneratorController.js"></script>
   <!-- NPC bench persistence core (window.NpcBenchStore). Before view.js, which reads it at module top.
        Loaded in both apps (shared-core, R-NBS3); the Groups UI is GM-only via capabilities. -->
+  <!-- ENCOUNTERS E6 frames (ruling encounters-e6-frames R-E6F-1/2, F5-a): the campaigns door's switch, the campaign record, the
+       table wire's client, the app's one table session and the CAMPAIGNS screens [mirrors gm/index.html]. Only the switch and
+       the table session are tagged (B-1874, ADDENDUM 722: tableSession.pcOf names a fight's PC with the door off too, B-1851;
+       inert on load, F11): with swrpg_campaigns_door on, /player/app.js runs the other three through
+       SWRPGCampaignsDoor.load() before its first render; off, they are never fetched. encounters.css is linked by the
+       screen's host on mount. -->
+  <script defer src="/lib/shared/campaignsDoor.js"></script>
+  <script defer src="/lib/shared/tableSession.js"></script>
   <script defer src="/lib/library/npc/benchStore.js"></script>
   <script defer src="/lib/library/npc/castStore.js"></script>
   <script defer src="/lib/library/npc/dispositionStore.js"></script><!-- B-863 · R-NPC-3: window.NpcDispositionStore (both hosts write it); loaded before the lazily-injected view.js reads it -->

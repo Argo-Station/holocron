@@ -294,7 +294,16 @@
   function isActive(rec) { return !!rec && !rec.retired && !rec.destroyed; }
   // card ADDENDUM 19 (H-5 (b)): a row's crew as the faces print it — a frame's `crew_short` (the approved frames' words, from the
   // census), else the row's `crew` (a library row's, the page's words). The ONE read for every face that prints a hull's crew.
-  function crewLine(vrow) { return vrow ? vrow.crew_short || vrow.crew || null : null; }
+  // A5 (argo-dataset-import-draft ADDENDUM 5 F3): `crew_short` stays first; `crew` fills from the user's import by the row's key.
+  function crewLine(vrow) { return vrow ? vrow.crew_short || vrow.crew || vvRuleText('vehicles', vrow.key, 'crew') || null : null; }
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 §A4.1 item 3): the user's imported rule text through the one accessor
+  // (SWRPGSources.ruleText / ruleTextItem); null on holocron.work and wherever nothing was imported, so a face draws as before.
+  // A library vehicle is addressed by its entry `key`.
+  function vvRuleText(kind, id, path) {
+    var S = window.SWRPGSources;
+    return S && S.ruleText ? S.ruleText(kind, id, path) : null;
+  }
+  function vvField(v, f) { return v && v[f] != null && v[f] !== '' ? v[f] : (v ? vvRuleText('vehicles', v.key, f) : null); }
   function shipName(rec, vrow) { return rec.nickname || (vrow && vrow.name) || rec.vehicleKey; }
   // S8 (R-S8B-4): every face turns a ship into its row through the store's ONE lookup (a built ship's frame, else the library
   // row by key); `lib` is the host's library (`getVehicle`: key → row), never consulted for a built ship
@@ -1368,7 +1377,7 @@
       var a = (p.rec.attachments || [])[g.att], row = a && reg[a.key], m = a && (a.mods || [])[g.mod];
       var j = row && m ? (row.added_options || []).map(function (o) { return o.id; }).indexOf(m.option) : -1;
       var line = j >= 0 ? (row.added_mods || [])[j] : null;
-      var words = (line && line.description) || '', S = window.SWRPGSources;
+      var S = window.SWRPGSources, words = (line && line.description) || (line && S && S.ruleTextItem ? S.ruleTextItem(row, ['added_mods', j, 'description']) : null) || '';   // A5
       // S2: a grant whose words were removed tells the part's book line in place of the quote (null on holocron)
       return Object.assign({}, g, { words: words, line: !words && row && S && S.removedLine ? S.removedLine(row) : null });
     });
@@ -4963,7 +4972,7 @@
     ['SILHOUETTE', function (v) { return catNum(v, 'silhouette'); }], ['SPEED', function (v) { return catNum(v, 'speed'); }], ['HANDLING', function (v) { return catSigned(v, 'handling'); }],
     ['ARMOR', function (v) { return catNum(v, 'armor'); }], ['HULL TRAUMA', function (v) { return catNum(v, 'hull_trauma'); }], ['SYSTEM STRAIN', function (v) { return catNum(v, 'system_strain'); }],
     ['DEFENSE', function (v) { return 'FORE ' + catNum(v, 'defense.fore') + ' · AFT ' + catNum(v, 'defense.aft'); }], ['HARD POINTS', function (v) { return catNum(v, 'hard_points_total'); }],
-    ['CREW', function (v) { return v.crew || '—'; }, 't'], ['PASSENGERS', function (v) { return catNum(v, 'passengers'); }], ['ENCUMBRANCE', function (v) { return catNum(v, 'encumbrance_capacity'); }],
+    ['CREW', function (v) { return vvField(v, 'crew') || '—'; }, 't'], ['PASSENGERS', function (v) { return catNum(v, 'passengers'); }], ['ENCUMBRANCE', function (v) { return catNum(v, 'encumbrance_capacity'); }],
     ['HYPERDRIVE', catHyper], ['WEAPONS', function (v, reg) { return catWeapons(v, reg); }, 't'], ['PRICE', function (v) { return el(CatPrice, { v: v }); }],
     ['RARITY', function (v) { return el(React.Fragment, null, v.rarity != null ? String(v.rarity) : '—', el(CatR, { v: v }), el('span', { style: { display: 'block', marginTop: 3 } }, el(CatFind, { v: v }))); }],
   ];
@@ -5140,12 +5149,12 @@
   // ── THE ENTRY (E1–E3): the store's read grown to a page ──
   function CatLedger(props) {
     var v = props.v, four = catZones(v).indexOf('port') !== -1, F = catFind(v);
-    function has(f) { return v[f] != null && v[f] !== ''; }
+    function has(f) { return vvField(v, f) != null; }   // A5: a field the user's import fills counts as present
     function L(k, val) { return el('tr', { key: k }, el('td', { className: 'y-lk' }, k), el('td', { className: 'y-lv' }, val)); }
     var rows = [
       L('VEHICLE TYPE / MODEL', (v.type || '—') + ' / ' + v.name),
       has('sensor_range_label') ? L('SENSOR RANGE', v.sensor_range_label) : null,
-      has('crew') ? L('CREW', v.crew) : null,
+      has('crew') ? L('CREW', vvField(v, 'crew')) : null,
       has('encumbrance_capacity') ? L('ENCUMBRANCE CAPACITY', catNum(v, 'encumbrance_capacity')) : null,
       has('passengers') ? L('PASSENGER CAPACITY', catNum(v, 'passengers')) : null,
       L('PRICE / RARITY', el(React.Fragment, null, el(CatPrice, { v: v }), el(CatR, { v: v }), ' · RARITY ' + (v.rarity != null ? v.rarity : '—'),
@@ -5158,7 +5167,7 @@
       v.hyperdrive_primary > 0 ? L('HYPERDRIVE', 'PRIMARY: CLASS ' + v.hyperdrive_primary + (v.hyperdrive_backup > 0 ? ' · BACKUP: CLASS ' + v.hyperdrive_backup : '')) : null,
       has('navicomputer') ? L('NAVICOMPUTER', el('span', { style: { textTransform: 'capitalize' } }, CAT_NAVI[v.navicomputer] || v.navicomputer)) : null,
       has('consumables') ? L('CONSUMABLES', v.consumables) : null,
-      has('starfighter_complement') ? L('STARFIGHTER COMPLEMENT', v.starfighter_complement) : null,
+      has('starfighter_complement') ? L('STARFIGHTER COMPLEMENT', vvField(v, 'starfighter_complement')) : null,
     ];
     return el('table', { className: 'y-led y-spec', 'data-testid': 'entry-spec' }, el('tbody', null, rows));
   }
@@ -5240,7 +5249,7 @@
     }
     var all = ctrl.allVehicles || [], n = all.indexOf(v) + 1, legend = catLegend(v), fam = props.families[v.key] || null;
     var cat = (ctrl.taxonomy && ctrl.taxonomy.categories && ctrl.taxonomy.categories[v.category]) || null;
-    var paras = Y.vehicleParagraphs(v.description, v.name);   // R-PLF-10: the one rule, yardView's
+    var paras = Y.vehicleParagraphs(vvField(v, 'description') || '', v.name);   // R-PLF-10: the one rule, yardView's (A5: the import fills a blank)
     var ph = Y.detectDescriptionPlaceholder(paras);
     var s1 = window.SWRPGSources.removedLine ? window.SWRPGSources.removedLine(v) : null;   // S1: the book line where the words were removed
     var runhead = el('div', { className: 'y-runhead2' }, el('span', null, 'CATALOGUE · ' + upper(cat ? cat.label : v.category)),

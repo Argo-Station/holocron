@@ -249,7 +249,12 @@ const pcR = B.resetGroup(Object.assign(B.normalize(bench), {}), gid);
 check("HEAL & REPAIR ALL does not write a PC member's wounds or strain either", B.getMember(pcR, gid, PCA).currentWounds === 0);
 const src = (f) => fs.readFileSync(path.join(LIB, f), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
 const lifeSrc = src('library/npc/encounterLife.js'), benchSrc = src('library/npc/benchStore.js');
-check('nothing writes campaignId (only normalize reads it through)', !/campaignId\s*=[^=]/.test(lifeSrc + benchSrc) && !/campaignId/.test(lifeSrc) && (benchSrc.match(/campaignId:(?!\s*(null|fromVersion))/g) || []).length === 0);
+// RULING-MOVED (encounters-e6-frames D1, D-540; ADDENDUM 4 notice 1): the E3 rule "nothing writes campaignId" became
+// "ONE writer": encounterLife still never names it, and the bench assigns it only inside setGroupCampaign.
+const setterSrc = (benchSrc.match(/function setGroupCampaign[\s\S]*?\n  \}/) || [''])[0];
+check('one writer of campaignId: setGroupCampaign (encounterLife never names it; normalize reads it through)',
+  !/campaignId/.test(lifeSrc) && (benchSrc.match(/campaignId\s*=[^=]/g) || []).length === 1 && /g\.campaignId\s*=\s*next/.test(setterSrc)
+  && (benchSrc.match(/campaignId:(?!\s*(null|fromVersion))/g) || []).length === 0);
 check('nothing advances on a timer (no setTimeout / setInterval)', !/setTimeout|setInterval/.test(lifeSrc + benchSrc));
 check('the order is written only through roomState\'s applyDelta (no localStorage, no write() inside the module)', !/localStorage|\.write\(/.test(lifeSrc) && /applyDelta\(room, \{ type: 'initiative_change'/.test(lifeSrc));
 check('one pool path: a PC pool only through charPool; no ffgDicePool or second builder', /SP\.charPool\(/.test(lifeSrc) && !/ffgDicePool|function buildPool/.test(lifeSrc));

@@ -722,6 +722,10 @@
      it runs beneath, spanning, at its own height, and the two tile rows share the rest. */
   .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a{grid-template-rows:repeat(2,minmax(0,1fr)) auto;grid-auto-rows:auto}
   .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a > .ld-files{grid-column:1 / -1}
+  /* ENCOUNTERS E6 frames · D5 (D-540): FIVE tiles (HOMEBREW and CAMPAIGNS both on) — F10a's 2×2, Campaigns across both
+     columns beneath, the quiet row under it. */
+  .ld[data-fit="1"] .ld-tiles.ld-tiles-f10a[data-tiles="5"]{grid-template-rows:repeat(3,minmax(0,1fr)) auto}
+  .ld-tiles.ld-tiles-f10a[data-tiles="5"] > [data-landing-door="campaigns"]{grid-column:1 / -1}
   /* §175 — the quiet row as a TILE (Jason: its text "looks incorrectly formatted for the tile size"): the
      quiet row's two-column, centred, mono line was inherited into a tall cell. In the grid it reads as
      the other tiles do — the title in the door face top-left, the sentence in the body face beneath, the
@@ -998,6 +1002,7 @@
      the three-tile landing's (the editor's '0' rollback). The body keeps the rows' non-scroller rules (no drift here). */
   .ld-colR > .ld-tiles.ld-tiles-f10a{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch}
   .ld-tiles-f10a > .ld-files{grid-column:1 / -1}
+  .ld-tiles-f10a[data-tiles="5"] > [data-landing-door="campaigns"]{grid-column:1 / -1}   /* D5 (D-540) */
   .ld-surface .ld-tiles-f10a > .hp-plate.ld-tile{display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;
     padding:10px 12px 26px;min-height:44px;min-width:0;position:relative;font:inherit;color:inherit}
   .ld-tiles-f10a > .ld-tile > .ld-tilehead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2px 8px}

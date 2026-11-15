@@ -455,6 +455,21 @@ function CreatorLoadingScreen({ face }) {
 const NPC_LIB_ACCENT = '#4EAAFF';  // the NPC library's identity accent (matches the module's NPC_ACCENT)
 
 // Thin player host — mounts the shared core, browse-only (no capabilities).
+// ENCOUNTERS E6 frames — THIN HOST for the shared CAMPAIGNS screens (lib/shared/campaignsView.jsx), player face. The
+// enc- parts are encounters.css's, which this host links only when the screen mounts with the door on (ADDENDUM 2).
+function playerEncountersCss() {
+  if (document.querySelector('link[data-encounters-css]')) return;
+  var l = document.createElement('link');
+  l.rel = 'stylesheet'; l.href = '/lib/shared/encounters.css'; l.setAttribute('data-encounters-css', '1');
+  document.head.appendChild(l);
+}
+function PlayerCampaignsScreen({ route, wipeType, onBack, go, onMakeCharacter, onUseBook }) {
+  React.useLayoutEffect(playerEncountersCss, []);
+  return React.createElement(window.SWRPGCampaignsView.Campaigns, {
+    role: 'player', route: route, go: go, onBack: onBack, wipeType: wipeType, onMakeCharacter: onMakeCharacter,
+    onUseBook: onUseBook, onChangeBook: onMakeCharacter,
+  });
+}
 function PlayerNpcLibrary({ onBack, location, onLocation }) {
   const [Lib, setLib] = useState(function() { return window.SWRPGLibrary ? window.SWRPGLibrary.NPC.Library : null; });
   const [err, setErr] = useState(null);
@@ -596,6 +611,27 @@ function LandingHomebrewTile(p) {
         <span className="ld-peek-text"></span>
         <span className="ld-chrun ld-roll ld-peek-dup" data-peek-copy="2" aria-hidden="true">{roll}</span>
         <span className="ld-peek-text ld-peek-dup" aria-hidden="true"></span>
+      </span>
+      <span className="ld-chev">&rsaquo;</span>
+    </button>);
+}
+// ENCOUNTERS E6 frames · P1 (R-E6F-2): the Campaigns tile, the Store tile's markup re-lettered — its count, the first
+// campaign's name as the roll, `with <GM>` as the peek. `wide` (D5): one name, once (the copy's roll stays empty).
+function playerCampaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on() && window.SWRPGCampaignsView); }
+function LandingCampaignsTile(p) {
+  var Cs = window.SWRPGCampaigns, list = Cs ? Cs.load().campaigns.filter(function (c) { return c && c.role === 'player'; }) : [];
+  var first = list[0] || null, roll = first ? first.name : '', peek = first && first.table ? 'with ' + first.table.gmLabel : '';
+  return (
+    <button type="button" className="hp-plate ld-tile" data-pad="read" data-landing-door="campaigns" onClick={p.onEnter('campaigns')}>
+      <span className="ld-tilehead">
+        <span className="hp-row-desig">Campaigns</span>
+        {ldFigure('campaigns', list.length, 'campaigns')}
+      </span>
+      <span className="ld-tilebody">
+        <span className="ld-chrun ld-roll">{roll}</span>
+        <span className="ld-peek-text">{peek}</span>
+        <span className="ld-chrun ld-roll ld-peek-dup" data-peek-copy="2" aria-hidden="true">{p.wide ? '' : roll}</span>
+        <span className="ld-peek-text ld-peek-dup" aria-hidden="true">{peek}</span>
       </span>
       <span className="ld-chev">&rsaquo;</span>
     </button>);
@@ -1364,8 +1400,10 @@ function LandingPaper(p) {
   // rollcall.json stays as built.
   var peekText = function (e, roll) {
     var Y = window.SWRPGYard;
-    if (!(e && e.description && Y)) return '';
-    return (roll === 'yard' ? Y.vehicleParagraphs(e.description, e.name) : Y.cleanVehicleDescription(e.description)).join(' ');
+    // A5: a yard entry's blank description reads the user's imported text by its key (null on holocron and for other rolls)
+    var d = e && (e.description || (roll === 'yard' && e.key ? fcRuleText('vehicles', e.key, 'description') : null));
+    if (!(d && Y)) return '';
+    return (roll === 'yard' ? Y.vehicleParagraphs(d, e.name) : Y.cleanVehicleDescription(d)).join(' ');
   };
   var tiles = [
     { id: 'npc', roll: 'npcs', title: 'NPCs',
@@ -1378,6 +1416,11 @@ function LandingPaper(p) {
   // F-100 C2 · the HOMEBREW door is drawn only while swrpg_homebrew_editor is on. ONE test, read by the door and by the
   // tile group's F10a class, so the layout and the door cannot disagree.
   var homebrewDoor = !!(window.SWRPGEditor && window.SWRPGEditor.on() && window.SWRPGEditorView);
+  // ENCOUNTERS E6 frames (R-E6F-2, F2-a, D5 · D-540): the Campaigns tile after Store while swrpg_campaigns_door is on. The
+  // grid class follows the tile COUNT: four tiles take F10a; five (HOMEBREW and CAMPAIGNS both on) are D5 — F10a's 2×2 with
+  // Campaigns across both columns beneath (`data-tiles="5"`, landing.css). Off, the landing is byte for byte today's.
+  var campaignsDoor = playerCampaignsOn();
+  var tileCount = tiles.length + (homebrewDoor ? 1 : 0) + (campaignsDoor ? 1 : 0);
 
   var contents = (
     <React.Fragment>
@@ -1406,7 +1449,8 @@ function LandingPaper(p) {
       {/* F10a (R-FEM-A2-1; Jason's D-PV1 (a), ruling `paper-verify`): with the HOMEBREW door the reference doors are FOUR,
           and the approved frame draws them 2×2 at every band with CHARACTER FILES beneath. `ld-tiles-f10a` names that
           state for landing.css; without the door (the editor's '0' rollback) the three-tile landing is unchanged. */}
-      <div className={'ld-tiles' + (homebrewDoor ? ' ld-tiles-f10a' : '')} data-landing-zone="tiles">
+      <div className={'ld-tiles' + (tileCount >= 4 ? ' ld-tiles-f10a' : '')} data-landing-zone="tiles"
+           data-tiles={tileCount === 5 ? '5' : undefined}>
         {tiles.map(function (t) {
           // THE FIRST NAME IS IN THE MARKUP (I6's own requirement, not a nicety): with the roll call's
           // clock absent or motion reduced, the line must read correctly rather than empty. Until
@@ -1442,7 +1486,9 @@ function LandingPaper(p) {
         })}
         {/* F-100 C2 · THE HOMEBREW DOOR (F10a, ruled R-FEM-A2-1: a fourth reference tile; the bar keeps its five
             words). Drawn only while swrpg_homebrew_editor is on — off, this line renders nothing. */}
+        {campaignsDoor && !homebrewDoor ? <LandingCampaignsTile onEnter={enter} wide={false} /> : null}
         {homebrewDoor ? <LandingHomebrewTile onEnter={enter} /> : null}
+        {campaignsDoor && homebrewDoor ? <LandingCampaignsTile onEnter={enter} wide={true} /> : null}
         {/* THE QUIET ROW, R-OGG1-1's rule kept: no stock, no figure, no eyebrow. B-712: it carries the legacy row's
             tour-id, which R-OEC-1 pins UNCHANGED — three suites select the import row by it. */}
         <button type="button" className="hp-quiet ld-files" data-tour-id="p-landing-import-row" data-landing-door="import"
@@ -3586,6 +3632,8 @@ function speciesOptionSentencers(species, skillNames) {
 
   function optionSentence(group, o) {
     if (o.description) return o.description;
+    var imported = fcSpeciesText(species, o, 'description');   // A5: the user's imported text, by the option's place in the record
+    if (imported) return imported;
     var grants = o.skill_grants || [];
     if (grants.length) {
       // 16 of the 293 grant TWO skills, and their option is named for a subspecies rather than for
@@ -8859,7 +8907,7 @@ function fcOptionTalentOf(g) {
   var id = g && (g.talent || g.id || g);
   var rec = id ? tals[id] : null;
   return { id: id, name: (rec && rec.name) || (id ? String(id).replace(/_/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); }) : ''),
-           description: (rec && rec.description) || '', rec: rec || null };   // rec: S1's book line reads the record's cites
+           description: (rec && rec.description) || (id ? fcRuleText('talents', id, 'description') : null) || '', rec: rec || null };   // rec: S1's book line reads the record's cites; A5 fills a blank
 }
 function fcNestNeedsCaption(opt) {
   if (!opt) return false;
@@ -9911,7 +9959,7 @@ function FCbBuyOff({ offers, offerCount, taken, xpLeft, onTake, onUndo }) {
               <h2>{o.name}</h2>
               <span className="hp-cite">{o.xp} XP</span>
             </div>
-            <p className="hp-prose hp-prose-sm" style={{ margin: '0 0 11px' }}>{o.description}</p>
+            <p className="hp-prose hp-prose-sm" style={{ margin: '0 0 11px' }}>{o.description || (o._path ? fcRuleText('species', o._path.id, o._path.path) : '')}</p>
             <button type="button" className="hp-commit hp-door"
               data-buyout-action={got ? 'undo' : 'take'}
               disabled={!got && xpLeft < o.xp}
@@ -14652,7 +14700,9 @@ function FCForceSheet(p) {
   // source; `force-transplant` A3 R-FT-A3-1), split at its blank lines into the board's paragraphs;
   // `power.description` (the one-line summary) is not the register's reading of the power.
   var basicKey = power && power.tree && power.tree[0] && power.tree[0].cells[0] ? power.tree[0].cells[0].ability : null;
-  var basicText = (basicKey && power.abilities && power.abilities[basicKey] && power.abilities[basicKey].description) || (power && power.description) || '';
+  var basicText = (basicKey && power.abilities && power.abilities[basicKey] && power.abilities[basicKey].description)
+    || (basicKey && power && fcRuleText('force_powers', power.id, 'abilities.' + basicKey + '.description'))   // A5
+    || (power && power.description) || '';
   var paras = String(basicText).split(/\n\s*\n/).map(function(t) { return cleanMarkup(t).replace(/\s+/g, ' ').trim(); }).filter(Boolean);
 
   // The tree: the ONE component's board skin over the shared adapter, read-only (upgrades are not
@@ -16478,6 +16528,22 @@ function fcSpeciesLedgerTable(sp, skillNames, abilityNote, grantedAbilities) {
    Force Resistance, which no plate replaces. Anchored at both ends for the same reason. */
 
 // S1 (argo-a1-curation ADDENDUM 4): a creator record's book line in a copy without the book's words; null on holocron.
+// A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 3): the imported rule text for a creator plate, through the one
+// accessor — a talent by its record id, or a species ability or option found BY IDENTITY inside the species record the
+// plate draws (its place in the record is its address). null on holocron.work and wherever nothing was imported.
+function fcRuleText(kind, id, path) { var S = window.SWRPGSources; return S && S.ruleText ? S.ruleText(kind, id, path) : null; }
+function fcSpeciesText(sp, ent, field) {
+  if (!sp || !ent || typeof ent !== 'object') return null;
+  var path = null;
+  (sp.special_abilities || []).forEach(function (a, i) { if (a === ent) path = ['special_abilities', i]; });
+  (sp.option_choices || []).forEach(function (oc, i) {
+    (oc.options || []).forEach(function (o, j) {
+      if (o === ent) path = ['option_choices', i, 'options', j];
+      (o.special_abilities || []).forEach(function (a, k) { if (a === ent) path = ['option_choices', i, 'options', j, 'special_abilities', k]; });
+    });
+  });
+  return path ? fcRuleText('species', sp.id, path.concat([field || 'description'])) : null;
+}
 function fcS1Line(rec) {
   var S = window.SWRPGSources;
   return S && S.removedLine && rec ? S.removedLine(rec) : null;
@@ -16492,7 +16558,7 @@ function fcSpeciesAbilityPlates(sp) {
     var src = (rec && rec.sources && rec.sources[0]) || null;
     // B-1843 (ADDENDUM 656 S2): `id` is the registry id a species ability's `talent_pointer` stores, so renderedIds fills.
     return { key: t.talent, id: t.talent, name: (rec && rec.name) || t.talent,
-             desc: rec && rec.description, ranks: t.ranks || 1,
+             desc: rec && (rec.description || fcRuleText('talents', rec.id, 'description')), ranks: t.ranks || 1,   // A5
              /* `gameLineTitle`, NOT `fcBookLabel` — the latter is a component-LOCAL alias
                 (`var fcBookLabel = gameLineTitle` inside FullCreator) and is invisible to a
                 module-level builder. Using it here threw `fcBookLabel is not defined` inside the
@@ -16521,10 +16587,10 @@ function fcSpeciesAbilityPlates(sp) {
                 <span className="hp-box" data-on="1" />
                 <span className="hp-name">{ab.name}</span>
               </div>
-              {!ab.description && fcS1Line(Object.assign({}, ab, { sources: sp.sources })) != null
+              {!(ab.description || fcSpeciesText(sp, ab)) && fcS1Line(Object.assign({}, ab, { sources: sp.sources })) != null
                 ? React.createElement(window.SWRPGUI.BookLine, { as: 'p', className: 'hp-prose hp-prose-sm', style: { margin: '11px 13px 13px' }, line: fcS1Line(Object.assign({}, ab, { sources: sp.sources })) })
                 : <p className="hp-prose hp-prose-sm" style={{ margin: '11px 13px 13px' }}>
-                {glyphs(cleanMarkup(ab.description || ''), null, CREATOR_GLYPHS)}
+                {glyphs(cleanMarkup(ab.description || fcSpeciesText(sp, ab) || ''), null, CREATOR_GLYPHS)}
               </p>}
             </div>
           </div>
@@ -16717,10 +16783,10 @@ function fcSpeciesChosenConsequences(sp, picks, skillNames, skillDescs, skillShe
                             <span className="hp-box" data-on='1' />
                             <span className="hp-name">{ab.name}</span>
                           </div>
-                          {!ab.description && fcS1Line(Object.assign({}, ab, { sources: sp.sources })) != null
+                          {!(ab.description || fcSpeciesText(sp, ab)) && fcS1Line(Object.assign({}, ab, { sources: sp.sources })) != null
                             ? React.createElement(window.SWRPGUI.BookLine, { as: 'p', className: 'hp-prose hp-prose-sm', style: { margin: '10px 13px 12px' }, line: fcS1Line(Object.assign({}, ab, { sources: sp.sources })) })
                             : <p className="hp-prose hp-prose-sm" style={{ margin: '10px 13px 12px' }}>
-                            {glyphs(cleanMarkup(ab.description || ''), null, CREATOR_GLYPHS)}
+                            {glyphs(cleanMarkup(ab.description || fcSpeciesText(sp, ab) || ''), null, CREATOR_GLYPHS)}
                           </p>}
                         </div>
                       );
@@ -16754,8 +16820,8 @@ function fcSpeciesChosenConsequences(sp, picks, skillNames, skillDescs, skillShe
                             <span className="hp-box" data-on='1' />
                             <span className="hp-name">{t.name}</span>
                           </div>
-                          {t.description ? <p className="hp-prose hp-prose-sm" style={{ margin: '10px 13px 12px' }}>
-                            {glyphs(cleanMarkup(t.description), null, CREATOR_GLYPHS)}
+                          {(t.description || (t.rec && fcRuleText('talents', t.rec.id, 'description'))) ? <p className="hp-prose hp-prose-sm" style={{ margin: '10px 13px 12px' }}>
+                            {glyphs(cleanMarkup(t.description || fcRuleText('talents', t.rec.id, 'description')), null, CREATOR_GLYPHS)}
                           </p> : fcS1Line(t.rec)
                             ? React.createElement(window.SWRPGUI.BookLine, { as: 'p', className: 'hp-prose hp-prose-sm', style: { margin: '10px 13px 12px' }, line: fcS1Line(t.rec) }) : null}
                         </div>
@@ -17012,9 +17078,11 @@ function fcSpeciesAbilityNote(sp, picks) {
    signatures to re-check what the validator already guarantees would be a second rule about the
    same fact. */
 
-function fcSpeciesOptionGloss(opt, skillNames) {
+function fcSpeciesOptionGloss(opt, skillNames, sp) {
   if (!opt) return null;
   if (opt.description) return cleanMarkup(String(opt.description));          // arm 1, verbatim
+  var imported = fcSpeciesText(sp, opt, 'description');                        // A5: the user's imported text (sp: the option's record)
+  if (imported) return cleanMarkup(String(imported));
   var parts = (opt.special_abilities || []).map(function(a) { return a.name; });
   (opt.skill_grants || []).forEach(function(g) {
     parts.push(((skillNames && skillNames[g.skill]) || g.skill) + ' ' + g.rank_start);
@@ -17157,7 +17225,7 @@ function fcSpeciesOptionGroups(sp, picks, skillNames, skillDescs, skillSheetKeys
                           </React.Fragment>
                         );
                       }
-                      var gl = fcSpeciesOptionGloss(opt, skillNames);
+                      var gl = fcSpeciesOptionGloss(opt, skillNames, sp);
                       return gl
                         ? <span className="hp-run" data-ruled-delta="species-option-gloss-a8">{gl}</span>
                         : null;
@@ -17545,6 +17613,18 @@ function FullCreator({ onBack, onComplete, resumeDraft }) {
     ctrl.dispatch({ type: 'HYDRATE', value: createEmptyCharacter(gl) });
     ctrl.nextStep();
   }, [ctrl]);
+  // R-E6F-10 (ruling `encounters-e6-frames` ADDENDUM 4): the entry `/player/custom#line=<game-line id>`, read ONCE at mount
+  // and cleared. With no creation draft stored (and none resuming) it starts a NEW character on that line and lands on the
+  // step after the game line; with a draft the hash is ignored and the creator behaves as today (no draft is ever
+  // replaced: today's card entry starts at step 0 and the draft survives until a line is picked). An unknown id is ignored.
+  useEffect(function() {
+    var m = /^#line=([A-Za-z0-9_-]+)$/.exec(String(window.location.hash || ''));
+    if (!m) return;
+    try { window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search); } catch (e) {}
+    if (resumeDraft || loadCreationDraft()) return;
+    if (!FC_GAME_LINES.some(function(l) { return l.id === m[1]; })) return;
+    handleGameLine(m[1]);
+  }, []);
 
 
   // The species-confirm flow lives in useSpeciesConfirm (audit item F) — see it for the whole
@@ -21234,6 +21314,13 @@ function hiltNeedsCrystal(rec, attachments, attReg) {
   return !(attachments || []).some(function (a) { var r = (attReg || {})[a && a.id]; return !!(r && r.is_crystal); });
 }
 
+// A5 (ruling argo-dataset-import-draft ADDENDUM 4 §A4.1 item 3): a crafting improvement or flaw row's effect — its own words,
+// else the user's imported text by the row's own id (spend ids are unique across every category), through the one accessor
+// (SWRPGSources.ruleText). '' on holocron.work's blank rows and wherever nothing was imported, so a row draws as before.
+function craftEffectOf(row) {
+  var S = window.SWRPGSources;
+  return (row && (row.effect || (row.id && S && S.ruleText ? S.ruleText('spend', row.id, 'effect') : null))) || '';
+}
 // D4 on the PACK panel (D-291 D4; the lab's ItemTold): a crafted item says what it was BUILT FOR (its saved choice, named at
 // render) and what it was BUILT WITH that the app cannot apply — each told row of `_inline.built_with`, its name, cite and
 // effect. Spend ids are unique across every category, so a row is found without the template. Nothing for a bought item.
@@ -21258,7 +21345,7 @@ function PackCraftTold(p) {
     {chosen ? <div className="sb-e"><div className="sb-e-h"><span className="sb-e-n">Built for</span><span className="sb-e-m" data-testid="pack-built-for">{chosen}</span></div></div> : null}
     {told.length ? <div className="sb-e" data-testid="pack-built-with"><div className="sb-e-h"><span className="sb-e-n">Built with</span></div>
       {told.map(function (x) { return <div className="sb-att" key={x.id}><div className="sb-e-h"><span className="sb-e-n">{x.name}</span><span className="sb-e-m">{x.cite}</span></div>
-        <p className="sb-e-t">{glyphs(x.effect)}</p></div>; })}</div> : null}
+        <p className="sb-e-t">{glyphs(craftEffectOf(x))}</p></div>; })}</div> : null}
   </div>;
 }
 
@@ -21510,7 +21597,7 @@ function CraftWorkshop({ sheet, accent, onSheetChange }) {
         }) : <div className="hp-none">Nothing on the bench. Start a craft and it stays here between sessions.</div>}
         {notes.length ? <div className="sb-e" data-testid="craft-notes"><div className="sb-e-h"><span className="sb-e-n">Remembered</span><span className="sb-e-m">The table applies these</span></div>
           {notes.map(function (n, i) { var row = noteRow(n.row_id); return <div className="sb-att" key={i}><div className="sb-e-h"><span className="sb-e-n">{row ? row.name : n.row_id}</span>
-            <button type="button" className="hp-quiet" aria-label="Dismiss this note" onClick={function () { save({ craft_notes: Craft.dismissNote(notes, i) }); }}>Done</button></div>{row ? <p className="sb-e-t">{glyphs(row.effect)}</p> : null}</div>; })}</div> : null}
+            <button type="button" className="hp-quiet" aria-label="Dismiss this note" onClick={function () { save({ craft_notes: Craft.dismissNote(notes, i) }); }}>Done</button></div>{row ? <p className="sb-e-t">{glyphs(craftEffectOf(row))}</p> : null}</div>; })}</div> : null}
       </React.Fragment>);
     foot2 = <button type="button" className="hp-commit" data-testid="craft-new" onClick={function () { setNewMode(true); setSelId(null); }}>Start a new craft</button>;
   } else if (stepIdx === 0) {
@@ -21679,7 +21766,7 @@ function CraftWorkshop({ sheet, accent, onSheetChange }) {
                 onPlus: function () { upsert(Craft.takeAgain(sel, row.id, index, base3)); },
                 minusLabel: 'Return one ' + row.name, plusLabel: reason || ('Buy ' + row.name + ' again') })}
               <div className="sb-e-m" style={{ marginTop: 2 }}>{glyphs(row.cost)}</div>
-              <p className="sb-e-t">{glyphs(row.effect)}<span className="sb-e-m">{' ' + row.cite}</span></p>
+              <p className="sb-e-t">{glyphs(craftEffectOf(row))}<span className="sb-e-m">{' ' + row.cite}</span></p>
             </div>);
         }
         var isTaken = n > 0, can = isTaken || (aff && !refusedFit);
@@ -21687,7 +21774,7 @@ function CraftWorkshop({ sheet, accent, onSheetChange }) {
           <div className="sb-att" key={row.id} data-testid={tid} data-taken={isTaken ? '1' : '0'} data-refused={can ? '0' : '1'}>
             <div className="sb-e-h"><span className="sb-e-n">{row.name}</span><span className="sb-e-m">{glyphs(row.cost)}{once ? ' · once only' : ''}</span>
               <button type="button" className={isTaken ? 'hp-commit' : 'hp-quiet'} disabled={!can} aria-pressed={isTaken ? 'true' : 'false'} onClick={function () { if (can) upsert(Craft.toggleRow(sel, row.id, index, base3)); }}>{isTaken ? 'Taken' : (side === 'flaw' ? 'Record' : 'Take')}</button></div>
-            <p className="sb-e-t">{glyphs(row.effect)}<span className="sb-e-m">{' ' + row.cite}</span></p>
+            <p className="sb-e-t">{glyphs(craftEffectOf(row))}<span className="sb-e-m">{' ' + row.cite}</span></p>
           </div>);
       };
       title2 = [failed ? 'What you salvaged' : 'Your ' + t3.name, failed ? word : 'Built in ' + hours + ' h'];
@@ -22084,9 +22171,9 @@ function LoadoutItemDetail({ sheet, equipment, accent, target, onSheetChange, on
       {/* B-634 (Jason 2026-09-16: "something to encapsulate the long prose"): the description is a FOLD — the
           walk's idiom on the kit's own <details> — closed by default with a one-line teaser in the head; a press
           opens the whole text. The ledger and the verbs are what the panel is opened for; the prose waits. */}
-      {item.description
+      {(item.description || itemRuleTextOf(canonRec))   /* A5: a registry item's imported words; an _inline copy stays as today */
         ? (function () {
-            var paras = item.description.split('\n').filter(function(x) { return x.trim(); });
+            var paras = (item.description || itemRuleTextOf(canonRec)).split('\n').filter(function(x) { return x.trim(); });
             var full = paras.join(' ');
             var teaser = (window.SWItems && window.SWItems.teaserBeforeToken) ? window.SWItems.teaserBeforeToken(full, 120) : '';   // B-1723: ends before its first dice token (ADDENDUM 566); guarded as above (ADDENDUM 569)
             return (
@@ -22171,6 +22258,12 @@ function LoadoutItemDetail({ sheet, equipment, accent, target, onSheetChange, on
 // it is a sentence on the card.
 // R-AE-10 (argo-a1-export ADDENDUM 8): a mod line's words — the record's own, or in the public copy the own_words label
 // where the book-text scan blanked them (SWRPGSources.modWords); holocron.work reads the description as before.
+// A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 3): a registry item's imported description, through the one
+// accessor; null for an _inline or pre-id-ref copy (no record behind it: ADDENDUM 5 Q3 group 3), and on holocron.work.
+function itemRuleTextOf(rec) {
+  var S = window.SWRPGSources;
+  return rec && !rec._inline && S && S.ruleTextItem ? S.ruleTextItem(rec, 'description') : null;
+}
 function modWordsOf(rec, field, i) {
   var S = window.SWRPGSources, m = rec && rec[field] && rec[field][i];
   return S && S.modWords ? S.modWords(rec, field, i) : (m && m.description) || '';
@@ -24871,6 +24964,8 @@ function M8OptionPickBody(p) {
     var optIe = s1 != null ? ((trec.item_effects || []).filter(function (e) { return e && e.pick && e.pick.id === pick.optionId; })[0] || {}).id : null;   // the file's key names the item effect
     var wordsOf = function (o) {
       var w = o && o.words ? desc.slice(o.words.start, o.words.end) : (o && o.id) || '';
+      // A5 (ADDENDUM 5 Q4 (b)): a blank talent's option words read the imported text only where spanOk holds over it
+      if (o && o.words && !w.trim() && window.SWRPGSources && window.SWRPGSources.ruleTextSpan) w = window.SWRPGSources.ruleTextSpan('talents', trec.id, 'description', o.words) || w;
       return s1 != null && o && o.words && !w.trim() ? ((window.SWRPGSources.ownWords && window.SWRPGSources.ownWords(pick.talentKey || trec.id, 'pick/' + optIe + '/' + o.id)) || s1 || o.id) : w;
     };
     opts.forEach(function (o, k) {
@@ -25135,11 +25230,13 @@ function sheetSignatureEntries(sheet, cb) {
     if (act.strain) terms.push(sg(act.strain.delta) + ' strain (base not stated)');
     var m = CharResolve.sigActivationCheck ? CharResolve.sigActivationCheck(base) : null;   // `activation_check`, else the parse (D3/D4)
     if (m) terms.push(m[0] + ' ' + m[1] + ' check');
+    // A5: a node's imported words (the one accessor), where the open copy's node is blank
+    function sigRuleText(ab) { var S = window.SWRPGSources; return S && S.ruleText ? S.ruleText('signature_abilities', rec.id || c.id, ['abilities', ab, 'description']) : null; }
     var ups = c.cells.slice(1).map(function (cell) { var n = nodes[cell.ability] || {};
-      return { name: n.name || cell.ability, cost: cell.cost, inferred: cell.cost_status === 'inferred', words: n.description || '' }; });
+      return { name: n.name || cell.ability, cost: cell.cost, inferred: cell.cost_status === 'inferred', words: n.description || sigRuleText(cell.ability) || '' }; });
     var x = xp[i] || {};
     return { id: c.id, name: c.name, ok: true, upgrades: ups.length, meta: ups.length + ' upgrade' + (ups.length === 1 ? '' : 's') + ' · ' + x.xp + ' XP',
-      inferred: !!x.inferred, words: base.description || '', activation: terms.join(' · '), told: 'Activated at the table', upgradeCells: ups, sources: rec.sources };
+      inferred: !!x.inferred, words: base.description || sigRuleText(c.cells[0].ability) || '', activation: terms.join(' · '), told: 'Activated at the table', upgradeCells: ups, sources: rec.sources };
   });
 }
 // R7 B-1457 (D-RML1 (a), ruling f100-surfacing-roll-modifier-legibility-audit ADDENDUM 2): the abilities room's talent and
@@ -25153,9 +25250,22 @@ function sheetSignatureEntries(sheet, cb) {
 function sheetBookLineOf(kind, x, sheet) {
   var S = window.SWRPGSources;
   if (!S || !S.bookTextRemoved || !S.bookTextRemoved() || !x || typeof x !== 'object') return null;
+  if (sheetRuleTextOf(kind, x)) return null;   // A5: imported text draws as holocron.work draws the entry's own words
   var CR = window.CharResolve, cb = (CR && CR.talentViewFor && CR.talentViewFor(sheet)) || window._canonicalCharbuild || {};
   var reg = { talent: cb.talents, force: cb.forcePowers, signature: cb.signatureAbilities }[kind] || {};
   return S.removedLine((x.id && reg[x.id]) || x);
+}
+// A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 3, ADDENDUM 5 Q3 (a)): the imported rule text of an abilities
+// entry, through the one accessor (SWRPGSources.ruleText): a talent by its id, a species ability by the display-only
+// `_path` charResolve carries ({id, path}); a signature entry's words are filled where it is built
+// (sheetSignatureEntries). null on holocron.work and wherever nothing was imported. Force powers' own top-level
+// description is not a blank the import fills (ADDENDUM 5 F1).
+function sheetRuleTextOf(kind, x) {
+  var S = window.SWRPGSources;
+  if (!S || !S.ruleText || !x || typeof x !== 'object') return null;
+  if (kind === 'talent') return S.ruleText('talents', x.id, 'description');
+  if (kind === 'species') return x._path ? S.ruleText('species', x._path.id, x._path.path) : null;
+  return null;
 }
 // The two draws of that line: sheetS1Line — the line, or null (holocron, or nothing to cite); sheetS1Text — a slot that
 // always drew its text paragraph draws it as before, unless the copy has a line to put there instead.
@@ -25164,6 +25274,7 @@ function sheetS1Line(kind, x, sheet) {
   return line ? React.createElement(window.SWRPGUI.BookLine, { as: 'p', className: 'sb-e-t', line: line }) : null;
 }
 function sheetS1Text(text, kind, x, sheet) {
+  text = text || sheetRuleTextOf(kind, x);   // A5
   var line = text ? null : sheetBookLineOf(kind, x, sheet);
   if (line == null) return <p className="sb-e-t">{glyphs(cleanMarkup(text || ''))}</p>;
   return line ? React.createElement(window.SWRPGUI.BookLine, { as: 'p', className: 'sb-e-t', line: line }) : null;
@@ -25172,6 +25283,7 @@ function sheetS1Text(text, kind, x, sheet) {
 // text, else, in a copy without the book's words, its S1 line (the sheet's sheetBookLineOf); '' with neither. On holocron
 // the text is returned as before (the line is null there).
 function pdfS1Words(text, kind, x, sheet) {
+  text = text || sheetRuleTextOf(kind, x);   // A5
   if (text) return text;
   return sheetBookLineOf(kind, x, sheet) || '';
 }
@@ -25184,6 +25296,9 @@ function sheetAbilityToldWords(sheet) {
     var into = t.species ? out.species : out.talent, k = t.species ? t.name : t.id;
     t.told.forEach(function (row) {
       var w = (row && row.words) || {}, words = String(t.description || '').slice(w.start, w.end).replace(/\s+/g, ' ').trim();
+      // A5 (ADDENDUM 5 Q4 (b)): a blank slice reads the imported text at the source's display-only `_path` (charResolve's told
+      // sources carry it) only where spanOk holds over it
+      if (!words && t._path && window.SWRPGSources && window.SWRPGSources.ruleTextSpan) words = String(window.SWRPGSources.ruleTextSpan(t._path.kind, t._path.id, t._path.path, w) || '').replace(/\s+/g, ' ').trim();
       if (words && (into[k] = into[k] || []).indexOf(words) === -1) into[k].push(words);
       // S2 (mockup F2): with the book's words removed, "Not applied · <b>name</b> · <book line> · at the <skill> check"
       var s2 = words ? null : SWRPGDiceHub.toldS2(t, row, cb);
@@ -25227,7 +25342,7 @@ function SheetFortifications(p) {
           <div className="sb-e-h"><span className="sb-e-n">Built with</span></div>
           {f.built_with.map(function (id, i) { var e = idx[id], row = e && (e.row || e); return row ? <div className="sb-att" key={id + i}>
             <div className="sb-e-h"><span className="sb-e-n">{row.name}</span><span className="sb-e-m">{row.cite}</span></div>
-            <p className="sb-e-t">{glyphs(row.effect)}</p></div> : null; })}
+            <p className="sb-e-t">{glyphs(craftEffectOf(row))}</p></div> : null; })}
         </div> : null}
       </div> : null}
     </div>;
@@ -26510,11 +26625,11 @@ function SheetAbilitiesRoom(p) {
   var groups = [];
   var toldOf = sheetAbilityToldWords(sheet);   // R7 B-1457: each entry's told rows, as the signature entries print theirs
   if (talents.length) groups.push({ key: 'talents', label: 'Talents', items: talents.map(function (t, i) {
-    var tier = tiers[t.id]; return { id: 't' + i, name: t.name, tag: tier ? 'Tier ' + tier : 'Talent', desc: t.descriptionRaw || t.description || '',   // B-1033 (1): a legacy save keeps its dice tokens only in descriptionRaw
+    var tier = tiers[t.id]; return { id: 't' + i, name: t.name, tag: tier ? 'Tier ' + tier : 'Talent', desc: t.descriptionRaw || t.description || sheetRuleTextOf('talent', t) || '',   // B-1033 (1): a legacy save keeps its dice tokens only in descriptionRaw
       meta: [activationLabelSheet(t.activation || 'passive'), t.ranked ? ('Ranked' + (t.rank > 1 ? ' · rank ' + t.rank : '')) : 'Not ranked', tier ? 'Row ' + tier : null].filter(Boolean).join(' · '), src: bookOf(t.sources),
       told: toldOf.talent[t.id], book: sheetBookLineOf('talent', t, sheet) }; }) });
   if (spAb.length) groups.push({ key: 'species', label: 'Species', items: spAb.map(function (a, i) {
-    return { id: 's' + i, name: a.name, tag: a._ability ? 'Ability' : 'Talent', desc: a.description || '',
+    return { id: 's' + i, name: a.name, tag: a._ability ? 'Ability' : 'Talent', desc: a.description || sheetRuleTextOf(a._ability ? 'species' : 'talent', a) || '',
       meta: a._ability ? (sheet.species || 'Species') + ' ability' : [activationLabelSheet(a.activation || 'passive'), a.ranked ? 'Ranked' : 'Not ranked', (sheet.species || 'Species') + ' talent'].join(' · '), src: bookOf(a.sources),
       told: a._ability ? toldOf.species[a.name] : toldOf.talent[a.id], book: sheetBookLineOf(a._ability ? 'species' : 'talent', a, sheet) }; }) });
   if (powers.length) groups.push({ key: 'force', label: 'Force powers', items: powers.map(function (fp, i) {
@@ -27816,7 +27931,7 @@ function GBReviewStep(p) {
     var e = built.talents[posKey] || {};
     var rec = cb.talents ? cb.talents[e.talentKey] : null;
     return { k: posKey, name: (rec && rec.name) || e.talentKey,
-             desc: (rec && rec.description) || '', cost: e.cost || 0 };
+             desc: (rec && rec.description) || fcRuleText('talents', e.talentKey, 'description') || '', cost: e.cost || 0 };   // A5
   });
   var talentCost = talents.reduce(function (s, t) { return s + t.cost; }, 0);
 
@@ -29071,6 +29186,8 @@ function pathForScreen(screenId, opts) {
     case 'import':        return '/player/import';   // OGG-1 import surface
     case 'backup':        return '/player/backup';   // RELEASE R3 (D-258): the whole-save backup
     case 'homebrew':      return '/player/homebrew';   // F-100 C2 (R-FIEC-5); reached only while swrpg_homebrew_editor is on
+    case 'campaigns':     return (opts && opts.camp && opts.camp.join != null) ? '/player/join'   // R-E6F-1 (on only)
+      : '/player/campaigns' + ((opts && opts.camp && opts.camp.id) ? '/' + encodeURIComponent(opts.camp.id) : '');
     default:              return '/player';
   }
 }
@@ -29109,6 +29226,13 @@ function parsePathToScreen(path) {
   // (and REFUSES `encounters`/`custom` here: the player declares neither capability).
   var npcMatch = p.match(/^\/player\/npc\/(.+)$/);
   if (npcMatch) return { screen: 'npc', npcPath: npcMatch[1] };
+  // ENCOUNTERS E6 frames (R-E6F-1): /player/campaigns[/<id>] and /player/join (#<code>), only while swrpg_campaigns_door is
+  // on; off, each is an unknown path (the landing).
+  if (playerCampaignsOn()) {
+    var campMatch = p.match(/^\/player\/campaigns(?:\/([^/]+))?$/);
+    if (campMatch) return { screen: 'campaigns', camp: campMatch[1] ? { id: decodeURIComponent(campMatch[1]) } : {} };
+    if (p === '/player/join') return { screen: 'campaigns', camp: { join: decodeURIComponent(String(window.location.hash || '').replace(/^#/, '')) } };
+  }
   // Match /player/yard/[vehicleKey] (R-Y2-2 front door — the entry page)
   var yardMatch = p.match(/^\/player\/yard\/([^/]+)$/);
   if (yardMatch) return { screen: 'yard', vehicleKey: decodeURIComponent(yardMatch[1]) };
@@ -29365,6 +29489,10 @@ function PlayerApp() {
   const [npcPath, setNpcPath] = useState(function() {
     return parsePathToScreen(window.location.pathname).npcPath || '';
   });
+  // ENCOUNTERS E6 frames: the CAMPAIGNS screen's route ({} the list · {id} one campaign · {join: code} JOIN TABLE).
+  const [campRoute, setCampRoute] = useState(function() {
+    return parsePathToScreen(window.location.pathname).camp || {};
+  });
   const [savedChars, setSavedChars] = useState(function() { return loadSavedCharacters(); });
   // One-shot toast shown after a character is created: teaches the unfamiliar
   // "bookmark = save" affordance so the player knows subsequent edits need a
@@ -29415,7 +29543,8 @@ function PlayerApp() {
     // R-Y2-2: the yard carries an optional vehicleKey (its entry page) instead of a charId.
     var vk = (opts && opts.vehicleKey) || null;
     if (screenId === 'npc') setNpcPath((opts && opts.npcPath) || '');   // B-863: the NPCs door lands on the front
-    var path = pathForScreen(screenId, { charId: charId, vehicleKey: vk, npcPath: opts && opts.npcPath });
+    if (screenId === 'campaigns') setCampRoute((opts && opts.camp) || {});   // the tile lands on the list
+    var path = pathForScreen(screenId, { charId: charId, vehicleKey: vk, npcPath: opts && opts.npcPath, camp: opts && opts.camp });
     // SHIP YARD S4 · U9 (R-S1C-6): every door to the Yard opens the HANGAR floor, and a door that names a hull opens its
     // ENTRY. Every door comes through here (both bars' Yard item, the paper landing tile, the legacy card, the sheet's yard
     // door), so this is the one site.
@@ -29513,6 +29642,7 @@ function PlayerApp() {
       setScreen(parsed.screen || 'landing');
       if (parsed.zone) setLandingFocus({ zone: parsed.zone, at: Date.now() });   // B-650: /player/roster brings the index into view
       setNpcPath(parsed.npcPath || '');                 // B-863: back/forward inside the NPC library
+      setCampRoute(parsed.camp || {});                  // CAMPAIGNS: back/forward between its screens
       if (parsed.charId) {
         // R-UBC1 (data-loss class): re-hydrate sheetData from the SAVED record ONLY on a genuine
         // character switch. A pop that lands on the char ALREADY loaded is an overlay dismissal
@@ -29937,6 +30067,15 @@ function PlayerApp() {
   });
   const [shopPickerOpen, setShopPickerOpen] = useState(false);
   const [artPanelOpen, setArtPanelOpen] = useState(false);   // BYOA — the ⚙ ITEM ARTWORK panel
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 6; mockup argo-a5-import.html M1–M7 @ ad8cb3ac2, D-589): the ⚙
+  // "Fill in rule text…" panel, open copy only; an import or a remove re-renders the app so every site reads the text.
+  const [ruleTextOpen, setRuleTextOpen] = useState(false);
+  const [, setRuleTextTick] = useState(0);
+  useEffect(function() {
+    function on() { setRuleTextTick(function(n) { return n + 1; }); }
+    window.addEventListener('swrpg-rule-text-changed', on);
+    return function() { window.removeEventListener('swrpg-rule-text-changed', on); };
+  }, []);
   const [storeBackTarget, setStoreBackTarget] = useState('landing');
   // SHIP YARD S4 · G-7 (R-S4WC-2): the Yard route a TO THE COUNTER came from — ‹ BACK returns to it (`exitStore`)
   const [storeBackYard, setStoreBackYard] = useState(null);
@@ -30336,6 +30475,7 @@ function PlayerApp() {
     || screen === 'landing'
     || screen === 'homebrew'   // F-100 C2 (R-FISF-1): bars summoned over the editor wear its paper; off, unreachable
     || screen === 'modify'     // F-100 M13: the Modify page is the same paper family
+    || screen === 'campaigns'  // ENCOUNTERS E6 frames (F5-a): the CAMPAIGNS screens wear the library shell's paper
     || screen === 'npc';
   // B-896: the one screen whose paper bars AUTO-HIDE (`autohide={screen === 'npc'}` below) stands them on
   // the page, not the black — lib/shared/chrome.css's `[data-paper-ground]`; the inline black steps aside.
@@ -30404,6 +30544,10 @@ function PlayerApp() {
           // from ANYWHERE (deliberately not the screen-aware group): the one ⚙ entry that opens a
           // doing-surface. A POINTER to /player/import via handleEnter — never a second implementation.
           { label: 'Import or export…', onSelect: () => handleEnter('import') },
+          // A5 (D-589, mockup M1): the open copy's rule-text import, after "Import or export…"; holocron.work draws no row
+          // B-1874: no shell tags the panel's file; the row runs A5's files (once a page, SWRPGSources.ruleTextFiles) then opens
+          window.SWRPGSources && window.SWRPGSources.bookTextRemoved && window.SWRPGSources.bookTextRemoved()
+            ? { label: 'Fill in rule text…', onSelect: () => { window.SWRPGSources.ruleTextFiles().then(() => setRuleTextOpen(true)); } } : null,
           // BOOKS-1b — the ACTIVE SOURCES filter (which source books the app offers content from).
           // B-1711 (ADDENDA 607, 608): the panel has one face, paper; B-838's `paper: paperChrome` is retired (every bar
           // a user can reach is paper, so the face it chose was always paper).
@@ -30424,7 +30568,7 @@ function PlayerApp() {
           scr = [ { label: 'Item artwork', onSelect: () => setArtPanelOpen(true) } ];
           screenLabel = 'STORE';
         }
-        return { screen: scr, suite: suite, screenLabel: screenLabel };
+        return { screen: scr, suite: suite.filter(Boolean), screenLabel: screenLabel };
       })()} />
 
       {/* Screen layer — flex:1 below the suite bar; the absolute-inset:0 screens resolve against this. */}
@@ -30639,6 +30783,12 @@ function PlayerApp() {
         onClose: function() { setArtPanelOpen(false); },
       }) : null}
 
+      {/* A5 — the ⚙ RULE TEXT panel (an OggDude folder or zip → the open copy's blank rule text); one shared module */}
+      {ruleTextOpen && window.SWRPGRuleTextPanel ? React.createElement(window.SWRPGRuleTextPanel.Panel, {
+        prepare: function() { return ensurePlayerPart('ogg'); },   // the importer's key index (oggImport.js), the player's own part
+        onClose: function() { setRuleTextOpen(false); },
+      }) : null}
+
       {/* QuickBuild */}
       {screen === 'quickbuild' && !partFailed && (
         <div style={{
@@ -30691,6 +30841,20 @@ function PlayerApp() {
         }}>
           <PlayerBackup onBack={handleBack} />
         </div>
+      )}
+
+      {/* ENCOUNTERS E6 frames (F5-a, R-E6F-1): CAMPAIGNS as its own host screen — P2, P3 JOIN TABLE, P5. */}
+      {screen === 'campaigns' && playerCampaignsOn() && (
+        <PlayerCampaignsScreen route={campRoute} wipeType={wipeType} onBack={handleBack}
+          go={function(r) { navTo('campaigns', null, { camp: r || {} }); }}
+          onMakeCharacter={function() { navTo('custom'); }}
+          onUseBook={function(frame) {   // R-E6F-10: the campaign record's frame.book IS a creator game-line id (eote · aor · fad)
+            var id = frame && frame.book;
+            var known = typeof FC_GAME_LINES !== 'undefined' ? FC_GAME_LINES.some(function(l) { return l.id === id; })   // creator.js may not have run yet
+              : !!(window.SWRPGCampaignsView && window.SWRPGCampaignsView.bookName(id));
+            if (!known) return;   // an unmappable frame: no entry (a STOP, at the gate); the creator re-checks the id on mount
+            navTo('custom'); try { window.history.replaceState(window.history.state, '', '/player/custom#line=' + encodeURIComponent(id)); } catch (e) {}
+          }} />
       )}
 
       {/* NPC Library (Step 2) — shared module, player chrome, browse-only */}
@@ -30752,7 +30916,7 @@ function PlayerApp() {
 
 
       {/* Other sections (placeholder) */}
-      {screen !== 'landing' && screen !== 'pregen' && screen !== 'sheet' && screen !== 'quickbuild' && screen !== 'custom' && screen !== 'store' && screen !== 'npc' && screen !== 'yard' && screen !== 'import' && screen !== 'backup' && screen !== 'homebrew' && screen !== 'modify' && (
+      {screen !== 'landing' && screen !== 'pregen' && screen !== 'sheet' && screen !== 'quickbuild' && screen !== 'custom' && screen !== 'store' && screen !== 'npc' && screen !== 'yard' && screen !== 'import' && screen !== 'backup' && screen !== 'homebrew' && screen !== 'modify' && screen !== 'campaigns' && (
         <PlayerSectionShell
           sectionId={screen}
           wipeType={wipeType}
@@ -30842,7 +31006,12 @@ function PlayerApp() {
 // B-139 (ADDENDUM 426 §4): a cold load of a screen with lazy parts loads them before the first render — there is no
 // current screen to hold — unless the screen has a loading face (433 (b)): it mounts at once on that face. Every other
 // load renders at once, as before.
+// B-1874 (ADDENDUM 721): with swrpg_campaigns_door on, the campaign files run first (SWRPGCampaignsDoor.load never rejects),
+// so the boot route, the landing tile and every view that subscribes to the table session see them; off, nothing waits.
 function playerMount() { ReactDOM.createRoot(document.getElementById('root')).render(<PlayerApp />); }
-if (playerScreenReady(playerBootScreen()) || PLAYER_LOADING_FACE[playerBootScreen()]) { playerMount(); } else {
-  settlePlayerScreen(playerBootScreen()).then(playerMount, function(e) { console.warn('[B-139] ' + e.message); if (e.silent) _playerBootSilent = e; playerMount(); });
+function playerBoot() {
+  if (playerScreenReady(playerBootScreen()) || PLAYER_LOADING_FACE[playerBootScreen()]) { playerMount(); } else {
+    settlePlayerScreen(playerBootScreen()).then(playerMount, function(e) { console.warn('[B-139] ' + e.message); if (e.silent) _playerBootSilent = e; playerMount(); });
+  }
 }
+if (window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on()) window.SWRPGCampaignsDoor.load().then(playerBoot); else playerBoot();

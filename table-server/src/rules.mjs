@@ -78,6 +78,7 @@ const FRAMES = {
   admit: (f) => isStr(f.knockId, 64),
   refuse: (f) => isStr(f.knockId, 64),
   newcode: () => true,
+  listing: (f) => typeof f.on === 'boolean',   // R-E6F-5 (ruling `encounters-e6-frames` ADDENDUM 2): ON THIS WI-FI, GM only
   close: () => true,
   rejoin: (f) => isStr(f.tableId, 128) && (isStr(f.gmKey, 128) || isStr(f.seatKey, 128)),
   play: (f) => !!f.msg && typeof f.msg === 'object' && !Array.isArray(f.msg) && typeof f.msg.type === 'string'

@@ -1,6 +1,6 @@
 # SPECIES EXCEPTION SCHEMA — generated from the live product
 
-Measured at `080974e56` from `public/data/canonical/species.json` (537 species) and `lib/shared/charResolve.js`. **Do not edit; regenerate.**
+Measured at `181eb8d13` from `public/data/canonical/species.json` (537 species) and `lib/shared/charResolve.js`. **Do not edit; regenerate.**
 
 - species carrying an option group: **198** · with more than one group: **10** · groups with min/max picks: **1**
 - distinct group labels: **104** (label is presentation only — the resolver keys on the SLUG of the label: `skills`, `size`, `skill`, …)
@@ -24,6 +24,7 @@ Measured at `080974e56` from `public/data/canonical/species.json` (537 species) 
 | `name` | 450 | — | carries no mechanic (metadata) | Caamasi › Skills › One Rank in Charm |
 | `skill_grants` | 354 | ✓ | skills {"charm":1} · abilities [Memnii] · answerable on the SHEET too | Caamasi › Skills › One Rank in Charm |
 | `description` | 69 | — | carries no mechanic (metadata) | Caamasi › Skills › One Rank in Charm |
+| `_source_key` | 65 | — | carries no mechanic (metadata) | Caamasi › Skills › One Rank in Charm |
 | `special_abilities` | 51 | ✓ | skills {"resilience":1} · abilities [Immovable, Silhouette 1] · answerable on the SHEET too | Dowutin › Size › Average-Sized |
 | `characteristics` | 48 | ✓ | characteristics: cunning 2→1, presence 1→2 · WT 10→9 · ST 10→11 · skills {"medicine":1} · abilities [Night Vision] · stat-moving → CREATOR-ONLY (the sheet's SpeciesAsk routes it back) | Arkanian › Subspecies › Offshoot · off-by-default |
 | `wound_threshold_base` | 48 | ✓ | characteristics: cunning 2→1, presence 1→2 · WT 10→9 · ST 10→11 · skills {"medicine":1} · abilities [Night Vision] · stat-moving → CREATOR-ONLY (the sheet's SpeciesAsk routes it back) | Arkanian › Subspecies › Offshoot · off-by-default |
@@ -83,7 +84,7 @@ Books that, turned OFF from the default shelf, hide something (community books a
 | `dangerous_covenants` | Supplement | eote | 3 | 0 | 2 | 4 |
 | `special_modifications` | Supplement | eote | 3 | 0 | 3 | 12 |
 | `suns_of_fortune` | Supplement | eote | 3 | 0 | 0 | 0 |
-| `stay_on_target` | Supplement | aor | 3 | 0 | 3 | 22 |
+| `stay_on_target` | Supplement | aor | 3 | 0 | 3 | 21 |
 | `desperate_allies` | Supplement | aor | 3 | 0 | 3 | 15 |
 | `cyphers_and_masks` | Supplement | aor | 3 | 0 | 3 | 16 |
 | `disciples_of_harmony` | Supplement | fad | 3 | 0 | 3 | 15 |
@@ -111,18 +112,18 @@ Books that, turned OFF from the default shelf, hide something (community books a
 
 | twin | records | default winner | all-on winner | numbers differ |
 |---|---|---|---|:---:|
-| species · Aleena | aleena ← Nexus of Power [p32]<br>csg_aleena ← The Complete Species Guide [p1064] | `aleena` | `aleena` | **yes** |
-| species · Anx | anx ← Savage Spirits [p27]<br>csg_anx ← The Complete Species Guide [p1064] | `anx` | `anx` | **yes** |
-| species · Aqualish | aqualish ← Dangerous Covenants [p9]<br>csg_aqualish ← The Complete Species Guide [p1064] | `aqualish` | `aqualish` | **yes** |
-| species · Arkanian | arkanian ← Disciples of Harmony [p26]<br>csg_arkanian ← The Complete Species Guide [p1064] | `arkanian` | `arkanian` | **yes** |
-| species · Balosar | balosar ← Cyphers and Masks [p23]<br>csg_balosar ← The Complete Species Guide [p1064] | `balosar` | `balosar` | **yes** |
-| species · Barabel | barabel ← Unofficial Species Menagerie [p1063]<br>csg_barabel ← The Complete Species Guide [p1064] | `null` | `barabel` | **yes** |
-| species · Bardottan | bardottan ← Nexus of Power [p32]<br>csg_bardottan ← The Complete Species Guide [p1064] | `bardottan` | `bardottan` | **yes** |
-| species · Bith | bith ← Fully Operational [p21]<br>csg_bith ← The Complete Species Guide [p1064] | `bith` | `bith` | **yes** |
-| species · Bothan | bothan ← eote/aor [p0]<br>csg_bothan ← The Complete Species Guide [p1064] | `bothan` | `bothan` | **yes** |
-| species · Caamasi | caamasi ← Desperate Allies [p19]<br>csg_caamasi ← The Complete Species Guide [p1064] | `caamasi` | `caamasi` | **yes** |
-| species · Cathar | cathar ← Unofficial Species Menagerie [p1063]<br>csg_cathar ← The Complete Species Guide [p1064] | `null` | `cathar` | **yes** |
-| species · Cerean | cerean ← fad [p2]<br>csg_cerean ← The Complete Species Guide [p1064] | `cerean` | `cerean` | **yes** |
+| species · Aleena | aleena ← nexus_of_power [p32]<br>csg_aleena ← the_complete_species_guide [p1064] | `aleena` | `aleena` | **yes** |
+| species · Anx | anx ← savage_spirits [p27]<br>csg_anx ← the_complete_species_guide [p1064] | `anx` | `anx` | **yes** |
+| species · Aqualish | aqualish ← dangerous_covenants [p9]<br>csg_aqualish ← the_complete_species_guide [p1064] | `aqualish` | `aqualish` | **yes** |
+| species · Arkanian | arkanian ← disciples_of_harmony [p26]<br>csg_arkanian ← the_complete_species_guide [p1064] | `arkanian` | `arkanian` | **yes** |
+| species · Balosar | balosar ← cyphers_and_masks [p23]<br>csg_balosar ← the_complete_species_guide [p1064] | `balosar` | `balosar` | **yes** |
+| species · Barabel | barabel ← unofficial_species_menagerie [p1063]<br>csg_barabel ← the_complete_species_guide [p1064] | `null` | `barabel` | **yes** |
+| species · Bardottan | bardottan ← nexus_of_power [p32]<br>csg_bardottan ← the_complete_species_guide [p1064] | `bardottan` | `bardottan` | **yes** |
+| species · Bith | bith ← fully_operational [p21]<br>csg_bith ← the_complete_species_guide [p1064] | `bith` | `bith` | **yes** |
+| species · Bothan | bothan ← eote/aor [p0]<br>csg_bothan ← the_complete_species_guide [p1064] | `bothan` | `bothan` | **yes** |
+| species · Caamasi | caamasi ← desperate_allies [p19]<br>csg_caamasi ← the_complete_species_guide [p1064] | `caamasi` | `caamasi` | **yes** |
+| species · Cathar | cathar ← unofficial_species_menagerie [p1063]<br>csg_cathar ← the_complete_species_guide [p1064] | `null` | `cathar` | **yes** |
+| species · Cerean | cerean ← fad [p2]<br>csg_cerean ← the_complete_species_guide [p1064] | `cerean` | `cerean` | **yes** |
 | … | +109 more, all in test/exceptions.golden.json | | | |
 
 ## Overlays — GAME VARIANTS (reSpecialized) and the talent→number table

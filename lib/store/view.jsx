@@ -703,6 +703,13 @@
     var SS = window.SWRPGSources;
     return SS && SS.removedLine ? SS.removedLine(S1_REC.get(it) || it) : null;
   }
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 §A4.1 item 3): a shelf item's words — its own, else the user's imported
+  // rule text for the record behind it (S1_REC), through the one accessor (SWRPGSources.ruleTextItem); null on holocron.work.
+  function itemWords(it) {
+    if (it.description) return it.description;
+    var SS = window.SWRPGSources, rec = S1_REC.get(it);
+    return (rec && SS && SS.ruleTextItem ? SS.ruleTextItem(rec, 'description') : null) || '';
+  }
   function PaperCiteRow(props) {
     var src = props.item.sources;
     if (!src || !src.length) {
@@ -1105,9 +1112,9 @@
             h(PaperFindRow, { item: it, rarity: isGm ? effRarity(it.rarity, props.locationMod) : undefined }),
             comparePanel),
           h('div', { className: 'st-colR' },
-            it.description ? h('p', {
+            itemWords(it) ? h('p', {
               className: 'hp-prose', 'data-item-description': true,
-            }, glyphs(paperProse(it.description)))
+            }, glyphs(paperProse(itemWords(it))))
               : s1ItemLine(it) ? h(window.SWRPGUI.BookLine, { as: 'p', className: 'hp-prose', line: s1ItemLine(it) }) : null,   // S1 (F4)
             props.desk ? null : baseModsBlock,
             h(PaperCiteRow, { item: it }))),

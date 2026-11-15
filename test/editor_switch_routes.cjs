@@ -99,7 +99,11 @@ function hostRows(player, gm) {
   r.push(['player: the tile and the Sources group gate on SWRPGEditor.on()', (player.match(/window\.SWRPGEditor && window\.SWRPGEditor\.on\(\) && window\.SWRPGEditorView/g) || []).length === 2]);
   // ENCOUNTERS E3 lap B (ruling encounters-e3-screens §8 pins, both switch states): the door may concat the switch's
   // ENCOUNTERS card first; the editor's card still gates on SWRPGEditor.on() (KEPT), whichever slot it lands in
-  r.push(['gm: the fifth card gates on SWRPGEditor.on()', /CARDS(\.concat\(encountersOn\(\) \? \[ENCOUNTERS_CARD\] : \[\]\))?\.concat\(window\.SWRPGEditor && window\.SWRPGEditor\.on\(\) && window\.SWRPGEditorView/.test(gm)]);
+  // RE-POINTED at encounters-e6-frames (ruling encounters-e6-frames-gate C2 @ 91d815c56): KEPT — the editor card gates on
+  // SWRPGEditor.on(); DROPPED — "the editor card is the fifth in the chain", which R-E6F-1's CAMPAIGNS card moved. The card is
+  // found by NAME (its `id: 'homebrew'`), and it is the only homebrew card the GM shell builds.
+  r.push(['gm: the editor card (id homebrew) gates on SWRPGEditor.on()', /window\.SWRPGEditor && window\.SWRPGEditor\.on\(\) && window\.SWRPGEditorView\s*\?\s*\[Object\.assign\(\{ id: 'homebrew' \}, window\.SWRPGEditorView\.DOOR\.gm\)\]/.test(gm)
+    && (gm.match(/id: 'homebrew'/g) || []).length === 1]);
   ['player/index.html', 'gm/index.html'].forEach((f) => {
     const h = fs.readFileSync(path.join(ROOT, f), 'utf8');
     const sw = h.indexOf('/lib/editor/switch.js'), app = h.indexOf(f.startsWith('player') ? 'src="/player/app.js"' : 'src="/gm/app.js"'), v = h.indexOf('/lib/editor/view.js');
@@ -131,6 +135,8 @@ const bites = [
   ['a blank Force power allowed (M10, D-141 K1)', rows(SRC.replace("var NO_BLANK = ['specializations', 'species', 'force_powers', 'careers'];", "var NO_BLANK = ['specializations', 'species', 'careers'];"))],
   ["'new' read as a record id", rows(SRC.replace("else if (seg[1] === 'new') r = NO_BLANK.indexOf(shelf) === -1 ? { host: host, view: 'draft', shelf: shelf } : { host: host, view: 'shelf', shelf: shelf };", ''))],
   ['a host asks parse instead of screenFor', hostRows(PLAYER.replace('window.SWRPGEditor.screenFor(path))', 'window.SWRPGEditor.parse(path))'), GM)],
+  // C2 (ruling encounters-e6-frames-gate @ 91d815c56): the GM's editor card shown with the switch OFF.
+  ['the GM editor card ignores the switch', hostRows(PLAYER, GM.replace(/window\.SWRPGEditor && window\.SWRPGEditor\.on\(\) && (window\.SWRPGEditorView\s*\?\s*\[Object\.assign\(\{ id: 'homebrew' \})/, '$1'))],
 ];
 bites.forEach(([n, rs]) => ok('bite: ' + n + ' → red', rs.some((x) => !x[1])));
 

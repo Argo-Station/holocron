@@ -6473,6 +6473,76 @@
    "cls": "CUT-1",
    "source": "BY NAME input placeholder: not drawn; repeats BY NAME…",
    "ruling": "ruling encounters-e3-screens ADDENDUM 17 @ f8d2e7eda"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "New campaign name…",
+   "cls": "LABEL:PASS",
+   "source": "the + NEW CAMPAIGN input's placeholder, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 g2's newrow() and p2 draw it (D-511, D-540 D1)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "Change the game line",
+   "cls": "LABEL:PASS",
+   "source": "G3's CHANGE button's aria-label, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 g3 draws it: an accessible name, not seen (D-511)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "Your name at the table",
+   "cls": "LABEL:PASS",
+   "source": "the GM's table-name field label (D10) and P3's name-field label, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p3 and d10 draw it (D-511, D-543 D10)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "Your name at the table ‹…›",
+   "cls": "LABEL:PASS",
+   "source": "the same label read with its input (the extractor's ‹…›), as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 g4 draws it (D-511)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "Code works for 15 min",
+   "cls": "KEEP-RULE",
+   "source": "G4's window line, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 g4 (st.window 'works', e6o) and campaigns-gm.html draw it (D-526)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "TABLES ON THIS WI-FI",
+   "cls": "LABEL:PASS",
+   "source": "P3's section head, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p3 draws it (D-511, D-543)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "No tables found on this Wi-Fi — type the code",
+   "cls": "KEEP-RULE",
+   "source": "P3's empty state, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p3 (st.empty) draws it (D-511, D-543)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "OR TYPE THE CODE",
+   "cls": "LABEL:PASS",
+   "source": "P3's second section head, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p3 draws it (D-511, D-543)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "The GM dropped — waiting",
+   "cls": "KEEP-RULE",
+   "source": "P5's dropped-table state line, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p5 and campaigns-player.html draw it (D-526, D-540)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
+  },
+  {
+   "file": "lib/shared/campaignsView.jsx",
+   "text": "read only while at the table",
+   "cls": "LABEL:PASS",
+   "source": "P5's PARTY head cite while linked, as painter Docs/mockups/assets/campaigns/paint.js @ 1fb141f18 p5 draws it (D-540)",
+   "ruling": "ruling encounters-e6-frames-gate C1 @ 91d815c56"
   }
  ]
 }

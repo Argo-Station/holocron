@@ -2844,6 +2844,14 @@ function BenchStripChip({ m, ctx }) {
     </button>
   );
 }
+// B-1831 (ruling release-r7-bug-burndown ADDENDUM 679): a member card is `role="button"` but holds its own controls (the
+// row glyphs, the card menu, the W/S bars, the roll row), so it cannot be a real <button> (B-1710's pattern, 589). It takes
+// Enter and Space on the handler its press calls instead — only when the CARD is the key's target, so a key pressed in a
+// control or an input inside it never also selects the card.
+const cardPressKeys = (press) => (e) => {
+  if (e.target !== e.currentTarget) return;
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); press(); }
+};
 function BenchBoardCard({ m, ctx }) {
   const { wsRead, memberLabel, memberParts, flipKey, tierStripe, selectMember, actions, openGroup, condChips } = ctx;
   const ws = wsRead(m); const r = ws.r; const ok = !!r;
@@ -2854,7 +2862,7 @@ function BenchBoardCard({ m, ctx }) {
   const ids = ctx.orderedMembers.map(x => x.id), i = ids.indexOf(m.id), last = ids.length - 1;
   return (
     <div className="hp-plate nl-bcard" data-pad="snug" data-sel={sel ? '1' : '0'} data-npc-member={m.id}
-      role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + name} onClick={() => selectMember(m)}>
+      role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + name} onClick={() => selectMember(m)} onKeyDown={cardPressKeys(() => selectMember(m))}>
       <div className="nl-card-h">
         <NpcPaperMono name={parts.base} />
         <div className="nl-cn"><b data-miss={ok ? '0' : '1'}>{parts.base}{parts.suffix}</b><span className="nl-tier">{ws.tier || 'unknown'}</span></div>
@@ -3073,15 +3081,48 @@ function EncPress({ pool, label, open, onPress }) {
 
 // The crit tables (Table 6-10), read once from the registry; the name of a crit resolves from its roll at render (§4.2).
 let _encCritRows = null, _encCritCite = 'EOTE P.217';
+let _encCritLoad = null;
+// ENCOUNTERS E6 frames D8 (D-543): a campaign's CAST reads the library's pool outside the library — npcs.json as
+// NpcGeneratorController reads it, keyed by _source_key, plus this device's customs (CastStore; a custom wins its key,
+// as mergedLibraryByTier's map does). One loader, cached; the reads below are synchronous once it has resolved.
+let _castPool = null, _castPoolLoad = null;
+function loadCastPool() {
+  if (_castPool) return Promise.resolve(_castPool);
+  if (!_castPoolLoad) _castPoolLoad = fetch('/public/data/canonical/npcs.json').then(r => r.json()).then(j => {
+    const reg = (j && j.npcs) || {}, byKey = {};
+    Object.keys(reg).forEach(id => { const n = reg[id], k = n._source_key || n.key; if (k) byKey[k] = n; });
+    _castPool = byKey; return byKey;
+  }).catch(() => { _castPoolLoad = null; return null; });
+  return _castPoolLoad;
+}
+function castPoolMap() {
+  const out = Object.assign({}, _castPool || {});
+  const CS = window.NpcCastStore, cs = CS ? (CS.load().npcs || []) : [];
+  cs.forEach(n => { const k = n._source_key || n.key; if (k) out[k] = n; });
+  return out;
+}
+function castNpcOf(k) { const n = castPoolMap()[k]; return n ? { key: k, name: n.name || k, tier: n.tier || '' } : null; }
+// the plain name filter (ruled (a)), in name order by code point as D8 is drawn (a name opening with a quote mark sorts
+// after the letters), the first 12 — the bench's add search's cap
+function castSearch(q) {
+  const m = castPoolMap(), s = String(q || '').toLowerCase();
+  return Object.keys(m).filter(k => (m[k].name || '').toLowerCase().indexOf(s) !== -1)
+    .map(k => ({ key: k, name: m[k].name || k, tier: m[k].tier || '' })).sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)).slice(0, 12);
+}
+function loadEncCritRows() {   // the one loader: the bench's hook and the campaigns LOG (E6 frames) both read through it
+  if (_encCritRows) return Promise.resolve(_encCritRows);
+  if (!_encCritLoad) _encCritLoad = fetch('/public/data/canonical/crit_tables.json').then(r => r.json()).then(j => {
+    _encCritRows = (j && j.character && j.character.rows) || [];
+    _encCritCite = String((j && j.character && j.character.cite) || 'eote p.217').toUpperCase();
+    return _encCritRows;
+  }).catch(() => { _encCritLoad = null; return null; });
+  return _encCritLoad;
+}
 function useEncCritRows() {
   const [rows, setRows] = useState(_encCritRows);
   useEffect(() => {
     if (_encCritRows) return;
-    fetch('/public/data/canonical/crit_tables.json').then(r => r.json()).then(j => {
-      _encCritRows = (j && j.character && j.character.rows) || [];
-      _encCritCite = String((j && j.character && j.character.cite) || 'eote p.217').toUpperCase();
-      setRows(_encCritRows);
-    }).catch(() => {});
+    loadEncCritRows().then(r => { if (r) setRows(r); });
   }, []);
   return rows;
 }
@@ -3091,16 +3132,31 @@ function encCritName(rows, c) {
   return row ? String(row[2]).split(':')[0] : '';
 }
 
-// A member's display identity: an NPC from the registry; a PC from this device's saved character (`char:`) or its name.
+// A member's display identity: an NPC from the registry; a PC through the table session's ONE reader, pcOf (ruling
+// `encounters-e6-walk` §4, B-1851): this device's saved character (`char:`), else the open table's summary for it (F6-a,
+// G8; the name kept while dropped), else nothing — a `name:` member reads BY NAME. `line` is '' when there is nothing.
 function encPcOf(m) {
-  const who = String(m.who || '');
-  if (/^name:/.test(who)) return { name: who.slice(5), line: 'BY NAME', rec: null };
-  const id = who.slice(5), R = window.SWRPGRoster;
-  const rec = R ? (R.loadSavedCharacters() || []).filter(c => c && String(c.id) === id)[0] || null : null;
-  if (!rec) return { name: 'Character not on this device', line: 'PC', rec: null };
-  const sd = rec.sheetData || {}, spec = sd.specialization || rec.specialization;   // the roster's record wraps the sheet (roster.js upsertSavedCharacter)
-  const line = [rec.species || sd.species, rec.career || sd.career].filter(Boolean).join(' ') + (spec ? ' · ' + spec : '');
-  return { name: rec.name || 'Unnamed', line: line || 'PC', rec: rec };
+  const T = window.SWRPGTableSession, p = T && T.pcOf ? T.pcOf(m.who) : { name: null, line: '', rec: null };
+  return Object.assign({}, p, { name: p.name || 'Character not on this device' });
+}
+// The card's tier line: PC · the line, or PC once when there is no line (B-1847: never "PC · PC").
+function encPcTier(pc) { return pc.line ? 'PC · ' + pc.line : 'PC'; }
+// The reader beside encPcVitals (F6-a): the same {w, wt, s, st} from the table's summary (join / char_update), for a
+// PC the roster misses; null with no summary. LIVE while the player is `here`; dropped keeps the last numbers.
+function encPcTable(m, pc) {
+  const T = window.SWRPGTableSession, who = String((m && m.who) || '');
+  if (!pc || pc.rec || !pc.table || !T) return null;
+  const v = T.vitalsFor(who);
+  return v ? { v: v, live: T.presenceFor(who) === 'here' } : null;
+}
+function EncLiveTag({ t }) {   // G6: FROM THE SHEET · READ ONLY, and LIVE beside it while the player is here (D-504's card, nothing else)
+  if (!t || !t.live) return <div className="enc-tag" style={{ padding: '4px 0 0' }}>FROM THE SHEET · READ ONLY</div>;
+  return (
+    <div className="enc-tag" style={{ padding: '4px 0 0', display: 'flex', alignItems: 'center', gap: 10 }}>FROM THE SHEET · READ ONLY
+      <span style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--doc-action,#7E1414)' }}>
+        <span aria-hidden="true" style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', flex: 'none', marginRight: 8, background: 'var(--doc-action,#7E1414)' }} />LIVE</span>
+    </div>
+  );
 }
 function encPcVitals(rec) {
   if (!rec) return null;
@@ -3299,7 +3355,7 @@ function EncList({ groups, actions, resolveBySourceKey, tierOf, onOpen, manager 
                     if (m.kind === 'pc') {
                       // a PC's chip: its wounds from the saved sheet, or PC (its attributes ordered so the minion chip stays the
                       // first nl-mchip that test/pfr34_npc_display.cjs lifts and runs)
-                      const pc = encPcOf(m), v = encPcVitals(pc.rec);
+                      const pc = encPcOf(m), tv = encPcTable(m, pc), v = encPcVitals(pc.rec) || (tv && tv.v);
                       return (<span key={m.id} data-enc-pc="1" data-hurt={v && v.w > 0 ? '1' : '0'} className="nl-mchip"><NpcPaperMono name={pc.name} /><b>{pc.name}</b>
                         <span data-enc-pc="1" data-npc-chip-val="1">{v ? v.w + '/' + v.wt : 'PC'}</span></span>);
                     }
@@ -3335,10 +3391,19 @@ function EncList({ groups, actions, resolveBySourceKey, tierOf, onOpen, manager 
 }
 
 // ── ADD PLAYER CHARACTER (§6, F3): THE GROUP · ADD ALL, then this device's saved characters, then By name… ──
+// ENCOUNTERS E6 frames (F7-a, ADDENDUM 2): a fight in a campaign takes THAT campaign's party; with none (today, or a
+// campaign gone) the implicit 'party' as before.
+function encCampaignOf(g) {
+  const Cs = window.SWRPGCampaigns;
+  const c = Cs && g && g.campaignId ? Cs.campaignOf(Cs.load(), g.campaignId) : null;
+  return c && c.role === 'gm' ? c : null;
+}
+function encCampaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on() && window.SWRPGCampaigns); }
 function EncAddPc({ g, manager }) {
   const [byName, setByName] = useState(null);
   const P = window.SWRPGParty, R = window.SWRPGRoster;
-  const party = P ? P.partyOf(P.load(), null) : null;
+  const camp = encCampaignOf(g);
+  const party = P ? P.partyOf(P.load(), camp && camp.partyId ? camp.partyId : null) : null;
   const inEnc = {}; g.members.forEach(m => { if (m.kind === 'pc') inEnc[m.who] = true; });
   const saved = R ? (R.loadSavedCharacters() || []).filter(c => c && c.id != null) : [];
   const nameOf = (who) => encPcOf({ who: who });
@@ -3355,7 +3420,7 @@ function EncAddPc({ g, manager }) {
         <React.Fragment>
           <div className="enc-sub" style={{ display: 'flex', alignItems: 'center', marginTop: 0 }}><span style={{ marginRight: 'auto' }}>THE GROUP</span>
             <button type="button" className="hp-quiet" onClick={() => add(groupWhos)}>ADD ALL</button></div>
-          {groupWhos.map(w => { const pc = nameOf(w); return row(w, pc.name, pc.line); })}
+          {groupWhos.map(w => { const pc = nameOf(w); return row(w, pc.name, pc.line || 'PC'); })}
         </React.Fragment>) : null}
       <div className="enc-sub" style={groupWhos.length ? null : { marginTop: 0 }}>ON THIS DEVICE</div>
       {saved.filter(c => groupWhos.indexOf('char:' + c.id) === -1).map(c => row('char:' + c.id, c.name || 'Unnamed', [c.species, c.career].filter(Boolean).join(' ')))}
@@ -3368,6 +3433,39 @@ function EncAddPc({ g, manager }) {
           </React.Fragment>)}
       </div>
     </div>
+  );
+}
+
+// ── D1 · THE FIGHT'S CAMPAIGN (D-540; concept §12 "PREP: a CAMPAIGN line naming the encounter's campaign, or NONE,
+// with a pick"): the block above ADD PLAYER CHARACTER, and its sheet of the GM's campaigns and NONE. Writes bench v7
+// `group.campaignId` through its one writer, BenchStore.setGroupCampaign. Drawn only while swrpg_campaigns_door is on.
+function encBook(c) { const V = window.SWRPGCampaignsView; return c && c.frame && V && V.bookName ? V.bookName(c.frame.book) : ''; }
+function EncCampaignBlock({ g, onPick }) {
+  const c = encCampaignOf(g);
+  return (
+    <div data-camp-pick="1">
+      <div className="hp-sechead"><h2>CAMPAIGN</h2></div>
+      <div className="enc-row"><span className="enc-rn">{c ? c.name : 'NONE'}{c ? <small>{encBook(c)}</small> : null}</span>
+        <button type="button" className="hp-quiet" aria-label={c ? 'Change the campaign' : 'Pick a campaign'} onClick={onPick}>{c ? 'CHANGE' : 'PICK'}</button></div>
+    </div>
+  );
+}
+function EncCampaignPick({ g, manager, onClose }) {
+  const Cs = window.SWRPGCampaigns;
+  const list = Cs ? Cs.load().campaigns.filter(c => c && c.role === 'gm') : [];
+  const cur = encCampaignOf(g);
+  const choose = (id) => { manager.applyBench(prev => BenchStore.setGroupCampaign(prev, g.id, id)); onClose(); };
+  const pick = (on, label, sub, id) => (
+    <button key={id || 'none'} type="button" className="enc-row hp-quiet" aria-pressed={on ? 'true' : 'false'} aria-label={label} onClick={() => choose(id)}
+      style={Object.assign({ width: '100%', textAlign: 'left', letterSpacing: 0, textTransform: 'none', padding: '4px 10px', justifyContent: 'flex-start' },
+        on ? { outline: '2px solid var(--doc-action,#7E1414)', outlineOffset: -2 } : {})}>
+      <span className="enc-rn">{label}{sub ? <small>{sub}</small> : null}</span>{on ? <span className="enc-tag" data-side="PC">✓</span> : null}
+    </button>);
+  return (
+    <EncSheet title="CAMPAIGN" testid="camp" onClose={onClose}>
+      {list.map(c => pick(!!cur && cur.id === c.id, c.name, encBook(c), c.id))}
+      {pick(!cur, 'NONE', null, null)}
+    </EncSheet>
   );
 }
 
@@ -3522,11 +3620,11 @@ function EncCard({ m, ctx }) {
   const ids = orderedMembers.map(x => x.id), i = ids.indexOf(m.id), last = ids.length - 1;
   const sel = m.id === flipKey;
   if (m.kind === 'pc') {
-    const pc = encPcOf(m), v = encPcVitals(pc.rec);
+    const pc = encPcOf(m), tv = encPcTable(m, pc), v = encPcVitals(pc.rec) || (tv && tv.v);
     return (
       <div className="hp-plate nl-bcard" data-pad="snug" data-sel={sel ? '1' : '0'} data-npc-member={m.id} data-enc-pc="1"
-        role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + pc.name} onClick={() => selectMember(m)}>
-        <div className="nl-card-h"><NpcPaperMono name={pc.name} /><div className="nl-cn"><b>{pc.name}</b><span className="nl-tier">{'PC · ' + pc.line}</span></div>
+        role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + pc.name} onClick={() => selectMember(m)} onKeyDown={cardPressKeys(() => selectMember(m))}>
+        <div className="nl-card-h"><NpcPaperMono name={pc.name} /><div className="nl-cn"><b>{pc.name}</b><span className="nl-tier">{encPcTier(pc)}</span></div>
           <EncCardMenu m={m} name={pc.name} i={i} last={last} ctx={ctx} /></div>
         {v ? (
           <div className="hp-plate" data-pad="data"><div className="sb-vit">
@@ -3534,7 +3632,7 @@ function EncCard({ m, ctx }) {
               <div key={k} className="sb-vitrow" data-track={k.toLowerCase()}><div><div className="sb-vitkey">{k}</div>
                 <div className="sb-meter"><i style={{ width: (mx ? Math.min(100, Math.round(c * 100 / mx)) : 0) + '%' }} /></div></div>
                 <div className="sb-trk"><span className="sb-vitval sb-trk-val">{c}<span className="sb-of"> / {mx}</span></span></div></div>))}
-            <div className="enc-tag" style={{ padding: '4px 0 0' }}>FROM THE SHEET · READ ONLY</div>
+            <EncLiveTag t={tv} />
           </div></div>
         ) : null}
         <EncConds m={m} ctx={ctx} />
@@ -3550,7 +3648,7 @@ function EncCard({ m, ctx }) {
   const rolls = ctx.mode !== 'prepped' && ok ? <EncRollRow m={m} rec={r} tier={ws.tier} ctx={ctx} /> : null;
   return (
     <div className="hp-plate nl-bcard" data-pad="snug" data-sel={sel ? '1' : '0'} data-npc-member={m.id}
-      role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + name} onClick={() => selectMember(m)}>
+      role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + name} onClick={() => selectMember(m)} onKeyDown={cardPressKeys(() => selectMember(m))}>
       <div className="nl-card-h">
         <NpcPaperMono name={parts.base} />
         <div className="nl-cn"><b data-miss={ok ? '0' : '1'}>{parts.base}{parts.suffix}</b>
@@ -3846,32 +3944,63 @@ function EncEnd({ ctx, onClose, onHeal }) {
   const sum = L.summary(ctx.bench, g.id);
   const rounds = encRoom(ctx.table).initiative.round || 0;
   const fallen = [], crits = [], conds = [];
+  // D2 (D-540): each line's LOG items, in the entry shape on paper (`encounters-e4-campaign-concept` §5 Item:
+  // {type, ref, label, roll?, condition?, hull?, text?}); `label` is the name as the GM sees it at the tap
+  const items = { FALLEN: [], 'CRITS DEALT': [], 'CONDITIONS STANDING': [], CRAFT: [] };
+  const refOf = (m) => m.kind === 'pc' ? String(m.who || '') : String(m._source_key || '');
   g.members.forEach(m => {
     const nm = ctx.nameOf(m);
     if (m.kind !== 'pc') {
       const pv = ctx.poolView(m), ws = ctx.wsRead(m);
-      if (pv && pv.fallen > 0) fallen.push(pv.r.name + ' ×' + pv.fallen);
-      else if (!pv && ws.wt && (m.currentWounds || 0) > ws.wt) fallen.push(nm);
+      if (pv && pv.fallen > 0) { fallen.push(pv.r.name + ' ×' + pv.fallen); items.FALLEN.push({ type: 'fell', ref: refOf(m), label: pv.r.name + ' ×' + pv.fallen }); }
+      else if (!pv && ws.wt && (m.currentWounds || 0) > ws.wt) { fallen.push(nm); items.FALLEN.push({ type: 'fell', ref: refOf(m), label: nm }); }
     }
-    if ((m.crits || []).length) crits.push(nm + ' · ' + m.crits.map(c => c.roll + ' ' + encCritName(rows, c)).join(', '));
-    if ((m.conditions || []).length) conds.push(nm + ' · ' + m.conditions.map(c => c.toUpperCase()).join(', '));
+    if ((m.crits || []).length) {
+      crits.push(nm + ' · ' + m.crits.map(c => c.roll + ' ' + encCritName(rows, c)).join(', '));
+      m.crits.forEach(c => items['CRITS DEALT'].push(Object.assign({ type: 'crit', ref: refOf(m), label: nm, roll: c.roll }, c.label ? { text: String(c.label) } : {})));
+    }
+    if ((m.conditions || []).length) {
+      conds.push(nm + ' · ' + m.conditions.map(c => c.toUpperCase()).join(', '));
+      m.conditions.forEach(c => items['CONDITIONS STANDING'].push({ type: 'condition', ref: refOf(m), label: nm, condition: String(c) }));
+    }
   });
   const fleet = window.SWRPGVessels ? (window.SWRPGVessels.getState().vessels || []) : [];
   const craft = (g.vehicles || []).map(v => {
     const row = craftVehicle(ctx.refData, v), rec = v.vessel ? fleet.filter(x => x.id === v.vessel)[0] : null;
     const R = window.SWRPGVesselResolve, res = row && R ? R.resolve(rec || { vehicleKey: v.key, hull_current: 0, strain_current: 0 }, row, null) : null;
+    items.CRAFT.push({ type: 'craft', ref: String(v.vessel || v.key || ''), label: ctx.craftLabel(v, row ? row.name : v.key), hull: (rec && rec.hull_current) || 0 });
     return ctx.craftLabel(v, row ? row.name : v.key) + ' · hull ' + ((rec && rec.hull_current) || 0) + ' / ' + (res ? res.hull_threshold : '—');
   });
+  // D2: LOG writes to the fight's campaign (D1) — one `encounter` entry per tap, append-only; a line reads LOGGED once an
+  // entry for this fight holds its kind of item (ROUNDS: any entry for this fight). No campaign, no LOG.
+  const Cs = window.SWRPGCampaigns, camp = encCampaignsOn() ? encCampaignOf(g) : null;
+  const [, setLogTick] = useState(0);
+  const mine = camp ? (Cs.campaignOf(Cs.load(), camp.id).log || []).filter(e => e.kind === 'encounter' && e.groupId === g.id) : [];
+  const TYPE = { FALLEN: 'fell', 'CRITS DEALT': 'crit', 'CONDITIONS STANDING': 'condition', CRAFT: 'craft' };
+  const logged = (k) => k === 'ROUNDS' ? mine.length > 0 : mine.some(e => (e.items || []).some(it => it.type === TYPE[k]));
+  const canLog = (k) => k === 'ROUNDS' || (items[k] || []).length > 0;
+  const logLine = (keys) => {
+    const todo = keys.filter(k => canLog(k) && !logged(k));
+    if (!camp || !todo.length) return;
+    const its = todo.reduce((a, k) => a.concat(items[k] || []), []);
+    Cs.apply(st => Cs.appendLog(st, camp.id, { kind: 'encounter', groupId: g.id, rounds: rounds, items: its }));
+    setLogTick(n => n + 1);
+  };
   const cite = (k) => ((sum.recovery || []).filter(r => r.key === k)[0] || {}).cite || '';
   const dl = [['ROUNDS', <b>{rounds + ' ' + (rounds === 1 ? 'ROUND' : 'ROUNDS')}</b>], ['FALLEN', fallen.join(' · ') || '—'], ['CRITS DEALT', crits.join(' · ') || '—'],
     ['CONDITIONS STANDING', conds.join(' · ') || '—']].concat(craft.length ? [['CRAFT', craft.join(' · ')]] : []);
   return (
     <EncSheet title="END ENCOUNTER" testid="end" cover onClose={onClose}
       foot={<React.Fragment>
+        {camp ? <button type="button" className="hp-quiet" data-enc-logall="1" onClick={() => logLine(dl.map(([k]) => k))}>LOG ALL</button> : null}
         <button type="button" className="hp-commit" data-enc-markdone="1" onClick={() => { ctx.applyBoth((b, r) => L.end(b, r, g.id)); onClose(); }}>MARK DONE</button>
         <button type="button" className="hp-quiet" onClick={onHeal}>HEAL & REPAIR ALL</button>
         <span style={{ flex: 1 }} /><button type="button" className="hp-quiet" onClick={onClose}>BACK TO THE FIGHT</button></React.Fragment>}>
-      <dl className="enc-sum">{dl.map(([k, v]) => <React.Fragment key={k}><dt>{k}</dt><dd>{v}</dd></React.Fragment>)}</dl>
+      <dl className="enc-sum">{dl.map(([k, v]) => <React.Fragment key={k}><dt>{k}</dt>{camp
+        ? <dd style={{ display: 'flex', alignItems: 'center', gap: 10 }}><span style={{ flex: 1, minWidth: 0 }}>{v}</span>
+            {logged(k) ? <span className="enc-tag" aria-label={k + ' logged'}>LOGGED</span>
+              : <button type="button" className="hp-quiet" aria-label={'Log ' + k} disabled={!canLog(k)} onClick={() => logLine([k])}>LOG</button>}</dd>
+        : <dd>{v}</dd>}</React.Fragment>)}</dl>
       <div className="enc-sub">AFTER THE FIGHT</div>
       <p className="enc-read">{'Strain recovery: one Simple (–) check, Cool or Discipline; 1 strain back per Success — '}<EncCite t={cite('strain').toUpperCase()} /></p>
       <p className="enc-read">{'Wounds heal one per full night’s rest — '}<EncCite t={cite('wounds_rest').toUpperCase()} /></p>
@@ -3907,19 +4036,19 @@ function EncAboard({ ctx }) {
 function EncPhoneCard({ m, ctx, benchCtx }) {
   if (!m) return null;
   if (m.kind === 'pc') {
-    const pc = encPcOf(m), v = encPcVitals(pc.rec);
+    const pc = encPcOf(m), tv = encPcTable(m, pc), v = encPcVitals(pc.rec) || (tv && tv.v);
     return (
       <div data-npc-flipcard={m.id} data-enc-pc="1">
         <div className="nl-acts" style={{ margin: '0 0 8px', justifyContent: 'flex-end' }}>
           {ctx.readOnly ? null : <button type="button" className="hp-quiet" aria-label="Remove this member from the encounter"
             onClick={() => { ctx.actions.removeMember(ctx.openGroup.id, m.id); ctx.setFlipKey(null); }}>{'× REMOVE'}</button>}
         </div>
-        <div className="hp-plate" data-pad="data"><div className="nl-cn"><b>{pc.name}</b><span className="nl-tier">{'PC · ' + pc.line}</span></div>
+        <div className="hp-plate" data-pad="data"><div className="nl-cn"><b>{pc.name}</b><span className="nl-tier">{encPcTier(pc)}</span></div>
           {v ? <div className="sb-vit">{[['Wounds', v.w, v.wt], ['Strain', v.s, v.st]].map(([k, c, mx]) => (
             <div key={k} className="sb-vitrow" data-track={k.toLowerCase()}><div><div className="sb-vitkey">{k}</div>
               <div className="sb-meter"><i style={{ width: (mx ? Math.min(100, Math.round(c * 100 / mx)) : 0) + '%' }} /></div></div>
               <div className="sb-trk"><span className="sb-vitval sb-trk-val">{c}<span className="sb-of"> / {mx}</span></span></div></div>))}
-            <div className="enc-tag" style={{ padding: '4px 0 0' }}>FROM THE SHEET · READ ONLY</div></div> : null}
+            <EncLiveTag t={tv} /></div> : null}
         </div>
         <EncConds m={m} ctx={ctx} />
       </div>
@@ -3941,6 +4070,8 @@ function EncOpen({ bc, benchCtx, manager, view, bench }) {
   const g = bc.openGroup, L = EL(), B = BenchStore;
   const mode = g.state || 'prepped', readOnly = mode === 'done';
   const critRows = useEncCritRows();
+  const [, setTableTick] = useState(0);   // G6: a linked PC's numbers re-draw on the table session's news (it holds them in memory)
+  useEffect(() => { const T = window.SWRPGTableSession; return T ? T.subscribe(() => setTableTick(n => n + 1)) : undefined; }, []);
   const [sheet, setSheet] = useState(null);
   const [prep, setPrep] = useState(false);
   // THE PRESS (encounters-e3-npc-press): the core's arrival (R-E3DM-R1, Q-E) and the member whose window is open
@@ -4004,6 +4135,7 @@ function EncOpen({ bc, benchCtx, manager, view, bench }) {
     : sheet.kind === 'claim' ? <EncClaim ctx={ctx} index={sheet.index} onClose={() => setSheet(null)} />
     : sheet.kind === 'crit' && sm ? <EncCrit m={sm} ctx={ctx} onClose={() => setSheet(null)} />
     : sheet.kind === 'addpc' ? <EncSheet title="ADD PLAYER CHARACTER" testid="addpc" onClose={() => setSheet(null)}><EncAddPc g={g} manager={manager} /></EncSheet>
+    : sheet.kind === 'campaign' ? <EncCampaignPick g={g} manager={manager} onClose={() => setSheet(null)} />
     : null;
   const empty = <div className="hp-plate" data-pad="read"><p className="hp-none" style={{ margin: 0 }}>Empty group. Search above to add NPCs.</p></div>;
 
@@ -4034,6 +4166,7 @@ function EncOpen({ bc, benchCtx, manager, view, bench }) {
               <React.Fragment>
                 <div className="nl-gap" />
                 <BenchAddMemberBlock ctx={pc} />
+                {!readOnly && encCampaignsOn() ? <EncCampaignBlock g={g} onPick={() => setSheet({ kind: 'campaign' })} /> : null}
                 <button type="button" className="hp-quiet nl-wide enc-addpc" disabled={readOnly} aria-disabled={readOnly ? 'true' : undefined}
                   onClick={() => setSheet({ kind: 'addpc' })}>+ ADD PLAYER CHARACTER</button>
                 <BenchGroupCraft ctx={pc} />
@@ -4076,7 +4209,8 @@ function EncOpen({ bc, benchCtx, manager, view, bench }) {
                 <div className="enc-drawer" role="region" aria-label="Prep">
                   <div className="enc-dcols">
                     <div><BenchAddMemberBlock ctx={benchCtx} /><BenchGroupCraft ctx={benchCtx} /><EncAboard ctx={ctx} /></div>
-                    <div><NpcPaperSechead head="ADD PLAYER CHARACTER" /><EncAddPc g={g} manager={manager} /></div>
+                    <div>{encCampaignsOn() ? <EncCampaignBlock g={g} onPick={() => setSheet({ kind: 'campaign' })} /> : null}
+                      <NpcPaperSechead head="ADD PLAYER CHARACTER" /><EncAddPc g={g} manager={manager} /></div>
                   </div>
                 </div>
               ) : null}
@@ -4119,7 +4253,7 @@ function BenchRefOverlay({ onClose, children }) {
   );
 }
 function EncPcChip({ m, ctx }) {
-  const pc = encPcOf(m), v = encPcVitals(pc.rec), active = m.id === ctx.flipKey;
+  const pc = encPcOf(m), tv = encPcTable(m, pc), v = encPcVitals(pc.rec) || (tv && tv.v), active = m.id === ctx.flipKey;
   return (
     <button type="button" className="nl-sc" data-on={active ? '1' : '0'} aria-pressed={active} aria-label={'Show ' + pc.name}
       data-npc-member={m.id} onClick={() => ctx.setFlipKey(m.id)}><b>{pc.name}</b><span>{v ? v.w + '/' + v.wt + ' WOUNDS' : 'PC'}</span></button>
@@ -4558,7 +4692,11 @@ function creatorNormWeapon(w) {
     return { name: p.name || w, skill: '', skillLabel: '', damage: p.damage || '–', crit: '–',
       range: p.range || '–', qualities: p.qualities ? String(p.qualities).split(/,\s*/) : [] };
   }
-  const dmg = (w.damage && typeof w.damage === 'object') ? w.damage.value : w.damage;
+  // B-1833: an object damage prints through the finished page's projection (WeaponTable → SWItems.canonicalToStore), so a
+  // Brawn weapon reads "+3" here as it does there; `damageBase` keeps the base the old `.value` read dropped.
+  const dmgObj = (w.damage && typeof w.damage === 'object') ? w.damage : null;
+  const SWc = window.SWItems;
+  const dmg = dmgObj ? ((SWc && SWc.canonicalToStore) ? SWc.canonicalToStore(w, 'weapons').damage : dmgObj.value) : w.damage;
   const quals = Array.isArray(w.qualities)
     ? w.qualities.map(function (q) { return typeof q === 'string' ? q : ((q.name || '') + (q.ranked && q.rank != null ? ' ' + q.rank : '')); })
     : [];
@@ -4567,6 +4705,7 @@ function creatorNormWeapon(w) {
   return {
     name: w.name || 'Weapon', skill: skillRaw, skillLabel: prettifyCreatorSkill(nm || skillRaw),
     damage: (dmg != null && dmg !== '') ? dmg : '–',
+    damageBase: (dmgObj && dmgObj.base) || null,
     crit: (w.crit != null && w.crit !== '') ? w.crit : '–',
     range: prettifyCreatorSkill(w.range || '–'),
     qualities: quals,
@@ -5515,6 +5654,10 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
       load: () => (BenchStore ? BenchStore.load() : { version: 1, groups: [] }), persist: (next) => { if (BenchStore) BenchStore.persist(next); } });
     const bench = heldBench.state;
     const applyBench = heldBench.apply;
+    // D14 (ruling `encounters-e6-walk` §3): a player's LEAVE TABLE takes its PC card out of the bench in the table session,
+    // a same-tab write no `storage` event reports. Every act here already reads the store first; this redraws on the news
+    // (read() hands back the held state, and React keeps the draw, while the stored string has not moved).
+    useEffect(() => { const T = window.SWRPGTableSession; return T ? T.subscribe(() => heldBench.adopt(heldBench.read())) : undefined; }, []);
     // ── HOLOTABLE: the GM's table session (R-HT-2 — the door lives with the bench) ──
     // Unconditional, for the reason recorded at the module-level capture. Dark until the flag
     // flips: `startTable` refuses while it is off, and every composition renders null anyway.
@@ -6625,6 +6768,11 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
     // card `shipyard-encounter-craft-build`: the bench's tracker and craft row, for test/shipyard_encounter_craft_*.cjs
     NpcPaperTrack: NpcPaperTrack,
     BenchGroupCraft: BenchGroupCraft,
+    // ENCOUNTERS E6 frames (G3's LOG, D2): a logged crit's name from its roll, through the bench's own table and reader
+    loadCritRows: loadEncCritRows,
+    critNameOf: (roll) => encCritName(_encCritRows || [], { roll: roll }),
+    // ENCOUNTERS E6 frames D8: a campaign's CAST (its rows and its add search) through the library's pool
+    loadCastPool: loadCastPool, castNpcOf: castNpcOf, castSearch: castSearch,
     Landing: NpcLibraryLandingView,
     List: NpcLibraryListView,
     Recent: NpcRecentView,

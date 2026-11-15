@@ -14,6 +14,8 @@
  *   S6 party per campaign: each campaign its own party; receiveParty replaces + re-points; the old party retires only if
  *      nothing else points at it AND it holds nothing but members; unlinked refused; a linked party refuses a local edit
  *   S7 the log: append-only (the store's id and time), DELETE YES, no edit op exported
+ *   S8 R-E6F-6: SEND XP logs one xp_sent per SESSION; a re-send re-uses its offerId, so the player holds ONE offer
+ *   S9 R-E6F-7: the player record's frame is the GM's last table_hello frame
  *
  * `node test/campaign_store.cjs --bite` runs each mutant (a COPY of the module) against its leg; exit 1 if one survives.
  */
@@ -51,6 +53,8 @@ const MUTANTS = [
   ['retire-full', 'S6', "if (!holdsOnlyMembers(p)) return { partyId: oldId, kept: 'holds-more-than-members' };", ''],
   ['edit-while-linked', 'S6', "if (c.role === 'player' && c.table) return { ok: false, why: 'linked' };", ''],
   ['party-unlinked', 'S6', "if (!c.table) return { ok: false, why: 'not-linked' };", ''],
+  ['xp-resend-fresh-offer', 'S8', 'if (had) return { state: state, entry: had };', ''],
+  ['player-frame-dropped', 'S9', "if (own(hello, 'frame')) next.frame = normalizeFrame(hello.frame);", ''],
   ['log-keeps-caller-id', 'S7', "Object.assign({}, entry, { id: 'clog_' + uuid(), at: now() })", 'Object.assign({ id: \'clog_\' + uuid(), at: now() }, entry)'],
 ];
 
@@ -116,7 +120,7 @@ leg('S1', () => {
   check('S1 the GM record: role, name, partyId, cast, log, frame, stamps', G.role === 'gm' && G.name === 'Rogue Cell' && G.partyId === g.partyId
     && Array.isArray(G.cast) && Array.isArray(G.log) && G.frame.book === 'aor' && G.frame.moralityLayer === true && typeof G.createdAt === 'number' && typeof G.updatedAt === 'number', G);
   check('S1 the player record: characterIds, table null, inbox, handled []', Pl.role === 'player' && Array.isArray(Pl.characterIds) && Pl.table === null && Array.isArray(Pl.inbox) && Array.isArray(Pl.handled) && Pl.handled.length === 0, Pl);
-  check('S1 a role\'s fields only on that role', !('inbox' in G) && !('handled' in G) && !('characterIds' in G) && !('cast' in Pl) && !('log' in Pl) && !('frame' in Pl), [Object.keys(G), Object.keys(Pl)]);
+  check('S1 a role\'s fields only on that role', !('inbox' in G) && !('handled' in G) && !('characterIds' in G) && !('cast' in Pl) && !('log' in Pl), [Object.keys(G), Object.keys(Pl)]);   // `frame` is on both roles since R-E6F-7 (encounters-e6-frames ADDENDUM 2)
   const seeded = world({ [CKEY]: JSON.stringify({ version: 1, future: 'kept', campaigns: [{ id: 'camp_x', role: 'player', name: 'X', partyId: null, createdAt: 1, updatedAt: 1,
     characterIds: ['a'], table: { gmCampaignId: 'camp_g', gmLabel: 'GM', lastSeen: 1, deep: 1 }, inbox: [{ id: 'o1', at: 1, kind: 'xp', amount: 5, fromLabel: 'GM', note: 'x' }], handled: ['o0'], extra: { y: 1 } }] }) });
   const before = seeded.store[CKEY];
@@ -244,10 +248,43 @@ leg('S7', () => {
   const log = camps(w).campaigns[0].log;
   check('S7 appended in order, each with the store\'s clog_ id and time, never the caller\'s', log.length === 2 && log.every((e) => /^clog_/.test(e.id)) && log[0].at !== 1 && log[0].xp === 15, log);
   let threw = false; try { w.C.appendLog(w.C.load(), g.id, { kind: 'wiki' }); } catch (e) { threw = true; }
-  check('S7 a kind outside encounter | session is refused', threw);
+  check('S7 a kind outside encounter | session | xp_sent is refused', threw);
   w.C.apply((s) => w.C.removeLog(s, g.id, log[0].id));
   check('S7 DELETE YES: an entry is removed by id', camps(w).campaigns[0].log.length === 1 && camps(w).campaigns[0].log[0].id === log[1].id);
   check('S7 EDIT NO: no edit op is exported', !Object.keys(w.C).some((k) => /^(edit|update|set)Log/i.test(k)), Object.keys(w.C));
+});
+
+// ── S8 R-E6F-6 (ruling `encounters-e6-frames` ADDENDUM 2): SEND XP logs ONE xp_sent per SESSION; a re-send keeps its offerId ──
+leg('S8', () => {
+  const w = world();
+  const g = w.C.createCampaign('gm', 'A');
+  w.C.apply((s) => w.C.appendLog(s, g.id, { kind: 'session', xp: 20 }));
+  const sid = camps(w).campaigns[0].log[0].id;
+  const r1 = w.C.sendXp(w.C.load(), g.id, sid, 20); w.C.save(r1.state);
+  const r2 = w.C.sendXp(w.C.load(), g.id, sid, 20); w.C.save(r2.state);   // after a "reload": the GM taps again
+  const sent = camps(w).campaigns[0].log.filter((e) => e.kind === 'xp_sent');
+  check('S8 one xp_sent entry {session, offerId, amount}, with the store\'s id and time', sent.length === 1 && sent[0].session === sid && /^offer_/.test(sent[0].offerId)
+    && sent[0].amount === 20 && /^clog_/.test(sent[0].id) && typeof sent[0].at === 'number', sent);
+  check('S8 the re-send answers the SAME offerId', r1.entry.offerId === r2.entry.offerId && w.C.xpSentOf(w.C.load(), g.id, sid).offerId === r1.entry.offerId, [r1.entry, r2.entry]);
+  // the player's side: both offers arrive; the inbox holds one, and once handled a re-send never returns
+  const pw = world({ [RKEY]: roster([charRec('a')]) });
+  const p = pw.C.createCampaign('player', 'Mine');
+  pw.C.apply((s) => pw.C.attachCharacter(s, p.id, 'a'));
+  [r1, r2].forEach((r) => pw.C.apply((s) => pw.C.addOffer(s, p.id, { offerId: r.entry.offerId, amount: 20, fromLabel: 'Dana' })));
+  check('S8 both sends reach the player as ONE inbox offer', camps(pw).campaigns[0].inbox.length === 1, camps(pw).campaigns[0].inbox);
+  check('S8 a SESSION id that is no session, or an amount out of range, sends nothing', w.C.sendXp(w.C.load(), g.id, 'nope', 20) === null && w.C.sendXp(w.C.load(), g.id, sid, 0) === null);
+  check('S8 xp_sent is a LOG kind; the answers have no op (never logged, D-497 b4)', w.C.LOG_KINDS.indexOf('xp_sent') !== -1 && !Object.keys(w.C).some((k) => /answer|taken/i.test(k)), w.C.LOG_KINDS);
+});
+
+// ── S9 R-E6F-7: the player record's `frame` is the GM's last table_hello frame, display-only ──
+leg('S9', () => {
+  const w = world();
+  const p = w.C.createCampaign('player', 'Mine');
+  check('S9 a new player record has frame null', camps(w).campaigns[0].frame === null, camps(w).campaigns[0]);
+  w.C.apply((s) => w.C.setTable(s, p.id, { campaignId: 'camp_g', gmLabel: 'Dana', frame: { book: 'eote' } }, 5));
+  check('S9 table_hello writes table AND its frame', camps(w).campaigns[0].frame && camps(w).campaigns[0].frame.book === 'eote' && camps(w).campaigns[0].table.gmLabel === 'Dana', camps(w).campaigns[0]);
+  w.C.apply((s) => w.C.setTable(s, p.id, { campaignId: 'camp_g', gmLabel: 'Dana', frame: null }, 6));
+  check('S9 a later hello with frame null clears it (the last hello wins)', camps(w).campaigns[0].frame === null, camps(w).campaigns[0]);
 });
 
 console.log('\n' + pass + ' passed, ' + fail + ' failed');

@@ -11,7 +11,10 @@
  *   R5 P8.3 order: slow_down is checked before the lookup — after 10 misses, a live code is refused with no Code read
  *   R6 P8.3 in STORAGE: the counts and the listed entry survive a memory reset between two joins
  *   R7 P8.2.3 newcode: the old code is no_table the moment newcode returns; a listed table is listed again
+ *   R9 R-E6F-5: the GM's `listing {on}` puts and drops the entry, with no reply; `on` must be boolean; a player's is bad_frame
  *   R8 every refusal reaches the client as a frame (101 + `{t:'error'}`), never an HTTP status
+ *   R10 `encounters-e6-wire-online` ADDENDUM 9 W-1: a GM REJOIN's `opened` carries `seats`, the knockIds meta.seats still
+ *       holds (ids only); a seat that left while the GM was away is not named; `open` and `newcode` carry none
  *
  * `node test/table_server_routes.cjs --bite` runs each mutant on a COPY of table-server/src; exit 1 if one survives.
  */
@@ -34,7 +37,14 @@ const MUTANTS = [
     "if (route === 'code') await env.CODE.get(env.CODE.idFromName(R.normalizeCode(value) || 'ZZZZZZ')).fetch('https://code/get');\n      if (!(await ask(listing, '/may-join')).ok) return refuse('slow_down');"],
   ['counts-in-memory', 'R6', 'listing.js', "const st = (await this.ctx.storage.get('s')) || { tables: {}, fails: [], opens: [] };",
     "const st = this.mem || (this.mem = { tables: {}, fails: [], opens: [] });"],
+  ['rejoin-no-seats', 'R10', 'table.js', "tableId: meta.tableId, seats: Object.keys(meta.seats || {}).slice(0, R.MAX_SEATS) });", 'tableId: meta.tableId });'],
+  ['rejoin-names-all', 'R10', 'table.js', "seats: Object.keys(meta.seats || {}).slice(0, R.MAX_SEATS) });", "seats: Object.keys(meta.seats || {}).concat(['k_gone']).slice(0, R.MAX_SEATS) });"],
+  ['newcode-seats', 'R10', 'table.js', "      meta.lastFrameAt = now;\n      await this.#save(meta);\n      return send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId });",
+    "      meta.lastFrameAt = now;\n      await this.#save(meta);\n      return send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId, seats: [] });"],
   ['old-code-lives', 'R7', 'table.js', "if (f.t === 'newcode') {\n      await this.#dropCode(meta);", "if (f.t === 'newcode') {"],
+  ['listing-never-put', 'R9', 'table.js', "if (f.on && !meta.listed) {                                    // as `open` with listed true (#issueCode's put)", "if (false) {"],
+  ['listing-never-dropped', 'R9', 'table.js', "} else if (!f.on && meta.listed) {                             // as `close` (#dropCode's drop)", "} else if (false) {"],
+  ['listing-unfenced', 'R9', 'rules.mjs', "listing: (f) => typeof f.on === 'boolean',", 'listing: () => true,'],
   ['refusal-as-status', 'R8', 'index.js', "function refuse(code) {", "function refuse(code) {\n  return new Response(code, { status: 403 });"],
 ];
 
@@ -253,6 +263,40 @@ async function settle() { for (let i = 0; i < 20; i++) await tick(); }
   const lst2 = await connect('?list=1', '10.0.0.4');
   lst2.frame({ t: 'list' }); await settle();
   check('R7 a listed table stays listed after newcode', ((last(lst2, 'tables') || {}).tables || []).some((x) => x.tableId === N.op.tableId));
+
+  // ── R9 R-E6F-5 (ruling `encounters-e6-frames` ADDENDUM 2): the GM's `listing` frame puts and drops; no reply; a player's is bad_frame ──
+  const listedIn = async (tableId, from) => { const q = await connect('?list=1', from); q.frame({ t: 'list' }); await settle(); return ((last(q, 'tables') || {}).tables || []).some((x) => x.tableId === tableId); };
+  const W = await openTable('Wifi', false, '10.0.0.11');
+  const before9 = W.gm.got.length;
+  check('R9 opened unlisted: not in the group\'s list', !(await listedIn(W.op.tableId, '10.0.0.11')));
+  W.gm.frame({ t: 'listing', on: true }); await settle();
+  check('R9 the GM sends listing on: the table is listed, and the GM got no reply', (await listedIn(W.op.tableId, '10.0.0.11')) && W.gm.got.length === before9, W.gm.got.slice(before9));
+  W.gm.frame({ t: 'listing', on: false }); await settle();
+  check('R9 the GM sends listing off: the table is dropped from the list, still open, no reply', !(await listedIn(W.op.tableId, '10.0.0.11')) && !W.gm.closed && W.gm.got.length === before9, W.gm.got.slice(before9));
+  W.gm.frame({ t: 'listing', on: 'yes' }); await settle();
+  check('R9 `on` not a boolean: bad_frame', errOf(W.gm) === 'bad_frame', W.gm.got.slice(before9));
+  const wp = await connect('?code=' + W.op.code, '10.0.0.11');
+  wp.frame({ t: 'join', code: W.op.code, deviceLabel: 'p' }); await settle();
+  W.gm.frame({ t: 'admit', knockId: last(W.gm, 'knock').knockId }); await settle();
+  wp.frame({ t: 'listing', on: true }); await settle();
+  check('R9 a player\'s listing frame is bad_frame, and lists nothing', errOf(wp) === 'bad_frame' && !(await listedIn(W.op.tableId, '10.0.0.11')), wp.got);
+
+  // ── R10 W-1: the GM rejoin's `opened` names the seats meta still holds ──
+  const S10 = await openTable('Seats', false, '10.0.0.13');
+  check('R10 open\'s `opened` carries no seats', S10.op && !('seats' in S10.op), S10.op);
+  const seatUp = async (lb) => { const p = await connect('?code=' + S10.op.code, '10.0.0.13'); p.frame({ t: 'join', code: S10.op.code, deviceLabel: lb }); await settle();
+    const k = last(S10.gm, 'knock').knockId; S10.gm.frame({ t: 'admit', knockId: k }); await settle(); return { p, k }; };
+  const sA = await seatUp('A'), sB = await seatUp('B');
+  S10.gm.frame({ t: 'newcode' }); await settle();
+  check('R10 newcode\'s `opened` carries no seats', !('seats' in (last(S10.gm, 'opened') || {})), last(S10.gm, 'opened'));
+  S10.gm.close(); await settle();
+  sA.p.frame({ t: 'play', msg: { type: 'bye', payload: { reason: 'left' } } }); await settle();   // A leaves while the GM is away
+  const g10 = await connect('?table=' + S10.op.tableId, '10.0.0.13');
+  g10.frame({ t: 'rejoin', tableId: S10.op.tableId, gmKey: S10.op.gmKey }); await settle();
+  const ro = last(g10, 'opened');
+  check('R10 the GM rejoin\'s `opened` names the seat still held, not the one that left while it was away', ro && Array.isArray(ro.seats) && ro.seats.length === 1 && ro.seats[0] === sB.k
+    && sA.k !== sB.k, { ro, kA: sA.k, kB: sB.k });
+  check('R10 …ids only: no label, key or who', ro && Array.isArray(ro.seats) && ro.seats.every((s) => typeof s === 'string' && s.indexOf('k_') === 0), ro);
 
   // ── R8 refusals are frames ──
   const junk = await connect('?bogus=1', '10.0.0.2');

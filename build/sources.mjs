@@ -40,6 +40,7 @@ export const TRANSFORMS = [
   { in: 'lib/shared/holotableView.jsx', out: 'lib/shared/holotableView.js' }, // HOLOTABLE Stage B components → window.SWRPGHolotableView
   { in: 'lib/shared/holotableCompose.jsx', out: 'lib/shared/holotableCompose.js' }, // HOLOTABLE Stage B narrow compositions → window.SWRPGHolotableCompose
   { in: 'lib/shared/roomSession.jsx', out: 'lib/shared/roomSession.js' }, // HOLOTABLE Stage B wiring → window.SWRPGRoomSession (the ONE React binding for roomClient)
+  { in: 'lib/shared/campaignsView.jsx', out: 'lib/shared/campaignsView.js' }, // ENCOUNTERS E6 frames (R-E6F-1, F5-a) the CAMPAIGNS screens, both apps → window.SWRPGCampaignsView
 ];
 
 // The concatenated vendor chunk's inputs (buildVendor is a custom multi-build, so esbuild's

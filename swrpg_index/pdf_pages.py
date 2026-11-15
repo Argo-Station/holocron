@@ -59,6 +59,14 @@ REGISTRY = os.path.join(ROOT, "Docs/pdf_sources.json")  # same file swrpg_index.
 CALIBRATED = "calibrated"
 UNCALIBRATED = "uncalibrated"      # book is in the registry; no offset has been earned
 UNKNOWN_BOOK = "unknown-book"      # alias is not in the registry at all
+# THE RUN FORM (C-C1P-4, ruling `corpus-c2-slice-card`). A book whose printed numbering is not one offset carries
+# `page_runs: [{"from", "to", "printed_from", "step"}]` (corpus pages inclusive; step 2 = a two-up spread holding
+# printed p and p+1) instead of `page_offset` — never both. Its status is MAPPED, NOT CALIBRATED, on purpose: callers
+# that gate on CALIBRATED and then spend `offset()` keep refusing a mapped book rather than reading its None offset as
+# 0. Only `to_corpus`/`to_printed` convert it. Per page, two more honesty classes:
+MAPPED = "mapped"                  # book is in the registry with page runs (read by the folio reader)
+REFUSED = "refused"                # a printed page two runs both produce: never resolved by a guess
+NO_PRINTED = "no-printed-number"   # a mapped book's corpus page outside every run, or a printed page no run makes
 
 
 class PageMap(object):
@@ -68,30 +76,72 @@ class PageMap(object):
         with open(path, encoding="utf-8") as fh:
             reg = json.load(fh)
         self._off = {}
+        self._runs = {}
         for s in reg.get("sources", []):
             a = s.get("alias")
             if a:
                 self._off[a] = s.get("page_offset")
+                if s.get("page_runs") is not None:
+                    if s.get("page_offset") is not None:
+                        raise ValueError("%s carries page_offset AND page_runs (C-C1P-4: one or the other)" % a)
+                    self._runs[a] = [_run(a, r) for r in s["page_runs"]]
 
     def status(self, alias):
         if alias not in self._off:
             return UNKNOWN_BOOK
+        if alias in getattr(self, "_runs", {}):
+            return MAPPED
         return CALIBRATED if self._off[alias] is not None else UNCALIBRATED
 
     def offset(self, alias):
         return self._off.get(alias)
 
+    def runs(self, alias):
+        """A mapped book's runs (copies), else None."""
+        rs = getattr(self, "_runs", {}).get(alias)
+        return [dict(r) for r in rs] if rs is not None else None
+
+    def _producers(self, alias, printed):
+        return [r for r in self._runs[alias]
+                if r["printed_from"] <= printed <= r["printed_from"] + r["step"] * (r["to"] - r["from"])
+                + (r["step"] - 1)]
+
+    def page_class(self, alias, printed_page):
+        """Why `to_corpus` answered what it did, per page: CALIBRATED/MAPPED when it converts, else UNCALIBRATED,
+        UNKNOWN_BOOK, REFUSED (two runs produce it) or NO_PRINTED (no run makes it)."""
+        st = self.status(alias)
+        if st != MAPPED or printed_page is None:
+            return st
+        n = len(self._producers(alias, int(printed_page)))
+        return MAPPED if n == 1 else (REFUSED if n > 1 else NO_PRINTED)
+
     def to_corpus(self, alias, printed_page):
-        """PRINTED -> CORPUS. None when the book has no earned offset."""
-        if self.status(alias) != CALIBRATED or printed_page is None:
+        """PRINTED -> CORPUS. None when the book has no earned offset or runs, and for a mapped book when no run, or
+        more than one run, produces the printed page (`page_class` says which)."""
+        st = self.status(alias)
+        if printed_page is None or st not in (CALIBRATED, MAPPED):
             return None
-        return int(printed_page) + self._off[alias]
+        if st == CALIBRATED:
+            return int(printed_page) + self._off[alias]
+        hit = self._producers(alias, int(printed_page))
+        if len(hit) != 1:
+            return None
+        r = hit[0]
+        return r["from"] + (int(printed_page) - r["printed_from"]) // r["step"]
 
     def to_printed(self, alias, corpus_page):
-        """CORPUS -> PRINTED. None when the book has no earned offset."""
-        if self.status(alias) != CALIBRATED or corpus_page is None:
+        """CORPUS -> PRINTED. None when the book has no earned offset or runs, and for a mapped book's page outside
+        every run. A step-2 spread page answers its LOWER folio (it holds that and the next)."""
+        st = self.status(alias)
+        if corpus_page is None or st not in (CALIBRATED, MAPPED):
             return None
-        return int(corpus_page) - self._off[alias]
+        if st == CALIBRATED:
+            return int(corpus_page) - self._off[alias]
+        c = int(corpus_page)
+        for r in self._runs[alias]:
+            if r["from"] <= c <= r["to"]:
+                return r["printed_from"] + r["step"] * (c - r["from"])
+        return None
 
     def explain(self, alias):
         """One line a report or a human can read, instead of an unexplained None."""
@@ -99,11 +149,27 @@ class PageMap(object):
         if st == CALIBRATED:
             return "%s: calibrated, offset %+d (corpus = printed %+d)" % (
                 alias, self._off[alias], self._off[alias])
+        if st == MAPPED:
+            rs = self._runs[alias]
+            return ("%s: mapped by %d page run(s) (%s); a corpus page outside every run has no printed number, and "
+                    "a printed page two runs both produce is REFUSED" % (alias, len(rs), "; ".join(
+                        "corpus %d-%d = printed %d%s" % (r["from"], r["to"], r["printed_from"],
+                                                         "" if r["step"] == 1 else " (two-up)") for r in rs)))
         if st == UNCALIBRATED:
             return ("%s: UNCALIBRATED — no offset earned; a printed-page claim about this book "
                     "cannot be resolved to a corpus page (B-335 left it blank rather than "
                     "guess)" % alias)
         return "%s: UNKNOWN BOOK — not in Docs/pdf_sources.json" % alias
+
+
+def _run(alias, r):
+    try:
+        out = {k: int(r[k]) for k in ("from", "to", "printed_from", "step")}
+    except (KeyError, TypeError, ValueError):
+        raise ValueError("%s: a page run needs integer from/to/printed_from/step: %r" % (alias, r))
+    if out["step"] not in (1, 2) or out["to"] < out["from"] or out["from"] < 1:
+        raise ValueError("%s: a page run must have step 1 or 2 and 1 <= from <= to: %r" % (alias, r))
+    return out
 
 
 _shared = None
@@ -158,7 +224,8 @@ def refresh_if_changed(path=None):
     old = _shared
     _shared, _shared_path, _shared_sig = fresh, path, sig
     if old is not None:
-        moved = sorted(a for a in set(old._off) | set(_shared._off) if old._off.get(a) != _shared._off.get(a))
+        moved = sorted(a for a in set(old._off) | set(_shared._off)
+                       if (old._off.get(a), old._runs.get(a)) != (_shared._off.get(a), _shared._runs.get(a)))
         sys.stderr.write("[pdf_pages] %s changed — page map rebuilt; offsets moved: %s\n"
                          % (_rel(path),
                             ", ".join("%s %s -> %s" % (a, old._off.get(a), _shared._off.get(a)) for a in moved)
@@ -186,12 +253,22 @@ def explain(alias):
     return _map().explain(alias)
 
 
+def runs(alias):
+    return _map().runs(alias)
+
+
+def page_class(alias, printed_page):
+    return _map().page_class(alias, printed_page)
+
+
 if __name__ == "__main__":
     m = _map()
     cal = [a for a in m._off if m.status(a) == CALIBRATED]
     unc = [a for a in m._off if m.status(a) == UNCALIBRATED]
+    mapd = [a for a in m._off if m.status(a) == MAPPED]
     print("pdf_pages — printed<->corpus conversion (the only legal path, A1-1)")
     print("  calibrated  : %d" % len(cal))
+    print("  mapped      : %d  (page runs, C-C1P-4)" % len(mapd))
     print("  uncalibrated: %d  (conversion REFUSES for these)" % len(unc))
     print("")
     for a in ("eote", "aor", "fad"):

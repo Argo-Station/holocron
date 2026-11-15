@@ -10,7 +10,11 @@ symbols from the page picture and write a machine-local MARKS CACHE, `Docs/dice_
 At ingest:
   load_for_ingest(alias)   reads the cache, verifies its STAMP against the tree (C-DRD-3) and applies the
                            exclusion list (C-DRD-4). Raises MarksRefused, naming the field, BEFORE any row is
-                           deleted: a stale cache can never reach the index.
+                           deleted: a stale cache can never reach the index. It also refuses a book with any page
+                           whose /Rotate is not 0, naming the pages (ruling `corpus-c1-counter` D-C1CR2, card
+                           `corpus-c1-bakeoff-card` §4 (7)): mark boxes are in the DISPLAYED frame and rawdict boxes
+                           are not, so the claim rule is right only on unrotated pages. decode_page refuses the same
+                           page itself, for a caller that never went through load_for_ingest.
   decode_page(page, marks) rebuilds one page's text from its rawdict characters with the CLAIM RULE (C-DRD-2a,
                            ruling ADDENDUM 1, as amended by `oracle-o3-decode-leftovers` C-ODL-2/3): a character
                            is claimed by every mark whose box intersects its box, whitespace included, EXCEPT a
@@ -44,6 +48,7 @@ import os
 import fitz
 
 from swrpg_index.utils import SCRIPT_DIR as REPO_ROOT
+from swrpg_index.utils import load_config, resolve_pdf
 
 STAMP_SCHEMA = 1
 INSTRUMENT_DIR = os.environ.get(
@@ -159,8 +164,31 @@ def apply_exclusions(alias, marks, rows):
     return out, removed
 
 
-def load_for_ingest(alias, marks_dir=None, instrument_dir=None):
+def rotation_refusal(page):
+    """The D-C1CR2 message for a page whose /Rotate is not 0, or None."""
+    if page.rotation:
+        return (f'page {page.number + 1}: rotation {page.rotation}, not 0; mark boxes are in the displayed frame and '
+                f'rawdict boxes are not, so marks are never decoded on a rotated page (D-C1CR2)')
+    return None
+
+
+def refuse_rotated(alias, pdf_path=None):
+    """Raise MarksRefused if any page of the alias's PDF is rotated (D-C1CR2). pdf_path overrides the registry."""
+    if pdf_path is None:
+        pdf_path = resolve_pdf(load_config(), alias)[0]
+    doc = fitz.open(pdf_path)
+    try:
+        rotated = [i + 1 for i in range(doc.page_count) if doc[i].rotation]
+        if rotated:
+            raise MarksRefused(f'{alias}: {len(rotated)} rotated page(s), first {rotated[:5]}: '
+                               f'{rotation_refusal(doc[rotated[0] - 1])}')
+    finally:
+        doc.close()
+
+
+def load_for_ingest(alias, marks_dir=None, instrument_dir=None, pdf_path=None):
     """{page_1indexed_str: [mark, ...]} ready for decode_page, plus a report dict. Raises MarksRefused."""
+    refuse_rotated(alias, pdf_path)
     path = marks_path(alias, marks_dir)
     if not os.path.exists(path):
         raise MarksRefused(f'{alias}: marks cache not found at {path} (run finder.py, then census_report.py)')
@@ -342,7 +370,11 @@ def decode_page(page, marks, written_out=None):
     (C-ODL-2, see `_claims`), 'spaced' (spaces written to keep a token off a letter or digit),
     'nonwriting-runs' and 'nonwriting-chars' (runs kept verbatim because their marks wrote earlier: a HARVEST, not a
     check) and one key per token.
-    written_out: if a list, every mark written is appended to it (the guard's check (viii))."""
+    written_out: if a list, every mark written is appended to it (the guard's check (viii)).
+    Raises MarksRefused on a rotated page (D-C1CR2)."""
+    refusal = rotation_refusal(page)
+    if refusal:
+        raise MarksRefused(refusal)
     stats = collections.Counter()
     lines = [line for block in page.get_text('rawdict', flags=fitz.TEXTFLAGS_TEXT)['blocks']
              if block.get('type') == 0 for line in block['lines']]

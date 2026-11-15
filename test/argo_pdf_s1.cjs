@@ -3,7 +3,7 @@
  * argo_pdf_s1.cjs — STANDING guard: S4, the PDF's ability lines (ruling argo-a1-curation ADDENDUM 4 S4; argo-a1-export
  * ADDENDUM 1 item 5; mockup F10, D-504). The exporters write each ability's S1 line where its text is removed.
  *
- *   P1  pdfS1Words (player/app.jsx, sliced with sheetBookLineOf, over the real sources.js and registries): at 'removed' a
+ *   P1  pdfS1Words (player/app.jsx, sliced with sheetBookLineOf and A5's sheetRuleTextOf, over the real sources.js and registries): at 'removed' a
  *       talent with no words → its book line (blooded → the drawn F1 line); a Force power and a signature entry the same
  *       through their registries; text on file → the text, untouched.
  *   P2  at 'included' (holocron.work): text → the text; no text → '' (exactly the exporters' old `x || ''`).
@@ -37,7 +37,9 @@ function sandbox(content, mutate) {
   sb._swrpgSourcesIndex = sb.SWRPGSources.buildIndex(J('books.vocab.json'));
   sb._canonicalCharbuild = { talents: J('talents.json').talents, forcePowers: J('force_powers.json').force_powers, signatureAbilities: J('signature_abilities.json').signature_abilities };
   const fn = mutate ? slice('pdfS1Words').replace(/\{[\s\S]*\}$/, "{ return text || ''; }") : slice('pdfS1Words');
-  vm.runInContext(slice('sheetBookLineOf') + '\n' + fn + '\nwindow.pdfS1Words = pdfS1Words;', sb);
+  // A5 (argo-dataset-import-draft ADDENDUM 4 §A4.1): pdfS1Words reads imported rule text first, through sheetRuleTextOf;
+  // nothing is imported in this sandbox, so it reads null and every assertion below is unchanged
+  vm.runInContext(slice('sheetBookLineOf') + '\n' + slice('sheetRuleTextOf') + '\n' + fn + '\nwindow.pdfS1Words = pdfS1Words;', sb);
   return sb;
 }
 

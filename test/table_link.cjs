@@ -21,9 +21,15 @@
  *          server's own `readFrame` on every signal (table-server/src/rules.mjs), so it cannot pass what the server refuses
  *   X1     C1 end to end (the same ruling): ADD, the channel dies before xp_taken (and, again, a player reload), the GM
  *          re-sends its unacknowledged offer, and the player's campaign (the REAL campaignStore) holds ONE award
+ *   LV     LEAVE TABLE with the channel OPEN still tells the SERVER: its seat and seat key go only on a relayed `bye`
+ *          (table-server #fromPlayer), so a local-only bye left the seat live and the GM's next rejoin re-seated the
+ *          leaver (ruling `encounters-e6-walk` §3; found by smoke_e6_table_frames' re-point). The GM hears it once or
+ *          twice (local + relay), and §3's removal is idempotent
  *   P1–P2  presence: here on either path, dropped / lost only when both are down (H2)
  *   R1     the server drops: the link rejoins by key on ?table=, no LET IN, and the GM re-sends its state (§6)
  *   T1–T4  char_update at most one per 2 s · type by role · unknown type · v 2 → bye version · 64 KB
+ *   U1     R-E6F-4: `unreachable` once per attempt (open · join · list) before any key and any frame; never after an error frame or on a rejoin
+ *   W1     R-E6F-5: the GM's listing(on) sends the frame the server's fence reads
  *   B1     never in a backup: SWRPGBackup.readDevice reads localStorage over LOCAL_KEYS and IndexedDB only, no sessionStorage,
  *          and makeFile drops the link's key (ADDENDUM 6 R-E6P-R9; the CACHE row)
  *
@@ -46,17 +52,23 @@ const MUTANTS = [
   ['local-before-admit', 'L1', "case 'opened':                                               // open, rejoin and newcode (ADDENDUM 3 F1–F3)", "case 'opened': if (env.RTCPeerConnection) new env.RTCPeerConnection({ iceServers: [] });"],
   ['no-resend-on-switch', 'L3', "      emit({ kind: 'path', who: role === 'gm' ? p.id : 'gm', path: 'server' });\n      presence(p);\n      resendTo(p);", "      emit({ kind: 'path', who: role === 'gm' ? p.id : 'gm', path: 'server' });\n      presence(p);"],
   ['seq-ignored', 'L4', 'if (!guard.accept(from, msg.type, msg.seq)) return;', 'guard.accept(from, msg.type, msg.seq);'],
+  ['leave-local-only', 'LV', "      api.leave = function () {\n        byeAll('left');", "      api.leave = function () {\n        sendTo('gm', 'bye', { reason: 'left' });"],
   ['no-local-timeout', 'L5', 'var LOCAL_UP_MS = 10 * 1000;', 'var LOCAL_UP_MS = 1e12;'],
   ['retry-any-time', 'L6', 'var LOCAL_GAP_MS = 60 * 1000;', 'var LOCAL_GAP_MS = 0;'],
   ['permission-ignored', 'L7', "return state !== 'denied';", 'return true;'],
   ['gm-always-starts', 'L8', "initiator: role === 'gm' ? !asFirefoxGm : false", "initiator: role === 'gm'"],
   ['presence-server-only', 'P1', "state = (p.local || p.server === 'here') ? 'here'", "state = (p.server === 'here') ? 'here'"],
   ['no-auto-rejoin', 'R1', 'retryTimer = env.setTimeout(function () { retryTimer = null; rejoin(true); }, ms);', 'void ms;'],
+  ['summary-no-specialization', 'S1', "      specialization: names.specialization || '',", ''],
   ['summary-without-pool', 'S2', 'if (!cool || !vigil) return null;', 'cool = cool || {}; vigil = vigil || {};'],
   ['keys-in-localStorage', 'K1', "storage: (function () { try { return global.sessionStorage; }", "storage: (function () { try { return global.localStorage; }"],
   ['seq-from-zero', 'K2', 'var seq = Math.max((keys && keys.seq) || 0, env.now());', 'var seq = 0;'],
   ['char-update-unthrottled', 'T1', 'var CHAR_UPDATE_MS = 2000;', 'var CHAR_UPDATE_MS = 0;'],
   ['handoff-unnamed', 'L8', "else if (role === 'gm') signal(p, { start: true });", "else if (role === 'gm') signal(p, {});"],
+  ['listing-unsent', 'W1', "return sendServer({ t: 'listing', on: !!on });", 'return true;'],
+  ['unreachable-silenced', 'U1', "emit({ kind: 'unreachable', phase: phase });", 'void phase;'],
+  ['list-unreachable-silenced', 'U1', "emit({ kind: 'unreachable', phase: 'list' }); }", '}'],
+  ['unreachable-after-error', 'U1', 'if (told || heard || !phase', 'if (told || !phase'],
   ['empty-signal-starts', 'D1', 'if (f.start === true) {', 'if (f.start === true || (f.sdp == null && f.candidate == null)) {'],
 ];
 // the copies of OTHER modules: [name, leg, env var, source, find, replace]
@@ -141,7 +153,7 @@ const eq = sb.SWRPGSheetPool.resolveSheetEquipment(sheet.equipment, sheet);
 const d = sb.CharResolve.computeDerived(sheet, eq, CB);
 const mods = sb.SWRPGSheetPool.collectPoolMods(eq);
 const cool = sb.SWRPGSheetPool.sheetPoolOf(sheet, 'COOL', mods), vig = sb.SWRPGSheetPool.sheetPoolOf(sheet, 'VIGIL', mods);
-check('S1 the summary carries the wire\'s fields and nothing else (wire §6)', s && JSON.stringify(Object.keys(s).sort()) === JSON.stringify(['career', 'defense', 'name', 'pools', 'soak', 'species', 'strain', 'wounds']), s && Object.keys(s));
+check('S1 the summary carries the wire\'s fields and nothing else (wire §6)', s && JSON.stringify(Object.keys(s).sort()) === JSON.stringify(['career', 'defense', 'name', 'pools', 'soak', 'specialization', 'species', 'strain', 'wounds']), s && Object.keys(s));
 check('S1 every number is its core\'s: thresholds, soak and defence from computeDerived, current values from the sheet',
   s && s.wounds.threshold === d.woundThreshold && s.strain.threshold === d.strainThreshold && s.soak === d.soak
   && s.defense.melee === d.meleeDefense && s.defense.ranged === d.rangedDefense && s.wounds.current === 4 && s.strain.current === 1
@@ -150,6 +162,7 @@ check('S1 the pools are sheetPoolOf\'s: Cool off Presence 2 → 2 green, Vigilan
   s && JSON.stringify(s.pools.cool) === JSON.stringify(Object.assign({}, cool)) && JSON.stringify(s.pools.vigilance) === JSON.stringify(Object.assign({}, vig))
   && s.pools.cool.ability === 2 && s.pools.vigilance.ability === 3, s && s.pools);
 check('S1 names: the sheet\'s name and species, the career by buildNamesOf', s && s.name === 'Renna Tide' && s.species === 'Selkath' && s.career === 'Smuggler', s);
+check('S1 the specialization is the first one\'s display name, by buildNamesOf (e5-wire ADDENDUM 4)', s && s.specialization === 'Pilot' && s.specialization === sb.CharResolve.buildNamesOf(sheet).specialization, s && s.specialization);
 const keepCB = sb._canonicalCharbuild; sb._canonicalCharbuild = null; sb._canonicalCharbuildBase = null;
 const sNull = TL.summaryOf(sheet);
 sb._canonicalCharbuild = keepCB; sb._canonicalCharbuildBase = keepCB;
@@ -339,6 +352,17 @@ let RULES = null;
     check('K2 after a reload the GM\'s seq starts above its last, so the player applies its next table_hello', after && after.env.payload.name === 'Night, after reload' && after.env.seq > seq1, { seq1, after: after && after.env.seq });
   }
 
+  // ── LV LEAVE TABLE with the channel open still reaches the server ──
+  {
+    const H = harness();
+    const T = await H.table();
+    check('LV the fixture: the channel is open, both sides local', T.gm.path(T.knockId) === 'local' && T.pl.path('gm') === 'local');
+    const playsBefore = H.relay.plays;
+    T.pl.leave(); await H.clock.advance(0);
+    const relayed = H.relay.frames.filter((f) => f.t === 'play' && f.msg && f.msg.type === 'bye' && f.msg.payload && f.msg.payload.reason === 'left');
+    check('LV the player\'s bye (left) went through the SERVER as well as the channel', relayed.length === 1 && H.relay.plays === playsBefore + 1, { relayed, plays: H.relay.plays - playsBefore });
+    check('LV the GM heard it', T.gm.msgs('bye').length >= 1 && T.gm.msgs('bye').every((m) => m.env.payload.reason === 'left'), T.gm.msgs('bye').length);
+  }
   // ── L1 the local attempt waits for LET IN; iceServers [] ──
   {
     const H = harness();
@@ -551,6 +575,46 @@ let RULES = null;
     const bye = H.relay.frames.filter((f) => f.t === 'play' && f.msg.type === 'bye').slice(byes)[0];
     check('T3 a v 2 envelope: the player sends bye reason version and raises `version`', bye && bye.msg.payload.reason === 'version' && T.pl.events.some((e) => e.kind === 'version'), bye);
     check('T4 a message over 64 KB is refused before it is sent', T.gm.send('party', { party: { pad: 'x'.repeat(66000) } }) === false);
+  }
+
+  // ── U1 R-E6F-4 (ruling `encounters-e6-frames` ADDENDUM 2): `unreachable` once per attempt, phases open · join · list ──
+  {
+    const H = harness({ noRtc: true });
+    H.relay.down = true;
+    const g = H.link('gm', H.store()); g.open('Night', false); await H.clock.advance(0);
+    const p = H.link('player', H.store()); p.join({ code: 'abc-123' }, 'Renna'); await H.clock.advance(0);
+    p.list(); await H.clock.advance(0);
+    const u = (l, ph) => l.events.filter((e) => e.kind === 'unreachable' && e.phase === ph).length;
+    check('U1 a first open whose socket never opens: one `unreachable` phase open', u(g, 'open') === 1, g.events);
+    check('U1 a first join whose socket never opens: one `unreachable` phase join', u(p, 'join') === 1, p.events);
+    check('U1 a list whose socket never opens: one `unreachable` phase list', u(p, 'list') === 1, p.events);
+    await H.clock.advance(60000);
+    check('U1 no retry of its own: no further socket after the attempt', H.relay.frames.filter((f) => f.open).length === 3, H.relay.frames.filter((f) => f.open));
+    // a server answer is not "unreachable": an error frame, then the hang-up
+    const H2 = harness({ noRtc: true });
+    const gm = H2.link('gm', H2.store()); gm.open('Night', false); await H2.clock.advance(0);
+    const pl = H2.link('player', H2.store()); pl.join({ code: 'abc-123' }, 'Renna'); await H2.clock.advance(0);
+    const kn = Object.values(H2.relay.knocks)[0];
+    kn.deliver({ t: 'error', code: 'refused' }); await H2.clock.advance(0); kn.drop(); await H2.clock.advance(0);
+    check('U1 a refused join (error frame, then the hang-up) raises no `unreachable`', pl.events.some((e) => e.kind === 'frame' && e.f.code === 'refused')
+      && !pl.events.some((e) => e.kind === 'unreachable'), pl.events);
+    // a rejoin by key is §6's retry path, never `unreachable`
+    const H3 = harness({ noRtc: true });
+    const ks = H3.store(); ks.setItem(TL.KEYS_KEY, JSON.stringify({ v: 1, role: 'gm', tableId: 'tbl-1', gmKey: 'gm-key', seq: 1 }));
+    H3.relay.down = true;
+    const r = H3.link('gm', ks); r.rejoin(); await H3.clock.advance(0);
+    check('U1 a rejoin with keys that cannot connect raises no `unreachable` (the retry ladder and `lost` own it)', !r.events.some((e) => e.kind === 'unreachable'), r.events);
+  }
+
+  // ── W1 R-E6F-5: the GM's ON THIS WI-FI sends `listing {on}` on the open socket; a player's link has no such act ──
+  {
+    const H = harness({ noRtc: true });
+    const T = await H.table();
+    const ok1 = T.gm.listing(true), ok2 = T.gm.listing(false); await H.clock.advance(0);
+    const fr = H.relay.frames.filter((f) => f.t === 'listing');
+    check('W1 GM listing(true) then listing(false): two frames {t:listing, on} on the server socket', ok1 && ok2 && fr.length === 2 && fr[0].on === true && fr[1].on === false
+      && fr.every((f) => RULES.readFrame(JSON.stringify(Object.assign({ v: 1 }, f))).ok), fr);
+    check('W1 a player link has no listing act', typeof T.pl.listing === 'undefined');
   }
 
   // ── B1 never in a backup (R-E6P-R9) ──

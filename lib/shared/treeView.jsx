@@ -1076,7 +1076,7 @@ function talentTreeToModel({ specData, talentDb, character, goneRemoved, crossFr
             window.SWRPGSources && window.SWRPGSources.removedLine ? window.SWRPGSources.removedLine(info) : null),
           // T1 (argo-a1-export ADDENDUM 6): the cell plate's ONE book carrying the page, in a copy without the book's words
           cellCite: window.SWRPGSources && window.SWRPGSources.removedCellLine ? window.SWRPGSources.removedCellLine(info) : null,
-          name: info.name || cell.talent, meta: statusLabel, desc: info.description || '',
+          name: info.name || cell.talent, meta: statusLabel, desc: info.description || (window.SWRPGSources && window.SWRPGSources.ruleText ? window.SWRPGSources.ruleText : () => null)('talents', cell.talent, 'description') || '',
           // B-855: a HELD sheet's unowned cells carry the hold's reason and no buy (the frame's "Held"); owned
           // cells stay owned. `heldReason` is the reason line's own text, so every held control says one thing.
           buy: readOnly ? null : (heldReason && !isPurchased) ? { state: 'held', cost, reason: heldReason }
@@ -1177,6 +1177,8 @@ function forcePowerToModel({ power, ownedUpgradeNames, ownedCells, availableXp, 
       const state = ri === 0 ? (basicOwned === false ? 'locked' : 'granted') : isPurchased ? 'owned' : isAvailable ? 'available' : 'locked';
       if (cell.filler) return { key: 'r' + ri + 'c' + ci, filler: true, state, up: cell.up, down: cell.down, left: false, right: false, span: 0 };
       const ab = ((power.abilities || {})[cell._abilityKey]) || {};
+      // A5 (argo-dataset-import-draft ADDENDUM 4 item 3): the user's imported rule text through the one accessor; null on holocron.
+      const abDesc = ab.description || (window.SWRPGSources && window.SWRPGSources.ruleText ? window.SWRPGSources.ruleText : () => null)('force_powers', power.id, 'abilities.' + cell._abilityKey + '.description') || '';   // A5
       const name = (ab.name || cell._abilityKey || '').toString().toUpperCase();
       const rankTotal = rankTotalByKey[cell._abilityKey] || 1, rankIdx = rankIndexByCell['r' + ri + 'c' + ci] || 1;
       const statusLabel = ri === 0 ? 'STARTING' : isPurchased ? (rankTotal > 1 ? ('OWNED ' + rankIdx + '/' + rankTotal) : 'OWNED') : isAvailable ? (cell._cost + ' XP') : 'LOCKED';
@@ -1188,7 +1190,7 @@ function forcePowerToModel({ power, ownedUpgradeNames, ownedCells, availableXp, 
         // and every upgrade PASSIVE; the price is the cell's own.
         cost: cell._cost, activation: ri === 0 ? 'active' : 'passive',
         entry: { cellKey: 'r' + ri + 'c' + ci,
-          descShort: ri === 0 ? String((ab.description || '')).split(/\n\s*\n/)[0] : undefined,
+          descShort: ri === 0 ? String(abDesc).split(/\n\s*\n/)[0] : undefined,
           cellId: specKey + '_r' + ri + 'c' + ci, lockedHint: ri,
           // R-DT-2/3 (ruling directional-tree-build C1): "what buying does" per kind + the power's source
           // cite (Force abilities carry no per-ability source; the whole tree is one book).
@@ -1197,7 +1199,7 @@ function forcePowerToModel({ power, ownedUpgradeNames, ownedCells, availableXp, 
           sourceCite: ((s1) => (s1 != null ? (s1 || null) : (power && power.sources && power.sources.length) ? power.sources.map(gameLineTitle).join(' · ') : null))(
             window.SWRPGSources && window.SWRPGSources.removedLine ? window.SWRPGSources.removedLine(Object.assign({}, ab, { sources: power && power.sources, cite: ab.cite || (power && power.cite) })) : null),   // S1, as the talent cell: the power's books, pages from the ability's own cites (a signature ability's, its record's cite)
           name: ab.name || cell._abilityKey, meta: statusLabel,
-          desc: ab.description || (ri === 0 ? ((power && power.description) || '') : ''),
+          desc: abDesc || (ri === 0 ? ((power && power.description) || '') : ''),
           buy: readOnly ? null : { state: ri === 0 ? 'granted' : isPurchased ? 'owned' : isAvailable ? ((availableXp != null && cell._cost > availableXp) ? 'needxp' : 'buyable') : 'locked', cost: cell._cost, label: 'BUY UPGRADE', doBuy: buyable ? (() => onBuy && onBuy(cell._abilityKey, ab.name || cell._abilityKey, cell._cost, ri + '-' + ci)) : (() => {}) },
           refund: null,
           ...(buyOnCell && ri !== 0 && isPurchased ? { keepsTree: keepsTree(ri, ci) } : {}),
@@ -1232,7 +1234,7 @@ function specTreeToAuthorModel({ specData, talentDb, chipsOf, mode, selected, wa
         key, row: ri, col: ci, talentId: id || null, gone: !rec, title: rec ? (rec.name || id) : 'Deleted talent', chips, cost: row.cost,
         up: !!links.up, down: !!links.down, left: !!links.left, right: !!links.right, span: 1, filler: false,
         selected: selected === key, was: (was && was[key]) || null,
-        entry: rec ? { name: rec.name || id, chips, desc: rec.description || '', activation: rec.activation, ranked: !!rec.ranked, row: ri, col: ci, cost: row.cost, talentKey: id, preview: true }
+        entry: rec ? { name: rec.name || id, chips, desc: rec.description || (window.SWRPGSources && window.SWRPGSources.ruleText ? window.SWRPGSources.ruleText : () => null)('talents', id, 'description') || '', activation: rec.activation, ranked: !!rec.ranked, row: ri, col: ci, cost: row.cost, talentKey: id, preview: true }
                    : { name: 'Deleted talent', chips: [], desc: 'This talent was deleted from your homebrew.', row: ri, col: ci, cost: row.cost, talentKey: id, gone: true, preview: true },
       };
     }),
@@ -1261,7 +1263,7 @@ function powerToAuthorModel({ power, mode, selected, was, armed, onPick, onEdge,
       cells[c.col] = {
         key, row: ri, col: c.col, ability: c.ability || null, gone: !ab, title, chips: [], cost: c.cost, span, filler: false,
         up: !!L.up, down: !!L.down, left: !!L.left, right: !!L.right, selected: selected === key, was: (was && was[key]) || null,
-        entry: { name: title, chips: [], desc: ab ? (ab.description || '') : '', row: ri, col: c.col, cost: c.cost, gone: !ab, power: true, preview: true },
+        entry: { name: title, chips: [], desc: ab ? (ab.description || (window.SWRPGSources && window.SWRPGSources.ruleText ? window.SWRPGSources.ruleText : () => null)('force_powers', power && power.id, 'abilities.' + c.ability + '.description') || '') : '', row: ri, col: c.col, cost: c.cost, gone: !ab, power: true, preview: true },
       };
       for (let k = c.col + 1; k < c.col + span; k++) cells[k] = { key: ri + '-' + k, filler: true, anchor: c.col, up: !!L.up, down: !!L.down };
     });

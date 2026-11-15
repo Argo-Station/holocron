@@ -620,3 +620,10 @@ Ranked. None of these is fixed by this census.
 | 7 | Guided's name-keyed static tables have no guard (§1.1) | conformance | all resolve today; a validator pin is the cheap answer |
 | 8 | Custom's draft embeds registry records (§3) | staleness | resume-after-registry-change |
 | 9 | `loadQuickBuildData` misnamed (§1.1) | hygiene | it serves all three doors |
+
+**Imported rule text (A5, ruling `argo-dataset-import-draft` ADDENDUM 4 §A4.1 item 3, open copy only).** The creator's
+plates read a blank rule field through ONE accessor, `SWRPGSources.ruleText(kind, id, path)`: a talent by id (`fcRuleText`),
+a species ability or option BY IDENTITY inside the species record the plate draws (`fcSpeciesText`; its place in the record
+is its address), a buy-off offer by the `_path` `speciesBuyoutOffers` carries, and an option slice through `ruleTextSpan`
+only where `spanOk` holds. Null on holocron.work; nothing is written to the character (the saved Force-power `desc` copy
+stays as today, group 2).

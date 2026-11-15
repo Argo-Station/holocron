@@ -723,11 +723,11 @@
       window.SWRPGSources.ready().then(function () { if (live) setBooksTick(function (t) { return t + 1; }); });
       return function () { live = false; };
     }, [asksBooks]);
-    useEffect(function () {
-      function onKey(e) { if (e.key === 'Escape') dismissRef.current(); }
-      document.addEventListener('keydown', onKey);
-      return function () { document.removeEventListener('keydown', onKey); };
-    }, []);
+    // B-1832 (ADDENDUM 681): Escape is a layer on the ONE Esc stack (`useEscape`), not a document listener. The stack
+    // takes the key at the window capture phase and stops it, so a bubble listener never heard Esc while a card stood
+    // under the sheet: the first press closed the card and left the sheet. The sheet is pushed when it opens, so it is
+    // the newest layer over any card already open; a card opened over it later is newer and closes first.
+    useEscape(list.length > 0, function () { dismissRef.current(); });
     // B-1825 (ADDENDUM 631): the sheet holds focus, both faces — in at open, Tab kept inside, back to the door at close
     var holdRef = useRef(null);
     useHoldFocus(holdRef, list.length > 0);
@@ -1531,13 +1531,19 @@
         document.removeEventListener('focusin', holdNoteFocus, true);
       }
       if (!wasTop) return;
-      var under = focusHolds[focusHolds.length - 1];
-      var back = [door.door, door.trigger].filter(function (el) { return el && el.isConnected && el.focus; })[0] || null;
-      if (under && !(back && holdContains(under, back))) {
-        back = (under.last && under.last.isConnected) ? under.last : holdTabbables(under.getPanel())[0] || back;
-      }
+      var back = doorBack(door, focusHolds[focusHolds.length - 1]);
       if (back) back.focus();
     };
+  }
+  // doorBack — where focus goes back to when a layer closes: the door (or its menu's trigger) if it still stands, else, under a
+  // card that would not hold it, that card's last focus or its first control. ONE pick for holdFocus's release and DiceHub's
+  // close (B-1779; ruling release-r7-bug-burndown ADDENDUM 695), so the two cannot drift. `under` may be null.
+  function doorBack(door, under) {
+    var back = door ? [door.door, door.trigger].filter(function (el) { return el && el.isConnected && el.focus; })[0] || null : null;
+    if (under && !(back && holdContains(under, back))) {
+      back = (under.last && under.last.isConnected) ? under.last : holdTabbables(under.getPanel())[0] || back;
+    }
+    return back;
   }
   // useHoldFocus — holdFocus for a card that is a component: held while `open`. The door is read at the FIRST render,
   // while the row that opened it still stands (a menu row is gone by the time an effect runs).
@@ -2166,11 +2172,25 @@
     if (!q) return { name: '', rank: null };
     return { name: q.name || q.Name || q.key || q.Key || q.label || '', rank: (q.rank != null ? q.rank : (q.ranked && q.value != null ? q.value : null)) };
   }
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 item 3): the user's imported rule text, through the one accessor
+  // (SWRPGSources.ruleText / ruleTextItem / ruleTextSpan); null on holocron.work and wherever nothing was imported.
+  function uiRuleText(kind, id, path) {
+    var S = typeof window !== 'undefined' ? window.SWRPGSources : null;
+    return S && S.ruleText ? S.ruleText(kind, id, path) : null;
+  }
+  function uiRuleTextItem(rec) {
+    var S = typeof window !== 'undefined' ? window.SWRPGSources : null;
+    return S && S.ruleTextItem && rec ? S.ruleTextItem(rec, 'description') : null;
+  }
+  function uiRuleTextSpan(kind, id, path, span) {
+    var S = typeof window !== 'undefined' ? window.SWRPGSources : null;
+    return S && S.ruleTextSpan ? S.ruleTextSpan(kind, id, path, span) : null;
+  }
   function m6QualityEffect(name) {
     var db = window._qualitiesDb || {};
     var key = String(name).toLowerCase().replace(/\s*\d+$/, '').trim();
     var e = db[key] || db[key + ' quality'];
-    return e ? (e.description || e.Description || '') : '';
+    return e ? (e.description || e.Description || uiRuleText('qualities', e.id, 'description') || '') : '';
   }
   // R-AE-5 (argo-a1-export ADDENDUM 3): the two cites are data, a book KEY plus a printed page (a range allowed), drawn
   // through S1's one formatter in its key form: 'eote p.205', 'eote p.154-157', as before, in both copies. Pointers, not
@@ -2224,7 +2244,7 @@
     // the book's title. On holocron (words on file) the row's own words and cite, exactly as before. A caller's own table
     // (`source`) has no labels. ONE reader for both faces and the paper face's full table.
     function spendWords(o, neg, at) {
-      var body = o.text || o.effect || '';
+      var body = o.text || o.effect || (o.id ? uiRuleText('spend', o.id, 'effect') : null) || '';   // A5: a crafting row's own id
       var SSr = typeof window !== 'undefined' ? window.SWRPGSources : null;
       var s1 = !body && SSr && SSr.removedLine ? SSr.removedLine(null, [o.cite]) : null;
       if (s1 != null) body = (!source && SSr.ownWords ? SSr.ownWords('spend_table:' + scene, (neg ? 'neg' : 'pos') + '[' + at + ']') : '') || s1;
@@ -2586,7 +2606,7 @@
       },
         h('div', { style: { fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'var(--fs-xs)', letterSpacing: '0.04em', color: accent, marginBottom: 3 } }, String(expanded).toUpperCase()),
         h('div', { style: { fontFamily: 'var(--font-body)', fontSize: 'var(--fs-sm)', lineHeight: 1.55, color: 'rgba(255,255,255,0.68)' } },
-          qData ? ((qData.description || qData.Description) ? glyphText(qData.description || qData.Description) : (qualityS3(qData) || glyphText(''))) : 'No description available.')
+          qData ? ((qData.description || qData.Description || uiRuleText('qualities', qData.id, 'description')) ? glyphText(qData.description || qData.Description || uiRuleText('qualities', qData.id, 'description')) : (qualityS3(qData) || glyphText(''))) : 'No description available.')
       ) : null
     );
   }
@@ -3623,6 +3643,7 @@
     // S1 (F3): in a copy without the book's words the box still opens; its source line is the book line.
     var SS = typeof window !== 'undefined' ? window.SWRPGSources : null, removed = !!(SS && SS.bookTextRemoved && SS.bookTextRemoved());
     if (!rec || (!rec.description && !removed)) return null;
+    var desc = rec.description || uiRuleText('talents', talentId, 'description') || '';   // A5
     var row = null;
     ['pool_mods', 'roll_numbers', 'spend', 'target', 'effects', 'told'].some(function (a) {
       return (rec[a] || []).some(function (r) { if (r && r.id === rowId) { row = r; return true; } return false; });
@@ -3632,13 +3653,14 @@
     var how = lim ? (TOLD_LIMIT_TAG[lim] || String(lim).replace(/_/g, ' ')) : null;
     var limits = how ? [how] : [], w = row.who;
     var phrase = w && w.span ? String(rec.description || '').slice(w.span.start, w.span.end).trim() : '';
+    if (!phrase && w && w.span && !rec.description) phrase = String(uiRuleTextSpan('talents', talentId, 'description', w.span) || '').trim();   // A5 Q4 (b)
     if (phrase) {
       limits.push(w.label ? w.label + ' (“' + phrase + '”)' : '“' + phrase + '”');
     }
     var chk = offerChecked(row);
     if (chk) limits.push(chk);
     extra = extra || {};
-    return { id: talentId, row: rowId, name: rec.name || talentId, text: String(rec.description || ''), cost: extra.cost || offerTags({ cost: row.cost }, T),
+    return { id: talentId, row: rowId, name: rec.name || talentId, text: String(desc), cost: extra.cost || offerTags({ cost: row.cost }, T),
              price: extra.price || null, priceWords: extra.priceWords || null, howOften: how, limits: limits,
              book: cite ? cite.book : null, page: cite ? cite.page : null };
   }
@@ -3648,8 +3670,9 @@
   // character resolved it). Null with the key OFF, or an item with no words; then the line draws as before.
   function offerItemInfo(item) {
     if (!item) return null;
-    if (!item.text || !String(item.text).trim()) return s1InfoBox('item:' + (item.id || item.name), item.name || item.id, item);
-    return { id: 'item:' + (item.id || item.name), row: null, name: item.name || item.id, text: String(item.text), cost: [], price: null, priceWords: null,
+    var itext = (item.text && String(item.text).trim()) ? item.text : uiRuleTextItem(item);   // A5
+    if (!itext) return s1InfoBox('item:' + (item.id || item.name), item.name || item.id, item);
+    return { id: 'item:' + (item.id || item.name), row: null, name: item.name || item.id, text: String(itext), cost: [], price: null, priceWords: null,
              howOften: null, limits: [], book: null, page: null };
   }
   // S1 (argo-a1-curation ADDENDUM 4): in a copy without the book's words, a box whose words were removed still opens, its
@@ -3668,8 +3691,9 @@
     var db = qualityId && typeof window !== 'undefined' ? window._qualitiesDb : null, rec = null;
     if (db) Object.keys(db).some(function (k) { var e = db[k]; if (e && e.id === qualityId) { rec = e; return true; } return false; });
     if (!rec) return null;
-    if (!rec.description || !String(rec.description).trim()) return s1InfoBox('quality:' + rec.id, rec.label || rec.id, rec);
-    return { id: 'quality:' + rec.id, row: null, name: rec.label || rec.id, text: String(rec.description), cost: [], price: null, priceWords: null,
+    var qtext = (rec.description && String(rec.description).trim()) ? rec.description : uiRuleText('qualities', rec.id, 'description');   // A5
+    if (!qtext) return s1InfoBox('quality:' + rec.id, rec.label || rec.id, rec);
+    return { id: 'quality:' + rec.id, row: null, name: rec.label || rec.id, text: String(qtext), cost: [], price: null, priceWords: null,
              howOften: null, limits: [], book: null, page: null };
   }
   // the ONE choice of a line's box (B-1590, B-1609): its talent's (offerInfo), else its item's (offerItemInfo), else its weapon
@@ -4147,6 +4171,7 @@
     OfferRow: OfferRow, offerOf: offerOf, offerEffect: offerEffect, offerTags: offerTags, OfferS3Line: OfferS3Line,
     offerWho: offerWho, offerInfo: offerInfo, offerItemInfo: offerItemInfo, offerInfoOf: offerInfoOf, popoverStep: popoverStep,   // 5h: the who tag, the box, its pure step
     usePopover: usePopover, pushEscape: pushEscape, useEscape: useEscape, holdFocus: holdFocus, useHoldFocus: useHoldFocus, OfferInfo: OfferInfo,   // D-352: the reroll slot draws a talent's (i) by name   // 5h (ADDENDUM 62 F1 (b)): the ONE popover hook and the ONE Esc stack   // F-100 M8 step 3: the ONE offer row
+    holdDoor: holdDoor, doorBack: doorBack,   // B-1779 (ADDENDUM 695): the door rule and its ONE back pick, shared with DiceHub's close
     offerTalentsFor: offerTalentsFor,   // …and the ONE owner's lookup it reads (R-SYC-3, D-SYF2 (a)): hub, why-sheet, Yard seat card
     ToldLine: ToldLine, GearFold: GearFold,   // the told line and the carried-gear fold (yard ADDENDUM 8 Q2 (a)): hub, sheet, Yard
     spendAfford: spendAfford,   // the surfacing hub's spend menu (R-SHC-2): the ONE affordability test ResultsReference reads

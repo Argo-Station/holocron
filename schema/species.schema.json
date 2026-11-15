@@ -173,6 +173,11 @@
                 "id"
               ],
               "properties": {
+                "_source_key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "R-A5C-4 (ruling argo-dataset-import-draft ADDENDUM 4 \u00a7A4.1 item 4): this entry's OWN OggDude <Option><Key> (e.g. ALEENAAB1OP1), carried by scripts/canonical/carry_species_option_keys.py from the 2026-07-14 Data. Absent when OggDude has no such option. The A5 import joins its text by it, never by name. No save holds it."
+                },
                 "name": {
                   "type": "string",
                   "minLength": 1
@@ -326,6 +331,11 @@
           "name"
         ],
         "properties": {
+          "_source_key": {
+            "type": "string",
+            "minLength": 1,
+            "description": "R-A5C-4 (ruling argo-dataset-import-draft ADDENDUM 4 \u00a7A4.1 item 4): this entry's OWN OggDude <Option><Key> (e.g. ALEENAAB1OP1), carried by scripts/canonical/carry_species_option_keys.py from the 2026-07-14 Data. Absent when OggDude has no such option. The A5 import joins its text by it, never by name. No save holds it."
+          },
           "name": {
             "type": "string",
             "minLength": 1

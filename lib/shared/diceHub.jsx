@@ -683,6 +683,7 @@ function diceHubToldFor(sheet, skillKey, characteristic) {
       if (!row || (row.moment || 'check') !== 'check' || !Array.isArray(row.applies_to) || !row.applies_to.length) return;
       if (!P.matches({ appliesTo: row.applies_to }, ctx)) return;
       var w = row.words || {}, words = t.description.slice(w.start, w.end).trim();
+      if (!words && t._path) words = String(diceHubRuleTextSpan(t._path, w) || '').trim();   // A5 (ADDENDUM 5 Q4 (b)): only where spanOk holds
       // R-M8BG-38 (f100-m8-batches ADDENDUM 10): the row's ruled `limit` (use_limit: shown, never tracked) rides with it
       if (words) out.push({ key: t.id + ':' + row.id, name: t.name, words: words, limit: row.limit || null, talentId: t.id, rowId: row.id });   // B-1451: its owner
       else { var s2 = toldS2(t, row, cb); if (s2) out.push({ key: t.id + ':' + row.id, name: t.name, words: '', line: s2.line, at: s2.at, limit: row.limit || null, talentId: t.id, rowId: row.id }); }   // S2
@@ -1027,9 +1028,10 @@ function diceHubDurationCommits(fp, cb) {
   (fp.upgradeKeys || []).forEach(function (k) {
     var ab = rec.abilities[k];
     if (!ab) return;
+    var abWords = ab.description || diceHubRuleText('force_powers', fp.id, 'abilities.' + k + '.description') || '';   // A5
     if (ab.family === 'duration') {
       var n = CharResolve.durationCommitDice(ab);
-      if (n > 0) out.push({ key: fp.id + '.' + k, power: rec.name || fp.name, dice: n, words: ab.description || '', label: 'Duration', stacks: false, tag: null });
+      if (n > 0) out.push({ key: fp.id + '.' + k, power: rec.name || fp.name, dice: n, words: abWords, label: 'Duration', stacks: false, tag: null });
       return;
     }
     if (ab.family === 'basic' || !(ab.effects || []).some(function (e) { return e && e.cost && e.cost.commit_force; })) return;
@@ -1037,7 +1039,7 @@ function diceHubDurationCommits(fp, cb) {
     var v = CharResolve.commitValueOf(fp.id + '.' + k, cb), d = v === true ? 1 : v;
     if (!(d > 0)) return;
     var tm = CharResolve.afterPowerName ? CharResolve.afterPowerName(ab, cb) : null;   // `after_power`, else the parse (D3/D4)
-    out.push({ key: fp.id + '.' + k, power: rec.name || fp.name, dice: d, words: ab.description || '', label: ab.name || k,
+    out.push({ key: fp.id + '.' + k, power: rec.name || fp.name, dice: d, words: abWords, label: ab.name || k,
                stacks: !!(CharResolve.commitStacks && CharResolve.commitStacks(fp.id + '.' + k, cb)), tag: tm ? 'after a successful ' + tm + ' check' : null });
   });
   return out;
@@ -1145,6 +1147,21 @@ function diceHubWeaponsWithUnarmed(weapons, sheet) {
 
 function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedProp, onCommit, onChoosePick, treat, onTreated, given }) {
   var win = useDragWindow();
+  // B-1779 (ruling release-r7-bug-burndown ADDENDUM 695): every close hands focus back to the control that opened the hub. The
+  // door is read at the FIRST render, while the opener still holds focus, by SWRPGUI's door rule; on close it is focused only
+  // when focus is LOST (nothing, BODY, or inside the hub), so a page control the user tabbed to keeps it. Non-modal: no trap
+  // (D-DH-6, ADDENDUM 625). The back pick is holdFocus's own (`doorBack`), not a copy.
+  var doorRef = React.useRef(null), scrimRef = React.useRef(null);
+  if (!doorRef.current) doorRef.current = (window.SWRPGUI || {}).holdDoor ? window.SWRPGUI.holdDoor(document.activeElement) : { door: null, trigger: null };
+  React.useEffect(function () {
+    var scrim = scrimRef.current;
+    return function () {
+      var a = document.activeElement, UI = window.SWRPGUI || {};
+      if (a && a !== document.body && !(scrim && scrim.contains(a))) return;
+      var back = UI.doorBack ? UI.doorBack(doorRef.current, null) : null;
+      if (back) back.focus();
+    };
+  }, []);
   var _band = React.useState({}), band = _band[0], setBand = _band[1];        // EPHEMERAL (R-DRB-2)
   // B-611 (R-PSC-2): ROLL on the paper stage opens the hub ON THAT SKILL's strip — the same overlay,
   // landing where the press was. `initialStrip` is a sheet skill key; the hub lists trained skills,
@@ -1559,7 +1576,8 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
       var ctx = poolIdx ? P.contextFor(null, poolIdx, undefined, 'force_power', pid) : null;
       var abil = (fcb.forcePowers && fcb.forcePowers[pid] && fcb.forcePowers[pid].abilities) || {};
       var dials = (ctx && P.powerDialsAt ? P.powerDialsAt(fOwned, ctx, sheet) : []).map(function (d) {
-        return Object.assign({}, d, { words: (abil[String(d.talentId).split(':').pop()] || {}).description || '' }); });
+        var ak = String(d.talentId).split(':').pop();
+        return Object.assign({}, d, { words: (abil[ak] || {}).description || diceHubRuleText('force_powers', pid, 'abilities.' + ak + '.description') || '' }); });   // A5
       var fm = diceHubForceMenuModel(dials, diceHubDurationCommits(fp, fcb), (ro.resolved && ro.resolved.light) || 0, ro.spent, committedProp, available);
       fm = diceHubForceMenuCapped(fm, function (k) { return CharResolve.commitAtCap ? CharResolve.commitAtCap(sheet, fcb, committedProp, k) : null; });   // F5
       if (fm.rows.length) kids.push(h(DiceHubSpend, { key: 'spend', note: 'priced in Force points', rows: fm.rows, lines: fm.lines, tally: fm.tally, tallyTokens: fm.tallyTokens,
@@ -1651,7 +1669,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
       h(DiceHubRow, { testid: 'dice-hub-treat-row', rowKey: 'treat', name: tName, spec: tSpec, accent: accent, rolled: tDone,
         onRoll: function () { var r = doRoll('treat', tr.spec); if (r && r.success > 0 && onTreated) onTreated(treat.id); } }, tLines));
   }
-  return ReactDOM.createPortal(h('div', { 'data-testid': 'dice-hub-scrim', 'data-paper': '1', className: 'sb-dh-backdrop' },
+  return ReactDOM.createPortal(h('div', { 'data-testid': 'dice-hub-scrim', 'data-paper': '1', className: 'sb-dh-backdrop', ref: scrimRef },
     h('div', { 'data-testid': 'dice-hub', 'data-paper': '1', role: 'dialog', 'aria-label': 'Dice hub', className: 'hp-sheet sb-dh', 'data-doc-ground': 'creator', ref: win.ref,
       style: win.pos ? { left: win.pos.left, top: win.pos.top, right: 'auto' } : null },
       h('div', Object.assign({ className: 'sb-dh-head', 'data-testid': 'dice-hub-head' }, win.handle),
@@ -1713,6 +1731,18 @@ function m7TalentName(cb, because) {
   var id = String(because || '').split(':')[1] || '';
   var t = cb && cb.talents ? cb.talents[id] : null;
   return (t && t.name) || id;
+}
+
+// A5 (ruling argo-dataset-import-draft ADDENDUM 4 §A4.1 item 3): the user's imported rule text through the one accessor
+// (SWRPGSources.ruleText / ruleTextSpan); null on holocron.work and wherever nothing was imported, so a row draws as before.
+// A slice reads it by an address {kind, id, path} (charResolve's told sources carry it as `_path`) only where spanOk holds.
+function diceHubRuleText(kind, id, path) {
+  var S = window.SWRPGSources;
+  return S && S.ruleText ? S.ruleText(kind, id, path) : null;
+}
+function diceHubRuleTextSpan(addr, span) {
+  var S = window.SWRPGSources;
+  return addr && S && S.ruleTextSpan ? S.ruleTextSpan(addr.kind, addr.id, addr.path, span) : null;
 }
 
 // S2 (argo-a1-curation ADDENDUM 4): a told row whose words were removed → { line, at }: its book line (the row's own cite,

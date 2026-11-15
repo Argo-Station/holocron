@@ -29,6 +29,9 @@
   // S1 (argo-a1-curation ADDENDUM 4): a rule slot whose book words were removed says where to read them — `<words> || s1(rec)`,
   // the record's book line (SWRPGSources.removedLine; '' on holocron and for a record citing nothing, so the slot reads as before).
   function s1(rec) { var S = window.SWRPGSources; return (rec && S && S.removedLine && S.removedLine(rec)) || ''; }
+  // A5 (ruling argo-dataset-import-draft ADDENDUM 4 §A4.1 item 3): the user's imported rule text through the one accessor
+  // (SWRPGSources.ruleText); '' on holocron.work and wherever nothing was imported, so `<words> || rt(..) || s1(rec)` reads as before.
+  function rt(kind, id, path) { var S = window.SWRPGSources; return (S && S.ruleText && S.ruleText(kind, id, path)) || ''; }
   // B-1788: rule text draws its [XX] codes as the marks this page's tree cards draw (lib/shared/treeView.jsx `glyphs`: SWRPGUI.glyphText, size 1).
   // Guarded: an old cached vendor.js draws the text, never a throw (569 Rider 1). Empty stays empty, so `p.sub ? …` still reads it.
   function draw(x) { var U = window.SWRPGUI; return (x && U && U.glyphText) ? U.glyphText(x, 1) : x; }
@@ -165,7 +168,8 @@
     return k ? ((ix && SS.sourceLabel) ? SS.sourceLabel(ix, k) : k) : '';
   }
   function byName(a, b) { return String(a.name).localeCompare(String(b.name)); }
-  function recRow(r, extra) { return Object.assign({ id: r.id, name: r.name, src: sourceOf(r), rule: clean(r.description).replace(/\s+/g, ' ').trim() || s1(r) }, extra || {}); }
+  // `kind` (A5): the record's section where its description is a blank the import fills (talents, the item sections)
+  function recRow(r, extra, kind) { return Object.assign({ id: r.id, name: r.name, src: sourceOf(r), rule: clean(r.description || (kind ? rt(kind, r.id, 'description') : '')).replace(/\s+/g, ' ').trim() || s1(r) }, extra || {}); }
   function cheapestRow(view, tid) {
     var best = null, all = view.specializations || {};
     Object.keys(all).forEach(function (k) { (all[k].talent_tree || []).forEach(function (r) { (r.talents || []).forEach(function (c) { if (c && c.talent === tid && (best == null || r.cost < best)) best = r.cost; }); }); });
@@ -400,8 +404,8 @@
     function toggleTalent(t) { editSpecies(function (c) { c.starting_talents = hasTalent(c, t.talent) ? c.starting_talents.filter(function (x) { return x.talent !== t.talent; }) : (c.starting_talents || []).concat([clone(t)]); }); }
     function abilityRows(rec, against) {
       var out = [];
-      (rec.special_abilities || []).forEach(function (a) { out.push(h(Tick, { key: 'a' + a.name, name: nameKey(a), text: draw(clean(a.description) || s1(Object.assign({}, a, { sources: rec.sources }))), on: hasAbility(against, nameKey(a)), onToggle: function () { toggleAbility(a); } })); });
-      (rec.starting_talents || []).forEach(function (t) { var tr = (view.talents || {})[t.talent] || {}; out.push(h(Tick, { key: 't' + t.talent, name: (tr.name || t.talent) + (t.ranks > 1 ? ' ' + t.ranks : ''), text: draw(clean(tr.description) || s1(tr)), on: hasTalent(against, t.talent), onToggle: function () { toggleTalent(t); } })); });
+      (rec.special_abilities || []).forEach(function (a, i) { out.push(h(Tick, { key: 'a' + a.name, name: nameKey(a), text: draw(clean(a.description || rt('species', rec.id, 'special_abilities.' + i + '.description')) || s1(Object.assign({}, a, { sources: rec.sources }))), on: hasAbility(against, nameKey(a)), onToggle: function () { toggleAbility(a); } })); });
+      (rec.starting_talents || []).forEach(function (t) { var tr = (view.talents || {})[t.talent] || {}; out.push(h(Tick, { key: 't' + t.talent, name: (tr.name || t.talent) + (t.ranks > 1 ? ' ' + t.ranks : ''), text: draw(clean(tr.description || rt('talents', t.talent, 'description')) || s1(tr)), on: hasTalent(against, t.talent), onToggle: function () { toggleTalent(t); } })); });
       return out;
     }
     function ownAbilities() {   // what the lower record has, plus what this character's copy added
@@ -427,6 +431,12 @@
       return ids;
     }
     // R-M13B-115: an option with a skill choice goes straight to its list, and Done writes the pick and the ticks together. Back writes nothing.
+    // A5: an option's imported text, addressed by the group's place in the species record (spRec) and the option's index
+    function optionRuleText(g, j) {
+      var gi = spRec && Array.isArray(spRec.option_choices) ? spRec.option_choices.indexOf(g) : -1;
+      if (gi < 0 && spRec && g && g.name) gi = (spRec.option_choices || []).map(function (x) { return x && x.name; }).indexOf(g.name);
+      return gi < 0 ? '' : rt('species', spRec.id, 'option_choices.' + gi + '.options.' + j + '.description');
+    }
     function chooseOption(g, opt) {
       if (opt.skill_choice_grants) {
         var keysIn = poolOf(opt.skill_choice_grants).map(function (sid) { return skillKeysOf[sid] || sid; });
@@ -636,7 +646,7 @@
       return out;
     }
     function modifyList(section, noun, plural, recs) {
-      return { kind: 'modifyList', section: section, title: 'Modify a ' + noun, search: 'Search ' + recs.length + ' ' + plural + '…', rows: recs.slice().sort(byName).map(function (r) { return recRow(r, { src: '' }); }) };
+      return { kind: 'modifyList', section: section, title: 'Modify a ' + noun, search: 'Search ' + recs.length + ' ' + plural + '…', rows: recs.slice().sort(byName).map(function (r) { return recRow(r, { src: '' }, section); }) };
     }
     // a record the rail would refuse never reaches the draft: the form keeps it open and says why, in its own reasons
     function railRefusal(own) { var e = env(), a = e.rail && e.rail.authoring(own, e.railCtx || e.rail.ctx); return a && !a.ok ? a : null; }
@@ -808,7 +818,7 @@
       var inTree = {}; specEntries.forEach(function (e) { var sr = specReg[e.id]; ((sr && sr.talent_tree) || []).forEach(function (r) { (r.talents || []).forEach(function (c) { if (c) inTree[c.talent] = 1; }); }); });
       var allT = Object.keys(view.talents || {}).map(function (k) { return view.talents[k]; }).filter(function (t) { return !inTree[t.id] && !loose[t.id] && cheapestRow(view, t.id) != null && !itemPicked(eff, t.id); }).sort(byName);
       overlay = h(ListHost, { kind: 'talent', title: 'A talent from outside your trees', search: 'Search ' + allT.length + ' talents…', onBack: closeForm, onPick: addLoose,
-        rows: allT.map(function (r) { return recRow(r, { price: priceWord(cheapestRow(view, r.id)) }); }) });
+        rows: allT.map(function (r) { return recRow(r, { price: priceWord(cheapestRow(view, r.id)) }, 'talents'); }) });
     }
     if (over && over.kind === 'force') {
       var fpAll = Object.keys(forceReg).map(function (k) { return forceReg[k]; }).filter(function (r) { return !powerEntries.some(function (e) { return e.id === r.id; }); }).sort(byName);
@@ -830,9 +840,9 @@
     }
     if (over && over.kind === 'option' && over.group.max_picks > 1) overlay = h(ListHost, { kind: 'option', title: groupLabel(over.group), multi: true, commit: 'Done', left: Math.max(0, (over.group.min_picks || 0) - over.ticks.length), onCommit: function () { optionPicksDone(over); }, onBack: closeForm, onPick: function (r) { tick(over, r.id); },
       notes: [countNote(over.ticks.length, over.group.max_picks, 'pick')].filter(Boolean),
-      rows: (over.group.options || []).map(function (o) { return { id: o.id, name: o.name, rule: clean(o.description).replace(/\s+/g, ' ').trim() || s1(Object.assign({}, o, { sources: spRec && spRec.sources })), on: over.ticks.indexOf(o.id) >= 0 }; }) });
+      rows: (over.group.options || []).map(function (o, j) { return { id: o.id, name: o.name, rule: clean(o.description || optionRuleText(over.group, j)).replace(/\s+/g, ' ').trim() || s1(Object.assign({}, o, { sources: spRec && spRec.sources })), on: over.ticks.indexOf(o.id) >= 0 }; }) });
     else if (over && over.kind === 'option') overlay = h(ListHost, { kind: 'option', title: groupLabel(over.group), onBack: closeForm, onPick: function (r) { chooseOption(over.group, r.opt); },
-      rows: (over.group.options || []).map(function (o) { return { id: o.id, name: o.name, rule: clean(o.description).replace(/\s+/g, ' ').trim() || s1(Object.assign({}, o, { sources: spRec && spRec.sources })), opt: o }; }) });
+      rows: (over.group.options || []).map(function (o, j) { return { id: o.id, name: o.name, rule: clean(o.description || optionRuleText(over.group, j)).replace(/\s+/g, ' ').trim() || s1(Object.assign({}, o, { sources: spRec && spRec.sources })), opt: o }; }) });
     if (over && over.kind === 'line') overlay = h(ListHost, { kind: 'line', title: 'Game line', onBack: closeForm, onPick: pickLine,
       rows: Object.keys(LINES).map(function (b) { return { id: b, name: LINES[b], rule: cap(TRACK_OF[b]), sel: b === book }; }) });
     if (over && over.kind === 'trackType') overlay = h(ListHost, { kind: 'type', title: over.title, onBack: closeForm, onPick: function (r) { typeChosen(over, r); },
@@ -853,7 +863,7 @@
       rows: over.row.legal.map(function (tid) { var r = specReg[tid]; return { id: tid, name: r.name, rule: clean(r.description).replace(/\s+/g, ' ').trim(), price: priceWord(over.row.base.cost) }; }) });
     if (over && over.kind === 'preview') {
       var o = over.offer, mine = eff.own.sections[o.section][o.id];
-      overlay = h(Preview, { name: mine.name || o.id, mine: clean(mine.description), book: clean(o.lower && o.lower.description), onBack: closeForm, onTake: function () { takeUpdate(o); }, onKeep: function () { keepMine(o); } });
+      overlay = h(Preview, { name: mine.name || o.id, mine: clean(mine.description), book: clean((o.lower && o.lower.description) || (o.lower ? rt(o.section, o.id, 'description') : '')), onBack: closeForm, onTake: function () { takeUpdate(o); }, onKeep: function () { keepMine(o); } });
     }
     if (over && over.kind === 'motivation') overlay = h(Host, { kind: 'picker', title: 'Motivation', onBack: closeForm },
       h('div', { 'data-m13-picker': '1' }, h(p.MotivationPicker, { band: desk ? 'desktop' : 'mobile', stepName: 'Motivation', stepIndex: 0, stepReached: 0, stepTotal: 1, steps: [], stepLabels: {}, soFar: [], xpPool: 0, xpRemaining: 0,
@@ -957,7 +967,7 @@
         h('div', { className: 'm13-acts' }, h(Quiet, { onClick: function () { setOver({ kind: 'talent' }); } }, 'Add a talent from outside your trees…'), h(Quiet, { onClick: function () { setOver({ kind: 'newTalent' }); } }, 'New talent…'), ownedTalentIds().length ? h(Quiet, { onClick: function () { setOver(modifyList('talents', 'talent', 'talents', ownedTalentIds().map(function (t) { return view.talents[t]; }))); } }, 'Modify a talent…') : null),
         Object.keys(loose).length ? h(React.Fragment, null, h('div', { className: 'm13-grp' }, 'Outside your trees'), Object.keys(loose).map(function (tid) {
           var t = (view.talents || {})[tid] || { name: tid }, e = loose[tid];
-          return h(React.Fragment, { key: tid }, h(Row, { k: t.name, flag: 'off-book', sub: draw(clean(t.description || s1(t)) + looseChosen(tid, e)), attrs: { 'data-m13-loose': tid },
+          return h(React.Fragment, { key: tid }, h(Row, { k: t.name, flag: 'off-book', sub: draw(clean(t.description || rt('talents', tid, 'description') || s1(t)) + looseChosen(tid, e)), attrs: { 'data-m13-loose': tid },
             right: h('div', { className: 'm13-step' }, h('span', { className: 'm13-price' }, priceWord(Number(e.xp) || 0)), h(Quiet, { onClick: function () { removeLoose(tid); } }, 'Remove')) }),
             offerNotices(['talents'], function (o) { return o.id === tid; }));
         })) : null),
@@ -974,7 +984,7 @@
         !shelf.length && !sigEntries.length ? h('p', { className: 'hp-none' }, 'None for ' + (carRec ? carRec.name : (eff.career || 'this career')) + '.') : null,
         shelf.map(function (row) {
           var b = (row.rec.abilities || {})[row.id + 'basic'] || {};
-          return h(Row, { key: row.id, k: row.rec.name, sub: draw(clean(b.description) || s1(Object.assign({}, b, { sources: row.rec.sources, cite: b.cite || row.rec.cite }))) || (row.ok ? null : (row.problems[0] && row.problems[0].words)), attrs: { 'data-m13-sigrow': row.id },
+          return h(Row, { key: row.id, k: row.rec.name, sub: draw(clean(b.description || rt('signature_abilities', row.rec.id || row.id, 'abilities.' + row.id + 'basic.description')) || s1(Object.assign({}, b, { sources: row.rec.sources, cite: b.cite || row.rec.cite }))) || (row.ok ? null : (row.problems[0] && row.problems[0].words)), attrs: { 'data-m13-sigrow': row.id },
             right: h('div', { className: 'm13-step' }, row.base.cost ? h('span', { className: 'm13-price' }, priceWord(row.base.cost)) : null, row.ok ? h(Quiet, { onClick: function () {
               if (row.legal.length > 1) setOver({ kind: 'sigtree', row: row }); else addSig(row.id, row.tree);   // R-M13B-34 B3
             } }, 'Add') : null) });

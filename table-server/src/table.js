@@ -104,7 +104,9 @@ export class Table extends DurableObject {
     if (f.gmKey && (await sha256(f.gmKey)) === meta.gmKeyHash) {
       for (const s of this.ctx.getWebSockets()) if (s !== ws && (s.deserializeAttachment() || {}).role === 'gm') this.#hangUp(s);
       ws.serializeAttachment({ role: 'gm', group: who.group });
-      send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId });
+      // W-1 (`encounters-e6-wire-online` ADDENDUM 9): the GM REJOIN's `opened` names the seats still held, ids only, so a
+      // seat that left while the GM was away reads as left on its device; `open` and `newcode` carry no `seats`
+      send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId, seats: Object.keys(meta.seats || {}).slice(0, R.MAX_SEATS) });
       const live = new Set();
       for (const s of this.ctx.getWebSockets()) {
         const a = s.deserializeAttachment() || {};
@@ -155,6 +157,18 @@ export class Table extends DurableObject {
       meta.lastFrameAt = now;
       await this.#save(meta);
       return send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId });
+    }
+    if (f.t === 'listing') {                                         // R-E6F-5: put or drop the listing entry; no reply
+      if (f.on && !meta.listed) {                                    // as `open` with listed true (#issueCode's put)
+        meta.listed = true;
+        if (meta.group) await this.#listing(meta.group).fetch('https://listing/put', {
+          method: 'POST', body: JSON.stringify({ tableId: meta.tableId, label: meta.label, openedAt: now, expiresAt: meta.codeExpiresAt }) });
+      } else if (!f.on && meta.listed) {                             // as `close` (#dropCode's drop)
+        if (meta.group) { try { await this.#listing(meta.group).fetch('https://listing/drop', { method: 'POST', body: JSON.stringify({ tableId: meta.tableId }) }); } catch (e) {} }
+        meta.listed = false;
+      }
+      meta.lastFrameAt = now;
+      return this.#save(meta);
     }
     if (f.t === 'close') return this.#end(meta, ws);
     if (f.t === 'play') {

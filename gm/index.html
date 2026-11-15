@@ -91,6 +91,7 @@
   <script src="lib/shared/diceEngine.js"></script>
   <script src="lib/shared/qualityRows.js"></script><!-- B-1296 (ruling f100-surfacing-hub-concept R-SHC-12, ADDENDUM 7): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows (spend, target, mode), so the GM's Yard core and NPC bench pool as the player shell does; pure, no deps [mirrors player/index.html; guard test/b1296_shell_cores.cjs] -->
   <script src="lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
+  <!-- A5's three files (ruleTextStore, ruleTextLoad, ruleTextPanel) are not tagged here: SWRPGSources.ready() runs them only in a copy whose book text is removed, before it resolves (B-1874; guard test/b1874_dark_scripts.cjs) [mirrors player/index.html] -->
   <script src="lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps). F-100 UD-1f: loaded for the user-pack fold; the GAME VARIANTS card is withheld GM-face by `variants: false` (ruling f100-ud1-gm-variants-card) [mirrors player/index.html] -->
   <script src="lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
   <script src="lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
@@ -159,6 +160,13 @@
   <!-- NPC library section module (window.SWRPGLibrary.NPC). After /vendor.js (needs React +
        window.SWRPGUI); before /gm/app.js (which destructures it). [NPC exemplar Step 0] -->
   <script src="/lib/library/npc/view.js"></script>
+  <!-- ENCOUNTERS E6 frames (ruling encounters-e6-frames R-E6F-1/2, F5-a): the campaigns door's switch and the app's one table
+       session. Only these two are tagged (B-1874, ADDENDUM 722: tableSession.pcOf names a fight's PC with the door off too,
+       B-1851; inert on load, F11): with swrpg_campaigns_door on, /gm/app.js runs the campaign record, the table wire's client,
+       qrcode-generator (/public/vendor/qrcode-generator/qrcode.js, the OPEN TABLE sheet's QR) and the CAMPAIGNS screens
+       through SWRPGCampaignsDoor.load({ qr: true }) before its first render; off, they are never fetched. -->
+  <script src="/lib/shared/campaignsDoor.js"></script>
+  <script src="/lib/shared/tableSession.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
