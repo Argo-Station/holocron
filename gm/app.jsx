@@ -46,12 +46,11 @@ const CARDS = [
   { id: 'yard',      eyebrow: 'FLEET',      label: 'SHIPYARD' },
 ];
 // ENCOUNTERS E3 lap B (shape `encounters-e2-manager-shape` R-E2S-6; ruling `encounters-e3-screens` R-E3S-1): the fifth
-// plate, after SHIPYARD, joins only while swrpg_encounters_door is on (lib/library/npc/encountersDoor.js); HOMEBREW
-// stays the conditional sixth.
+// plate, after SHIPYARD. Always drawn since its switch was deleted (encounters-e3-deletion, `encounters-e3-flip-gate`
+// ADDENDUM 13); HOMEBREW stays the conditional last.
 const ENCOUNTERS_CARD = { id: 'encounters', eyebrow: 'CONFLICT', label: 'ENCOUNTERS' };
-function encountersOn() { return !!(window.SWRPGEncountersDoor && window.SWRPGEncountersDoor.on()); }
-// ENCOUNTERS E6 frames (ruling `encounters-e6-frames` R-E6F-1/2, G1): the CAMPAIGNS plate (TABLE) joins after ENCOUNTERS
-// when that door is on, else after SHIPYARD, only while swrpg_campaigns_door is on (lib/shared/campaignsDoor.js).
+// ENCOUNTERS E6 frames (ruling `encounters-e6-frames` R-E6F-1/2, G1): the CAMPAIGNS plate (TABLE) joins after ENCOUNTERS,
+// only while swrpg_campaigns_door is on (lib/shared/campaignsDoor.js).
 // OFF, /gm/campaigns[/<id>] parses as an unknown path does (the landing).
 const CAMPAIGNS_CARD = { id: 'campaigns', eyebrow: 'TABLE', label: 'CAMPAIGNS' };
 function campaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on() && window.SWRPGCampaignsView); }
@@ -80,8 +79,10 @@ function campaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCamp
 function GmLanding({ onEnter }) {
   // F-100 C2 · the fifth door (F10-GM) joins only while swrpg_homebrew_editor is on;
   // five tiles make the last one span the row (gm.css `.gm-tile:last-child:nth-child(odd)`).
-  var doors = CARDS.concat(encountersOn() ? [ENCOUNTERS_CARD] : []).concat(campaignsOn() ? [CAMPAIGNS_CARD] : []).concat(window.SWRPGEditor && window.SWRPGEditor.on() && window.SWRPGEditorView
+  var doors = CARDS.concat([ENCOUNTERS_CARD]).concat(campaignsOn() ? [CAMPAIGNS_CARD] : []).concat(window.SWRPGEditor && window.SWRPGEditor.on() && window.SWRPGEditorView
     ? [Object.assign({ id: 'homebrew' }, window.SWRPGEditorView.DOOR.gm)] : []);
+  // T2 M1 (encounters-t2-build item 5): the most recent remembered table's OPEN TABLE line on the CAMPAIGNS plate
+  var line = campaignsOn() && window.SWRPGTableSession && window.SWRPGTableSession.recent ? window.SWRPGTableSession.recent('gm') : null;
   return (
     <main className="gm-main hp-sheet" data-doc-ground="creator" data-gm-shell="1">
       <div className="gm-land">
@@ -91,6 +92,8 @@ function GmLanding({ onEnter }) {
           <div className="gm-tag">{'OPEN THE GALAXY MAP'}</div>
         </div>
         <div className="gm-land-doors">
+          {line ? <window.SWRPGUI.TableLine door='[data-door="campaigns"]' verb="OPEN TABLE" name={line.name} aria={'Open table · ' + line.name}
+            onTap={function () { var T = window.SWRPGTableSession; if (T.label()) T.open(line.id, T.label(), true); T.lineTap = line.id; onEnter('campaigns', { campId: line.id }); }} /> : null}
           <div className="gm-tiles" data-tour-id="g-landing-cards">
             {doors.map(function (card) {
               return (
@@ -176,7 +179,8 @@ function ensureYardCharCore() {
       document.head.appendChild(s);
     });
   }
-  _yardCharCore = ['/lib/shared/fetchJson.js', '/lib/shared/portraits.js', '/lib/shared/poolMods.js', '/lib/shared/sheetPool.js', '/lib/shared/picture.js']
+  // B-1912 (ADDENDUM 761): the raw files load their minified dist/ copies
+  _yardCharCore = ['/dist/lib/shared/fetchJson.js', '/dist/lib/shared/portraits.js', '/dist/lib/shared/poolMods.js', '/dist/lib/shared/sheetPool.js', '/dist/lib/shared/picture.js']
     .reduce(function (p, src) { return p.then(function () { return inject(src); }); }, Promise.resolve())
     .then(function () { return Promise.all([window.SWRPGSheetPool.loadCanonicalCharacterBuild(), window.SWRPGItemRegistries.load(), window.SWRPGPortraits.ready]); })
     .then(function () { return true; })
@@ -255,7 +259,7 @@ function GmCampaignsScreen({ campId, wipeType, onBack, go }) {
     npcSearch: function (q) { var N = window.SWRPGLibrary && window.SWRPGLibrary.NPC; return N && N.castSearch ? N.castSearch(q) : []; },
   });
 }
-function NpcGeneratorScreen({ onBack, wipeType, location, onLocation, encounters }) {
+function NpcGeneratorScreen({ onBack, wipeType, location, onLocation, encounters, openEncounter }) {
   // NPC exemplar Step 1 — THIN HOST. The orchestrator (state machine + handlers + refData) lives in
   // window.SWRPGLibrary.NPC.Library (the headless core); the GM mounts it. Since the flip's deletion ledger
   // (B-871) the library has ONE face, paper, and draws its own head, tabs and rail — no chrome is injected.
@@ -265,12 +269,13 @@ function NpcGeneratorScreen({ onBack, wipeType, location, onLocation, encounters
     accent: NPC_ACCENT,
     actions: null,
     // NPC bench (D-NB3) + custom NPCs (Lap C1): GM-only in v1 — persistent groups + custom NPCs.
-    // ENCOUNTERS E3 lap B (R-E3S-1): `encounters` is null while swrpg_encounters_door is off (today), 'door' on the library
-    // (the ENCOUNTERS tab goes), 'screen' on the encounter manager's own screen.
+    // ENCOUNTERS E3 lap B (R-E3S-1): `encounters` is 'door' on the library (no ENCOUNTERS tab; it refuses an encounters
+    // tail, ADDENDUM 13 Q2), 'screen' on the encounter manager's own screen. `openEncounter(id)` is the host's move to
+    // the manager with that encounter open (B-1885, ADDENDUM 13 Q1: the CUSTOM NPC usage buttons).
     // B-1835 (encounters-e3-flip-gate ADDENDUM 6): the core goes to EVERY mount — the library's WEAPONS row draws its pool
     // through the same arm the encounter's plate does (weaponPoolOf opts.npc), which wants sheetPool and the qualities vocabulary.
     capabilities: { canManageGroups: true, canManageCast: true, encounters: encounters || null,
-      encounterCore: ensureEncounterCore },
+      encounterCore: ensureEncounterCore, openEncounter: openEncounter || null },
     location: location,             // B-863: the /gm/npc tail (R-NPC-4)
     onLocation: onLocation,
   });
@@ -566,18 +571,12 @@ function UniverseMapScreen({ onBack, wipeType }) {
     }
     setSheetRecord(null);
     setSheetRecordStatus('loading');
-    fetch(`public/data/planets/${pid}.json`)
-      .then(r => { if (!r.ok) throw new Error('no_record'); return r.json(); })
-      .then(rec => {
-        planetRecordCache.current[pid] = rec;
-        setSheetRecord(rec);
-        setSheetRecordStatus('ready');
-      })
-      .catch(() => {
-        planetRecordCache.current[pid] = 'error';
-        setSheetRecord(null);
-        setSheetRecordStatus('error');
-      });
+    // ONE loader for planets and factions (ruling `between-sessions-lap-a-card` §3 item 6): SWRPGLore, null on a miss.
+    window.SWRPGLore.load('planets', pid).then(rec => {
+      planetRecordCache.current[pid] = rec || 'error';
+      setSheetRecord(rec);
+      setSheetRecordStatus(rec ? 'ready' : 'error');
+    });
   }, [MapPins]);
 
   // Chunk 9: open the sheet for a planet. Used by both planet marker
@@ -1439,10 +1438,10 @@ function EnrichedPlanetDetailSheet({ planet, record, recordStatus, onClose, acce
   // B-1145 (DECISIONS D-415, the approved page @ c060303a7): a record with no authored lore shows its Planet Compendium
   // text under LORE, the book named from the record's own ref with its page dropped (the book is uncalibrated).
   const comp = (record && record.compendium) || {};
-  const compRef = ((record && record.source_refs) || []).find(s => typeof s === 'string' && /^Planet Compendium\b/.test(s));
+  const compRef = window.SWRPGLore.refs(record).find(r => /^Planet Compendium\b/.test(r.book));   // lore.js reads source_refs
   const compPairs = hasIdentity || !compRef ? []
     : [['OVERVIEW', comp.background], ['GOVERNMENT', comp.government], ['MAJOR CITIES', comp.major_cities]].filter(x => x[1]);
-  const compSource = compPairs.length > 0 ? compRef.replace(/\s*p\.?\s*\d.*$/, '') : null;
+  const compSource = compPairs.length > 0 ? compRef.book : null;
   const hasLore = hasIdentity || compPairs.length > 0;
 
   const factions = record && Array.isArray(record.factions) ? record.factions : [];
@@ -1910,7 +1909,7 @@ function pathForScreen(screenId, params) {
     case 'homebrew':      return '/gm/homebrew';   // F-100 C2 (R-FIEC-5); reached only while swrpg_homebrew_editor is on
     case 'backup':        return '/gm/backup';   // RELEASE R3 (D-258): the whole-save backup
     case 'yard':          return '/gm/yard';   // the Yard's own rooms ride its tail (gmYardTail); navTo writes it
-    case 'encounters':    return '/gm/encounters' + ((params && params.groupId) ? '/' + encodeURIComponent(params.groupId) : '');   // R-E3S-1 (on only)
+    case 'encounters':    return '/gm/encounters' + ((params && params.groupId) ? '/' + encodeURIComponent(params.groupId) : '');   // R-E3S-1
     case 'campaigns':     return '/gm/campaigns' + ((params && params.campId) ? '/' + encodeURIComponent(params.campId) : '');   // R-E6F-1 (on only)
     default:              return '/gm';
   }
@@ -1933,8 +1932,8 @@ function parsePathToScreen(path) {
   // GM.YARD: every /gm/yard/<tail> is the Yard (must precede the generic switch); the tail is gmYardTail's. The old
   // GM.YARD.SHIP sub-route (/gm/yard/<vehicleKey> → a vehicleKey) was deleted at the S5 flip (R-S5R-18).
   if (/^\/gm\/yard\/.+$/.test(p)) return { screen: 'yard' };
-  // ENCOUNTERS E3 lap B (shape §4.5): /gm/encounters[/<groupId>]. Pure: the host's switch read (encountersRedirect,
-  // below) replaces this path before it is parsed while swrpg_encounters_door is off.
+  // ENCOUNTERS E3 lap B (shape §4.5): /gm/encounters[/<groupId>]. Pure: the old address /gm/npc/encounters[/<groupId>]
+  // is replaced with this one before any parse (encountersRedirect, below).
   var encMatch = p.match(/^\/gm\/encounters(?:\/([^/]+))?$/);
   if (encMatch) return { screen: 'encounters', groupId: encMatch[1] ? decodeURIComponent(encMatch[1]) : '' };
   // ENCOUNTERS E6 frames (R-E6F-1): /gm/campaigns[/<campaignId>], only while swrpg_campaigns_door is on
@@ -2040,13 +2039,15 @@ function GmYardS4({ route, owner, roster, go, pickerOpen, onPickOwner, onClosePi
   }
   return h(VV.YardNotFoundRoom, { what: 'page' });
 }
-// R-E3S-1 — a GM path that belongs to the other switch state is REPLACED, never a dead end: OFF, /gm/encounters[/<id>]
-// → /gm/npc/encounters[/<id>]; ON, the reverse. The answer is the switch module's; this applies it to the address bar.
+// THE PERMANENT REPLACE (`encounters-e3-flip-gate` ADDENDUM 13 Q2, R-Y2-1; was R-E3S-1's ON half): the old address
+// /gm/npc/encounters[/<id>] is REPLACED by /gm/encounters[/<id>] (no new entry), at cold load and on popstate, before
+// any parse, so an old bookmark or history entry lands on the manager. The host owns it; there is no switch.
 function encountersRedirect() {
-  var D = window.SWRPGEncountersDoor, to = D ? D.redirect(window.location.pathname) : null;
-  if (to && to !== window.location.pathname) {
-    try { window.history.replaceState(window.history.state, '', to + window.location.search); } catch (e) {}
-  }
+  var p = String(window.location.pathname || '').replace(/\/+$/, '');
+  var m = /^\/gm\/npc\/encounters(\/[^/]+)?(?:\/.*)?$/.exec(p);
+  if (!m) return null;
+  var to = '/gm/encounters' + (m[1] || '');
+  try { window.history.replaceState(window.history.state, '', to + window.location.search); } catch (e) {}
   return to;
 }
 // The library's tail for the ENCOUNTERS screen: the host translates /gm/encounters[/<id>] to the library's own grammar
@@ -2061,7 +2062,7 @@ function GmApp() {
   // Initial screen: cold-load URL parse. If the visitor is deep-linking to /gm/npc, /gm/map, etc. —
   // honor that path; anything else is the landing (B-1106, D-72: no onboarding comes first).
   const [screen, setScreen] = useState(function() {
-    encountersRedirect();   // R-E3S-1: before any parse, the address bar is the switch state's
+    encountersRedirect();   // ADDENDUM 13 Q2: before any parse, the old encounters address is the manager's
     if (homebrewScreenFor(window.location.pathname)) return 'homebrew';   // F-100 C2 (null while the switch is off)
     return parsePathToScreen(window.location.pathname).screen || 'landing';
   });
@@ -2149,7 +2150,7 @@ function GmApp() {
   // here.
   useEffect(function() {
     function handlePopState(_event) {
-      encountersRedirect();   // R-E3S-1: a history entry from the other switch state is replaced, then read
+      encountersRedirect();   // ADDENDUM 13 Q2: an old encounters entry is replaced, then read
       var path = window.location.pathname;
       var parsed = parsePathToScreen(path);
       if (homebrewScreenFor(path)) { setScreen('homebrew'); setHomebrewPath(path); return; }   // F-100 C2 (off: never)
@@ -2215,10 +2216,10 @@ function GmApp() {
     }
   }, []);
 
-  const handleEnter = useCallback(sectionId => {
+  const handleEnter = useCallback((sectionId, params) => {
     const wipe = WIPE_TYPES[Math.floor(Math.random() * WIPE_TYPES.length)];
     setWipeType(wipe);
-    navTo(sectionId);
+    navTo(sectionId, params);   // params: T2's one-tap line names its campaign ({ campId })
   }, [navTo]);
 
   const handleBack = useCallback(() => {
@@ -2334,11 +2335,11 @@ function GmApp() {
       <GmLanding onEnter={handleEnter} />
       {screen === 'npc' && (
         <NpcGeneratorScreen onBack={handleBack} wipeType={wipeType} location={npcPath} onLocation={handleNpcLocation}
-          encounters={encountersOn() ? 'door' : null} />
+          encounters="door" openEncounter={function(gid) { navTo('encounters', { groupId: gid }); }} />
       )}
-      {/* ENCOUNTERS E3 lap B (shape §4.5, §8): the encounter manager as its own screen, behind swrpg_encounters_door.
+      {/* ENCOUNTERS E3 lap B (shape §4.5, §8): the encounter manager as its own screen.
           The library's kernel mounts with the bench as its one view (`encounters: 'screen'`): its own head, no tabs. */}
-      {screen === 'encounters' && encountersOn() && (
+      {screen === 'encounters' && (
         <NpcGeneratorScreen onBack={handleBack} wipeType={wipeType} location={encountersTail(encGroupId)}
           onLocation={handleEncountersLocation} encounters="screen" />
       )}

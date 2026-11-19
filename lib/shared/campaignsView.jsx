@@ -10,6 +10,12 @@
  *   GM      G2 the list · G3 one campaign (its LOG, D3's NEW SESSION, G5's SEND XP) · G4 the OPEN TABLE sheet
  *   player  P2 the list · P3 JOIN TABLE (D4 knocking by code; no SCAN at any width, D-543) · P4 put it where · P5 one campaign
  *
+ * T2 (ruling `encounters-t2-build` item 5; the approved `Docs/mockups/campaigns-t2.html` @ 951d73494, LAW by D-622; copy
+ * its paint.js's, verbatim), with `swrpg_table_memory_door` ON (tableSession `doorOn`): M3 G4's remembered players with
+ * FORGET (asking once, above AT THE TABLE, ADDENDUM 4), the newcomers' code after them when the night has remembered players (D-T2M5 (b)); M4 P5's
+ * waiting, wait-ended and turned-away rows; M5 G3's SESSIONS above LOG, each night's SESSION lines under it, a closed
+ * night's SENT line alone (R-T2TM-1), DELETE asking once; M6 the rows' OPEN TABLE / JOIN. OFF, every screen is E6's.
+ *
  * Reads SWRPGCampaigns, SWRPGParty and SWRPGRoster; acts on the wire only through SWRPGTableSession. Writes only through
  * those modules' writers. The host owns the route: props.route = { id } | { join: code } | {}; props.go(route) moves.
  * Classic-script transform (build/sources.mjs TRANSFORMS) → loads after vendor.js; React is global.
@@ -26,7 +32,7 @@
   const MONO = { fontFamily: 'var(--font-mono)', letterSpacing: '.14em', textTransform: 'uppercase' };
   const ALERT = { color: 'var(--doc-critical,#7F2A14)', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 16, margin: '10px 0 0' };
   const MUTED = 'var(--doc-ink-muted,#403D38)';
-  const JOIN_URL = 'https://holocron.work/player/join#';   // R-E6F-1: the QR's link; a phone's own camera opens JOIN with the code
+  const JOIN_URL = 'https://holocron.work/player/join#';   // R-E6F-1's path: the live default that T.joinUrl also yields; the QR reads joinUrl (A4-C2). Kept, and exported, for readers
 
   function C() { return window.SWRPGCampaigns || null; }
   function P() { return window.SWRPGParty || null; }
@@ -55,6 +61,11 @@
     if (/^name:/.test(w)) return w.slice(5);
     const rec = charRec(w.slice(5));
     return (rec && rec.name) || m.last || 'Unnamed';
+  }
+  // L-1 (ADDENDUM 18): the name a SESSION item keeps — a name: who, the record's name or `last`; never the 'Unnamed' placeholder
+  function keptName(m) {
+    const w = String(m.who || ''), rec = /^name:/.test(w) ? null : charRec(w.slice(5));
+    return String(/^name:/.test(w) ? w.slice(5) : (rec && rec.name) || m.last || '').trim();
   }
   function members(c) { const p = partyOf(c); return (p && p.members) || []; }
   // the three game lines' names (the creator's FC_GAME_LINES words); the one copy every campaigns surface reads
@@ -177,7 +188,8 @@
                     <span>{['CAST ' + c.cast.length, last ? 'SESSION ' + last : null].filter(Boolean).join(' · ')}</span>
                     {open ? <span className="enc-state" data-s="running">{'TABLE · ' + hereCount(s, c.id) + ' JOINED'}</span> : null}</div>
                   <div className="nl-mstrip">{members(c).map(m => <Chip key={m.who} name={memberName(m)} />)}</div>
-                  <div className="nl-gacts"><Btn onClick={() => props.go({ id: c.id })}>OPEN</Btn></div>
+                  <div className="nl-gacts" style={!open && TS().memOf(c.id) ? { display: 'flex', gap: 8 } : undefined}>{!open && TS().memOf(c.id) ? <Btn cls="hp-commit" aria-label={'Open table · ' + c.name} onClick={() => oneTap(props, c)}>OPEN TABLE</Btn> : null}
+                    <Btn onClick={() => props.go({ id: c.id })}>OPEN</Btn></div>
                 </div>
               );
             })}
@@ -186,12 +198,14 @@
       </Shell>
     );
   }
+  // T2 S3: the one-tap OPEN TABLE (a landing's line, a row's): opens the table with the name at the table, to G4's sheet
+  function oneTap(props, c) { const T = TS(); if (T.label()) T.open(c.id, T.label(), true); T.lineTap = c.id; props.go({ id: c.id }); }
 
   // G3 · one campaign
   function GmCampaign({ props, s, tick, c }) {
     const w = useWide(), Cs = C();
     useEffect(() => { if (props.loadCrits) props.loadCrits().then(() => tick()); }, []);
-    const [sheet, setSheet] = useState(false);
+    const [sheet, setSheet] = useState(() => { const T = TS(), on = T.lineTap === c.id; T.lineTap = null; return on; });   // T2: a one-tap open lands on G4
     const [renaming, setRenaming] = useState(null);
     const [entry, setEntry] = useState(null);   // D3: the NEW SESSION entry being typed
     const [pick, setPick] = useState(null);     // D7 'line' · D8 'cast' · D9 'pc': the sheet open over G3
@@ -239,12 +253,19 @@
         ))}
       </section>
     );
+    // M5 (T2): SESSIONS above LOG; a SESSION line naming a session sits under it, the rest stay in LOG
+    const sess = TS().doorOn() ? (c.sessions || []) : [], held = {};
+    sess.forEach(x => { held[x.id] = x; });
+    const lineOf = e => <LogEntry key={e.id} e={e} c={c} s={s} props={props} tick={tick} closed={!!(held[e.session] && held[e.session].closedAt != null)} />;
     const log = (
-      <section data-camp-log="1">
-        <Sechead t="LOG" right={<Btn style={{ order: 3 }} onClick={() => setEntry({ xp: '', triggered: [], track: 'OBLIGATION', who: (members(c)[0] || {}).who || '' })}>NEW SESSION</Btn>} />
-        {entry ? <NewSession c={c} entry={entry} setEntry={setEntry} tick={tick} /> : null}
-        {logRows(c.log).map(e => <LogEntry key={e.id} e={e} c={c} s={s} props={props} tick={tick} />)}
-      </section>
+      <div>
+        {sess.length ? <Sessions c={c} sess={sess} lineOf={lineOf} props={props} tick={tick} /> : null}
+        <section data-camp-log="1">
+          <Sechead t="LOG" right={<Btn style={{ order: 3 }} onClick={() => setEntry({ xp: '', triggered: [], track: 'OBLIGATION', who: (members(c)[0] || {}).who || '' })}>NEW SESSION</Btn>} />
+          {entry ? <NewSession c={c} entry={entry} setEntry={setEntry} tick={tick} session={tableOpen(s, c.id) ? s.session : null} /> : null}
+          {logRows(c.log).filter(e => !(e.kind === 'session' && held[e.session])).map(lineOf)}
+        </section>
+      </div>
     );
     return (
       <Shell title="CAMPAIGNS" sub="TABLE" back="CAMPAIGNS" onBack={() => props.go({})} shellRef={props.shellRef} wipe={props.wipe}>
@@ -259,6 +280,34 @@
         {pick === 'cast' ? <CastAdd props={props} c={c} tick={tick} onClose={() => setPick(null)} /> : null}
         {pick === 'pc' ? <PcAdd props={props} c={c} tick={tick} onClose={() => setPick(null)} /> : null}
       </Shell>
+    );
+  }
+
+  // M5 · each night a row: its date, who came, OPEN or CLOSED, DELETE (asking once, B-1794's alert), its lines under it
+  function Sessions({ c, sess, lineOf, props, tick }) {
+    const [del, setDel] = useState(null), lines = {};
+    (c.log || []).forEach(e => { if (e.kind === 'session' && e.session) (lines[e.session] = lines[e.session] || []).push(e); });
+    const target = del && sess.filter(x => x.id === del)[0];
+    return (
+      <section data-t2-sessions="1">
+        <Sechead t="SESSIONS" />
+        {sess.slice().sort((a, b) => b.openedAt - a.openedAt).map(x => (
+          <div key={x.id} className="enc-row" data-camp-sess={x.id} style={{ flexWrap: 'wrap', alignItems: 'flex-start', padding: '10px 0' }}>
+            <span className="enc-rn" style={{ flex: '1 1 220px' }}>{dateOf(x.openedAt)}<small>{x.came.length ? x.came.map(y => y.label).join(' · ') : 'No one came'}</small></span>
+            <span className="enc-tag" style={{ alignSelf: 'center' }}>{x.closedAt != null ? 'CLOSED' : 'OPEN'}</span>
+            <Btn aria-label={'Delete the session of ' + dateOf(x.openedAt)} onClick={() => setDel(x.id)}>DELETE</Btn>
+            <div style={{ flexBasis: '100%', borderLeft: '2px solid var(--doc-rule,rgba(23,22,27,.28))', paddingLeft: 12, marginTop: 4 }}>
+              {(lines[x.id] || []).length ? lines[x.id].slice().reverse().map(lineOf)
+                : <div style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: MUTED, padding: '6px 0' }}>{x.closedAt != null ? 'No SESSION line' : 'No SESSION line yet'}</div>}
+            </div>
+          </div>
+        ))}
+        {target ? <Sheet shellRef={props.shellRef} title={'DELETE ' + dateOf(target.openedAt) + '?'} testid="camp-sess-del"
+          foot={[<Btn key="d" cls="hp-commit" onClick={() => { TS().deleteSession(c.id, target.id); setDel(null); tick(); }}>DELETE</Btn>,
+            <span key="f" style={{ flex: 1 }} />, <Btn key="c" onClick={() => setDel(null)}>CANCEL</Btn>]}>
+          <p className="enc-read" style={{ boxShadow: 'none', padding: 0 }}>{(lines[target.id] || []).length ? 'This session is deleted. Its SESSION line stays in LOG.' : 'This session is deleted.'}</p>
+        </Sheet> : null}
+      </section>
     );
   }
 
@@ -321,20 +370,22 @@
     });
     return out.reverse();
   }
+  // B-1884 (ruling `encounters-e6-walk` ADDENDUM 16, L-1): an item is named by the live member, then the device's record
+  // (pcOf, B-1851's one reader), then the name kept at + ADD (a departed member's memory), then the id
   function triggeredLine(e, c) {
     return (e.triggered || []).map(t => {
-      const m = members(c).filter(x => x.who === t.who)[0];
-      return String(t.track || '').toUpperCase() + ' · ' + (m ? memberName(m) : String(t.who || '').replace(/^(char|name):/, '')).toUpperCase();
+      const m = members(c).filter(x => x.who === t.who)[0], pc = !m && TS() ? TS().pcOf(t.who) : null;
+      const nm = m ? memberName(m) : (pc && pc.name) || (typeof t.name === 'string' && t.name.trim()) || String(t.who || '').replace(/^(char|name):/, '');
+      return String(t.track || '').toUpperCase() + ' · ' + nm.toUpperCase();
     }).join(' · ');
   }
   // a LOG entry: an encounter's END lines, or a SESSION line with G5's SEND XP
-  function LogEntry({ e, c, s, props, tick }) {
+  function LogEntry({ e, c, s, props, tick, closed }) {
     const Cs = C();
     const [xp, setXp] = useState(e.xp != null ? String(e.xp) : '');
     if (e.kind === 'session') {
       const sent = Cs.xpSentOf(Cs.load(), c.id, e.id), trig = triggeredLine(e, c);
-      const answers = sent && s.answers ? s.answers[sent.offerId] || {} : {};
-      const seats = s.role === 'gm' && s.campaignId === c.id ? Object.keys(s.seats || {}).filter(k => s.seats[k].who) : [];
+      const lines = sent && !closed && s.role === 'gm' && s.campaignId === c.id ? TS().xpLines(sent.offerId) : [];   // L-2 (B-1886); R-T2TM-1: a closed night's line alone
       const n = parseInt(xp, 10);
       return (
         <div className="enc-row" data-camp-session={e.id} style={{ flexWrap: 'wrap', alignItems: 'flex-start', padding: '10px 0' }}>
@@ -347,10 +398,9 @@
           {sent ? <span className="enc-tag" style={{ alignSelf: 'center' }}>{sent.amount + ' XP SENT'}</span>
             : <Btn cls="hp-commit" data-camp-sendxp="1" disabled={!(n >= 1 && n <= Cs.XP_MAX)}
                 onClick={() => { TS().sendXp(c.id, e.id, n); tick(); }}>SEND XP</Btn>}
-          {sent && seats.length ? (
+          {lines.length ? (
             <div style={{ flexBasis: '100%', display: 'grid', gap: 4, padding: '6px 0 0' }}>
-              {seats.map(k => {
-                const nm = (s.seats[k].summary && s.seats[k].summary.name) || s.seats[k].deviceLabel || '', a = answers[k];
+              {lines.map(({ k, name: nm, took: a }) => {
                 return <div key={k} style={{ fontFamily: 'var(--font-body)', fontSize: 15, color: a === true ? 'var(--doc-ink,#17161B)' : MUTED }}>
                   {a === true ? nm + ' added ' + sent.amount + ' XP' : nm + ' · ' + (a === false ? 'dismissed' : 'waiting')}</div>;
               })}
@@ -372,11 +422,12 @@
     );
   }
   // D3 · a new SESSION line, typed by the GM (D-540): date (today), XP, the triggers; LOG SESSION appends it
-  function NewSession({ c, entry, setEntry, tick }) {
+  function NewSession({ c, entry, setEntry, tick, session }) {
     const Cs = C(), ms = members(c);
     const up = patch => setEntry(Object.assign({}, entry, patch));
     const log = () => {
       const n = parseInt(entry.xp, 10), rec = { kind: 'session', triggered: entry.triggered };
+      if (TS().doorOn()) rec.session = session || null;   // T2 §3: the session it was written in
       if (n >= 1) rec.xp = n;
       Cs.apply(st => Cs.appendLog(st, c.id, rec));
       setEntry(null); tick();
@@ -398,6 +449,8 @@
           <select className="nl-sel" aria-label="Whose" value={entry.who} onChange={e => up({ who: e.target.value })}>
             {ms.map(m => <option key={m.who} value={m.who}>{memberName(m)}</option>)}</select>
           <Btn onClick={() => { if (!entry.who) return; const t = { track: entry.track.toLowerCase(), who: entry.who };
+            const pick = ms.filter(x => x.who === entry.who)[0], nm = pick ? keptName(pick) : '';   // L-1: the name as picked, if it has one
+            if (nm) t.name = nm;
             if (!entry.triggered.some(x => x.track === t.track && x.who === t.who)) up({ triggered: entry.triggered.concat([t]) }); }}>+ ADD</Btn>
         </div>
         <div style={{ flexBasis: '100%', display: 'flex', gap: 8 }}>
@@ -411,6 +464,7 @@
   function OpenTable({ props, s, c, onClose }) {
     const T = TS(), small = window.innerWidth < 600;
     const [, setClock] = useState(0);
+    const [ask, setAsk] = useState(null);   // M3: FORGET asks once, in its row
     const [noNet, setNoNet] = useState(false);
     const mine = s.role === 'gm' && s.campaignId === c.id;
     // D11 (D-543): another campaign's table is open — refused, naming it; nothing is sent and nothing is written
@@ -418,7 +472,7 @@
     // D10 (D-543): a closed table first asks the GM's name at the table, prefilled from swrpg_table_label; OPEN sends it
     const [nm, setNm] = useState(() => T.label());
     const closed = !mine || s.phase === 'idle' || s.phase === 'ended';
-    useEffect(() => { if (closed && !other && !online()) setNoNet(true); }, []);
+    useEffect(() => { if (closed && !other && !online() && !T.atOrigin()) setNoNet(true); }, []);   // the program's table needs no internet (§4.4)
     useEffect(() => { const t = setInterval(() => setClock(n => n + 1), 1000); return () => clearInterval(t); }, []);
     const kids = [];
     const codeBig = { fontFamily: 'var(--font-display,var(--font-mono))', fontSize: small ? 40 : 52, letterSpacing: '.12em', lineHeight: 1, color: 'var(--doc-ink,#17161B)' };
@@ -452,7 +506,9 @@
       const expired = typeof s.codeExpiresAt === 'number' && now() >= s.codeExpiresAt;
       if (lost) kids.push(<div key="l" className="enc-row" role="alert" data-camp-online="gmLost"><Dot on={false} />
         <span className="enc-rn" style={{ color: 'var(--doc-critical,#7F2A14)' }}>Lost the table</span><Btn cls="hp-commit" onClick={() => T.rejoin()}>RECONNECT</Btn></div>);
-      const qr = qrSvg(JOIN_URL + showCode(s.code));
+      // A4-C2/C7.3: the address is the session's (holocron.work's JOIN unless '@origin'); in the program '' draws §4.4's
+      // no-address box and null (the address unread) G4's empty box, and a QR comes with the line `Or open … on this Wi-Fi.`
+      const ju = T.joinUrl(showCode(s.code)), qr = ju && qrSvg(ju), box = { width: qrW, aspectRatio: '1', border: '1px dashed var(--doc-rule,rgba(23,22,27,.28))', flex: 'none' };
       kids.push(<div key="c" style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap', marginTop: lost ? 14 : 0 }}>
         <div>
           <div style={Object.assign({}, codeBig, expired ? { color: MUTED, textDecoration: 'line-through' } : {})} data-camp-code="1">{showCode(s.code)}</div>
@@ -461,25 +517,42 @@
             : expired ? <div style={{ padding: '12px 0 0' }}><Btn cls="hp-commit" onClick={() => T.newcode()}>OPEN AGAIN</Btn></div>
             : <p className="enc-tag" style={{ margin: '12px 0 0' }}>Code works for 15 min</p>}
         </div>
-        {expired ? null : <div aria-label="QR code for the join link" role="img" data-camp-qr="1"
-          style={{ width: qrW, flex: 'none', background: '#fff', border: '1px solid var(--doc-rule,rgba(23,22,27,.28))' }} dangerouslySetInnerHTML={{ __html: qr }} />}
+        {expired ? null : qr ? <div aria-label="QR code for the join link" role="img" data-camp-qr="1"
+          style={{ width: qrW, flex: 'none', background: '#fff', border: '1px solid var(--doc-rule,rgba(23,22,27,.28))' }} dangerouslySetInnerHTML={{ __html: qr }} />
+          : ju === '' ? <p data-camp-online="noAddr" style={Object.assign(box, { width: 220, aspectRatio: 'auto', minHeight: qrW, margin: 0, padding: '0 14px', display: 'flex', alignItems: 'center', fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.45, color: 'var(--doc-ink,#17161B)' })}>No Wi-Fi on this computer. Players can join once it's connected.</p>
+          : <div style={box} />}
       </div>);
+      if (qr && T.atOrigin()) kids.push(<p key="u" data-camp-online="lanLine" style={{ margin: '14px 0 0', fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--doc-ink,#17161B)' }}>
+        {'Or open '}<span style={{ fontFamily: 'var(--font-mono)' }}>{ju.replace(/^https?:\/\//, '').replace(/#.*$/, '')}</span>{' on this '}<span style={{ whiteSpace: 'nowrap' }}>Wi-Fi.</span></p>);
       kids.push(<div key="w" className="enc-row" style={{ marginTop: 14 }}><span className="enc-rn">ON THIS WI-FI</span>
         <button type="button" role="switch" aria-checked={s.listed ? 'true' : 'false'} aria-label="On this Wi-Fi" className="hp-quiet" style={{ minWidth: 64 }}
           onClick={() => T.setListed(!s.listed)}>
           <span aria-hidden="true" style={{ display: 'inline-block', width: 34, height: 18, borderRadius: 9, background: s.listed ? 'var(--doc-action,#7E1414)' : MUTED, position: 'relative', verticalAlign: 'middle' }}>
             <i style={Object.assign({ position: 'absolute', top: 2, width: 14, height: 14, borderRadius: '50%', background: 'var(--doc-paper-raised,#F2F1EC)' }, s.listed ? { right: 2 } : { left: 2 })} /></span>
         </button></div>);
-      if ((s.knocks || []).length) kids.push(<Sechead key="kh" t="KNOCKS" />, ...s.knocks.map(k => (
+      const knocks = (s.knocks || []).length ? [<Sechead key="kh" t="KNOCKS" />, ...s.knocks.map(k => (
         <div key={'k' + k.knockId} className="enc-row"><span className="enc-rn"><b>{k.deviceLabel}</b> wants to join</span>
-          <Btn cls="hp-commit" onClick={() => T.admit(k.knockId)}>LET IN</Btn><Btn onClick={() => T.refuse(k.knockId)}>NO</Btn></div>)));
-      if (atTable) kids.push(<Sechead key="ah" t="AT THE TABLE" />, ...seatIds.map(k => {
-        const st = s.seats[k], nm = st.summary && st.summary.name;
-        if (st.presence !== 'here' && !lost) return <div key={'s' + k} className="enc-row"><Dot on={false} /><span className="enc-rn" style={{ color: MUTED }}>{(nm || st.deviceLabel) + ' dropped'}</span></div>;
-        if (!st.who) return <div key={'s' + k} className="enc-row" data-camp-nochar="1"><Dot on={!lost} />   {/* R-E6J-1 */}
-          <span className="enc-rn">{st.deviceLabel}<span style={{ color: MUTED }}> · no character yet</span></span></div>;
-        return <div key={'s' + k} className="enc-row"><Dot on={!lost} /><span className="enc-rn">{nm || st.deviceLabel}</span></div>;
-      }));
+          <Btn cls="hp-commit" onClick={() => T.admit(k.knockId)}>LET IN</Btn><Btn onClick={() => T.refuse(k.knockId)}>NO</Btn></div>))] : [];
+      // M3 (T2): a remembered seat carries FORGET; one not seated tonight reads `not yet`
+      const mem = {}; T.remembered(c.id).forEach(x => { mem[x.knockId] = x.label; });
+      const notYet = Object.keys(mem).filter(k => !s.seats[k]);
+      const forget = (k, nm) => mem[k] != null ? <Btn aria-label={'Forget ' + nm} onClick={() => setAsk(k)}>FORGET</Btn> : null;
+      const row = (k, nm, inner) => <div key={'s' + k} className="enc-row" {...inner.attrs}>{inner.body}{forget(k, nm)}</div>;
+      // FORGET asks once, under the sheet's head, every row kept below it (as drawn; encounters-t2-build ADDENDUM 4)
+      const askName = ask && (s.seats[ask] ? ((s.seats[ask].summary && s.seats[ask].summary.name) || s.seats[ask].deviceLabel) : mem[ask]);
+      const askRow = ask && askName != null ? <div key="ask" className="enc-row" role="alertdialog" style={{ flexWrap: 'wrap' }}><span className="enc-rn" style={{ flex: '1 1 220px' }}>{'Forget ' + askName + '? They knock next time.'}</span>
+        <Btn cls="hp-commit" onClick={() => { T.forget(ask); setAsk(null); }}>FORGET</Btn><Btn onClick={() => setAsk(null)}>KEEP</Btn></div> : null;
+      const rows = atTable || notYet.length ? [<Sechead key="ah" t="AT THE TABLE" />, ...seatIds.map(k => {
+        const st = s.seats[k], nm = (st.summary && st.summary.name) || st.deviceLabel;
+        if (st.presence !== 'here' && !lost) return row(k, nm, { body: [<Dot key="d" on={false} />, <span key="n" className="enc-rn" style={{ color: MUTED }}>{nm + ' dropped'}</span>] });
+        if (!st.who) return row(k, st.deviceLabel, { attrs: { 'data-camp-nochar': '1' }, body: [<Dot key="d" on={!lost} />,   /* R-E6J-1 */
+          <span key="n" className="enc-rn">{st.deviceLabel}<span style={{ color: MUTED }}> · no character yet</span></span>] });
+        return row(k, nm, { body: [<Dot key="d" on={!lost} />, <span key="n" className="enc-rn">{nm}</span>] });
+      }), ...notYet.map(k => row(k, mem[k], { body: [<Dot key="d" on={false} />, <span key="n" className="enc-rn">{mem[k]}<span style={{ color: MUTED }}> · not yet</span></span>] }))] : [];
+      // D-T2M5 (b): a night with remembered players reads AT THE TABLE, KNOCKS, then FOR NEWCOMERS; a first-time open keeps G4's order
+      if (s.oneTap) { const head = kids.splice(lost ? 1 : 0); kids.push(...rows, ...knocks, <Sechead key="nh" t="FOR NEWCOMERS" />, ...head); }
+      else kids.push(...knocks, ...rows);
+      if (askRow) kids.unshift(askRow);
       if (expired && !atTable) foot = null;
     }
     return <Sheet shellRef={props.shellRef} title="OPEN TABLE" onClose={onClose} foot={foot} testid="camp-open">{kids}</Sheet>;
@@ -507,7 +580,8 @@
                     <span>{[c.table && c.table.gmLabel ? 'with ' + c.table.gmLabel : null, mine.join(' · ')].filter(Boolean).join(' · ')}</span>
                     {c.inbox.length ? <span className="enc-state" data-s="running">{'INBOX ' + c.inbox.length}</span> : null}</div>
                   <div className="nl-mstrip">{members(c).map(m => <Chip key={m.who} name={memberName(m)} />)}</div>
-                  <div className="nl-gacts"><Btn onClick={() => props.go({ id: c.id })}>OPEN</Btn></div>
+                  <div className="nl-gacts" style={TS().memOf(c.id) ? { display: 'flex', gap: 8 } : undefined}>{TS().memOf(c.id) ? <Btn cls="hp-commit" aria-label={'Join · ' + c.name} onClick={() => { TS().joinRemembered(c.id); props.go({ id: c.id }); }}>JOIN</Btn> : null}
+                    <Btn onClick={() => props.go({ id: c.id })}>OPEN</Btn></div>
                 </div>
               );
             })}
@@ -608,6 +682,19 @@
       foot={[<span key="f" style={{ flex: 1 }} />, <Btn key="d" cls="hp-commit" onClick={done}>DONE</Btn>]}>{kids}</Sheet>;
   }
 
+  // M4 (T2) · the player who tapped before the GM opened: waiting, the wait ended, turned away (D-T2M8: the live copy)
+  function Wait({ s, c }) {
+    const T = TS(), me = s.role === 'player' && s.campaignId === c.id;
+    if (!me || !s.oneTap) return null;
+    const gm = (T.memOf(c.id) || {}).gmLabel || (c.table && c.table.gmLabel) || 'the GM';
+    if (s.phase === 'waiting') return <div className="enc-row" role="status" data-camp-wait="waiting"><Dot on={false} /><span className="enc-rn">{'Waiting for ' + gm + ' to open the table'}</span></div>;
+    if (s.phase === 'waitEnded') return <div className="enc-row" role="status" data-camp-wait="ended"><Dot on={false} /><span className="enc-rn">{gm + " hasn't opened the table"}</span>
+      <Btn cls="hp-commit" onClick={() => T.joinRemembered(c.id)}>WAIT AGAIN</Btn></div>;
+    if (s.error === 'closed' && s.phase !== 'admitted') return <div className="enc-row" role="alert" data-camp-wait="closed"><Dot on={false} />
+      <span className="enc-rn" style={{ color: 'var(--doc-critical,#7F2A14)' }}>{ERR.closed}</span></div>;
+    return null;
+  }
+
   // P5 · one campaign
   function PlCampaign({ props, s, tick, c }) {
     const Cs = C(), T = TS();
@@ -629,6 +716,7 @@
         <div className="nl-board" style={{ display: 'block' }}>
           {head}
           <div style={{ maxWidth: 920 }}>
+            <Wait s={s} c={c} />
             {lost ? <div className="enc-row" role="alert"><Dot on={false} /><span className="enc-rn" style={{ color: 'var(--doc-critical,#7F2A14)' }}>Lost the table</span>
               <Btn cls="hp-commit" onClick={() => T.rejoin()}>JOIN AGAIN</Btn></div> : null}
             {away ? <div className="enc-row" role="status" data-camp-online="gmAway"><Dot on={false} /><span className="enc-rn">The GM dropped — waiting</span></div> : null}
@@ -669,5 +757,5 @@
     return c && c.role === 'player' ? <PlCampaign props={p} s={s} tick={tick} c={c} /> : <PlList props={p} tick={tick} />;
   }
 
-  window.SWRPGCampaignsView = { Campaigns: Campaigns, showCode: showCode, JOIN_URL: JOIN_URL, bookName: bookName, qrSvg: qrSvg };
+  window.SWRPGCampaignsView = { Campaigns: Campaigns, oneTap: oneTap, showCode: showCode, JOIN_URL: JOIN_URL, bookName: bookName, qrSvg: qrSvg };
 })();

@@ -66,12 +66,13 @@ let shells = 0;
 for (const shell of SHELLS) {
   const html = read(shell).replace(/<!--[\s\S]*?-->/g, '');
   shells++;
-  const loads = html.match(/<script\b[^>]*\bsrc="\/lib\/shared\/siteSettings\.js"[^>]*>/g) || [];
+  // B-1912 (ADDENDUM 761): the shells load both files' minified dist/ copies
+  const loads = html.match(/<script\b[^>]*\bsrc="\/dist\/lib\/shared\/siteSettings\.js"[^>]*>/g) || [];
   check(`${shell} loads siteSettings.js exactly once`, loads.length === 1, loads.length);
   const deferred = shell === 'player/index.html';
   check(`${shell} loads it ${deferred ? 'deferred' : 'undeferred'}, before analytics.js`,
     loads.length === 1 && !/\basync\b/.test(loads[0]) && /\bdefer\b/.test(loads[0]) === deferred
-      && html.indexOf(loads[0]) < html.indexOf('/lib/shared/analytics.js'));
+      && html.indexOf(loads[0]) < html.indexOf('/dist/lib/shared/analytics.js'));
 }
 check(`HARVEST: ${shells} shells measured (zero is a failed run)`, shells === SHELLS.length);
 

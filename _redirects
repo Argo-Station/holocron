@@ -95,6 +95,11 @@
 
 # — served static trees the apps load from (must return the REAL file, not the shell) —
 /lib/*          /lib/:splat     200
+# B-1912 (ruling release-r7-bug-burndown ADDENDUM 764, amending 761 item 2.2): build.mjs's minified copies of the raw lib/
+# scripts, which every shell and loader asks for. Without this line the root catch-all below answers each /dist/lib/ script
+# with the landing shell at 200 text/html (a 200 rewrite beats an existing file: babel-lap1's shape). serve.py ignores this
+# file, so only test/b1912_redirects_pass_dist.cjs and the release's push needle can see it.
+/dist/*         /dist/:splat    200
 /public/*       /public/:splat  200
 /art/*          /art/:splat     200
 # F-100 UD-1 (ruling f100-ud1-contracts H4): our own authored contract files — no FFG content, nothing

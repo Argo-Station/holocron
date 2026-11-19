@@ -4160,7 +4160,60 @@
   }
   if (typeof document !== 'undefined' && document.addEventListener) document.addEventListener('scroll', hpWashFollowsScroll, true);
 
+  // TableLine — T2's one-tap line on a landing door (ruling `encounters-t2-build` item 5; M1 the GM's CAMPAIGNS plate, M2
+  // the player's Campaigns tile, `Docs/mockups/campaigns-t2.html` @ 951d73494, its paint.js `overlay`). The door is a
+  // button and a button cannot hold one, so the line is a sibling control laid over the door's bottom: the door grows a
+  // bottom padding, and the line is portalled into the door grid's PARENT (the grid's own children, and the rules that
+  // count them, are untouched) at the door's measured place. Measured in a layout effect, so it draws at first paint.
+  // Copy `<verb> · <name>`; too narrow for one line (a phone, or a plate it overflows) → the verb and the name on two
+  // lines, the dot dropped (the aria label keeps it).
+  function TableLine(p) {
+    var st = React.useState(null), box = st[0], setBox = st[1], ref = React.useRef(null);
+    React.useLayoutEffect(function () {
+      function place() {
+        var door = document.querySelector(p.door), host = door && door.parentElement && door.parentElement.parentElement;
+        // a column drawn `display: contents` at a band (the player's ld-colR at 390) has no box to measure or place in
+        while (host && host.parentElement && getComputedStyle(host).display === 'contents') host = host.parentElement;
+        if (!door || !host) return;
+        if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+        setBox(function (b) { return b && b.host === host ? Object.assign({}, b, { tick: (b.tick || 0) + 1 }) : { host: host, door: door, tick: 0 }; });
+      }
+      place();
+      window.addEventListener('resize', place);
+      // The tiles settle after mount (the roll call's names, the fonts), moving the door without a window resize: the
+      // grid and the door are watched, so the line follows them (M2 at 390 sat on the STORE tile without this).
+      var door0 = document.querySelector(p.door), ro = door0 && window.ResizeObserver ? new ResizeObserver(place) : null;
+      if (ro) { ro.observe(door0); ro.observe(door0.parentElement); }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+      return function () { window.removeEventListener('resize', place); if (ro) ro.disconnect(); var d = document.querySelector(p.door); if (d) d.style.paddingBottom = ''; };
+    }, [p.door, p.name]);
+    React.useLayoutEffect(function () {
+      var line = ref.current; if (!line || !box) return;
+      var door = box.door, host = box.host, parts = line.children;
+      line.removeAttribute('data-two');
+      Object.assign(line.style, { display: '', flexDirection: '', alignItems: '', justifyContent: '', letterSpacing: '', fontSize: '', height: '', paddingTop: '', paddingBottom: '', maxWidth: '' });
+      parts[1].style.display = '';
+      if (window.innerWidth < 600 || line.getBoundingClientRect().width > door.getBoundingClientRect().width - 30) {
+        line.setAttribute('data-two', '1');
+        parts[1].style.display = 'none';
+        Object.assign(line.style, { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', letterSpacing: '.06em', fontSize: '14px', height: 'auto', paddingTop: '6px', paddingBottom: '6px' });
+      }
+      var lh = line.getBoundingClientRect().height;
+      door.style.paddingBottom = Math.round(lh + 26) + 'px';
+      var r = door.getBoundingClientRect(), hr = host.getBoundingClientRect();
+      line.style.left = Math.round(r.left - hr.left + 12) + 'px';
+      line.style.top = Math.round(r.bottom - hr.top - lh - 14) + 'px';
+      line.style.maxWidth = Math.round(r.width - 30) + 'px';
+    }, [box]);
+    var RD = window.ReactDOM;
+    if (!box || !RD || !RD.createPortal) return null;
+    return RD.createPortal(h('button', { type: 'button', className: 'hp-commit', ref: ref, 'aria-label': p.aria, 'data-table-line': p.verb, onClick: p.onTap,
+      style: { position: 'absolute', whiteSpace: 'nowrap', textAlign: 'left', lineHeight: '1.25', zIndex: 1 } },
+      h('span', null, p.verb), h('span', null, ' · '), h('span', null, p.name)), box.host);
+  }
+
   window.SWRPGUI = Object.assign(window.SWRPGUI || {}, {
+    TableLine: TableLine,   // T2 (encounters-t2-build item 5): the landings' one-tap line, both apps
     // ruling release-r6-companions-lifts Q2 (a): the why-sheet, for both hosts
     M7PaperSheet: M7PaperSheet, M7_LINE_STYLE: M7_LINE_STYLE, M7_META_STYLE: M7_META_STYLE,
     SheetWhyMark: SheetWhyMark, SheetWhyBody: SheetWhyBody, sheetWhyDir: sheetWhyDir, sheetWhyNet: sheetWhyNet,

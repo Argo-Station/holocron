@@ -7,7 +7,7 @@
  * Fonts only for now. Radii (4/6/8 head), touch floors (44px), and the semantic
  * accent palette are deliberately NOT defined yet — they get added in 1b when the
  * shared primitives actually consume them. Defining unused vars now is dead CSS.
- * The fallbacks match the shells' own @font-face / Google-Fonts declarations.
+ * The families are the faces lib/shared/fonts.css declares (self-hosted, B-1872).
  */
 :root {
   --font-display: 'Orbitron', sans-serif;        /* headings, display, numerics-as-label */

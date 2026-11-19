@@ -40,7 +40,7 @@ const MUTANTS = [
   ['no-keep', 'P1', "if (isObj(src)) Object.keys(src).forEach(function (k) { out[k] = own(known, k) ? known[k] : src[k]; });", ''],
   ['no-f54-hold', 'P2', 'if (_stale || (state && state.stale)) return null;', 'if (false) return null;'],
   ['missing-dropped', 'P3', "if (!rec) { out.push({ who: m.who, name: m.last || '', type: '', magnitude: 0, missing: true }); return; }", 'if (!rec) return;'],
-  ['group-rows-uncounted', 'P3', "rows(party.duty).forEach(function (r) { out.push({ who: 'group',", "[].forEach(function (r) { out.push({ who: 'group',"],
+  ['group-rows-uncounted', 'P3', "rows(party[f]).forEach(function (r) { out.push({ who: 'group',", "[].forEach(function (r) { out.push({ who: 'group',"],
   ['no-last-refresh', 'P4', 'if (!rec || !nm || m.last === nm) return m;', 'return m;'],
   ['sheet-not-zeroed', 'P5', 'if (isObj(undo.sheets[cid])) writeSheetDuty(R, cid, zeroDuty(undo.sheets[cid]));', ''],
   ['stub-not-zeroed', 'P5', "return m.who.indexOf('name:') === 0 ? Object.assign({}, m, { duty: zeroRows(m.duty) }) : m;", 'return m;'],

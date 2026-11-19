@@ -164,6 +164,19 @@ def main():
     check('9b eote corpus 226 -> {217} via to_printed',
           folios_for(226) == frozenset({pdf_pages.to_printed('eote', 226)}) == frozenset({217}), folios_for(226))
 
+    # (10) a MAPPED book (page runs, B-1850): the registry's runs decide, read through the converter; detection is
+    # not used even where it would name another relation
+    pm = stub_map({'booke': None})
+    pm._runs = {'booke': [{'from': 3, 'to': 20, 'printed_from': 1, 'step': 1},
+                          {'from': 25, 'to': 30, 'printed_from': 40, 'step': 2}]}
+    pages = [f'text\n{p - 5}\n' for p in range(1, 41)]
+    folios_for, info = book_folios('booke', pages, pagemap=pm)
+    check('10a mapped source is the registry runs', info['source'] == 'registry-runs', info['source'])
+    check('10b in a step-1 run: corpus 10 -> {8}', folios_for(10) == frozenset({8}), folios_for(10))
+    check('10c outside every run: nothing stripped (not the detected 17)', folios_for(22) == frozenset(),
+          folios_for(22))
+    check('10d in a step-2 run: corpus 26 -> {42, 43}', folios_for(26) == frozenset({42, 43}), folios_for(26))
+
     passed = sum(1 for _, ok in RESULTS if ok)
     print(f'folio_strip: {passed}/{len(RESULTS)} checks pass (min pages {FOLIO_MIN_PAGES}, lead {FOLIO_MIN_LEAD})')
     print(f'HARVEST: {len(RESULTS)} checks run' + (' — ZERO IS A FAILED RUN' if not RESULTS else ''))

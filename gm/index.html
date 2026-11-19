@@ -19,10 +19,10 @@
        and 404. See Docs/PLAN_URL_ROUTING.md. -->
   <base href="/" />
   <script>var COMMERCIAL_MODE = false;</script><!-- R-S4PP-4 (ruling `shipyard-s4-ship-pool-path`): the player's flag (player/index.html), mirrored — the species portraits this app's Yard shows (R-S4CO-7, lib/shared/portraits.js) read it at call time; test/commercial_mode_parity.cjs pins the two literals equal. Inline, so the boot pays no request for it (R-S4PP-8). -->
-  <script src="/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the room client (R-AAC-19) -->
-  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <script src="/dist/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the room client (R-AAC-19) -->
+  <script defer src="/dist/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
   <title>Star Wars RPG — GM Holocron</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/fonts.css" rel="stylesheet" />
   <link href="/lib/shared/tokens.css" rel="stylesheet" />
   <link href="/lib/shared/corpus.css" rel="stylesheet" /><!-- Corpus & Instrument visual language (DESIGN_IDENTITY) -->
   <link href="/lib/shared/yard.css" rel="stylesheet" /><!-- SHIP YARD S4 (m1): the Yard's own paper layer, fenced to its room root `.yd` (the S4 Yard, the only Yard since the S5 flip) -->
@@ -63,66 +63,67 @@
       box-shadow: none;
     }
   </style>
-  <script src="lib/items.js"></script>
+  <script src="dist/lib/items.js"></script>
 
 
   <!-- ── NPC domain (extracted to lib/, shared with index.html) ── -->
-  <script src="lib/npc/createEmptyNpc.js"></script>
-  <script src="lib/npc/NpcGeneratorController.js"></script>
+  <script src="dist/lib/npc/createEmptyNpc.js"></script>
+  <script src="/dist/lib/shared/lore.js"></script><!-- window.SWRPGLore: the one planet/faction loader; before the NPC controller and app.js -->
+  <script src="dist/lib/npc/NpcGeneratorController.js"></script>
 
   <!-- ── Vehicle library (sharded from oggdude_merged.json by build_vehicle_library.py) ── -->
-  <script src="lib/vehicles/VehicleLibraryController.js"></script>
+  <script src="dist/lib/vehicles/VehicleLibraryController.js"></script>
 
   <!-- ── Universe Map: Leaflet (vendored 1.9.4 — no CDN runtime dep) + pure-logic helpers + GalaxyMapView ── -->
   <link rel="stylesheet" href="public/vendor/leaflet/leaflet.min.css" />
   <script src="public/vendor/leaflet/leaflet.min.js"></script>
-  <script src="lib/gm/gridRef.js"></script>
-  <script src="lib/gm/mapPins.js"></script><!-- F-5: window.GmMapPins (swrpg_map_pins store + THE planet-id identity fn); before GalaxyMapView + app.js, which both read it -->
-  <script src="lib/shared/itemResolve.js"></script>
-  <script src="lib/shared/textHash.js"></script><!-- R-SPF-4: window.SWRPGTextHash — the ONE span hash (the editor, packValidate, charResolve's species reader); before charResolve [mirrors player/index.html] -->
-  <script src="lib/shared/companions.js"></script><!-- release-r6-companions: window.SWRPGCompanions — a character's companions: the normalizer, the young/mount transforms, droidOf and profileOf (droidOf lives here, not in craftStore, which this host does not load: ruling release-r6-companions-c0 rider 2); needs textHash.js at call time [mirrors player/index.html] -->
-  <script src="lib/shared/charResolve.js"></script>
-  <script src="lib/gm/pathfinding.js"></script>
-  <script src="lib/gm/travelTime.js"></script>
-  <script src="lib/gm/GalaxyMapView.js"></script>
+  <script src="dist/lib/gm/gridRef.js"></script>
+  <script src="dist/lib/gm/mapPins.js"></script><!-- F-5: window.GmMapPins (swrpg_map_pins store + THE planet-id identity fn); before GalaxyMapView + app.js, which both read it -->
+  <script src="dist/lib/shared/itemResolve.js"></script>
+  <script src="dist/lib/shared/textHash.js"></script><!-- R-SPF-4: window.SWRPGTextHash — the ONE span hash (the editor, packValidate, charResolve's species reader); before charResolve [mirrors player/index.html] -->
+  <script src="dist/lib/shared/companions.js"></script><!-- release-r6-companions: window.SWRPGCompanions — a character's companions: the normalizer, the young/mount transforms, droidOf and profileOf (droidOf lives here, not in craftStore, which this host does not load: ruling release-r6-companions-c0 rider 2); needs textHash.js at call time [mirrors player/index.html] -->
+  <script src="dist/lib/shared/charResolve.js"></script>
+  <script src="dist/lib/gm/pathfinding.js"></script>
+  <script src="dist/lib/gm/travelTime.js"></script>
+  <script src="dist/lib/gm/GalaxyMapView.js"></script>
   <!-- ── Hyperspace Run mini-game (rules engine + content; UI overlay below) ── -->
-  <script src="lib/game/hyperspaceRun/data.js"></script>
-  <script src="lib/game/hyperspaceRun/rules.js"></script>
-  <script src="lib/shared/diceEngine.js"></script>
-  <script src="lib/shared/qualityRows.js"></script><!-- B-1296 (ruling f100-surfacing-hub-concept R-SHC-12, ADDENDUM 7): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows (spend, target, mode), so the GM's Yard core and NPC bench pool as the player shell does; pure, no deps [mirrors player/index.html; guard test/b1296_shell_cores.cjs] -->
-  <script src="lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
+  <script src="dist/lib/game/hyperspaceRun/data.js"></script>
+  <script src="dist/lib/game/hyperspaceRun/rules.js"></script>
+  <script src="dist/lib/shared/diceEngine.js"></script>
+  <script src="dist/lib/shared/qualityRows.js"></script><!-- B-1296 (ruling f100-surfacing-hub-concept R-SHC-12, ADDENDUM 7): window.SWRPGQualityRows — the ONE reader of a weapon's quality rows (spend, target, mode), so the GM's Yard core and NPC bench pool as the player shell does; pure, no deps [mirrors player/index.html; guard test/b1296_shell_cores.cjs] -->
+  <script src="dist/lib/shared/sources.js"></script><!-- BOOKS-1b: window.SWRPGSources (active-sources filter; pure + fetch, no deps) -->
   <!-- A5's three files (ruleTextStore, ruleTextLoad, ruleTextPanel) are not tagged here: SWRPGSources.ready() runs them only in a copy whose book text is removed, before it resolves (B-1874; guard test/b1874_dark_scripts.cjs) [mirrors player/index.html] -->
-  <script src="lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps). F-100 UD-1f: loaded for the user-pack fold; the GAME VARIANTS card is withheld GM-face by `variants: false` (ruling f100-ud1-gm-variants-card) [mirrors player/index.html] -->
-  <script src="lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
-  <script src="lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
-  <script src="lib/shared/userData.js"></script><!-- F-100 UD-1e: window.SWRPGUserData (the user-pack store, IndexedDB swrpg_user_packs; needs baseRef, packValidate, mods, versionGuard at call time) -->
-  <script src="lib/shared/effectClass.js"></script><!-- F-100 D (R-FIEC-1): window.SWRPGEffectClass — the one chip rule the editor's shelves and forms read (pure; no deps) [mirrors player/index.html] -->
-  <script src="lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
-  <script src="lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
-  <script src="/lib/shared/scrollCue.js"></script><!-- R-PN3-4: window.SWRPGScrollCue — THE scroll cue's one driver (data-more / data-more-above); the NPC bench's zones watch through it; before the NPC module and /gm/app.js; no deps [mirrors player/index.html] -->
-  <script src="/lib/shared/versionGuard.js"></script><!-- F-54 sentinel, one implementation (C-B-6): window.SWRPGVersionGuard; no deps, must precede any versioned store -->
-  <script src="/lib/shared/recordPortrait.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRecordPortrait — the roster write's B-931 fold reads it; no deps [mirrors player/index.html] -->
-  <script src="/lib/shared/roster.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRoster — the saved-character roster, the player's own write (writeEquipment for LOAD FROM/UNLOAD); reads versionGuard, charResolve, recordPortrait at call time [mirrors player/index.html] -->
-  <script src="/lib/shared/baseDerive.js"></script><!-- R6 lane D (release-r6-bases-registry): window.SWRPGBaseDerive — S4's derived base numbers, pure; charResolve's group read calls it [mirrors player/index.html] -->
-  <script src="/lib/shared/partyStore.js"></script><!-- R6 lane A (R-R4S-4/5): window.SWRPGParty — the group record swrpg_party_v1, its one writer, both apps; reads versionGuard and roster at call time [mirrors player/index.html] -->
-  <script src="/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
-  <script src="/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
-  <script src="/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
-  <script src="/lib/shared/heldStore.js"></script><!-- B-1732: window.SWRPGHeldStore (a surface reads its store at the act; a landing redraws) -->
-  <script src="/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
-  <script src="/lib/shared/backup.js"></script><!-- RELEASE R3 (D-258): the whole-save backup (window.SWRPGBackup), after syncMerge.js, which it reads. -->
+  <script src="dist/lib/shared/mods.js"></script><!-- F-9: window.SWRPGMods (reSpecialized overlay resolver; pure applyOverlay + fetch, no deps). F-100 UD-1f: loaded for the user-pack fold; the GAME VARIANTS card is withheld GM-face by `variants: false` (ruling f100-ud1-gm-variants-card) [mirrors player/index.html] -->
+  <script src="dist/lib/shared/baseRef.js"></script><!-- F-100 UD-1a: window.SWRPGBaseRef (the sha256:p1 drift fingerprint + a pack's content version; pure, sync) -->
+  <script src="dist/lib/shared/packValidate.js"></script><!-- F-100 UD-1c: window.SWRPGPackValidate (the pack-boundary rail over the SAME /schema/* files) -->
+  <script src="dist/lib/shared/userData.js"></script><!-- F-100 UD-1e: window.SWRPGUserData (the user-pack store, IndexedDB swrpg_user_packs; needs baseRef, packValidate, mods, versionGuard at call time) -->
+  <script src="dist/lib/shared/effectClass.js"></script><!-- F-100 D (R-FIEC-1): window.SWRPGEffectClass — the one chip rule the editor's shelves and forms read (pure; no deps) [mirrors player/index.html] -->
+  <script src="dist/lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
+  <script src="dist/lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
+  <script src="/dist/lib/shared/scrollCue.js"></script><!-- R-PN3-4: window.SWRPGScrollCue — THE scroll cue's one driver (data-more / data-more-above); the NPC bench's zones watch through it; before the NPC module and /gm/app.js; no deps [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/versionGuard.js"></script><!-- F-54 sentinel, one implementation (C-B-6): window.SWRPGVersionGuard; no deps, must precede any versioned store -->
+  <script src="/dist/lib/shared/recordPortrait.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRecordPortrait — the roster write's B-931 fold reads it; no deps [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/roster.js"></script><!-- SHIP CARGO Part B (R-SCGS-1/-4): window.SWRPGRoster — the saved-character roster, the player's own write (writeEquipment for LOAD FROM/UNLOAD); reads versionGuard, charResolve, recordPortrait at call time [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/baseDerive.js"></script><!-- R6 lane D (release-r6-bases-registry): window.SWRPGBaseDerive — S4's derived base numbers, pure; charResolve's group read calls it [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/partyStore.js"></script><!-- R6 lane A (R-R4S-4/5): window.SWRPGParty — the group record swrpg_party_v1, its one writer, both apps; reads versionGuard and roster at call time [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
+  <script src="/dist/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
+  <script src="/dist/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
+  <script src="/dist/lib/shared/heldStore.js"></script><!-- B-1732: window.SWRPGHeldStore (a surface reads its store at the act; a landing redraws) -->
+  <script src="/dist/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
+  <script src="/dist/lib/shared/backup.js"></script><!-- RELEASE R3 (D-258): the whole-save backup (window.SWRPGBackup), after syncMerge.js, which it reads. -->
   <!-- HOLOTABLE Stage B wiring — the substrate, dark behind SWRPGHolotable.enabled === false.
        Order note: roomFeed and roomClient resolve their dependencies AT CALL TIME, not at load,
        so they are order-tolerant by construction; they sit after diceEngine anyway so the file
        order reads the way the dependency graph does. NONE of these is bundled — lib/shared/*.js
        ships RAW (PRAXIS §4), so each needs its own tag. -->
-  <script src="/lib/shared/roomState.js"></script><!-- HOLOTABLE: window.SWRPGRoomState (schema v1, the eight-type fence, joinDecision, the two event constructors); no deps -->
-  <script src="/lib/shared/holotable.js"></script><!-- HOLOTABLE: window.SWRPGHolotable + SWRPGHolotableEnabled (the OFF flag, reconnect policy, event ids, the room code — R-WRC-1); no deps -->
-  <script src="/lib/shared/roomFeed.js"></script><!-- HOLOTABLE: window.SWRPGRoomFeed (the ONE feed projection; reaches roomState + diceEngine lazily) -->
-  <script src="/lib/shared/roomClient.js"></script><!-- HOLOTABLE: window.SWRPGRoomClient (the socket, R-WRC-2's host; reaches its deps lazily) -->
+  <script src="/dist/lib/shared/roomState.js"></script><!-- HOLOTABLE: window.SWRPGRoomState (schema v1, the eight-type fence, joinDecision, the two event constructors); no deps -->
+  <script src="/dist/lib/shared/holotable.js"></script><!-- HOLOTABLE: window.SWRPGHolotable + SWRPGHolotableEnabled (the OFF flag, reconnect policy, event ids, the room code — R-WRC-1); no deps -->
+  <script src="/dist/lib/shared/roomFeed.js"></script><!-- HOLOTABLE: window.SWRPGRoomFeed (the ONE feed projection; reaches roomState + diceEngine lazily) -->
+  <script src="/dist/lib/shared/roomClient.js"></script><!-- HOLOTABLE: window.SWRPGRoomClient (the socket, R-WRC-2's host; reaches its deps lazily) -->
   <script src="/vendor.js"></script>
   <script src="/lib/shared/treeView.js"></script><!-- F-100 M5 C7: window.SWRPGTree — the ONE talent/Force tree; after vendor.js (React), before /lib/editor/view.js [mirrors player/index.html] -->
-  <script src="/lib/shared/talentView.js"></script><!-- F-100 M5 C4 (A3-1/A3-2): window.SWRPGTalentView — the sheet's stamp view, at BOOT (not with the Yard's lazy core); after userData.js and versionGuard.js; gm/app.js registers it at its module top [mirrors player/index.html] -->
+  <script src="/dist/lib/shared/talentView.js"></script><!-- F-100 M5 C4 (A3-1/A3-2): window.SWRPGTalentView — the sheet's stamp view, at BOOT (not with the Yard's lazy core); after userData.js and versionGuard.js; gm/app.js registers it at its module top [mirrors player/index.html] -->
   <script src="/lib/shared/diceHub.js"></script><!-- ENCOUNTERS (D-507, encounters-e3-screens ADDENDUM 15): window.SWRPGDiceHub — the dice window, lifted from player/app.jsx; after /vendor.js (React, SWRPGUI) and talentView.js. Its sheet-less `given` window needs nothing more; its sheet paths bind lib/shared/sheetPool.js when the Yard's character core brings it (ensureYardCharCore). Nothing on this page mounts it yet [the player loads it with its 'sheet' part, PLAYER_PARTS; guard test/b1296_shell_cores.cjs] -->
   <script src="/lib/shared/desktopLayout.js"></script><!-- F-46 D3: window.SWRPGDesktop (layout primitives + useLayoutMode; needs React) -->
   <script src="/lib/shared/holotableView.js"></script><!-- HOLOTABLE Stage B: window.SWRPGHolotableView (the five approved components); needs React -->
@@ -130,33 +131,34 @@
   <script src="/lib/shared/roomSession.js"></script><!-- HOLOTABLE Stage B: window.SWRPGRoomSession (the ONE React binding for roomClient); needs React + roomClient -->
   <!-- STORE-UNIFY: the ONE shared store kernel, mounted GM-face (retired lib/shopGenerator.js).
        AFTER /vendor.js — view.js captures React.createElement at load. [mirrors player/index.html] -->
-  <script src="/lib/shared/itemRegistries.js"></script><!-- F-100 UD-1f: window.SWRPGItemRegistries (THE ONE items loader the store below reads; before userArt/view) -->
-  <script src="/lib/editor/switch.js"></script><!-- F-100 C2 (R-FIEC-5): window.SWRPGEditor — the one switch both apps read + the route grammar [mirrors player/index.html] -->
-  <script src="/lib/store/glyphs.js"></script><!-- THE item glyph library (window.SWRPGGlyphs); before rarity/view -->
-  <script src="/lib/store/rarity.js"></script><!-- shared RAW find-difficulty (Table 5-1/5-2) -->
-  <script defer src="/lib/shared/picture.js"></script><!-- B-1258 (ruled A, ADDENDUM 248): window.SWRPGPicture.check, the one image check the store's pickers call (it also arrives with the Yard core) -->
-  <script src="/lib/store/userArt.js"></script><!-- BYOA (GM inherits it; degrades to glyphs) -->
-  <script src="/lib/store/shelfStore.js"></script><!-- THE SHELVES + the planet/lane location resolver -->
+  <script src="/dist/lib/shared/itemRegistries.js"></script><!-- F-100 UD-1f: window.SWRPGItemRegistries (THE ONE items loader the store below reads; before userArt/view) -->
+  <script src="/dist/lib/editor/switch.js"></script><!-- F-100 C2 (R-FIEC-5): window.SWRPGEditor — the one switch both apps read + the route grammar [mirrors player/index.html] -->
+  <script src="/dist/lib/store/glyphs.js"></script><!-- THE item glyph library (window.SWRPGGlyphs); before rarity/view -->
+  <script src="/dist/lib/store/rarity.js"></script><!-- shared RAW find-difficulty (Table 5-1/5-2) -->
+  <script defer src="/dist/lib/shared/picture.js"></script><!-- B-1258 (ruled A, ADDENDUM 248): window.SWRPGPicture.check, the one image check the store's pickers call (it also arrives with the Yard core) -->
+  <script src="/dist/lib/store/userArt.js"></script><!-- BYOA (GM inherits it; degrades to glyphs) -->
+  <script src="/dist/lib/store/shelfStore.js"></script><!-- THE SHELVES + the planet/lane location resolver -->
+  <script src="/dist/lib/shared/holdsStore.js"></script><!-- R-BSBP-6: window.SWRPGHolds, the wish list's one writer (v2, synced; v1 mirrored); before the Store -->
   <script src="/lib/store/view.js"></script><!-- window.SWRPGStore.Store (face='gm') -->
   <script src="/lib/editor/view.js"></script><!-- F-100 C2: window.SWRPGEditorView (the editor, GM face = the paper frames, R-FISF-2) -->
-  <script src="/lib/shared/shipSchematic.js"></script><!-- SHIPYARD Y1: window.SWRPGShipSchematic (arcs+shields diagram) -->
-  <script src="/lib/shared/corpusUI.js"></script><!-- Corpus & Instrument primitives (window.SWRPGCorpus) -->
-  <script src="/lib/shared/vesselStore.js"></script><!-- SHIPYARD Y2: window.SWRPGVessels (vessel records) -->
-  <script src="/lib/shared/vesselResolve.js"></script><!-- SHIP YARD S3: window.SWRPGVesselResolve (the one resolver) -->
+  <script src="/dist/lib/shared/shipSchematic.js"></script><!-- SHIPYARD Y1: window.SWRPGShipSchematic (arcs+shields diagram) -->
+  <script src="/dist/lib/shared/corpusUI.js"></script><!-- Corpus & Instrument primitives (window.SWRPGCorpus) -->
+  <script src="/dist/lib/shared/vesselStore.js"></script><!-- SHIPYARD Y2: window.SWRPGVessels (vessel records) -->
+  <script src="/dist/lib/shared/vesselResolve.js"></script><!-- SHIP YARD S3: window.SWRPGVesselResolve (the one resolver) -->
   <script src="/lib/shared/vesselView.js"></script><!-- SHIPYARD Y2: window.SWRPGVesselView (the Yard's faces and parts); after /vendor.js (needs React) -->
   <script src="/lib/shared/yardView.js"></script><!-- SHIPYARD R-Y2-2: window.SWRPGYard (the shared browse, MATRIX's; its entry was deleted at the S5 flip); after corpus/schematic/vesselView -->
   <script src="/lib/game/hyperspaceRun/ui.js"></script>
   <!-- NPC bench persistence core (window.NpcBenchStore). Before view.js, which reads it at module top. -->
-  <script src="/lib/library/npc/benchStore.js"></script>
-  <!-- ENCOUNTERS E3 lap B (ruling encounters-e3-screens R-E3S-1; brief encounters-e3-screens-roll-path Q2): the door's switch and the
-       encounter's life (lap A's pure ops). Inert while the switch is off; the pool paths and the dice surface are injected on
-       first use (gm/app.jsx ensureEncounterCore, the Yard's idiom), so the boot pays nothing for them. -->
-  <script src="/lib/library/npc/encountersDoor.js"></script>
-  <script src="/lib/library/npc/encounterLife.js"></script>
-  <script src="/lib/library/npc/castStore.js"></script>
-  <script src="/lib/library/npc/dispositionStore.js"></script><!-- B-863 · R-NPC-3: window.NpcDispositionStore — swrpg_npc_disposition, one word per NPC; before view.js, which reads it at module top (needs versionGuard.js, above) -->
-  <script src="/lib/library/npc/npcRoute.js"></script><!-- B-863 · R-NPC-4: window.NpcRoute — the library's URL grammar (pure); before view.js -->
-  <script src="/lib/library/npc/refData.js"></script><!-- ruling release-r6-companions-lifts Q1 (a): window.SWRPGNpcRefData — the library's reference data, one memoized loader for both hosts; before view.js, which calls it [mirrors player/index.html] -->
+  <script src="/dist/lib/library/npc/benchStore.js"></script>
+  <!-- ENCOUNTERS E3 lap B (ruling encounters-e3-screens R-E3S-1; brief encounters-e3-screens-roll-path Q2): the encounter's
+       life (lap A's pure ops). The pool paths and the dice surface are injected on first use (gm/app.jsx
+       ensureEncounterCore, the Yard's idiom), so the boot pays nothing for them. The door's switch was deleted
+       (encounters-e3-deletion). -->
+  <script src="/dist/lib/library/npc/encounterLife.js"></script>
+  <script src="/dist/lib/library/npc/castStore.js"></script>
+  <script src="/dist/lib/library/npc/dispositionStore.js"></script><!-- B-863 · R-NPC-3: window.NpcDispositionStore — swrpg_npc_disposition, one word per NPC; before view.js, which reads it at module top (needs versionGuard.js, above) -->
+  <script src="/dist/lib/library/npc/npcRoute.js"></script><!-- B-863 · R-NPC-4: window.NpcRoute — the library's URL grammar (pure); before view.js -->
+  <script src="/dist/lib/library/npc/refData.js"></script><!-- ruling release-r6-companions-lifts Q1 (a): window.SWRPGNpcRefData — the library's reference data, one memoized loader for both hosts; before view.js, which calls it [mirrors player/index.html] -->
   <!-- NPC library section module (window.SWRPGLibrary.NPC). After /vendor.js (needs React +
        window.SWRPGUI); before /gm/app.js (which destructures it). [NPC exemplar Step 0] -->
   <script src="/lib/library/npc/view.js"></script>
@@ -165,8 +167,9 @@
        B-1851; inert on load, F11): with swrpg_campaigns_door on, /gm/app.js runs the campaign record, the table wire's client,
        qrcode-generator (/public/vendor/qrcode-generator/qrcode.js, the OPEN TABLE sheet's QR) and the CAMPAIGNS screens
        through SWRPGCampaignsDoor.load({ qr: true }) before its first render; off, they are never fetched. -->
-  <script src="/lib/shared/campaignsDoor.js"></script>
-  <script src="/lib/shared/tableSession.js"></script>
+  <script src="/dist/lib/shared/campaignsDoor.js"></script>
+  <script src="/dist/lib/shared/groupSummary.js"></script><!-- T4 lap A: window.SWRPGGroupSummary — the group summary record carries, GM only; reads partyStore, baseDerive, vesselStore at call time -->
+  <script src="/dist/lib/shared/tableSession.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

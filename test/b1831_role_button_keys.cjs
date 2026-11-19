@@ -9,6 +9,11 @@
 //
 // A SOURCE GUARD plus the helper run in a vm. The rendered truth (the board card opens the statblock overlay by Enter and by
 // Space) is the gate's keyboard leg. RED AT THE CUT `2ac26f9df` by exit code.
+//
+// RULING-MOVED (encounters-e3-deletion, `encounters-e3-flip-gate` ADDENDUM 13 E): BenchBoardCard — the old library board's
+// card — was deleted with the ENCOUNTERS door's switch, and its one site with it (28 → 27). KEEPS the census, its bite, the
+// law (no bare site), EncCard's two cards by name, and cardPressKeys run. DROPS BenchBoardCard's by-name pair, and the
+// census floor reads 27.
 'use strict';
 const path = require('path');
 const fs = require('fs');
@@ -22,7 +27,7 @@ function check(label, ok, detail) {
 
 // ── 1. the census reaches what it claims (a zero harvest is a failed run) ──
 const sites = census();
-check('the census reads at least the 28 role="button" sites it found at the cut', sites.length >= 28, sites.length);
+check('the census reads at least the 27 role="button" sites left after BenchBoardCard\'s deletion (28 at the cut)', sites.length >= 27, sites.length);
 check('every site resolved to an element (no unparsed span)', sites.every(x => x.kind !== '?'), sites.filter(x => x.kind === '?').map(x => x.file + ':' + x.line));
 
 // ── 2. the census bites: a planted bare site and a planted one-key site read bare; a keyed one and a comment do not ──
@@ -41,7 +46,7 @@ check('the census reads a planted Enter-and-Space site as keyed, and skips a com
 const bare = sites.filter(x => !x.keys);
 check('no product role="button" lacks its own Enter and Space handling', bare.length === 0, bare.map(x => x.file + ':' + x.line + ' .' + (x.cls || x.tag)));
 
-// ── 4. the bench's statblock card (F7) by name: BenchBoardCard, and EncCard's two cards ──
+// ── 4. the encounter board's statblock cards (F7) by name: EncCard's two cards (BenchBoardCard deleted, see above) ──
 const npcPath = 'lib/library/npc/view.jsx';
 const npc = fs.readFileSync(path.join(ROOT, npcPath), 'utf8');
 function fnBody(name) {
@@ -53,7 +58,7 @@ function fnBody(name) {
   return null;
 }
 const lineOf = (i) => npc.slice(0, i).split('\n').length;
-for (const [name, want] of [['BenchBoardCard', 1], ['EncCard', 2]]) {
+for (const [name, want] of [['EncCard', 2]]) {
   const b = fnBody(name);
   const inside = b ? sites.filter(x => x.file === npcPath && x.line >= lineOf(b.at) && x.line <= lineOf(b.end)) : [];
   check(name + (name === 'EncCard' ? ' (the encounter board\'s PC and NPC cards)' : ' (the bench\'s statblock card, F7)') + ' draws ' + want + ' role="button" card(s), each with Enter and Space',

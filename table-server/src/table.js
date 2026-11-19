@@ -1,6 +1,7 @@
 /**
  * table.js — the Table Durable Object: ONE per open table (ruling `encounters-e6-wire-online` R-E6W-2), the relay between
- * the GM's socket and each admitted player's. It RELAYS AND NEVER STORES GAME CONTENT (§5, D-524 b4): a `play` or
+ * the GM's socket and each admitted player's. It RELAYS AND NEVER STORES GAME CONTENT (§5, D-524 b4; D-621: the devices keep
+ * the remembered table, and this object still forgets it with the session): a `play` or
  * `signal` frame is in memory only while it is forwarded, and its payload is never parsed (only `msg.type`, for the
  * relay rules).
  *
@@ -14,6 +15,16 @@
  * HIBERNATION (R-E6W-3): sockets are accepted with `ctx.acceptWebSocket()`; handlers are webSocketMessage/Close/Error;
  * pings are answered by `setWebSocketAutoResponse` without waking the object (H1). The room server's pattern.
  * THE ALARM is the earlier of "30 min with no socket attached" and "24 h after the last frame" (rules.mjs `wipeAt`).
+ *
+ * T2, THE REMEMBERED TABLE (`encounters-t2-shapes` §2 + ADDENDUM 2; D-621). A campaign's table is the object named
+ * 't2:' + ref (index.js). Its `open` carries the secret (checked against the route's ref: only its holder opens it) and
+ * the seats the GM's device remembers, which are SEEDED into `meta.seats` and go with `meta` as before (§2.7). A live
+ * `meta` is TAKEN OVER by the verified secret (a new gmKey; other GM sockets hung up; seats merged by knockId). After each
+ * LET IN the GM hears `seated` with the seat's hash, so its device can re-seed it but never take it. `forget` deletes a
+ * seat and closes its socket. A player's `rejoin {wait: true}` on no `meta` WAITS: the key's hash rides the socket's
+ * attachment only, nothing is stored, at most MAX_SEATS wait; the GM's seeding `open` seats each seeded one and closes
+ * the rest. Without `wait`, no `meta` is `closed`, as before T2 (ADDENDUM 2). Hashes are stored hex, as before; the
+ * wire spells them in 43-char b64url (rules.mjs hexToB64url / b64urlToHex).
  */
 import { DurableObject } from 'cloudflare:workers';
 import * as R from './rules.mjs';
@@ -41,12 +52,26 @@ export class Table extends DurableObject {
     const mode = request.headers.get('x-table-mode');
     const group = request.headers.get('x-table-group') || null;
     const urlCode = request.headers.get('x-table-code') || null, urlTable = request.headers.get('x-table-id') || null;
+    const ref = request.headers.get('x-table-ref') || null;             // T2 §2.1: set only on a ?open=<ref> route
     const [client, server] = Object.values(new WebSocketPair());
     this.ctx.acceptWebSocket(server);
-    server.serializeAttachment({ role: 'pending', mode, group, urlCode, urlTable });
+    server.serializeAttachment({ role: 'pending', mode, group, urlCode, urlTable, ref });
     const meta = await this.#meta();                            // a guessed id holds none, and nothing below writes (P8.1.4)
     if (meta && meta.emptySince != null) { meta.emptySince = null; await this.#save(meta); }
+    // A4-C12: the program's config binds PRESENCE (holocron.capnp); online none is bound and this line does nothing
+    if (this.env.PRESENCE) await this.env.PRESENCE.get(this.env.PRESENCE.idFromName('program')).register(this.ctx.id.toString());
     return new Response(null, { status: 101, webSocket: client });
+  }
+
+  // A4-C12 (RPC, the Presence object only): this table's open sockets, and those a close would cut off (player, knock,
+  // waiting). Read from the sockets and their attachments, which survive hibernation, so it is exact after a wake.
+  presenceCount() {
+    let live = 0, players = 0;
+    for (const s of this.ctx.getWebSockets()) {
+      live++;
+      if (['player', 'knock', 'waiting'].indexOf((s.deserializeAttachment() || {}).role) !== -1) players++;
+    }
+    return { live, players };
   }
 
   async webSocketMessage(ws, raw) {
@@ -59,6 +84,7 @@ export class Table extends DurableObject {
     const f = read.frame, who = ws.deserializeAttachment() || { role: 'pending' };
     const meta = await this.#meta();
     if (who.role === 'pending') return this.#first(ws, who, f, meta, now);
+    if (who.role === 'waiting') return;                                // T2: nothing but waiting until the GM's open
     if (!meta) { send(ws, { t: 'error', code: 'closed' }); return this.#hangUp(ws); }
     if (who.role === 'knock') return send(ws, { t: 'error', code: 'bad_frame' });   // nothing but waiting until LET IN
     if (who.role === 'gm') return this.#fromGm(ws, f, meta, now);
@@ -69,14 +95,19 @@ export class Table extends DurableObject {
   // ── the first frame on a socket: it must AGREE with the route (ADDENDUM 2, P8.1.2), or bad_frame and close ──
   async #first(ws, who, f, meta, now) {
     if (who.mode === 'open' && f.t === 'open') {
-      if (meta) { send(ws, { t: 'error', code: 'bad_frame' }); return this.#hangUp(ws); }
+      // T2 §2.2: on a ref route the secret is required and must hash to the ref; on ?open=1 it is refused
+      const okSecret = who.ref ? f.secret != null && R.b64url(await digest(f.secret)) === who.ref : f.secret == null;
+      if (!okSecret || (meta && !who.ref)) { send(ws, { t: 'error', code: 'bad_frame' }); return this.#hangUp(ws); }
+      if (meta) return this.#takeOver(ws, who, f, meta, now);
       const gmKey = R.b64url(rand(32));
       const m = { tableId: this.ctx.id.toString(), label: f.label, listed: f.listed, group: who.group, code: null, codeExpiresAt: null,
         gmKeyHash: await sha256(gmKey), seats: {}, lastFrameAt: now, emptySince: null };
+      seed(m, f.seats);
       if (!(await this.#issueCode(m, now))) return send(ws, { t: 'error', code: 'full' });
       await this.#save(m);
       ws.serializeAttachment({ role: 'gm', group: who.group });
-      return send(ws, { t: 'opened', code: m.code, codeExpiresAt: m.codeExpiresAt, gmKey, tableId: m.tableId });
+      send(ws, { t: 'opened', code: m.code, codeExpiresAt: m.codeExpiresAt, gmKey, tableId: m.tableId });
+      return this.#seatWaiting(m, ws);
     }
     const joinHere = f.t === 'join' && ((who.mode === 'code' && f.code != null && R.normalizeCode(f.code) === who.urlCode && f.tableId == null)
       || (who.mode === 'table' && f.tableId === who.urlTable && f.code == null));
@@ -100,21 +131,21 @@ export class Table extends DurableObject {
   }
 
   async #rejoin(ws, who, f, meta, now) {
+    // T2 (ADDENDUM 2): a player's `wait: true` on no meta waits for the GM's open; the hash rides the attachment only
+    if (!meta && f.wait === true && f.seatKey) {
+      if (this.#live(ws).filter((s) => (s.deserializeAttachment() || {}).role === 'waiting').length >= R.MAX_SEATS) {
+        send(ws, { t: 'error', code: 'full' }); return this.#hangUp(ws);
+      }
+      ws.serializeAttachment({ role: 'waiting', seatKeyHash: await sha256(f.seatKey), group: who.group });
+      return send(ws, { t: 'table', state: 'waiting' });
+    }
     if (!meta || f.tableId !== meta.tableId) { send(ws, { t: 'error', code: 'closed' }); return this.#hangUp(ws); }
     if (f.gmKey && (await sha256(f.gmKey)) === meta.gmKeyHash) {
-      for (const s of this.ctx.getWebSockets()) if (s !== ws && (s.deserializeAttachment() || {}).role === 'gm') this.#hangUp(s);
       ws.serializeAttachment({ role: 'gm', group: who.group });
       // W-1 (`encounters-e6-wire-online` ADDENDUM 9): the GM REJOIN's `opened` names the seats still held, ids only, so a
       // seat that left while the GM was away reads as left on its device; `open` and `newcode` carry no `seats`
       send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, tableId: meta.tableId, seats: Object.keys(meta.seats || {}).slice(0, R.MAX_SEATS) });
-      const live = new Set();
-      for (const s of this.ctx.getWebSockets()) {
-        const a = s.deserializeAttachment() || {};
-        if (a.role === 'player') { live.add(a.knockId); send(ws, { t: 'peer', knockId: a.knockId, state: 'here' }); send(s, { t: 'table', state: 'here' }); }
-        if (a.role === 'knock') send(ws, { t: 'knock', knockId: a.knockId, deviceLabel: a.deviceLabel });
-      }
-      // an admitted seat with no live socket is DROPPED, so a reloaded GM page still draws its dot (ADDENDUM 3 F2, R-E6P-R6)
-      for (const knockId of Object.keys(meta.seats || {})) if (!live.has(knockId)) send(ws, { t: 'peer', knockId, state: 'dropped' });
+      this.#replay(ws, meta);
       return this.#touch(meta, now);
     }
     if (f.seatKey) {
@@ -136,6 +167,43 @@ export class Table extends DurableObject {
     return this.#hangUp(ws);
   }
 
+  // a GM socket that just took the table (a rejoin, or a T2 takeover): every other GM socket goes, and it hears every seat
+  #replay(ws, meta) {
+    for (const s of this.ctx.getWebSockets()) if (s !== ws && (s.deserializeAttachment() || {}).role === 'gm') this.#hangUp(s);
+    const live = new Set();
+    for (const s of this.ctx.getWebSockets()) {
+      const a = s.deserializeAttachment() || {};
+      if (a.role === 'player') { live.add(a.knockId); send(ws, { t: 'peer', knockId: a.knockId, state: 'here' }); send(s, { t: 'table', state: 'here' }); }
+      if (a.role === 'knock') send(ws, { t: 'knock', knockId: a.knockId, deviceLabel: a.deviceLabel });
+    }
+    // an admitted seat with no live socket is DROPPED, so a reloaded GM page still draws its dot (ADDENDUM 3 F2, R-E6P-R6)
+    for (const knockId of Object.keys(meta.seats || {})) if (!live.has(knockId)) send(ws, { t: 'peer', knockId, state: 'dropped' });
+  }
+  // T2 §2.2: a verified secret on a live meta (the GM back in a new browser session within the table's life)
+  async #takeOver(ws, who, f, meta, now) {
+    const gmKey = R.b64url(rand(32));
+    meta.gmKeyHash = await sha256(gmKey);
+    seed(meta, f.seats);
+    meta.lastFrameAt = now;
+    meta.emptySince = null;
+    await this.#save(meta);
+    ws.serializeAttachment({ role: 'gm', group: who.group });
+    send(ws, { t: 'opened', code: meta.code, codeExpiresAt: meta.codeExpiresAt, gmKey, tableId: meta.tableId, seats: Object.keys(meta.seats).slice(0, R.MAX_SEATS) });
+    this.#replay(ws, meta);
+  }
+  // T2 §2.4: the seeding open seats each waiting socket whose hash is seeded; every other waiting socket is closed
+  #seatWaiting(meta, gm) {
+    for (const s of this.ctx.getWebSockets()) {
+      const a = s.deserializeAttachment() || {};
+      if (a.role !== 'waiting') continue;
+      const knockId = Object.keys(meta.seats).find((k) => meta.seats[k].seatKeyHash === a.seatKeyHash);
+      if (!knockId || this.#player(knockId)) { send(s, { t: 'error', code: 'closed' }); this.#hangUp(s); continue; }
+      s.serializeAttachment({ role: 'player', knockId, deviceLabel: meta.seats[knockId].deviceLabel, group: a.group });
+      send(s, { t: 'table', state: 'here' });
+      send(gm, { t: 'peer', knockId, state: 'here' });
+    }
+  }
+
   async #fromGm(ws, f, meta, now) {
     if (f.t === 'admit' || f.t === 'refuse') {
       const knock = this.#knock(f.knockId);
@@ -149,7 +217,15 @@ export class Table extends DurableObject {
       meta.lastFrameAt = now;
       await this.#save(meta);
       send(knock, { t: 'admitted', seatKey, tableId: meta.tableId });   // tableId: the rejoin's handle (flagged, P8.5)
-      return send(ws, { t: 'peer', knockId: a.knockId, state: 'here' });
+      send(ws, { t: 'peer', knockId: a.knockId, state: 'here' });
+      // T2 §2.3: the seat's hash, so the GM's device can remember (re-seed) the seat; never the key
+      return send(ws, { t: 'seated', knockId: a.knockId, deviceLabel: a.deviceLabel, seatKeyHash: R.hexToB64url(meta.seats[a.knockId].seatKeyHash) });
+    }
+    if (f.t === 'forget') {                                          // T2 §2.5: the seat and its key go; its socket closes
+      if (meta.seats[f.knockId]) { delete meta.seats[f.knockId]; meta.lastFrameAt = now; await this.#save(meta); }
+      const p = this.#player(f.knockId);
+      if (p) { send(p, { t: 'error', code: 'closed' }); p.serializeAttachment(Object.assign({}, p.deserializeAttachment(), { role: 'gone' })); this.#hangUp(p); }
+      return;
     }
     if (f.t === 'newcode') {
       await this.#dropCode(meta);
@@ -295,3 +371,11 @@ function signalOut(f, knockId) {
   return out;
 }
 function utf8(f) { return R.utf8Length(JSON.stringify(f)); }
+async function digest(s) { return new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))); }
+// T2 §2.2: remembered seats into meta.seats, merged by knockId (a held seat stays as held), ≤ MAX_SEATS
+function seed(meta, seats) {
+  (seats || []).forEach((x) => {
+    if (meta.seats[x.knockId] || Object.keys(meta.seats).length >= R.MAX_SEATS) return;
+    meta.seats[x.knockId] = { deviceLabel: x.deviceLabel, seatKeyHash: R.b64urlToHex(x.seatKeyHash) };
+  });
+}

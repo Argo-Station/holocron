@@ -8,8 +8,13 @@
  *   L  the door's loader, run in a vm as the page runs it: door OFF, load() resolves false and makes no <script>; door ON,
  *      it runs the three files in the shells' old order (the GM's { qr: true } puts qrcode.js before campaignsView.js),
  *      once, and resolves true; a file that fails resolves false (never rejects);
- *   B  each app asks the door before its first render: player/app.jsx's boot and gm/app.jsx's mount call load() only
- *      under on(), and otherwise mount as before;
+ *   B  each app asks the door: gm/app.jsx's mount calls load() before its first render under on(); player/app.jsx's boot
+ *      calls it before mount only on a cold campaigns/join screen and otherwise mounts at once (encounters-e6-walk
+ *      ADDENDUM 27, the player's order after the flip);
+ *   RE-POINTED by the E6 flip (encounters-e6-walk ADDENDUM 26 CONTRACT 1, 3): the door's OFF is the '0' escape and no key
+ *   reads ON. KEEPS every L claim (OFF: false, no <script>; ON: the files in order, once; the GM's QR order; a failing file
+ *   resolves false) with OFF planted '0' and the player's ON unplanted; ADDS no key → ON and a storage error → ON; DROPS
+ *   the player's old "boot after load() under on()" line for ADDENDUM 27's cold-route line.
  *   A  SWRPGSources.ready(), run in a vm: with BOOK_CONTENT 'included' it makes no <script>; with 'removed' it runs the
  *      three A5 files in order before it resolves, then awaits the store's ready(); the player's rule-text row runs the same
  *      loader (SWRPGSources.ruleTextFiles, once a page) before it opens the panel.
@@ -31,12 +36,13 @@ const tags = (html) => [...html.replace(/<!--[\s\S]*?-->/g, '').matchAll(/<scrip
 
 console.log('[S] the shells tag none of the seven]');
 for (const shell of ['player/index.html', 'gm/index.html']) {
-  const t = tags(read(shell)), hit = DARK.filter((f) => t.some((x) => x.src === f));
+  // B-1912 (ADDENDUM 761): a raw file loads as its dist/ copy, so a tag of EITHER form is a first-paint load of the file
+  const t = tags(read(shell)), hit = DARK.filter((f) => t.some((x) => x.src === f || x.src === 'dist/' + f));
   check(shell + ' tags none of the seven', hit.length === 0, hit.join(', '));
 }
 
 console.log('[E] the switch and the table session stay eager (ADDENDUM 722)]');
-for (const shell of ['player/index.html', 'gm/index.html']) for (const f of ['lib/shared/campaignsDoor.js', 'lib/shared/tableSession.js']) {
+for (const shell of ['player/index.html', 'gm/index.html']) for (const f of ['dist/lib/shared/campaignsDoor.js', 'dist/lib/shared/tableSession.js']) {   // B-1912: their dist/ copies
   const d = tags(read(shell)).filter((x) => x.src === f);
   check(shell + ' tags ' + path.basename(f) + ' once, not async', d.length === 1 && !/\basync\b/.test(d[0].attrs), JSON.stringify(d));
 }
@@ -57,23 +63,41 @@ function runIn(win, file) { vm.runInNewContext(read(file), Object.assign(win, { 
 (async () => {
   console.log('[L] the door\'s loader]');
   const doorFile = 'lib/shared/campaignsDoor.js';
-  const E6 = ['/lib/shared/campaignStore.js', '/lib/shared/tableLink.js', '/lib/shared/campaignsView.js'];
+  const E6 = ['/dist/lib/shared/campaignStore.js', '/dist/lib/shared/tableLink.js', '/lib/shared/campaignsView.js'];
   const QR = '/public/vendor/qrcode-generator/qrcode.js';
   {
-    const p = page({}); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
+    const p = page({ swrpg_campaigns_door: '0' }); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
     const ok = !!(D && typeof D.load === 'function');
     check('the door exposes load()', ok);
     if (ok) {
       const r = await D.load({ qr: true });
-      check('door OFF: load() resolves false and makes no <script>', r === false && p.made.length === 0, JSON.stringify({ r, made: p.made }));
+      check("door OFF ('0', the escape): load() resolves false and makes no <script>", r === false && p.made.length === 0, JSON.stringify({ r, made: p.made }));
     }
   }
   {
-    const p = page({ swrpg_campaigns_door: '1' }); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
+    const p = page({}); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
+    check('since the flip: no key reads ON', !!(D && D.on() === true));
+    const q = page({}); q.win.localStorage = { getItem: () => { throw new Error('denied'); } }; runIn(q.win, doorFile);
+    check('since the flip: a storage error reads ON', !!(q.win.SWRPGCampaignsDoor && q.win.SWRPGCampaignsDoor.on() === true));
+  }
+  {
+    const p = page({}); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
     if (D && D.load) {
       const r = await D.load(); const again = await D.load();
-      check('door ON (player): the three files, in order, once; resolves true', r === true && again === true && JSON.stringify(p.made) === JSON.stringify(E6), JSON.stringify(p.made));
+      check('door ON by default (player, no key): the three files, in order, once; resolves true', r === true && again === true && JSON.stringify(p.made) === JSON.stringify(E6), JSON.stringify(p.made));
     } else check('door ON (player): load() exists', false);
+  }
+  {
+    // ADDENDUM 29: loadFirst() runs FIRST (the store) alone; a later load() injects only what has not run, once each
+    const p = page({}); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
+    if (D && D.loadFirst) {
+      const f = await D.loadFirst(), mid = p.made.slice(), r = await D.load();
+      check('loadFirst(): the store alone (FIRST), then load() adds the other two, each file once',
+        f === true && JSON.stringify(D.FIRST) === JSON.stringify(E6.slice(0, 1)) && JSON.stringify(mid) === JSON.stringify(E6.slice(0, 1)) &&
+        r === true && JSON.stringify(p.made) === JSON.stringify(E6), JSON.stringify({ f, mid, made: p.made }));
+      const q = page({ swrpg_campaigns_door: '0' }); runIn(q.win, doorFile);
+      check("loadFirst() with the door OFF ('0'): false and no <script>", (await q.win.SWRPGCampaignsDoor.loadFirst()) === false && q.made.length === 0);
+    } else check('the door exposes loadFirst()', false);
   }
   {
     const p = page({ swrpg_campaigns_door: '1' }); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
@@ -83,7 +107,7 @@ function runIn(win, file) { vm.runInNewContext(read(file), Object.assign(win, { 
     } else check('door ON (GM): load() exists', false);
   }
   {
-    const p = page({ swrpg_campaigns_door: '1' }, '/lib/shared/tableLink.js'); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
+    const p = page({ swrpg_campaigns_door: '1' }, '/dist/lib/shared/tableLink.js'); runIn(p.win, doorFile); const D = p.win.SWRPGCampaignsDoor;
     if (D && D.load) {
       let r; try { r = await D.load(); } catch (e) { r = 'rejected'; }
       check('a file that fails: load() resolves false (never rejects) and stops there', r === false && p.made.length === 2, JSON.stringify({ r, made: p.made }));
@@ -92,8 +116,10 @@ function runIn(win, file) { vm.runInNewContext(read(file), Object.assign(win, { 
 
   console.log('[B] each app asks the door before its first render]');
   const pl = read('player/app.jsx'), gm = read('gm/app.jsx');
-  check('player/app.jsx: the boot runs after SWRPGCampaignsDoor.load() under on(), else at once',
-    /if \(window\.SWRPGCampaignsDoor && window\.SWRPGCampaignsDoor\.on\(\)\) window\.SWRPGCampaignsDoor\.load\(\)\.then\(playerBoot\); else playerBoot\(\);/.test(pl));
+  check("player/app.jsx: door on, the boot waits on load() on a cold campaigns/join screen and on loadFirst() (the store) otherwise (ADDENDUMS 27, 29)",
+    /^if \(playerCampaignsDoor\(\)\) \(playerBootScreen\(\) === 'campaigns' \? playerCampaignsLoad\(\) : playerCampaignsLoadFirst\(\)\)\.then\(playerBoot\); else playerBoot\(\);$/m.test(pl));
+  check('player/app.jsx: playerCampaignsLoad() is the door\'s own load() (no second loader)',
+    /function playerCampaignsLoad\(\) \{[\s\S]{0,200}window\.SWRPGCampaignsDoor\.load\(\)/.test(pl));
   check('gm/app.jsx: the mount runs after SWRPGCampaignsDoor.load({ qr: true }) under on(), else at once',
     /if \(D && D\.on\(\)\) D\.load\(\{ qr: true \}\)\.then\(boot\); else boot\(\);/.test(gm));
   const mountCalls = (s, re) => (s.match(re) || []).length;
@@ -108,7 +134,7 @@ function runIn(win, file) { vm.runInNewContext(read(file), Object.assign(win, { 
     let storeReadyAsked = false;
     const origAppend = p.win.document.head.appendChild;
     p.win.document.head.appendChild = (el) => {
-      if (el.src === '/lib/shared/ruleTextStore.js') p.win.SWRPGRuleTextStore = { ready: () => { storeReadyAsked = true; return Promise.resolve(null); }, get: () => null };
+      if (el.src === '/dist/lib/shared/ruleTextStore.js') p.win.SWRPGRuleTextStore = { ready: () => { storeReadyAsked = true; return Promise.resolve(null); }, get: () => null };
       origAppend(el);
     };
     runIn(p.win, 'lib/shared/sources.js');
@@ -120,7 +146,7 @@ function runIn(win, file) { vm.runInNewContext(read(file), Object.assign(win, { 
   const inc = await sourcesRun('included');
   check("BOOK_CONTENT 'included' (holocron.work): ready() makes no <script>", inc.made.length === 0, JSON.stringify(inc.made));
   const rem = await sourcesRun('removed');
-  const A5 = ['/lib/shared/ruleTextStore.js', '/lib/shared/ruleTextLoad.js', '/lib/shared/ruleTextPanel.js'];
+  const A5 = ['/dist/lib/shared/ruleTextStore.js', '/dist/lib/shared/ruleTextLoad.js', '/dist/lib/shared/ruleTextPanel.js'];
   check("BOOK_CONTENT 'removed': ready() runs the three A5 files in order, then the store's ready(), before it resolves",
     JSON.stringify(rem.made) === JSON.stringify(A5) && rem.storeReadyAsked, JSON.stringify(rem));
   check('SWRPGSources.ruleTextFiles() (the player row) runs the files once a page: a second ask makes no <script>', rem.again === 0, JSON.stringify(rem));

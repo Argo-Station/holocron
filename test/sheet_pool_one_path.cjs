@@ -82,7 +82,8 @@ check(B >= 0 && blockLine <= firstCode + 1, 'the bindings open player/app.jsx, b
 
 // the player shell's load order
 const ph = SRC['player/index.html'];
-const tagAt = (html, file) => { const m = new RegExp('<script([^>]*)src="/?lib/shared/' + file + '"').exec(html); return m ? { at: m.index, defer: /\bdefer\b/.test(m[1]) } : null; };
+// B-1912 (ADDENDUM 761): the three raw files load as their minified dist/ copies
+const tagAt = (html, file) => { const m = new RegExp('<script([^>]*)src="/?dist/lib/shared/' + file + '"').exec(html); return m ? { at: m.index, defer: /\bdefer\b/.test(m[1]) } : null; };
 const inlineAt = ph.search(/<script>\s*$/m);
 const fj = tagAt(ph, 'fetchJson.js'), pt = tagAt(ph, 'portraits.js'), sp = tagAt(ph, 'sheetPool.js');
 const appAt = ph.indexOf('src="/player/app.js"');

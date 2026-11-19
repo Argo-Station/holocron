@@ -20,8 +20,8 @@
        relocation (2026-05-06): without this, <script src="lib/..."> would
        resolve to /dice/lib/... and 404. See Docs/PLAN_URL_ROUTING.md. -->
   <base href="/" />
-  <script src="/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
-  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <script src="/dist/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
+  <script defer src="/dist/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
 
   <!-- Open Graph + Twitter card meta lands in commit 10 alongside the
        static OG image. Stub here so the page is shareable from day one. -->
@@ -29,7 +29,7 @@
   <meta property="og:description" content="Roll once. See what changes. A free demo of FFG / Edge Studio narrative dice." />
   <meta property="og:type" content="website" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/fonts.css" rel="stylesheet" />
   <link href="/lib/shared/tokens.css" rel="stylesheet" />
   <link href="/lib/shared/diceRoll.css" rel="stylesheet" />
 
@@ -37,20 +37,20 @@
   <!-- Shared dice infrastructure (engine + UI primitives). Same files
        loaded by player.html and gm.html — no /dice-specific changes
        to either, the surface just consumes window.SWRPGDice. -->
-  <script src="lib/shared/diceEngine.js"></script>
-  <script src="lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
-  <script src="lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
-  <script src="/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
-  <script src="/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
-  <script src="/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
-  <script src="/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
-  <script src="lib/shared/textHash.js"></script><!-- R-AE-6 (argo-a1-export ADDENDUM 3): window.SWRPGTextHash — bookContent(), the one reader of BOOK_CONTENT; reads siteSettings at call time -->
-  <script src="lib/shared/sources.js"></script><!-- R-AE-6: window.SWRPGSources — S1's one book + printed page formatter (B-1809); the vocabulary below -->
+  <script src="dist/lib/shared/diceEngine.js"></script>
+  <script src="dist/lib/shared/bands.js"></script><!-- audit B: window.SWRPGBands — THE width ladder (bands, seams, proof widths); layout.js reads its seam from here -->
+  <script src="dist/lib/shared/layout.js"></script><!-- F-46: window.SWRPGLayout (desktop/mobile mode; stamps data-layout early, no deps) -->
+  <script src="/dist/lib/shared/account.js"></script><!-- F-34: window.SWRPGAccount (session state, login/logout, cross-tab broadcast; pure + fetch, no deps) -->
+  <script src="/dist/lib/shared/recency.js"></script><!-- F-34 Phase B: window.SWRPGRecency (the refuse-to-guess comparison; no deps) -->
+  <script src="/dist/lib/shared/syncMerge.js"></script><!-- F-34 Phase B: window.SWRPGSyncMerge (adoption merge; needs recency) -->
+  <script src="/dist/lib/shared/sync.js"></script><!-- F-34 Phase B: window.SWRPGSync (pull/push seam; needs syncMerge + account) -->
+  <script src="dist/lib/shared/textHash.js"></script><!-- R-AE-6 (argo-a1-export ADDENDUM 3): window.SWRPGTextHash — bookContent(), the one reader of BOOK_CONTENT; reads siteSettings at call time -->
+  <script src="dist/lib/shared/sources.js"></script><!-- R-AE-6: window.SWRPGSources — S1's one book + printed page formatter (B-1809); the vocabulary below -->
   <script>window.SWRPGSources.ready();</script><!-- R-AE-6: fetch books.vocab.json once, so sourceLabel resolves titles in the Results Reference -->
   <script src="/vendor.js"></script>
 
   <!-- Dice-surface-specific modules. -->
-  <script src="lib/dice/scenarios.js"></script>
+  <script src="dist/lib/dice/scenarios.js"></script>
   <script src="/lib/dice/diceSurface.js"></script>
 
   <style>

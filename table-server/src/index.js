@@ -4,6 +4,8 @@
  * THE UPGRADE URL ROUTES; THE FIRST FRAME ASKS. A Worker hands an upgrade to ONE Durable Object at upgrade time, so
  * `/t` carries exactly one of:
  *   ?open=1        → a new Table (newUniqueId), after the group's 20-opens-an-hour count   — first frame `open`
+ *   ?open=<ref>    → T2 (`encounters-t2-shapes` §2.1): the campaign's one table, idFromName('t2:' + ref), after the same
+ *                    count — first frame `open` with the secret whose b64url(SHA-256) is <ref> (the Table checks it)
  *   ?code=<code>   → the table the Code object points at, after the group's slow_down check — first frame `join {code}`
  *   ?table=<id>    → that Table, after the slow_down check                                  — `join {tableId}` or `rejoin`
  *   ?list=1        → the group's Listing object                                             — `list`, then it closes
@@ -18,8 +20,9 @@ import * as R from './rules.mjs';
 import { Table } from './table.js';
 import { Listing } from './listing.js';
 import { Code } from './code.js';
+import { Presence } from './presence.js';
 
-export { Table, Listing, Code };
+export { Table, Listing, Code, Presence };
 
 const json = (body, status) => Response.json(body, { status: status || 200, headers: { 'cache-control': 'no-store' } });
 
@@ -45,6 +48,11 @@ export default {
     try {
       const url = new URL(request.url);
       if (url.pathname === '/health') return json({ ok: true, service: R.SERVICE, schema: R.SCHEMA });
+      // A4-C12: S4's count, only where the program's config binds PRESENCE (its router never forwards this path, so it is
+      // read on the internal socket alone); unbound, as online, it is today's not_found
+      if (url.pathname === '/program/presence' && env.PRESENCE && request.method === 'GET') {
+        return json({ v: 1, players: await env.PRESENCE.get(env.PRESENCE.idFromName('program')).count() });
+      }
       if (url.pathname !== '/t') return json({ ok: false, error: 'not_found' }, 404);
       if (request.headers.get('Upgrade') !== 'websocket') return json({ ok: false, error: 'expected_websocket' }, 426);
 
@@ -56,9 +64,11 @@ export default {
 
       if (route === 'list') return value === '1' ? forward(listing, request, {}) : refuse('bad_frame');
       if (route === 'open') {
-        if (value !== '1') return refuse('bad_frame');
+        const ref = R.REF_RE.test(value) ? value : null;
+        if (value !== '1' && !ref) return refuse('bad_frame');
         if (!(await ask(listing, '/may-open')).ok) return refuse('slow_down');                     // before newUniqueId (P8.3)
-        return forward(env.TABLE.get(env.TABLE.newUniqueId()), request, { 'x-table-mode': 'open', 'x-table-group': group });
+        const id = ref ? env.TABLE.idFromName('t2:' + ref) : env.TABLE.newUniqueId();
+        return forward(env.TABLE.get(id), request, { 'x-table-mode': 'open', 'x-table-ref': ref, 'x-table-group': group });
       }
       // ?code= and ?table=: slow_down FIRST, then the lookup; a miss is counted before its no_table goes out (P8.3)
       if (!(await ask(listing, '/may-join')).ok) return refuse('slow_down');

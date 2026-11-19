@@ -120,7 +120,8 @@ check('MERGE it is NOT a list key — a flat id→entry map has no per-item iden
   // `release-r6-backend-card` §3 names this pin). KEEPS "the pins key is derived"; the total moves with the twelfth key.
   // Re-pointed 12 → 13 by ruling `encounters-e6-plumbing` ADDENDUM 1, C2 (the campaign record, `swrpg_campaigns`). KEEPS "the pins key is derived";
   // DROPS nothing; the total moves with the thirteenth key.
-  check('DERIVED the client now syncs exactly THIRTEEN keys (the tenth, pins; the eleventh, K5; the twelfth, the group record; the thirteenth, campaigns)', s.syncedKeys().length === 13, s.syncedKeys());
+  // Re-pointed 13 → 14 with the fourteenth ruled key, the wish list (R-BSBP-7); KEEPS "derived from the merge module".
+  check('DERIVED the client now syncs exactly FOURTEEN keys (the tenth, pins; the eleventh, K5; the twelfth, the group record; the thirteenth, campaigns; the fourteenth, the wish list)', s.syncedKeys().length === 14, s.syncedKeys());
 }
 
 // ── 3/4 the conflict copy ────────────────────────────────────────────────────
@@ -309,7 +310,7 @@ console.log('\n— registration point 4/4: the SERVER allow-list (worker — dep
     !!SET && SET.has(KEY), SET && Array.from(SET));
   // Re-pointed 11 → 12 by R-R4S-5 item 3 (the group record; card `release-r6-backend-card` §3). KEEPS the pins key's membership.
   // Re-pointed 12 → 13 by ruling `encounters-e6-plumbing` ADDENDUM 1, C2 (the campaign record). KEEPS the pins key's and the group record's membership.
-  check('SERVER SYNC_KEYS is now exactly thirteen keys (re-pointed on E6 C2, the campaign record)', !!SET && SET.size === 13 && SET.has('swrpg_party_v1') && SET.has('swrpg_campaigns'), SET && Array.from(SET));
+  check('SERVER SYNC_KEYS is now exactly fourteen keys (re-pointed on R-BSBP-7, the wish list)', !!SET && SET.size === 14 && SET.has('swrpg_party_v1') && SET.has('swrpg_campaigns') && SET.has('swrpg_store_holds_v2'), SET && Array.from(SET));
   // RE-POINTED by card `f100-ms-build` R-MSB-5: the server admits the eleven SYNC_KEYS PLUS the three homebrew families
   // (R-HSC-1/-4/-11), by pattern beside the Set. KEEPS "eleven in the Set" above and "the pins key is in it"; DROPS
   // nothing. The families' predicate is evaluated and interrogated, like the Set (R-Q2B-1), not matched by spelling.
@@ -327,7 +328,8 @@ console.log('\n— registration point 4/4: the SERVER allow-list (worker — dep
   check('SERVER a near-miss of a family, and a fixed key, are NOT admitted by the pattern', !!isPack && !no.some(isPack), no.filter((k) => isPack && isPack(k)));
   // Re-pointed 11 → 12 with the twelfth ruled key (R-R4S-5); KEEPS "the pack lane adds nothing to the client list".
   // Re-pointed 12 → 13 with the thirteenth (ruling `encounters-e6-plumbing` ADDENDUM 1, C2); KEEPS the same claim.
-  check('SERVER the CLIENT key list stays thirteen — the pack lane is its own path (R-HSC-15)', createSync({ fetch: () => Promise.reject(new Error('no network')), storage: { get: () => null, set: () => {} } }).syncedKeys().length === 13);
+  // Re-pointed 13 → 14 with the fourteenth (R-BSBP-7, the wish list); KEEPS the same claim.
+  check('SERVER the CLIENT key list stays fourteen — the pack lane is its own path (R-HSC-15)', createSync({ fetch: () => Promise.reject(new Error('no network')), storage: { get: () => null, set: () => {} } }).syncedKeys().length === 14);
 }
 
 // ── the WHOLE-merge behaviour (§3's class, exercised not just declared) ──────

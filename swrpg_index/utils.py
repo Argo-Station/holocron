@@ -242,7 +242,7 @@ def book_folios(alias, pages, pagemap=None):
     (the text `clean_page_text` is about to receive). Returns (folios_for, info):
 
       folios_for(corpus_page) -> frozenset of ints (empty = strip no lone number on that page)
-      info = {'source': 'registry'|'detected'|'none', 'offset': registry offset or None,
+      info = {'source': 'registry'|'registry-runs'|'detected'|'none', 'offset': registry offset or None,
               'detected': detect_folio_relation(...)'s dict, 'disagrees': bool}
 
     `disagrees` is True when a CALIBRATED book's detection cleared the thresholds and names a relation other
@@ -262,6 +262,20 @@ def book_folios(alias, pages, pagemap=None):
         def folios_for(corpus_page):
             printed = pm.to_printed(alias, corpus_page)
             return frozenset({printed}) if printed is not None and printed >= 1 else empty
+        return folios_for, info
+
+    if pm.status(alias) == pdf_pages.MAPPED:
+        # B-1850: a book mapped by page runs (C-C1P-4) strips the folios its runs print, read through the converter;
+        # a step-2 spread page prints its run's folio and the next. Detection is reported beside it, never used.
+        info['source'] = 'registry-runs'
+        runs = pm.runs(alias)
+
+        def folios_for(corpus_page):
+            printed = pm.to_printed(alias, corpus_page)
+            if printed is None or printed < 1:
+                return empty
+            two = any(r['step'] == 2 and r['from'] <= corpus_page <= r['to'] for r in runs)
+            return frozenset({int(printed), int(printed) + 1} if two else {int(printed)})
         return folios_for, info
 
     if det['kind'] == 'single':
@@ -293,6 +307,8 @@ def describe_folios(alias, info):
             line += (f' — DISAGREES with detection ({det["kind"]} {det["value"]:+d}, support {det["support"]} '
                      f'of {det["pages_with_any"]}); the registry wins (C-B861-2)')
         return line
+    if info['source'] == 'registry-runs':
+        return f'{alias}: folios from the registry page runs (pdf_pages.to_printed; B-1850)'
     if info['source'] == 'detected':
         return (f'{alias}: folios DETECTED for stripping only, not a calibration — {det["kind"]} '
                 f'{det["value"]:+d}, support {det["support"]} of {det["pages_with_any"]} pages, runner-up '

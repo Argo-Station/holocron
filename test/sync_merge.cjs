@@ -250,6 +250,8 @@ const ENVELOPES = {
   swrpg_party_v1: { ver: 'v', now: 1, list: 'parties', id: 'id', ownKeys: true },
   // E6 plumbing (ruling `encounters-e6-plumbing` ADDENDUM 1, C2): `{ version: 1, campaigns }`, campaignStore.js SCHEMA_V 1. Row owed by (b)'s pin.
   swrpg_campaigns: { ver: 'version', now: 1, list: 'campaigns', id: 'id', ownKeys: true },
+  // T4 lap A (ruling `between-sessions-build-paper` R-BSBP-4): `{ v: 2, holds }`, holdsStore.js. Row owed by (b)'s pin.
+  swrpg_store_holds_v2: { ver: 'v', now: 2, list: 'holds', id: 'id', ownKeys: true },
 };
 check('(b) pin — this table covers every list key the merge knows (a new list key owes a row here)',
   Object.keys(ENVELOPES).sort().join() === Object.keys(M.LISTS).sort().join(), Object.keys(M.LISTS));

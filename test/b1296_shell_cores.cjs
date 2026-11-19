@@ -19,9 +19,10 @@ const fs = require('fs'), path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
-const SET = ['lib/items.js',
-  'lib/shared/effectClass.js', 'lib/shared/itemResolve.js', 'lib/shared/charResolve.js', 'lib/shared/diceEngine.js',
-  'lib/shared/poolMods.js', 'lib/shared/qualityRows.js', 'lib/shared/itemRegistries.js', 'lib/shared/sheetPool.js'];
+// B-1912 (ADDENDUM 761): every core is RAW, so a shell or the GM's lazy list loads its minified dist/ copy — the URLs a page asks for
+const SET = ['dist/lib/items.js',
+  'dist/lib/shared/effectClass.js', 'dist/lib/shared/itemResolve.js', 'dist/lib/shared/charResolve.js', 'dist/lib/shared/diceEngine.js',
+  'dist/lib/shared/poolMods.js', 'dist/lib/shared/qualityRows.js', 'dist/lib/shared/itemRegistries.js', 'dist/lib/shared/sheetPool.js'];
 
 let fails = 0, cases = 0;
 function check(name, ok, detail) {
@@ -58,7 +59,7 @@ check('2 the GM shell loads every dice-pool core (static ∪ ensureYardCharCore)
 // 3 THE BITE: the qualityRows tag removed from a copy → the same check must name it
 const bitten = gmHtml.replace(/<script\b[^>]*src="[^"]*lib\/shared\/qualityRows\.js"[^>]*><\/script>/g, '');
 const gmB = scriptTags(bitten).concat(lazy || []);
-check('3 BITE: with the qualityRows tag removed the check names it missing', bitten !== gmHtml && missing(gmB).indexOf('lib/shared/qualityRows.js') !== -1,
+check('3 BITE: with the qualityRows tag removed the check names it missing', bitten !== gmHtml && missing(gmB).indexOf('dist/lib/shared/qualityRows.js') !== -1,
   'missing in the mutant: ' + JSON.stringify(missing(gmB)));
 
 // ── 4–6 THE DICE WINDOW (ENCOUNTERS, D-507; ruling `encounters-e3-screens` ADDENDUM 15 CONTRACT 6): lib/shared/diceHub.js, the window
@@ -67,7 +68,7 @@ check('3 BITE: with the qualityRows tag removed the check names it missing', bit
 // (first paint stays unchanged; build/playerSplit.mjs refuses a lazy file the page loads). The pool cores are NOT added to the GM
 // boot: the GM's lazy core list (2) already carries them, and the window's sheet paths bind them when they land.
 const HUB = 'lib/shared/diceHub.js';
-const gmOrder = (tags) => { const v = tags.indexOf('vendor.js'), t = tags.indexOf('lib/shared/talentView.js'), d = tags.indexOf(HUB); return d > v && v >= 0 && d > t && t >= 0; };
+const gmOrder = (tags) => { const v = tags.indexOf('vendor.js'), t = tags.indexOf('dist/lib/shared/talentView.js'), d = tags.indexOf(HUB); return d > v && v >= 0 && d > t && t >= 0; };
 check('4 the GM shell loads the dice window by a static tag, after /vendor.js and talentView.js', gmOrder(scriptTags(gmHtml)),
   JSON.stringify(scriptTags(gmHtml).filter((s) => /vendor|talentView|diceHub/.test(s))));
 function playerSheetPart(appSrc) {

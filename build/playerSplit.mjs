@@ -155,9 +155,12 @@ function objLiteral(src, name) {
 export function lazyCheck(src, P, readFile) {
   const parts = objLiteral(src, 'PLAYER_PARTS'), screens = objLiteral(src, 'PLAYER_SCREEN_PARTS');
   const refusals = [];
-  const lazyFiles = Object.values(parts).flat().filter(f => f.startsWith('/lib/')).map(f => f.slice(1));
+  // B-1912 (ADDENDUM 761): a raw lib/ file loads as its dist/ copy, so a URL names its SOURCE once `dist/` is dropped —
+  // both lists below and LAZY_READERS speak in source paths, and the check reads the source
+  const srcOf = u => u.replace(/^\//, '').replace(/^dist\/(?=lib\/)/, '');
+  const lazyFiles = Object.values(parts).flat().map(srcOf).filter(f => f.startsWith('lib/'));
   const html = readFile('player/index.html');
-  const pageScripts = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m => m[1].replace(/^\//, '')).filter(s => !/^https?:/.test(s));
+  const pageScripts = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m => srcOf(m[1])).filter(s => !/^https?:/.test(s));
   for (const f of lazyFiles) if (pageScripts.includes(f)) refusals.push(`player/index.html still loads ${f} (a lazy part)`);
   const readersOf = code => Object.entries(LAZY_GLOBALS).filter(([, gs]) => gs.some(g => new RegExp('(?<![\\w$])' + g + '(?![\\w$])').test(code))).map(([part]) => part);
   const check = (who, partsRead) => {

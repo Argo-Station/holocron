@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Project Holocron — a Star Wars RPG suite</title>
-  <script src="/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the Ko-fi footer (R-AAC-19) -->
-  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <script src="/dist/lib/shared/siteSettings.js"></script><!-- account values, read by analytics.js and the Ko-fi footer (R-AAC-19) -->
+  <script defer src="/dist/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
   <meta name="description" content="Project Holocron — make a character, run the table, and learn the narrative dice. A beautiful Star Wars roleplaying suite." />
   <meta name="theme-color" content="#071C2F" />
 
@@ -25,9 +25,7 @@
        shared design tokens. Premium whitelist: only opacity/transform animate; no autoplay video / WebGL
        / animated blur. -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/fonts.css" rel="stylesheet" />
   <link href="/lib/shared/tokens.css" rel="stylesheet" />
   <!-- PAPER N7 · B-1253 (D-175 H2 · T2; card paper-n7-frontdoor-lab-card ADDENDUM 4): the front door stands on the
        paper kit, so the kit's own files are linked here, in <head>, and the ground is the body's own markup — the
@@ -219,8 +217,8 @@
   <!-- F-34 Phase A — the door's only logic: render from SWRPGAccount state. The launchpad stays
        otherwise JS-free (Lap L1); this is the one exception the architecture ruling names
        ("login/logout on the launchpad"), and it degrades to an empty corner on any failure. -->
-  <script src="/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
-  <script src="/lib/shared/account.js"></script>
+  <script src="/dist/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
+  <script src="/dist/lib/shared/account.js"></script>
   <script>
     (function () {
       var door = document.getElementById('account-door');

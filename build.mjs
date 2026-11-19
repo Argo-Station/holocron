@@ -6,6 +6,7 @@
 //   lib/dice/diceSurface.js          shared cinematic dice surface (dice + gm)
 //   lib/game/hyperspaceRun/ui.js     hyperspace-run overlay (gm)
 //   (dice's inline bootstrap is plain JS — no JSX — so dice needs no app.js)
+//   dist/lib/**.js                   B-1912: a minified copy of every hand-written lib/ .js; the pages load these
 //
 // Apps + the JSX includes use esbuild TRANSFORM (not bundle): they stay classic <script> files
 // with the same global scope they have today (React/ReactDOM/SWRPGDice/data-layer globals on
@@ -17,11 +18,12 @@
 // Usage:  npm run build        (one-shot)
 //         npm run watch        (rebuild on save — keeps the serve.py edit/refresh loop)
 import esbuild from 'esbuild';
-import { readFileSync, writeFileSync, watch as fsWatch } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, watch as fsWatch } from 'node:fs';
+import { dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 // B-423: the build's source lists live in ONE module so the TREE STAMP below is computed from the
 // same document the build compiles — never a hand-typed second list. See build/sources.mjs.
-import { TRANSFORMS, VENDOR_INPUTS, treeStamp } from './build/sources.mjs';
+import { TRANSFORMS, VENDOR_INPUTS, RAW_LIB_OUT, rawLibFiles, treeStamp } from './build/sources.mjs';
 // B-139 (ruling release-r7-bug-burndown ADDENDUM 426 §2): player/app.jsx is cut into first paint + two chunks.
 import { cut as cutPlayer, textFor as playerText, lazyCheck as playerLazyCheck, CHUNK_OUT as PLAYER_OUT } from './build/playerSplit.mjs';
 
@@ -65,6 +67,23 @@ async function buildVendor() {
   console.log('  wrote vendor.js (React+ReactDOM prod + SWRPGUI + diceUI + diceRoll)');
 }
 
+// B-1912 (ADDENDUM 761 item 2.1): each raw lib/ .js → dist/lib/<same path>.js, esbuild transform with minify and es2018
+// ONLY. No define: a copy never carries the build stamp, so the served copy is byte-identical to the local one and
+// needs no normalising (PRAXIS §4). No source map in this lap. `/*! */` and `@license` comments stay (esbuild's default).
+// The directory is rebuilt whole, so a deleted source never leaves a copy behind.
+const RAW_MIN = { loader: 'js', minify: true, target: 'es2018' };
+async function buildRawLibOne(f) {
+  const out = RAW_LIB_OUT + f;
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, (await esbuild.transform(readFileSync(f, 'utf8'), { ...RAW_MIN, sourcefile: f })).code);
+}
+async function buildRawLib() {
+  rmSync(RAW_LIB_OUT + 'lib', { recursive: true, force: true });
+  const files = rawLibFiles(process.cwd());
+  for (const f of files) await buildRawLibOne(f);
+  console.log(`  wrote ${files.length} raw lib copies to ${RAW_LIB_OUT}lib/`);
+}
+
 const opts = (t) => ({ entryPoints: [t.in], outfile: t.out, bundle: false, sourcemap: true, ...JSX, ...COMMON });
 
 // B-139: the player's three classic scripts from ONE source. Each is app.jsx with the other outputs' pieces
@@ -105,6 +124,7 @@ async function run() {
   console.log('  wrote version.json (version ' + VERSION + ' · build ' + BUILD_ID + ' · head ' + head
               + ' · src ' + stamp.src.slice(0, 12) + ' over ' + stamp.files + ' files)');
   await buildVendor();
+  await buildRawLib();
   if (watch) {
     for (const t of TRANSFORMS) {
       if (t.split) {   // B-139: the split is a custom multi-build, watched by hand like the vendor chunk
@@ -128,7 +148,14 @@ async function run() {
           .catch((e) => console.error(e)), 120);
       });
     }
-    console.log(`  watching ${TRANSFORMS.length} transforms + ${VENDOR_INPUTS.length} vendor inputs …`);
+    // B-1912: a saved raw lib/ .js re-writes its dist/ copy (the page loads the copy, so an unwatched copy ships stale)
+    const rawOut = new Set(TRANSFORMS.map((t) => t.out));
+    fsWatch('lib', { recursive: true }, (ev, name) => {
+      const f = name && ('lib/' + String(name).split('\\').join('/'));
+      if (!f || !f.endsWith('.js') || rawOut.has(f)) return;
+      buildRawLibOne(f).then(() => console.log('  ' + RAW_LIB_OUT + f + ' rebuilt')).catch(() => buildRawLib().catch((e) => console.error(e)));
+    });
+    console.log(`  watching ${TRANSFORMS.length} transforms + ${VENDOR_INPUTS.length} vendor inputs + raw lib/ …`);
   } else {
     for (const t of TRANSFORMS) await (t.split ? buildPlayer(t) : esbuild.build(opts(t)));
     console.log(`  wrote ${TRANSFORMS.length} transforms (+ .map)`);

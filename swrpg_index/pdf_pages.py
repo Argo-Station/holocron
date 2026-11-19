@@ -67,6 +67,30 @@ UNKNOWN_BOOK = "unknown-book"      # alias is not in the registry at all
 MAPPED = "mapped"                  # book is in the registry with page runs (read by the folio reader)
 REFUSED = "refused"                # a printed page two runs both produce: never resolved by a guess
 NO_PRINTED = "no-printed-number"   # a mapped book's corpus page outside every run, or a printed page no run makes
+# THE PART AXIS (C-C2F-4, ruling `corpus-c2-card`). A book bound from booklets that each number their own pages (today
+# eote-beginner alone) labels each run with an optional `part`, the booklet's own cover title. Within one part a printed
+# page two runs produce is REFUSED, as for any run book. Across parts, `to_corpus(alias, printed)` with no part is
+# REFUSED when two parts produce the page, and answers with `part` given; `to_printed` answers a `Printed`, the number
+# with its `.part` beside it. Offset books and part-less runs answer byte-for-byte as before (plain ints).
+# THE PART BOUNDS (C-C2FG-1, ruling `corpus-c2-full` D-C2F1 (b)). A book whose runs carry `part` also carries
+# `page_parts: [{"part", "from", "to"}]`, each booklet's corpus bounds; they never overlap, and every run of a part lies
+# inside its bounds. A part's POSSIBLE printed pages are the numbers its runs' numbering gives carried over the part's
+# whole bounds (pages its booklet may print though no read proved them). With no part named, a printed page answers
+# only when exactly one part's possible set holds it; else it is REFUSED (a bare "p.17" never lands in a guessed
+# booklet). With the part named, `to_printed`, and every part-less book: unchanged.
+
+
+class Printed(int):
+    """A printed page number from a parted book: an int (so a caller that compares numbers is unchanged) carrying the
+    booklet it is printed in as `.part`."""
+
+    def __new__(cls, n, part):
+        o = int.__new__(cls, n)
+        o.part = part
+        return o
+
+    def __repr__(self):
+        return "%d (%s)" % (int(self), self.part)
 
 
 class PageMap(object):
@@ -77,6 +101,7 @@ class PageMap(object):
             reg = json.load(fh)
         self._off = {}
         self._runs = {}
+        self._parts = {}
         for s in reg.get("sources", []):
             a = s.get("alias")
             if a:
@@ -85,6 +110,8 @@ class PageMap(object):
                     if s.get("page_offset") is not None:
                         raise ValueError("%s carries page_offset AND page_runs (C-C1P-4: one or the other)" % a)
                     self._runs[a] = [_run(a, r) for r in s["page_runs"]]
+                    if any("part" in r for r in self._runs[a]) or s.get("page_parts") is not None:
+                        self._parts[a] = _parts(a, s.get("page_parts"), self._runs[a])
 
     def status(self, alias):
         if alias not in self._off:
@@ -101,29 +128,77 @@ class PageMap(object):
         rs = getattr(self, "_runs", {}).get(alias)
         return [dict(r) for r in rs] if rs is not None else None
 
-    def _producers(self, alias, printed):
+    def parts(self, alias):
+        """A mapped book's part labels in run order (C-C2F-4), else []: [] for a part-less or offset book."""
+        out = []
+        for r in getattr(self, "_runs", {}).get(alias) or []:
+            if r.get("part") is not None and r["part"] not in out:
+                out.append(r["part"])
+        return out
+
+    def bounds(self, alias):
+        """A parted book's page_parts (copies), else None (C-C2FG-1)."""
+        ps = getattr(self, "_parts", {}).get(alias)
+        return [dict(x) for x in ps] if ps is not None else None
+
+    def _possible_parts(self, alias, printed):
+        """The parts whose POSSIBLE set holds `printed`: some run of the part, its numbering carried over the part's
+        whole bounds, prints it (C-C2FG-1)."""
+        out = []
+        for b in self._parts[alias]:
+            for r in self._runs[alias]:
+                if r.get("part") != b["part"]:
+                    continue
+                lo = r["printed_from"] + r["step"] * (b["from"] - r["from"])
+                hi = r["printed_from"] + r["step"] * (b["to"] - r["from"]) + (r["step"] - 1)
+                if lo <= printed <= hi:
+                    out.append(b["part"])
+                    break
+        return out
+
+    def _bare_part(self, alias, printed, part):
+        """(part, refused): with no part named on a parted book, the one part that could print `printed`, or
+        refused=True when two could (C-C2FG-1). Otherwise the part as given."""
+        if part is not None or alias not in getattr(self, "_parts", {}):
+            return part, False
+        could = self._possible_parts(alias, printed)
+        return (could[0], False) if len(could) == 1 else (None, len(could) > 1)
+
+    def _producers(self, alias, printed, part=None):
         return [r for r in self._runs[alias]
                 if r["printed_from"] <= printed <= r["printed_from"] + r["step"] * (r["to"] - r["from"])
-                + (r["step"] - 1)]
+                + (r["step"] - 1) and (part is None or r.get("part") == part)]
 
-    def page_class(self, alias, printed_page):
+    def page_class(self, alias, printed_page, part=None):
         """Why `to_corpus` answered what it did, per page: CALIBRATED/MAPPED when it converts, else UNCALIBRATED,
-        UNKNOWN_BOOK, REFUSED (two runs produce it) or NO_PRINTED (no run makes it)."""
+        UNKNOWN_BOOK, REFUSED (two runs produce it: in one part, or in two parts and no `part` was named) or
+        NO_PRINTED (no run makes it, in the named part when one is)."""
         st = self.status(alias)
         if st != MAPPED or printed_page is None:
             return st
-        n = len(self._producers(alias, int(printed_page)))
+        part, refused = self._bare_part(alias, int(printed_page), part)
+        if refused:
+            return REFUSED
+        n = len(self._producers(alias, int(printed_page), part))
         return MAPPED if n == 1 else (REFUSED if n > 1 else NO_PRINTED)
 
-    def to_corpus(self, alias, printed_page):
+    def to_corpus(self, alias, printed_page, part=None):
         """PRINTED -> CORPUS. None when the book has no earned offset or runs, and for a mapped book when no run, or
-        more than one run, produces the printed page (`page_class` says which)."""
+        more than one run, produces the printed page (`page_class` says which). `part` names the booklet of a parted
+        book (C-C2F-4); with it only that part's runs answer, without it a page two parts COULD print (C-C2FG-1: their
+        possible sets) is REFUSED. A part on an offset book, or on a book whose runs carry no such part, answers
+        None."""
         st = self.status(alias)
         if printed_page is None or st not in (CALIBRATED, MAPPED):
             return None
         if st == CALIBRATED:
+            if part is not None:
+                return None
             return int(printed_page) + self._off[alias]
-        hit = self._producers(alias, int(printed_page))
+        part, refused = self._bare_part(alias, int(printed_page), part)
+        if refused:
+            return None
+        hit = self._producers(alias, int(printed_page), part)
         if len(hit) != 1:
             return None
         r = hit[0]
@@ -140,8 +215,16 @@ class PageMap(object):
         c = int(corpus_page)
         for r in self._runs[alias]:
             if r["from"] <= c <= r["to"]:
-                return r["printed_from"] + r["step"] * (c - r["from"])
+                n = r["printed_from"] + r["step"] * (c - r["from"])
+                return n if r.get("part") is None else Printed(n, r["part"])
         return None
+
+    def shift(self, alias, printed_page, part=None):
+        """corpus - printed AT this printed page, through the converter (B-1850): an offset book's offset, a mapped
+        book's run-local shift, None where `to_corpus` refuses. A caller that needs "how far apart the two numberings
+        are here" reads it from this, never by subtracting itself."""
+        c = self.to_corpus(alias, printed_page, part)
+        return None if c is None else c - int(printed_page)
 
     def explain(self, alias):
         """One line a report or a human can read, instead of an unexplained None."""
@@ -153,8 +236,10 @@ class PageMap(object):
             rs = self._runs[alias]
             return ("%s: mapped by %d page run(s) (%s); a corpus page outside every run has no printed number, and "
                     "a printed page two runs both produce is REFUSED" % (alias, len(rs), "; ".join(
-                        "corpus %d-%d = printed %d%s" % (r["from"], r["to"], r["printed_from"],
-                                                         "" if r["step"] == 1 else " (two-up)") for r in rs)))
+                        "corpus %d-%d = printed %d%s%s" % (r["from"], r["to"], r["printed_from"],
+                                                           "" if r["step"] == 1 else " (two-up)",
+                                                           "" if r.get("part") is None else " in %s" % r["part"])
+                        for r in rs)))
         if st == UNCALIBRATED:
             return ("%s: UNCALIBRATED — no offset earned; a printed-page claim about this book "
                     "cannot be resolved to a corpus page (B-335 left it blank rather than "
@@ -169,6 +254,40 @@ def _run(alias, r):
         raise ValueError("%s: a page run needs integer from/to/printed_from/step: %r" % (alias, r))
     if out["step"] not in (1, 2) or out["to"] < out["from"] or out["from"] < 1:
         raise ValueError("%s: a page run must have step 1 or 2 and 1 <= from <= to: %r" % (alias, r))
+    if "part" in r:
+        # C-C2F-4: a short non-empty label; a part-less run carries no key at all, so its dict is as it was
+        if not isinstance(r["part"], str) or not r["part"].strip():
+            raise ValueError("%s: a page run's part must be a non-empty label: %r" % (alias, r))
+        out["part"] = r["part"]
+    return out
+
+
+def _parts(alias, parts, runs):
+    """C-C2FG-1: page_parts loaded and validated — present on a parted book, integer bounds that never overlap, one
+    entry per label, and every run of a part inside its part's bounds."""
+    if not isinstance(parts, list) or not parts:
+        raise ValueError("%s: runs carry a part, so the source carries page_parts (C-C2FG-1): %r" % (alias, parts))
+    out = []
+    for p in parts:
+        try:
+            b = {"part": p["part"], "from": int(p["from"]), "to": int(p["to"])}
+        except (KeyError, TypeError, ValueError):
+            raise ValueError("%s: a page part needs part/from/to: %r" % (alias, p))
+        if not isinstance(b["part"], str) or not b["part"].strip() or not 1 <= b["from"] <= b["to"]:
+            raise ValueError("%s: a page part needs a label and 1 <= from <= to: %r" % (alias, p))
+        out.append(b)
+    labels = [b["part"] for b in out]
+    if len(set(labels)) != len(labels):
+        raise ValueError("%s: page_parts names a part twice: %r" % (alias, labels))
+    srt = sorted(out, key=lambda b: b["from"])
+    for x, y in zip(srt, srt[1:]):
+        if y["from"] <= x["to"]:
+            raise ValueError("%s: page parts %r and %r overlap" % (alias, x["part"], y["part"]))
+    by = {b["part"]: b for b in out}
+    for r in runs:
+        b = by.get(r.get("part"))
+        if b is None or not (b["from"] <= r["from"] and r["to"] <= b["to"]):
+            raise ValueError("%s: run %r lies outside its part's bounds %r" % (alias, r, b))
     return out
 
 
@@ -233,8 +352,8 @@ def refresh_if_changed(path=None):
     return True
 
 
-def to_corpus(alias, printed_page):
-    return _map().to_corpus(alias, printed_page)
+def to_corpus(alias, printed_page, part=None):
+    return _map().to_corpus(alias, printed_page, part)
 
 
 def to_printed(alias, corpus_page):
@@ -257,8 +376,20 @@ def runs(alias):
     return _map().runs(alias)
 
 
-def page_class(alias, printed_page):
-    return _map().page_class(alias, printed_page)
+def page_class(alias, printed_page, part=None):
+    return _map().page_class(alias, printed_page, part)
+
+
+def parts(alias):
+    return _map().parts(alias)
+
+
+def bounds(alias):
+    return _map().bounds(alias)
+
+
+def shift(alias, printed_page, part=None):
+    return _map().shift(alias, printed_page, part)
 
 
 if __name__ == "__main__":

@@ -2852,41 +2852,6 @@ const cardPressKeys = (press) => (e) => {
   if (e.target !== e.currentTarget) return;
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); press(); }
 };
-function BenchBoardCard({ m, ctx }) {
-  const { wsRead, memberLabel, memberParts, flipKey, tierStripe, selectMember, actions, openGroup, condChips } = ctx;
-  const ws = wsRead(m); const r = ws.r; const ok = !!r;
-  const name = memberLabel(m, ok ? (r.name || m._source_key) : (m._source_key + ' (missing)'));
-  const parts = memberParts(m, ok ? (r.name || m._source_key) : (m._source_key + ' (missing)'));
-  const sel = m.id === flipKey;
-  const stripe = tierStripe(ws.tier, ok);
-  const ids = ctx.orderedMembers.map(x => x.id), i = ids.indexOf(m.id), last = ids.length - 1;
-  return (
-    <div className="hp-plate nl-bcard" data-pad="snug" data-sel={sel ? '1' : '0'} data-npc-member={m.id}
-      role="button" tabIndex={0} aria-pressed={sel} aria-label={'Select ' + name} onClick={() => selectMember(m)} onKeyDown={cardPressKeys(() => selectMember(m))}>
-      <div className="nl-card-h">
-        <NpcPaperMono name={parts.base} />
-        <div className="nl-cn"><b data-miss={ok ? '0' : '1'}>{parts.base}{parts.suffix}</b><span className="nl-tier">{ws.tier || 'unknown'}</span></div>
-        <NpcPaperRowGlyphs cls="nl-glyphs nl-arrows" label={name} upDisabled={i <= 0} downDisabled={i < 0 || i >= last}
-          onUp={() => ctx.reorderMember(m, -1)} onDown={() => ctx.reorderMember(m, 1)}
-          onRemove={() => actions.removeMember(openGroup.id, m.id)} />
-      </div>
-      {ws.isMinion ? <BenchMinionPoolFrame m={m} ctx={ctx} /> : (
-        <React.Fragment>
-          <div className="hp-plate" data-pad="data"><div className="sb-vit">
-            <BenchWSBar m={m} kind="w" variant="card" ctx={ctx} />
-            {ws.hasStrain ? <BenchWSBar m={m} kind="s" variant="card" ctx={ctx} /> : null}
-          </div></div>
-          {condChips(m)}
-          <BenchMemberCraft m={m} ctx={ctx} />
-        </React.Fragment>
-      )}
-    </div>
-  );
-}
-function BenchCardBoard({ ctx }) {
-  const { orderedMembers } = ctx;
-  return <div className="nl-cards" data-testid="board-card-grid">{orderedMembers.map(m => <BenchBoardCard key={m.id} m={m} ctx={ctx} />)}</div>;
-}
 function BenchLedgerRow({ m, ctx }) {
   const { wsRead, memberLabel, memberParts, flipKey, tierStripe, poolView, selectMember, bumpLine, critLine, bumpCount, condChips, actions, openGroup, crewingFor, setCrewingFor, refData } = ctx;
   const ws = wsRead(m); const r = ws.r; const ok = !!r;
@@ -3041,8 +3006,8 @@ function BenchLedgerBoard({ ctx }) {
 /* ══════════════════════════════════════════════════════════════════════════════════════════════
    THE ENCOUNTER MANAGER (ENCOUNTERS E3 lap B) — ruling `encounters-e3-screens` §3, the frames of
    `Docs/mockups/encounter-manager.html` (D-490) and, for the member card, `Docs/mockups/encounter-density.html` (D-504).
-   Mounted only on the GM host's ENCOUNTERS screen, behind swrpg_encounters_door (R-E3S-1): `NpcBenchGroupsView` takes
-   these branches only when its `manager` prop is set, so with the switch off the bench is today's, node for node.
+   Mounted only on the GM host's ENCOUNTERS screen: `NpcBenchGroupsView` mounts only there, with its `manager` prop set
+   (the switch and the old board it kept went in encounters-e3-deletion, `encounters-e3-flip-gate` ADDENDUM 13).
    PROPOSE AND DISPOSE (FIRST_PRINCIPLES_CHARTER §3.1 Amendment 1; shape §10): every write is one of lap A's ops —
    `encounterLife.js` (NpcEncounter), `benchStore.js`'s setters, `roomState`'s applyDelta through them — called on the GM's
    tap. Nothing here auto-applies, advances on a timer, or writes a PC's wounds or strain or any sheet.
@@ -3482,9 +3447,9 @@ function EncConds({ m, ctx, dense }) {
   const ending = (ends || []).filter(x => x.memberId === m.id).map(x => x.condition);
   const chips = BENCH_COND_SET.map(c => [c[0], c[1], cur.indexOf(c[0]) !== -1]).concat(extra.map(t => [t, t, true]));
   React.useLayoutEffect(() => {
-    const el = row.current; if (!el || open) { setHidden(0); return; }
-    const kids = Array.prototype.slice.call(el.querySelectorAll(':scope > [data-enc-c]'));
+    const el = row.current; const kids = el ? Array.prototype.slice.call(el.querySelectorAll(':scope > [data-enc-c]')) : [];
     kids.forEach(k => { k.style.display = ''; });
+    if (!el || open) { setHidden(0); return; }
     const more = el.querySelector(':scope > [data-enc-more]');
     const room = el.clientWidth, gap = parseFloat(getComputedStyle(el).columnGap) || 6;
     let used = 0, n = 0, full = false;
@@ -4269,7 +4234,6 @@ function NpcBenchGroupsView({ bench, actions, npcPool, resolveBySourceKey, refDa
   const openGroupId = openControlled ? (openGroupIdProp || null) : openLocal;
   const setOpenGroupId = openControlled ? onOpenGroup : setOpenLocal;
   const [flipKey, setFlipKey] = useState(null);
-  const [newName, setNewName] = useState('');
   const [addSearch, setAddSearch] = useState('');
 
   // ── Lane A tracking board (ruling gm-bench-library-desktop-concept + bench-board-viewtoggle-brief).
@@ -4293,8 +4257,6 @@ function NpcBenchGroupsView({ bench, actions, npcPool, resolveBySourceKey, refDa
   const groups = bench.groups || [];
   const openGroup = groups.filter(g => g.id === openGroupId)[0] || null;
   const memberCount = openGroup ? openGroup.members.length : 0;
-  // R-SECG-2: HEAL & REPAIR ALL also clears craft, so an encounter of craft alone still has it (the other gates stay members-only)
-  const craftCount = openGroup && Array.isArray(openGroup.vehicles) ? openGroup.vehicles.length : 0;
 
   // Default the flip to the first member when a group opens or membership changes. v5: flipKey is a
   // member INSTANCE id (duplicates share a _source_key, so the id is the only stable per-member handle).
@@ -4328,55 +4290,8 @@ function NpcBenchGroupsView({ bench, actions, npcPool, resolveBySourceKey, refDa
   // is the mechanical reason the strip reached for `m.count` as a tier proxy instead (MINION-DMG).
   const tierOf = (m) => { const r = resolveBySourceKey(m._source_key); return r ? (r.tier || '') : ''; };
 
-  // ── GROUP LIST ──
-  // ENCOUNTERS E3 lap B: on the manager's own screen the list is F2's (the switch-off list below is today's, untouched)
-  if (!openGroup && manager) return <EncList groups={groups} actions={actions} resolveBySourceKey={resolveBySourceKey} tierOf={tierOf} onOpen={setOpenGroupId} manager={manager} />;
-  if (!openGroup) {
-    // B1 · B2 · B3 — the list: every encounter, its first six members as chips reading CURRENT / THRESHOLD.
-    const create = () => { if (newName.trim()) { actions.create(newName); setNewName(''); } };
-    return (
-      <div data-npc-state={groups.length ? 'encounters' : 'encounters-empty'}>
-        <NpcPaperSechead head="ENCOUNTERS" />
-        <div className="nl-newrow">
-          <input type="text" className="nl-in" value={newName} placeholder="New encounter name…" aria-label="New encounter name"
-            onChange={e => setNewName(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') create(); }} />
-          <button type="button" className="hp-quiet" disabled={!newName.trim()} onClick={create}>+ NEW</button>
-        </div>
-        {groups.length === 0 ? null : (
-          <div className="hp-plate" data-pad="snug"><div className="nl-glist hp-bands">
-            {groups.map(g => (
-              <div key={g.id} className="nl-grow" data-npc-group={g.id}>
-                <div className="nl-gn"><b>{g.name}</b><span>{g.members.length} {g.members.length === 1 ? 'NPC' : 'NPCs'}</span></div>
-                <div className="nl-mstrip" data-testid="encounter-member-strip">
-                  {g.members.slice(0, 6).map(m => {
-                    const rend = resolveBySourceKey(m._source_key);
-                    const nm = rend ? rend.name : 'unknown';
-                    const num = (v) => { const n = parseInt(v, 10); return isNaN(n) || n < 0 ? 0 : n; };
-                    const wt = npcWoundThreshold(rend && rend.derived);
-                    const minion = tierOf(m) === 'minion';
-                    const count = Math.max(1, num(m.count));
-                    const mx = minion ? BenchStore.minionPoolMax(wt, count) : wt;
-                    const cur = minion ? num(m.poolWounds) : BenchStore.clampCurrent(num(m.currentWounds), wt);   // R-NFLL-1
-                    return (
-                      <span key={m.id} className="nl-mchip" data-hurt={cur > 0 ? '1' : '0'}>
-                        <NpcPaperMono name={nm} /><b>{nm}{count > 1 ? ' ×' + count : ''}</b>
-                        <span data-npc-chip-val="1">{mx ? cur + '/' + mx : (cur ? String(cur) : '—')}</span>
-                      </span>
-                    );
-                  })}
-                  {g.members.length > 6 ? <span className="nl-more">+{g.members.length - 6}</span> : null}
-                </div>
-                <div className="nl-gacts">
-                  <button type="button" className="hp-quiet" onClick={() => setOpenGroupId(g.id)}>OPEN</button>
-                  <button type="button" className="hp-quiet" onClick={() => actions.del(g.id)}>DELETE</button>
-                </div>
-              </div>
-            ))}
-          </div></div>
-        )}
-      </div>
-    );
-  }
+  // ── GROUP LIST ── F2's list. The switch-off list was deleted with its switch (encounters-e3-deletion).
+  if (!openGroup) return <EncList groups={groups} actions={actions} resolveBySourceKey={resolveBySourceKey} tierOf={tierOf} onOpen={setOpenGroupId} manager={manager} />;
 
 
   // ── GROUP DETAIL + FLIP ── (v5: members keyed by instance id; stats still resolve by _source_key)
@@ -4517,8 +4432,8 @@ function NpcBenchGroupsView({ bench, actions, npcPool, resolveBySourceKey, refDa
 
   const tierStripe = (tier, ok) => (!ok ? '#FF7676' : ({ nemesis: '#F5C842', rival: '#FF9E5A', minion: '#8FB6D8' }[tier] || accent));
   // E2 (remount sweep) — the board render family is hoisted to module scope
-  // (BenchWSBar / BenchMinionPoolFrame / BenchStripChip / BenchBoardCard / BenchCardBoard /
-  // BenchLedgerRow / BenchLedgerBoard). This is the ctx they close over — recreated each render
+  // (BenchWSBar / BenchMinionPoolFrame / BenchStripChip / BenchLedgerRow / BenchLedgerBoard; the old board's
+  // BenchBoardCard / BenchCardBoard went with it, encounters-e3-deletion). This is the ctx they close over — recreated each render
   // = a props update (no identity churn, no remount), the F2 pattern. Defined AFTER the helpers
   // (reorderArrows / tierStripe / initialOf / wsStepBtn) so it can carry them.
   const boardCtx = {
@@ -4552,110 +4467,19 @@ function NpcBenchGroupsView({ bench, actions, npcPool, resolveBySourceKey, refDa
   // cannot be a six-column table: it stacks each unit, keeping the table's order and parts.
   boardCtx.narrowLedger = !deskWide;
 
-  // ENCOUNTERS E3 lap B — the manager's open encounter (F3/F4/F8). It shares this view's one-core ops, its board
-  // components and its zone; with the switch off `manager` is null and the board below is today's.
-  if (manager) {
-    const seg = (
-      <span className="nl-seg" role="group" aria-label="Board view">
-        {[['card', 'CARD'], ['list', 'LIST']].map(v => (
-          <button key={v[0]} type="button" className="nl-tab" data-on={boardView === v[0] ? '1' : '0'} aria-pressed={boardView === v[0]}
-            data-testid={'board-view-' + v[0]} onClick={() => setBoardViewPref(v[0])}>{v[1]}</button>
-        ))}
-      </span>
-    );
-    return <EncOpen bc={boardCtx} benchCtx={benchCtx} manager={manager} bench={bench}
-      view={{ deskBoard, wideBoard, boardView, seg, refOverlay, setRefOverlay, member, renameTitle, setOpenGroupId, condAddFor, setCondAddFor }} />;
-  }
-
-  if (!deskBoard) {
-    // B7 · B8 · B13 — THE PHONE FLIP: the toolbar, the title, the sticky member strip, every minion line's
-    // pool frame, the add block, and ONE member's card (the live tracker is the flip card's).
-    const minionLinesP = orderedMembers.filter(m => tierOf(m) === 'minion');
-    return (
-      <div data-npc-state="flip">
-        <div className="nl-bar">
-          <button type="button" className="hp-quiet" onClick={() => setOpenGroupId(null)}>← ENCOUNTERS</button>
-          <span className="nl-sp" />
-          {memberCount + craftCount > 0 ? <button type="button" className="hp-quiet" onClick={() => actions.reset(openGroup.id)}>{'HEAL & REPAIR ALL'}</button> : null}
-          <button type="button" className="hp-quiet" onClick={() => { actions.del(openGroup.id); setOpenGroupId(null); }}>DELETE</button>
-        </div>
-        {renameTitle()}
-        {benchStale ? <StaleTabBanner accent={accent} paper /> : null}
-        {memberCount > 0 ? (
-          <div className="nl-strip" role="tablist" aria-label="Encounter members">
-            {orderedMembers.map(m => <BenchStripChip key={m.id} m={m} ctx={boardCtx} />)}
-          </div>
-        ) : null}
-        {minionLinesP.map(m => <BenchMinionPoolFrame key={m.id} m={m} ctx={boardCtx} />)}
-        <BenchAddMemberBlock ctx={benchCtx} />
-        {/* B-893 · B7's door — the desk's craft block (its rows and + ADD VEHICLE) after the add block; B14c/d open from it */}
-        <BenchGroupCraft ctx={benchCtx} />
-        {memberCount === 0 ? (
-          <div className="hp-plate" data-pad="read"><p className="hp-none" style={{ margin: 0 }}>Empty group. Search above to add NPCs.</p></div>
-        ) : (
-          <React.Fragment>
-            <div className="nl-gap" />
-            <BenchMemberCard m={member} ctx={benchCtx} />
-          </React.Fragment>
-        )}
-      </div>
-    );
-  }
-
-  // B4 · B5 · B6 · B12 · B13 — the toolbar, the title (rename in place), the stale banner, the add
-  // block, the craft, then the card grid or the ledger; the pane at ≥1367, the summoned overlay below.
-  const boardBodyP = memberCount === 0
-    ? <div className="hp-plate" data-pad="read"><p className="hp-none" style={{ margin: 0 }}>Empty group. Search above to add NPCs.</p></div>
-    : (boardView === 'list' ? <BenchLedgerBoard ctx={boardCtx} /> : <BenchCardBoard ctx={boardCtx} />);
-  const title = renameTitle();
-  // B-908 · AS-4 (ruling `paper-n3-bench` R-PN3-1/-2; frames B4 · B5 · B6 · B12 · B16b · B17 at lab `8bf1f3a3`): the
-  // page never scrolls. The HEAD stays put — the toolbar, the title, and while stale the banner (fixed-height parts
-  // only); ONE main ZONE under it scrolls the add block, the craft, the gap and the grid or ledger, in today's order.
-  // BOTH ARMS RENDER `div.nl-main` AS THE BOARD'S FIRST CHILD, so crossing the 1367 seam re-renders the main column
-  // instead of remounting it (AS-8: the picker's search and an open note's draft survive the seam). The pane (>=1367)
-  // and the summoned overlay (1024-1366) each scroll their reference in their own zone; × CLOSE stays above it.
-  const paneArm = wideBoard && memberCount > 0;
-  const main = (
-    <React.Fragment>
-      <div className="nl-bar">
-        <button type="button" className="hp-quiet" onClick={() => setOpenGroupId(null)}>← ENCOUNTERS</button>
-        <span className="nl-sp" />
-        {memberCount > 0 ? (
-          <span className="nl-seg" role="group" aria-label="Board view">
-            {[['card', 'CARD'], ['list', 'LIST']].map(v => (
-              <button key={v[0]} type="button" className="nl-tab" data-on={boardView === v[0] ? '1' : '0'} aria-pressed={boardView === v[0]}
-                data-testid={'board-view-' + v[0]} onClick={() => setBoardViewPref(v[0])}>{v[1]}</button>
-            ))}
-          </span>
-        ) : null}
-        {memberCount + craftCount > 0 ? <button type="button" className="hp-quiet" onClick={() => actions.reset(openGroup.id)}>{'HEAL & REPAIR ALL'}</button> : null}
-        <button type="button" className="hp-quiet" onClick={() => { actions.del(openGroup.id); setOpenGroupId(null); }}>DELETE</button>
-      </div>
-      {title}
-      {benchStale ? <StaleTabBanner accent={accent} paper /> : null}
-      <BenchZone zone="main">
-        <BenchAddMemberBlock ctx={benchCtx} />
-        <BenchGroupCraft ctx={benchCtx} />
-        <div className="nl-gap" />
-        <div data-testid="bench-board">{boardBodyP}</div>
-      </BenchZone>
-    </React.Fragment>
+  // ENCOUNTERS E3 lap B — the manager's open encounter (F3/F4/F8). It shares this view's one-core ops and its board
+  // components. The old board that drew here with no `manager` was deleted with its switch (encounters-e3-deletion,
+  // `encounters-e3-flip-gate` ADDENDUM 13): this view mounts only on the manager's own screen.
+  const seg = (
+    <span className="nl-seg" role="group" aria-label="Board view">
+      {[['card', 'CARD'], ['list', 'LIST']].map(v => (
+        <button key={v[0]} type="button" className="nl-tab" data-on={boardView === v[0] ? '1' : '0'} aria-pressed={boardView === v[0]}
+          data-testid={'board-view-' + v[0]} onClick={() => setBoardViewPref(v[0])}>{v[1]}</button>
+      ))}
+    </span>
   );
-  return (
-    <div className="nl-board" data-npc-state="board" data-board-arm={paneArm ? 'pane' : 'overlay'}>
-      <div className="nl-main">{main}</div>
-      {paneArm ? (
-        <div className="nl-pane" data-testid="bench-ref-pane">
-          <BenchZone zone="pane">{member ? <BenchTabbedReference m={member} ctx={benchCtx} /> : null}</BenchZone>
-        </div>
-      ) : null}
-      {!wideBoard && refOverlay && member ? (
-        <BenchRefOverlay onClose={() => setRefOverlay(false)}>
-          <BenchZone zone="overlay"><BenchTabbedReference m={member} ctx={benchCtx} /></BenchZone>
-        </BenchRefOverlay>
-      ) : null}
-    </div>
-  );
+  return <EncOpen bc={boardCtx} benchCtx={benchCtx} manager={manager} bench={bench}
+    view={{ deskBoard, wideBoard, boardView, seg, refOverlay, setRefOverlay, member, renameTitle, setOpenGroupId, condAddFor, setCondAddFor }} />;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -5845,11 +5669,13 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
         npcById: (id) => byId[id] || null,
         hasGroup: (id) => (bench.groups || []).some(g => g.id === id),
         customByKey: (k) => (capabilities.canManageCast ? (cast.npcs.find(n => (n._source_key || n.key) === k) || null) : null),
-        canGroups: !!capabilities.canManageGroups,
+        // ADDENDUM 13 Q2: only the manager's own screen holds the encounters tail; the library's 'door' mount REFUSES
+        // 'encounters…' (→ the front), so nothing inside the library can reach the deleted old board.
+        canGroups: !!capabilities.canManageGroups && capabilities.encounters === 'screen',
         canCast: !!capabilities.canManageCast,
         labelOf: (id) => (affIds[id] && affIds[id].label) || '',
       };
-    }, [ctrl.taxonomy, ctrl.libraryByTier, ctrl.getNpcsByTierAndNode, bench, cast, capabilities.canManageGroups, capabilities.canManageCast]);
+    }, [ctrl.taxonomy, ctrl.libraryByTier, ctrl.getNpcsByTierAndNode, bench, cast, capabilities.canManageGroups, capabilities.canManageCast, capabilities.encounters]);
 
     // THE SYNC. `reportedRef` = the tail the address bar shows, as far as the kernel knows. A position
     // change the address bar does not show is a MOVE → `onLocation(tail)` (the host pushes a history
@@ -5905,7 +5731,7 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
       const ctxNow = routeCtx || { drawers: [], isAffiliation: () => false, isFlatDrawer: () => false,
         npcById: () => null, hasGroup: (id) => (bench.groups || []).some(g => g.id === id),
         customByKey: (k) => (capabilities.canManageCast ? (cast.npcs.find(n => (n._source_key || n.key) === k) || null) : null),
-        canGroups: !!capabilities.canManageGroups, canCast: !!capabilities.canManageCast, labelOf: () => '' };
+        canGroups: !!capabilities.canManageGroups && capabilities.encounters === 'screen', canCast: !!capabilities.canManageCast, labelOf: () => '' };
       const t = NpcRoute.resolve(location, ctxNow);
       syncedRef.current = true;
       if (t.position !== location) {
@@ -6305,9 +6131,8 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
     // a hand-spliced array, filtered here in the SHARED core for the library's own tab strip.
     const navItems = [
       { id: 'library-landing', label: 'BROWSE' },
-      // ENCOUNTERS E3 lap B (R-E3S-1; shape §4.5): while swrpg_encounters_door is on, ENCOUNTERS is its own GM screen and
-      // the strip reads BROWSE · CUSTOM NPC · RECENT (`capabilities.encounters` is the host's 'door' | 'screen'; absent = today).
-      { id: 'groups', label: `ENCOUNTERS${bench.groups.length > 0 ? ' (' + bench.groups.length + ')' : ''}`, when: !!capabilities.canManageGroups && !capabilities.encounters },
+      // ENCOUNTERS is the GM's own screen (shape §4.5), so the strip reads BROWSE · CUSTOM NPC · RECENT. The library's
+      // ENCOUNTERS tab went with the switch (encounters-e3-deletion, `encounters-e3-flip-gate` ADDENDUM 8).
       // E3: authoring is a top-level door, not a shelf inside BROWSE. Same `when` mechanism as
       // GROUPS, so the Player mount (no cast capability) never renders it.
       { id: 'cast', label: `CUSTOM NPC${castNpcs.length > 0 ? ' (' + castNpcs.length + ')' : ''}`, when: !!capabilities.canManageCast },
@@ -6320,7 +6145,7 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
     // BROWSE. B-899 fix 7 (C17, R-NPR8-8): a custom's own page (/custom/<key>, R-NPC-4) marks it too — C12's
     // BROWSE mark was the same defect. Both faces: a wrong mark is a defect, not a look.
     const _customPage = view === 'reference' && !!selectedLibraryNpc && selectedLibraryNpc._provenance === 'custom';
-    const navActiveId = view === 'history' ? 'history' : view === 'groups' ? 'groups'
+    const navActiveId = view === 'history' ? 'history'
       : (view === 'cast' || CREATOR_VIEWS.indexOf(view) !== -1 || _customPage) ? 'cast' : 'library-landing';
     // The views that need the registry (every view but RECENT, the two GM tabs and the creator). While
     // it is in flight they show LOADING; when it FAILED the paper face shows A25 (the dark face keeps
@@ -6346,7 +6171,7 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
   
           {/* NPC bench — GM-only groups with persistent tracked state (D-NB1). Manages its own
               loading-tolerance: a dropped/loading member resolves to a graceful placeholder. */}
-          {view === 'groups' && capabilities.canManageGroups && (
+          {view === 'groups' && capabilities.canManageGroups && encScreen && (
             /* HOLOTABLE Stage B wiring. `BenchTable` is the ONE composition that wraps something
                that already ships, and while the flag is off it returns these children UNTOUCHED —
                no wrapper, no column, no DOM change at all. The flag ADDS the table affordance; it
@@ -6409,7 +6234,9 @@ function CastEmptyState({ onCreate, onBrowse, accent, gold, wide }) {
                             {used.length ? `IN ${used.length} ENCOUNTER${used.length === 1 ? '' : 'S'}` : 'IN NO ENCOUNTERS YET'}</div>
                           {used.length > 0 && (
                             <div className="nl-acts" style={{ margin: 0 }}>
-                              {used.map(g => <button key={g.id} type="button" className="hp-quiet" onClick={() => setView('groups')}>{g.name}</button>)}
+                              {/* B-1885 (ADDENDUM 13 Q1): the press opens THAT encounter in the manager, through the host's move */}
+                              {used.map(g => <button key={g.id} type="button" className="hp-quiet"
+                                onClick={() => { if (capabilities.openEncounter) capabilities.openEncounter(g.id); }}>{g.name}</button>)}
                             </div>
                           )}
                         </div>

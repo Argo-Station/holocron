@@ -40,10 +40,12 @@ const SYMBOLS = {
   "gm/app.jsx": { EnrichedPlanetDetailSheet: 2, PlanetAutocompleteInput: 1, UniverseMapRoutePanel: 1 },
   "lib/shared/ui.jsx": { BackupScreen: 1, CritTableRef: 1, ManeuversCard: 1, RecoveryCard: 2, ResultsReference: 4 },
   "lib/store/view.jsx": { CounterView: 1, LocationPicker: 2, Store: 4 },
-  "lib/library/npc/view.jsx": { BenchAddMemberBlock: 1, EncList: 1, BenchGroupCraft: 1, BenchLedgerBoard: 2, NpcBenchGroupsView: 1, NpcPaperDossier: 2, NpcPaperDrill: 1, NpcPaperFront: 2, NpcPaperRecent: 1, NpcPaperRoster: 1, NpcProfilePickerView: 1, NpcSkillGrid: 1, TalentBlock: 1, VehiclePanel: 1, WeaponTable: 1 },
+  "lib/library/npc/view.jsx": { BenchAddMemberBlock: 1, EncList: 1, BenchGroupCraft: 1, BenchLedgerBoard: 2, NpcPaperDossier: 2, NpcPaperDrill: 1, NpcPaperFront: 2, NpcPaperRecent: 1, NpcPaperRoster: 1, NpcProfilePickerView: 1, NpcSkillGrid: 1, TalentBlock: 1, VehiclePanel: 1, WeaponTable: 1 },
   "lib/shared/vesselView.jsx": { CatList: 2, CatTable: 2, CrewTab: 3, CritPicker: 1, Crits: 1, DeckTab: 1, FitHardPoints: 1, FleetList: 2, Seats: 1, TradeTab: 3, Weapons: 1 },
   "lib/editor/view.jsx": { BackupPanel: 1, BookShelf: 2, CollectionPlate: 1, QualPicker: 1, SharePanel: 1, Shelf: 2, SpecShelf: 2, SpeciesPicker: 1, SpeciesShelf: 2, TalentShelf: 2, TreePicker: 1, edBands: 1 },
 };
+// encounters-e3-deletion (encounters-e3-flip-gate ADDENDUM 13, E: RULING-MOVED): NpcBenchGroupsView 1 → gone — its one stripe was the
+// old board's encounter list (`nl-glist hp-bands`), deleted with the switch. Keeps every other count.
 // post1-switch-deletion (ADDENDUM 638): SpeciesShelf 3 → 2 — the species key's OFF arm (the "In the books" plate) and its band run were deleted with the key.
 Object.keys(SYMBOLS).forEach((f) => {
   const got = counts(f).c, want = SYMBOLS[f];

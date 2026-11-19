@@ -52,6 +52,26 @@ export const VENDOR_INPUTS = ['build/vendor.entry.js', 'lib/shared/ui.jsx',
 // character reducer (`charReducer`, `dispatchBinding`), which is app logic by any measure.
 export const SHELLS = ['player/index.html', 'gm/index.html', 'dice/index.html'];
 
+// B-1912 (ruling release-r7-bug-burndown ADDENDUM 761 item 2, the URL contract): every hand-written `.js` under lib/
+// (not a TRANSFORMS output) is served from a minified copy, `dist/lib/<same path>.js`, at `/dist/lib/<path>.js`.
+// The source stays put and is what every guard, the stamp and the open copy read; the copy is gitignored and the shells,
+// the door's lists and every runtime loader name it. RAW_LIB_OUT is that one prefix.
+export const RAW_LIB_OUT = 'dist/';
+export function rawLibFiles(repo) {
+  const outputs = new Set(TRANSFORMS.map((t) => t.out));
+  const files = [];
+  const walk = (rel) => {
+    for (const name of readdirSync(join(repo, rel))) {
+      if (name.startsWith('.') || name === 'node_modules') continue;
+      const child = rel + '/' + name;
+      if (statSync(join(repo, child)).isDirectory()) { walk(child); continue; }
+      if (name.endsWith('.js') && !outputs.has(child)) files.push(child);
+    }
+  };
+  walk('lib');
+  return files.sort();
+}
+
 /* Every file whose bytes decide what a browser executes against this tree, sorted, repo-relative.
    Build OUTPUTS are excluded by name (derived + gitignored): the .js each transform writes, its
    map, and the vendor chunk. */

@@ -4,7 +4,7 @@
  * Ruling `encounters-e3-screens` ADDENDUM 9 @ `41b683471` (brief `encounters-e3-screens-css-fence` Q3, (a′)):
  * `lib/shared/encounters.css` holds the manager's paint. Three claims:
  *   · FENCED — every selector, inside an at-rule or not, starts with `[data-npc-shell]` and names an `enc-` class
- *     or a `data-enc` attribute (so nothing matches while swrpg_encounters_door is off);
+ *     or a `data-enc` attribute (so nothing matches off the encounter manager's screens);
  *   · TOKENED — no colour literal but the one named exception: the mask stops `#000` ×8 and the drawn scrim
  *     `rgba(23,22,27,.42)` ×1 (the sheet's header says why);
  *   · GM-ONLY — `gm/index.html` links it (after npc.css) and no other shell does.

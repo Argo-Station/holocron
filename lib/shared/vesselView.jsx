@@ -329,6 +329,14 @@
   }
   function roleWord(role) { return ({ pilot: 'PILOT', copilot: 'CO-PILOT', gunner: 'GUNNER', engineer: 'ENGINEER', astrogator: 'ASTROGATOR', sensors: 'SENSORS', commander: 'COMMANDER', crew: 'CREW' })[role] || String(role || '').toUpperCase(); }
   function npcOf(reg, key) { return reg ? (reg.npcs[key] || reg.npcsBySource[key] || null) : null; }
+  // R-BSBP-1/2: a campaign group's owner word is its swrpg_party_v1 id ('party_<uuid>'). → its name; with an empty name
+  // the campaign's; with neither 'THE GROUP' (partyStore's rule); null when no group on this device carries it (NO OWNER)
+  function groupName(owner) {
+    var P = window.SWRPGParty, C = window.SWRPGCampaigns, g = /^party_/.test(owner || '') && P ? P.partyOf(P.load(), owner) : null;
+    if (!g) return null;
+    var c = C ? (C.load().campaigns || []).filter(function (x) { return x && x.partyId === owner && x.name; })[0] : null;
+    return g.name || (c && c.name) || 'THE GROUP';
+  }
   function whoOf(who, reg, roster) {
     var P = window.SWRPGVessels && window.SWRPGVessels.parseWho ? window.SWRPGVessels.parseWho(who) : null;
     if (!P) return null;
@@ -839,6 +847,7 @@
     }));
     var ownerName = (function () {
       if (owner === 'party') return 'THE PARTY';
+      if (groupName(owner)) return groupName(owner);
       var w = owner ? whoOf(owner, reg, props.roster) : null;
       return w && w.name ? w.name : '';
     })();
@@ -1051,6 +1060,7 @@
   // name once the registries are here (the floor loads them), else the word itself
   function ownerLabel(owner, roster) {
     if (owner === 'party') return 'PARTY';
+    if (groupName(owner)) return upper(groupName(owner));
     if (owner === NO_OWNER) return 'NO OWNER';   // F4-NOOWNER: the chip
     var w = whoOf(owner, _ydReg, roster);
     return String((w && w.name) || (owner ? String(owner).replace(/^(char|npc):/, '') : '')).toUpperCase();
@@ -1142,7 +1152,8 @@
   // · <NAME>'S SHIP for a character or an NPC the GM keeps
   function shipRun(p, rec, units) {
     if (p.host === 'player' && p.owner && rec.owner === p.owner) return 'YOUR SHIP';
-    if (rec.owner === 'party') return (units || []).some(function (u) { return u.flagship === rec.id; }) ? 'THE PARTY’S FLAGSHIP' : 'THE PARTY’S SHIP';
+    var gn = rec.owner === 'party' ? 'THE PARTY' : groupName(rec.owner);   // R-BSBP-2: the group's name in THE PARTY's place
+    if (gn) return upper(gn) + ((units || []).some(function (u) { return u.flagship === rec.id; }) ? '’S FLAGSHIP' : '’S SHIP');
     var w = whoOf(rec.owner, p.reg, p.roster);
     return w && w.name ? upper(w.name) + '’S SHIP' : 'THE SHIP';
   }

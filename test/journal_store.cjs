@@ -200,9 +200,12 @@ function main() {
   // "F-8 added no key"; the set gains only that ruled key.
   // Re-pointed a third time when the campaign record joined LISTS (ruling `encounters-e6-plumbing` ADDENDUM 1 C2 / P2.1,
   // its ADDENDUM 6 R1): KEEPS "F-8 added no key" (no journal key, no new class); the set gains only `swrpg_campaigns`.
-  check('C-F8-2 — NO NEW KEY: syncMerge governs the keys it did before F-8, plus only K5\'s fleet units, R-R4S-5\'s group record and E6\'s campaign record',
+  // Re-pointed a fourth time when the wish list joined LISTS (ruling `between-sessions-build-paper` R-BSBP-5; card
+  // `between-sessions-lap-a-card` ADDENDUM 5 row 1 @ 74de11e20): KEEPS "F-8 added no key"; DROPS nothing; the set gains
+  // only `swrpg_store_holds_v2`.
+  check('C-F8-2 — NO NEW KEY: syncMerge governs the keys it did before F-8, plus only K5\'s fleet units, R-R4S-5\'s group record, E6\'s campaign record and R-BSBP-5\'s wish list',
         Object.keys(SM.LISTS).sort().join() ===
-          'swrpg_campaigns,swrpg_fleet_units_v1,swrpg_npc_bench,swrpg_npc_cast,swrpg_party_v1,swrpg_saved_characters,swrpg_vessels_v1',
+          'swrpg_campaigns,swrpg_fleet_units_v1,swrpg_npc_bench,swrpg_npc_cast,swrpg_party_v1,swrpg_saved_characters,swrpg_store_holds_v2,swrpg_vessels_v1',
         Object.keys(SM.LISTS));
   check('C-F8-2 — NO NEW CLASS: the journal is not a top-level synced key of its own',
         !SM.LISTS.swrpg_journal && SM.WHOLE.indexOf('swrpg_journal') === -1

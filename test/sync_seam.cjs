@@ -59,8 +59,11 @@ const tick = () => new Promise((r) => setTimeout(r, 5));
     // in syncMerge's LISTS, picked up with no edit to sync.js. KEEPS "one list, derived"; the count moves 11 → 12.
     // THIRTEEN since ruling `encounters-e6-plumbing` ADDENDUM 1, C2 (the campaign record, `swrpg_campaigns`): registered in syncMerge's
     // LISTS, picked up with no edit to sync.js. KEEPS "one list, derived"; the count moves 12 → 13.
-    check('the seam syncs exactly thirteen keys, taken from the merge module not a second copy',
-      s.syncedKeys().length === 13, s.syncedKeys());
+    // FOURTEEN since ruling `between-sessions-build-paper` R-BSBP-7 (the wish list, `swrpg_store_holds_v2`): registered in
+    // syncMerge's LISTS, picked up with no edit to sync.js. KEEPS "one list, derived"; the count moves 13 → 14.
+    check('the seam syncs exactly fourteen keys, taken from the merge module not a second copy',
+      s.syncedKeys().length === 14, s.syncedKeys());
+    check('and the fourteenth is the wish list (R-BSBP-7)', s.syncedKeys().indexOf('swrpg_store_holds_v2') >= 0 && s.syncedKeys().indexOf('swrpg_store_holds_v1') === -1, s.syncedKeys());
     check('and the thirteenth is the campaign record (E6 C2)', s.syncedKeys().indexOf('swrpg_campaigns') >= 0, s.syncedKeys());
     check('and the twelfth is the group record (R-R4S-5)', s.syncedKeys().indexOf('swrpg_party_v1') >= 0, s.syncedKeys());
     check('and the eleventh is the fleet units (K5, R-S3K-5)', s.syncedKeys().indexOf('swrpg_fleet_units_v1') >= 0, s.syncedKeys());

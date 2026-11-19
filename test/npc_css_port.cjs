@@ -113,6 +113,11 @@ const setViews = new Set((view.match(/setView\('([a-z-]+)'\)/g) || []).map((s) =
   .forEach((s) => setViews.add(s.slice(7, -1)));
 (view.match(/const CREATOR_VIEWS = \[([^\]]*)\]/) || ['', ''])[1].replace(/'([^']+)'/g, (_, v) => setViews.add(v));
 setViews.add('library-landing');
+// encounters-e3-deletion (`encounters-e3-flip-gate` ADDENDUM 13 Q1/B-1885; the claim KEPT, the floor KEPT at 12): the library's
+// last `setView('groups')` (the CUSTOM NPC usage buttons) became the host's move to the manager, and 'groups' is now set only
+// through the route grammar (npcRoute.js `out.view = 'groups'` → `setView(t.view)`). So the reader takes the route's views too.
+(fs.readFileSync(path.join(ROOT, 'lib/library/npc/npcRoute.js'), 'utf8').match(/out\.view = '([a-z-]+)'/g) || [])
+  .forEach((s) => setViews.add(s.slice(12, -1)));
 const owner = {};
 Object.keys(zones).forEach((z) => zones[z].views.forEach((v) => { (owner[v] = owner[v] || []).push(z); }));
 // Drawn views (B-864's register, B-865's reference) stand on no island; a drawn view must not ALSO be in a zone.

@@ -29,7 +29,7 @@ const P = require(path.join(ROOT, 'lib/shared/partyStore.js'));
 const APP = fs.readFileSync(process.env.R6NG_APP || path.join(ROOT, 'player/app.jsx'), 'utf8');
 const READS = new Set(['load', 'isStale', 'fromRaw', 'normalizeParty', 'normalizeMember', 'normalizeRow', 'parseWho', 'partyOf',
   'mentorKind', 'normalizeResource', 'resourceEffects', 'normalizeBase', 'engineReader', 'registerEngineReader', 'sheetDutyRows',
-  'dutyParts', 'dutyTotal', 'rankProgress', 'blockers', 'canUndo']);
+  'dutyParts', 'obligationParts', 'dutyTotal', 'rankProgress', 'blockers', 'canUndo']);   // obligationParts: T4 lap A (a reader)
 let failures = 0;
 function check(label, ok, detail) {
   console.log((ok ? 'PASS  ' : 'FAIL  ') + label + (ok ? '' : '  — ' + JSON.stringify(detail)));

@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Privacy &amp; Account — Project Holocron</title>
-  <script src="/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
-  <script defer src="/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
+  <script src="/dist/lib/shared/siteSettings.js"></script><!-- account values (R-AAC-19): read by analytics.js and the other consumers this shell loads -->
+  <script defer src="/dist/lib/shared/analytics.js"></script><!-- Cloudflare Web Analytics, production host only; one module for every shell (lib/shared/analytics.js) -->
   <meta name="description" content="What Project Holocron stores about you (very little), and the controls to sign out or delete your account." />
   <meta name="theme-color" content="#071C2F" />
   <link rel="icon" type="image/svg+xml" href="/public/icons/holocron-icon.svg" />
@@ -15,9 +15,7 @@
        Static page + the shared account seam; plain language throughout (fork C: a generic
        plain-language privacy page stating exactly the C4 floor). -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="/lib/shared/fonts.css" rel="stylesheet" />
   <link href="/lib/shared/tokens.css" rel="stylesheet" />
   <!-- PAPER N7 · B-1254 (D-175 P2 + the page approved as drawn; D-176 Discord's rounded button; card
        paper-n7-frontdoor-lab-card ADDENDUM 4): the privacy page stands on the paper kit. Its files are linked here, in
@@ -55,7 +53,7 @@
     ul { list-style: none; }
     .hp-plate li { padding: 4px 0 4px 18px; position: relative; }
     .hp-plate li::before { content: '·'; position: absolute; left: 4px; color: var(--doc-action); font-weight: 700; }
-    .hp-plate strong { color: var(--doc-ink); font-weight: 600; }   /* the page loads Rajdhani 300/400/600 */
+    .hp-plate strong { color: var(--doc-ink); font-weight: 600; }   /* fonts.css carries every Rajdhani weight (B-1872) */
     .hp-plate .note { color: var(--doc-ink-muted); }
 
     /* the live account panel: a plate. Its controls are the kit's own parts — no `#panel button` rule outranks them
@@ -135,8 +133,8 @@
     </section>
   </main>
 
-  <script src="/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
-  <script src="/lib/shared/account.js"></script>
+  <script src="/dist/lib/shared/providerButtons.js"></script><!-- F-34: the providers OWN published button assets, unmodified -->
+  <script src="/dist/lib/shared/account.js"></script>
   <script>
     (function () {
       var panel = document.getElementById('panel');

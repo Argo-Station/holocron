@@ -22,7 +22,7 @@ check((app.match(/React\.createElement\(ModifyHost,/g) || []).length === 1, 'ADD
 check(/playerScreenReady\('modify'\)/.test(gate), 'ADDENDUM 474: the gate waits for the screen\'s parts', gate.trim());
 // R-M13R-43 (ruling-moved): KEEPS the screen asking for creator.js; ADDS the modify part, in order, and both <script> lines gone from player/index.html.
 check(/modify: \['creator', 'modify'\]/.test(app), 'ADDENDUM 474, R-M13R-43: the screen asks for the creator chunk and the modify part');
-check(/modify: \['\/lib\/shared\/charModify\.js', '\/lib\/modify\/view\.js'\]/.test(app), 'R-M13R-43: the part loads the engine, then the page');
+check(/modify: \['\/dist\/lib\/shared\/charModify\.js', '\/lib\/modify\/view\.js'\]/.test(app), 'R-M13R-43: the part loads the engine (its B-1912 dist/ copy), then the page');
 const shell = read('player/index.html');
 check(!/charModify\.js|lib\/modify\/view\.js/.test(shell), 'R-M13R-43: neither file is on first load');
 

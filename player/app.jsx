@@ -345,9 +345,9 @@ function ensureNpcLibrary() {
 var PLAYER_PARTS = {
   creator: ['/player/creator.js'],                                    // FullCreator, QuickBuild, ImportOgg, ModifyHost
   sheet: ['/lib/shared/diceHub.js', '/player/sheet.js'],              // window.SWRPGDiceHub (the dice window, read by the sheet chunk), then CharacterSheet (in order)
-  vessels: ['/lib/shared/vesselStore.js', '/lib/shared/vesselView.js'], // window.SWRPGVessels, SWRPGVesselView (in order)
-  ogg: ['/lib/shared/oggImport.js', '/lib/shared/oggExport.js'],      // window.SWRPGOggImport, SWRPGOggExport
-  modify: ['/lib/shared/charModify.js', '/lib/modify/view.js'],       // window.SWRPGModify, SWRPGModifyView (in order; f100-m13-reach-paper R-M13R-43)
+  vessels: ['/dist/lib/shared/vesselStore.js', '/lib/shared/vesselView.js'], // window.SWRPGVessels, SWRPGVesselView (in order; B-1912: the raw store loads its dist/ copy)
+  ogg: ['/dist/lib/shared/oggImport.js', '/dist/lib/shared/oggExport.js'], // window.SWRPGOggImport, SWRPGOggExport (B-1912: dist/ copies)
+  modify: ['/dist/lib/shared/charModify.js', '/lib/modify/view.js'], // window.SWRPGModify, SWRPGModifyView (in order; f100-m13-reach-paper R-M13R-43; B-1912: dist/ copy)
 };
 // Every screen that reads a part (ADDENDUM 428: the vessel files on sheet, yard, store, import, custom; npc too —
 // lib/library/npc/benchStore.js reads SWRPGVessels when the bench acts on a ship).
@@ -617,15 +617,55 @@ function LandingHomebrewTile(p) {
 }
 // ENCOUNTERS E6 frames · P1 (R-E6F-2): the Campaigns tile, the Store tile's markup re-lettered — its count, the first
 // campaign's name as the roll, `with <GM>` as the peek. `wide` (D5): one name, once (the copy's roll stays empty).
-function playerCampaignsOn() { return !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on() && window.SWRPGCampaignsView); }
+// ADDENDUM 27 as amended by 29 (ruling `encounters-e6-walk`): with the door on, the store (the door's FIRST) loads before mount on
+// every boot, so the Campaigns tile draws its final height at first paint; the rest of E6's files load after first paint —
+// before mount only on a cold /player/campaigns… or /player/join… (playerBoot). So two tests:
+//   playerCampaignsDoor() — the door alone: the landing tile and the routes. A load that failed reads it off, as load() always has.
+//   playerCampaignsOn()   — the door AND the files in: the screen's render gate.
+// usePlayerCampaignsReady() re-renders its host when the files land; setScreen holds a press for them (B-139's hold, 426 §5).
+var _playerCampaignsFailed = false;
+function playerCampaignsDoor() { return !_playerCampaignsFailed && !!(window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on()); }
+function playerCampaignsOn() { return playerCampaignsDoor() && !!window.SWRPGCampaignsView; }
+function playerCampaignsLoad() {
+  if (!playerCampaignsDoor()) return Promise.resolve(false);
+  return window.SWRPGCampaignsDoor.load().then(function (ok) { if (!ok) _playerCampaignsFailed = true; return playerCampaignsOn(); });
+}
+function playerCampaignsLoadFirst() {
+  if (!playerCampaignsDoor()) return Promise.resolve(false);
+  return window.SWRPGCampaignsDoor.loadFirst().then(function (ok) { if (!ok) _playerCampaignsFailed = true; return ok; });
+}
+function usePlayerCampaignsReady() {
+  var _r = React.useState(playerCampaignsOn), ready = _r[0], setReady = _r[1];
+  React.useEffect(function () {
+    if (ready || !playerCampaignsDoor()) return undefined;
+    var alive = true;
+    playerCampaignsLoad().then(function (ok) { if (alive) setReady(ok); });
+    return function () { alive = false; };
+  }, []);
+  return ready;
+}
 function LandingCampaignsTile(p) {
+  // ADDENDUM 29: the store ran before mount, so the count, the roll and the peek are here at first paint (no shift).
   var Cs = window.SWRPGCampaigns, list = Cs ? Cs.load().campaigns.filter(function (c) { return c && c.role === 'player'; }) : [];
   var first = list[0] || null, roll = first ? first.name : '', peek = first && first.table ? 'with ' + first.table.gmLabel : '';
-  return (
+  // T2 M2 (encounters-t2-build item 5): the most recent remembered table's JOIN line; with it the roll and the peek name
+  // that campaign (D-T2M3 (b) — the list's first campaign is RETIRED in this state only). tableSession is eager.
+  var TS = window.SWRPGTableSession, line = TS && TS.recent ? TS.recent('player') : null;
+  if (line) { roll = line.name; peek = 'with ' + ((TS.memOf(line.id) || {}).gmLabel || (line.table && line.table.gmLabel) || ''); }
+  // M2's WAITING figure (encounters-t2-build ADDENDUM 2): the held XP offers in every campaign's INBOX plus the new shared
+  // lines, which count 0 here: `sharedLines` has no shape on paper yet, and the shared-lines client adds its term (R-Y2-1).
+  // Drawn above 0, with T2's switch on.
+  var waiting = TS && TS.doorOn && TS.doorOn() ? list.reduce(function (n, c) { return n + (c.inbox || []).length; }, 0) : 0;
+  var join = function () {
+    playerCampaignsLoad().then(function (ok) { if (ok) { TS.joinRemembered(line.id); p.onLine(line.id); } });
+  };
+  return (<React.Fragment>
+    {line ? <window.SWRPGUI.TableLine door='[data-landing-door="campaigns"]' verb="JOIN" name={line.name} aria={'Join · ' + line.name} onTap={join} /> : null}
     <button type="button" className="hp-plate ld-tile" data-pad="read" data-landing-door="campaigns" onClick={p.onEnter('campaigns')}>
       <span className="ld-tilehead">
         <span className="hp-row-desig">Campaigns</span>
         {ldFigure('campaigns', list.length, 'campaigns')}
+        {waiting > 0 ? <span className="ld-fig" data-t2-waiting={waiting}><b>{String(waiting)}</b><i>waiting</i></span> : null}
       </span>
       <span className="ld-tilebody">
         <span className="ld-chrun ld-roll">{roll}</span>
@@ -634,7 +674,7 @@ function LandingCampaignsTile(p) {
         <span className="ld-peek-text ld-peek-dup" aria-hidden="true">{peek}</span>
       </span>
       <span className="ld-chev">&rsaquo;</span>
-    </button>);
+    </button></React.Fragment>);
 }
 function ldFigure(kind, n, noun) {
   return (
@@ -1419,7 +1459,7 @@ function LandingPaper(p) {
   // ENCOUNTERS E6 frames (R-E6F-2, F2-a, D5 · D-540): the Campaigns tile after Store while swrpg_campaigns_door is on. The
   // grid class follows the tile COUNT: four tiles take F10a; five (HOMEBREW and CAMPAIGNS both on) are D5 — F10a's 2×2 with
   // Campaigns across both columns beneath (`data-tiles="5"`, landing.css). Off, the landing is byte for byte today's.
-  var campaignsDoor = playerCampaignsOn();
+  var campaignsDoor = playerCampaignsDoor();
   var tileCount = tiles.length + (homebrewDoor ? 1 : 0) + (campaignsDoor ? 1 : 0);
 
   var contents = (
@@ -1486,9 +1526,9 @@ function LandingPaper(p) {
         })}
         {/* F-100 C2 · THE HOMEBREW DOOR (F10a, ruled R-FEM-A2-1: a fourth reference tile; the bar keeps its five
             words). Drawn only while swrpg_homebrew_editor is on — off, this line renders nothing. */}
-        {campaignsDoor && !homebrewDoor ? <LandingCampaignsTile onEnter={enter} wide={false} /> : null}
+        {campaignsDoor && !homebrewDoor ? <LandingCampaignsTile onEnter={enter} onLine={function (id) { if (p.onEnter) p.onEnter('campaigns', { camp: { id: id } }); }} wide={false} /> : null}
         {homebrewDoor ? <LandingHomebrewTile onEnter={enter} /> : null}
-        {campaignsDoor && homebrewDoor ? <LandingCampaignsTile onEnter={enter} wide={true} /> : null}
+        {campaignsDoor && homebrewDoor ? <LandingCampaignsTile onEnter={enter} onLine={function (id) { if (p.onEnter) p.onEnter('campaigns', { camp: { id: id } }); }} wide={true} /> : null}
         {/* THE QUIET ROW, R-OGG1-1's rule kept: no stock, no figure, no eyebrow. B-712: it carries the legacy row's
             tour-id, which R-OEC-1 pins UNCHANGED — three suites select the import row by it. */}
         <button type="button" className="hp-quiet ld-files" data-tour-id="p-landing-import-row" data-landing-door="import"
@@ -20661,8 +20701,7 @@ async function sheetTemplateFits(bytes, line) {
 async function sheetTemplateFromFile(file, line) {
   var bytes = await file.arrayBuffer();
   if (!(await sheetTemplateFits(bytes, line))) return null;
-  var dig = await crypto.subtle.digest('SHA-256', bytes);
-  var hex = Array.prototype.map.call(new Uint8Array(dig), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+  var hex = window.SWRPGBaseRef.sha256hexBytes(bytes);   // B-1891: one SHA-256 on every origin (the browser's own digest exists only on https)
   return sheetTemplatePut({ line: line, name: file.name, size: file.size, sha256: hex, saved_at: new Date().toISOString(), bytes: bytes });
 }
 
@@ -23012,7 +23051,7 @@ function SheetAdvancement({ sheet, accent, onSheetChange, initialPick, initialUn
   var forceRating = Math.max(Number(sheet.forceRatingBase) || 0, (sheet.derived && Number(sheet.derived.forceRating)) || 0);
   // B-41: the sensitivity flag above answers "is this character Force-sensitive at all"; the
   // PREREQUISITE needs the resolved rating, which includes Force Rating talent ranks — the very
-  // mechanism a character uses to reach FR 2 (fad-gm p.26). Kept separate rather than widening the
+  // mechanism a character uses to reach FR 2 (fad-gm p.25). Kept separate rather than widening the
   // flag: `forceRating >= 1` gates the whole ADD list and must keep reading persisted inputs.
   //
   // C1 (ruling b41-min-force-rating R-B41-1) — FLOORED BY THE SENSITIVITY VALUE, and it must stay
@@ -29228,7 +29267,7 @@ function parsePathToScreen(path) {
   if (npcMatch) return { screen: 'npc', npcPath: npcMatch[1] };
   // ENCOUNTERS E6 frames (R-E6F-1): /player/campaigns[/<id>] and /player/join (#<code>), only while swrpg_campaigns_door is
   // on; off, each is an unknown path (the landing).
-  if (playerCampaignsOn()) {
+  if (playerCampaignsDoor()) {
     var campMatch = p.match(/^\/player\/campaigns(?:\/([^/]+))?$/);
     if (campMatch) return { screen: 'campaigns', camp: campMatch[1] ? { id: decodeURIComponent(campMatch[1]) } : {} };
     if (p === '/player/join') return { screen: 'campaigns', camp: { join: decodeURIComponent(String(window.location.hash || '').replace(/^#/, '')) } };
@@ -29421,6 +29460,12 @@ function PlayerApp() {
     setFailedAsk(null);
     // ADDENDUM 433 (b): a screen that drew a loading state at the cut opens at once on that state (CreatorLoadingScreen);
     // the effect below fetches its parts and re-renders. Every other screen is held.
+    // ADDENDUM 27 item 3: CAMPAIGNS is held the same way for E6's files (a press before they land waits on load()); a load
+    // that failed reads the door off, so the press stays where it is, as an unknown path would.
+    if (next === 'campaigns' && !playerCampaignsOn()) {
+      playerCampaignsLoad().then(function(ok) { if (ok && screenAsk.current === ask) setScreenNow(next); });
+      return;
+    }
     if (playerScreenReady(next) || PLAYER_LOADING_FACE[next]) { setScreenNow(next); return; }
     settlePlayerScreen(next).then(function() { if (screenAsk.current === ask) setScreenNow(next); },
       function(e) { console.warn('[B-139] ' + next + ' parts not loaded: ' + e.message); if (screenAsk.current === ask) { setFailedAsk(next); setScreenNow(next); } });
@@ -29452,6 +29497,8 @@ function PlayerApp() {
     window.addEventListener('online', retryParts);
     return function() { window.removeEventListener('online', retryParts); };
   }, [partFailed, screen]);
+  // ADDENDUM 27 item 2: after first paint E6's files load (this hook's effect), and the screen re-renders when they land.
+  var campReady = usePlayerCampaignsReady();
   // B-139 (ADDENDUM 426 §4): after mount, every part prefetches at idle, so a tap rarely waits.
   useEffect(function() {
     var idle = window.requestIdleCallback || function(fn) { return setTimeout(fn, 200); };
@@ -29838,11 +29885,11 @@ function PlayerApp() {
     setPendingResume(null);   // ruling C1: a discarded draft must never resume
   }, []);
 
-  const handleEnter = useCallback(sectionId => {
+  const handleEnter = useCallback((sectionId, opts) => {
     const wipe = WIPE_TYPES[Math.floor(Math.random() * WIPE_TYPES.length)];
     setWipeType(wipe);
     setPendingResume(null);   // normal card entry = fresh build, never a resume
-    navTo(sectionId);
+    if (opts) navTo(sectionId, null, opts); else navTo(sectionId);   // opts: T2's one-tap line names its campaign
   }, [navTo]);
 
   const handleBack = useCallback(() => {
@@ -30844,7 +30891,7 @@ function PlayerApp() {
       )}
 
       {/* ENCOUNTERS E6 frames (F5-a, R-E6F-1): CAMPAIGNS as its own host screen — P2, P3 JOIN TABLE, P5. */}
-      {screen === 'campaigns' && playerCampaignsOn() && (
+      {screen === 'campaigns' && campReady && playerCampaignsOn() && (
         <PlayerCampaignsScreen route={campRoute} wipeType={wipeType} onBack={handleBack}
           go={function(r) { navTo('campaigns', null, { camp: r || {} }); }}
           onMakeCharacter={function() { navTo('custom'); }}
@@ -31006,12 +31053,14 @@ function PlayerApp() {
 // B-139 (ADDENDUM 426 §4): a cold load of a screen with lazy parts loads them before the first render — there is no
 // current screen to hold — unless the screen has a loading face (433 (b)): it mounts at once on that face. Every other
 // load renders at once, as before.
-// B-1874 (ADDENDUM 721): with swrpg_campaigns_door on, the campaign files run first (SWRPGCampaignsDoor.load never rejects),
-// so the boot route, the landing tile and every view that subscribes to the table session see them; off, nothing waits.
+// B-1874 (ADDENDUM 721) as amended for the player by `encounters-e6-walk` ADDENDUMS 27 and 29: with swrpg_campaigns_door on, all of E6's
+// files run before mount on a cold /player/campaigns… or /player/join… (the first screen needs them; no loading look, 426 §5); every
+// other boot runs the store alone first (the landing tile's reader) and the rest after first paint (usePlayerCampaignsReady). Off,
+// nothing waits.
 function playerMount() { ReactDOM.createRoot(document.getElementById('root')).render(<PlayerApp />); }
 function playerBoot() {
   if (playerScreenReady(playerBootScreen()) || PLAYER_LOADING_FACE[playerBootScreen()]) { playerMount(); } else {
     settlePlayerScreen(playerBootScreen()).then(playerMount, function(e) { console.warn('[B-139] ' + e.message); if (e.silent) _playerBootSilent = e; playerMount(); });
   }
 }
-if (window.SWRPGCampaignsDoor && window.SWRPGCampaignsDoor.on()) window.SWRPGCampaignsDoor.load().then(playerBoot); else playerBoot();
+if (playerCampaignsDoor()) (playerBootScreen() === 'campaigns' ? playerCampaignsLoad() : playerCampaignsLoadFirst()).then(playerBoot); else playerBoot();

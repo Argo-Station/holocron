@@ -30,6 +30,9 @@
  *   T1–T4  char_update at most one per 2 s · type by role · unknown type · v 2 → bye version · 64 KB
  *   U1     R-E6F-4: `unreachable` once per attempt (open · join · list) before any key and any frame; never after an error frame or on a rejoin
  *   W1     R-E6F-5: the GM's listing(on) sends the frame the server's fence reads
+ *   PC     item 11 (encounters-t2-flip ADDENDUM 2), on a mock socket that applies the server's rateAllows: S4's 12-frame burst
+ *          + close all accepted in order and the socket closed; a forced slow_down re-sent once after 1 s (twice → dropped);
+ *          a close or a LEAVE the server never answers closes the client's own socket at 2 s
  *   B1     never in a backup: SWRPGBackup.readDevice reads localStorage over LOCAL_KEYS and IndexedDB only, no sessionStorage,
  *          and makeFile drops the link's key (ADDENDUM 6 R-E6P-R9; the CACHE row)
  *
@@ -52,7 +55,7 @@ const MUTANTS = [
   ['local-before-admit', 'L1', "case 'opened':                                               // open, rejoin and newcode (ADDENDUM 3 F1–F3)", "case 'opened': if (env.RTCPeerConnection) new env.RTCPeerConnection({ iceServers: [] });"],
   ['no-resend-on-switch', 'L3', "      emit({ kind: 'path', who: role === 'gm' ? p.id : 'gm', path: 'server' });\n      presence(p);\n      resendTo(p);", "      emit({ kind: 'path', who: role === 'gm' ? p.id : 'gm', path: 'server' });\n      presence(p);"],
   ['seq-ignored', 'L4', 'if (!guard.accept(from, msg.type, msg.seq)) return;', 'guard.accept(from, msg.type, msg.seq);'],
-  ['leave-local-only', 'LV', "      api.leave = function () {\n        byeAll('left');", "      api.leave = function () {\n        sendTo('gm', 'bye', { reason: 'left' });"],
+  ['leave-local-only', 'LV', "      api.leave = function () {\n        byeAll('left', true);", "      api.leave = function () {\n        sendTo('gm', 'bye', { reason: 'left' });"],
   ['no-local-timeout', 'L5', 'var LOCAL_UP_MS = 10 * 1000;', 'var LOCAL_UP_MS = 1e12;'],
   ['retry-any-time', 'L6', 'var LOCAL_GAP_MS = 60 * 1000;', 'var LOCAL_GAP_MS = 0;'],
   ['permission-ignored', 'L7', "return state !== 'denied';", 'return true;'],
@@ -69,6 +72,9 @@ const MUTANTS = [
   ['unreachable-silenced', 'U1', "emit({ kind: 'unreachable', phase: phase });", 'void phase;'],
   ['list-unreachable-silenced', 'U1', "emit({ kind: 'unreachable', phase: 'list' }); }", '}'],
   ['unreachable-after-error', 'U1', 'if (told || heard || !phase', 'if (told || !phase'],
+  // item 11's two bites (encounters-t2-flip ADDENDUM 2): today's sendServer (no pace) and today's shutdown (no local close)
+  ['send-unpaced', 'PC', '      pq.push(s); pump(); return true;', '      try { ws.send(s); return true; } catch (e) { return false; }'],
+  ['shutdown-no-close', 'PC', '      if (pE && pL === pE) endIn();', ''],
   ['empty-signal-starts', 'D1', 'if (f.start === true) {', 'if (f.start === true || (f.sdp == null && f.candidate == null)) {'],
 ];
 // the copies of OTHER modules: [name, leg, env var, source, find, replace]
@@ -615,6 +621,66 @@ let RULES = null;
     check('W1 GM listing(true) then listing(false): two frames {t:listing, on} on the server socket', ok1 && ok2 && fr.length === 2 && fr[0].on === true && fr[1].on === false
       && fr.every((f) => RULES.readFrame(JSON.stringify(Object.assign({ v: 1 }, f))).ok), fr);
     check('W1 a player link has no listing act', typeof T.pl.listing === 'undefined');
+  }
+
+  // ── PC item 11 (encounters-t2-flip ADDENDUM 2): pace ≤ 8 a second, a refused frame re-sent once, close/leave close the socket ──
+  {
+    function paceWorld(o) {
+      o = o || {};
+      let now = 5_000_000, timers = [], tid = 0;
+      const flushP = async () => { for (let i = 0; i < 20; i++) await Promise.resolve(); };
+      const clock = { now: () => now, setTimeout: (f, ms) => { const id = ++tid; timers.push({ id, at: now + (ms || 0), f }); return id; },
+        clearTimeout: (id) => { timers = timers.filter((t) => t.id !== id); },
+        async to(ms) { const end = now + ms; for (;;) { await flushP(); timers.sort((a, b) => a.at - b.at); const t = timers[0]; if (!t || t.at > end) break; timers.shift(); now = t.at; t.f(); } now = end; await flushP(); } };
+      const w = { got: [], refused: [], socks: [], times: [], clock };
+      class MockWS {   // the table server's own rateAllows on the manual clock; a refused frame is dropped with slow_down
+        constructor(url) { this.url = url; this.readyState = 0; w.socks.push(this); Promise.resolve().then(() => { this.readyState = 1; this.onopen && this.onopen({}); }); }
+        send(text) {
+          if (this.readyState !== 1) throw new Error('not open');
+          const f = JSON.parse(text), key = f.t + (f.knockId ? ':' + f.knockId : '');
+          const forced = o.refuse && o.refuse(key, w.refused.filter((k) => k === key).length);
+          if (forced || !RULES.rateAllows(w.times, now)) { w.refused.push(key); return Promise.resolve().then(() => this.deliver({ t: 'error', code: 'slow_down' })); }
+          w.got.push(key);
+          if (f.t === 'open') Promise.resolve().then(() => this.deliver({ t: 'opened', code: 'ABC123', codeExpiresAt: 0, gmKey: 'gk', tableId: 'tbl' }));
+          if (f.t === 'join') Promise.resolve().then(() => this.deliver({ t: 'admitted', seatKey: 'sk', tableId: 'tbl' }));
+          if (f.t === 'close' && !o.silent) Promise.resolve().then(() => this.serverClose());
+        }
+        deliver(f) { if (this.readyState === 1) this.onmessage && this.onmessage({ data: JSON.stringify(Object.assign({ v: 1 }, f)) }); }
+        close() { if (this.readyState === 3) return; this.readyState = 3; w.closedAt = now; w.closedBy = 'client'; const cb = this.onclose; Promise.resolve().then(() => cb && cb({})); }
+        serverClose() { if (this.readyState === 3) return; this.readyState = 3; w.closedAt = now; w.closedBy = 'server'; this.onclose && this.onclose({}); }
+      }
+      const st = new Map(), storage = { getItem: (k) => (st.has(k) ? st.get(k) : null), setItem: (k, v) => st.set(k, String(v)), removeItem: (k) => st.delete(k) };
+      w.link = (role) => TL.createLink({ role, server: 'wss://table.test', onEvent: () => {}, env: { WebSocket: MockWS, RTCPeerConnection: undefined,
+        setTimeout: clock.setTimeout, clearTimeout: clock.clearTimeout, now: clock.now, storage, navigator: { userAgent: 'Chrome/147' }, on: () => {}, off: () => {} } });
+      return w;
+    }
+    // S4's burst: open, 12 frames, CLOSE TABLE — every frame accepted, in order, and the socket closed
+    let w = paceWorld(), gm = w.link('gm');
+    gm.open('Night', false); await w.clock.to(0);
+    for (let i = 1; i <= 12; i++) gm.admit('k' + i);
+    gm.close(); await w.clock.to(5000);
+    const order = w.got.filter((k) => k.startsWith('admit')).map((k) => k.slice(6)).join(',');
+    check('PC S4\'s 12-frame burst + close: no frame refused, all arrive in order, then close', w.refused.length === 0 && order === Array.from({ length: 12 }, (_, i) => 'k' + (i + 1)).join(',') && w.got[w.got.length - 1] === 'close', { refused: w.refused, got: w.got });
+    check('PC and the GM\'s socket is closed (by the server\'s close)', w.socks.every((s) => s.readyState === 3) && w.closedBy === 'server', { closedBy: w.closedBy });
+    // one forced slow_down: one re-send after 1 s; a second refusal of the same frame is dropped
+    w = paceWorld({ refuse: (k, n) => k === 'admit:x' && n < 1 }); gm = w.link('gm'); gm.open('Night', false); await w.clock.to(0);
+    gm.admit('x'); await w.clock.to(999);
+    const before = w.got.filter((k) => k === 'admit:x').length;
+    await w.clock.to(2);
+    check('PC one forced slow_down: the frame is re-sent once, after 1,000 ms', before === 0 && w.got.filter((k) => k === 'admit:x').length === 1 && w.refused.length === 1, { got: w.got, refused: w.refused });
+    w = paceWorld({ refuse: (k) => k === 'admit:y' }); gm = w.link('gm'); gm.open('Night', false); await w.clock.to(0);
+    gm.admit('y'); await w.clock.to(5000);
+    check('PC refused twice: sent twice, then dropped (no third try)', w.refused.filter((k) => k === 'admit:y').length === 2 && !w.got.includes('admit:y'), w.refused);
+    // a close the server never answers: the client closes its own socket 2,000 ms after the close was sent
+    w = paceWorld({ silent: true }); gm = w.link('gm'); gm.open('Night', false); await w.clock.to(0);
+    gm.close(); await w.clock.to(1999);
+    const openAt1999 = w.socks[0].readyState === 1;
+    await w.clock.to(1);
+    check('PC close with no server answer: open at 1,999 ms, closed by the client at 2,000 ms', openAt1999 && w.socks[0].readyState === 3 && w.closedBy === 'client', { openAt1999, closedBy: w.closedBy });
+    // LEAVE TABLE the same: the bye goes, and the player's own socket closes at 2,000 ms
+    w = paceWorld({ silent: true }); const pl = w.link('player'); pl.join({ code: 'ABC123' }, 'Pat'); await w.clock.to(0);
+    pl.leave(); await w.clock.to(2000);
+    check('PC LEAVE TABLE: the server bye is sent and the player\'s socket is closed by 2,000 ms', w.got.includes('play') && w.socks[0].readyState === 3, { got: w.got, state: w.socks[0].readyState });
   }
 
   // ── B1 never in a backup (R-E6P-R9) ──

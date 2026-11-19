@@ -65,7 +65,9 @@ const RULED = ['swrpg_saved_characters', 'swrpg_creation_draft', 'swrpg_deleted_
   'swrpg_party_v1',
   // THIRTEEN since ruling `encounters-e6-plumbing` ADDENDUM 1, C2 (the campaign record): LISTS by campaign id in syncMerge (sync_merge
   // pins that side) and here in the worker's set. KEEPS "exactly the ruled keys"; the count is derived, so it moves itself.
-  'swrpg_campaigns'];
+  'swrpg_campaigns',
+  // FOURTEEN since ruling `between-sessions-build-paper` R-BSBP-7 (the wish list's v2 key; v1 stays excluded below).
+  'swrpg_store_holds_v2'];
 for (const k of RULED) check('KEY SET syncs ' + k, new RegExp("'" + k + "'").test(sync));
 check('KEY SET store SHELVES are excluded (ids collide across devices — D-B7)',
   !/'swrpg_store_shelves_v1'/.test(sync.slice(sync.indexOf('const SYNC_KEYS'), sync.indexOf('MAX_VALUE_BYTES'))));
@@ -76,6 +78,16 @@ check('KEY SET store HOLDS are excluded (bare string array, reader eats richer s
 // away — the kind of second copy this file exists to complain about elsewhere.
 check('KEY SET is exactly the ' + RULED.length + ' ruled keys — no extras crept in',
   (sync.slice(sync.indexOf('const SYNC_KEYS'), sync.indexOf(']);')).match(/'swrpg_[a-z0-9_]+'/g) || []).length === RULED.length);
+// R-BSBP-7 · THE TWO LISTS AGREE: the client's key list (sync.js syncedKeys(), derived from syncMerge's LISTS ∪ WHOLE ∪ the
+// tombstones) and the worker's SYNC_KEYS are the same set, so a key cannot be pushed that the server refuses, or allowed
+// on the server with no client merge.
+{
+  const M = require(path.join(ROOT, 'lib/shared/syncMerge.js'));
+  const client = Object.keys(M.LISTS).concat(M.WHOLE, [M.TOMBSTONES]).sort();
+  const server = (sync.slice(sync.indexOf('const SYNC_KEYS'), sync.indexOf(']);')).match(/'swrpg_[a-z0-9_]+'/g) || []).map((k) => k.slice(1, -1)).sort();
+  check('KEY SET the client\'s list and the worker\'s SYNC_KEYS agree (R-BSBP-7)', client.join() === server.join(),
+    { clientOnly: client.filter((k) => !server.includes(k)), serverOnly: server.filter((k) => !client.includes(k)) });
+}
 check('KEY SET is enforced server-side, not just trusted from the client',
   /SYNC_KEYS\.has\(key\)/.test(sync) && /key_not_synced/.test(sync));
 // RE-POINTED by card `f100-ms-build` R-MSB-5 (contract `f100-homebrew-sync-contract` R-HSC-1/-4/-11): the ruled

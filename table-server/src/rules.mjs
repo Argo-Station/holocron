@@ -6,6 +6,9 @@
  * The wire is `encounters-e5-wire` §5 (pairing, minus offer/answer) and §6 (the envelope and its seven types), as amended
  * by `encounters-e6-wire-online` §4 (the server path and its relay rules), §5 (what is held, for how long) and ADDENDUM 3
  * H1 (`signal`). Nothing here reads a `play` frame's payload: only `msg.type`, which the relay rules need.
+ *
+ * T2 (`encounters-t2-shapes` §2 + ADDENDUM 2; D-621): the remembered table's route `?open=<ref>` (`REF_RE`), `open`'s
+ * `secret` and `seats`, `forget`, `rejoin`'s `wait: true`, and `record` / `shared` among the GM's play types.
  */
 
 export const V = 1;
@@ -24,6 +27,8 @@ export const IDLE_WIPE_MS = 24 * 60 * 60 * 1000;   // storage deleted no later t
 export const FAILED_JOINS = 10, FAILED_WINDOW_MS = 10 * 60 * 1000;   // per source (wire §5)
 export const OPENS = 20, OPENS_WINDOW_MS = 60 * 60 * 1000;           // per source (wire §5)
 export const LIST_MAX = 20;
+export const REF_RE = /^[A-Za-z0-9_-]{43}$/;   // T2 §2.1: ref = b64url(SHA-256(secret)), 43 characters
+export const HASH_RE = REF_RE;                  // a seat key's hash on the wire (`seats`, `seated`): the same 43-char form
 
 // ── the code: 6 of Crockford base32 without U (wire §5) ──
 export const CODE_ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';   // 31 symbols
@@ -64,7 +69,7 @@ export function groupKey(ip) {
 
 // ── the relay rules by role (wire-online §4 rules 2–3; H1 `signal`) ──
 export const PLAYER_TYPES = ['join', 'char_update', 'xp_taken', 'bye'];
-export const GM_TYPES = ['table_hello', 'party', 'xp_offer', 'bye'];
+export const GM_TYPES = ['table_hello', 'party', 'xp_offer', 'bye', 'record', 'shared'];   // T2 §2.6: record, shared
 export function playAllowed(role, type) {
   return (role === 'gm' ? GM_TYPES : role === 'player' ? PLAYER_TYPES : []).indexOf(type) !== -1;
 }
@@ -72,7 +77,10 @@ export function playAllowed(role, type) {
 // ── the frame fence (wire §5: strict; an unknown t, a missing field or v ≠ 1 is `bad_frame`) ──
 const isStr = (x, max) => typeof x === 'string' && x.length > 0 && (max == null || x.length <= max);
 const FRAMES = {
-  open: (f) => isStr(f.label, LABEL_MAX) && typeof f.listed === 'boolean',
+  // T2 §2.2: `secret` (the route decides whether it is required or refused) and `seats`, ≤ MAX_SEATS remembered seats
+  open: (f) => isStr(f.label, LABEL_MAX) && typeof f.listed === 'boolean' && (f.secret == null || isStr(f.secret, 64))
+    && (f.seats == null || (Array.isArray(f.seats) && f.seats.length <= MAX_SEATS && f.seats.every(seedOk))),
+  forget: (f) => isStr(f.knockId, 64),           // T2 §2.5, GM only
   list: () => true,
   join: (f) => (isStr(f.code, 16) || isStr(f.tableId, 128)) && isStr(f.deviceLabel, LABEL_MAX),
   admit: (f) => isStr(f.knockId, 64),
@@ -80,7 +88,8 @@ const FRAMES = {
   newcode: () => true,
   listing: (f) => typeof f.on === 'boolean',   // R-E6F-5 (ruling `encounters-e6-frames` ADDENDUM 2): ON THIS WI-FI, GM only
   close: () => true,
-  rejoin: (f) => isStr(f.tableId, 128) && (isStr(f.gmKey, 128) || isStr(f.seatKey, 128)),
+  // T2 ADDENDUM 2: `wait` is absent or exactly true (a T2 player asking to wait for the GM's open)
+  rejoin: (f) => isStr(f.tableId, 128) && (isStr(f.gmKey, 128) || isStr(f.seatKey, 128)) && (f.wait == null || f.wait === true),
   play: (f) => !!f.msg && typeof f.msg === 'object' && !Array.isArray(f.msg) && typeof f.msg.type === 'string'
     && (f.to == null || isStr(f.to, 64)),
   // sdp, candidate, or `start: true` ("start the handshake if your limits allow"; ruling `encounters-e6-plumbing-gate`
@@ -88,6 +97,10 @@ const FRAMES = {
   signal: (f) => (f.sdp != null || f.candidate != null || f.start === true) && (f.start == null || f.start === true)
     && (f.knockId == null || isStr(f.knockId, 64)),
 };
+function seedOk(x) {
+  return !!x && typeof x === 'object' && !Array.isArray(x) && isStr(x.knockId, 64) && isStr(x.deviceLabel, LABEL_MAX)
+    && typeof x.seatKeyHash === 'string' && HASH_RE.test(x.seatKeyHash);
+}
 // raw: the frame's text. → { ok: true, frame } | { ok: false, code }
 export function readFrame(raw) {
   const size = typeof raw === 'string' ? utf8Length(raw) : (raw && raw.byteLength) || 0;
@@ -137,4 +150,17 @@ export function b64url(bytes) {
   let s = '';
   for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
   return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+// a SHA-256 digest between its two spellings: hex (what `meta` stores, as before T2) and the wire's 43-char b64url
+export function hexToB64url(hex) {
+  const b = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < b.length; i++) b[i] = parseInt(hex.substr(i * 2, 2), 16);
+  return b64url(b);
+}
+export function b64urlToHex(s) {
+  const bin = atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - (s.length % 4)) % 4));
+  let out = '';
+  for (let i = 0; i < bin.length; i++) out += bin.charCodeAt(i).toString(16).padStart(2, '0');
+  return out;
 }

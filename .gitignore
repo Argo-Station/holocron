@@ -59,6 +59,8 @@ lib/shared/roomSession.js
 lib/shared/roomSession.js.map
 lib/shared/campaignsView.js
 lib/shared/campaignsView.js.map
+# build.mjs's minified copies of the raw lib/ scripts (B-1912): the pages load these
+/dist/
 
 # Cloudflare wrangler local state
 .wrangler/
@@ -69,7 +71,11 @@ Docs/swrpg_community.db*
 
 # Your own art (BRING_YOUR_OWN_ART.md): it stays on your machine unless you have the right to share it
 public/SWDataSet-Master/species_portraits/*.webp
-public/fonts/
+public/fonts/*
+!public/fonts/OFL-*.txt
+!public/fonts/orbitron-*.woff2
+!public/fonts/rajdhani-*.woff2
+!public/fonts/sharetechmono-*.woff2
 public/audio/
 art/items/*.webp
 art/items/*.png

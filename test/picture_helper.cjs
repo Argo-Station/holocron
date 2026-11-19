@@ -94,12 +94,12 @@ const URI = 'data:image/png;base64,iVBORw0KGgo=';
     /P\.reEncode\(uri, \{ ladder: VS\.IMAGE_LADDER, maxChars: VS\.IMAGE_MAX_CHARS \}\)/.test(vv));
   check('no second re-encode: neither app nor the Yard draws a JPEG itself (toDataURL lives only in picture.js)',
     !/toDataURL\(/.test(pa) && !/toDataURL\(/.test(vv) && !/toDataURL\(/.test(gm) && /toDataURL\(/.test(src('lib/shared/picture.js')));
-  check('player: the shell loads the helper, deferred', /<script defer src="lib\/shared\/picture\.js"><\/script>/.test(pix));
+  check('player: the shell loads the helper, deferred', /<script defer src="dist\/lib\/shared\/picture\.js"><\/script>/.test(pix)   /* B-1912: its dist/ copy */);
   // RULING-MOVED (release-r7-bug-burndown ADDENDUM 248, B-1258): the GM's store doors call SWRPGPicture.check, so the GM shell
   // loads the helper at boot, deferred, as the player shell does. KEPT: the Yard core's inject. DROPPED: "never at boot".
   check('gm: the Yard\'s lazy character core injects the helper under K9',
-    /_yardCharCore = \[[^\]]*'\/lib\/shared\/picture\.js'[^\]]*\]/.test(gm));
-  check('gm: the shell loads the helper, deferred', /<script defer src="\/lib\/shared\/picture\.js"><\/script>/.test(src('gm/index.html')));
+    /_yardCharCore = \[[^\]]*'\/dist\/lib\/shared\/picture\.js'[^\]]*\]/.test(gm));
+  check('gm: the shell loads the helper, deferred', /<script defer src="\/dist\/lib\/shared\/picture\.js"><\/script>/.test(src('gm/index.html')));
   finish();
 })().catch(function (e) { check('the drive completes', false, String(e && e.stack || e).slice(0, 300)); finish(); });
 

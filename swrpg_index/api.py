@@ -836,7 +836,7 @@ def list_pdfs(conn):
 # behave exactly as before (the eval baseline scores pass counts, not shapes — checked).
 def stamp_pagination(alias, rec):
     """Annotate a page-bearing record with WHICH pagination it is in, and the printed
-    equivalent where the book has earned an offset. Refuses with a class where it has not."""
+    equivalent where the book has earned an offset or page runs. Refuses with a class where it has not."""
     from . import pdf_pages
     rec['pagination'] = 'corpus'
     st = pdf_pages.status(alias)
@@ -845,6 +845,18 @@ def stamp_pagination(alias, rec):
             if rec.get(src) is not None:
                 rec[dst] = pdf_pages.to_printed(alias, rec[src])
         rec['printed_offset'] = pdf_pages.offset(alias)
+    elif st == pdf_pages.MAPPED:
+        # B-1850: a book mapped by page runs answers its printed pages through the converter; a page outside every
+        # run has none, and says so by class rather than by a missing key. A parted book (C-C2F-4) names the part.
+        for src, dst in (('page_start', 'printed_start'), ('page_end', 'printed_end')):
+            if rec.get(src) is not None:
+                got = pdf_pages.to_printed(alias, rec[src])
+                rec[dst] = None if got is None else int(got)
+                if getattr(got, 'part', None) is not None:
+                    rec[dst.replace('printed_', 'printed_part_')] = got.part
+                if got is None:
+                    rec['printed_unavailable'] = pdf_pages.NO_PRINTED
+        rec['printed_note'] = pdf_pages.explain(alias)
     else:
         rec['printed_unavailable'] = st          # 'uncalibrated' | 'unknown-book'
         rec['printed_note'] = pdf_pages.explain(alias)

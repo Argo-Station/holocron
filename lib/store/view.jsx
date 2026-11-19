@@ -451,17 +451,9 @@
     return Math.max(0, Number(line.priceEach) || 0);
   }
 
-  var HOLDS_KEY = 'swrpg_store_holds_v1';
-  function loadHolds() {
-    try {
-      var raw = localStorage.getItem(HOLDS_KEY);
-      var arr = raw ? JSON.parse(raw) : [];
-      return Array.isArray(arr) ? arr.filter(function (x) { return typeof x === 'string'; }) : [];
-    } catch (e) { return []; }
-  }
-  function saveHolds(ids) {
-    try { localStorage.setItem(HOLDS_KEY, JSON.stringify(ids)); } catch (e) {}
-  }
+  // The wish list's one writer is lib/shared/holdsStore.js (R-BSBP-6): v2, synced, with v1 mirrored for older builds.
+  function loadHolds() { return window.SWRPGHolds.ids(); }
+  function saveHolds(ids) { window.SWRPGHolds.set(ids); }
 
   /* ══════════════════════════════════════════════════════
      CATALOG (canonical registries → display shape, fetch-once)
@@ -3042,7 +3034,7 @@
     var foot = tab === 'counter' ? null : h('div', { className: 'st-foot', 'data-store-zone': 'foot' },
       h('span', null, 'FIND DIFFICULTY · TABLE 5-1 · ' + FIND_CITE),
       tab === 'holds'
-        ? h('span', null, 'SAVED AS ITEM NUMBERS', ' · ', h('code', null, HOLDS_KEY))
+        ? h('span', null, 'SAVED AS ITEM NUMBERS', ' · ', h('code', null, window.SWRPGHolds.V1))   // the face's word stays v1's (no screen change, D-301)
         : h('span', null, '(R) RESTRICTED · STREETWISE, NOT NEGOTIATION'),
       split ? h('span', { 'data-search-split': '1' },
         split.NAME + ' BY NAME · ' + split.SKILL + ' BY SKILL · ' + split.QUALITY + ' BY QUALITY') : null,

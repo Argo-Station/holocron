@@ -1167,6 +1167,26 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
   // landing where the press was. `initialStrip` is a sheet skill key; the hub lists trained skills,
   // so an untrained key joins the list for this opening (its pool is the ability dice alone).
   var _open = React.useState(initialStrip != null ? initialStrip : null), openStrip = _open[0], setOpenStrip = _open[1];   // a weapon strip is its INDEX, and 0 is a strip
+  // B-1930 (ruling release-r7-bug-burndown ADDENDUM 779, shape A): the hub LANDS on the pressed row. A row wholly inside the
+  // body's visible box stays put; otherwise the body (the hub's own scroller) is set, at once, so the row's top sits under its
+  // section's sticky head. Once per opening, and only the body moves: no focus change (B-1779), the sheet beneath untouched
+  // (D-DH-6). A weapon strip is its index (row `w<i>`); a skill or Force strip is the row key itself.
+  var landedRef = React.useRef(initialStrip == null);
+  React.useLayoutEffect(function () {
+    if (landedRef.current) return;
+    var w = win.ref.current, body = w && w.querySelector('.sb-dh-body');
+    var rk = typeof initialStrip === 'number' ? 'w' + initialStrip : String(initialStrip);
+    var row = body && body.querySelector('[data-dh-row="' + (window.CSS && CSS.escape ? CSS.escape(rk) : rk) + '"]');
+    if (!row) return;   // its rows are not drawn yet; the next render tries again
+    landedRef.current = true;
+    var br = body.getBoundingClientRect(), rr = row.getBoundingClientRect();
+    var band = row.parentElement, head = band && band.previousElementSibling;
+    // the head is offset only where it really sticks (measured: in the hub `.sb-grp` draws `relative` today, so the row's
+    // top meets the body's top)
+    var stick = head && head.classList.contains('sb-grp') && getComputedStyle(head).position === 'sticky' ? head.getBoundingClientRect().height : 0;
+    if (rr.top >= br.top + stick && rr.bottom <= br.bottom) return;
+    body.scrollTop += rr.top - br.top - stick;
+  });
   var _rolled = React.useState({}), rolled = _rolled[0], setRolled = _rolled[1];
   // D-352: the row key of the LATEST roll — the one result that may offer a Reroll (older results show none)
   var _latest = React.useState(null), latestKey = _latest[0], setLatest = _latest[1];

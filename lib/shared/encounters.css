@@ -5,7 +5,7 @@
 
    ── THE FENCE ─────────────────────────────────────────────────────────────────────────────────
    Every selector, inside an at-rule or not, starts with [data-npc-shell] and names an enc- class or a data-enc
-   attribute, which only the GM's switch-on screens draw (swrpg_encounters_door, R-E3S-1): with the switch off
+   attribute, which only the GM's encounter manager draws (R-E3S-1): on every other screen
    nothing here matches. LINKED BY gm/index.html ONLY, after npc.css (so a tie with the library's layer goes to
    this one: `.enc-addpc`'s drawn 8 px over `.nl-wide`'s 10 px). The player shell never links it. The library's
    own layer (npc.css, R-NPC-6: no at-rules, no new literals) is untouched; this sheet carries its own width rules.
@@ -41,6 +41,10 @@
 [data-npc-shell] .enc-done-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--doc-ink)}
 /* the ORDER rail — side marks: PC = the action ink, NPC = the state ink */
 [data-npc-shell] .enc-row2{display:flex;gap:14px;flex:1 1 auto;min-height:0}
+/* B-1929: while PREP is open the row fills the page's height, so the drawer's room never depends on the members.
+   npc.css's `.nl-board > .nl-main > :not(.hp-zone){flex:none}` outranks the rule above and makes the row hug its
+   cards (an empty encounter's zone is 53 px, its drawer 41). Grow, never shrink: a full encounter is drawn as before (B-1888). */
+[data-npc-shell] .nl-main>.enc-row2:has(>.hp-zone>.enc-drawer){flex:1 0 auto}
 [data-npc-shell] .enc-row2>.hp-zone{flex:1 1 auto;min-width:0;position:relative}
 [data-npc-shell] .enc-row2>.enc-rail{flex:0 0 212px;overflow:hidden;min-height:0;padding-top:2px}
 [data-npc-shell] .enc-rail{display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -136,6 +140,8 @@
 [data-npc-shell] .enc-menuwrap{position:relative;flex:none;margin-left:auto}
 [data-npc-shell] .enc-menu{width:48px;height:48px;border:1px solid var(--doc-rule);background:transparent;color:var(--doc-ink);font-size:22px;line-height:1;cursor:pointer;padding:0;border-radius:0}
 [data-npc-shell] .enc-menu[aria-expanded="true"]{background:var(--doc-paper-raised);outline:2px solid var(--doc-ink);outline-offset:-2px}
+/* B-1894: paper.css sets every plate child to z 1, so the plates after the head painted over its open menu. While open, the head sits above them. */
+[data-npc-shell] .nl-bcard .nl-card-h:has(> .enc-menuwrap > .enc-menu[aria-expanded="true"]){z-index:2}
 [data-npc-shell] .enc-pop{position:absolute;right:0;top:52px;z-index:40;min-width:180px;display:flex;flex-direction:column;background:var(--doc-paper-raised);box-shadow:var(--doc-lift);border:1px solid var(--doc-rule)}
 [data-npc-shell] .enc-pop button{min-height:48px;padding:0 16px;border:0;border-bottom:1px solid var(--doc-rule-fine);background:transparent;text-align:left;font-family:var(--font-mono);font-size:12px;letter-spacing:.2em;color:var(--doc-ink);cursor:pointer}
 [data-npc-shell] .enc-pop button:last-child{border-bottom:0;color:var(--doc-critical)}

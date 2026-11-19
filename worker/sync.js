@@ -18,8 +18,9 @@ const json = (body, status, headers) =>
 // bug and this table fills with keys nobody ruled on and nobody can merge.
 //
 // `swrpg_store_shelves_v1` and `swrpg_store_holds_v1` are ABSENT ON PURPOSE — shelf ids encode
-// local list position and collide across devices, and holds is a bare string array whose reader
-// deletes anything richer. They join when their identities are fixed, in their own lap.
+// local list position and collide across devices, and v1 holds is a bare string array whose reader
+// deletes anything richer. The wish list syncs as `swrpg_store_holds_v2` instead (below; R-BSBP-4..7):
+// a new key the v1 reader never opens. v1 stays local for good, mirrored by holdsStore.js.
 const SYNC_KEYS = new Set([
   'swrpg_saved_characters',
   'swrpg_creation_draft',
@@ -45,6 +46,10 @@ const SYNC_KEYS = new Set([
   // `encounters-e4-campaign-redraw` §5). A LIST key in syncMerge, merged by campaign id. Its one writer is
   // lib/shared/campaignStore.js. Ships with the Pages deploy, Jason's word.
   'swrpg_campaigns',
+  // The fourteenth: the wish list (ruling `between-sessions-build-paper` R-BSBP-4..7; F-4 (a), D-623). A LIST key in
+  // syncMerge, merged by item id with its own rule (the later add or removal; a tie to the removal). Its one writer is
+  // lib/shared/holdsStore.js. Rides the Pages deploy, Jason's word.
+  'swrpg_store_holds_v2',
 ]);
 
 // THE HOMEBREW FAMILIES (contract `f100-homebrew-sync-contract` R-HSC-1, -4, -11; card `f100-ms-build` R-MSB-5). They sit

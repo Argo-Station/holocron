@@ -138,8 +138,14 @@ check('R-PFR-3: no LIVE call site hardcodes showVitals={false} (comments about i
 // RE-POINTED 2026-09-24 (B-871's deletion ledger, ruling `npc-flip-ledger-switch` R-NFLS-5; the claim KEPT): the dark strip was deleted;
 // the paper ENCOUNTERS list (frames B1–B3) carries the same chips, reading CURRENT / THRESHOLD (R-NPC-5d). The
 // block is lifted VERBATIM from it, with the hurt test and the label read out of its JSX, and run as before.
-const stripSrc = (view.match(
-  /const num = \(v\) => \{ const n = parseInt\(v, 10\); return isNaN\(n\) \|\| n < 0 \? 0 : n; \};\s*const wt = npcWoundThreshold\(rend && rend\.derived\);[\s\S]*?const cur = minion \? num\(m\.poolWounds\) : BenchStore\.clampCurrent\(num\(m\.currentWounds\), wt\);/) || [])[0];
+// RE-POINTED 2026-11-15 (encounters-e3-deletion; `encounters-e3-flip-gate` ADDENDUM 13 Q3's rule; the claim KEPT): the
+// library's switch-off ENCOUNTERS list was deleted, and the manager's F2 list (EncList) carries the same chips. There `num`
+// is declared ONCE at the list's top, not inside the map, so the two pieces are lifted VERBATIM, each by its own anchor,
+// and joined: `const num = …;` from EncList, then `const wt = …` through `const cur = …;` from its chip map.
+const numSrc = (view.match(/const num = \(v\) => \{ const n = parseInt\(v, 10\); return isNaN\(n\) \|\| n < 0 \? 0 : n; \};/) || [])[0];
+const wtCurSrc = (view.match(
+  /const wt = npcWoundThreshold\(rend && rend\.derived\);\s*const minion = tierOf\(m\) === 'minion';[\s\S]*?const cur = minion \? num\(m\.poolWounds\) : BenchStore\.clampCurrent\(num\(m\.currentWounds\), wt\);/) || [])[0];
+const stripSrc = numSrc && wtCurSrc ? numSrc + '\n' + wtCurSrc : undefined;
 const chipLabelSrc = (view.match(/<span data-npc-chip-val="1">\{([^{}]*)\}<\/span>/) || [])[1];
 const chipHurtSrc = (view.match(/className="nl-mchip" data-hurt=\{([^{}?]*) \? '1' : '0'\}/) || [])[1];
 check('MINION-DMG: the strip\'s chip arithmetic is still where this guard reads it from ' +
