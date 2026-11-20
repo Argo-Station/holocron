@@ -1339,6 +1339,15 @@
 .sb-dh-row[data-rolled="1"]{ background:var(--doc-mat); margin:0 -8px; padding-left:8px; padding-right:8px; }
 .sb-dh-line{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .sb-dh-name{ flex:1 1 160px; min-width:0; }
+/* B-1934 (D-676; the drawing Docs/mockups/b1934-roll-wrap.html @ 4cc13b9f0, LAW): a MARKED line (diceHub.jsx diceHubMarkWrap,
+ * today's wrap rule) keeps Roll / the result / the barred reason on the name's line and puts the dice with their auto
+ * symbols on a line of their own under it, full size. Unmarked lines are untouched. */
+.sb-dh-line[data-dh-wrap="1"]{ row-gap:6px; }
+.sb-dh-line[data-dh-wrap="1"] > .sb-dh-name{ order:1; flex:1 1 0; }
+.sb-dh-line[data-dh-wrap="1"] > :not(.sb-dh-name):not(.dh-pool):not([data-m8=symbol]){ order:2; }
+.sb-dh-line[data-dh-wrap="1"]::after{ content:''; order:3; flex-basis:100%; height:0; }
+.sb-dh-line[data-dh-wrap="1"] > .dh-pool{ order:4; }
+.sb-dh-line[data-dh-wrap="1"] > [data-m8=symbol]{ order:5; }
 .sb-dh-result{ display:inline-flex; align-items:center; gap:3px; flex-wrap:wrap; min-height:44px; padding:4px 10px; border:1px solid var(--doc-ink-structural); background:var(--doc-paper-raised); }
 .sb-dh .dh-sl{ color:var(--doc-ink-muted) !important; font-family:var(--font-body,'Rajdhani',sans-serif); }
 /* post1-one-number-hub-build C2: a row's lines moved behind its press keep the hub's ink in the why-sheet (portalled to <body>) */
@@ -1382,6 +1391,27 @@
 /* B-1209 (R-B1209-1): the drawing's rows put the good and bad dice side by side — no `vs`, no `·` (lab c2f199914,
  * `dice_hub()`). The shared pool marks its separators `dice-sep`; the hub's ground hides them here (ADR 0049). */
 .sb-dh .dh-pool .dice-sep{ display:none; }
+/* B-1928 · ADJUST (D-674; the approved page Docs/mockups/b1928-dice-difficulty-controls.html @ f10ca8cf7, LAW): the chip takes the
+ * DIFFICULTY chip's ink; the strip is the pool itself — six counts in the pool line's two groups (one column at 390, two wide),
+ * each tile the DIFFICULTY option's node, 44px; a changed count in the row's accent with the sheet's number struck and dim;
+ * the tick and `Suggested` on the strip's last row. Roll greys on an empty pool (791 item 2). */
+.sb-dh [data-testid="dice-hub-adjust-chip"]{ background:transparent !important; border:1px solid var(--doc-ink-structural) !important; color:var(--doc-ink) !important; border-radius:0 !important; font-family:var(--font-mono,'Share Tech Mono',monospace) !important; font-size:calc(11 * var(--u)) !important; letter-spacing:.1em; }
+.sb-dh .dh-adj{ display:grid; grid-template-columns:repeat(auto-fit,minmax(236px,1fr)); gap:0 14px; margin-top:7px; }
+.sb-dh .dh-adj-col{ display:grid; }
+.sb-dh .dh-adj-row{ display:flex; align-items:center; gap:5px; min-height:48px; border-bottom:1px solid var(--doc-rule); }
+.sb-dh .dh-adj-name{ display:inline-flex; align-items:center; gap:7px; flex:1; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:13px; color:var(--doc-ink); }
+.sb-dh .dh-adj-was{ font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:13px; color:var(--doc-ink-muted); text-decoration:line-through; opacity:.7; margin-right:2px; }
+.sb-dh .dh-adj-n{ min-width:22px; text-align:center; font-family:var(--font-mono,'Share Tech Mono',monospace); font-size:15px; color:var(--doc-ink); }
+.sb-dh .dh-adj-n[data-moved="1"]{ font-weight:700; }
+.sb-dh .dh-adj-foot{ grid-column:1/-1; display:flex; align-items:center; gap:10px; min-height:48px; flex-wrap:wrap; padding-top:4px; }
+.sb-dh .dh-adj-tickname{ flex:1; font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:13px; color:var(--doc-ink); }
+.sb-dh .dh-adj-tile{ min-height:44px; width:44px; min-width:44px; padding:0; border-radius:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; touch-action:manipulation;
+  background:transparent; border:1px solid var(--doc-rule); color:var(--doc-ink); font-family:var(--font-body,'Rajdhani',sans-serif); font-weight:600; font-size:20px; line-height:1; }
+.sb-dh .dh-adj-tile[data-wide="1"]{ width:auto; padding:0 14px; font-size:13px; }
+.sb-dh .dh-adj-tile[aria-checked="true"]{ background:var(--doc-state); color:var(--doc-paper-raised); border-color:var(--doc-state); }
+.sb-dh .dh-adj-tile[aria-disabled="true"]{ opacity:.55; cursor:not-allowed; }
+.sb-dh .dh-adj-tile:focus-visible{ outline:2px solid var(--doc-ink); outline-offset:2px; }
+.sb-dh .sb-roll[aria-disabled="true"]{ opacity:.4; filter:grayscale(1); cursor:not-allowed; }
 @media (max-width:560px){ .hp-sheet.sb-dh[data-doc-ground="creator"]{ top:60px; right:8px; left:8px; width:auto; } }
 
 /* ── B-631 · MODIFY on paper: the candidates beside the band (lab 6b9acfe9) ─────────────────── */

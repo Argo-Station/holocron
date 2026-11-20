@@ -537,8 +537,40 @@ function diceHubWhySplit(props) {
   return { kids: kids, reasons: reasons };
 }
 
+// B-1928: a built pool with no die to roll (the ADJUST strip can take every die off)
+function diceHubPoolEmpty(pool) {
+  return !!pool && !['ability', 'proficiency', 'boost', 'difficulty', 'challenge', 'setback', 'force'].some(function (k) { return pool[k] > 0; });
+}
+
+// B-1934 (D-676; ruling release-r7-bug-burndown ADDENDA 794 item 2, 795 item 2; the drawing Docs/mockups/b1934-roll-wrap.html
+// @ 4cc13b9f0 is LAW): Roll (or the result, or the barred reason) never leaves the name's line. A line is MARKED
+// `data-dh-wrap` exactly where today's wrap rule holds — the name's 160px flex-basis + every other item + the 10px gaps wider
+// than the line — and sheet.css then puts the dice and their auto symbols on a line of their own under the name. The widths
+// read do not change under the mark, so ONE measure per commit or resize settles it: no loop, no state, set straight on the
+// node before paint (no scroll jump). Named and top-level so a guard executes it.
+function diceHubWrapNeeded(line) {
+  if (!line) return false;
+  var kids = Array.prototype.slice.call(line.children), gap = 10;
+  var need = kids.reduce(function (t, k) { return t + (k.classList.contains('sb-dh-name') ? 160 : k.getBoundingClientRect().width); }, 0) + gap * Math.max(0, kids.length - 1);
+  return need > line.clientWidth + 0.5;
+}
+function diceHubMarkWrap(line) {
+  if (!line) return;
+  if (diceHubWrapNeeded(line)) { if (line.getAttribute('data-dh-wrap') !== '1') line.setAttribute('data-dh-wrap', '1'); }
+  else if (line.hasAttribute('data-dh-wrap')) line.removeAttribute('data-dh-wrap');
+}
+
+// B-1934: the row line's ref (diceHubLineMounted) — a FRESH inline callback each render, so React calls it at every commit,
+// before paint: the mark per render with no hook (guards execute DiceHubRow as a plain function; the callback names its
+// helper only when called). The node's one ResizeObserver marks it again on a resize, made once per node and gone with it.
+function diceHubLineMounted(el) {
+  diceHubMarkWrap(el);
+  if (!el.__dhWrapRO && typeof ResizeObserver !== 'undefined') { el.__dhWrapRO = new ResizeObserver(function () { diceHubMarkWrap(el); }); el.__dhWrapRO.observe(el); }
+}
+
 function DiceHubRow(props) {
   var accent = props.accent, rolled = props.rolled;
+
   var split = diceHubWhySplit(props), UIr = window.SWRPGUI || {};
   // B-1286 (hub frames ADDENDUM 5): while a result shows, the row draws the pool it ROLLED (`rolled.spec`, its ticks and
   // its chips included), never the pool the controls now describe — a lowered pool and its result never disagree
@@ -554,7 +586,7 @@ function DiceHubRow(props) {
   // B-638 · the row on PAPER: an entry — the name, the pool's glyphs, ROLL as the board's chevron (the result in
   // its place once rolled, the refusal word when barred), the status lines beneath. Same spec, same roll.
   return h('div', { 'data-testid': props.testid, 'data-dh-row': props.rowKey, className: 'sb-e sb-dh-row', 'data-rolled': rolled ? '1' : '0' },
-    h('div', { className: 'sb-dh-line' },
+    h('div', { className: 'sb-dh-line', ref: function (el) { if (el) diceHubLineMounted(el); } },
       h('span', { className: 'sb-e-n sb-dh-name' }, props.name),
       dice ? h('span', { className: 'sb-pool dh-pool', 'data-dh-pool': JSON.stringify(dice) }, D.renderPool(dice, { size: 1, fill: true })) : null,
       dice ? diceHubAutoSymbols(dice) : null,
@@ -564,7 +596,9 @@ function DiceHubRow(props) {
         ? result
         : (barred
           ? h('span', { 'data-testid': 'dice-hub-barred', className: 'sb-refuse' }, spec.barredReason)
-          : h('button', { type: 'button', 'data-testid': 'dice-hub-roll', className: 'sb-roll', 'aria-label': 'Roll ' + props.name, onClick: props.onRoll }, 'Roll'))),
+          // B-1928 (ADDENDUM 791 item 2): a pool with no dice left greys Roll — no sentence; the pool line says EMPTY POOL
+          : h('button', { type: 'button', 'data-testid': 'dice-hub-roll', className: 'sb-roll', 'aria-label': 'Roll ' + props.name,
+              'aria-disabled': diceHubPoolEmpty(dice) ? 'true' : null, disabled: diceHubPoolEmpty(dice), onClick: diceHubPoolEmpty(dice) ? null : props.onRoll }, 'Roll'))),
     split ? split.kids : props.children,
     // the sheet's why-sheet over the hub (its backdrop is 4000), the row's reasons kept as the hub drew them
     split && (split.reasons.length || (props.whyParts || []).length) ? h(UIr.WhySheet, { group: props.why, whyKey: props.rowKey, title: props.name, meta: props.whyMeta, testid: 'dice-hub-why-sheet', z: 4001 },
@@ -1081,7 +1115,7 @@ function diceHubFloorLines(spec, reminders, taken, talents) {
 function DiceHubChip(p) {
   return h('span', { className: 'dh-chip', style: { display: 'inline-flex', alignItems: 'center', gap: 9 } },
     h('span', { style: { fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '.16em', color: 'var(--doc-ink-muted)' } }, p.label),
-    h('button', { type: 'button', 'data-testid': p.testid, 'aria-expanded': p.open ? 'true' : 'false', 'aria-label': p.aria + ': ' + p.value, onClick: p.onToggle,
+    h('button', { type: 'button', 'data-testid': p.testid, 'aria-expanded': p.open ? 'true' : 'false', 'aria-label': p.aria + ': ' + (p.valueAria != null ? p.valueAria : p.value), onClick: p.onToggle,
       style: { minHeight: 44, padding: '0 13px', borderRadius: 9, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 7, touchAction: 'manipulation',
         fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 'var(--fs-sm)' } },
       p.value, h('span', { 'aria-hidden': 'true', style: { fontSize: 10 } }, '▾')));
@@ -1096,6 +1130,89 @@ function DiceHubChipStrip(p) {
         h('span', { style: { fontSize: 13, fontWeight: 600, lineHeight: 1.1 } }, o.v),
         o.sub ? h('span', { style: { fontFamily: 'var(--font-mono)', fontSize: 10.5, letterSpacing: '.06em' } }, o.sub) : null);
     }));
+}
+
+// ═══ B-1928 · ADJUST (D-673/D-674; ruling release-r7-bug-burndown ADDENDA 789 item 1, 791, 792; the mockup
+// Docs/mockups/b1928-dice-difficulty-controls.html @ f10ca8cf7 is LAW). The sheet's pool is a SUGGESTION: a row's set is
+// { d: { <die>: signed difference }, destiny: bool }, per row and EPHEMERAL (never saved). The engine applies it as
+// buildPool's last step (`adjust`, `destinyUpgrade`) — the hub only holds it. Sheet-mounted hubs only (789 item 6).
+var DICE_HUB_ADJUST = [['ability', 'Ability'], ['proficiency', 'Proficiency'], ['boost', 'Boost'], ['difficulty', 'Difficulty'], ['challenge', 'Challenge'], ['setback', 'Setback']];
+// a row's set onto its spec — the ONE place a spec takes it; no set → the spec untouched
+function diceHubAdjusted(spec, a) {
+  if (!spec || spec.barred || !a || (!a.destiny && !Object.keys(a.d || {}).length)) return spec;
+  return Object.assign({}, spec, { adjust: Object.assign({}, a.d), destinyUpgrade: a.destiny ? 1 : 0 });
+}
+// the set a spec carries (a rolled spec holds the set it rolled with, B-1820), or null
+function diceHubAdjustOf(spec) {
+  if (!spec || (!spec.adjust && !spec.destinyUpgrade)) return null;
+  return { d: Object.assign({}, spec.adjust || {}), destiny: !!spec.destinyUpgrade };
+}
+// the sheet's suggestion and the counts the strip shows (suggestion + difference, clamped 0..9; before the tick)
+function diceHubAdjustCounts(spec, a) {
+  var D = window.SWRPGDice, max = D.ADJUST_MAX || 9;
+  var sug = D.buildPool(Object.assign({}, spec, { adjust: null, destinyUpgrade: 0 })), c = {};
+  DICE_HUB_ADJUST.forEach(function (x) { var k = x[0]; c[k] = Math.max(0, Math.min(max, (sug[k] || 0) + ((a && a.d && a.d[k]) || 0))); });
+  return { sug: sug, counts: c };
+}
+// one step of a count: the new difference re-anchors on the count SHOWN, so a clamp leaves no hidden difference behind
+function diceHubAdjustStep(spec, a, k, by) {
+  var max = window.SWRPGDice.ADJUST_MAX || 9, m = diceHubAdjustCounts(spec, a);
+  var to = Math.max(0, Math.min(max, m.counts[k] + by)), d = Object.assign({}, (a && a.d) || {});
+  if (to - (m.sug[k] || 0)) d[k] = to - (m.sug[k] || 0); else delete d[k];
+  return { d: d, destiny: !!(a && a.destiny) };
+}
+// the changes the set makes, in pool order, as signed counts on the shown counts (a clamped difference reads as it lands)
+function diceHubAdjustChanges(spec, a) {
+  if (!a) return [];
+  var m = diceHubAdjustCounts(spec, a);
+  return DICE_HUB_ADJUST.filter(function (x) { return m.counts[x[0]] !== (m.sug[x[0]] || 0); })
+    .map(function (x) { return { die: x[0], name: x[1], n: m.counts[x[0]] - (m.sug[x[0]] || 0) }; });
+}
+function diceHubSigned(n) { return (n > 0 ? '+' : '−') + Math.abs(n); }
+// the chip's value: only the player's changes, signed, as the dice glyphs, and the Destiny mark (791 item 4; 792 D2)
+function diceHubAdjustValue(spec, a) {
+  var D = window.SWRPGDice, ch = diceHubAdjustChanges(spec, a), words = ch.map(function (c) { return diceHubSigned(c.n) + ' ' + c.die; });
+  if (a && a.destiny) words.push('Destiny Point upgrade');
+  if (!words.length) return { node: '—', aria: 'none' };
+  var pair = function (key, t, g) { return h('span', { key: key, style: { display: 'inline-flex', alignItems: 'center', gap: 2 } }, h('span', null, t), g); };
+  return { aria: words.join(', '), node: h('span', { 'data-dh-adjust-value': '1', style: { display: 'inline-flex', alignItems: 'center', gap: 9 } },
+    ch.map(function (c) { return pair(c.die, diceHubSigned(c.n), D.symbolSpan(c.die, 0, 1.25, { fill: true })); })
+      .concat(a && a.destiny ? [pair('destiny', '↑', D.symbolSpan('destiny_point', 0, 1.25, { fill: true }))] : [])) };
+}
+// the reason line behind WHY (D-521 b2's idiom; 790 item 4): what the player set at the table
+function diceHubAdjustLine(spec, a) {
+  var w = diceHubAdjustChanges(spec, a).map(function (c) { return diceHubSigned(c.n) + ' ' + c.die; });
+  if (a && a.destiny) w.push('Destiny Point upgrade');
+  return w.length ? h(DiceHubStatusLine, { key: 'adj', tone: 'var(--text-caution)' }, w.join(', ') + ' — set at the table') : null;
+}
+// the ADJUST strip: six counts in two groups (one column at 390, two wide), the tick, and `Suggested` while a count differs.
+// No helper sentence: every control names itself (the mechanics voice).
+function DiceHubAdjustStrip(p) {
+  var m = diceHubAdjustCounts(p.spec, p.set), max = window.SWRPGDice.ADJUST_MAX || 9, D = window.SWRPGDice;
+  var tile = function (key, txt, aria, inert, onPress, extra) {
+    return h('button', Object.assign({ key: key, type: 'button', 'data-testid': 'dice-hub-adjust-step', 'aria-label': aria, 'aria-disabled': inert ? 'true' : 'false',
+      disabled: inert, onClick: inert ? null : onPress, className: 'dh-adj-tile' }, extra || {}), txt);
+  };
+  var changed = DICE_HUB_ADJUST.some(function (x) { return m.counts[x[0]] !== (m.sug[x[0]] || 0); });
+  return h('div', { role: 'group', 'aria-label': 'Adjust', 'data-dh-strip': 'adjust', 'data-testid': 'dice-hub-adjust-strip', className: 'dh-adj' },
+    [DICE_HUB_ADJUST.slice(0, 3), DICE_HUB_ADJUST.slice(3)].map(function (grp, gi) {
+      return h('div', { key: 'g' + gi, className: 'dh-adj-col' }, grp.map(function (x) {
+        var k = x[0], n = m.counts[k], s = m.sug[k] || 0, moved = n !== s;
+        return h('div', { key: k, className: 'dh-adj-row', 'data-dh-adjust': k, 'data-count': n, 'data-sheet': s },
+          h('span', { className: 'dh-adj-name' }, D.symbolSpan(k, 0, 1.25, { fill: true }), h('span', null, x[1])),
+          moved ? h('span', { className: 'dh-adj-was', 'aria-label': 'sheet ' + s }, String(s)) : null,
+          tile('m', '−', 'Fewer: ' + x[1], n === 0, function () { p.onSet(diceHubAdjustStep(p.spec, p.set, k, -1)); }),
+          h('span', { className: 'dh-adj-n', 'data-moved': moved ? '1' : '0', style: moved ? { color: p.accent } : null }, String(n)),
+          tile('p', '+', 'More: ' + x[1], n >= max, function () { p.onSet(diceHubAdjustStep(p.spec, p.set, k, 1)); }));
+      }));
+    }),
+    h('div', { className: 'dh-adj-foot' },
+      tile('t', p.set && p.set.destiny ? '✓' : '', 'Destiny Point — upgrade', false,
+        function () { p.onSet({ d: Object.assign({}, (p.set && p.set.d) || {}), destiny: !(p.set && p.set.destiny) }); },
+        { role: 'checkbox', 'aria-checked': p.set && p.set.destiny ? 'true' : 'false', 'data-testid': 'dice-hub-adjust-destiny' }),
+      h('span', { className: 'dh-adj-tickname', 'aria-hidden': 'true' }, 'Destiny Point — upgrade'),
+      changed ? tile('s', 'Suggested', 'Suggested', false, function () { p.onSet({ d: {}, destiny: !!(p.set && p.set.destiny) }); },
+        { 'data-testid': 'dice-hub-adjust-suggested', 'data-wide': '1' }) : null));
 }
 
 // THE SPEND MENU (R-SHC-2, the one new shape): under the result, in place — the head, any head line (QS2), one row per
@@ -1143,6 +1260,14 @@ function diceHubWeaponsWithUnarmed(weapons, sheet) {
   if (list.some(function (w) { return w && w.regId === 'unarmed'; })) return list;
   var u = (resolveSheetEquipment({ weapons: [{ id: 'unarmed' }] }, sheet).weapons || [])[0];
   return u && !u._unresolved ? list.concat([u]) : list;
+}
+
+// B-1933 (ruling release-r7-bug-burndown ADDENDUM 789 item 7): the Skills head's "N trained" counts the listed rows whose
+// SAVED rank reads above 0 through `sheetSkillRank` — the alias-aware read the rows use (B-619) — never the raw keys, which
+// missed a rank saved under the OggDude key (measured "2 trained" over 3 rows). Named and top-level so a guard executes it.
+function diceHubTrainedCount(sheet, rows) {
+  var sk = (sheet && sheet.skills) || {};
+  return (rows || []).filter(function (t) { return sheetSkillRank(sk, t.key) > 0; }).length;
 }
 
 function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedProp, onCommit, onChoosePick, treat, onTreated, given }) {
@@ -1208,6 +1333,10 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
   var _tgt = React.useState({}), tgt = _tgt[0], setTgt = _tgt[1];
   var _chip = React.useState({}), chipOpen = _chip[0], setChipOpen = _chip[1];
   var _gf = React.useState({}), gearOpen = _gf[0], setGearOpen = _gf[1];
+  //   adj     { <rowKey>: { d, destiny } }  B-1928's ADJUST set (ADDENDUM 791 item 5): signed per-die differences from the
+  //                                sheet's suggestion and the Destiny tick; held for ONE roll — the roll clears it, the rolled
+  //                                spec keeps it while the result shows (B-1820). Sheet-mounted hubs only (789 item 6).
+  var _adj = React.useState({}), adj = _adj[0], setAdj = _adj[1];
   // R6 S3 (card release-r6-ui ADDENDUM 6): after a network's check, Table 3-8 on demand — rewards.json's contact_results
   // (U7), fetched only when the hub opens on a network. The door is EPHEMERAL, like the gear fold.
   var _t38 = React.useState(false), t38Open = _t38[0], setT38Open = _t38[1];
@@ -1225,6 +1354,25 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     setDset(function (m) { var x = Object.assign({}, m); x[rowKey] = n; return x; });
     setChipOpen(function (m) { return dropKey(m, rowKey); });
     setRolled(function (m) { return dropKey(m, rowKey); });
+  }
+  function setAdjust(rowKey, set) {   // a change of the pool clears a shown result, as a moved chip does
+    var empty = !set || (!set.destiny && !Object.keys(set.d || {}).length);
+    setAdj(function (m) { if (empty) return dropKey(m, rowKey); var x = Object.assign({}, m); x[rowKey] = set; return x; });
+    setRolled(function (m) { return dropKey(m, rowKey); });
+  }
+  // B-1928: a row's ADJUST parts — the chip (for the chip line), its strip, and the WHY line. While a result shows, all three
+  // read the set it ROLLED with (B-1820). `base` = the row's live spec before the set. No sheet (the GM's window) → none.
+  function adjustParts(rowKey, base) {
+    if (!sheet || !base || base.barred) return { chip: null, strip: null, line: null };
+    var ro = rolled[rowKey], shown = (ro && ro.spec) || base, set = ro ? diceHubAdjustOf(ro.spec) : (adj[rowKey] || null);
+    var v = diceHubAdjustValue(shown, set);
+    return {
+      chip: h(DiceHubChip, { key: 'adjchip', label: 'ADJUST', aria: 'Adjust', testid: 'dice-hub-adjust-chip', open: chipOpen[rowKey] === 'adjust',
+        value: v.node, valueAria: v.aria, onToggle: function () { toggleChip(rowKey, 'adjust'); } }),
+      strip: chipOpen[rowKey] === 'adjust' ? h(DiceHubAdjustStrip, { key: 'adjstrip', spec: shown, set: set, accent: accent,
+        onSet: function (s2) { setAdjust(rowKey, s2); } }) : null,
+      line: diceHubAdjustLine(shown, set),
+    };
   }
   function pickTarget(rowKey, kind) {   // the pool does not change; a shown result keeps its lines, now for this target
     setTgt(function (m) { var x = Object.assign({}, m); if (kind === 'none') delete x[rowKey]; else x[rowKey] = kind; return x; });
@@ -1282,6 +1430,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     setTicks(function (m) { if (!m[key]) return m; var n = Object.assign({}, m); delete n[key]; return n; });   // (a): one roll
     setLatest(key);   // D-352: this result is now the latest
     setDset(function (m) { return dropKey(m, key); });   // ADDENDUM 7 Q6 (a): a moved DIFFICULTY chip holds for one roll
+    setAdj(function (m) { return dropKey(m, key); });     // B-1928: so does the ADJUST set (the rolled spec keeps it)
     return r;   // the treat row writes from the roll it made (B-1209 retire)
   }
   // F-100 THE SURFACING MISSION (D-294 L3): Reroll — the ONE roll again over the pool rolled, its ticks carried, marked
@@ -1431,13 +1580,15 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     var dPressed = dSpec.difficultySet != null ? dSpec.difficultySet : dSpec.rangeDifficulty;
 
     var wDmg = spec.barred ? null : diceHubQualityDamage(sheet, w, spec), wDmgNow = wDmg ? wDmg.damage : null;
+    var wAdj = adjustParts(rk, spec), aSpec = diceHubAdjusted(spec, adj[rk]);   // B-1928
+    if (wAdj.line) lines.splice(1, 0, wAdj.line);
     return h(DiceHubRow, { key: 'w' + i, testid: 'dice-hub-weapon', rowKey: 'w' + i, name: name,
-      spec: spec, accent: accent, rolled: rolled['w' + i], reroll: wReroll, why: whyG,
+      spec: aSpec, accent: accent, rolled: rolled['w' + i], reroll: wReroll, why: whyG,
       // C3: a Brawn weapon's parts and its total behind the press, as the sheet card's (SheetWhyBody's parts/total idiom)
       whyParts: wDmg && wDmg.parts.length ? wDmg.parts : null, whyTotal: wDmg && wDmg.parts.length && wDmgNow != null ? 'Total ' + wDmgNow : null,
       // the why-sheet's meta in the sheet card's words: "<skill> · Damage N · Critical N"
       whyMeta: [SKILL_NAMES[spec.skillKey] || w.skill || ''].concat(spec.barred ? [] : ['Damage ' + (wDmgNow == null ? '—' : wDmgNow), 'Critical ' + window.ItemResolve.critText(spec.critThreshold)]).filter(Boolean).join(' · '),
-      onRoll: function () { doRoll('w' + i, spec); } },
+      onRoll: function () { doRoll('w' + i, aSpec); } },
       spec.barred ? null : h(DiceHubDamage, { damage: diceHubQualityDamage(sheet, w, spec).damage, crit: spec.critThreshold, plus: diceHubDamagePlus(dl, ticks['w' + i]),
         as: diceHubDamageAs(tOffers, dl, tNow) }),
       spec.barred ? null : diceHubHitDamage(diceHubQualityDamage(sheet, w, spec).damage, ro && ro.resolved),
@@ -1462,7 +1613,8 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
         targetable ? h(DiceHubChip, { label: 'TARGET', aria: 'Target', testid: 'dice-hub-target-chip', open: chipOpen[rk] === 'target',
           value: (DICE_HUB_TARGETS.filter(function (t) { return t[0] === (kind || 'none'); })[0] || ['', 'None'])[1], onToggle: function () { toggleChip(rk, 'target'); } }) : null,
         spec.barred ? null : h(DiceHubChip, { label: 'DIFFICULTY', aria: 'Difficulty', testid: 'dice-hub-difficulty-chip', open: chipOpen[rk] === 'difficulty',
-          value: dNow, onToggle: function () { toggleChip(rk, 'difficulty'); } })),
+          value: dNow, onToggle: function () { toggleChip(rk, 'difficulty'); } }), wAdj.chip),
+      wAdj.strip,
       chipOpen[rk] === 'target' && targetable ? h(DiceHubChipStrip, { kind: 'target', label: 'Target', testid: 'dice-hub-target-option', cols: 4,
         options: DICE_HUB_TARGETS.map(function (t) { return { key: t[0], v: t[1], on: (kind || 'none') === t[0] }; }), onPick: function (k) { pickTarget(rk, k); } }) : null,
       chipOpen[rk] === 'difficulty' && !spec.barred ? h(DiceHubChipStrip, { kind: 'difficulty', label: 'Difficulty', testid: 'dice-hub-difficulty-option', cols: 3,
@@ -1508,6 +1660,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     var rolledChar = diceHubRolledCharacteristic(s, using);
     var taken = ticks[s.key];   // F-100 M8 step 3: this row's ticked offers, for one roll
     var spec = diceHubSkillSpec(sheet, s, taken && window.SWRPGPoolMods ? window.SWRPGPoolMods.takeOffers(poolMods, taken) : poolMods, using, accent, dset[s.key]);
+    var sAdj = adjustParts(s.key, spec); spec = diceHubAdjusted(spec, adj[s.key]);   // B-1928: the player's set, last
     // THE JOIN THAT USED TO BE A GUESS. This was `s.name.toLowerCase().replace(/ /g, '_')` — which
     // turns "Ranged (Light)" into `ranged_(light)` and matches no anchor in the registry, so every
     // parenthesised and hyphenated skill silently showed none of its item effects. The vocabulary
@@ -1550,7 +1703,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     var sd = rolled[s.key] ? rolled[s.key].set : dset[s.key];   // B-1820 (ADDENDUM 621 (c)): while a result shows, the chip it rolled at
     var chips = h('div', { key: 'chips', 'data-dh-chips': s.key, style: { display: 'flex', alignItems: 'center', gap: 9, marginTop: 8, flexWrap: 'wrap', rowGap: 8 } },
       h(DiceHubChip, { label: 'DIFFICULTY', aria: 'Difficulty', testid: 'dice-hub-difficulty-chip', open: chipOpen[s.key] === 'difficulty',
-        value: diceHubDifficultyName(sd != null ? sd : 2), onToggle: function () { toggleChip(s.key, 'difficulty'); } }));
+        value: diceHubDifficultyName(sd != null ? sd : 2), onToggle: function () { toggleChip(s.key, 'difficulty'); } }), sAdj.chip);
     var strip = chipOpen[s.key] === 'difficulty' ? h(DiceHubChipStrip, { key: 'dstrip', kind: 'difficulty', label: 'Difficulty', testid: 'dice-hub-difficulty-option', cols: 3,
       options: DICE_HUB_DIFFICULTY.map(function (d) { return { key: d[1], v: d[0], sub: d[1] + 'D', on: d[1] === (sd != null ? sd : 2) }; }), onPick: function (n) { pickDifficulty(s.key, n); } }) : null;
     // F-100 THE SURFACING MISSION (D-294 L1/L3; ADDENDUM 8): after a roll, the owner's talent spend rows in the hub's ONE spend
@@ -1563,7 +1716,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
       extra.push(h(DiceHubSpend, { key: 'spend', rows: ssm.rows, lines: ssm.lines, tally: ssm.tally, tallyTokens: ssm.tallyTokens, onToggle: function (r) { toggleSpend(s.key, r.key); } }));
     }
     var sReroll = diceHubRerollSlot(sro, sctx && Ps.rerollsAt ? Ps.rerollsAt(poolMods, sctx) : [], latestKey === s.key, function (nm) { rerollRow(s.key, nm); });   // D-352
-    var lines = [chips, strip, head, subsBox].concat(applied, [offers], reminders, extra).filter(Boolean);
+    var lines = [chips, strip, sAdj.strip, head, subsBox].concat(applied, [sAdj.line, offers], reminders, extra).filter(Boolean);
     return h(DiceHubRow, { key: s.key, testid: 'dice-hub-skill', rowKey: s.key, name: s.name,
       spec: spec, accent: accent, rolled: rolled[s.key], reroll: sReroll, why: whyG,
       onRoll: function () { doRoll(s.key, spec); if (using) setSw(function (m) { var n = Object.assign({}, m); delete n[s.key]; return n; }); } }, lines);
@@ -1650,14 +1803,15 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     // caller's `specAt(difficultySet)` re-folds it through the arm at the chip's value (null = unmoved, Average). A Follower's
     // or a network's `given` carries no `specAt`, and keeps the overwrite it always had.
     var gSpec = given.specAt ? (given.specAt(gd != null ? gd : null) || given.spec) : Object.assign({}, given.spec, { difficulty: gd != null ? gd : 2 });
+    var gAdj = adjustParts('given', gSpec); if (sheet) gSpec = diceHubAdjusted(gSpec, adj.given);   // B-1928: a sheet's given row only
     var gChips = h('div', { key: 'chips', 'data-dh-chips': 'given', style: { display: 'flex', alignItems: 'center', gap: 9, marginTop: 8, flexWrap: 'wrap', rowGap: 8 } },
       h(DiceHubChip, { label: 'DIFFICULTY', aria: 'Difficulty', testid: 'dice-hub-difficulty-chip', open: chipOpen.given === 'difficulty',
-        value: diceHubDifficultyName(gd != null ? gd : 2), onToggle: function () { toggleChip('given', 'difficulty'); } }));
+        value: diceHubDifficultyName(gd != null ? gd : 2), onToggle: function () { toggleChip('given', 'difficulty'); } }), gAdj.chip);
     var gStrip = chipOpen.given === 'difficulty' ? h(DiceHubChipStrip, { key: 'dstrip', kind: 'difficulty', label: 'Difficulty', testid: 'dice-hub-difficulty-option', cols: 3,
       options: DICE_HUB_DIFFICULTY.map(function (d) { return { key: d[1], v: d[0], sub: d[1] + 'D', on: d[1] === (gd != null ? gd : 2) }; }), onPick: function (n) { pickDifficulty('given', n); } }) : null;
     givenSection = h('div', { 'data-testid': 'dice-hub-given' },
       h(DiceHubRow, { testid: 'dice-hub-given-row', rowKey: 'given', name: given.label || '', spec: gSpec, accent: accent, rolled: rolled.given,
-        onRoll: function () { doRoll('given', gSpec); } }, [gChips, gStrip].concat(DiceHubAppliedLines(gSpec, given.label || '', gSpec.qualityMods, sheet || null), rolledLines('given'), diceHubContactResults(given, rolled.given, rwdReg, t38Open,
+        onRoll: function () { doRoll('given', gSpec); } }, [gChips, gStrip, gAdj.strip, gAdj.line].concat(DiceHubAppliedLines(gSpec, given.label || '', gSpec.qualityMods, sheet || null), rolledLines('given'), diceHubContactResults(given, rolled.given, rwdReg, t38Open,
           function () { setT38Open(function (o) { return !o; }); })).filter(Boolean)));
   }
   var treatSection = null;
@@ -1665,7 +1819,8 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     var tTaken = ticks.treat;
     var tr = critTreatSpec(sheet, treat, accent, poolMods, tTaken, committedProp);
     var tDone = rolled.treat || null;
-    var tSpec = (tDone && tDone.spec) || tr.spec;
+    var tAdj = adjustParts('treat', tr.spec), taSpec = diceHubAdjusted(tr.spec, adj.treat);   // B-1928: the chip line ADJUST alone (the injury sets the difficulty)
+    var tSpec = (tDone && tDone.spec) || taSpec;
     var tBuilt = D.buildPool(tSpec) || {};
     var tOk = tDone ? !!(tDone.resolved && tDone.resolved.success > 0) : null;
     var tName = tr.spec.skill.name;   // Medicine, or Mechanics for a droid (B-1586)
@@ -1674,6 +1829,8 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
       .concat(diceHubToldFor(sheet, tr.skill, tr.characteristic).map(function (t) { return h(DiceHubTold, { key: 'td' + t.key, name: t.name, words: t.words, limit: t.limit, talentId: t.talentId, rowId: t.rowId }); }))
       .concat(rolledLines('treat'));
     var tLines = [
+      h('div', { key: 'chips', 'data-dh-chips': 'treat', style: { display: 'flex', alignItems: 'center', gap: 9, marginTop: 8, flexWrap: 'wrap', rowGap: 8 } }, tAdj.chip),
+      tAdj.strip, tAdj.line,
       h(DiceHubStatusLine, { key: 'tn', tone: 'var(--text-caution)' }, 'Treating ' + treat.name + ' — '
         + (tr.tier ? (/^[AEIOU]/.test(tr.tier) ? 'an ' : 'a ') + tr.tier + ' injury, difficulty ' : 'difficulty ') + ((tBuilt.difficulty || 0) + (tBuilt.challenge || 0))),
     ].concat(tMid, [
@@ -1687,7 +1844,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
     treatSection = h('div', { 'data-testid': 'dice-hub-treat' },
       h('div', { className: 'sb-grp' }, h('span', null, 'Treat an injury'), h('span', null, 'the injury sets the difficulty')),
       h(DiceHubRow, { testid: 'dice-hub-treat-row', rowKey: 'treat', name: tName, spec: tSpec, accent: accent, rolled: tDone,
-        onRoll: function () { var r = doRoll('treat', tr.spec); if (r && r.success > 0 && onTreated) onTreated(treat.id); } }, tLines));
+        onRoll: function () { var r = doRoll('treat', taSpec); if (r && r.success > 0 && onTreated) onTreated(treat.id); } }, tLines));
   }
   return ReactDOM.createPortal(h('div', { 'data-testid': 'dice-hub-scrim', 'data-paper': '1', className: 'sb-dh-backdrop', ref: scrimRef },
     h('div', { 'data-testid': 'dice-hub', 'data-paper': '1', role: 'dialog', 'aria-label': 'Dice hub', className: 'hp-sheet sb-dh', 'data-doc-ground': 'creator', ref: win.ref,
@@ -1701,7 +1858,7 @@ function DiceHub({ sheet, accent, onClose, initialStrip, committed: committedPro
         givenSection,
         treatSection,
         weaponRows.length ? secP('Weapons') : null, weaponRows.length ? h('div', { className: 'hp-bands', 'data-run': '1' }, weaponRows) : null,
-        skillRows.length ? secP('Skills', trained.filter(function (t) { return (sheet.skills || {})[t.key] > 0; }).length + ' trained · difficulty 2 until the GM sets it') : null, skillRows.length ? h('div', { className: 'hp-bands', 'data-run': '1' }, skillRows) : null,
+        skillRows.length ? secP('Skills', diceHubTrainedCount(sheet, trained) + ' trained · difficulty 2 until the GM sets it') : null, skillRows.length ? h('div', { className: 'hp-bands', 'data-run': '1' }, skillRows) : null,
         forceRows.length ? secP('Force', available + ' of ' + fr + ' Force ' + (fr === 1 ? 'die' : 'dice')) : null, forceRows.length ? h('div', { className: 'hp-bands', 'data-run': '1' }, forceRows) : null,
         // R7 as ADDENDUM 9 rules it: the foot list KEPT for what it now holds — the UNCERTIFIED item rows (no direction: they
         // reach no roll and nothing else tells them); B-1196's directed rows left it as offers. Its head says so (C-MU-3:
@@ -1797,6 +1954,9 @@ window.SWRPGDiceHub = {
   DiceHubAppliedLines: DiceHubAppliedLines,
   diceHubCritLineText: diceHubCritLineText,
   DICE_HUB_DIFFICULTY: DICE_HUB_DIFFICULTY,
+  DICE_HUB_ADJUST: DICE_HUB_ADJUST, diceHubAdjusted: diceHubAdjusted, diceHubAdjustStep: diceHubAdjustStep, diceHubAdjustCounts: diceHubAdjustCounts,
+  diceHubWrapNeeded: diceHubWrapNeeded, diceHubMarkWrap: diceHubMarkWrap,   // B-1934
+  diceHubAdjustChanges: diceHubAdjustChanges, diceHubTrainedCount: diceHubTrainedCount, diceHubPoolEmpty: diceHubPoolEmpty,   // B-1928, B-1933
   diceHubRerollModel: diceHubRerollModel,
   m8WeaponChangeText: m8WeaponChangeText,
   diceHubAutoSymbols: diceHubAutoSymbols,

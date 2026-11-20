@@ -4,7 +4,7 @@
 #   python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 #
 # Searching an index (swrpg_index.api, the MCP server):
-mcp>=1.27
+mcp>=1.27,<2
 PyYAML>=6.0
 numpy>=2.0
 sentence-transformers>=3.0

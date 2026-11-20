@@ -4,6 +4,8 @@ Free tools for playing the Star Wars roleplaying games (Edge of the Empire, Age 
 a character creator and sheet, a GM board, a dice roller, and a search engine over your own rulebooks. This is the
 open-source copy of the app that runs at holocron.work.
 
+To set up a computer, run, test or release this code, read `START_HERE.md`.
+
 **This is an unofficial fan project.** Star Wars belongs to Lucasfilm Ltd. The game and its rules belong to Fantasy
 Flight Games and Edge Studio. Neither made, approved or endorsed this project. No Star Wars name, art or rulebook text
 is offered under this repository's licences.
@@ -20,7 +22,7 @@ is offered under this repository's licences.
 
 ## Run it
 
-You need Node.js 20 or later.
+You need Node.js 22 or later.
 
 ```sh
 npm ci
